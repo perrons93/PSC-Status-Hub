@@ -11,6 +11,7 @@ const headers = new Headers({
 class Status extends Component {
   componentWillMount() {
     this.checkBackend();
+    this.checkDatabase();
   }
 
   /* Front end is always running successfully if this page loads so it will always be true */
@@ -32,20 +33,30 @@ class Status extends Component {
     }
   }
 
+  checkDatabase = () => {
+    // TODO(caleybrock): expose an endpoint to check database.
+    this.setState({ databaseStatus: true });
+  }
+
   render() {
     return (
       <div>
-        <h2>Status</h2>
+        <h2>CAT Status</h2>
         <p>
           This page will contain status information about the state of the application.
         </p>
-        
         <StatusCheck
           description={'Front end application built and serving successfully'}
           isPassing={this.state.frontendStatus}
         />
-        <StatusCheck description={'Back end works'} isPassing={this.state.backendStatus} />
-        <StatusCheck description={'Database works'} isPassing={this.state.databaseStatus} />
+        <StatusCheck
+          description={'Back end works'}
+          isPassing={this.state.backendStatus}
+        />
+        <StatusCheck
+          description={'Database works'}
+          isPassing={this.state.databaseStatus}
+        />
       </div>
     );
   }
