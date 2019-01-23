@@ -1,7 +1,15 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
-import './App.css';
-import StatusCheck from './StatusCheck.jsx';
+import StatusCheck from './components/status/StatusCheck.jsx';
+import { Jumbotron, Button, Panel } from 'react-bootstrap';
+
+
+const styles = {
+  container: {
+    width: '50%',
+    margin: '0 auto',
+  }
+};
 
 const headers = new Headers({
   Accept: 'application/json',
@@ -35,28 +43,43 @@ class Status extends Component {
 
   checkDatabase = () => {
     // TODO(caleybrock): expose an endpoint to check database.
-    this.setState({ databaseStatus: true });
+    this.setState({ databaseStatus: false });
   }
 
   render() {
     return (
-      <div>
-        <h2>CAT Status</h2>
-        <p>
-          This page will contain status information about the state of the application.
-        </p>
-        <StatusCheck
-          description={'Front end application built and serving successfully'}
-          isPassing={this.state.frontendStatus}
-        />
-        <StatusCheck
-          description={'Back end works'}
-          isPassing={this.state.backendStatus}
-        />
-        <StatusCheck
-          description={'Database works'}
-          isPassing={this.state.databaseStatus}
-        />
+      <div style={styles.container}>
+        <Jumbotron>
+          <h1>CAT Health</h1>
+          <p>
+            Internal status page to quickly determine the status / health of the Compotency Assessment Tool.
+          </p>
+          <p>
+            <a href="https://github.com/code-for-canada/project-thundercat">
+              <Button bsStyle="primary">GitHub Repository</Button>
+            </a>
+          </p>
+        </Jumbotron>
+
+        <Panel>
+          <Panel.Heading>
+            <Panel.Title componentClass="h3">Service Status</Panel.Title>
+          </Panel.Heading>
+          <Panel.Body>
+            <StatusCheck
+              description={'Front end application built and serving successfully'}
+              isPassing={this.state.frontendStatus}
+            />
+            <StatusCheck
+              description={'Back end application completing API requests successfully'}
+              isPassing={this.state.backendStatus}
+            />
+            <StatusCheck
+              description={'Database check not currently setup'}
+              isPassing={this.state.databaseStatus}
+            />
+          </Panel.Body>
+        </Panel>
       </div>
     );
   }
