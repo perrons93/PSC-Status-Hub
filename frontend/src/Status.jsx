@@ -14,6 +14,8 @@ const headers = new Headers({
   'Content-Type': 'application/json',
 });
 
+// This component is intended for internal use only and does not use styles or
+// components of public facing CAT system.
 class Status extends Component {
   componentWillMount() {
     this.checkBackend();

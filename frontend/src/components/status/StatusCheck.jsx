@@ -30,6 +30,8 @@ const styles = {
   },
 };
 
+// This component is intended for internal use only and does not use styles or
+// components of public facing CAT system.
 class StatusCheck extends Component {
   static propTypes = {
     isPassing: PropTypes.bool.isRequired,
