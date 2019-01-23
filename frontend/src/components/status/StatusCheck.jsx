@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// TODO(caleybrock) Figure out how to fix this for all files
+// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { Glyphicon, Label } from 'react-bootstrap';
 
