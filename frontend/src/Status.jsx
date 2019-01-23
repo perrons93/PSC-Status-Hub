@@ -1,14 +1,12 @@
-/* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
-import StatusCheck from './components/status/StatusCheck.jsx';
 import { Jumbotron, Button, Panel } from 'react-bootstrap';
-
+import StatusCheck from './components/status/StatusCheck.jsx';
 
 const styles = {
   container: {
     width: '50%',
     margin: '0 auto',
-  }
+  },
 };
 
 const headers = new Headers({
@@ -52,7 +50,8 @@ class Status extends Component {
         <Jumbotron>
           <h1>CAT Health</h1>
           <p>
-            Internal status page to quickly determine the status / health of the Compotency Assessment Tool.
+            Internal status page to quickly determine the status / health
+            of the Compotency Assessment Tool.
           </p>
           <p>
             <a href="https://github.com/code-for-canada/project-thundercat">

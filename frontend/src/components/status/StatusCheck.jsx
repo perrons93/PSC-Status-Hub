@@ -42,12 +42,12 @@ class StatusCheck extends Component {
         <div style={styles.icon}>
           {isPassing
             && <div style={styles.passing}>
-            <Glyphicon style={styles.glyphicon} glyph="ok-circle" /><Label>Pass</Label>
+              <Glyphicon style={styles.glyphicon} glyph="ok-circle" /><Label>Pass</Label>
             </div>
           }
           {!isPassing
             && <div style={styles.failing}>
-            <Glyphicon style={styles.glyphicon} glyph="remove-circle" /><Label>Fail</Label>
+              <Glyphicon style={styles.glyphicon} glyph="remove-circle" /><Label>Fail</Label>
             </div>
           }
         </div>
