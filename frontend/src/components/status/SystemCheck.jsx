@@ -6,7 +6,7 @@ import { Glyphicon, Label } from 'react-bootstrap';
 const styles = {
   container: {
     fontSize: 18,
-    paddingLeft: '30px',
+    paddingLeft: 30,
   },
   passing: {
     color: 'green',
@@ -22,15 +22,15 @@ const styles = {
   icon: {
     float: 'right',
     fontSize: 24,
-    paddingLeft: '15px',
+    paddingLeft: 15,
   },
   description: {
     textAlign: 'left',
-    paddingTop: '25px',
+    paddingTop: 25,
   },
   currentSpecs: {
     fontSize: 14,
-    paddingTop: '8px',
+    paddingTop: 8,
   },
 };
 

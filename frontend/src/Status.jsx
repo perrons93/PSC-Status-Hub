@@ -12,7 +12,7 @@ const styles = {
     margin: '0 auto',
   },
   panel: {
-    padding: '0px',
+    padding: 0,
   },
   table: {
     width: '100%',
@@ -56,7 +56,7 @@ class Status extends Component {
     frontendStatus: true,
     javascriptStatus: false,
     browserStatus: false,
-    SCREEN_RESOLUTIONStatus: false,
+    screenResolutionStatus: false,
   }
 
   checkBackend = async () => {
@@ -98,7 +98,7 @@ class Status extends Component {
   // Validates that screen resolution is at least 800 x 600
   checkResolution = () => {
     if (SCREEN_WIDTH >= 800 && SCREEN_HEIGHT >= 600) {
-      this.setState({ SCREEN_RESOLUTIONStatus: true });
+      this.setState({ screenResolutionStatus: true });
     }
   }
 
@@ -184,8 +184,8 @@ class Status extends Component {
                   <td style={styles.td}>
                     <SystemCheck
                       description={'Screen resolution minimum of 800 x 600'}
-                      isPassing={this.state.SCREEN_RESOLUTIONStatus}
-                      SCREEN_RESOLUTIONDetected={`(${SCREEN_WIDTH} X ${SCREEN_HEIGHT})`}
+                      isPassing={this.state.screenResolutionStatus}
+                      screenResolutionDetected={`(${SCREEN_WIDTH} X ${SCREEN_HEIGHT})`}
                     />
                   </td>
                 </tr>
