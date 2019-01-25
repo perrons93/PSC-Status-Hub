@@ -57,13 +57,17 @@ class SystemCheck extends Component {
           {isPassing
             && <div style={styles.passing}>
               <Glyphicon style={styles.glyphicon} glyph="ok-circle" /><Label>Pass</Label>
-              <p style={styles.currentSpecs}>{screenResolutionDetected}{browserDetected}{javaScriptEnabled}</p>
+              <p style={styles.currentSpecs}>
+                {screenResolutionDetected}{browserDetected}{javaScriptEnabled}
+              </p>
             </div>
           }
           {!isPassing
             && <div style={styles.failing}>
               <Glyphicon style={styles.glyphicon} glyph="remove-circle" /><Label>Fail</Label>
-              <p style={styles.currentSpecs}>{screenResolutionDetected}{browserDetected}{javaScriptEnabled}</p>
+              <p style={styles.currentSpecs}>
+                {screenResolutionDetected}{browserDetected}{javaScriptEnabled}
+              </p>
             </div>
           }
         </div>
