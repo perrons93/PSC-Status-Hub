@@ -24,20 +24,8 @@ it('renders Pass when isPassing is true', () => {
   expect(wrapper.contains(passingMessage)).toEqual(true);
 });
 
-it('renders screenResolutionDetected', () => {
-  const wrapper = shallow(<SystemCheck isPassing={true} description={'hello world'} screenResolutionDetected={'1920x1040'}/>);
-  const screenResolutionDetected = '1920x1040';
-  expect(wrapper.contains(screenResolutionDetected)).toEqual(true);
-});
-
-it('renders browserDetected', () => {
-  const wrapper = shallow(<SystemCheck isPassing={true} description={'hello world'} browserDetected={'chrome'}/>);
-  const browserDetected = 'chrome';
-  expect(wrapper.contains(browserDetected)).toEqual(true);
-});
-
-it('renders javaScriptEnabled', () => {
-  const wrapper = shallow(<SystemCheck isPassing={true} description={'hello world'} javaScriptEnabled={'Enabled'}/>);
-  const javaScriptEnabled = 'Enabled';
-  expect(wrapper.contains(javaScriptEnabled)).toEqual(true);
+it('renders currentSettingsDetails', () => {
+  const wrapper = shallow(<SystemCheck isPassing={true} description={'hello world'} currentSettingsDetails={'hello world'}/>);
+  const currentSettingsDetails = 'hello world';
+  expect(wrapper.contains(currentSettingsDetails)).toEqual(true);
 });
