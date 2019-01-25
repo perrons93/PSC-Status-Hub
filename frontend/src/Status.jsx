@@ -54,9 +54,6 @@ class Status extends Component {
     backendStatus: false,
     databaseStatus: false,
     frontendStatus: true,
-    javascriptStatus: false,
-    browserStatus: false,
-    screenResolutionStatus: false,
   }
 
   checkBackend = async () => {
@@ -150,7 +147,7 @@ class Status extends Component {
                       <SystemCheck
                         description={'JavaScript'}
                         isPassing={this.state.javascriptStatus}
-                        javaScriptEnabled={'(Enabled)'}
+                        currentSettingsDetails={'(Enabled)'}
                       />
                     </td>}
                   {this.state.javascriptStatus === false
@@ -158,7 +155,7 @@ class Status extends Component {
                        <SystemCheck
                          description={'JavaScript'}
                          isPassing={this.state.javascriptStatus}
-                         javaScriptEnabled={'(Disabled)'}
+                         currentSettingsDetails={'(Disabled)'}
                        />
                      </td>}
                 </tr>
@@ -168,7 +165,7 @@ class Status extends Component {
                       <SystemCheck
                         description={'IE 9+, Chrome, Firefox'}
                         isPassing={this.state.browserStatus}
-                        browserDetected={`(${BROWSER_STRING} v${IE_VERSION})`}
+                        currentSettingsDetails={`(${BROWSER_STRING} v${IE_VERSION})`}
                       />
                     </td>}
                   {BROWSER_STRING !== IE_STRING
@@ -176,7 +173,7 @@ class Status extends Component {
                       <SystemCheck
                         description={'IE 9+, Chrome, Firefox'}
                         isPassing={this.state.browserStatus}
-                        browserDetected={`(${BROWSER_STRING})`}
+                        currentSettingsDetails={`(${BROWSER_STRING})`}
                       />
                     </td>}
                 </tr>
@@ -185,7 +182,7 @@ class Status extends Component {
                     <SystemCheck
                       description={'Screen resolution minimum of 800 x 600'}
                       isPassing={this.state.screenResolutionStatus}
-                      screenResolutionDetected={`(${SCREEN_WIDTH} X ${SCREEN_HEIGHT})`}
+                      currentSettingsDetails={`(${SCREEN_WIDTH} X ${SCREEN_HEIGHT})`}
                     />
                   </td>
                 </tr>

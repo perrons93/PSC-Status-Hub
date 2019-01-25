@@ -40,14 +40,12 @@ class SystemCheck extends Component {
   static propTypes = {
     description: PropTypes.string.isRequired,
     isPassing: PropTypes.bool.isRequired,
-    screenResolutionDetected: PropTypes.string,
-    browserDetected: PropTypes.string,
-    javaScriptEnabled: PropTypes.string,
+    currentSettingsDetails: PropTypes.string,
   };
 
   render() {
     const {
-      description, isPassing, screenResolutionDetected, browserDetected, javaScriptEnabled,
+      description, isPassing, currentSettingsDetails,
     } = this.props;
 
     return (
@@ -57,7 +55,7 @@ class SystemCheck extends Component {
             && <div style={styles.passing}>
               <Glyphicon style={styles.glyphicon} glyph="ok-circle" /><Label>Pass</Label>
               <p style={styles.currentSpecs}>
-                {screenResolutionDetected}{browserDetected}{javaScriptEnabled}
+                {currentSettingsDetails}
               </p>
             </div>
           }
@@ -65,7 +63,7 @@ class SystemCheck extends Component {
             && <div style={styles.failing}>
               <Glyphicon style={styles.glyphicon} glyph="remove-circle" /><Label>Fail</Label>
               <p style={styles.currentSpecs}>
-                {screenResolutionDetected}{browserDetected}{javaScriptEnabled}
+                {currentSettingsDetails}
               </p>
             </div>
           }
