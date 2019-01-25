@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Jumbotron, Button, Panel } from 'react-bootstrap';
 import StatusCheck from './components/status/StatusCheck.jsx';
 import SystemCheck from './components/status/SystemCheck.jsx';
-import detectBrowser from './DetectBrowser';
-import getIeVersion from './GetIeVersion';
-import getScreenResolution from './GetScreenResolution';
+import detectBrowser from './helpers/DetectBrowser';
+import getIeVersion from './helpers/GetIeVersion';
+import getScreenResolution from './helpers/GetScreenResolution';
 
 const styles = {
   container: {
