@@ -42,7 +42,7 @@ class SystemCheck extends Component {
     isPassing: PropTypes.bool.isRequired,
     screenResolutionDetected: PropTypes.string,
     browserDetected: PropTypes.string,
-    javaScriptEnable: PropTypes.string,
+    javaScriptEnabled: PropTypes.string,
 
   };
 
