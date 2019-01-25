@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Jumbotron, Button, Panel } from 'react-bootstrap';
 import StatusCheck from './components/status/StatusCheck.jsx';
 import SystemCheck from './components/status/SystemCheck.jsx';
-import detectBrowser from './helpers/DetectBrowser';
-import getIeVersion from './helpers/GetIeVersion';
-import getScreenResolution from './helpers/GetScreenResolution';
+import detectBrowser from './helpers/detectBrowser';
+import getIeVersion from './helpers/getIeVersion';
+import getScreenResolution from './helpers/getScreenResolution';
 
 const styles = {
   container: {
@@ -28,15 +28,15 @@ const headers = new Headers({
 });
 
 // Valid browser other than IE
-const validBrowser = ['chrome', 'firefox'];
-const internetExplorerString = 'IE';
+const VALID_BROWSERS = ['chrome', 'firefox'];
+const IE_STRING = 'IE';
 
-const browserString = detectBrowser();
-const ieVersion = getIeVersion();
+const BROWSER_STRING = detectBrowser();
+const IE_VERSION = getIeVersion();
 
-const screenResolution = getScreenResolution();
-const screenHeight = screenResolution[0];
-const screenWidth = screenResolution[1];
+const SCREEN_RESOLUTION = getScreenResolution();
+const SCREEN_HEIGHT = SCREEN_RESOLUTION[0];
+const SCREEN_WIDTH = SCREEN_RESOLUTION[1];
 
 // This component is intended for internal use only and does not use styles or
 // components of public facing CAT system.
@@ -56,7 +56,7 @@ class Status extends Component {
     frontendStatus: true,
     javascriptStatus: false,
     browserStatus: false,
-    screenResolutionStatus: false,
+    SCREEN_RESOLUTIONStatus: false,
   }
 
   checkBackend = async () => {
@@ -86,19 +86,19 @@ class Status extends Component {
   // Validates that the browser is IE 9+, Chrome or Firefox
   // TODO(fnormand): test with IE 8 and make sure it fails
   validateBrowser = () => {
-    if (browserString === internetExplorerString) {
-      if (ieVersion >= 9) {
+    if (BROWSER_STRING === IE_STRING) {
+      if (IE_VERSION >= 9) {
         this.setState({ browserStatus: true });
       }
-    } else if (validBrowser.indexOf(browserString) >= 0) {
+    } else if (VALID_BROWSERS.indexOf(BROWSER_STRING) >= 0) {
       this.setState({ browserStatus: true });
     }
   }
 
   // Validates that screen resolution is at least 800 x 600
   checkResolution = () => {
-    if (screenWidth >= 800 && screenHeight >= 600) {
-      this.setState({ screenResolutionStatus: true });
+    if (SCREEN_WIDTH >= 800 && SCREEN_HEIGHT >= 600) {
+      this.setState({ SCREEN_RESOLUTIONStatus: true });
     }
   }
 
@@ -163,29 +163,29 @@ class Status extends Component {
                      </td>}
                 </tr>
                 <tr>
-                  {browserString === internetExplorerString
+                  {BROWSER_STRING === IE_STRING
                     && <td style={styles.td}>
                       <SystemCheck
                         description={'IE 9+, Chrome, Firefox'}
                         isPassing={this.state.browserStatus}
-                        browserDetected={`(${browserString} v${ieVersion})`}
+                        browserDetected={`(${BROWSER_STRING} v${IE_VERSION})`}
                       />
                     </td>}
-                  {browserString !== internetExplorerString
+                  {BROWSER_STRING !== IE_STRING
                     && <td style={styles.td}>
                       <SystemCheck
                         description={'IE 9+, Chrome, Firefox'}
                         isPassing={this.state.browserStatus}
-                        browserDetected={`(${browserString})`}
+                        browserDetected={`(${BROWSER_STRING})`}
                       />
                     </td>}
                 </tr>
                 <tr>
                   <td style={styles.td}>
                     <SystemCheck
-                      description={'Screen resolution minimum of 800 x 600'} 
-                      isPassing={this.state.screenResolutionStatus} 
-                      screenResolutionDetected={`(${screenWidth} X ${screenHeight})`}
+                      description={'Screen resolution minimum of 800 x 600'}
+                      isPassing={this.state.SCREEN_RESOLUTIONStatus}
+                      SCREEN_RESOLUTIONDetected={`(${SCREEN_WIDTH} X ${SCREEN_HEIGHT})`}
                     />
                   </td>
                 </tr>
