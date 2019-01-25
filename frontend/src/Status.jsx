@@ -54,6 +54,9 @@ class Status extends Component {
     backendStatus: false,
     databaseStatus: false,
     frontendStatus: true,
+    javascriptStatus: false,
+    browserStatus: false,
+    screenResolutionStatus: false,
   }
 
   checkBackend = async () => {
