@@ -146,18 +146,48 @@ class Status extends Component {
               <tbody>
                 <tr>
                   {this.state.javascriptStatus === true
-                    && <td style={styles.td}><SystemCheck description={'JavaScript'} isPassing={this.state.javascriptStatus} javaScriptEnabled={'(Enabled)'}/></td>}
+                    && <td style={styles.td}>
+                      <SystemCheck
+                        description={'JavaScript'}
+                        isPassing={this.state.javascriptStatus}
+                        javaScriptEnabled={'(Enabled)'}
+                      />
+                    </td>}
                   {this.state.javascriptStatus === false
-                    && <td style={styles.td}><SystemCheck description={'JavaScript'} isPassing={this.state.javascriptStatus} javaScriptEnabled={'(Disabled)'}/></td>}
+                     && <td style={styles.td}>
+                       <SystemCheck
+                         description={'JavaScript'}
+                         isPassing={this.state.javascriptStatus}
+                         javaScriptEnabled={'(Disabled)'}
+                       />
+                     </td>}
                 </tr>
                 <tr>
                   {browserString === internetExplorerString
-                    && <td style={styles.td}><SystemCheck description={'IE 9+, Chrome, Firefox'} isPassing={this.state.browserStatus} browserDetected={`(${browserString} v${ieVersion})`}/></td>}
+                    && <td style={styles.td}>
+                      <SystemCheck
+                        description={'IE 9+, Chrome, Firefox'}
+                        isPassing={this.state.browserStatus}
+                        browserDetected={`(${browserString} v${ieVersion})`}
+                      />
+                    </td>}
                   {browserString !== internetExplorerString
-                    && <td style={styles.td}><SystemCheck description={'IE 9+, Chrome, Firefox'} isPassing={this.state.browserStatus} browserDetected={`(${browserString})`}/></td>}
+                    && <td style={styles.td}>
+                      <SystemCheck
+                        description={'IE 9+, Chrome, Firefox'}
+                        isPassing={this.state.browserStatus}
+                        browserDetected={`(${browserString})`}
+                      />
+                    </td>}
                 </tr>
                 <tr>
-                  <td style={styles.td}><SystemCheck description={'Screen resolution minimum of 800 x 600'} isPassing={this.state.screenResolutionStatus} screenResolutionDetected={`(${screenWidth} X ${screenHeight})`}/></td>
+                  <td style={styles.td}>
+                    <SystemCheck
+                      description={'Screen resolution minimum of 800 x 600'} 
+                      isPassing={this.state.screenResolutionStatus} 
+                      screenResolutionDetected={`(${screenWidth} X ${screenHeight})`}
+                    />
+                  </td>
                 </tr>
               </tbody>
             </table>

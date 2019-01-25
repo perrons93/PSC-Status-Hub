@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 function detectBrowser() {
   let detectedBrowser = '';
   if (navigator.userAgent.indexOf('Chrome') !== -1) {
@@ -12,13 +11,5 @@ function detectBrowser() {
   }
   return detectedBrowser;
 }
-
-// function getIeVersion() {
-//   const uaString = navigator.userAgent;
-//   const match = /\b(MSIE |Trident.*?rv:)(\d+)/.exec(uaString);
-//   // eslint-disable-next-line radix
-//   if (match) return parseInt(match[2]);
-//   return null;
-// }
 
 export default detectBrowser;

@@ -43,7 +43,6 @@ class SystemCheck extends Component {
     screenResolutionDetected: PropTypes.string,
     browserDetected: PropTypes.string,
     javaScriptEnabled: PropTypes.string,
-
   };
 
   render() {
