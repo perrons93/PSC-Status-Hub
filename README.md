@@ -29,7 +29,7 @@ The server for our CAT platform, a [Django](https://www.djangoproject.com/) appl
 
 ### [frontend](./frontend)
 
-The [ReactJS](https://reactjs.org/) application that users will see. It users Airbnb Styleguide. It will get built into a static package that we serve through nginx once we deploy it.
+The [ReactJS](https://reactjs.org/) application that users will see. It uses the Airbnb Styleguide. It will get built into a static package that we serve through nginx once we deploy it.
 This includes:
 * home page
 * status page
