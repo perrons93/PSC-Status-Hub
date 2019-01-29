@@ -5,6 +5,7 @@ import SystemCheck from './components/status/SystemCheck.jsx';
 import detectBrowser from './helpers/detectBrowser';
 import getIeVersion from './helpers/getIeVersion';
 import getScreenResolution from './helpers/getScreenResolution';
+import logo from './logo.png';
 
 const styles = {
   container: {
@@ -19,6 +20,11 @@ const styles = {
   },
   td: {
     border: '0.5px solid #dddddd',
+  },
+  logo: {
+    margin: 20,
+    width: 30,
+    height: 30,
   },
 };
 
@@ -115,6 +121,7 @@ class Status extends Component {
             <a href="https://github.com/code-for-canada/project-thundercat">
               <Button bsStyle="primary">GitHub Repository</Button>
             </a>
+            <img src={logo} className='App-logo' style={styles.logo} alt='logo' />
           </p>
         </Jumbotron>
 
