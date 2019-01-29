@@ -5,7 +5,7 @@ class Experiment extends Component {
   render() {
     return (
       <div>
-        <h2>Prototypes</h2>
+        <h2>Prototype</h2>
         <p>
           This page will be used to test out experimental UIs.
         </p>
