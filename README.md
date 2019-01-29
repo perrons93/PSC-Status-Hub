@@ -1,64 +1,47 @@
-# Docker + Nginx + ReactJS + Django + PostgreSQL
+# Project ThunderCAT
 
-This project serves as an example of a deployment frontend (ReactJS) and backend (Django) using docker and nginx.
+This application is a collaboration between Code for Canada and the Public Service Commission of Canada.
 
-## How to run
+This project serves as an example of a deployment front-end (ReactJS) and back-end (Django with PostgreSQL DB) using docker and nginx.
 
-Make sure you have [docker](https://docs.docker.com/install/) and [docker-compose](https://docs.docker.com/compose/install/) installed.
+## Quick start
 
- Run:
+1. Follow our [setup guide](./SETUP.md) to configure your workstation.
+2. Clone the repository using [git](./doc/contributing-with-git.md)
+3. `docker-compose up` to build the application if you have not done so already
+4. Open your browser to [http://localhost:80/](http://localhost:80/).
 
-```shell
-docker-compose up
-```
+To see a list of all build commands, run `docker` from the repository root or see our [notes-on-docker](./docs/notes-on-docker.md).
 
-Then, in the browser, go to localhost:80 and you should see the application with a response from the backend.
+## How to help
 
-When killing the server, be sure to cleanup your containers.
+Interested in what we're working? [Learn more about us and our project](https://medium.com/code-for-canada/inboxing-clever-db6a334dda7d).
+Want to contribute? Please email caley@codefor.ca.
 
-```shell
-docker-compose down
-```
+## What's in this repo?
+Here's a quick overview of the major landmarks:
 
-## How to tests
-This script will run both backend and frontend tests
+### [backend](./backend)
 
-In gitbash:
-```shell
-./run-tests.sh
-```
-In powershell:
-```shell
-.\run-tests.sh
-```
+The server for our CAT platform, a [Django](https://www.djangoproject.com/) application responsible for:
 
-Note: will need to press [Ctrl]+[C] after npm tests finish
+* not much yet, but it will hold our APIs
 
+### [frontend](./frontend)
 
-## Notes on docker
+The [ReactJS](https://reactjs.org/) application that users will see. It uses the Airbnb Styleguide. It will get built into a static package that we serve through nginx once we deploy it.
+This includes:
+* home page
+* status page
+* any prototypes we're working on
 
-To start docker without it taking over the command terminal, use the following (note, this iwll not display all the output, so you may not see error messages):
-```shell
-docker-compose up -d
-```
+### Documentation
 
-To shut down docker after staring it with the -d command, run
-```shell
-docker-compose stop
-```
+* [SETUP](./SETUP.md): Instructions to get everything up and running.
+* [TESTING](./TESTING.md): How to be sure nothing broke.
+* TODO: add license
+* There are many more topical guides in the [docs](./docs) folder.
+* In addition, several sections of the repository have their own documentation:
+  * [frontend/README](./frontend/README.md)
+  * [backend/README](./backend/README.md)
 
-To shut down and cleanup the networkl after staring it with the -d command, run
-```shell
-docker-compose down
-```
-
-Then check which image is running using `docker images` and run
-```shell
-docker run -p 8000:80 image_id sh entrypoint.sh
-```
-
-This will destory all stopped containers and force docker to rebuild these containers the next time you start docker
-
-```shell
-docker-compose rm
-```

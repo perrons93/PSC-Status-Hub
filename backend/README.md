@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Back-end
+
+This back-end API is a Django application that connects to the PostgreSQL DB and exposes an API to the front-end.
+
+This project was bootstrapped with `django-admin startproject mysite`. Details for startproject available in [this tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/).
 
 ## Available Scripts
 
