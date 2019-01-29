@@ -106,7 +106,7 @@ class Status extends Component {
     return (
       <div style={styles.container}>
         <Jumbotron>
-          <h1>CAT Health</h1>
+          <h1>CAT Status</h1>
           <p>
             Internal status page to quickly determine the status / health
             of the Compotency Assessment Tool.

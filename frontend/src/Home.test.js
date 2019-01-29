@@ -9,12 +9,8 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('renders without crashing', () => {
-  shallow(<Home />);
-});
-
 it('renders initial message from backend', () => {
   const wrapper = shallow(<Home />);
-  const initialMessage = <p>The backend says: nothing.</p>;
+  const initialMessage = <p>Welcome to the Compotency Assessment Tool.</p>;
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });
