@@ -51,3 +51,4 @@ Ensure that you have docker and docker-compose installed on your machine, as wel
    * Add snyk to the path environment variable (usually "C:\Users\<name>\AppData\Roaming\npm")
    * Create an account on snyk.io
    * Run 'snyk auth' in a terminal
+   * Login when prompted (either in using the provided URL or in the opened browser)
