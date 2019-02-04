@@ -1,5 +1,6 @@
 # How to setup SNYK Autorun on each PR
-Readme to document how to setup SNYK for a given repository
+
+SNYK is a tool that is used to run security scans for known vulnerabilties among the dependencies of an application. It can be automated to scan the latest pull request for changes in dependencies and scan for vuilnerabilites. The results of the latest online run on the master branch are summarized in the [Readme](./Readme.md) file under the 'Snyk Vulnerabilities' section. From this link you can look at a more detailed breakdown of the vulnerabilites and their cause as well as recommended fixed. You can also trigger a re-run. The web based tool does not detect all problems with all containers, so it is recommended to also run locally periodically.
 
 ## Give SNYK access to the repo
  * Create/login to a SNYK account
