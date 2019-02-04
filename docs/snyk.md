@@ -5,12 +5,18 @@ Readme to document how to setup SNYK for a given repository
  * Create/login to a SNYK account
    * https://app.snyk.io
    * [Login] -> GitHub (or other option if relevant)
-   * This account must be the repo owner
  * Add relevant project
-    * [Add more projects]
-    * Select the relvant repo(s)
-    * [Add selected repositories]
- * Wait for it to run
+    * To add your first repository to Snyk
+      * Select 'Projects' tab
+      * Select 'Add GitHub Repositories to Snyk'
+      * Grant Snyk the required accesses
+      * Select the repository(ies) you want to add to Snyk
+      * Wait for the import to finish
+        * Note, the loading bar will fill up, but you will not be redirected from this page
+    * To add another repository to Snyk
+      * From the Dashboard page, select 'Add more projects'
+      * Select the repository(ies) you want to add to Snyk
+      * Wait for the import to finish
 
 From here you can
  * View reports for all the relvant files
@@ -49,7 +55,11 @@ To enable this:
 
 ## How to run snyk test locally
 
-Make sure you have [snyk](https://app.snyk.io) installed and authorized (see SETUP.md)
+Running Snyk online is very effective at catching vulnerabilities added by new dependencies within a single docker container. This run can be automated to run wth each PR, or on demand.
+
+However, there is also an advantage to running Snyk locally: it will also detect vulnerabilities between dependent docker containers. For example, the online tool currently assumes that the backend is using Python 3.6.3, and lists vulnerabilities accordingly. However, we are actualy using Python 3.6-slim, which has a different set of vulnerabilities. The local run detects these Docker inter-container dependencies, but the online tool does not.
+
+Make sure you have [snyk](https://app.snyk.io) installed and authorized (see [SETUP](../SETUP.md))
 
 Snyk seems to find more results when run locally than when run in the web application.
 
