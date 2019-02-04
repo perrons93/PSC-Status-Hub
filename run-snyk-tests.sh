@@ -1,4 +1,5 @@
 #!/bin/bash
+# Script to run Snyk locally
 # Constants to add colour to text
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
