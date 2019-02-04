@@ -46,3 +46,10 @@ Ensure that you have docker and docker-compose installed on your machine, as wel
               6. Restart VS Code
        6. You can also add/edit/remove rules from *eslint.json* file     
        7. Click [here](https://eslint.org/) for more details about **ESLint** or [here](https://github.com/airbnb/javascript/tree/master/react#basic-rules) to know more about the Airbnb React style
+ * Snyk
+   * Run 'npm install -g snyk' in a terminal
+   * Add the npm directory containing snyk to the path system environment variable (usually "C:\Users\<name>\AppData\Roaming\npm")
+     * Note: You may need to restart your computer for this change to take effect
+   * Create an account on snyk.io
+   * Run 'snyk auth' in a terminal
+   * Login when prompted (either in using the provided URL or in the opened browser)
