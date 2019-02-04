@@ -13,7 +13,6 @@ class DatabaseCheckViewTests(APITestCase):
 
     def setUp(self):
         self.create_database_entry(name='name1')
-        self.create_database_entry(name='name2')
 
 class GetAllDatabaseEntriesTest(DatabaseCheckViewTests):
 
