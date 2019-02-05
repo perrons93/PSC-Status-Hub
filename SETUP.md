@@ -51,6 +51,7 @@ Ensure that you have docker and docker-compose installed on your machine, as wel
    * Run 'npm install -g snyk-to-html' in a terminal
      * This allows for clean output to html files when snyk is run locally
      * Locally detected vulnerabilities can be documented in the repo and version controlled
+   * See [snyk.md](docs/snyk.md) for an explanation of why snyk is installed locally rather than in the containers
    * Add the npm directory containing snyk to the path system environment variable (usually "C:\Users\<name>\AppData\Roaming\npm")
      * Note: You may need to restart your computer for this change to take effect
    * Create an account on snyk.io
