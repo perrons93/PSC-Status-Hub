@@ -54,6 +54,18 @@ To enable this:
 
 # Other Notes on snyk
 
+## Why Snyk is installed locally on a dev machine
+
+In [Setup](../SETUP.md), there are steps outlining how to install snyk locally rather pre-installing it inside the containers
+
+There are a few reasons for this
+  * Npm is currently not installed (nor is it needed) in the backend container
+  * Snyk uses an individual developer's account, rather than a centralized one
+    * Each developer can run snyk 200x in a given month for free
+    * Because each dev runs their own test, and PRs are run against a different account, we can run more tests in a given month
+  * The docker containers need to be build, but they do not need to be running for snyk to be run locally
+    * This means a faster turn around time for checking the results of a security patch locally
+
 ## How to run snyk test locally
 
 Running Snyk online is very effective at catching vulnerabilities added by new dependencies within a single docker container. This run can be automated to run wth each PR, or on demand.
