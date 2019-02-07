@@ -155,7 +155,7 @@ class Status extends Component {
             />
             <StatusCheck
               description={"Database completing API requests sccessfully"}
-              isPassing={this.state.databaseStatus}
+              isPassing={databaseStatus}
             />
           </Panel.Body>
         </Panel>
