@@ -1,41 +1,41 @@
-import React, { Component } from 'react';
-import { Jumbotron, Button, Panel } from 'react-bootstrap';
-import StatusCheck from './components/status/StatusCheck.jsx';
-import SystemCheck from './components/status/SystemCheck.jsx';
-import detectBrowser from './helpers/detectBrowser';
-import getIeVersion from './helpers/getIeVersion';
-import getScreenResolution from './helpers/getScreenResolution';
-import logo from './logo.png';
+import React, { Component } from "react";
+import { Jumbotron, Button, Panel } from "react-bootstrap";
+import StatusCheck from "./components/status/StatusCheck";
+import SystemCheck from "./components/status/SystemCheck";
+import detectBrowser from "./helpers/detectBrowser";
+import getIeVersion from "./helpers/getIeVersion";
+import getScreenResolution from "./helpers/getScreenResolution";
+import logo from "./logo.png";
 
 const styles = {
   container: {
-    width: '50%',
-    margin: '0 auto',
+    width: "50%",
+    margin: "0 auto"
   },
   panel: {
-    padding: 0,
+    padding: 0
   },
   table: {
-    width: '100%',
+    width: "100%"
   },
   td: {
-    border: '0.5px solid #dddddd',
+    border: "0.5px solid #dddddd"
   },
   logo: {
     margin: 20,
     width: 30,
-    height: 30,
-  },
+    height: 30
+  }
 };
 
 const headers = new Headers({
-  Accept: 'application/json',
-  'Content-Type': 'application/json',
+  Accept: "application/json",
+  "Content-Type": "application/json"
 });
 
 // Valid browser other than IE
-const VALID_BROWSERS = ['chrome', 'firefox'];
-const IE_STRING = 'IE';
+const VALID_BROWSERS = ["chrome", "firefox"];
+const IE_STRING = "IE";
 
 const BROWSER_STRING = detectBrowser();
 const IE_VERSION = getIeVersion();
@@ -47,6 +47,16 @@ const SCREEN_WIDTH = SCREEN_RESOLUTION[1];
 // This component is intended for internal use only and does not use styles or
 // components of public facing CAT system.
 class Status extends Component {
+  /* Front end is always running successfully if this page loads so it will always be true */
+  state = {
+    backendStatus: false,
+    databaseStatus: false,
+    frontendStatus: true,
+    javascriptStatus: false,
+    browserStatus: false,
+    screenResolutionStatus: false
+  };
+
   componentWillMount() {
     this.checkBackend();
     this.checkDatabase();
@@ -55,46 +65,36 @@ class Status extends Component {
     this.checkResolution();
   }
 
-  /* Front end is always running successfully if this page loads so it will always be true */
-  state = {
-    backendStatus: false,
-    databaseStatus: false,
-    frontendStatus: true,
-    javascriptStatus: false,
-    browserStatus: false,
-    screenResolutionStatus: false,
-  }
-
   checkBackend = async () => {
-    const test = await fetch('http://localhost:80/api/', {
-      method: 'GET',
+    const test = await fetch("http://localhost:80/api/", {
+      method: "GET",
       headers,
-      cache: 'default',
+      cache: "default"
     });
     const testJson = await test.json();
     if (testJson && testJson.status) {
       this.setState({ backendStatus: true });
     }
-  }
+  };
 
   checkDatabase = async () => {
-    const test = await fetch('http://localhost:80/database_check/', {
-      method: 'GET',
+    const test = await fetch("http://localhost:80/database_check/", {
+      method: "GET",
       headers,
-      cache: 'default',
+      cache: "default"
     });
     const testJson = await test.json();
     if (testJson) {
       this.setState({ databaseStatus: true });
     }
-  }
+  };
 
   // You must have JavaScript enabled to be able to run the app at all
   checkJavascriptEnabled = () => {
-    if (<script type="javascript"></script>) {
+    if (<script type="javascript" />) {
       this.setState({ javascriptStatus: true });
     }
-  }
+  };
 
   // Validates that the browser is IE 9+, Chrome or Firefox
   // TODO(fnormand): test with IE 8 and make sure it fails
@@ -106,29 +106,37 @@ class Status extends Component {
     } else if (VALID_BROWSERS.indexOf(BROWSER_STRING) >= 0) {
       this.setState({ browserStatus: true });
     }
-  }
+  };
 
   // Validates that screen resolution is at least 800 x 600
   checkResolution = () => {
     if (SCREEN_WIDTH >= 800 && SCREEN_HEIGHT >= 600) {
       this.setState({ screenResolutionStatus: true });
     }
-  }
+  };
 
   render() {
+    const {
+      frontendStatus,
+      backendStatus,
+      databaseStatus,
+      javascriptStatus,
+      browserStatus,
+      screenResolutionStatus
+    } = this.state;
     return (
       <div style={styles.container}>
         <Jumbotron>
           <h1>CAT Status</h1>
           <p>
-            Internal status page to quickly determine the status / health
-            of the Compotency Assessment Tool.
+            Internal status page to quickly determine the status / health of the Compotency
+            Assessment Tool.
           </p>
           <p>
             <a href="https://github.com/code-for-canada/project-thundercat">
               <Button bsStyle="primary">GitHub Repository</Button>
             </a>
-            <img src={logo} className='App-logo' style={styles.logo} alt='logo' />
+            <img src={logo} className="App-logo" style={styles.logo} alt="logo" />
           </p>
         </Jumbotron>
 
@@ -138,16 +146,16 @@ class Status extends Component {
           </Panel.Heading>
           <Panel.Body>
             <StatusCheck
-              description={'Front end application built and serving successfully'}
-              isPassing={this.state.frontendStatus}
+              description="Front end application built and serving successfully"
+              isPassing={frontendStatus}
             />
             <StatusCheck
-              description={'Back end application completing API requests successfully'}
-              isPassing={this.state.backendStatus}
+              description="Back end application completing API requests successfully"
+              isPassing={backendStatus}
             />
             <StatusCheck
-              description={'Database completing API requests sccessfully'}
-              isPassing={this.state.databaseStatus}
+              description={"Database completing API requests sccessfully"}
+              isPassing={databaseStatus}
             />
           </Panel.Body>
         </Panel>
@@ -159,46 +167,50 @@ class Status extends Component {
             <table style={styles.table}>
               <tbody>
                 <tr>
-                  {this.state.javascriptStatus === true
-                    && <td style={styles.td}>
+                  {javascriptStatus === true && (
+                    <td style={styles.td}>
                       <SystemCheck
-                        description={'JavaScript'}
-                        isPassing={this.state.javascriptStatus}
-                        currentSettingsDetails={'(Enabled)'}
+                        description="JavaScript"
+                        isPassing={javascriptStatus}
+                        currentSettingsDetails="(Enabled)"
                       />
-                    </td>}
-                  {this.state.javascriptStatus === false
-                     && <td style={styles.td}>
-                       <SystemCheck
-                         description={'JavaScript'}
-                         isPassing={this.state.javascriptStatus}
-                         currentSettingsDetails={'(Disabled)'}
-                       />
-                     </td>}
+                    </td>
+                  )}
+                  {javascriptStatus === false && (
+                    <td style={styles.td}>
+                      <SystemCheck
+                        description="JavaScript"
+                        isPassing={javascriptStatus}
+                        currentSettingsDetails="(Disabled)"
+                      />
+                    </td>
+                  )}
                 </tr>
                 <tr>
-                  {BROWSER_STRING === IE_STRING
-                    && <td style={styles.td}>
+                  {BROWSER_STRING === IE_STRING && (
+                    <td style={styles.td}>
                       <SystemCheck
-                        description={'IE 9+, Chrome, Firefox'}
-                        isPassing={this.state.browserStatus}
+                        description="IE 9+, Chrome, Firefox"
+                        isPassing={browserStatus}
                         currentSettingsDetails={`(${BROWSER_STRING} v${IE_VERSION})`}
                       />
-                    </td>}
-                  {BROWSER_STRING !== IE_STRING
-                    && <td style={styles.td}>
+                    </td>
+                  )}
+                  {BROWSER_STRING !== IE_STRING && (
+                    <td style={styles.td}>
                       <SystemCheck
-                        description={'IE 9+, Chrome, Firefox'}
-                        isPassing={this.state.browserStatus}
+                        description="IE 9+, Chrome, Firefox"
+                        isPassing={browserStatus}
                         currentSettingsDetails={`(${BROWSER_STRING})`}
                       />
-                    </td>}
+                    </td>
+                  )}
                 </tr>
                 <tr>
                   <td style={styles.td}>
                     <SystemCheck
-                      description={'Screen resolution minimum of 800 x 600'}
-                      isPassing={this.state.screenResolutionStatus}
+                      description="Screen resolution minimum of 800 x 600"
+                      isPassing={screenResolutionStatus}
                       currentSettingsDetails={`(${SCREEN_WIDTH} X ${SCREEN_HEIGHT})`}
                     />
                   </td>

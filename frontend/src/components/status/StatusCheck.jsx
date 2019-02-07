@@ -1,41 +1,39 @@
-import React, { Component } from 'react';
-// TODO(caleybrock) Figure out how to fix this for all files
-// eslint-disable-next-line import/no-extraneous-dependencies
-import PropTypes from 'prop-types';
-import { Glyphicon, Label } from 'react-bootstrap';
+import React from "react";
+import PropTypes from "prop-types";
+import { Glyphicon, Label } from "react-bootstrap";
 
 const styles = {
   container: {
     fontSize: 18,
-    padding: 10,
+    padding: 10
   },
   passing: {
-    color: 'green',
+    color: "green"
   },
   failing: {
-    color: 'red',
+    color: "red"
   },
   glyphicon: {
-    marginRight: 10,
+    marginRight: 10
   },
   icon: {
-    float: 'left',
-    fontSize: 24,
+    float: "left",
+    fontSize: 24
   },
   description: {
-    textAlign: 'left',
+    textAlign: "left",
     marginLeft: 75,
     paddingLeft: 40,
-    paddingTop: 5,
-  },
+    paddingTop: 5
+  }
 };
 
 // This component is intended for internal use only and does not use styles or
 // components of public facing CAT system.
-class StatusCheck extends Component {
+class StatusCheck extends React.PureComponent {
   static propTypes = {
     isPassing: PropTypes.bool.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
   };
 
   render() {
@@ -44,20 +42,20 @@ class StatusCheck extends Component {
     return (
       <div style={styles.container}>
         <div style={styles.icon}>
-          {isPassing
-            && <div style={styles.passing}>
-              <Glyphicon style={styles.glyphicon} glyph="ok-circle" /><Label>Pass</Label>
+          {isPassing && (
+            <div style={styles.passing}>
+              <Glyphicon style={styles.glyphicon} glyph="ok-circle" />
+              <Label>Pass</Label>
             </div>
-          }
-          {!isPassing
-            && <div style={styles.failing}>
-              <Glyphicon style={styles.glyphicon} glyph="remove-circle" /><Label>Fail</Label>
+          )}
+          {!isPassing && (
+            <div style={styles.failing}>
+              <Glyphicon style={styles.glyphicon} glyph="remove-circle" />
+              <Label>Fail</Label>
             </div>
-          }
+          )}
         </div>
-        <p style={styles.description}>
-          {description}
-        </p>
+        <p style={styles.description}>{description}</p>
       </div>
     );
   }
