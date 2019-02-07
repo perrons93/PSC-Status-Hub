@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import Confirmation from "./Confirmation";
 
 const PAGES = {
   welcome: "welcome",
   email_instr: "email_instr",
-  task_instr: "task_instr"
+  task_instr: "task_instr",
+  confirm: "confirm"
 };
 
 class eMIB extends Component {
@@ -20,7 +22,7 @@ class eMIB extends Component {
         this.setState({ curPage: PAGES.task_instr });
         break;
       case PAGES.task_instr:
-        this.setState({ curPage: PAGES.welcome });
+        this.setState({ curPage: PAGES.confirm });
         break;
       default:
         this.setState({ curPage: PAGES.email_instr });
@@ -35,9 +37,13 @@ class eMIB extends Component {
         {this.state.curPage === PAGES.welcome && <p>#1 Welcome to the eMIB Sample Test</p>}
         {this.state.curPage === PAGES.email_instr && <p>#2 Email Instructions</p>}
         {this.state.curPage === PAGES.task_instr && <p>#3 Task Instructions</p>}
-        <a onClick={this.changePage}>
-          <div>Next</div>
-        </a>
+        {this.state.curPage === PAGES.confirm && <Confirmation />}
+
+        {this.state.curPage !== PAGES.confirm && (
+          <a onClick={this.changePage}>
+            <div>Next</div>
+          </a>
+        )}
       </div>
     );
   }
