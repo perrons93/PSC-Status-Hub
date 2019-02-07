@@ -1,9 +1,9 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import './App.css';
-import Status from './Status';
-import Home from './Home';
-import Experiment from './Experiment';
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import "./App.css";
+import Status from "./Status";
+import Home from "./Home";
+import Experiment from "./Experiment";
 
 const App = () => {
   return (

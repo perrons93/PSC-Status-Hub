@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Glyphicon, Label } from 'react-bootstrap';
+import React from "react";
+import PropTypes from "prop-types";
+import { Glyphicon, Label } from "react-bootstrap";
 
 const styles = {
   container: {
@@ -8,23 +8,23 @@ const styles = {
     paddingLeft: 30
   },
   passing: {
-    color: 'green',
-    padding: '10px 40px 0px 0px'
+    color: "green",
+    padding: "10px 40px 0px 0px"
   },
   failing: {
-    color: 'red',
-    padding: '10px 40px 0px 0px'
+    color: "red",
+    padding: "10px 40px 0px 0px"
   },
   glyphicon: {
     marginRight: 10
   },
   icon: {
-    float: 'right',
+    float: "right",
     fontSize: 24,
     paddingLeft: 15
   },
   description: {
-    textAlign: 'left',
+    textAlign: "left",
     paddingTop: 25
   },
   currentSpecs: {

@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import { Jumbotron, Button, Panel } from 'react-bootstrap';
-import StatusCheck from './components/status/StatusCheck';
-import SystemCheck from './components/status/SystemCheck';
-import detectBrowser from './helpers/detectBrowser';
-import getIeVersion from './helpers/getIeVersion';
-import getScreenResolution from './helpers/getScreenResolution';
-import logo from './logo.png';
+import React, { Component } from "react";
+import { Jumbotron, Button, Panel } from "react-bootstrap";
+import StatusCheck from "./components/status/StatusCheck";
+import SystemCheck from "./components/status/SystemCheck";
+import detectBrowser from "./helpers/detectBrowser";
+import getIeVersion from "./helpers/getIeVersion";
+import getScreenResolution from "./helpers/getScreenResolution";
+import logo from "./logo.png";
 
 const styles = {
   container: {
-    width: '50%',
-    margin: '0 auto'
+    width: "50%",
+    margin: "0 auto"
   },
   panel: {
     padding: 0
   },
   table: {
-    width: '100%'
+    width: "100%"
   },
   td: {
-    border: '0.5px solid #dddddd'
+    border: "0.5px solid #dddddd"
   },
   logo: {
     margin: 20,
@@ -29,13 +29,13 @@ const styles = {
 };
 
 const headers = new Headers({
-  Accept: 'application/json',
-  'Content-Type': 'application/json'
+  Accept: "application/json",
+  "Content-Type": "application/json"
 });
 
 // Valid browser other than IE
-const VALID_BROWSERS = ['chrome', 'firefox'];
-const IE_STRING = 'IE';
+const VALID_BROWSERS = ["chrome", "firefox"];
+const IE_STRING = "IE";
 
 const BROWSER_STRING = detectBrowser();
 const IE_VERSION = getIeVersion();
@@ -66,10 +66,10 @@ class Status extends Component {
   }
 
   checkBackend = async () => {
-    const test = await fetch('http://localhost:80/api/', {
-      method: 'GET',
+    const test = await fetch("http://localhost:80/api/", {
+      method: "GET",
       headers,
-      cache: 'default'
+      cache: "default"
     });
     const testJson = await test.json();
     if (testJson && testJson.status) {
@@ -78,16 +78,16 @@ class Status extends Component {
   };
 
   checkDatabase = async () => {
-    const test = await fetch('http://localhost:80/database_check/', {
-      method: 'GET',
+    const test = await fetch("http://localhost:80/database_check/", {
+      method: "GET",
       headers,
-      cache: 'default',
+      cache: "default"
     });
     const testJson = await test.json();
     if (testJson) {
       this.setState({ databaseStatus: true });
     }
-  }
+  };
 
   // You must have JavaScript enabled to be able to run the app at all
   checkJavascriptEnabled = () => {
@@ -154,7 +154,7 @@ class Status extends Component {
               isPassing={backendStatus}
             />
             <StatusCheck
-              description={'Database completing API requests sccessfully'}
+              description={"Database completing API requests sccessfully"}
               isPassing={this.state.databaseStatus}
             />
           </Panel.Body>
