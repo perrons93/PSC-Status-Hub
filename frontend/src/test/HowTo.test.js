@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
-import Home from "./Home";
+import HowTo from "../components/eMIB/HowTo";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
-  ReactDOM.render(<Home />, div);
+  ReactDOM.render(<HowTo />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it("renders initial message from backend", () => {
-  const wrapper = shallow(<Home />);
-  const initialMessage = <p>Welcome to the Compotency Assessment Tool.</p>;
+it("renders initial message", () => {
+  const wrapper = shallow(<HowTo />);
+  const initialMessage = <h2>HowTo Page</h2>;
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });

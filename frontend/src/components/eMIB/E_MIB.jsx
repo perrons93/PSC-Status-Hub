@@ -12,7 +12,7 @@ const PAGES = {
   confirm: "confirm"
 };
 
-class eMIB extends Component {
+class E_MIB extends Component {
   state = {
     curPage: PAGES.welcome
   };
@@ -41,7 +41,7 @@ class eMIB extends Component {
     return (
       <div>
         <h2>eMIB Sample</h2>
-        {this.state.curPage === PAGES.welcome && <p>#1 Welcome to the eMIB Sample Test</p>}
+        {this.state.curPage === PAGES.welcome && <p>Welcome to the eMIB Sample Test</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
         {this.state.curPage === PAGES.background && <Background />}
         {this.state.curPage === PAGES.inbox && <Inbox />}
@@ -57,4 +57,4 @@ class eMIB extends Component {
   }
 }
 
-export default eMIB;
+export default E_MIB;
