@@ -58,3 +58,4 @@ class Emib extends Component {
 }
 
 export default Emib;
+export { PAGES };
