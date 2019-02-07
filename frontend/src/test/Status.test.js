@@ -1,13 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
-import Status from "./Status";
-
-it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Status />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+import Status from "../Status";
 
 it("renders initial message", () => {
   const wrapper = shallow(<Status />);

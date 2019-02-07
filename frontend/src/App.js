@@ -4,6 +4,7 @@ import "./App.css";
 import Status from "./Status";
 import Home from "./Home";
 import Experiment from "./Experiment";
+import Emib from "./components/eMIB/Emib";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route path="/experiment" component={Experiment} />
           <Route path="/status" component={Status} />
+          <Route path="/emib-sample" component={Emib} />
         </div>
       </Router>
     </div>
