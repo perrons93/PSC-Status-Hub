@@ -12,7 +12,7 @@ const PAGES = {
   confirm: "confirm"
 };
 
-class E_MIB extends Component {
+class Emib extends Component {
   state = {
     curPage: PAGES.welcome
   };
@@ -57,4 +57,4 @@ class E_MIB extends Component {
   }
 }
 
-export default E_MIB;
+export default Emib;

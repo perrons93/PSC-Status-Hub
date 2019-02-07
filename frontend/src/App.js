@@ -4,7 +4,7 @@ import "./App.css";
 import Status from "./Status";
 import Home from "./Home";
 import Experiment from "./Experiment";
-import E_MIB from "./components/eMIB/E_MIB";
+import Emib from "./components/eMIB/Emib";
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route path="/experiment" component={Experiment} />
           <Route path="/status" component={Status} />
-          <Route path="/eMIB-Sample" component={E_MIB} />
+          <Route path="/emib-sample" component={Emib} />
         </div>
       </Router>
     </div>
