@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import Confirmation from "./Confirmation";
+import HowTo from "./HowTo";
+import Background from "./Background";
+import Inbox from "./Inbox";
 
 const PAGES = {
   welcome: "welcome",
-  email_instr: "email_instr",
-  task_instr: "task_instr",
+  howTo: "howTo",
+  background: "background",
+  inbox: "inbox",
   confirm: "confirm"
 };
 
@@ -16,16 +20,19 @@ class eMIB extends Component {
   changePage = () => {
     switch (this.state.curPage) {
       case PAGES.welcome:
-        this.setState({ curPage: PAGES.email_instr });
+        this.setState({ curPage: PAGES.howTo });
         break;
-      case PAGES.email_instr:
-        this.setState({ curPage: PAGES.task_instr });
+      case PAGES.howTo:
+        this.setState({ curPage: PAGES.background });
         break;
-      case PAGES.task_instr:
+      case PAGES.background:
+        this.setState({ curPage: PAGES.inbox });
+        break;
+      case PAGES.inbox:
         this.setState({ curPage: PAGES.confirm });
         break;
       default:
-        this.setState({ curPage: PAGES.email_instr });
+        this.setState({ curPage: PAGES.welcome });
         break;
     }
   };
@@ -35,8 +42,9 @@ class eMIB extends Component {
       <div>
         <h2>eMIB Sample</h2>
         {this.state.curPage === PAGES.welcome && <p>#1 Welcome to the eMIB Sample Test</p>}
-        {this.state.curPage === PAGES.email_instr && <p>#2 Email Instructions</p>}
-        {this.state.curPage === PAGES.task_instr && <p>#3 Task Instructions</p>}
+        {this.state.curPage === PAGES.howTo && <HowTo />}
+        {this.state.curPage === PAGES.background && <Background />}
+        {this.state.curPage === PAGES.inbox && <Inbox />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (
