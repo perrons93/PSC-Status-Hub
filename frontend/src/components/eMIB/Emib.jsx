@@ -151,7 +151,7 @@ class Emib extends Component {
           <div style={{ color: "blue" }} onClick={this.changePage}>
             {this.state.curPage === PAGES.welcome && <p>{STRINGS.nextButton}</p>}
             {this.state.curPage === PAGES.howTo && <p>{STRINGS.howToNextButton}</p>}
-            {this.state.curPage === PAGES.background && <p>{STRINGS.submitTestButton}</p>}
+            {this.state.curPage === PAGES.background && <p>{STRINGS.nextButton}</p>}
             {this.state.curPage === PAGES.inbox && <p>{STRINGS.submitTestButton}</p>}
           </div>
         )}
