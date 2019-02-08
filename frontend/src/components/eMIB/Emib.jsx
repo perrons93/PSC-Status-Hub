@@ -28,12 +28,17 @@ let STRINGS = new LocalizedStrings({
     taskInstructions: "Task Instuctions",
     howToNextButton: "Start timer and test",
 
-    //Background Page
+    //Instructions Tab
+    instructionsTabTitle: "Instructions",
+
+    //Background Tab
+    backgroundTabTitle: "Background",
     backgroundPageTitle: "Background Page",
     orgChart: "Org Chart",
     Scenarios: "Scenarios",
 
-    //Inbox
+    //Inbox Tab
+    inboxTabTitle: "Inbox",
     inboxPageTitle: "Inbox",
     taskList: "Tasks List",
     notePad: "NotePad",
@@ -62,12 +67,17 @@ let STRINGS = new LocalizedStrings({
     taskInstructions: "Instuctions pour les tâches",
     howToNextButton: "FR Start timer and test",
 
-    //Background Page
+    //Instructions Tab
+    instructionsTabTitle: "FR Instructions",
+
+    //Background Tab
+    backgroundTabTitle: "FR Contexte",
     backgroundPageTitle: "Page de contexte",
     orgChart: "Organigramme",
     Scenarios: "Scénarios",
 
-    //Inbox
+    //Inbox Tab
+    inboxTabTitle: "Boîte de réception",
     inboxPageTitle: "Boîte de réception",
     taskList: "Liste des tâches",
     notePad: "bloc-notes",
@@ -137,7 +147,7 @@ class Emib extends Component {
         <h2>{STRINGS.testTitle}</h2>
         {this.state.curPage === PAGES.welcome && <p>{STRINGS.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
-        {this.state.curPage === PAGES.testTabs && <TestTabs lang={this.state.curLanguage} />}
+        {this.state.curPage === PAGES.testTabs && <TestTabs />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (

@@ -5,6 +5,7 @@ import Background from "./Background";
 import Inbox from "./Inbox";
 import LocalizedStrings from "react-localization";
 import Tab from "./Tab";
+import { STRINGS } from "./Emib";
 
 const TABS = {
   instructions: "instructions",
@@ -17,42 +18,9 @@ const COLOURS = {
   selected: "red"
 };
 
-const LANGUAGES = {
-  english: "en",
-  french: "fr"
-};
-
-let STRINGS = new LocalizedStrings({
-  en: {
-    //Instructions Tab
-    instructionsPageTitle: "Instructions",
-
-    //Background Tab
-    backgroundPageTitle: "Background",
-
-    //Inbox Tab
-    inboxPageTitle: "Inbox"
-  },
-  fr: {
-    //Instructions Tab
-    instructionsPageTitle: "FR Instructions",
-
-    //Background Tab
-    backgroundPageTitle: "FR Contexte",
-
-    //Inbox Tab
-    inboxPageTitle: "Boîte de réception"
-  }
-});
-
 class TestTabs extends Component {
-  static propTypes = {
-    lang: PropTypes.string.isRequired
-  };
-
   state = {
     curTab: TABS.background,
-    curLanguage: this.props.lang,
     istrColour: COLOURS.unselected,
     baskColour: COLOURS.selected,
     inboxColour: COLOURS.unselected
@@ -90,15 +58,15 @@ class TestTabs extends Component {
       <div>
         <div>
           <span onClick={this.switchInstr}>
-            <Tab tabName={STRINGS.instructionsPageTitle} colour={this.state.istrColour} />
+            <Tab tabName={STRINGS.instructionsTabTitle} colour={this.state.istrColour} />
           </span>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <span onClick={this.switchBKGD}>
-            <Tab tabName={STRINGS.backgroundPageTitle} colour={this.state.backColour} />
+            <Tab tabName={STRINGS.backgroundTabTitle} colour={this.state.backColour} />
           </span>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <span onClick={this.switchInbox}>
-            <Tab tabName={STRINGS.inboxPageTitle} colour={this.state.inboxColour} />
+            <Tab tabName={STRINGS.inboxTabTitle} colour={this.state.inboxColour} />
           </span>
         </div>
         {this.state.curTab === TABS.instructions && <HowTo />}
