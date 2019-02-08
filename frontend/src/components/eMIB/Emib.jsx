@@ -3,6 +3,7 @@ import Confirmation from "./Confirmation";
 import HowTo from "./HowTo";
 import Background from "./Background";
 import Inbox from "./Inbox";
+import LocalizedStrings from "react-localization";
 
 const PAGES = {
   welcome: "welcome",
@@ -12,9 +13,81 @@ const PAGES = {
   confirm: "confirm"
 };
 
+const LANGUAGES = {
+  english: "en",
+  french: "fr"
+};
+
+let STRINGS = new LocalizedStrings({
+  en: {
+    //Home Page
+    testTitle: "eMIB - Sample Test",
+    welcomeMsg: "Welcome to the eMIB Sample Test",
+
+    //HowTo Page
+    howToPageTitle: "HowTo Page",
+    emailInstructions: "Email Instuctions",
+    taskInstructions: "Task Instuctions",
+
+    //Background Page
+    backgroundPageTitle: "Background Page",
+    orgChart: "Org Chart",
+    Scenarios: "Scenarios",
+
+    //Inbox
+    inboxPageTitle: "Inbox",
+    taskList: "Tasks List",
+    notePad: "NotePad",
+    textTools: "Text Tools",
+    emailFeatures: "Email Features",
+    progressSaved: "Progress Saved",
+    timer: "Timer",
+
+    //Confirmation Page
+    submissionConfirmed: "Submission Confirmed",
+    exitTest: "Exit Test",
+
+    //Generic
+    nextButton: "Next"
+  },
+
+  fr: {
+    //Home Page
+    testTitle: "eMIB - Test Pratique",
+    welcomeMsg: "Bienvenu dans le test pratique de eMIB",
+
+    //HowTo Page
+    howToPageTitle: "Page 'How To'",
+    emailInstructions: "Instructions pour les courriel",
+    taskInstructions: "Instuctions pour les tâches",
+
+    //Background Page
+    backgroundPageTitle: "Page de contexte",
+    orgChart: "Organigramme",
+    Scenarios: "Scénarios",
+
+    //Inbox
+    inboxPageTitle: "Boîte de réception",
+    taskList: "Liste des tâches",
+    notePad: "bloc-notes",
+    textTools: "Outils de texte",
+    emailFeatures: "Fonctions de messagerie",
+    progressSaved: "Progression enregistrée",
+    timer: "Minuteur",
+
+    //Confirmation Page
+    submissionConfirmed: "Soumission Confirmée",
+    exitTest: "Quitter le test",
+
+    //Generic
+    nextButton: "Suivant"
+  }
+});
+
 class Emib extends Component {
   state = {
-    curPage: PAGES.welcome
+    curPage: PAGES.welcome,
+    curLanguage: LANGUAGES.english
   };
 
   changePage = () => {
@@ -37,11 +110,33 @@ class Emib extends Component {
     }
   };
 
+  onSetLanguageToFrench = () => {
+    STRINGS.setLanguage(LANGUAGES.french);
+    this.setState({ curLanguage: LANGUAGES.french });
+  };
+
+  onSetLanguageToEnglish = () => {
+    STRINGS.setLanguage(LANGUAGES.english);
+    this.setState({ curLanguage: LANGUAGES.english });
+  };
+
   render() {
     return (
       <div>
-        <h2>eMIB Sample</h2>
-        {this.state.curPage === PAGES.welcome && <p>Welcome to the eMIB Sample Test</p>}
+        <div>
+          {this.state.curLanguage === LANGUAGES.english && (
+            <a onClick={this.onSetLanguageToFrench}>
+              <div>Français</div>
+            </a>
+          )}
+          {this.state.curLanguage === LANGUAGES.french && (
+            <a onClick={this.onSetLanguageToEnglish}>
+              <div>English</div>
+            </a>
+          )}
+        </div>
+        <h2>{STRINGS.testTitle}</h2>
+        {this.state.curPage === PAGES.welcome && <p>{STRINGS.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
         {this.state.curPage === PAGES.background && <Background />}
         {this.state.curPage === PAGES.inbox && <Inbox />}
@@ -49,7 +144,7 @@ class Emib extends Component {
 
         {this.state.curPage !== PAGES.confirm && (
           <a onClick={this.changePage}>
-            <div>Next</div>
+            <div>{STRINGS.nextButton}</div>
           </a>
         )}
       </div>
@@ -59,3 +154,4 @@ class Emib extends Component {
 
 export default Emib;
 export { PAGES };
+export { STRINGS };

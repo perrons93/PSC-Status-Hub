@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import Emib, { STRINGS } from "./Emib";
 
 class Confirmation extends Component {
   render() {
     return (
       <div>
-        <p>Submission Confirmed</p>
-        <a href="/experiment">Exit Test</a>
+        <p>{STRINGS.submissionConfirmed}</p>
+        <a href="/experiment">{STRINGS.exitTest}</a>
       </div>
     );
   }
