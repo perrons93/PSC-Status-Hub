@@ -153,5 +153,4 @@ class Emib extends Component {
 }
 
 export default Emib;
-export { PAGES };
-export { STRINGS };
+export { PAGES, LANGUAGES, STRINGS };

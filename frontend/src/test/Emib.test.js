@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import Emib, { PAGES, STRINGS } from "../components/eMIB/Emib";
+import Emib, { PAGES, STRINGS, LANGUAGES } from "../components/eMIB/Emib";
 
 it("renders welcome page", () => {
   const wrapper = shallow(<Emib />);
@@ -34,5 +34,21 @@ it("renders confirm page", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.confirm });
   const initialMessage = <p>{STRINGS.submissionConfirmed}</p>;
+  expect(wrapper.contains(initialMessage)).toEqual(true);
+});
+
+it("renders Next in English", () => {
+  const wrapper = mount(<Emib />);
+  STRINGS.setLanguage(LANGUAGES.english);
+  wrapper.setState({ curPage: PAGES.inbox });
+  const initialMessage = <div>Next</div>;
+  expect(wrapper.contains(initialMessage)).toEqual(true);
+});
+
+it("renders Next in French", () => {
+  const wrapper = mount(<Emib />);
+  STRINGS.setLanguage(LANGUAGES.french);
+  wrapper.setState({ curPage: PAGES.inbox });
+  const initialMessage = <div>Suivant</div>;
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });
