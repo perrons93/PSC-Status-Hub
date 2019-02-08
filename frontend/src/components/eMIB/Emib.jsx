@@ -91,8 +91,7 @@ let STRINGS = new LocalizedStrings({
 class Emib extends Component {
   state = {
     curPage: PAGES.welcome,
-    curLanguage: LANGUAGES.english,
-    test: "test"
+    curLanguage: LANGUAGES.english
   };
 
   changePage = () => {
