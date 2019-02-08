@@ -2,15 +2,12 @@ import React, { Component } from "react";
 import Confirmation from "./Confirmation";
 import HowTo from "./HowTo";
 import TestTabs from "./TestTabs";
-import Background from "./Background";
-import Inbox from "./Inbox";
 import LocalizedStrings from "react-localization";
 
 const PAGES = {
   welcome: "welcome",
   howTo: "howTo",
-  background: "background",
-  inbox: "inbox",
+  testTabs: "testTabs",
   confirm: "confirm"
 };
 
@@ -101,12 +98,9 @@ class Emib extends Component {
         this.setState({ curPage: PAGES.howTo });
         break;
       case PAGES.howTo:
-        this.setState({ curPage: PAGES.background });
+        this.setState({ curPage: PAGES.testTabs });
         break;
-      case PAGES.background:
-        this.setState({ curPage: PAGES.inbox });
-        break;
-      case PAGES.inbox:
+      case PAGES.testTabs:
         this.setState({ curPage: PAGES.confirm });
         break;
       default:
@@ -143,16 +137,14 @@ class Emib extends Component {
         <h2>{STRINGS.testTitle}</h2>
         {this.state.curPage === PAGES.welcome && <p>{STRINGS.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
-        {this.state.curPage === PAGES.background && <TestTabs lang={this.state.curLanguage} />}
-        {this.state.curPage === PAGES.inbox && <TestTabs lang={this.state.curLanguage} />}
+        {this.state.curPage === PAGES.testTabs && <TestTabs lang={this.state.curLanguage} />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (
           <div style={{ color: "blue" }} onClick={this.changePage}>
             {this.state.curPage === PAGES.welcome && <p>{STRINGS.nextButton}</p>}
             {this.state.curPage === PAGES.howTo && <p>{STRINGS.howToNextButton}</p>}
-            {this.state.curPage === PAGES.background && <p>{STRINGS.nextButton}</p>}
-            {this.state.curPage === PAGES.inbox && <p>{STRINGS.submitTestButton}</p>}
+            {this.state.curPage === PAGES.testTabs && <p>{STRINGS.submitTestButton}</p>}
           </div>
         )}
       </div>
