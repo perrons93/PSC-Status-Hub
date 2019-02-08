@@ -40,7 +40,7 @@ it("renders confirm page", () => {
 it("renders Next in English", () => {
   const wrapper = mount(<Emib />);
   STRINGS.setLanguage(LANGUAGES.english);
-  wrapper.setState({ curPage: PAGES.inbox });
+  wrapper.setState({ curPage: PAGES.welcome });
   const initialMessage = "Next";
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });
@@ -48,7 +48,7 @@ it("renders Next in English", () => {
 it("renders Next in French", () => {
   const wrapper = mount(<Emib />);
   STRINGS.setLanguage(LANGUAGES.french);
-  wrapper.setState({ curPage: PAGES.inbox });
+  wrapper.setState({ curPage: PAGES.welcome });
   const initialMessage = "Suivant";
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });
