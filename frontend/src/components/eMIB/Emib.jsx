@@ -87,7 +87,8 @@ let STRINGS = new LocalizedStrings({
 class Emib extends Component {
   state = {
     curPage: PAGES.welcome,
-    curLanguage: LANGUAGES.english
+    curLanguage: LANGUAGES.english,
+    test: "test"
   };
 
   changePage = () => {
@@ -144,7 +145,11 @@ class Emib extends Component {
 
         {this.state.curPage !== PAGES.confirm && (
           <div style={{ color: "blue" }} onClick={this.changePage}>
-            {STRINGS.nextButton}
+            {this.state.curPage === PAGES.welcome && <p>{STRINGS.nextButton}</p>}
+            {this.state.curPage === PAGES.howTo && <p>{STRINGS.nextButton}</p>}
+            {this.state.curPage === PAGES.background && <p>{STRINGS.nextButton}</p>}
+            {this.state.curPage === PAGES.inbox && <p>{STRINGS.nextButton}</p>}
+            {this.state.curPage === PAGES.confirm && <p>{STRINGS.nextButton}</p>}
           </div>
         )}
       </div>
