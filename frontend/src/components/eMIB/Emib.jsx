@@ -47,7 +47,11 @@ class Emib extends Component {
         {this.state.curPage === PAGES.inbox && <Inbox />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
-        {this.state.curPage !== PAGES.confirm && <div onClick={this.changePage}>Next</div>}
+        {this.state.curPage !== PAGES.confirm && (
+          <div style={{ color: "blue" }} onClick={this.changePage}>
+            Next
+          </div>
+        )}
       </div>
     );
   }
