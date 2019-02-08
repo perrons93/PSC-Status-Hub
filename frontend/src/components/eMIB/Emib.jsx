@@ -28,6 +28,7 @@ let STRINGS = new LocalizedStrings({
     howToPageTitle: "HowTo Page",
     emailInstructions: "Email Instuctions",
     taskInstructions: "Task Instuctions",
+    howToNextButton: "Start timer and test",
 
     //Background Page
     backgroundPageTitle: "Background Page",
@@ -48,7 +49,8 @@ let STRINGS = new LocalizedStrings({
     exitTest: "Exit Test",
 
     //Generic
-    nextButton: "Next"
+    nextButton: "Next",
+    submitTestButton: "Submit test"
   },
 
   fr: {
@@ -60,6 +62,7 @@ let STRINGS = new LocalizedStrings({
     howToPageTitle: "Page 'How To'",
     emailInstructions: "Instructions pour les courriel",
     taskInstructions: "Instuctions pour les tâches",
+    howToNextButton: "FR Start timer and test",
 
     //Background Page
     backgroundPageTitle: "Page de contexte",
@@ -80,7 +83,8 @@ let STRINGS = new LocalizedStrings({
     exitTest: "Quitter le test",
 
     //Generic
-    nextButton: "Suivant"
+    nextButton: "Suivant",
+    submitTestButton: "FR Submit test"
   }
 });
 
@@ -146,10 +150,9 @@ class Emib extends Component {
         {this.state.curPage !== PAGES.confirm && (
           <div style={{ color: "blue" }} onClick={this.changePage}>
             {this.state.curPage === PAGES.welcome && <p>{STRINGS.nextButton}</p>}
-            {this.state.curPage === PAGES.howTo && <p>{STRINGS.nextButton}</p>}
-            {this.state.curPage === PAGES.background && <p>{STRINGS.nextButton}</p>}
-            {this.state.curPage === PAGES.inbox && <p>{STRINGS.nextButton}</p>}
-            {this.state.curPage === PAGES.confirm && <p>{STRINGS.nextButton}</p>}
+            {this.state.curPage === PAGES.howTo && <p>{STRINGS.howToNextButton}</p>}
+            {this.state.curPage === PAGES.background && <p>{STRINGS.submitTestButton}</p>}
+            {this.state.curPage === PAGES.inbox && <p>{STRINGS.submitTestButton}</p>}
           </div>
         )}
       </div>
