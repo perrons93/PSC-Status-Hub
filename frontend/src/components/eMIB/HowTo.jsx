@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import { STRINGS } from "./Emib";
 
 class HowTo extends Component {
   render() {
     return (
       <div>
-        <h2>HowTo Page</h2>
-        <h3>Email Instuctions</h3>
-        <h3>Task Instuctions</h3>
+        <h2>{STRINGS.howToPageTitle}</h2>
+        <h3>{STRINGS.emailInstructions}</h3>
+        <h3>{STRINGS.taskInstructions}</h3>
       </div>
     );
   }

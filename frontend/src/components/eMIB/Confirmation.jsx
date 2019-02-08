@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import { STRINGS } from "./Emib";
 
 class Confirmation extends Component {
   render() {
     return (
       <div>
-        <p>Submission Confirmed</p>
-        <a href="/experiment">Exit Test</a>
+        <p>{STRINGS.submissionConfirmed}</p>
+        <a style={{ color: "blue" }} href="/experiment">
+          {STRINGS.exitTest}
+        </a>
       </div>
     );
   }
