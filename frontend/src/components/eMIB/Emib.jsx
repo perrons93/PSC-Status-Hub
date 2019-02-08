@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Confirmation from "./Confirmation";
 import HowTo from "./HowTo";
+import TestTabs from "./TestTabs";
 import Background from "./Background";
 import Inbox from "./Inbox";
 import LocalizedStrings from "react-localization";
@@ -142,8 +143,8 @@ class Emib extends Component {
         <h2>{STRINGS.testTitle}</h2>
         {this.state.curPage === PAGES.welcome && <p>{STRINGS.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
-        {this.state.curPage === PAGES.background && <Background />}
-        {this.state.curPage === PAGES.inbox && <Inbox />}
+        {this.state.curPage === PAGES.background && <TestTabs lang={this.state.curLanguage} />}
+        {this.state.curPage === PAGES.inbox && <TestTabs lang={this.state.curLanguage} />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (
