@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Emib, { STRINGS } from "./Emib";
+import { STRINGS } from "./Emib";
 
 class Background extends Component {
   render() {
