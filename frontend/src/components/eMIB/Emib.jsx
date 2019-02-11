@@ -26,7 +26,7 @@ let STRINGS = new LocalizedStrings({
     howToPageTitle: "HowTo Page",
     emailInstructions: "Email Instuctions",
     taskInstructions: "Task Instuctions",
-    howToNextButton: "Start timer and test",
+    howToNextButton: "Start test",
 
     //Instructions Tab
     instructionsTabTitle: "Instructions",
@@ -65,7 +65,7 @@ let STRINGS = new LocalizedStrings({
     howToPageTitle: "Page 'How To'",
     emailInstructions: "Instructions pour les courriel",
     taskInstructions: "Instuctions pour les tâches",
-    howToNextButton: "FR Start timer and test",
+    howToNextButton: "Commencer le test",
 
     //Instructions Tab
     instructionsTabTitle: "FR Instructions",
@@ -92,7 +92,7 @@ let STRINGS = new LocalizedStrings({
 
     //Generic
     nextButton: "Suivant",
-    submitTestButton: "FR Submit test"
+    submitTestButton: "Soumettre le test"
   }
 });
 
