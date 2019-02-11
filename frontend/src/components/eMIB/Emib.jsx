@@ -28,7 +28,7 @@ let STRINGS = new LocalizedStrings({
     howToPageTitle: "HowTo Page",
     emailInstructions: "Email Instuctions",
     taskInstructions: "Task Instuctions",
-    howToNextButton: "Start timer and test",
+    howToNextButton: "Start test",
 
     //Background Page
     backgroundPageTitle: "Background Page",
@@ -62,7 +62,7 @@ let STRINGS = new LocalizedStrings({
     howToPageTitle: "Page 'How To'",
     emailInstructions: "Instructions pour les courriel",
     taskInstructions: "Instuctions pour les tâches",
-    howToNextButton: "Démarrer la minuterie et le test",
+    howToNextButton: "Commencer le test",
 
     //Background Page
     backgroundPageTitle: "Page de contexte",
