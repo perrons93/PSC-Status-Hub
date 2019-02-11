@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import Confirmation from "./Confirmation";
 import HowTo from "./HowTo";
-import Background from "./Background";
-import Inbox from "./Inbox";
+import TestTabs from "./TestTabs";
 import LocalizedStrings from "react-localization";
 
 const PAGES = {
   welcome: "welcome",
   howTo: "howTo",
-  background: "background",
-  inbox: "inbox",
+  testTabs: "testTabs",
   confirm: "confirm"
 };
 
@@ -30,12 +28,17 @@ let STRINGS = new LocalizedStrings({
     taskInstructions: "Task Instuctions",
     howToNextButton: "Start test",
 
-    //Background Page
+    //Instructions Tab
+    instructionsTabTitle: "Instructions",
+
+    //Background Tab
+    backgroundTabTitle: "Background",
     backgroundPageTitle: "Background Page",
     orgChart: "Org Chart",
     Scenarios: "Scenarios",
 
-    //Inbox
+    //Inbox Tab
+    inboxTabTitle: "Inbox",
     inboxPageTitle: "Inbox",
     taskList: "Tasks List",
     notePad: "NotePad",
@@ -64,12 +67,17 @@ let STRINGS = new LocalizedStrings({
     taskInstructions: "Instuctions pour les tâches",
     howToNextButton: "Commencer le test",
 
-    //Background Page
+    //Instructions Tab
+    instructionsTabTitle: "Instructions",
+
+    //Background Tab
+    backgroundTabTitle: "Contexte",
     backgroundPageTitle: "Page de contexte",
     orgChart: "Organigramme",
     Scenarios: "Scénarios",
 
-    //Inbox
+    //Inbox Tab
+    inboxTabTitle: "Boîte de réception",
     inboxPageTitle: "Boîte de réception",
     taskList: "Liste des tâches",
     notePad: "bloc-notes",
@@ -100,12 +108,9 @@ class Emib extends Component {
         this.setState({ curPage: PAGES.howTo });
         break;
       case PAGES.howTo:
-        this.setState({ curPage: PAGES.background });
+        this.setState({ curPage: PAGES.testTabs });
         break;
-      case PAGES.background:
-        this.setState({ curPage: PAGES.inbox });
-        break;
-      case PAGES.inbox:
+      case PAGES.testTabs:
         this.setState({ curPage: PAGES.confirm });
         break;
       default:
@@ -129,12 +134,12 @@ class Emib extends Component {
       <div>
         <div>
           {this.state.curLanguage === LANGUAGES.english && (
-            <div style={{ color: "blue" }} onClick={this.onSetLanguageToFrench}>
+            <div style={{ color: "blue", cursor: "pointer" }} onClick={this.onSetLanguageToFrench}>
               Français
             </div>
           )}
           {this.state.curLanguage === LANGUAGES.french && (
-            <div style={{ color: "blue" }} onClick={this.onSetLanguageToEnglish}>
+            <div style={{ color: "blue", cursor: "pointer" }} onClick={this.onSetLanguageToEnglish}>
               English
             </div>
           )}
@@ -142,16 +147,14 @@ class Emib extends Component {
         <h2>{STRINGS.testTitle}</h2>
         {this.state.curPage === PAGES.welcome && <p>{STRINGS.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
-        {this.state.curPage === PAGES.background && <Background />}
-        {this.state.curPage === PAGES.inbox && <Inbox />}
+        {this.state.curPage === PAGES.testTabs && <TestTabs />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (
-          <div style={{ color: "blue" }} onClick={this.changePage}>
+          <div style={{ color: "blue", cursor: "pointer" }} onClick={this.changePage}>
             {this.state.curPage === PAGES.welcome && <p>{STRINGS.nextButton}</p>}
             {this.state.curPage === PAGES.howTo && <p>{STRINGS.howToNextButton}</p>}
-            {this.state.curPage === PAGES.background && <p>{STRINGS.nextButton}</p>}
-            {this.state.curPage === PAGES.inbox && <p>{STRINGS.submitTestButton}</p>}
+            {this.state.curPage === PAGES.testTabs && <p>{STRINGS.submitTestButton}</p>}
           </div>
         )}
       </div>

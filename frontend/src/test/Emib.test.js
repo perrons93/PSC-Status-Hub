@@ -16,17 +16,10 @@ it("renders howTo page", () => {
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });
 
-it("renders background page", () => {
+it("renders background page in test tabs", () => {
   const wrapper = mount(<Emib />);
-  wrapper.setState({ curPage: PAGES.background });
+  wrapper.setState({ curPage: PAGES.testTabs });
   const initialMessage = <h2>{STRINGS.backgroundPageTitle}</h2>;
-  expect(wrapper.contains(initialMessage)).toEqual(true);
-});
-
-it("renders inbox page", () => {
-  const wrapper = mount(<Emib />);
-  wrapper.setState({ curPage: PAGES.inbox });
-  const initialMessage = <h2>{STRINGS.inboxPageTitle}</h2>;
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });
 
