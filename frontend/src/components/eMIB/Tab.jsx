@@ -1,17 +1,31 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+const SELECTED = "true";
+
+const UNSELECTED = "false";
+
 class Tab extends Component {
   static propTypes = {
     tabName: PropTypes.string.isRequired,
-    colour: PropTypes.string.isRequired
+    selected: PropTypes.string.isRequired
   };
 
   render() {
-    //this.setState({ curLanguage: lang });
-    return <span style={{ colour: this.props.colour }}>{this.props.tabName}</span>;
+    return (
+      <span>
+        {this.props.selected === UNSELECTED && (
+          <span style={{ color: "blue" }}>{this.props.tabName}</span>
+        )}
+        {this.props.selected === SELECTED && (
+          <span style={{ color: "black" }}>{this.props.tabName}</span>
+        )}
+      </span>
+    );
     //TODO can we pass a function as a prop??
   }
 }
 
 export default Tab;
+
+export { SELECTED, UNSELECTED };
