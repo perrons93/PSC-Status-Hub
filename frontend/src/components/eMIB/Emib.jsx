@@ -68,10 +68,10 @@ let STRINGS = new LocalizedStrings({
     howToNextButton: "Commencer le test",
 
     //Instructions Tab
-    instructionsTabTitle: "FR Instructions",
+    instructionsTabTitle: "Instructions",
 
     //Background Tab
-    backgroundTabTitle: "FR Contexte",
+    backgroundTabTitle: "Contexte",
     backgroundPageTitle: "Page de contexte",
     orgChart: "Organigramme",
     Scenarios: "Scénarios",
