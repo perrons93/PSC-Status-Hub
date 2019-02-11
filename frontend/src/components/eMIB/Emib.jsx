@@ -134,12 +134,12 @@ class Emib extends Component {
       <div>
         <div>
           {this.state.curLanguage === LANGUAGES.english && (
-            <div style={{ color: "blue" }} onClick={this.onSetLanguageToFrench}>
+            <div style={{ color: "blue", cursor: "pointer" }} onClick={this.onSetLanguageToFrench}>
               Français
             </div>
           )}
           {this.state.curLanguage === LANGUAGES.french && (
-            <div style={{ color: "blue" }} onClick={this.onSetLanguageToEnglish}>
+            <div style={{ color: "blue", cursor: "pointer" }} onClick={this.onSetLanguageToEnglish}>
               English
             </div>
           )}
@@ -151,7 +151,7 @@ class Emib extends Component {
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (
-          <div style={{ color: "blue" }} onClick={this.changePage}>
+          <div style={{ color: "blue", cursor: "pointer" }} onClick={this.changePage}>
             {this.state.curPage === PAGES.welcome && <p>{STRINGS.nextButton}</p>}
             {this.state.curPage === PAGES.howTo && <p>{STRINGS.howToNextButton}</p>}
             {this.state.curPage === PAGES.testTabs && <p>{STRINGS.submitTestButton}</p>}
