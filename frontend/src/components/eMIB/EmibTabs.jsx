@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import HowTo from "./HowTo";
 import Background from "./Background";
 import Inbox from "./Inbox";
-import Tab, { SELECTED, UNSELECTED } from "./Tab";
+import Tab, { SELECTED, UNSELECTED } from "../common/Tab";
 import { STRINGS } from "./Emib";
 
 const TABS = {
