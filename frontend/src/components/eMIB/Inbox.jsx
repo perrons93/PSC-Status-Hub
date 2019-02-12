@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import STRINGS from "../../text_resources";
+import LOCALIZE from "../../text_resources";
 
 class Inbox extends Component {
   render() {
     return (
       <div>
-        <h2>{STRINGS.inboxPageTitle}</h2>
-        <h3>{STRINGS.taskList}</h3>
-        <h3>{STRINGS.notePad}</h3>
-        <h3>{STRINGS.textTools}</h3>
-        <h3>{STRINGS.emailFeatures}</h3>
-        <h3>{STRINGS.progressSaved}</h3>
-        <h3>{STRINGS.timer}</h3>
+        <h2>{LOCALIZE.inboxPageTitle}</h2>
+        <h3>{LOCALIZE.taskList}</h3>
+        <h3>{LOCALIZE.notePad}</h3>
+        <h3>{LOCALIZE.textTools}</h3>
+        <h3>{LOCALIZE.emailFeatures}</h3>
+        <h3>{LOCALIZE.progressSaved}</h3>
+        <h3>{LOCALIZE.timer}</h3>
       </div>
     );
   }

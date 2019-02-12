@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Confirmation from "./Confirmation";
 import HowTo from "./HowTo";
 import TestTabs from "./TestTabs";
-import STRINGS from "../../text_resources";
+import LOCALIZE from "../../text_resources";
 
 const PAGES = {
   welcome: "welcome",
@@ -35,17 +35,17 @@ class Emib extends Component {
   render() {
     return (
       <div>
-        <h2>{STRINGS.testTitle}</h2>
-        {this.state.curPage === PAGES.welcome && <p>{STRINGS.welcomeMsg}</p>}
+        <h2>{LOCALIZE.testTitle}</h2>
+        {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
         {this.state.curPage === PAGES.testTabs && <TestTabs />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (
           <div style={{ color: "blue", cursor: "pointer" }} onClick={this.changePage}>
-            {this.state.curPage === PAGES.welcome && <p>{STRINGS.nextButton}</p>}
-            {this.state.curPage === PAGES.howTo && <p>{STRINGS.howToNextButton}</p>}
-            {this.state.curPage === PAGES.testTabs && <p>{STRINGS.submitTestButton}</p>}
+            {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.nextButton}</p>}
+            {this.state.curPage === PAGES.howTo && <p>{LOCALIZE.howToNextButton}</p>}
+            {this.state.curPage === PAGES.testTabs && <p>{LOCALIZE.submitTestButton}</p>}
           </div>
         )}
       </div>

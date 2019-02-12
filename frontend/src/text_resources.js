@@ -1,6 +1,6 @@
 import LocalizedStrings from "react-localization";
 
-let STRINGS = new LocalizedStrings({
+let LOCALIZE = new LocalizedStrings({
   en: {
     //Home Page
     testTitle: "eMIB - Sample Test",
@@ -80,4 +80,4 @@ let STRINGS = new LocalizedStrings({
   }
 });
 
-export default STRINGS;
+export default LOCALIZE;

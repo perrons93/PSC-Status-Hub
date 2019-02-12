@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import STRINGS from "../../text_resources";
+import LOCALIZE from "../../text_resources";
 
 class Background extends Component {
   render() {
     return (
       <div>
-        <h2>{STRINGS.backgroundPageTitle}</h2>
-        <h3>{STRINGS.orgChart}</h3>
-        <h3>{STRINGS.Scenarios}</h3>
+        <h2>{LOCALIZE.backgroundPageTitle}</h2>
+        <h3>{LOCALIZE.orgChart}</h3>
+        <h3>{LOCALIZE.Scenarios}</h3>
       </div>
     );
   }

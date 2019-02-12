@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import STRINGS from "../../text_resources";
+import LOCALIZE from "../../text_resources";
 
 const LANGUAGES = {
   english: "en",
@@ -17,13 +17,13 @@ class Translation extends Component {
   };
 
   onSetLanguageToFrench = async () => {
-    STRINGS.setLanguage(LANGUAGES.french);
+    LOCALIZE.setLanguage(LANGUAGES.french);
     this.setState({ curLanguage: LANGUAGES.french });
     this.props.updateLanguageOnPage();
   };
 
   onSetLanguageToEnglish = async () => {
-    STRINGS.setLanguage(LANGUAGES.english);
+    LOCALIZE.setLanguage(LANGUAGES.english);
     this.setState({ curLanguage: LANGUAGES.english });
     this.props.updateLanguageOnPage();
   };
