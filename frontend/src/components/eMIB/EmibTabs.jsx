@@ -11,7 +11,7 @@ const TABS = {
   inbox: "inbox"
 };
 
-class TestTabs extends Component {
+class EmibTabs extends Component {
   state = {
     curTab: TABS.background,
     instructionSelected: UNSELECTED,
@@ -70,6 +70,6 @@ class TestTabs extends Component {
   }
 }
 
-export default TestTabs;
+export default EmibTabs;
 
 export { TABS };

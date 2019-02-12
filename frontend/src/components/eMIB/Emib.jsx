@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Confirmation from "./Confirmation";
 import HowTo from "./HowTo";
-import TestTabs from "./TestTabs";
+import EmibTabs from "./EmibTabs";
 import LocalizedStrings from "react-localization";
 
 const PAGES = {
   welcome: "welcome",
   howTo: "howTo",
-  testTabs: "testTabs",
+  emibTabs: "emibTabs",
   confirm: "confirm"
 };
 
@@ -108,9 +108,9 @@ class Emib extends Component {
         this.setState({ curPage: PAGES.howTo });
         break;
       case PAGES.howTo:
-        this.setState({ curPage: PAGES.testTabs });
+        this.setState({ curPage: PAGES.emibTabs });
         break;
-      case PAGES.testTabs:
+      case PAGES.emibTabs:
         this.setState({ curPage: PAGES.confirm });
         break;
       default:
@@ -147,14 +147,14 @@ class Emib extends Component {
         <h2>{STRINGS.testTitle}</h2>
         {this.state.curPage === PAGES.welcome && <p>{STRINGS.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
-        {this.state.curPage === PAGES.testTabs && <TestTabs />}
+        {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (
           <div style={{ color: "blue", cursor: "pointer" }} onClick={this.changePage}>
             {this.state.curPage === PAGES.welcome && <p>{STRINGS.nextButton}</p>}
             {this.state.curPage === PAGES.howTo && <p>{STRINGS.howToNextButton}</p>}
-            {this.state.curPage === PAGES.testTabs && <p>{STRINGS.submitTestButton}</p>}
+            {this.state.curPage === PAGES.emibTabs && <p>{STRINGS.submitTestButton}</p>}
           </div>
         )}
       </div>
