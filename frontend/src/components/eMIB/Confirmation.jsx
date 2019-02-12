@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { STRINGS } from "./Emib";
+import STRINGS from "../../text_resources";
 
 class Confirmation extends Component {
   render() {

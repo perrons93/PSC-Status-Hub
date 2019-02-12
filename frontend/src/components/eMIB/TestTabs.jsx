@@ -3,7 +3,7 @@ import HowTo from "./HowTo";
 import Background from "./Background";
 import Inbox from "./Inbox";
 import Tab, { SELECTED, UNSELECTED } from "./Tab";
-import { STRINGS } from "./Emib";
+import STRINGS from "../../text_resources";
 
 const TABS = {
   instructions: "instructions",

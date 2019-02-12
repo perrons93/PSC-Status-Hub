@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import HowTo from "../components/eMIB/HowTo";
-import Emib, { STRINGS } from "../components/eMIB/Emib";
+import STRINGS from "../text_resources";
 
 it("renders initial message", () => {
   const wrapper = shallow(<HowTo />);

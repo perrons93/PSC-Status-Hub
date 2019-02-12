@@ -1,6 +1,8 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import Emib, { PAGES, STRINGS, LANGUAGES } from "../components/eMIB/Emib";
+import Emib, { PAGES } from "../components/eMIB/Emib";
+import { LANGUAGES } from "../components/commons/Translation";
+import STRINGS from "../text_resources";
 
 it("renders welcome page", () => {
   const wrapper = shallow(<Emib />);

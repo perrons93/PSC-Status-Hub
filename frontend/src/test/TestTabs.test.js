@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 import TestTabs, { TABS } from "../components/eMIB/TestTabs";
-import { STRINGS } from "../components/eMIB/Emib";
+import STRINGS from "../text_resources";
 
 it("renders testTabs page", () => {
   const wrapper = mount(<TestTabs />);
