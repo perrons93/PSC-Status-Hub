@@ -10,26 +10,12 @@ it("renders 3 tabs", () => {
     { id: 2, tabName: "test3", selected: "false" }
   ];
   const wrapper = mount(<TabNavigation tabSpecs={TABS} selected={1} />);
-  const initialMessage = <Tab tabName={"test1"} selected={"false"} />;
-  //<span style={{ color: "blue", cursor: "pointer" }}>test3</span>;
-  /*const initialMessage = (
-    <div>
-      <span key={0}>
-        <span>
-          <span style={{ color: "blue", cursor: "pointer" }}>"test1"</span>
-        </span>
-      </span>
-      <span key={1}>
-        <span>
-          <span style={{ color: "black", cursor: "pointer" }}>"test2"</span>
-        </span>
-      </span>
-      <span key={2}>
-        <span>
-          <span style={{ color: "blue", cursor: "pointer" }}>"test3"</span>
-        </span>
-      </span>
-    </div>
-  );*/
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const tab1 = <Tab tabName={"test1"} selected={UNSELECTED} />;
+  const tab2 = <Tab tabName={"test2"} selected={SELECTED} />;
+  const tab3 = <Tab tabName={"test3"} selected={UNSELECTED} />;
+  expect(wrapper.contains(tab1)).toEqual(true);
+  expect(wrapper.contains(tab2)).toEqual(true);
+  expect(wrapper.contains(tab3)).toEqual(true);
 });
+
+//TODO Render 2, render 4, change tab
