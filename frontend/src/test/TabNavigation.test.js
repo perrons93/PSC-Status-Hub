@@ -5,9 +5,9 @@ import Tab, { SELECTED, UNSELECTED } from "../components/common/Tab";
 
 it("renders 3 tabs", () => {
   let TABS = [
-    { id: 0, tabName: "test1", selected: "false" },
-    { id: 1, tabName: "test2", selected: "true" },
-    { id: 2, tabName: "test3", selected: "false" }
+    { id: 0, tabName: "test1", selected: UNSELECTED },
+    { id: 1, tabName: "test2", selected: SELECTED },
+    { id: 2, tabName: "test3", selected: UNSELECTED }
   ];
   const wrapper = mount(<TabNavigation tabSpecs={TABS} selected={1} />);
   const tab1 = <Tab tabName={"test1"} selected={UNSELECTED} />;
