@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Background from "../components/eMIB/Background";
-import { LANGUAGES } from "../components/commons/Translation";
-import LOCALIZE from "../text_resources";
+import Background from "../../../components/eMIB/Background";
+import { LANGUAGES } from "../../../components/commons/Translation";
+import LOCALIZE from "../../../text_resources";
 
 it("renders Background Page Title in English", () => {
   LOCALIZE.setLanguage(LANGUAGES.english);

@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Inbox from "../components/eMIB/Inbox";
-import { LANGUAGES } from "../components/commons/Translation";
-import LOCALIZE from "../text_resources";
+import Inbox from "../../../components/eMIB/Inbox";
+import { LANGUAGES } from "../../../components/commons/Translation";
+import LOCALIZE from "../../../text_resources";
 
 it("renders Inbox Page Title in English", () => {
   LOCALIZE.setLanguage(LANGUAGES.english);

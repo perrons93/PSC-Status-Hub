@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Confirmation from "../components/eMIB/Confirmation";
-import { LANGUAGES } from "../components/commons/Translation";
-import LOCALIZE from "../text_resources";
+import Confirmation from "../../../components/eMIB/Confirmation";
+import { LANGUAGES } from "../../../components/commons/Translation";
+import LOCALIZE from "../../../text_resources";
 
 it("renders confirmation message in English", () => {
   LOCALIZE.setLanguage(LANGUAGES.english);

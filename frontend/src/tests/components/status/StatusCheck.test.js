@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Label } from "react-bootstrap";
-import StatusCheck from "./StatusCheck";
-import LOCALIZE from "../../text_resources";
+import StatusCheck from "../../../components/status/StatusCheck";
+import LOCALIZE from "../../../text_resources";
 
 const failingMessage = <Label>{LOCALIZE.commons.failStatus}</Label>;
 const passingMessage = <Label>{LOCALIZE.commons.passStatus}</Label>;
