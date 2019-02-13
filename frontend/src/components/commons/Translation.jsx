@@ -16,13 +16,13 @@ class Translation extends Component {
     updateLanguageOnPage: PropTypes.func
   };
 
-  onSetLanguageToFrench = async () => {
+  onSetLanguageToFrench = () => {
     LOCALIZE.setLanguage(LANGUAGES.french);
     this.setState({ curLanguage: LANGUAGES.french });
     this.props.updateLanguageOnPage();
   };
 
-  onSetLanguageToEnglish = async () => {
+  onSetLanguageToEnglish = () => {
     LOCALIZE.setLanguage(LANGUAGES.english);
     this.setState({ curLanguage: LANGUAGES.english });
     this.props.updateLanguageOnPage();
