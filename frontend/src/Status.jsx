@@ -127,16 +127,17 @@ class Status extends Component {
     } = this.state;
     return (
       <div style={styles.container}>
-        <Jumbotron>
+        <div className={"jumbotron"}>
           <h1>{LOCALIZE.statusPage.title}</h1>
           <p>{LOCALIZE.statusPage.welcomeMsg}</p>
+          <hr />
           <p>
             <a href="https://github.com/code-for-canada/project-thundercat">
               <Button bsStyle="primary">{LOCALIZE.statusPage.gitHubRepoBtn}</Button>
             </a>
             <img src={logo} className="App-logo" style={styles.logo} alt="logo" />
           </p>
-        </Jumbotron>
+        </div>
 
         <Panel>
           <Panel.Heading>
@@ -159,13 +160,14 @@ class Status extends Component {
             />
           </Panel.Body>
         </Panel>
+        <hr />
         <Panel style={styles.panel}>
           <Panel.Heading>
             <Panel.Title componentClass="h3">
               {LOCALIZE.statusPage.systemStatusTable.title}
             </Panel.Title>
           </Panel.Heading>
-          <Panel.Body style={styles.panel}>
+          <Panel.Body>
             <table style={styles.table}>
               <tbody>
                 <tr>

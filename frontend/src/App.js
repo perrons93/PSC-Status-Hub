@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div>
         <Translation updateLanguageOnPage={this.updateLanguage} />
-        <div className="app">
+        <div>
           <Router>
             <div>
               <div>
