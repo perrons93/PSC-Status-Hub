@@ -10,6 +10,14 @@ Ensure that you have docker and docker-compose installed on your machine, as wel
   - “Install now”
   - Bypass character count limit option
   - You should be able to open a Python 3.6 Desktop App and run lines of Python
+- PiP
+  - Download get-pip.py
+    - Go to https://bootstrap.pypa.io/
+    - Right click on 'get-pip.py' -> 'Save link as...'
+    - Select a download location
+  - Navigate to the file in a terminal, run 'python get-pip.py'
+  - Add pip's directory to the path system environment variable (usually "<Python Directory>\Scripts")
+  - Pip is used to build the backend so that snyk can anaylze it locally
 - Docker
 - Docker Compose
 - Visual Studios Code
@@ -49,14 +57,15 @@ Ensure that you have docker and docker-compose installed on your machine, as wel
             6. Restart VS Code
       7.  You can also add/edit/remove rules from _.prettierrc.json_ file
       8.  Click [here](https://eslint.org/) for more details about **ESLint** or [here](https://github.com/airbnb/javascript/tree/master/react#basic-rules) to know more about the Airbnb React style
- * Snyk
-   * Run 'npm install -g snyk' in a terminal
-   * Run 'npm install -g snyk-to-html' in a terminal
-     * This allows for clean output to html files when snyk is run locally
-     * Locally detected vulnerabilities can be documented in the repo and version controlled
-   * See [snyk.md](docs/snyk.md) for an explanation of why snyk is installed locally rather than in the containers
-   * Add the npm directory containing snyk to the path system environment variable (usually "C:\Users\<name>\AppData\Roaming\npm")
-     * Note: You may need to restart your computer for this change to take effect
-   * Create an account on snyk.io
-   * Run 'snyk auth' in a terminal
-   * Login when prompted (either in using the provided URL or in the opened browser)
+
+* Snyk
+  - Run 'npm install -g snyk' in a terminal
+  - Run 'npm install -g snyk-to-html' in a terminal
+    - This allows for clean output to html files when snyk is run locally
+    - Locally detected vulnerabilities can be documented in the repo and version controlled
+  - See [snyk.md](docs/snyk.md) for an explanation of why snyk is installed locally rather than in the containers
+  - Add the npm directory containing snyk to the path system environment variable (usually "C:\Users\<name>\AppData\Roaming\npm")
+    - Note: You may need to restart your computer for this change to take effect
+  - Create an account on snyk.io
+  - Run 'snyk auth' in a terminal
+  - Login when prompted (either in using the provided URL or in the opened browser)
