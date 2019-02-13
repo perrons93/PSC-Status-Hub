@@ -52,17 +52,23 @@ class TestTabs extends Component {
         <div>
           <span onClick={this.switchInstr}>
             <Tab
-              tabName={LOCALIZE.instructionsTabTitle}
+              tabName={LOCALIZE.emibTest.tabs.instructionsTabTitle}
               selected={this.state.instructionSelected}
             />
           </span>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <span onClick={this.switchBKGD}>
-            <Tab tabName={LOCALIZE.backgroundTabTitle} selected={this.state.backgroundSelected} />
+            <Tab
+              tabName={LOCALIZE.emibTest.tabs.backgroundTabTitle}
+              selected={this.state.backgroundSelected}
+            />
           </span>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <span onClick={this.switchInbox}>
-            <Tab tabName={LOCALIZE.inboxTabTitle} selected={this.state.inboxSelected} />
+            <Tab
+              tabName={LOCALIZE.emibTest.tabs.inboxTabTitle}
+              selected={this.state.inboxSelected}
+            />
           </span>
         </div>
         {this.state.curTab === TABS.instructions && <HowTo />}

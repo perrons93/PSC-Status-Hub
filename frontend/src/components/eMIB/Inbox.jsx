@@ -5,13 +5,13 @@ class Inbox extends Component {
   render() {
     return (
       <div>
-        <h2>{LOCALIZE.inboxPageTitle}</h2>
-        <h3>{LOCALIZE.taskList}</h3>
-        <h3>{LOCALIZE.notePad}</h3>
-        <h3>{LOCALIZE.textTools}</h3>
-        <h3>{LOCALIZE.emailFeatures}</h3>
-        <h3>{LOCALIZE.progressSaved}</h3>
-        <h3>{LOCALIZE.timer}</h3>
+        <h2>{LOCALIZE.emibTest.inboxPage.title}</h2>
+        <h3>{LOCALIZE.emibTest.inboxPage.taskList}</h3>
+        <h3>{LOCALIZE.emibTest.inboxPage.notePad}</h3>
+        <h3>{LOCALIZE.emibTest.inboxPage.textTools}</h3>
+        <h3>{LOCALIZE.emibTest.inboxPage.emailFeatures}</h3>
+        <h3>{LOCALIZE.emibTest.inboxPage.progressSaved}</h3>
+        <h3>{LOCALIZE.emibTest.inboxPage.timer}</h3>
       </div>
     );
   }

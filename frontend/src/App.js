@@ -6,6 +6,7 @@ import Home from "./Home";
 import Experiment from "./Experiment";
 import Emib from "./components/eMIB/Emib";
 import Translation from "./components/commons/Translation";
+import LOCALIZE from "./text_resources";
 
 class App extends Component {
   state = {
@@ -24,9 +25,9 @@ class App extends Component {
           <Router>
             <div>
               <div>
-                <Link to="/">Home</Link>
-                <Link to="/experiment">Prototype</Link>
-                <Link to="/status">Status</Link>
+                <Link to="/">{LOCALIZE.mainTabs.homeTabTitle}</Link>
+                <Link to="/experiment">{LOCALIZE.mainTabs.prototypeTabTitle}</Link>
+                <Link to="/status">{LOCALIZE.mainTabs.statusTabTitle}</Link>
               </div>
               <hr />
               <Route exact path="/" component={Home} />

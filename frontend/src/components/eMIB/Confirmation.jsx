@@ -5,9 +5,9 @@ class Confirmation extends Component {
   render() {
     return (
       <div>
-        <p>{LOCALIZE.submissionConfirmed}</p>
+        <p>{LOCALIZE.emibTest.confirmationPage.submissionConfirmed}</p>
         <a style={{ color: "blue" }} href="/experiment">
-          {LOCALIZE.exitTest}
+          {LOCALIZE.commons.exitTest}
         </a>
       </div>
     );

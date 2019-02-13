@@ -1,11 +1,12 @@
 import React from "react";
+import LOCALIZE from "./text_resources";
 
 const Experiment = () => {
   return (
     <div>
-      <h2>Prototype</h2>
-      <p>This page will be used to test out experimental UIs.</p>
-      <a href="/emib-sample">Start eMIB Sample Test</a>
+      <h2>{LOCALIZE.prototypePage.title}</h2>
+      <p>{LOCALIZE.prototypePage.welcomeMsg}</p>
+      <a href="/emib-sample">{LOCALIZE.prototypePage.startEmibSampleTest}</a>
     </div>
   );
 };

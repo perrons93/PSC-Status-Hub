@@ -35,17 +35,19 @@ class Emib extends Component {
   render() {
     return (
       <div>
-        <h2>{LOCALIZE.testTitle}</h2>
-        {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.welcomeMsg}</p>}
+        <h2>{LOCALIZE.emibTest.homePage.testTitle}</h2>
+        {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.emibTest.homePage.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
         {this.state.curPage === PAGES.testTabs && <TestTabs />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (
           <div style={{ color: "blue", cursor: "pointer" }} onClick={this.changePage}>
-            {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.nextButton}</p>}
-            {this.state.curPage === PAGES.howTo && <p>{LOCALIZE.howToNextButton}</p>}
-            {this.state.curPage === PAGES.testTabs && <p>{LOCALIZE.submitTestButton}</p>}
+            {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.commons.nextButton}</p>}
+            {this.state.curPage === PAGES.howTo && (
+              <p>{LOCALIZE.emibTest.howToPage.howToNextButton}</p>
+            )}
+            {this.state.curPage === PAGES.testTabs && <p>{LOCALIZE.commons.submitTestButton}</p>}
           </div>
         )}
       </div>
