@@ -4,28 +4,11 @@ import { Label } from "react-bootstrap";
 import LOCALIZE from "../../text_resources";
 
 const styles = {
-  container: {
-    fontSize: 18,
-    padding: 10
-  },
   passing: {
     color: "green"
   },
   failing: {
     color: "red"
-  },
-  glyphicon: {
-    marginRight: 10
-  },
-  icon: {
-    float: "left",
-    fontSize: 24
-  },
-  description: {
-    textAlign: "left",
-    marginLeft: 75,
-    paddingLeft: 40,
-    paddingTop: 5
   }
 };
 
@@ -41,23 +24,23 @@ class StatusCheck extends React.PureComponent {
     const { description, isPassing } = this.props;
 
     return (
-      <div style={styles.container}>
-        <div style={styles.icon}>
+      <tr>
+        <td>{description}</td>
+        <td>
           {isPassing && (
             <div style={styles.passing}>
-              <i style={styles.glyphicon} className="fas fa-check-circle" />
-              <Label>{LOCALIZE.commons.passStatus}</Label>
+              <i className="fas fa-check-circle" />
+              <span>{LOCALIZE.commons.passStatus}</span>
             </div>
           )}
           {!isPassing && (
             <div style={styles.failing}>
-              <i style={styles.glyphicon} className="fas fa-times-circle" />
-              <Label>{LOCALIZE.commons.failStatus}</Label>
+              <i className="fas fa-times-circle" />
+              <span>{LOCALIZE.commons.failStatus}</span>
             </div>
           )}
-        </div>
-        <p style={styles.description}>{description}</p>
-      </div>
+        </td>
+      </tr>
     );
   }
 }

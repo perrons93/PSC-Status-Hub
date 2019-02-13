@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Panel } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import StatusCheck from "./components/status/StatusCheck";
 import SystemCheck from "./components/status/SystemCheck";
 import detectBrowser from "./helpers/detectBrowser";
@@ -12,12 +12,6 @@ const styles = {
   container: {
     width: "50%",
     margin: "0 auto"
-  },
-  panel: {
-    padding: 0
-  },
-  table: {
-    width: "100%"
   },
   logo: {
     margin: 20,
@@ -136,29 +130,35 @@ class Status extends Component {
           </p>
         </div>
 
-        <Panel>
-          <Panel.Heading>
-            <Panel.Title componentClass="h3">
-              {LOCALIZE.statusPage.serviceStatusTable.title}
-            </Panel.Title>
-          </Panel.Heading>
-          <Panel.Body>
-            <StatusCheck
-              description={LOCALIZE.statusPage.serviceStatusTable.frontendDesc}
-              isPassing={frontendStatus}
-            />
-            <StatusCheck
-              description={LOCALIZE.statusPage.serviceStatusTable.backendDesc}
-              isPassing={backendStatus}
-            />
-            <StatusCheck
-              description={LOCALIZE.statusPage.serviceStatusTable.databaseDesc}
-              isPassing={databaseStatus}
-            />
-          </Panel.Body>
-        </Panel>
+        <div>
+          <h3>{LOCALIZE.statusPage.serviceStatusTable.title}</h3>
+          <div>
+            <table className={"table"}>
+              <thead>
+                <tr>
+                  <th scope="col">System functionality</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <StatusCheck
+                  description={LOCALIZE.statusPage.serviceStatusTable.frontendDesc}
+                  isPassing={frontendStatus}
+                />
+                <StatusCheck
+                  description={LOCALIZE.statusPage.serviceStatusTable.backendDesc}
+                  isPassing={backendStatus}
+                />
+                <StatusCheck
+                  description={LOCALIZE.statusPage.serviceStatusTable.databaseDesc}
+                  isPassing={databaseStatus}
+                />
+              </tbody>
+            </table>
+          </div>
+        </div>
         <hr />
-        <div style={styles.panel}>
+        <div>
           <h3>{LOCALIZE.statusPage.systemStatusTable.title}</h3>
           <div>
             <table className={"table"}>
