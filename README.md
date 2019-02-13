@@ -19,32 +19,35 @@ Interested in what we're working? [Learn more about us and our project](https://
 Want to contribute? Please email caley@codefor.ca.
 
 ## What's in this repo?
+
 Here's a quick overview of the major landmarks:
 
 ### [backend](./backend)
 
 The server for our CAT platform, a [Django](https://www.djangoproject.com/) application responsible for:
 
-* not much yet, but it will hold our APIs
+- not much yet, but it will hold our APIs
 
 ### [frontend](./frontend)
 
 The [ReactJS](https://reactjs.org/) application that users will see. It uses the Airbnb Styleguide. It will get built into a static package that we serve through nginx once we deploy it.
+We are using a combination of [React-Bootstrap](https://react-bootstrap.github.io/), [Aurora Design System](https://design.gccollab.ca/component), and custom PSC-specific for our components.
+
 This includes:
-* home page
-* status page
-* any prototypes we're working on
+
+- home page
+- status page
+- any prototypes we're working on
 
 ### Documentation
 
-* [SETUP](./SETUP.md): Instructions to get everything up and running.
-* [TESTING](./TESTING.md): How to be sure nothing broke.
-* TODO: add license
-* There are many more topical guides in the [docs](./docs) folder.
-* In addition, several sections of the repository have their own documentation:
-  * [frontend/README](./frontend/README.md)
-  * [backend/README](./backend/README.md)
-
+- [SETUP](./SETUP.md): Instructions to get everything up and running.
+- [TESTING](./TESTING.md): How to be sure nothing broke.
+- TODO: add license
+- There are many more topical guides in the [docs](./docs) folder.
+- In addition, several sections of the repository have their own documentation:
+  - [frontend/README](./frontend/README.md)
+  - [backend/README](./backend/README.md)
 
 ## Snyk Vulnerabilities
 
