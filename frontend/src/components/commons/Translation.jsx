@@ -9,7 +9,7 @@ const LANGUAGES = {
 
 class Translation extends Component {
   state = {
-    curLanguage: LANGUAGES.english
+    currentLanguage: LANGUAGES.english
   };
 
   static propTypes = {
@@ -18,25 +18,25 @@ class Translation extends Component {
 
   onSetLanguageToFrench = () => {
     LOCALIZE.setLanguage(LANGUAGES.french);
-    this.setState({ curLanguage: LANGUAGES.french });
+    this.setState({ currentLanguage: LANGUAGES.french });
     this.props.updateLanguageOnPage();
   };
 
   onSetLanguageToEnglish = () => {
     LOCALIZE.setLanguage(LANGUAGES.english);
-    this.setState({ curLanguage: LANGUAGES.english });
+    this.setState({ currentLanguage: LANGUAGES.english });
     this.props.updateLanguageOnPage();
   };
 
   render() {
     return (
       <div>
-        {this.state.curLanguage === LANGUAGES.english && (
+        {this.state.currentLanguage === LANGUAGES.english && (
           <button style={{ color: "blue" }} onClick={this.onSetLanguageToFrench}>
             Français
           </button>
         )}
-        {this.state.curLanguage === LANGUAGES.french && (
+        {this.state.currentLanguage === LANGUAGES.french && (
           <button style={{ color: "blue" }} onClick={this.onSetLanguageToEnglish}>
             English
           </button>

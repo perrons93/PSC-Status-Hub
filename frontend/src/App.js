@@ -10,16 +10,16 @@ import LOCALIZE from "./text_resources";
 
 class App extends Component {
   state = {
-    curLanguage: LANGUAGES.english
+    currentLanguage: LANGUAGES.english
   };
 
   updateLanguage = () => {
-    if (this.state.curLanguage === LANGUAGES.english) {
-      this.setState({ curLanguage: LANGUAGES.french });
+    if (this.state.currentLanguage === LANGUAGES.english) {
+      this.setState({ currentLanguage: LANGUAGES.french });
     }
 
-    if (this.state.curLanguage === LANGUAGES.french) {
-      this.setState({ curLanguage: LANGUAGES.english });
+    if (this.state.currentLanguage === LANGUAGES.french) {
+      this.setState({ currentLanguage: LANGUAGES.english });
     }
   };
 
