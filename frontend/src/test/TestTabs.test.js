@@ -6,27 +6,27 @@ import LOCALIZE from "../text_resources";
 it("renders testTabs page", () => {
   const wrapper = mount(<TestTabs />);
   expect(wrapper.state("curTab")).toEqual(TABS.background);
-  const backgroundMessage = <h2>{LOCALIZE.backgroundPageTitle}</h2>;
-  expect(wrapper.contains(backgroundMessage)).toEqual(true);
+  const backgroundPageTitle = <h2>{LOCALIZE.emibTest.backgroundPage.title}</h2>;
+  expect(wrapper.contains(backgroundPageTitle)).toEqual(true);
 });
 
 it("renders instructions tab", () => {
   const wrapper = mount(<TestTabs />);
   wrapper.setState({ curTab: TABS.instructions });
-  const initialMessage = <h2>{LOCALIZE.howToPageTitle}</h2>;
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const howToPageTitle = <h2>{LOCALIZE.emibTest.howToPage.title}</h2>;
+  expect(wrapper.contains(howToPageTitle)).toEqual(true);
 });
 
 it("renders background tab", () => {
   const wrapper = mount(<TestTabs />);
   wrapper.setState({ curTab: TABS.background });
-  const initialMessage = <h2>{LOCALIZE.backgroundPageTitle}</h2>;
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const backgroundPageTitle = <h2>{LOCALIZE.emibTest.backgroundPage.title}</h2>;
+  expect(wrapper.contains(backgroundPageTitle)).toEqual(true);
 });
 
 it("renders inbox tab", () => {
   const wrapper = mount(<TestTabs />);
   wrapper.setState({ curTab: TABS.inbox });
-  const initialMessage = <h2>{LOCALIZE.inboxPageTitle}</h2>;
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const inboxPageTitle = <h2>{LOCALIZE.emibTest.inboxPage.title}</h2>;
+  expect(wrapper.contains(inboxPageTitle)).toEqual(true);
 });

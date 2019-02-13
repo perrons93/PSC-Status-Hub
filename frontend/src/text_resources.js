@@ -54,8 +54,7 @@ let LOCALIZE = new LocalizedStrings({
       howToPage: {
         title: "HowTo Page",
         emailInstructions: "Email Instuctions",
-        taskInstructions: "Task Instuctions",
-        howToNextButton: "Start test"
+        taskInstructions: "Task Instuctions"
       },
 
       //Background Page
@@ -92,6 +91,7 @@ let LOCALIZE = new LocalizedStrings({
     //Commons
     commons: {
       nextButton: "Next",
+      startTest: "Start test",
       submitTestButton: "Submit test",
       exitTest: "Exit Test",
       passStatus: "Pass",
@@ -154,8 +154,7 @@ let LOCALIZE = new LocalizedStrings({
       howToPage: {
         title: "Page 'How To'",
         emailInstructions: "Instructions pour les courriel",
-        taskInstructions: "Instuctions pour les tâches",
-        howToNextButton: "Commencer le test"
+        taskInstructions: "Instuctions pour les tâches"
       },
 
       //Background Page
@@ -192,6 +191,7 @@ let LOCALIZE = new LocalizedStrings({
     //Commons
     commons: {
       nextButton: "Suivant",
+      startTest: "Commencer le test",
       submitTestButton: "Soumettre le test",
       exitTest: "Quitter le test",
       passStatus: "Réussi",

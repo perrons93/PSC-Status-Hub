@@ -6,44 +6,44 @@ import LOCALIZE from "../text_resources";
 
 it("renders welcome page", () => {
   const wrapper = shallow(<Emib />);
-  const initialMessage = <p>{LOCALIZE.welcomeMsg}</p>;
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const welcomePageMsg = <p>{LOCALIZE.emibTest.homePage.welcomeMsg}</p>;
+  expect(wrapper.contains(welcomePageMsg)).toEqual(true);
   expect(wrapper.state("curPage")).toEqual(PAGES.welcome);
 });
 
 it("renders howTo page", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.howTo });
-  const initialMessage = <h2>{LOCALIZE.howToPageTitle}</h2>;
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const howToPageMsg = <h2>{LOCALIZE.emibTest.howToPage.title}</h2>;
+  expect(wrapper.contains(howToPageMsg)).toEqual(true);
 });
 
 it("renders background page in test tabs", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.testTabs });
-  const initialMessage = <h2>{LOCALIZE.backgroundPageTitle}</h2>;
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const backgroundPageTitle = <h2>{LOCALIZE.emibTest.backgroundPage.title}</h2>;
+  expect(wrapper.contains(backgroundPageTitle)).toEqual(true);
 });
 
 it("renders confirm page", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.confirm });
-  const initialMessage = <p>{LOCALIZE.submissionConfirmed}</p>;
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const confirmationMsg = <p>{LOCALIZE.emibTest.confirmationPage.submissionConfirmed}</p>;
+  expect(wrapper.contains(confirmationMsg)).toEqual(true);
 });
 
 it("renders Next in English", () => {
-  const wrapper = mount(<Emib />);
   LOCALIZE.setLanguage(LANGUAGES.english);
+  const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.welcome });
-  const initialMessage = "Next";
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const nextButton = <p>{LOCALIZE.commons.nextButton}</p>;
+  expect(wrapper.contains(nextButton)).toEqual(true);
 });
 
 it("renders Next in French", () => {
-  const wrapper = mount(<Emib />);
   LOCALIZE.setLanguage(LANGUAGES.french);
+  const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.welcome });
-  const initialMessage = "Suivant";
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const nextButton = <p>{LOCALIZE.commons.nextButton}</p>;
+  expect(wrapper.contains(nextButton)).toEqual(true);
 });

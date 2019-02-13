@@ -44,9 +44,7 @@ class Emib extends Component {
         {this.state.curPage !== PAGES.confirm && (
           <div style={{ color: "blue", cursor: "pointer" }} onClick={this.changePage}>
             {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.commons.nextButton}</p>}
-            {this.state.curPage === PAGES.howTo && (
-              <p>{LOCALIZE.emibTest.howToPage.howToNextButton}</p>
-            )}
+            {this.state.curPage === PAGES.howTo && <p>{LOCALIZE.commons.startTest}</p>}
             {this.state.curPage === PAGES.testTabs && <p>{LOCALIZE.commons.submitTestButton}</p>}
           </div>
         )}

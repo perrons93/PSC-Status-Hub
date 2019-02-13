@@ -1,15 +1,19 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Status from "../Status";
+import { LANGUAGES } from "../components/commons/Translation";
+import LOCALIZE from "../text_resources";
 
-it("renders initial message", () => {
+it("renders Status Page Welcome Message in English", () => {
+  LOCALIZE.setLanguage(LANGUAGES.english);
   const wrapper = shallow(<Status />);
-  const initialMessage = (
-    <p>
-      {
-        "Internal status page to quickly determine the status / health of the Compotency Assessment Tool."
-      }
-    </p>
-  );
-  expect(wrapper.contains(initialMessage)).toEqual(true);
+  const statusPageWelcomeMsg = <p>{LOCALIZE.statusPage.welcomeMsg}</p>;
+  expect(wrapper.contains(statusPageWelcomeMsg)).toEqual(true);
+});
+
+it("renders Status Page Welcome Message in French", () => {
+  LOCALIZE.setLanguage(LANGUAGES.french);
+  const wrapper = shallow(<Status />);
+  const statusPageWelcomeMsg = <p>{LOCALIZE.statusPage.welcomeMsg}</p>;
+  expect(wrapper.contains(statusPageWelcomeMsg)).toEqual(true);
 });
