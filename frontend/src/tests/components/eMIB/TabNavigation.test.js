@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
-import TabNavigation from "../components/common/TabNavigation";
-import Tab, { SELECTED, UNSELECTED } from "../components/common/Tab";
+import TabNavigation from "../../../components/common/TabNavigation";
+import Tab, { SELECTED, UNSELECTED } from "../../../components/common/Tab";
 
 it("renders 2 tabs", () => {
   let TABS = [

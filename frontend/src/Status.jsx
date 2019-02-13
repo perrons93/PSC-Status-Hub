@@ -6,6 +6,7 @@ import detectBrowser from "./helpers/detectBrowser";
 import getIeVersion from "./helpers/getIeVersion";
 import getScreenResolution from "./helpers/getScreenResolution";
 import logo from "./logo.png";
+import LOCALIZE from "./text_resources";
 
 const styles = {
   container: {
@@ -127,14 +128,11 @@ class Status extends Component {
     return (
       <div style={styles.container}>
         <Jumbotron>
-          <h1>CAT Status</h1>
-          <p>
-            Internal status page to quickly determine the status / health of the Compotency
-            Assessment Tool.
-          </p>
+          <h1>{LOCALIZE.statusPage.title}</h1>
+          <p>{LOCALIZE.statusPage.welcomeMsg}</p>
           <p>
             <a href="https://github.com/code-for-canada/project-thundercat">
-              <Button bsStyle="primary">GitHub Repository</Button>
+              <Button bsStyle="primary">{LOCALIZE.statusPage.gitHubRepoBtn}</Button>
             </a>
             <img src={logo} className="App-logo" style={styles.logo} alt="logo" />
           </p>
@@ -142,26 +140,30 @@ class Status extends Component {
 
         <Panel>
           <Panel.Heading>
-            <Panel.Title componentClass="h3">Service Status</Panel.Title>
+            <Panel.Title componentClass="h3">
+              {LOCALIZE.statusPage.serviceStatusTable.title}
+            </Panel.Title>
           </Panel.Heading>
           <Panel.Body>
             <StatusCheck
-              description="Front end application built and serving successfully"
+              description={LOCALIZE.statusPage.serviceStatusTable.frontendDesc}
               isPassing={frontendStatus}
             />
             <StatusCheck
-              description="Back end application completing API requests successfully"
+              description={LOCALIZE.statusPage.serviceStatusTable.backendDesc}
               isPassing={backendStatus}
             />
             <StatusCheck
-              description={"Database completing API requests sccessfully"}
+              description={LOCALIZE.statusPage.serviceStatusTable.databaseDesc}
               isPassing={databaseStatus}
             />
           </Panel.Body>
         </Panel>
         <Panel style={styles.panel}>
           <Panel.Heading>
-            <Panel.Title componentClass="h3">System Status</Panel.Title>
+            <Panel.Title componentClass="h3">
+              {LOCALIZE.statusPage.systemStatusTable.title}
+            </Panel.Title>
           </Panel.Heading>
           <Panel.Body style={styles.panel}>
             <table style={styles.table}>
@@ -170,18 +172,18 @@ class Status extends Component {
                   {javascriptStatus === true && (
                     <td style={styles.td}>
                       <SystemCheck
-                        description="JavaScript"
+                        description={LOCALIZE.statusPage.systemStatusTable.javaScript}
                         isPassing={javascriptStatus}
-                        currentSettingsDetails="(Enabled)"
+                        currentSettingsDetails={`(${LOCALIZE.commons.enabled})`}
                       />
                     </td>
                   )}
                   {javascriptStatus === false && (
                     <td style={styles.td}>
                       <SystemCheck
-                        description="JavaScript"
+                        description={LOCALIZE.statusPage.systemStatusTable.javaScript}
                         isPassing={javascriptStatus}
-                        currentSettingsDetails="(Disabled)"
+                        currentSettingsDetails={`(${LOCALIZE.commons.disabled})`}
                       />
                     </td>
                   )}
@@ -190,7 +192,7 @@ class Status extends Component {
                   {BROWSER_STRING === IE_STRING && (
                     <td style={styles.td}>
                       <SystemCheck
-                        description="IE 9+, Chrome, Firefox"
+                        description={LOCALIZE.statusPage.systemStatusTable.browsers}
                         isPassing={browserStatus}
                         currentSettingsDetails={`(${BROWSER_STRING} v${IE_VERSION})`}
                       />
@@ -199,7 +201,7 @@ class Status extends Component {
                   {BROWSER_STRING !== IE_STRING && (
                     <td style={styles.td}>
                       <SystemCheck
-                        description="IE 9+, Chrome, Firefox"
+                        description={LOCALIZE.statusPage.systemStatusTable.browsers}
                         isPassing={browserStatus}
                         currentSettingsDetails={`(${BROWSER_STRING})`}
                       />
@@ -209,7 +211,7 @@ class Status extends Component {
                 <tr>
                   <td style={styles.td}>
                     <SystemCheck
-                      description="Screen resolution minimum of 800 x 600"
+                      description={LOCALIZE.statusPage.systemStatusTable.screenResolution}
                       isPassing={screenResolutionStatus}
                       currentSettingsDetails={`(${SCREEN_WIDTH} X ${SCREEN_HEIGHT})`}
                     />

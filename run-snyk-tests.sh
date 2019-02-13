@@ -7,6 +7,9 @@ NC='\033[0m' # No Color
 docker-compose build
 # Test the backened
 printf "**** ${BLUE}Begin backend snyk tests${NC} ***\n"
+cd backend/
+pip install -r requirements.txt
+cd .. 
 snyk test backend/ --json | snyk-to-html -o snyk_results_backend.html
 printf "**** Complete backend snyk tests ***\n"
 # Test the frontend

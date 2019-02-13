@@ -1,10 +1,11 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Label } from "react-bootstrap";
-import StatusCheck from "./StatusCheck";
+import StatusCheck from "../../../components/status/StatusCheck";
+import LOCALIZE from "../../../text_resources";
 
-const failingMessage = <Label>Fail</Label>;
-const passingMessage = <Label>Pass</Label>;
+const failingMessage = <Label>{LOCALIZE.commons.failStatus}</Label>;
+const passingMessage = <Label>{LOCALIZE.commons.passStatus}</Label>;
 
 it("renders description", () => {
   const wrapper = shallow(<StatusCheck isPassing={false} description="hello world" />);
