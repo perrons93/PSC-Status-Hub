@@ -5,16 +5,22 @@ import Status from "./Status";
 import Home from "./Home";
 import Experiment from "./Experiment";
 import Emib from "./components/eMIB/Emib";
-import Translation from "./components/commons/Translation";
+import Translation, { LANGUAGES } from "./components/commons/Translation";
 import LOCALIZE from "./text_resources";
 
 class App extends Component {
   state = {
-    language: "en"
+    curLanguage: LANGUAGES.english
   };
 
   updateLanguage = () => {
-    this.setState({ language: "fr" });
+    if (this.state.curLanguage === LANGUAGES.english) {
+      this.setState({ curLanguage: LANGUAGES.french });
+    }
+
+    if (this.state.curLanguage === LANGUAGES.french) {
+      this.setState({ curLanguage: LANGUAGES.english });
+    }
   };
 
   render() {
