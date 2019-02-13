@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Label } from "react-bootstrap";
 import LOCALIZE from "../../text_resources";
 
 const styles = {
