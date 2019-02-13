@@ -11,7 +11,10 @@ Ensure that you have docker and docker-compose installed on your machine, as wel
   - Bypass character count limit option
   - You should be able to open a Python 3.6 Desktop App and run lines of Python
 - PiP
-  - Download get-pip.py ( https://bootstrap.pypa.io/get-pip.py )
+  - Download get-pip.py
+    - Go to https://bootstrap.pypa.io/
+    - Right click on 'get-pip.py' -> 'Save link as...'
+    - Select a download location
   - Navigate to the file in a terminal, run 'python get-pip.py'
   - Add pip's directory to the path system environment variable (usually "<Python Directory>\Scripts")
   - Pip is used to build the backend so that snyk can anaylze it locally
