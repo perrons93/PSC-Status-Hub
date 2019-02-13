@@ -2,74 +2,23 @@ import React, { Component } from "react";
 import HowTo from "./HowTo";
 import Background from "./Background";
 import Inbox from "./Inbox";
-import Tab, { SELECTED, UNSELECTED } from "../common/Tab";
+import { SELECTED, UNSELECTED } from "../common/Tab";
 import { STRINGS } from "./Emib";
-
-const TABS = {
-  instructions: "instructions",
-  background: "background",
-  inbox: "inbox"
-};
+import TabNavigation from "../common/TabNavigation";
 
 class EmibTabs extends Component {
-  state = {
-    curTab: TABS.background,
-    instructionSelected: UNSELECTED,
-    backgroundSelected: SELECTED,
-    inboxSelected: UNSELECTED
-  };
-
-  switchInstr = () => {
-    this.setState({
-      curTab: TABS.instructions,
-      instructionSelected: SELECTED,
-      backgroundSelected: UNSELECTED,
-      inboxSelected: UNSELECTED
-    });
-  };
-
-  switchBKGD = () => {
-    this.setState({
-      curTab: TABS.background,
-      instructionSelected: UNSELECTED,
-      backgroundSelected: SELECTED,
-      inboxSelected: UNSELECTED
-    });
-  };
-
-  switchInbox = () => {
-    this.setState({
-      curTab: TABS.inbox,
-      instructionSelected: UNSELECTED,
-      backgroundSelected: UNSELECTED,
-      inboxSelected: SELECTED
-    });
-  };
-
   render() {
+    let TABS = [
+      { id: 0, tabName: STRINGS.instructionsTabTitle, selected: UNSELECTED, body: <HowTo /> },
+      { id: 1, tabName: STRINGS.backgroundTabTitle, selected: SELECTED, body: <Background /> },
+      { id: 2, tabName: STRINGS.inboxTabTitle, selected: UNSELECTED, body: <Inbox /> }
+    ];
     return (
       <div>
-        <div>
-          <span onClick={this.switchInstr}>
-            <Tab tabName={STRINGS.instructionsTabTitle} selected={this.state.instructionSelected} />
-          </span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <span onClick={this.switchBKGD}>
-            <Tab tabName={STRINGS.backgroundTabTitle} selected={this.state.backgroundSelected} />
-          </span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <span onClick={this.switchInbox}>
-            <Tab tabName={STRINGS.inboxTabTitle} selected={this.state.inboxSelected} />
-          </span>
-        </div>
-        {this.state.curTab === TABS.instructions && <HowTo />}
-        {this.state.curTab === TABS.background && <Background />}
-        {this.state.curTab === TABS.inbox && <Inbox />}
+        <div>{<TabNavigation tabSpecs={TABS} curTab={1} />}</div>
       </div>
     );
   }
 }
 
 export default EmibTabs;
-
-export { TABS };

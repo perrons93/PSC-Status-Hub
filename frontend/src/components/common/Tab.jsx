@@ -15,10 +15,14 @@ class Tab extends Component {
     return (
       <span>
         {this.props.selected === UNSELECTED && (
-          <span style={{ color: "blue", cursor: "pointer" }}>{this.props.tabName}</span>
+          <button className={this.props.tabName} style={{ color: "blue", cursor: "pointer" }}>
+            {this.props.tabName}
+          </button>
         )}
         {this.props.selected === SELECTED && (
-          <span style={{ color: "black", cursor: "pointer" }}>{this.props.tabName}</span>
+          <button className={this.props.tabName} style={{ color: "black", cursor: "pointer" }}>
+            {this.props.tabName}
+          </button>
         )}
       </span>
     );

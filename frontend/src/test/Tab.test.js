@@ -4,12 +4,20 @@ import Tab, { SELECTED, UNSELECTED } from "../components/common/Tab";
 
 it("renders selected tab", () => {
   const wrapper = shallow(<Tab tabName="Tab1" selected={SELECTED} />);
-  const initialMessage = <span style={{ color: "black", cursor: "pointer" }}>Tab1</span>;
+  const initialMessage = (
+    <button className={"Tab1"} style={{ color: "black", cursor: "pointer" }}>
+      Tab1
+    </button>
+  );
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });
 
 it("renders unselected tab", () => {
   const wrapper = shallow(<Tab tabName="Tab2" selected={UNSELECTED} />);
-  const initialMessage = <span style={{ color: "blue", cursor: "pointer" }}>Tab2</span>;
+  const initialMessage = (
+    <button className={"Tab2"} style={{ color: "blue", cursor: "pointer" }}>
+      Tab2
+    </button>
+  );
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });
