@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Jumbotron, Button, Panel } from "react-bootstrap";
+import { Button, Panel } from "react-bootstrap";
 import StatusCheck from "./components/status/StatusCheck";
 import SystemCheck from "./components/status/SystemCheck";
 import detectBrowser from "./helpers/detectBrowser";
@@ -18,9 +18,6 @@ const styles = {
   },
   table: {
     width: "100%"
-  },
-  td: {
-    border: "0.5px solid #dddddd"
   },
   logo: {
     margin: 20,
@@ -161,68 +158,54 @@ class Status extends Component {
           </Panel.Body>
         </Panel>
         <hr />
-        <Panel style={styles.panel}>
-          <Panel.Heading>
-            <Panel.Title componentClass="h3">
-              {LOCALIZE.statusPage.systemStatusTable.title}
-            </Panel.Title>
-          </Panel.Heading>
-          <Panel.Body>
-            <table style={styles.table}>
+        <div style={styles.panel}>
+          <h3>{LOCALIZE.statusPage.systemStatusTable.title}</h3>
+          <div>
+            <table className={"table"}>
+              <thead>
+                <tr>
+                  <th scope="col">Requirement</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
               <tbody>
-                <tr>
-                  {javascriptStatus === true && (
-                    <td style={styles.td}>
-                      <SystemCheck
-                        description={LOCALIZE.statusPage.systemStatusTable.javaScript}
-                        isPassing={javascriptStatus}
-                        currentSettingsDetails={`(${LOCALIZE.commons.enabled})`}
-                      />
-                    </td>
-                  )}
-                  {javascriptStatus === false && (
-                    <td style={styles.td}>
-                      <SystemCheck
-                        description={LOCALIZE.statusPage.systemStatusTable.javaScript}
-                        isPassing={javascriptStatus}
-                        currentSettingsDetails={`(${LOCALIZE.commons.disabled})`}
-                      />
-                    </td>
-                  )}
-                </tr>
-                <tr>
-                  {BROWSER_STRING === IE_STRING && (
-                    <td style={styles.td}>
-                      <SystemCheck
-                        description={LOCALIZE.statusPage.systemStatusTable.browsers}
-                        isPassing={browserStatus}
-                        currentSettingsDetails={`(${BROWSER_STRING} v${IE_VERSION})`}
-                      />
-                    </td>
-                  )}
-                  {BROWSER_STRING !== IE_STRING && (
-                    <td style={styles.td}>
-                      <SystemCheck
-                        description={LOCALIZE.statusPage.systemStatusTable.browsers}
-                        isPassing={browserStatus}
-                        currentSettingsDetails={`(${BROWSER_STRING})`}
-                      />
-                    </td>
-                  )}
-                </tr>
-                <tr>
-                  <td style={styles.td}>
-                    <SystemCheck
-                      description={LOCALIZE.statusPage.systemStatusTable.screenResolution}
-                      isPassing={screenResolutionStatus}
-                      currentSettingsDetails={`(${SCREEN_WIDTH} X ${SCREEN_HEIGHT})`}
-                    />
-                  </td>
-                </tr>
+                {javascriptStatus === true && (
+                  <SystemCheck
+                    description={LOCALIZE.statusPage.systemStatusTable.javaScript}
+                    isPassing={javascriptStatus}
+                    currentSettingsDetails={`(${LOCALIZE.commons.enabled})`}
+                  />
+                )}
+                {javascriptStatus === false && (
+                  <SystemCheck
+                    description={LOCALIZE.statusPage.systemStatusTable.javaScript}
+                    isPassing={javascriptStatus}
+                    currentSettingsDetails={`(${LOCALIZE.commons.disabled})`}
+                  />
+                )}
+                {BROWSER_STRING === IE_STRING && (
+                  <SystemCheck
+                    description={LOCALIZE.statusPage.systemStatusTable.browsers}
+                    isPassing={browserStatus}
+                    currentSettingsDetails={`(${BROWSER_STRING} v${IE_VERSION})`}
+                  />
+                )}
+                {BROWSER_STRING !== IE_STRING && (
+                  <SystemCheck
+                    description={LOCALIZE.statusPage.systemStatusTable.browsers}
+                    isPassing={browserStatus}
+                    currentSettingsDetails={`(${BROWSER_STRING})`}
+                  />
+                )}
+                <SystemCheck
+                  description={LOCALIZE.statusPage.systemStatusTable.screenResolution}
+                  isPassing={screenResolutionStatus}
+                  currentSettingsDetails={`(${SCREEN_WIDTH} X ${SCREEN_HEIGHT})`}
+                />
               </tbody>
             </table>
-          </Panel.Body>
-        </Panel>
+          </div>
+        </div>
       </div>
     );
   }
