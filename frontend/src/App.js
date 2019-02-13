@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-import "./css/aurora.min.css";
-import "./App.css";
+import "./css/lib/aurora.min.css";
+import "./css/App.css";
 import Status from "./Status";
 import Home from "./Home";
 import Experiment from "./Experiment";
