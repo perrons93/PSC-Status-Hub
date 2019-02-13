@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
 import StatusCheck from "./components/status/StatusCheck";
 import SystemCheck from "./components/status/SystemCheck";
 import detectBrowser from "./helpers/detectBrowser";
@@ -124,7 +123,9 @@ class Status extends Component {
           <hr />
           <p>
             <a href="https://github.com/code-for-canada/project-thundercat">
-              <Button bsStyle="primary">{LOCALIZE.statusPage.gitHubRepoBtn}</Button>
+              <button type="button" className="btn btn-primary">
+                {LOCALIZE.statusPage.gitHubRepoBtn}
+              </button>
             </a>
             <img src={logo} className="App-logo" style={styles.logo} alt="logo" />
           </p>

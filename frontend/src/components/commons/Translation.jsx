@@ -32,12 +32,12 @@ class Translation extends Component {
     return (
       <div>
         {this.state.currentLanguage === LANGUAGES.english && (
-          <button style={{ color: "blue" }} onClick={this.onSetLanguageToFrench}>
+          <button type="button" className="btn btn-secondary" onClick={this.onSetLanguageToFrench}>
             Français
           </button>
         )}
         {this.state.currentLanguage === LANGUAGES.french && (
-          <button style={{ color: "blue" }} onClick={this.onSetLanguageToEnglish}>
+          <button type="button" className="btn btn-secondary" onClick={this.onSetLanguageToEnglish}>
             English
           </button>
         )}
