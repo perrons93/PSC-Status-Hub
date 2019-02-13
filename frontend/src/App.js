@@ -8,7 +8,7 @@ import Emib from "./components/eMIB/Emib";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <Router>
         <div>
           <div>
