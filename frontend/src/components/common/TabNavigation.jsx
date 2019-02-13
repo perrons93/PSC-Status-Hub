@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Tab from "./Tab";
+import Tab, { SELECTED, UNSELECTED } from "./Tab";
 
 class TabNavigation extends Component {
   static propTypes = {
     tabSpecs: PropTypes.array.isRequired,
-    curTab: PropTypes.number.isRequired
+    currentTab: PropTypes.number.isRequired
   };
 
   state = {
     tabSpecs: this.props.tabSpecs,
-    curTab: this.props.curTab,
-    curBody: this.props.tabSpecs[this.props.curTab].body
+    currentTab: this.props.currentTab,
+    currentBody: this.props.tabSpecs[this.props.currentTab].body
   };
 
   selectTab(id) {
     let tempSpecs = this.state.tabSpecs;
-    tempSpecs[this.state.curTab].selected = "false";
-    tempSpecs[id].selected = "true";
+    tempSpecs[this.state.currentTab].selected = UNSELECTED;
+    tempSpecs[id].selected = SELECTED;
 
-    this.setState({ curTab: id, tabSpecs: tempSpecs, curBody: tempSpecs[id].body });
+    this.setState({ currentTab: id, tabSpecs: tempSpecs, currentBody: tempSpecs[id].body });
   }
 
   render() {
@@ -33,7 +33,7 @@ class TabNavigation extends Component {
             </span>
           ))}
         </div>
-        <div>{this.state.curBody}</div>
+        <div>{this.state.currentBody}</div>
       </div>
     );
   }
