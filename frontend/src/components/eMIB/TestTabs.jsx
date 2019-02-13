@@ -3,7 +3,7 @@ import HowTo from "./HowTo";
 import Background from "./Background";
 import Inbox from "./Inbox";
 import Tab, { SELECTED, UNSELECTED } from "./Tab";
-import { STRINGS } from "./Emib";
+import LOCALIZE from "../../text_resources";
 
 const TABS = {
   instructions: "instructions",
@@ -51,15 +51,24 @@ class TestTabs extends Component {
       <div>
         <div>
           <span onClick={this.switchInstr}>
-            <Tab tabName={STRINGS.instructionsTabTitle} selected={this.state.instructionSelected} />
+            <Tab
+              tabName={LOCALIZE.emibTest.tabs.instructionsTabTitle}
+              selected={this.state.instructionSelected}
+            />
           </span>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <span onClick={this.switchBKGD}>
-            <Tab tabName={STRINGS.backgroundTabTitle} selected={this.state.backgroundSelected} />
+            <Tab
+              tabName={LOCALIZE.emibTest.tabs.backgroundTabTitle}
+              selected={this.state.backgroundSelected}
+            />
           </span>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <span onClick={this.switchInbox}>
-            <Tab tabName={STRINGS.inboxTabTitle} selected={this.state.inboxSelected} />
+            <Tab
+              tabName={LOCALIZE.emibTest.tabs.inboxTabTitle}
+              selected={this.state.inboxSelected}
+            />
           </span>
         </div>
         {this.state.curTab === TABS.instructions && <HowTo />}

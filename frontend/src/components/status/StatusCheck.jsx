@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Glyphicon, Label } from "react-bootstrap";
+import LOCALIZE from "../../text_resources";
 
 const styles = {
   container: {
@@ -45,13 +46,13 @@ class StatusCheck extends React.PureComponent {
           {isPassing && (
             <div style={styles.passing}>
               <Glyphicon style={styles.glyphicon} glyph="ok-circle" />
-              <Label>Pass</Label>
+              <Label>{LOCALIZE.commons.passStatus}</Label>
             </div>
           )}
           {!isPassing && (
             <div style={styles.failing}>
               <Glyphicon style={styles.glyphicon} glyph="remove-circle" />
-              <Label>Fail</Label>
+              <Label>{LOCALIZE.commons.failStatus}</Label>
             </div>
           )}
         </div>
