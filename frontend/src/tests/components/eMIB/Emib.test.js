@@ -36,7 +36,7 @@ it("renders Next in English", () => {
   LOCALIZE.setLanguage(LANGUAGES.english);
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.welcome });
-  const nextButton = <p>{LOCALIZE.commons.nextButton}</p>;
+  const nextButton = <span>{LOCALIZE.commons.nextButton}</span>;
   expect(wrapper.contains(nextButton)).toEqual(true);
 });
 
@@ -44,6 +44,6 @@ it("renders Next in French", () => {
   LOCALIZE.setLanguage(LANGUAGES.french);
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.welcome });
-  const nextButton = <p>{LOCALIZE.commons.nextButton}</p>;
+  const nextButton = <span>{LOCALIZE.commons.nextButton}</span>;
   expect(wrapper.contains(nextButton)).toEqual(true);
 });
