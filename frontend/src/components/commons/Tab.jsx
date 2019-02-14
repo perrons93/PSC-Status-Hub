@@ -31,7 +31,6 @@ class Tab extends Component {
         )}
       </span>
     );
-    //TODO can we pass a function as a prop??
   }
 }
 
