@@ -30,36 +30,32 @@ class App extends Component {
       <Router>
         <div>
           <nav className="fixed-top bg-white navbar navbar-expand" role="banner">
-            <div className="pscHeader">
+            <div id="psc_image" className="pscHeader">
               <img src={psc_header} alt="psc_header" />
             </div>
-            <div className="fixed-top" role="banner">
-              <div className="translationButton">
+            <div className="fixed-top mx-auto nav-site scroll nav nav-tabs">
+              <ul id="tabs" className="mx-auto nav-site scroll nav nav-tabs">
+                <li className="nav-item bg-white">
+                  <Link className="nav-link active-header-tab" to="/">
+                    {LOCALIZE.mainTabs.homeTabTitle}
+                  </Link>
+                </li>
+                <li className="nav-item bg-white">
+                  <Link className="nav-link active-header-tab" to="/experiment">
+                    {LOCALIZE.mainTabs.prototypeTabTitle}
+                  </Link>
+                </li>
+                <li className="nav-item bg-white">
+                  <Link className="nav-link active-header-tab" to="/status">
+                    {LOCALIZE.mainTabs.statusTabTitle}
+                  </Link>
+                </li>
+              </ul>
+              <div id="translation_button" className="translationButton">
                 <Translation updateLanguageOnPage={this.updateLanguage} />
               </div>
-              <div>
-                <div className="mx-auto nav-site scroll nav nav-tabs">
-                  <ul className="mx-auto nav-site scroll nav nav-tabs">
-                    <li className="nav-item bg-white">
-                      <Link className="nav-link active-header-tab" to="/">
-                        {LOCALIZE.mainTabs.homeTabTitle}
-                      </Link>
-                    </li>
-                    <li className="nav-item bg-white">
-                      <Link className="nav-link active-header-tab" to="/experiment">
-                        {LOCALIZE.mainTabs.prototypeTabTitle}
-                      </Link>
-                    </li>
-                    <li className="nav-item bg-white">
-                      <Link className="nav-link active-header-tab" to="/status">
-                        {LOCALIZE.mainTabs.statusTabTitle}
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-                <br />
-              </div>
             </div>
+            <br />
           </nav>
           <Route exact path="/" component={Home} />
           <Route path="/experiment" component={Experiment} />
