@@ -1,3 +1,13 @@
 .app {
   text-align: center;
 }
+
+.translationButton {
+  position: absolute;
+  right: 0;
+  padding: 4px 4px 0 0;
+}
+
+.pscHeader {
+  padding: 10px 0 0 10px;
+}

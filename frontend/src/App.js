@@ -8,6 +8,7 @@ import Experiment from "./Experiment";
 import Emib from "./components/eMIB/Emib";
 import Translation, { LANGUAGES } from "./components/commons/Translation";
 import LOCALIZE from "./text_resources";
+import psc_header from "./psc_header.png";
 
 class App extends Component {
   state = {
@@ -26,25 +27,52 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Translation updateLanguageOnPage={this.updateLanguage} />
+      <header className="fixed-top bg-white" role="banner">
         <div>
-          <Router>
-            <div>
-              <div>
-                <Link to="/">{LOCALIZE.mainTabs.homeTabTitle}</Link>
-                <Link to="/experiment">{LOCALIZE.mainTabs.prototypeTabTitle}</Link>
-                <Link to="/status">{LOCALIZE.mainTabs.statusTabTitle}</Link>
+          <div className="pscHeader">
+            <img src={psc_header} alt="psc_header" />
+          </div>
+          <nav
+            aria-label="Main Navigation"
+            className="main-nav navbar navbar-expand bg-white"
+            role="navigation"
+          >
+            <div className="fixed-top" role="banner">
+              <div className="translationButton">
+                <Translation updateLanguageOnPage={this.updateLanguage} />
               </div>
-              <hr />
-              <Route exact path="/" component={Home} />
-              <Route path="/experiment" component={Experiment} />
-              <Route path="/status" component={Status} />
-              <Route path="/emib-sample" component={Emib} />
+              <Router>
+                <div>
+                  <div className="mx-auto nav-site scroll nav nav-tabs">
+                    <ul className="mx-auto nav-site scroll nav nav-tabs">
+                      <li className="nav-item bg-white">
+                        <Link className="nav-link active-header-tab" to="/">
+                          {LOCALIZE.mainTabs.homeTabTitle}
+                        </Link>
+                      </li>
+                      <li className="nav-item bg-white">
+                        <Link className="nav-link active-header-tab" to="/experiment">
+                          {LOCALIZE.mainTabs.prototypeTabTitle}
+                        </Link>
+                      </li>
+                      <li className="nav-item bg-white">
+                        <Link className="nav-link active-header-tab" to="/status">
+                          {LOCALIZE.mainTabs.statusTabTitle}
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <br />
+                  <Route exact path="/" component={Home} />
+                  <Route path="/experiment" component={Experiment} />
+                  <Route path="/status" component={Status} />
+                  <Route path="/emib-sample" component={Emib} />
+                </div>
+              </Router>
             </div>
-          </Router>
+          </nav>
         </div>
-      </div>
+      </header>
     );
   }
 }

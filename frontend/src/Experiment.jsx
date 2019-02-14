@@ -8,7 +8,7 @@ const Experiment = () => {
       <p>{LOCALIZE.prototypePage.welcomeMsg}</p>
 
       <form method="get" action="/emib-sample">
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           {LOCALIZE.prototypePage.startEmibSampleTest}
         </button>
       </form>
