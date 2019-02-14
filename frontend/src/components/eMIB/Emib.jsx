@@ -34,7 +34,7 @@ class Emib extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <h2>{LOCALIZE.emibTest.homePage.testTitle}</h2>
         {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.emibTest.homePage.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
