@@ -30,7 +30,7 @@ class EmibTabs extends Component {
     ];
     return (
       <div>
-        <div>{<TabNavigation tabSpecs={TABS} curTab={1} />}</div>
+        <div>{<TabNavigation tabSpecs={TABS} currentTab={1} />}</div>
       </div>
     );
   }
