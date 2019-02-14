@@ -3,8 +3,8 @@ import { shallow } from "enzyme";
 import SystemCheck from "../../../components/status/SystemCheck";
 import LOCALIZE from "../../../text_resources";
 
-const failingMessage = <span>{LOCALIZE.commons.failStatus}</span>;
-const passingMessage = <span>{LOCALIZE.commons.passStatus}</span>;
+const failingMessage = <span> {LOCALIZE.commons.failStatus}</span>;
+const passingMessage = <span> {LOCALIZE.commons.passStatus}</span>;
 
 it("renders description", () => {
   const wrapper = shallow(
