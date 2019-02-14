@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import HowTo from "./HowTo";
 import Background from "./Background";
 import Inbox from "./Inbox";
-import { SELECTED, UNSELECTED } from "../common/Tab";
+import { SELECTED, UNSELECTED } from "../commons/Tab";
 import LOCALIZE from "../../text_resources";
-import TabNavigation from "../common/TabNavigation";
+import TabNavigation from "../commons/TabNavigation";
 
 class EmibTabs extends Component {
   render() {
