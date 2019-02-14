@@ -30,15 +30,15 @@ class SystemCheck extends React.PureComponent {
           {isPassing && (
             <div style={styles.passing}>
               <i style={styles.glyphicon} className="fas fa-check-circle" />
-              <span>{LOCALIZE.commons.passStatus}</span>
-              <span style={styles.currentSpecs}>{currentSettingsDetails}</span>
+              <span> {LOCALIZE.commons.passStatus}</span>
+              <span style={styles.currentSpecs}> {currentSettingsDetails}</span>
             </div>
           )}
           {!isPassing && (
             <div style={styles.failing}>
               <i style={styles.glyphicon} className="fas fa-times-circle" />
-              <span>{LOCALIZE.commons.failStatus}</span>
-              <span style={styles.currentSpecs}>{currentSettingsDetails}</span>
+              <span> {LOCALIZE.commons.failStatus}</span>
+              <span style={styles.currentSpecs}> {currentSettingsDetails}</span>
             </div>
           )}
         </td>

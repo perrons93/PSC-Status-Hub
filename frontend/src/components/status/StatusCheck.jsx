@@ -29,13 +29,13 @@ class StatusCheck extends React.PureComponent {
           {isPassing && (
             <div style={styles.passing}>
               <i className="fas fa-check-circle" />
-              <span>{LOCALIZE.commons.passStatus}</span>
+              <span> {LOCALIZE.commons.passStatus}</span>
             </div>
           )}
           {!isPassing && (
             <div style={styles.failing}>
               <i className="fas fa-times-circle" />
-              <span>{LOCALIZE.commons.failStatus}</span>
+              <span> {LOCALIZE.commons.failStatus}</span>
             </div>
           )}
         </td>
