@@ -8,7 +8,7 @@ import TabNavigation from "../commons/TabNavigation";
 
 class EmibTabs extends Component {
   render() {
-    let TABS = [
+    const TABS = [
       {
         id: 0,
         tabName: LOCALIZE.emibTest.tabs.instructionsTabTitle,

@@ -4,7 +4,7 @@ import TabNavigation from "../../../components/commons/TabNavigation";
 import Tab, { SELECTED, UNSELECTED } from "../../../components/commons/Tab";
 
 it("renders 2 tabs", () => {
-  let TABS = [
+  const TABS = [
     { id: 0, tabName: "test1", selected: UNSELECTED },
     { id: 1, tabName: "test2", selected: SELECTED }
   ];
@@ -16,7 +16,7 @@ it("renders 2 tabs", () => {
 });
 
 it("renders 3 tabs", () => {
-  let TABS = [
+  const TABS = [
     { id: 0, tabName: "test1", selected: UNSELECTED },
     { id: 1, tabName: "test2", selected: SELECTED },
     { id: 2, tabName: "test3", selected: UNSELECTED }
@@ -31,7 +31,7 @@ it("renders 3 tabs", () => {
 });
 
 it("renders 4 tabs", () => {
-  let TABS = [
+  const TABS = [
     { id: 0, tabName: "test1", selected: UNSELECTED },
     { id: 1, tabName: "test2", selected: SELECTED },
     { id: 2, tabName: "test3", selected: UNSELECTED },
@@ -49,7 +49,7 @@ it("renders 4 tabs", () => {
 });
 
 it("changes tabs to tab 1", () => {
-  let TABS = [
+  const TABS = [
     { id: 0, tabName: "test1", selected: UNSELECTED },
     { id: 1, tabName: "test2", selected: SELECTED },
     { id: 2, tabName: "test3", selected: UNSELECTED }
@@ -65,7 +65,7 @@ it("changes tabs to tab 1", () => {
 });
 
 it("changes tabs to tab 2", () => {
-  let TABS = [
+  const TABS = [
     { id: 0, tabName: "test1", selected: UNSELECTED },
     { id: 1, tabName: "test2", selected: SELECTED },
     { id: 2, tabName: "test3", selected: UNSELECTED }
