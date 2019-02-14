@@ -6,9 +6,11 @@ class Confirmation extends Component {
     return (
       <div>
         <p>{LOCALIZE.emibTest.confirmationPage.submissionConfirmed}</p>
-        <a style={{ color: "blue" }} href="/experiment">
-          {LOCALIZE.commons.exitTest}
-        </a>
+        <form method="get" action="/experiment">
+          <button type="submit" className="btn btn-primary">
+            {LOCALIZE.commons.exitTest}
+          </button>
+        </form>
       </div>
     );
   }

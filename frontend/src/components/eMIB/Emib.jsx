@@ -42,11 +42,13 @@ class Emib extends Component {
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (
-          <div style={{ color: "blue", cursor: "pointer" }} onClick={this.changePage}>
-            {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.commons.nextButton}</p>}
-            {this.state.curPage === PAGES.howTo && <p>{LOCALIZE.commons.startTest}</p>}
-            {this.state.curPage === PAGES.emibTabs && <p>{LOCALIZE.commons.submitTestButton}</p>}
-          </div>
+          <button type="button" className="btn btn-primary" onClick={this.changePage}>
+            {this.state.curPage === PAGES.welcome && <span>{LOCALIZE.commons.nextButton}</span>}
+            {this.state.curPage === PAGES.howTo && <span>{LOCALIZE.commons.startTest}</span>}
+            {this.state.curPage === PAGES.emibTabs && (
+              <span>{LOCALIZE.commons.submitTestButton}</span>
+            )}
+          </button>
         )}
       </div>
     );

@@ -6,7 +6,12 @@ const Experiment = () => {
     <div className="app">
       <h2>{LOCALIZE.prototypePage.title}</h2>
       <p>{LOCALIZE.prototypePage.welcomeMsg}</p>
-      <a href="/emib-sample">{LOCALIZE.prototypePage.startEmibSampleTest}</a>
+
+      <form method="get" action="/emib-sample">
+        <button type="submit" class="btn btn-primary">
+          {LOCALIZE.prototypePage.startEmibSampleTest}
+        </button>
+      </form>
     </div>
   );
 };
