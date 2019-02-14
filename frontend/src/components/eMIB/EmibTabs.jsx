@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import HowTo from "./HowTo";
 import Background from "./Background";
 import Inbox from "./Inbox";
-import { SELECTED, UNSELECTED } from "../commons/Tab";
+
 import LOCALIZE from "../../text_resources";
 import TabNavigation from "../commons/TabNavigation";
 
@@ -12,19 +12,19 @@ class EmibTabs extends Component {
       {
         id: 0,
         tabName: LOCALIZE.emibTest.tabs.instructionsTabTitle,
-        selected: UNSELECTED,
+        selected: false,
         body: <HowTo />
       },
       {
         id: 1,
         tabName: LOCALIZE.emibTest.tabs.backgroundTabTitle,
-        selected: SELECTED,
+        selected: true,
         body: <Background />
       },
       {
         id: 2,
         tabName: LOCALIZE.emibTest.tabs.inboxTabTitle,
-        selected: UNSELECTED,
+        selected: false,
         body: <Inbox />
       }
     ];

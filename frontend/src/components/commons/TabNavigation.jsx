@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Tab, { SELECTED, UNSELECTED } from "./Tab";
+import Tab from "./Tab";
 
 class TabNavigation extends Component {
   static propTypes = {
@@ -16,8 +16,8 @@ class TabNavigation extends Component {
 
   selectTab(id) {
     let tempSpecs = this.state.tabSpecs;
-    tempSpecs[this.state.currentTab].selected = UNSELECTED;
-    tempSpecs[id].selected = SELECTED;
+    tempSpecs[this.state.currentTab].selected = false;
+    tempSpecs[id].selected = true;
 
     this.setState({ currentTab: id, tabSpecs: tempSpecs, currentBody: tempSpecs[id].body });
   }
