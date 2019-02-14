@@ -20,7 +20,7 @@ it("renders howTo page", () => {
 
 it("renders background page in test tabs", () => {
   const wrapper = mount(<Emib />);
-  wrapper.setState({ curPage: PAGES.testTabs });
+  wrapper.setState({ curPage: PAGES.emibTabs });
   const backgroundPageTitle = <h2>{LOCALIZE.emibTest.backgroundPage.title}</h2>;
   expect(wrapper.contains(backgroundPageTitle)).toEqual(true);
 });

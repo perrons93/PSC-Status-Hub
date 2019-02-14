@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Confirmation from "./Confirmation";
 import HowTo from "./HowTo";
-import TestTabs from "./TestTabs";
+import EmibTabs from "./EmibTabs";
 import LOCALIZE from "../../text_resources";
 
 const PAGES = {
   welcome: "welcome",
   howTo: "howTo",
-  testTabs: "testTabs",
+  emibTabs: "emibTabs",
   confirm: "confirm"
 };
 class Emib extends Component {
@@ -21,9 +21,9 @@ class Emib extends Component {
         this.setState({ curPage: PAGES.howTo });
         break;
       case PAGES.howTo:
-        this.setState({ curPage: PAGES.testTabs });
+        this.setState({ curPage: PAGES.emibTabs });
         break;
-      case PAGES.testTabs:
+      case PAGES.emibTabs:
         this.setState({ curPage: PAGES.confirm });
         break;
       default:
@@ -38,14 +38,14 @@ class Emib extends Component {
         <h2>{LOCALIZE.emibTest.homePage.testTitle}</h2>
         {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.emibTest.homePage.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
-        {this.state.curPage === PAGES.testTabs && <TestTabs />}
+        {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 
         {this.state.curPage !== PAGES.confirm && (
           <div style={{ color: "blue", cursor: "pointer" }} onClick={this.changePage}>
             {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.commons.nextButton}</p>}
             {this.state.curPage === PAGES.howTo && <p>{LOCALIZE.commons.startTest}</p>}
-            {this.state.curPage === PAGES.testTabs && <p>{LOCALIZE.commons.submitTestButton}</p>}
+            {this.state.curPage === PAGES.emibTabs && <p>{LOCALIZE.commons.submitTestButton}</p>}
           </div>
         )}
       </div>
