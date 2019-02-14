@@ -27,21 +27,22 @@ class App extends Component {
 
   render() {
     return (
-      <header className="fixed-top bg-white" role="banner">
+      <Router>
         <div>
-          <div className="pscHeader">
-            <img src={psc_header} alt="psc_header" />
-          </div>
-          <nav
-            aria-label="Main Navigation"
-            className="main-nav navbar navbar-expand bg-white"
-            role="navigation"
-          >
-            <div className="fixed-top" role="banner">
-              <div className="translationButton">
-                <Translation updateLanguageOnPage={this.updateLanguage} />
-              </div>
-              <Router>
+          <div className="fixed-top bg-white" role="banner">
+            <div className="pscHeader">
+              <img src={psc_header} alt="psc_header" />
+            </div>
+            <nav
+              aria-label="Main Navigation"
+              className="main-nav navbar navbar-expand bg-white"
+              role="navigation"
+            >
+              <div className="fixed-top" role="banner">
+                <div className="translationButton">
+                  <Translation updateLanguageOnPage={this.updateLanguage} />
+                </div>
+
                 <div>
                   <div className="mx-auto nav-site scroll nav nav-tabs">
                     <ul className="mx-auto nav-site scroll nav nav-tabs">
@@ -63,16 +64,16 @@ class App extends Component {
                     </ul>
                   </div>
                   <br />
-                  <Route exact path="/" component={Home} />
-                  <Route path="/experiment" component={Experiment} />
-                  <Route path="/status" component={Status} />
-                  <Route path="/emib-sample" component={Emib} />
                 </div>
-              </Router>
-            </div>
-          </nav>
+              </div>
+            </nav>
+          </div>
+          <Route exact path="/" component={Home} />
+          <Route path="/experiment" component={Experiment} />
+          <Route path="/status" component={Status} />
+          <Route path="/emib-sample" component={Emib} />
         </div>
-      </header>
+      </Router>
     );
   }
 }
