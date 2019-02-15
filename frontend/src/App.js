@@ -17,12 +17,14 @@ const PATH = {
   emibSampleTest: "/emib-sample"
 };
 
+//Check if the home page is selected
 const isHomeActive = (match, location) => {
   if (!location) return false;
   const { pathname } = location;
   return pathname === PATH.home;
 };
 
+//Check if the Prototype page is selected even when you start the eMIB Sample Test
 const isExperimentActive = (match, location) => {
   if (!location) return false;
   const { pathname } = location;
@@ -33,6 +35,7 @@ const isExperimentActive = (match, location) => {
   }
 };
 
+//Check if the Status page is selected
 const isStatusActive = (match, location) => {
   if (!location) return false;
   const { pathname } = location;
@@ -59,16 +62,16 @@ class App extends Component {
       <Router>
         <div>
           <nav className="fixed-top bg-white navbar navbar-expand" role="banner">
-            <div id="psc_image" className="pscHeader">
+            <div id="psc-image">
               <img src={psc_header} alt="psc_header" />
             </div>
             <div className="fixed-top nav nav-tabs">
-              <ul className="mx-auto nav-site nav nav-tabs nav-item">
+              <ul id="navigation-tabs" className="mx-auto nav-site nav nav-tabs nav-item">
                 <li className="bg-white">
                   <NavLink
                     isActive={isHomeActive}
                     className="nav-link"
-                    activeClassName="selectedTab"
+                    activeClassName="selected-tab"
                     to="/"
                   >
                     {LOCALIZE.mainTabs.homeTabTitle}
@@ -78,7 +81,7 @@ class App extends Component {
                   <NavLink
                     isActive={isExperimentActive}
                     className="nav-link"
-                    activeClassName="selectedTab"
+                    activeClassName="selected-tab"
                     to="/experiment"
                   >
                     {LOCALIZE.mainTabs.prototypeTabTitle}
@@ -88,14 +91,14 @@ class App extends Component {
                   <NavLink
                     isActive={isStatusActive}
                     className="nav-link"
-                    activeClassName="selectedTab"
+                    activeClassName="selected-tab"
                     to="/status"
                   >
                     {LOCALIZE.mainTabs.statusTabTitle}
                   </NavLink>
                 </li>
               </ul>
-              <div id="translation_button" className="translationButton">
+              <div id="translation-button" className="translation-button">
                 <Translation updateLanguageOnPage={this.updateLanguage} />
               </div>
             </div>
