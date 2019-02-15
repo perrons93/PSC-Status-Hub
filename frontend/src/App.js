@@ -26,7 +26,11 @@ const isHomeActive = (match, location) => {
 const isExperimentActive = (match, location) => {
   if (!location) return false;
   const { pathname } = location;
-  return pathname === PATH.experiment;
+  if (pathname === PATH.experiment) {
+    return pathname === PATH.experiment;
+  } else if (pathname === PATH.emibSampleTest) {
+    return pathname === PATH.emibSampleTest;
+  }
 };
 
 const isStatusActive = (match, location) => {
