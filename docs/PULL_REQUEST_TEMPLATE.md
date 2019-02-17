@@ -14,9 +14,11 @@ Please delete options that are not relevant.
 
 ## Screenshot
 
-Please provide if applicable.
+Please provide if applicable (browser for `frontend` or any visual way to show a `backend` change).
 
 # Testing
+
+Applicable for all code changes.
 
 Manual steps to reproduce this functionality:
 
@@ -29,7 +31,9 @@ Any concerns that need to be addressed in product usability testing:
 
 Screenshot of unit tests run passing:
 
-# Checklist:
+# Checklist
+
+Applicable for all code changes.
 
 - [ ] My code follows the style guidelines of this project
 - [ ] I have commented my code, particularly in hard-to-understand areas
@@ -37,5 +41,5 @@ Screenshot of unit tests run passing:
 - [ ] My changes generate no new compiler warnings
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] New and existing unit tests pass locally with my changes
-- [ ] I have researched WCAG2.1 standards and met them in this PR
+- [ ] I have researched WCAG2.1 accessibility standards and met them in this PR
 - [ ] My changes look good on IE 10+, Chrome
