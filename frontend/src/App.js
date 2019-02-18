@@ -4,7 +4,7 @@ import "./css/lib/aurora.min.css";
 import "./css/App.css";
 import Status from "./Status";
 import Home from "./Home";
-import Experiment from "./Experiment";
+import Prototype from "./Prototype";
 import Emib from "./components/eMIB/Emib";
 import Translation, { LANGUAGES } from "./components/commons/Translation";
 import LOCALIZE from "./text_resources";
@@ -12,7 +12,7 @@ import psc_header from "./psc_header.png";
 
 const PATH = {
   home: "/",
-  experiment: "/experiment",
+  prototype: "/prototype",
   status: "/status",
   emibSampleTest: "/emib-sample"
 };
@@ -31,11 +31,11 @@ const isHomeActive = (match, location) => {
 };
 
 //Check if the Prototype page is selected even when you start the eMIB Sample Test
-const isExperimentActive = (match, location) => {
+const isPrototypeActive = (match, location) => {
   if (!location) return false;
   const { pathname } = location;
-  if (pathname === PATH.experiment || pathname === PATH.emibSampleTest) {
-    return pathname === PATH.experiment || pathname === PATH.emibSampleTest;
+  if (pathname === PATH.prototype || pathname === PATH.emibSampleTest) {
+    return pathname === PATH.prototype || pathname === PATH.emibSampleTest;
   }
 };
 
@@ -76,17 +76,17 @@ class App extends Component {
             <div className="fixed-top nav nav-tabs">
               <ul id="navigation-tabs" className="mx-auto nav-site nav nav-tabs nav-item">
                 <li className="bg-white">
-                  <NavLink isActive={isHomeActive} className="nav-link" to="/">
+                  <NavLink isActive={isHomeActive} className="nav-link" to={PATH.home}>
                     {LOCALIZE.mainTabs.homeTabTitle}
                   </NavLink>
                 </li>
                 <li className="bg-white">
-                  <NavLink isActive={isExperimentActive} className="nav-link" to="/experiment">
+                  <NavLink isActive={isPrototypeActive} className="nav-link" to={PATH.prototype}>
                     {LOCALIZE.mainTabs.prototypeTabTitle}
                   </NavLink>
                 </li>
                 <li className="bg-white">
-                  <NavLink isActive={isStatusActive} className="nav-link" to="/status">
+                  <NavLink isActive={isStatusActive} className="nav-link" to={PATH.status}>
                     {LOCALIZE.mainTabs.statusTabTitle}
                   </NavLink>
                 </li>
@@ -98,7 +98,7 @@ class App extends Component {
             <br />
           </nav>
           <Route exact path={PATH.home} component={Home} />
-          <Route path={PATH.experiment} component={Experiment} />
+          <Route path={PATH.prototype} component={Prototype} />
           <Route path={PATH.status} component={Status} />
           <Route path={PATH.emibSampleTest} component={Emib} />
         </div>
@@ -108,3 +108,4 @@ class App extends Component {
 }
 
 export default App;
+export { PATH };
