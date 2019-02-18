@@ -41,5 +41,5 @@ Applicable for all code changes.
 - [ ] My changes generate no new compiler warnings
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] New and existing unit tests pass locally with my changes
-- [ ] I have researched WCAG2.1 accessibility standards and met them in this PR
-- [ ] My changes look good on IE 10+, Chrome
+- [ ] I have researched WCAG2.1 accessibility standards and met them in this PR (can be navigated using a keyboard)
+- [ ] My changes look good on IE 10+, Firefox, and Chrome
