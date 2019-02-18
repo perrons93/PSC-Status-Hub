@@ -63,7 +63,7 @@ class App extends Component {
         <div>
           <nav className="fixed-top bg-white navbar navbar-expand" role="banner">
             <div id="psc-image">
-              <img src={psc_header} alt="psc_header" />
+              <img src={psc_header} alt={LOCALIZE.commons.psc} />
             </div>
             <div className="fixed-top nav nav-tabs">
               <ul id="navigation-tabs" className="mx-auto nav-site nav nav-tabs nav-item">
