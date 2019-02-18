@@ -17,6 +17,12 @@ const PATH = {
   emibSampleTest: "/emib-sample"
 };
 
+const styles = {
+  navBar: {
+    paddingBottom: 15
+  }
+};
+
 //Check if the home page is selected
 const isHomeActive = (match, location) => {
   if (!location) return false;
@@ -61,7 +67,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav className="fixed-top bg-white navbar navbar-expand" role="banner">
+          <nav
+            style={styles.navBar}
+            className="fixed-top bg-white navbar navbar-expand"
+            role="banner"
+          >
             <div id="psc-image">
               <img src={psc_header} alt={LOCALIZE.commons.psc} />
             </div>
