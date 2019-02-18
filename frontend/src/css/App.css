@@ -1,3 +1,9 @@
 .app {
   text-align: center;
 }
+
+.translation-button {
+  position: absolute;
+  right: 0;
+  padding: 4px 4px 0 0;
+}

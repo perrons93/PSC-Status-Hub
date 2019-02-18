@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import "./css/lib/aurora.min.css";
 import "./css/App.css";
 import Status from "./Status";
@@ -8,6 +8,43 @@ import Experiment from "./Experiment";
 import Emib from "./components/eMIB/Emib";
 import Translation, { LANGUAGES } from "./components/commons/Translation";
 import LOCALIZE from "./text_resources";
+import psc_header from "./psc_header.png";
+
+const PATH = {
+  home: "/",
+  experiment: "/experiment",
+  status: "/status",
+  emibSampleTest: "/emib-sample"
+};
+
+const styles = {
+  navBar: {
+    paddingBottom: 15
+  }
+};
+
+//Check if the home page is selected
+const isHomeActive = (match, location) => {
+  if (!location) return false;
+  const { pathname } = location;
+  return pathname === PATH.home;
+};
+
+//Check if the Prototype page is selected even when you start the eMIB Sample Test
+const isExperimentActive = (match, location) => {
+  if (!location) return false;
+  const { pathname } = location;
+  if (pathname === PATH.experiment || pathname === PATH.emibSampleTest) {
+    return pathname === PATH.experiment || pathname === PATH.emibSampleTest;
+  }
+};
+
+//Check if the Status page is selected
+const isStatusActive = (match, location) => {
+  if (!location) return false;
+  const { pathname } = location;
+  return pathname === PATH.status;
+};
 
 class App extends Component {
   state = {
@@ -26,25 +63,46 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Translation updateLanguageOnPage={this.updateLanguage} />
+      <Router>
         <div>
-          <Router>
-            <div>
-              <div>
-                <Link to="/">{LOCALIZE.mainTabs.homeTabTitle}</Link>
-                <Link to="/experiment">{LOCALIZE.mainTabs.prototypeTabTitle}</Link>
-                <Link to="/status">{LOCALIZE.mainTabs.statusTabTitle}</Link>
-              </div>
-              <hr />
-              <Route exact path="/" component={Home} />
-              <Route path="/experiment" component={Experiment} />
-              <Route path="/status" component={Status} />
-              <Route path="/emib-sample" component={Emib} />
+          <nav
+            style={styles.navBar}
+            className="fixed-top bg-white navbar navbar-expand"
+            role="banner"
+          >
+            <div id="psc-image">
+              <img src={psc_header} alt={LOCALIZE.commons.psc} />
             </div>
-          </Router>
+            <div className="fixed-top nav nav-tabs">
+              <ul id="navigation-tabs" className="mx-auto nav-site nav nav-tabs nav-item">
+                <li className="bg-white">
+                  <NavLink isActive={isHomeActive} className="nav-link" to="/">
+                    {LOCALIZE.mainTabs.homeTabTitle}
+                  </NavLink>
+                </li>
+                <li className="bg-white">
+                  <NavLink isActive={isExperimentActive} className="nav-link" to="/experiment">
+                    {LOCALIZE.mainTabs.prototypeTabTitle}
+                  </NavLink>
+                </li>
+                <li className="bg-white">
+                  <NavLink isActive={isStatusActive} className="nav-link" to="/status">
+                    {LOCALIZE.mainTabs.statusTabTitle}
+                  </NavLink>
+                </li>
+              </ul>
+              <div id="translation-button" className="translation-button">
+                <Translation updateLanguageOnPage={this.updateLanguage} />
+              </div>
+            </div>
+            <br />
+          </nav>
+          <Route exact path={PATH.home} component={Home} />
+          <Route path={PATH.experiment} component={Experiment} />
+          <Route path={PATH.status} component={Status} />
+          <Route path={PATH.emibSampleTest} component={Emib} />
         </div>
-      </div>
+      </Router>
     );
   }
 }
