@@ -1,7 +1,7 @@
 import React from "react";
 import LOCALIZE from "./text_resources";
 
-const Experiment = () => {
+const Prototype = () => {
   return (
     <div className="app">
       <h2>{LOCALIZE.prototypePage.title}</h2>
@@ -16,4 +16,4 @@ const Experiment = () => {
   );
 };
 
-export default Experiment;
+export default Prototype;
