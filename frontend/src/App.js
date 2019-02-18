@@ -76,32 +76,17 @@ class App extends Component {
             <div className="fixed-top nav nav-tabs">
               <ul id="navigation-tabs" className="mx-auto nav-site nav nav-tabs nav-item">
                 <li className="bg-white">
-                  <NavLink
-                    isActive={isHomeActive}
-                    className="nav-link"
-                    activeClassName="selected-tab"
-                    to="/"
-                  >
+                  <NavLink isActive={isHomeActive} className="nav-link" to="/">
                     {LOCALIZE.mainTabs.homeTabTitle}
                   </NavLink>
                 </li>
                 <li className="bg-white">
-                  <NavLink
-                    isActive={isExperimentActive}
-                    className="nav-link"
-                    activeClassName="selected-tab"
-                    to="/experiment"
-                  >
+                  <NavLink isActive={isExperimentActive} className="nav-link" to="/experiment">
                     {LOCALIZE.mainTabs.prototypeTabTitle}
                   </NavLink>
                 </li>
                 <li className="bg-white">
-                  <NavLink
-                    isActive={isStatusActive}
-                    className="nav-link"
-                    activeClassName="selected-tab"
-                    to="/status"
-                  >
+                  <NavLink isActive={isStatusActive} className="nav-link" to="/status">
                     {LOCALIZE.mainTabs.statusTabTitle}
                   </NavLink>
                 </li>
