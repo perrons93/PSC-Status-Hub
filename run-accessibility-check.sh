@@ -7,7 +7,6 @@ NC='\033[0m' # No Color
 docker-compose build
 # Test the backened
 printf "*** ${BLUE}Begin Accessibility Check${NC} ***\n"
-pa11y localhost --config ./pa11y.json --include-notices --include-warnings --reporter html > accessibility_check_report.html
-printf "\n"
-printf " ==> A report called 'accessibility_check_report.html' has been created under './project-thundercat/' <==\n\n"
+pa11y localhost --config ./pa11y.json --include-notices --include-warnings --reporter html > reports/accessibility_check.html
+printf "Accessibility report saved at reports/accessibility_check.html\n"
 printf "*** Complete Accessibility Check ***\n"
