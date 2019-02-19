@@ -9,3 +9,5 @@ build
 .DS_Store
 
 snyk_results_*.html
+
+accessibility_check_report.html
