@@ -21,22 +21,16 @@ class Tab extends Component {
       <span>
         {this.props.selected === false && (
           <li role="presentation">
-            <a
-              id={this.props.tabName}
-              role="tab"
-              aria-controls="TestTabs-pane-instructions"
-              aria-selected="false"
-              href="#"
-            >
+            <button role="tab" aria-selected="false">
               {this.props.tabName}
-            </a>
+            </button>
           </li>
         )}
         {this.props.selected === true && (
           <li role="presentation" className="active">
-            <a id={this.props.tabName} role="tab" aria-selected="true" href="#">
+            <button role="tab" aria-selected="true">
               {this.props.tabName}
-            </a>
+            </button>
           </li>
         )}
       </span>

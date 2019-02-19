@@ -21,29 +21,29 @@
   position: relative;
   display: block;
 }
-.bootstrap-tabs > .nav > span > span > li > a {
+.bootstrap-tabs > .nav > span > span > li > button {
   position: relative;
   display: block;
   padding: 10px 15px;
 }
-.bootstrap-tabs > .nav > span > span > li > a:hover,
-.bootstrap-tabs > .nav > span > span > li > a:focus {
+.bootstrap-tabs > .nav > span > span > li > button:hover,
+.bootstrap-tabs > .nav > span > span > li > button:focus {
   text-decoration: none;
   background-color: #eeeeee;
 }
-.bootstrap-tabs > .nav > span > span > li.disabled > a {
+.bootstrap-tabs > .nav > span > span > li.disabled > button {
   color: #777777;
 }
-.bootstrap-tabs > .nav > span > span > li.disabled > a:hover,
-.bootstrap-tabs > .nav > span > span > li.disabled > a:focus {
+.bootstrap-tabs > .nav > span > span > li.disabled > button:hover,
+.bootstrap-tabs > .nav > span > span > li.disabled > button:focus {
   color: #777777;
   text-decoration: none;
   cursor: not-allowed;
   background-color: transparent;
 }
-.bootstrap-tabs > .nav .open > a,
-.bootstrap-tabs > .nav .open > a:hover,
-.bootstrap-tabs > .nav .open > a:focus {
+.bootstrap-tabs > .nav .open > button,
+.bootstrap-tabs > .nav .open > button:hover,
+.bootstrap-tabs > .nav .open > button:focus {
   background-color: #eeeeee;
   border-color: #337ab7;
 }
@@ -53,7 +53,7 @@
   overflow: hidden;
   background-color: #e5e5e5;
 }
-.bootstrap-tabs > .nav > span > span > li > a > img {
+.bootstrap-tabs > .nav > span > span > li > button > img {
   max-width: none;
 }
 .bootstrap-tabs > .nav-tabs {
@@ -63,18 +63,18 @@
   float: left;
   margin-bottom: -1px;
 }
-.bootstrap-tabs > .nav-tabs > span > span > li > a {
+.bootstrap-tabs > .nav-tabs > span > span > li > button {
   margin-right: 2px;
   line-height: 1.42857143;
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
 }
-.bootstrap-tabs > .nav-tabs > span > span > li > a:hover {
+.bootstrap-tabs > .nav-tabs > span > span > li > button:hover {
   border-color: #eeeeee #eeeeee #dddddd;
 }
-.bootstrap-tabs > .nav-tabs > span > span > li.active > a,
-.bootstrap-tabs > .nav-tabs > span > span > li.active > a:hover,
-.bootstrap-tabs > .nav-tabs > span > span > li.active > a:focus {
+.bootstrap-tabs > .nav-tabs > span > span > li.active > button,
+.bootstrap-tabs > .nav-tabs > span > span > li.active > button:hover,
+.bootstrap-tabs > .nav-tabs > span > span > li.active > button:focus {
   color: #555555;
   cursor: default;
   background-color: #ffffff;
