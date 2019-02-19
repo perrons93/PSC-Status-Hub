@@ -55,7 +55,7 @@ it("changes tabs to tab 1", () => {
     { id: 2, tabName: "test3", selected: false }
   ];
   const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} />);
-  wrapper.find(".test1").simulate("click");
+  wrapper.find("#test1").simulate("click");
   const tab1 = <Tab tabName={"test1"} selected={true} />;
   const tab2 = <Tab tabName={"test2"} selected={false} />;
   const tab3 = <Tab tabName={"test3"} selected={false} />;
@@ -71,7 +71,7 @@ it("changes tabs to tab 2", () => {
     { id: 2, tabName: "test3", selected: false }
   ];
   const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} />);
-  wrapper.find(".test3").simulate("click");
+  wrapper.find("#test3").simulate("click");
   const tab1 = <Tab tabName={"test1"} selected={false} />;
   const tab2 = <Tab tabName={"test2"} selected={false} />;
   const tab3 = <Tab tabName={"test3"} selected={true} />;

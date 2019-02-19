@@ -5,9 +5,13 @@ import Tab, { styles } from "../../../components/commons/Tab";
 it("renders selected tab", () => {
   const wrapper = shallow(<Tab tabName="Tab1" selected={true} />);
   const initialMessage = (
-    <button className={"Tab1"} style={styles.selected}>
-      Tab1
-    </button>
+    <span>
+      <li role="presentation" className="active">
+        <button id="Tab1" role="tab" aria-selected="true">
+          Tab1
+        </button>
+      </li>
+    </span>
   );
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });
@@ -15,9 +19,13 @@ it("renders selected tab", () => {
 it("renders unselected tab", () => {
   const wrapper = shallow(<Tab tabName="Tab2" selected={false} />);
   const initialMessage = (
-    <button className={"Tab2"} style={styles.unselected}>
-      Tab2
-    </button>
+    <span>
+      <li role="presentation">
+        <button id="Tab2" role="tab" aria-selected="false">
+          Tab2
+        </button>
+      </li>
+    </span>
   );
   expect(wrapper.contains(initialMessage)).toEqual(true);
 });

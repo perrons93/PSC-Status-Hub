@@ -21,14 +21,14 @@ class Tab extends Component {
       <span>
         {this.props.selected === false && (
           <li role="presentation">
-            <button role="tab" aria-selected="false">
+            <button id={this.props.tabName} role="tab" aria-selected="false">
               {this.props.tabName}
             </button>
           </li>
         )}
         {this.props.selected === true && (
           <li role="presentation" className="active">
-            <button role="tab" aria-selected="true">
+            <button id={this.props.tabName} role="tab" aria-selected="true">
               {this.props.tabName}
             </button>
           </li>
