@@ -82,19 +82,9 @@
   border-bottom-color: transparent;
 }
 
-.bootstrap-tabs > div > .tab-content > .tab-pane {
-  display: none;
-}
-.bootstrap-tabs > div > .tab-content > .active {
+.bootstrap-tabs > div > .tab-content {
   display: block;
-}
-
-.bootstrap-tabs > div > div > .fade {
-  opacity: 0;
   -webkit-transition: opacity 0.15s linear;
   -o-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
-}
-.bootstrap-tabs > div > div > .fade.in {
-  opacity: 1;
 }

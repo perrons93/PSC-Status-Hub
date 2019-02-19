@@ -35,7 +35,7 @@ class TabNavigation extends Component {
             ))}
           </ul>
         </div>
-        <div>{this.state.currentBody}</div>
+        <div className="tab-content">{this.state.currentBody}</div>
       </div>
     );
   }
