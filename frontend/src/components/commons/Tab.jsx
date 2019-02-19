@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-const styles = {
-  selected: {
-    role: "tab"
-  },
-  unselected: {
-    role: "tab"
-  }
-};
-
 class Tab extends Component {
   static propTypes = {
     tabName: PropTypes.string.isRequired,
@@ -39,5 +30,3 @@ class Tab extends Component {
 }
 
 export default Tab;
-
-export { styles };

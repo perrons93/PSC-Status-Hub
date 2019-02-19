@@ -23,7 +23,7 @@ class TabNavigation extends Component {
         <ul role="tablist" className="nav nav-tabs">
           {this.props.tabSpecs.map((tab, key) => (
             <span key={tab.id} onClick={() => this.selectTab(tab.id)}>
-              <Tab tabName={tab.tabName} selected={tab.id == this.state.currentTab} />
+              <Tab tabName={tab.tabName} selected={tab.id === this.state.currentTab} />
               &nbsp;&nbsp;&nbsp;&nbsp;
             </span>
           ))}

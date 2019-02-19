@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Tab, { styles } from "../../../components/commons/Tab";
+import Tab from "../../../components/commons/Tab";
 
 it("renders selected tab", () => {
   const wrapper = shallow(<Tab tabName="Tab1" selected={true} />);
