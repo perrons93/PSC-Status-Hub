@@ -8,73 +8,73 @@
   padding: 4px 4px 0 0;
 }
 
-.bootstrap-tabs > div > nav {
+.bootstrap-tabs > nav {
   display: block;
 }
 
-.bootstrap-tabs > div > .nav {
+.bootstrap-tabs > .nav {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
-.bootstrap-tabs > div > .nav > span > span > li {
+.bootstrap-tabs > .nav > span > span > li {
   position: relative;
   display: block;
 }
-.bootstrap-tabs > div > .nav > span > span > li > a {
+.bootstrap-tabs > .nav > span > span > li > a {
   position: relative;
   display: block;
   padding: 10px 15px;
 }
-.bootstrap-tabs > div > .nav > span > span > li > a:hover,
-.bootstrap-tabs > div > .nav > span > span > li > a:focus {
+.bootstrap-tabs > .nav > span > span > li > a:hover,
+.bootstrap-tabs > .nav > span > span > li > a:focus {
   text-decoration: none;
   background-color: #eeeeee;
 }
-.bootstrap-tabs > div > .nav > span > span > li.disabled > a {
+.bootstrap-tabs > .nav > span > span > li.disabled > a {
   color: #777777;
 }
-.bootstrap-tabs > div > .nav > span > span > li.disabled > a:hover,
-.bootstrap-tabs > div > .nav > span > span > li.disabled > a:focus {
+.bootstrap-tabs > .nav > span > span > li.disabled > a:hover,
+.bootstrap-tabs > .nav > span > span > li.disabled > a:focus {
   color: #777777;
   text-decoration: none;
   cursor: not-allowed;
   background-color: transparent;
 }
-.bootstrap-tabs > div > .nav .open > a,
-.bootstrap-tabs > div > .nav .open > a:hover,
-.bootstrap-tabs > div > .nav .open > a:focus {
+.bootstrap-tabs > .nav .open > a,
+.bootstrap-tabs > .nav .open > a:hover,
+.bootstrap-tabs > .nav .open > a:focus {
   background-color: #eeeeee;
   border-color: #337ab7;
 }
-.bootstrap-tabs > div > .nav .nav-divider {
+.bootstrap-tabs > .nav .nav-divider {
   height: 1px;
   margin: 9px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
-.bootstrap-tabs > div > .nav > span > span > li > a > img {
+.bootstrap-tabs > .nav > span > span > li > a > img {
   max-width: none;
 }
-.bootstrap-tabs > div > .nav-tabs {
+.bootstrap-tabs > .nav-tabs {
   border-bottom: 1px solid #dddddd;
 }
-.bootstrap-tabs > div > .nav-tabs > span > span > li {
+.bootstrap-tabs > .nav-tabs > span > span > li {
   float: left;
   margin-bottom: -1px;
 }
-.bootstrap-tabs > div > .nav-tabs > span > span > li > a {
+.bootstrap-tabs > .nav-tabs > span > span > li > a {
   margin-right: 2px;
   line-height: 1.42857143;
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
 }
-.bootstrap-tabs > div > .nav-tabs > span > span > li > a:hover {
+.bootstrap-tabs > .nav-tabs > span > span > li > a:hover {
   border-color: #eeeeee #eeeeee #dddddd;
 }
-.bootstrap-tabs > div > .nav-tabs > span > span > li.active > a,
-.bootstrap-tabs > div > .nav-tabs > span > span > li.active > a:hover,
-.bootstrap-tabs > div > .nav-tabs > span > span > li.active > a:focus {
+.bootstrap-tabs > .nav-tabs > span > span > li.active > a,
+.bootstrap-tabs > .nav-tabs > span > span > li.active > a:hover,
+.bootstrap-tabs > .nav-tabs > span > span > li.active > a:focus {
   color: #555555;
   cursor: default;
   background-color: #ffffff;
@@ -82,7 +82,7 @@
   border-bottom-color: transparent;
 }
 
-.bootstrap-tabs > div > .tab-content {
+.bootstrap-tabs > .tab-content {
   display: block;
   -webkit-transition: opacity 0.15s linear;
   -o-transition: opacity 0.15s linear;
