@@ -8,6 +8,10 @@
   padding: 4px 4px 0 0;
 }
 
+/*
+Formatting for Tab and TabNavigation; based off of react-bootstrap
+*/
+
 .bootstrap-tabs > nav {
   display: block;
 }
