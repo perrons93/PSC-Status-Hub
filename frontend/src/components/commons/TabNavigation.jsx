@@ -9,26 +9,21 @@ class TabNavigation extends Component {
   };
 
   state = {
-    tabSpecs: this.props.tabSpecs,
     currentTab: this.props.currentTab,
     currentBody: this.props.tabSpecs[this.props.currentTab].body
   };
 
   selectTab(id) {
-    let tempSpecs = this.state.tabSpecs;
-    tempSpecs[this.state.currentTab].selected = false;
-    tempSpecs[id].selected = true;
-
-    this.setState({ currentTab: id, tabSpecs: tempSpecs, currentBody: tempSpecs[id].body });
+    this.setState({ currentTab: id, currentBody: this.props.tabSpecs[id].body });
   }
 
   render() {
     return (
       <div className="bootstrap-tabs">
         <ul role="tablist" className="nav nav-tabs">
-          {this.state.tabSpecs.map((tab, key) => (
+          {this.props.tabSpecs.map((tab, key) => (
             <span key={tab.id} onClick={() => this.selectTab(tab.id)}>
-              <Tab tabName={this.props.tabSpecs[key].tabName} selected={tab.selected} />
+              <Tab tabName={tab.tabName} selected={tab.id == this.state.currentTab} />
               &nbsp;&nbsp;&nbsp;&nbsp;
             </span>
           ))}
