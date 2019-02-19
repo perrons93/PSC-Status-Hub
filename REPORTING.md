@@ -16,7 +16,7 @@ In powershell:
 .\run-snyk-tests.sh
 ```
 
-These reports will be created and saved in _reports_ folder under'./project-thundercat'.
+These reports will be created and saved in _reports_ folder under _./project-thundercat/_.
 
 ---
 
@@ -36,4 +36,4 @@ In powershell:
 .\run-accessibility-check.sh
 ```
 
-This report will be created and saved in _reports_ folder under'./project-thundercat'.
+This report will be created and saved in _reports_ folder under _./project-thundercat/_.
