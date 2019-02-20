@@ -36,10 +36,9 @@ class Emib extends Component {
   render() {
     return (
       <div className="app">
-        {this.state.curPage === PAGES.welcome && (
+        {(this.state.curPage === PAGES.welcome || this.state.curPage === PAGES.howTo) && (
           <img src={mini_banner} alt="" className="banner" />
         )}
-        {this.state.curPage === PAGES.howTo && <img src={mini_banner} alt="" className="banner" />}
         <h1>{LOCALIZE.emibTest.homePage.testTitle}</h1>
         {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.emibTest.homePage.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
