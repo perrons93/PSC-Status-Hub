@@ -12,19 +12,16 @@ class EmibTabs extends Component {
       {
         id: 0,
         tabName: LOCALIZE.emibTest.tabs.instructionsTabTitle,
-        selected: false,
         body: <HowTo />
       },
       {
         id: 1,
         tabName: LOCALIZE.emibTest.tabs.backgroundTabTitle,
-        selected: true,
         body: <Background />
       },
       {
         id: 2,
         tabName: LOCALIZE.emibTest.tabs.inboxTabTitle,
-        selected: false,
         body: <Inbox />
       }
     ];
