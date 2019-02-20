@@ -30,6 +30,7 @@ Screenshot of unit tests run passing:
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new compiler warnings
+- [ ] My changes generate no new accessibility errors and/or warnings
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] New and existing unit tests pass locally with my changes
 - [ ] I have researched WCAG2.1 standards and met them in this PR
