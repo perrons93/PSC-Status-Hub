@@ -19,7 +19,18 @@ const PATH = {
 
 const styles = {
   navBar: {
-    paddingBottom: 15
+    paddingBottom: 105
+  },
+  tabs: {
+    paddingTop: 68
+  },
+  pscImage: {
+    position: "fixed",
+    top: "3.5%",
+    left: "2.5%"
+  },
+  headerSpace: {
+    paddingBottom: 40
   }
 };
 
@@ -70,10 +81,10 @@ class App extends Component {
             className="fixed-top bg-white navbar navbar-expand"
             role="banner"
           >
-            <div id="psc-image">
+            <div style={styles.pscImage} id="psc-image">
               <img src={psc_header} alt={LOCALIZE.commons.psc} />
             </div>
-            <div className="fixed-top nav nav-tabs">
+            <div style={styles.tabs} className="fixed-top nav nav-tabs">
               <ul id="navigation-tabs" className="mx-auto nav-site nav nav-tabs nav-item">
                 <li className="bg-white">
                   <NavLink isActive={isHomeActive} className="nav-link" to={PATH.home}>
@@ -95,8 +106,8 @@ class App extends Component {
                 <Translation updateLanguageOnPage={this.updateLanguage} />
               </div>
             </div>
-            <br />
           </nav>
+          <div style={styles.headerSpace} />
           <Route exact path={PATH.home} component={Home} />
           <Route path={PATH.prototype} component={Prototype} />
           <Route path={PATH.status} component={Status} />
