@@ -7,3 +7,88 @@
   right: 0;
   padding: 4px 4px 0 0;
 }
+
+/*
+Formatting for Tab and TabNavigation; based off of react-bootstrap
+*/
+
+.bootstrap-tabs > nav {
+  display: block;
+}
+
+.bootstrap-tabs > .nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.bootstrap-tabs > .nav > span > span > li {
+  position: relative;
+  display: block;
+}
+.bootstrap-tabs > .nav > span > span > li > button {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+.bootstrap-tabs > .nav > span > span > li > button:hover,
+.bootstrap-tabs > .nav > span > span > li > button:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+.bootstrap-tabs > .nav > span > span > li.disabled > button {
+  color: #777777;
+}
+.bootstrap-tabs > .nav > span > span > li.disabled > button:hover,
+.bootstrap-tabs > .nav > span > span > li.disabled > button:focus {
+  color: #777777;
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+.bootstrap-tabs > .nav .open > button,
+.bootstrap-tabs > .nav .open > button:hover,
+.bootstrap-tabs > .nav .open > button:focus {
+  background-color: #eeeeee;
+  border-color: #337ab7;
+}
+.bootstrap-tabs > .nav .nav-divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.bootstrap-tabs > .nav > span > span > li > button > img {
+  max-width: none;
+}
+.bootstrap-tabs > .nav-tabs {
+  border-bottom: 1px solid #dddddd;
+}
+.bootstrap-tabs > .nav-tabs > span > span > li {
+  float: left;
+  margin-bottom: -1px;
+}
+.bootstrap-tabs > .nav-tabs > span > span > li > button {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+.bootstrap-tabs > .nav-tabs > span > span > li > button:hover {
+  border-color: #eeeeee #eeeeee #dddddd;
+}
+.bootstrap-tabs > .nav-tabs > span > span > li.active > button,
+.bootstrap-tabs > .nav-tabs > span > span > li.active > button:hover,
+.bootstrap-tabs > .nav-tabs > span > span > li.active > button:focus {
+  color: #555555;
+  cursor: default;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-bottom-color: transparent;
+}
+
+.bootstrap-tabs > .tab-content {
+  display: block;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}

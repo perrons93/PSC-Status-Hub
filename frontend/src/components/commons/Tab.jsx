@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-const styles = {
-  selected: {
-    color: "black"
-  },
-  unselected: {
-    color: "blue"
-  }
-};
-
 class Tab extends Component {
   static propTypes = {
     tabName: PropTypes.string.isRequired,
@@ -20,14 +11,18 @@ class Tab extends Component {
     return (
       <span>
         {this.props.selected === false && (
-          <button className={this.props.tabName} style={styles.unselected}>
-            {this.props.tabName}
-          </button>
+          <li role="presentation">
+            <button id={this.props.tabName} role="tab" aria-selected="false">
+              {this.props.tabName}
+            </button>
+          </li>
         )}
         {this.props.selected === true && (
-          <button className={this.props.tabName} style={styles.selected}>
-            {this.props.tabName}
-          </button>
+          <li role="presentation" className="active">
+            <button id={this.props.tabName} role="tab" aria-selected="true">
+              {this.props.tabName}
+            </button>
+          </li>
         )}
       </span>
     );
@@ -35,5 +30,3 @@ class Tab extends Component {
 }
 
 export default Tab;
-
-export { styles };
