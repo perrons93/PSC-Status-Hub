@@ -5,8 +5,7 @@ import LOCALIZE from "./text_resources";
 const Home = () => {
   return (
     <div className="app">
-      <h2>{LOCALIZE.homePage.title}</h2>
-      <p>{LOCALIZE.homePage.welcomeMsg}</p>
+      <h2 id="home-page-paragraph">{LOCALIZE.homePage.welcomeMsg}</h2>
       <img src={big_welcome_banner} alt="big welcome banner" />
     </div>
   );
