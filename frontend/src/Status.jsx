@@ -4,7 +4,7 @@ import SystemCheck from "./components/status/SystemCheck";
 import detectBrowser from "./helpers/detectBrowser";
 import getIeVersion from "./helpers/getIeVersion";
 import getScreenResolution from "./helpers/getScreenResolution";
-import logo from "./logo.png";
+import logo from "./images/logo.png";
 import LOCALIZE from "./text_resources";
 
 const styles = {

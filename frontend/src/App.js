@@ -8,7 +8,7 @@ import Prototype from "./Prototype";
 import Emib from "./components/eMIB/Emib";
 import Translation, { LANGUAGES } from "./components/commons/Translation";
 import LOCALIZE from "./text_resources";
-import psc_header from "./psc_header.png";
+import psc_header from "./images/psc_header.png";
 
 const PATH = {
   home: "/",
