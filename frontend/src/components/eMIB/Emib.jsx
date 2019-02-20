@@ -34,7 +34,7 @@ class Emib extends Component {
       <div className="app">
         {this.state.curPage === PAGES.howTo && <img src={mini_banner} alt="" className="banner" />}
         <h1>{LOCALIZE.emibTest.homePage.testTitle}</h1>
-        {this.state.curPage === PAGES.howTo && <HowTo />}
+        {this.state.curPage === PAGES.howTo && <HowTo inTest={false} />}
         {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
 

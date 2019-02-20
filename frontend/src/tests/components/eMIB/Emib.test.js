@@ -9,7 +9,7 @@ import LOCALIZE from "../../../text_resources";
 
 it("renders howToPage page", () => {
   const wrapper = mount(<Emib />);
-  const howToComponent = <HowTo />;
+  const howToComponent = <HowTo inTest={false} />;
   expect(wrapper.contains(howToComponent)).toEqual(true);
   expect(wrapper.state("curPage")).toEqual(PAGES.howTo);
 });
@@ -17,7 +17,7 @@ it("renders howToPage page", () => {
 it("renders howTo page when state changed", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.howTo });
-  const howToComponent = <HowTo />;
+  const howToComponent = <HowTo inTest={false} />;
   expect(wrapper.contains(howToComponent)).toEqual(true);
 });
 

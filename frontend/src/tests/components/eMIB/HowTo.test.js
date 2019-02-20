@@ -6,14 +6,14 @@ import LOCALIZE from "../../../text_resources";
 
 it("renders HowTo Page Title in English", () => {
   LOCALIZE.setLanguage(LANGUAGES.english);
-  const wrapper = shallow(<HowTo />);
+  const wrapper = shallow(<HowTo inTest={false} />);
   const howToPageTitle = <h2>{LOCALIZE.emibTest.howToPage.title}</h2>;
   expect(wrapper.contains(howToPageTitle)).toEqual(true);
 });
 
 it("renders HowTo Page Title in French", () => {
   LOCALIZE.setLanguage(LANGUAGES.french);
-  const wrapper = shallow(<HowTo />);
+  const wrapper = shallow(<HowTo inTest={false} />);
   const howToPageTitle = <h2>{LOCALIZE.emibTest.howToPage.title}</h2>;
   expect(wrapper.contains(howToPageTitle)).toEqual(true);
 });
