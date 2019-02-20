@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./images/logo.png";
+import big_welcome_banner from "./images/big_welcome_banner.png";
 import LOCALIZE from "./text_resources";
 
 const Home = () => {
@@ -7,7 +7,7 @@ const Home = () => {
     <div className="app">
       <h2>{LOCALIZE.homePage.title}</h2>
       <p>{LOCALIZE.homePage.welcomeMsg}</p>
-      <img src={logo} alt="logo" />
+      <img src={big_welcome_banner} alt="big welcome banner" />
     </div>
   );
 };
