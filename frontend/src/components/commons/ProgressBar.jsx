@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ProgressNode from "./ProgressNode";
 
-class ProgressIndicator extends Component {
+class ProgressBar extends Component {
   static propTypes = {
     progressSpecs: PropTypes.array.isRequired,
     currentStep: PropTypes.number.isRequired
@@ -25,4 +25,4 @@ class ProgressIndicator extends Component {
   }
 }
 
-export default ProgressIndicator;
+export default ProgressBar;
