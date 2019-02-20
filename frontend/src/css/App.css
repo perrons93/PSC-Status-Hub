@@ -2,10 +2,13 @@
   text-align: center;
 }
 
+/*
+Formatting for English/French button
+*/
 .translation-button {
-  position: absolute;
-  right: 0;
-  padding: 4px 4px 0 0;
+  position: fixed;
+  right: 2%;
+  top: 3.5%;
 }
 
 /*
@@ -23,6 +26,7 @@ Home Page
 #home-page-paragraph {
   background-color: black;
   color: white;
+  font-size: 38px;
 }
 
 /*
