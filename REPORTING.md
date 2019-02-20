@@ -22,7 +22,9 @@ These reports will be created and saved in _reports_ folder under _./project-thu
 
 ## Accessibility Tool (pa11y):
 
-This script will generate the accessibility report
+This script will generate all the accessibility reports, meaning one for each URL in the application
+
+**Note that the frontend container must be running to be able to execute the following commands properly:**
 
 In gitbash:
 
@@ -36,4 +38,4 @@ In powershell:
 .\run-accessibility-check.sh
 ```
 
-This report will be created and saved in _reports_ folder under _./project-thundercat/_.
+These reports will be created and saved in _reports_ folder under _./project-thundercat/_.
