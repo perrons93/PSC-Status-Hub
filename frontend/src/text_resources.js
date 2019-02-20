@@ -11,7 +11,7 @@ let LOCALIZE = new LocalizedStrings({
 
     //Home Page
     homePage: {
-      title: "Home",
+      title: "The Public Service Commission's Competency Assessment Tool",
       welcomeMsg: "Welcome to the Compotency Assessment Tool."
     },
 
@@ -112,7 +112,8 @@ let LOCALIZE = new LocalizedStrings({
 
     //Home Page
     homePage: {
-      title: "Accueil",
+      title:
+        "Outil d'évaluation des compétences de la Commission de la fonction publique du Canada",
       welcomeMsg: "Bienvenue dans l'outil d'évaluation des compétences."
     },
 

@@ -17,6 +17,15 @@ img.banner {
 }
 
 /*
+Home Page
+*/
+
+#home-page-paragraph {
+  background-color: black;
+  color: white;
+}
+
+/*
 Formatting for Tab and TabNavigation; based off of react-bootstrap
 */
 

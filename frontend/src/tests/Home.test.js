@@ -7,13 +7,13 @@ import LOCALIZE from "../text_resources";
 it("renders Home Page Title in English", () => {
   LOCALIZE.setLanguage(LANGUAGES.english);
   const wrapper = shallow(<Home />);
-  const homePageTitle = <h2>{LOCALIZE.homePage.title}</h2>;
+  const homePageTitle = <h1 id="home-page-paragraph">{LOCALIZE.homePage.title}</h1>;
   expect(wrapper.contains(homePageTitle)).toEqual(true);
 });
 
 it("renders Home Page Title in French", () => {
   LOCALIZE.setLanguage(LANGUAGES.french);
   const wrapper = shallow(<Home />);
-  const homePageTitle = <h2>{LOCALIZE.homePage.title}</h2>;
+  const homePageTitle = <h1 id="home-page-paragraph">{LOCALIZE.homePage.title}</h1>;
   expect(wrapper.contains(homePageTitle)).toEqual(true);
 });
