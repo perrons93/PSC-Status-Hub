@@ -9,6 +9,14 @@
 }
 
 /*
+Formatting for banner image
+*/
+
+img.banner {
+  width: 100%;
+}
+
+/*
 Home Page
 */
 

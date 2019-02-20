@@ -3,6 +3,7 @@ import Confirmation from "./Confirmation";
 import HowTo from "./HowTo";
 import EmibTabs from "./EmibTabs";
 import LOCALIZE from "../../text_resources";
+import mini_banner from "./../../images/mini_banner.png";
 
 const PAGES = {
   welcome: "welcome",
@@ -35,7 +36,10 @@ class Emib extends Component {
   render() {
     return (
       <div className="app">
-        <h2>{LOCALIZE.emibTest.homePage.testTitle}</h2>
+        {(this.state.curPage === PAGES.welcome || this.state.curPage === PAGES.howTo) && (
+          <img src={mini_banner} alt="" className="banner" />
+        )}
+        <h1>{LOCALIZE.emibTest.homePage.testTitle}</h1>
         {this.state.curPage === PAGES.welcome && <p>{LOCALIZE.emibTest.homePage.welcomeMsg}</p>}
         {this.state.curPage === PAGES.howTo && <HowTo />}
         {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
