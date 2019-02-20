@@ -1,11 +1,15 @@
-## How to run tests
+# How to run tests
+
 This script will run both backend and frontend tests
 
 In gitbash:
+
 ```shell
 ./run-tests.sh
 ```
+
 In powershell:
+
 ```shell
 .\run-tests.sh
 ```

@@ -59,6 +59,7 @@ Ensure that you have docker and docker-compose installed on your machine, as wel
       8.  Click [here](https://eslint.org/) for more details about **ESLint** or [here](https://github.com/airbnb/javascript/tree/master/react#basic-rules) to know more about the Airbnb React style
 
 * Snyk
+
   - Run 'npm install -g snyk' in a terminal
   - Run 'npm install -g snyk-to-html' in a terminal
     - This allows for clean output to html files when snyk is run locally
@@ -69,3 +70,13 @@ Ensure that you have docker and docker-compose installed on your machine, as wel
   - Create an account on snyk.io
   - Run 'snyk auth' in a terminal
   - Login when prompted (either in using the provided URL or in the opened browser)
+
+* Accessibility Check Tool (pa11y)
+
+  - Run 'run 'npm install -g pa11y' in a terminal
+  - Run also 'npm install -g pa11y pa11y-reporter-html' in a terminal
+    - This allows for clean output to html file when this tool is run locally
+    - It detects errors, warnings and notices related to accessibility of the application
+  - Make sure that the npm directory containing pa11y is part of the path system environment variable (usually "C:\Users\<name>\AppData\Roaming\npm")
+    - Should have already been added during Snyk configuration (see above)
+  - Click [here](https://github.com/pa11y/pa11y) to have more details about pa11y.
