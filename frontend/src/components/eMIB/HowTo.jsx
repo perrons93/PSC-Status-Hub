@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import Overview from "./Overview";
 import TipsOnTest from "./TipsOnTest";
 import TestInstructions from "./TestInstructions";
 import Evaluation from "./Evaluation";
-import PropTypes from "prop-types";
+import ProgressBar from "../commons/ProgressBar";
 
 class HowTo extends Component {
   static propTypes = {
@@ -12,8 +13,15 @@ class HowTo extends Component {
   };
 
   render() {
+    const PROGRESS = [
+      { id: 1, text: "prog 1" },
+      { id: 2, text: "prog 2" },
+      { id: 3, text: "prog 3" },
+      { id: 4, text: "prog 4" }
+    ];
     return (
       <div>
+        <ProgressBar progressSpecs={PROGRESS} currentStep={1} />
         <h2>{LOCALIZE.emibTest.howToPage.title}</h2>
         <h3>{LOCALIZE.emibTest.howToPage.emailInstructions}</h3>
         <h3>{LOCALIZE.emibTest.howToPage.taskInstructions}</h3>
