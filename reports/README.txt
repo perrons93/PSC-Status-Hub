@@ -1,0 +1,1 @@
+# This folder is used to store all the reports related to Security and Accessibility checks.
