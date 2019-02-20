@@ -54,7 +54,24 @@ let LOCALIZE = new LocalizedStrings({
       howToPage: {
         title: "HowTo Page",
         emailInstructions: "Email Instuctions",
-        taskInstructions: "Task Instuctions"
+        taskInstructions: "Task Instuctions",
+        overview: {
+          title: "Overview",
+          description:
+            "The electronic managerial Inbox (e-MIB) simulates an email inbox in which you will respond to a series of emails depicting situations typically encountered by managers in the federal public service. These situations will provide you with the opportunity to demonstrate the ",
+          descriptionLink: "Key Leadership Competencies",
+          aboutSection: {
+            title: "About the sample test",
+            para1:
+              "The sample test has been designed to provide you with the opportunity to familiarize yourself with:",
+            bullet1:
+              "the components of the test (e.g., instructions, background information, email inbox, notepad);",
+            bullet2: "the features of the test interface (e.g., menu bars, buttons); and",
+            bullet3: "examples of emails.",
+            para2:
+              "The background information, which includes a description of the organisation, your role, your employees, colleagues and management team, as well as the emails presented are examples. They are not intended to reflect the length nor the level of difficulty of the real test. The background information and the number of emails presented are more extensive in the real test."
+          }
+        }
       },
 
       //Background Page
@@ -156,7 +173,25 @@ let LOCALIZE = new LocalizedStrings({
       howToPage: {
         title: "Page 'How To'",
         emailInstructions: "Instructions pour les courriel",
-        taskInstructions: "Instuctions pour les tâches"
+        taskInstructions: "Instuctions pour les tâches",
+        overview: {
+          title: "Aperçu général",
+          description:
+            "La boîte de réception pour la gestion électronique (BRG-e) simule d’une boîte de courriel dans laquelle vous allez répondre à des courriels décrivant des situations qui sont typiquement vécues par les gestionnaires de la fonction publique. Ces situations vous donneront l’occasion de démontrer les ",
+          descriptionLink: "compétences clés en leadership",
+          aboutSection: {
+            title: "À propos de l’échantillon de test",
+            para1:
+              "Cet échantillon de test a été conçu pour vous donner l’occasion de vous familiariser avec :",
+            bullet1:
+              "les volets du test (p. ex., instructions, information contextuelle, boîte de réception de courriel, bloc-notes) ;",
+            bullet2:
+              "les fonctionnalités de l’interface du test (p. ex., barres de menu, boutons) ; et",
+            bullet3: "des exemples de courriels.",
+            para2:
+              "L’information contextuelle, laquelle inclut une description de l’organisation, de votre rôle de vos employées, de vos collègues et de l’équipe de gestion ainsi que les courriels auxquels vous devez répondre sont présentés à titre d’exemples. Ils ne sont pas destinés à refléter la longueur ou le niveau de difficulté du test réel. L’information contextuelle et le nombre de courriels présentés sont plus vastes dans le test réel."
+          }
+        }
       },
 
       //Background Page
