@@ -8,6 +8,16 @@
   padding: 4px 4px 0 0;
 }
 
+h1 {
+  text-align: left;
+}
+
+h1:after {
+  content: " ";
+  display: block;
+  border: 2px solid #c7e68c;
+}
+
 /*
 Formatting for banner image
 */
@@ -23,6 +33,13 @@ Home Page
 #home-page-paragraph {
   background-color: black;
   color: white;
+  text-align: center;
+}
+
+#home-page-paragraph:after {
+  content: none;
+  display: none;
+  border: none;
 }
 
 /*

@@ -46,7 +46,7 @@ let LOCALIZE = new LocalizedStrings({
     emibTest: {
       //Home Page
       homePage: {
-        testTitle: "eMIB - Sample Test",
+        testTitle: "The eMIB",
         welcomeMsg: "Welcome to the eMIB Sample Test"
       },
 
@@ -150,7 +150,7 @@ let LOCALIZE = new LocalizedStrings({
     emibTest: {
       //Home Page
       homePage: {
-        testTitle: "eMIB - Test Pratique",
+        testTitle: "FR Le eMIB",
         welcomeMsg: "Bienvenu dans le test pratique de eMIB"
       },
 

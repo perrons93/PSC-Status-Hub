@@ -23,7 +23,13 @@ class HowTo extends Component {
 
     return (
       <div>
-        {this.props.inTest === false && <ProgressPane progressSpecs={PROGRESS} currentNode={0} />}
+        {this.props.inTest === false && (
+          <ProgressPane
+            progressSpecs={PROGRESS}
+            currentNode={0}
+            paneTitle={LOCALIZE.emibTest.homePage.testTitle}
+          />
+        )}
         {this.props.inTest === true && <SideNavigation progressSpecs={PROGRESS} currentNode={0} />}
       </div>
     );
