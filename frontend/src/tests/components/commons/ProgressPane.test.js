@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import ProgressBar from "../../../components/commons/ProgressBar";
+import ProgressPane from "../../../components/commons/ProgressPane";
 import ProgressNode from "../../../components/commons/ProgressNode";
 
 const PROGRESS = [
@@ -27,7 +27,7 @@ it("renders when fourth node selected", () => {
 });
 
 function testCore(selected) {
-  const wrapper = mount(<ProgressBar progressSpecs={PROGRESS} currentNode={selected} />);
+  const wrapper = mount(<ProgressPane progressSpecs={PROGRESS} currentNode={selected} />);
   const node1 = <ProgressNode id={1} text={"node 1"} current={selected} />;
   const node2 = <ProgressNode id={2} text={"node 2"} current={selected} />;
   const node3 = <ProgressNode id={3} text={"node 3"} current={selected} />;

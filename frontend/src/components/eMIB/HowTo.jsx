@@ -5,7 +5,7 @@ import Overview from "./Overview";
 import TipsOnTest from "./TipsOnTest";
 import TestInstructions from "./TestInstructions";
 import Evaluation from "./Evaluation";
-import ProgressBar from "../commons/ProgressBar";
+import ProgressPane from "../commons/ProgressPane";
 
 class HowTo extends Component {
   static propTypes = {
@@ -21,7 +21,7 @@ class HowTo extends Component {
     ];
     return (
       <div>
-        <ProgressBar progressSpecs={PROGRESS} currentNode={1} />
+        <ProgressPane progressSpecs={PROGRESS} currentNode={1} />
         <h2>{LOCALIZE.emibTest.howToPage.title}</h2>
         <h3>{LOCALIZE.emibTest.howToPage.emailInstructions}</h3>
         <h3>{LOCALIZE.emibTest.howToPage.taskInstructions}</h3>
