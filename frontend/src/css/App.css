@@ -14,10 +14,6 @@ Formatting for English/French button
 /*
 Header 1: add green line underneath
 */
-h1.progress-pane {
-  text-align: left;
-}
-
 h1.progress-pane:after {
   content: " ";
   display: block;
