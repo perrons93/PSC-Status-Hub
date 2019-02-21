@@ -45,7 +45,9 @@ class ProgressPane extends Component {
             </button>
           </div>
         )}
-        {this.state.currentNode === this.props.progressSpecs.length - 1 && this.props.exitButton}
+        {this.state.currentNode === this.props.progressSpecs.length - 1 && (
+          <div className="centeredButtons">{this.props.exitButton}</div>
+        )}
         {this.state.currentNode > 0 && (
           <div className="centeredButtons">
             <button type="button" className="btn btn-secondary" onClick={() => this.changeNode(-1)}>
