@@ -22,7 +22,7 @@ class ProgressPane extends Component {
 
   render() {
     return (
-      <div>
+      <div className="progress-pane">
         <div aria-label="progress" className="step-indicator">
           <ul className="steps">
             {this.props.progressSpecs.map(tab => (
