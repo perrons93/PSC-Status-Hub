@@ -12,7 +12,7 @@ class EmibTabs extends Component {
       {
         id: 0,
         tabName: LOCALIZE.emibTest.tabs.instructionsTabTitle,
-        body: <HowTo />
+        body: <HowTo inTest={true} />
       },
       {
         id: 1,

@@ -46,7 +46,7 @@ let LOCALIZE = new LocalizedStrings({
     emibTest: {
       //Home Page
       homePage: {
-        testTitle: "eMIB - Sample Test",
+        testTitle: "The eMIB",
         welcomeMsg: "Welcome to the eMIB Sample Test"
       },
 
@@ -87,6 +87,9 @@ let LOCALIZE = new LocalizedStrings({
             "Use only the information provided in the emails and the background information. Do not make any inferences based on the culture of your own organization. Avoid making assumptions that are not reasonably supported by either the background information or the emails.",
           bullet4: "You can answer the emails in any order you want.",
           bullet5: "You are responsible for managing your own time."
+        },
+        instructions: {
+          title: "Test Instructions"
         },
         evaluation: {
           title: "Evaluation",
@@ -160,6 +163,7 @@ let LOCALIZE = new LocalizedStrings({
     commons: {
       psc: "Public Service Commission",
       nextButton: "Next",
+      backButton: "Back",
       startTest: "Start test",
       submitTestButton: "Submit test",
       exitTest: "Exit Test",
@@ -216,7 +220,7 @@ let LOCALIZE = new LocalizedStrings({
     emibTest: {
       //Home Page
       homePage: {
-        testTitle: "eMIB - Test Pratique",
+        testTitle: "La BRG-e",
         welcomeMsg: "Bienvenu dans le test pratique de eMIB"
       },
 
@@ -258,6 +262,9 @@ let LOCALIZE = new LocalizedStrings({
             "Utilisez uniquement l’information fournie dans les courriels et les informations contextuelles. Ne tirez aucune conclusion fondée sur la culture de votre propre organisation. Évitez de faire des suppositions qui ne sont pas raisonnablement corroborées par l’information contextuelle ou les courriels.",
           bullet4: "Vous pouvez répondre aux courriels dans l’ordre que vous désirez.",
           bullet5: "Vous êtes responsable de la gestion de votre temps."
+        },
+        instructions: {
+          title: "Instructions du test"
         },
         evaluation: {
           title: "Évaluation",
@@ -331,6 +338,7 @@ let LOCALIZE = new LocalizedStrings({
     commons: {
       psc: "Commission de la fonction publique",
       nextButton: "Suivant",
+      backButton: "Retour",
       startTest: "Commencer le test",
       submitTestButton: "Soumettre le test",
       exitTest: "Quitter le test",
