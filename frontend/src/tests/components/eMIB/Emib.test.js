@@ -9,16 +9,7 @@ import LOCALIZE from "../../../text_resources";
 
 it("renders howToPage page", () => {
   const wrapper = mount(<Emib />);
-  const howToComponent = (
-    <HowTo
-      inTest={false}
-      exitButton={
-        <button type="button" className="btn btn-primary">
-          {LOCALIZE.commons.startTest}
-        </button>
-      }
-    />
-  );
+  const howToComponent = <HowTo inTest={false} />;
   expect(wrapper.contains(howToComponent)).toEqual(true);
   expect(wrapper.state("curPage")).toEqual(PAGES.howTo);
 });
@@ -26,16 +17,7 @@ it("renders howToPage page", () => {
 it("renders howTo page when state changed", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.howTo });
-  const howToComponent = (
-    <HowTo
-      inTest={false}
-      exitButton={
-        <button type="button" className="btn btn-primary">
-          {LOCALIZE.commons.startTest}
-        </button>
-      }
-    />
-  );
+  const howToComponent = <HowTo inTest={false} />;
   expect(wrapper.contains(howToComponent)).toEqual(true);
 });
 
@@ -58,8 +40,8 @@ it("renders Submit Test in English", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.confirm });
   const submitTest = (
-    <button type="button" className="btn btn-primary">
-      Submit test
+    <button type="submit" className="btn btn-primary">
+      Exit Test
     </button>
   );
   expect(wrapper.contains(submitTest)).toEqual(true);
@@ -70,8 +52,8 @@ it("renders Submit Test in French", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.confirm });
   const submitTest = (
-    <button type="button" className="btn btn-primary">
-      Soumettre le test
+    <button type="submit" className="btn btn-primary">
+      Quitter le test
     </button>
   );
   expect(wrapper.contains(submitTest)).toEqual(true);
