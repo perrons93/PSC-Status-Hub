@@ -5,7 +5,8 @@ import ProgressNode from "./ProgressNode";
 class ProgressPane extends Component {
   static propTypes = {
     progressSpecs: PropTypes.array.isRequired,
-    currentNode: PropTypes.number.isRequired
+    currentNode: PropTypes.number.isRequired,
+    paneTitle: PropTypes.string
   };
 
   state = {
@@ -33,6 +34,7 @@ class ProgressPane extends Component {
             ))}
           </ul>
         </div>
+        {this.props.paneTitle ? <h1>{this.props.paneTitle}</h1> : null}
         {this.state.currentBody}
         {this.state.currentNode < this.props.progressSpecs.length - 1 && (
           <div>
