@@ -10,12 +10,12 @@ class ProgressPane extends Component {
 
   state = {
     currentNode: this.props.currentNode,
-    currentBody: this.props.progressSpecs[this.props.currentNode - 1].body
+    currentBody: this.props.progressSpecs[this.props.currentNode].body
   };
 
   changeNode(diff) {
     const index = this.state.currentNode + diff;
-    this.setState({ currentNode: index, currentBody: this.props.progressSpecs[index - 1].body });
+    this.setState({ currentNode: index, currentBody: this.props.progressSpecs[index].body });
   }
 
   render() {
@@ -34,17 +34,17 @@ class ProgressPane extends Component {
           </ul>
         </div>
         {this.state.currentBody}
-        {this.state.currentNode < this.props.progressSpecs.length && (
+        {this.state.currentNode < this.props.progressSpecs.length - 1 && (
           <div>
             <button type="button" className="btn btn-primary" onClick={() => this.changeNode(1)}>
-              Next
+              Next to {this.props.progressSpecs[this.state.currentNode + 1].text}
             </button>
           </div>
         )}
-        {this.state.currentNode > 1 && (
+        {this.state.currentNode > 0 && (
           <div>
-            <button type="button" className="btn btn-primary" onClick={() => this.changeNode(-1)}>
-              Prev
+            <button type="button" className="btn btn-secondary" onClick={() => this.changeNode(-1)}>
+              Back to {this.props.progressSpecs[this.state.currentNode - 1].text}
             </button>
           </div>
         )}

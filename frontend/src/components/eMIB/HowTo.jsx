@@ -15,16 +15,16 @@ class HowTo extends Component {
 
   render() {
     const PROGRESS = [
-      { id: 1, text: LOCALIZE.emibTest.howToPage.overview, body: <Overview /> },
-      { id: 2, text: LOCALIZE.emibTest.howToPage.tips, body: <TipsOnTest /> },
-      { id: 3, text: LOCALIZE.emibTest.howToPage.instructions, body: <TestInstructions /> },
-      { id: 4, text: LOCALIZE.emibTest.howToPage.evaluation, body: <Evaluation /> }
+      { id: 0, text: LOCALIZE.emibTest.howToPage.overview, body: <Overview /> },
+      { id: 1, text: LOCALIZE.emibTest.howToPage.tips, body: <TipsOnTest /> },
+      { id: 2, text: LOCALIZE.emibTest.howToPage.instructions, body: <TestInstructions /> },
+      { id: 3, text: LOCALIZE.emibTest.howToPage.evaluation, body: <Evaluation /> }
     ];
 
     return (
       <div>
-        {this.props.inTest === false && <ProgressPane progressSpecs={PROGRESS} currentNode={1} />}
-        {this.props.inTest === true && <SideNavigation progressSpecs={PROGRESS} currentNode={1} />}
+        {this.props.inTest === false && <ProgressPane progressSpecs={PROGRESS} currentNode={0} />}
+        {this.props.inTest === true && <SideNavigation progressSpecs={PROGRESS} currentNode={0} />}
       </div>
     );
   }
