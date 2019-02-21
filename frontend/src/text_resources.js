@@ -71,6 +71,22 @@ let LOCALIZE = new LocalizedStrings({
             para2:
               "The background information, which includes a description of the organisation, your role, your employees, colleagues and management team, as well as the emails presented are examples. They are not intended to reflect the length nor the level of difficulty of the real test. The background information and the number of emails presented are more extensive in the real test."
           }
+        },
+        tipsOnTest: {
+          title: "Tips on taking the e-MIB",
+          descriptionPart1:
+            "The e-MIB presents you with situations that will give you the opportunity to demonstrate the ",
+          descriptionLink: "Key Leadership Competencies",
+          descriptionPart2:
+            ". Here are some tips that will help you provide assessors with the information they need to evaluate your performance on those competencies:",
+          bullet1:
+            "Answer all the questions asked in the emails you receive. This will ensure that you have used all the opportunities designed to allow you to demonstrate the competencies.",
+          bullet2:
+            "Provide initial thoughts and recommendations supported by your rationale where appropriate. You can then note other information you would need to reach a final decision.",
+          bullet3:
+            "Use only the information provided in the emails and the background information. Do not make any inferences based on the culture of your own organization. Avoid making assumptions that are not reasonably supported by either the background information or the emails.",
+          bullet4: "You can answer the emails in any order you want.",
+          bullet5: "You are responsible for managing your own time."
         }
       },
 
@@ -191,6 +207,22 @@ let LOCALIZE = new LocalizedStrings({
             para2:
               "L’information contextuelle, laquelle inclut une description de l’organisation, de votre rôle de vos employées, de vos collègues et de l’équipe de gestion ainsi que les courriels auxquels vous devez répondre sont présentés à titre d’exemples. Ils ne sont pas destinés à refléter la longueur ou le niveau de difficulté du test réel. L’information contextuelle et le nombre de courriels présentés sont plus vastes dans le test réel."
           }
+        },
+        tipsOnTest: {
+          title: "Conseils pour répondre à la BRG-e",
+          descriptionPart1:
+            "La BRG-e vous présente des situations qui vous donneront l’occasion de démontrer les ",
+          descriptionLink: "compétences clés en matière de leadership",
+          descriptionPart2:
+            ". Voici quelques conseils qui vous aideront à fournir aux évaluateurs l’information dont ils ont besoin pour évaluer votre rendement par rapport à ces compétences :",
+          bullet1:
+            "Répondez à toutes les questions posées dans les courriels que vous recevez. Vous profiterez ainsi de toutes les occasions de démontrer les compétences recherchées.",
+          bullet2:
+            "Présentez vos recommandations et réflexions préliminaires accompagnées d’une justification, s’il y a lieu. Vous pouvez ensuite noter les autres renseignements dont vous auriez besoin pour en arriver à une décision.",
+          bullet3:
+            "Utilisez uniquement l’information fournie dans les courriels et les informations contextuelles. Ne tirez aucune conclusion fondée sur la culture de votre propre organisation. Évitez de faire des suppositions qui ne sont pas raisonnablement corroborées par l’information contextuelle ou les courriels.",
+          bullet4: "Vous pouvez répondre aux courriels dans l’ordre que vous désirez.",
+          bullet5: "Vous êtes responsable de la gestion de votre temps."
         }
       },
 

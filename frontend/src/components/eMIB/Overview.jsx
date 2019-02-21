@@ -3,18 +3,12 @@ import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/App.css";
 
-const styles = {
-  h2: {
-    color: "#137991"
-  }
-};
-
 class Overview extends Component {
   render() {
     return (
-      <div className="text-zone">
+      <div className="emib-text-zone">
         <div>
-          <h2 style={styles.h2}>{LOCALIZE.emibTest.howToPage.overview.title}</h2>
+          <h2 className="emib-section-titles">{LOCALIZE.emibTest.howToPage.overview.title}</h2>
           <p>
             {LOCALIZE.emibTest.howToPage.overview.description}
             <a href="">{LOCALIZE.emibTest.howToPage.overview.descriptionLink}</a>.
