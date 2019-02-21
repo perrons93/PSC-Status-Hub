@@ -14,14 +14,17 @@ class Evaluation extends Component {
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet1}</li>
               <li>
                 {LOCALIZE.emibTest.howToPage.evaluation.bullet2}
-                <a href="">{LOCALIZE.emibTest.howToPage.evaluation.bullet2Link}</a>.
+                <a href="#keyLeadershipCompetencies">
+                  {LOCALIZE.emibTest.howToPage.evaluation.bullet2Link}
+                </a>
+                .
               </li>
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet3}</li>
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet4}</li>
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet5}</li>
             </ul>
           </div>
-          <div>
+          <div id="keyLeadershipCompetencies">
             <h3>{LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection.title}</h3>
             <div>
               <p>
