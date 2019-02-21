@@ -6,6 +6,7 @@ import TipsOnTest from "./TipsOnTest";
 import TestInstructions from "./TestInstructions";
 import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
+import SideNavigation from "../commons/SideNavigation";
 
 class HowTo extends Component {
   static propTypes = {
@@ -14,23 +15,16 @@ class HowTo extends Component {
 
   render() {
     const PROGRESS = [
-      { id: 1, text: "prog 1" },
-      { id: 2, text: "prog 2" },
-      { id: 3, text: "prog 3" },
-      { id: 4, text: "prog 4" }
+      { id: 1, text: LOCALIZE.emibTest.howToPage.overview, body: <Overview /> },
+      { id: 2, text: LOCALIZE.emibTest.howToPage.tips, body: <TipsOnTest /> },
+      { id: 3, text: LOCALIZE.emibTest.howToPage.instructions, body: <TestInstructions /> },
+      { id: 4, text: LOCALIZE.emibTest.howToPage.evaluation, body: <Evaluation /> }
     ];
+
     return (
       <div>
-        <ProgressPane progressSpecs={PROGRESS} currentNode={1} />
-        <h2>{LOCALIZE.emibTest.howToPage.title}</h2>
-        <h3>{LOCALIZE.emibTest.howToPage.emailInstructions}</h3>
-        <h3>{LOCALIZE.emibTest.howToPage.taskInstructions}</h3>
-        {this.props.inTest === true && <p>True</p>}
-        {this.props.inTest === false && <p>False</p>}
-        <Overview />
-        <TipsOnTest />
-        <TestInstructions />
-        <Evaluation />
+        {this.props.inTest === false && <ProgressPane progressSpecs={PROGRESS} currentNode={1} />}
+        {this.props.inTest === true && <SideNavigation progressSpecs={PROGRESS} currentNode={1} />}
       </div>
     );
   }

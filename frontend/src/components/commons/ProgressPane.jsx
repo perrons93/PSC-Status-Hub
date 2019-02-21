@@ -15,17 +15,20 @@ class ProgressPane extends Component {
 
   render() {
     return (
-      <div aria-label="progress" className="step-indicator">
-        <ul className="steps">
-          {this.props.progressSpecs.map(tab => (
-            <ProgressNode
-              key={tab.id}
-              id={tab.id}
-              text={tab.text}
-              current={this.props.currentNode}
-            />
-          ))}
-        </ul>
+      <div>
+        <div aria-label="progress" className="step-indicator">
+          <ul className="steps">
+            {this.props.progressSpecs.map(tab => (
+              <ProgressNode
+                key={tab.id}
+                id={tab.id}
+                text={tab.text}
+                current={this.props.currentNode}
+              />
+            ))}
+          </ul>
+        </div>
+        {this.state.currentBody}
       </div>
     );
   }

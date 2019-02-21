@@ -53,8 +53,10 @@ let LOCALIZE = new LocalizedStrings({
       //HowTo Page
       howToPage: {
         title: "HowTo Page",
-        emailInstructions: "Email Instuctions",
-        taskInstructions: "Task Instuctions"
+        overview: "Overview",
+        tips: "Tips on taking the e-MIB",
+        instructions: "Test Instructions",
+        evaluation: "Evaluation"
       },
 
       //Background Page
@@ -155,8 +157,10 @@ let LOCALIZE = new LocalizedStrings({
       //HowTo Page
       howToPage: {
         title: "Page 'How To'",
-        emailInstructions: "Instructions pour les courriel",
-        taskInstructions: "Instuctions pour les tâches"
+        overview: "FR Overview",
+        tips: "FR Tips on taking the e-MIB",
+        instructions: "FR Test Instructions",
+        evaluation: "FR Evaluation"
       },
 
       //Background Page
