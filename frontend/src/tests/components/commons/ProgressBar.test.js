@@ -4,10 +4,10 @@ import ProgressBar from "../../../components/commons/ProgressBar";
 import ProgressNode from "../../../components/commons/ProgressNode";
 
 const PROGRESS = [
-  { id: 1, text: "node 1" },
-  { id: 2, text: "node 2" },
-  { id: 3, text: "node 3" },
-  { id: 4, text: "node 4" }
+  { id: 1, text: "node 1", body: <div>Body 1</div> },
+  { id: 2, text: "node 2", body: <div>Body 2</div> },
+  { id: 3, text: "node 3", body: <div>Body 3</div> },
+  { id: 4, text: "node 4", body: <div>Body 4</div> }
 ];
 
 it("renders when first node selected", () => {
@@ -27,7 +27,7 @@ it("renders when fourth node selected", () => {
 });
 
 function testCore(selected) {
-  const wrapper = mount(<ProgressBar progressSpecs={PROGRESS} currentStep={selected} />);
+  const wrapper = mount(<ProgressBar progressSpecs={PROGRESS} currentNode={selected} />);
   const node1 = <ProgressNode id={1} text={"node 1"} current={selected} />;
   const node2 = <ProgressNode id={2} text={"node 2"} current={selected} />;
   const node3 = <ProgressNode id={3} text={"node 3"} current={selected} />;

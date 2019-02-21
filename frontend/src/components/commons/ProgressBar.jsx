@@ -5,8 +5,14 @@ import ProgressNode from "./ProgressNode";
 class ProgressBar extends Component {
   static propTypes = {
     progressSpecs: PropTypes.array.isRequired,
-    currentStep: PropTypes.number.isRequired
+    currentNode: PropTypes.number.isRequired
   };
+
+  state = {
+    currentNode: this.props.currentNode,
+    currentBody: this.props.progressSpecs[this.props.currentNode].body
+  };
+
   render() {
     return (
       <div aria-label="progress" className="step-indicator">
@@ -16,7 +22,7 @@ class ProgressBar extends Component {
               key={tab.id}
               id={tab.id}
               text={tab.text}
-              current={this.props.currentStep}
+              current={this.props.currentNode}
             />
           ))}
         </ul>
