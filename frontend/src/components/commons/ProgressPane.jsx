@@ -10,8 +10,13 @@ class ProgressPane extends Component {
 
   state = {
     currentNode: this.props.currentNode,
-    currentBody: this.props.progressSpecs[this.props.currentNode].body
+    currentBody: this.props.progressSpecs[this.props.currentNode - 1].body
   };
+
+  changeNode(diff) {
+    const index = this.state.currentNode + diff;
+    this.setState({ currentNode: index, currentBody: this.props.progressSpecs[index - 1].body });
+  }
 
   render() {
     return (
@@ -23,12 +28,26 @@ class ProgressPane extends Component {
                 key={tab.id}
                 id={tab.id}
                 text={tab.text}
-                current={this.props.currentNode}
+                current={this.state.currentNode}
               />
             ))}
           </ul>
         </div>
         {this.state.currentBody}
+        {this.state.currentNode < this.props.progressSpecs.length && (
+          <div>
+            <button type="button" className="btn btn-primary" onClick={() => this.changeNode(1)}>
+              Next
+            </button>
+          </div>
+        )}
+        {this.state.currentNode > 1 && (
+          <div>
+            <button type="button" className="btn btn-primary" onClick={() => this.changeNode(-1)}>
+              Prev
+            </button>
+          </div>
+        )}
       </div>
     );
   }
