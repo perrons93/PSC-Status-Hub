@@ -8,6 +8,13 @@ import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
 import SideNavigation from "../commons/SideNavigation";
 
+const PROGRESS_SPECS = [
+  { id: 0, text: LOCALIZE.emibTest.howToPage.overview, body: <Overview /> },
+  { id: 1, text: LOCALIZE.emibTest.howToPage.tips, body: <TipsOnTest /> },
+  { id: 2, text: LOCALIZE.emibTest.howToPage.instructions, body: <TestInstructions /> },
+  { id: 3, text: LOCALIZE.emibTest.howToPage.evaluation, body: <Evaluation /> }
+];
+
 class HowTo extends Component {
   static propTypes = {
     inTest: PropTypes.bool.isRequired,
@@ -15,27 +22,24 @@ class HowTo extends Component {
   };
 
   render() {
-    const PROGRESS = [
-      { id: 0, text: LOCALIZE.emibTest.howToPage.overview, body: <Overview /> },
-      { id: 1, text: LOCALIZE.emibTest.howToPage.tips, body: <TipsOnTest /> },
-      { id: 2, text: LOCALIZE.emibTest.howToPage.instructions, body: <TestInstructions /> },
-      { id: 3, text: LOCALIZE.emibTest.howToPage.evaluation, body: <Evaluation /> }
-    ];
-
     return (
       <div>
         {this.props.inTest === false && (
           <ProgressPane
-            progressSpecs={PROGRESS}
+            progressSpecs={PROGRESS_SPECS}
             currentNode={0}
             paneTitle={LOCALIZE.emibTest.homePage.testTitle}
             exitButton={this.props.exitButton}
           />
         )}
-        {this.props.inTest === true && <SideNavigation progressSpecs={PROGRESS} currentNode={0} />}
+        {this.props.inTest === true && (
+          <SideNavigation progressSpecs={PROGRESS_SPECS} currentNode={0} />
+        )}
       </div>
     );
   }
 }
 
 export default HowTo;
+
+export { PROGRESS_SPECS };

@@ -9,7 +9,16 @@ import LOCALIZE from "../../../text_resources";
 
 it("renders howToPage page", () => {
   const wrapper = mount(<Emib />);
-  const howToComponent = <HowTo inTest={false} />;
+  const howToComponent = (
+    <HowTo
+      inTest={false}
+      exitButton={
+        <button type="button" className="btn btn-primary">
+          {LOCALIZE.commons.startTest}
+        </button>
+      }
+    />
+  );
   expect(wrapper.contains(howToComponent)).toEqual(true);
   expect(wrapper.state("curPage")).toEqual(PAGES.howTo);
 });
@@ -17,7 +26,16 @@ it("renders howToPage page", () => {
 it("renders howTo page when state changed", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.howTo });
-  const howToComponent = <HowTo inTest={false} />;
+  const howToComponent = (
+    <HowTo
+      inTest={false}
+      exitButton={
+        <button type="button" className="btn btn-primary">
+          {LOCALIZE.commons.startTest}
+        </button>
+      }
+    />
+  );
   expect(wrapper.contains(howToComponent)).toEqual(true);
 });
 
@@ -35,18 +53,26 @@ it("renders confirm page", () => {
   expect(wrapper.contains(confirmationComponent)).toEqual(true);
 });
 
-it("renders Next in English", () => {
+it("renders Submit Test in English", () => {
   LOCALIZE.setLanguage(LANGUAGES.english);
   const wrapper = mount(<Emib />);
-  wrapper.setState({ curPage: PAGES.howTo });
-  const startTest = <span>{LOCALIZE.commons.startTest}</span>;
-  expect(wrapper.contains(startTest)).toEqual(true);
+  wrapper.setState({ curPage: PAGES.confirm });
+  const submitTest = (
+    <button type="button" className="btn btn-primary">
+      Submit test
+    </button>
+  );
+  expect(wrapper.contains(submitTest)).toEqual(true);
 });
 
-it("renders Next in French", () => {
+it("renders Submit Test in French", () => {
   LOCALIZE.setLanguage(LANGUAGES.french);
   const wrapper = mount(<Emib />);
-  wrapper.setState({ curPage: PAGES.howTo });
-  const startTest = <span>{LOCALIZE.commons.startTest}</span>;
-  expect(wrapper.contains(startTest)).toEqual(true);
+  wrapper.setState({ curPage: PAGES.confirm });
+  const submitTest = (
+    <button type="button" className="btn btn-primary">
+      Soumettre le test
+    </button>
+  );
+  expect(wrapper.contains(submitTest)).toEqual(true);
 });

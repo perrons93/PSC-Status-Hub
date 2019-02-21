@@ -1,19 +1,27 @@
 import React from "react";
-import { shallow } from "enzyme";
-import HowTo from "../../../components/eMIB/HowTo";
+import { mount } from "enzyme";
+import HowTo, { PROGRESS_SPECS } from "../../../components/eMIB/HowTo";
 import { LANGUAGES } from "../../../components/commons/Translation";
+import ProgressPane from "../../../components/commons/ProgressPane";
+import SideNavigation from "../../../components/commons/SideNavigation";
 import LOCALIZE from "../../../text_resources";
 
-it("renders HowTo Page Title in English", () => {
+it("renders ProgressPane within HowTo when inTest=false", () => {
   LOCALIZE.setLanguage(LANGUAGES.english);
-  const wrapper = shallow(<HowTo inTest={false} />);
-  const howToPageTitle = <h2>{LOCALIZE.emibTest.howToPage.title}</h2>;
-  expect(wrapper.contains(howToPageTitle)).toEqual(true);
+  const wrapper = mount(<HowTo inTest={false} />);
+  const progressPane = (
+    <ProgressPane
+      progressSpecs={PROGRESS_SPECS}
+      currentNode={0}
+      paneTitle={LOCALIZE.emibTest.homePage.testTitle}
+    />
+  );
+  expect(wrapper.contains(progressPane)).toEqual(true);
 });
 
-it("renders HowTo Page Title in French", () => {
-  LOCALIZE.setLanguage(LANGUAGES.french);
-  const wrapper = shallow(<HowTo inTest={false} />);
-  const howToPageTitle = <h2>{LOCALIZE.emibTest.howToPage.title}</h2>;
-  expect(wrapper.contains(howToPageTitle)).toEqual(true);
+it("renders SideNavigation within HowTo when in test=true", () => {
+  LOCALIZE.setLanguage(LANGUAGES.english);
+  const wrapper = mount(<HowTo inTest={true} />);
+  const sideNavigation = <SideNavigation progressSpecs={PROGRESS_SPECS} currentNode={0} />;
+  expect(wrapper.contains(sideNavigation)).toEqual(true);
 });
