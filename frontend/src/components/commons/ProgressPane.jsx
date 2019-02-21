@@ -38,19 +38,21 @@ class ProgressPane extends Component {
         </div>
         {this.props.paneTitle ? <h1 className="progress-pane">{this.props.paneTitle}</h1> : null}
         {this.state.currentBody}
-        <div className="centeredButtons">
-          {this.state.currentNode < this.props.progressSpecs.length - 1 && (
+        {this.state.currentNode < this.props.progressSpecs.length - 1 && (
+          <div className="centeredButtons">
             <button type="button" className="btn btn-primary" onClick={() => this.changeNode(1)}>
               {LOCALIZE.commons.nextButton}
             </button>
-          )}
-          {this.state.currentNode === this.props.progressSpecs.length - 1 && this.props.exitButton}
-          {this.state.currentNode > 0 && (
+          </div>
+        )}
+        {this.state.currentNode === this.props.progressSpecs.length - 1 && this.props.exitButton}
+        {this.state.currentNode > 0 && (
+          <div className="centeredButtons">
             <button type="button" className="btn btn-secondary" onClick={() => this.changeNode(-1)}>
               {LOCALIZE.commons.backButton}
             </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     );
   }
