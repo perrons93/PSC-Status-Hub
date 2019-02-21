@@ -19,6 +19,36 @@ h1:after {
 }
 
 /*
+Override steps colors
+*/
+
+/* override color of text in active li*/
+.step-indicator .steps li.active {
+  color: #00565e;
+}
+
+/* override inner and outer cicle colors of active li */
+.step-indicator .steps li.active:before {
+  border-color: #009fae;
+  box-shadow: 0 0 0 0.2rem #c7e68c;
+}
+
+/* override checkmark and text color of completed li */
+.step-indicator .steps li.complete {
+  color: #009fae;
+}
+
+/* override circle color of completed li */
+.step-indicator .steps li.complete:before {
+  border-color: #009fae;
+}
+
+/* override line color of completed li to active li */
+.step-indicator .steps li.complete + li:after {
+  background-color: #009fae;
+}
+
+/*
 Formatting for banner image
 */
 
