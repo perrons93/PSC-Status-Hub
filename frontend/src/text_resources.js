@@ -163,6 +163,7 @@ let LOCALIZE = new LocalizedStrings({
     commons: {
       psc: "Public Service Commission",
       nextButton: "Next",
+      backButton: "Back",
       startTest: "Start test",
       submitTestButton: "Submit test",
       exitTest: "Exit Test",
@@ -337,6 +338,7 @@ let LOCALIZE = new LocalizedStrings({
     commons: {
       psc: "Commission de la fonction publique",
       nextButton: "Suivant",
+      backButton: "Retour",
       startTest: "Commencer le test",
       submitTestButton: "Soumettre le test",
       exitTest: "Quitter le test",

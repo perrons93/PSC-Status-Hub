@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ProgressNode from "./ProgressNode";
+import LOCALIZE from "../../text_resources";
 
 class ProgressPane extends Component {
   static propTypes = {
@@ -40,13 +41,13 @@ class ProgressPane extends Component {
         <div className="centeredButtons">
           {this.state.currentNode < this.props.progressSpecs.length - 1 && (
             <button type="button" className="btn btn-primary" onClick={() => this.changeNode(1)}>
-              Next to {this.props.progressSpecs[this.state.currentNode + 1].text}
+              {LOCALIZE.commons.nextButton}
             </button>
           )}
           {this.state.currentNode === this.props.progressSpecs.length - 1 && this.props.exitButton}
           {this.state.currentNode > 0 && (
             <button type="button" className="btn btn-secondary" onClick={() => this.changeNode(-1)}>
-              Back to {this.props.progressSpecs[this.state.currentNode - 1].text}
+              {LOCALIZE.commons.backButton}
             </button>
           )}
         </div>
