@@ -35,7 +35,7 @@ class ProgressPane extends Component {
             ))}
           </ul>
         </div>
-        {this.props.paneTitle ? <h1>{this.props.paneTitle}</h1> : null}
+        {this.props.paneTitle ? <h1 className="progress-pane">{this.props.paneTitle}</h1> : null}
         {this.state.currentBody}
         {this.state.currentNode < this.props.progressSpecs.length - 1 && (
           <div>

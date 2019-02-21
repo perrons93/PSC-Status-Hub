@@ -14,11 +14,11 @@ Formatting for English/French button
 /*
 Header 1: add green line underneath
 */
-h1 {
+h1.progress-pane {
   text-align: left;
 }
 
-h1:after {
+h1.progress-pane:after {
   content: " ";
   display: block;
   border: 2px solid #c7e68c;
@@ -40,13 +40,6 @@ Home Page
   background-color: black;
   color: white;
   font-size: 38px;
-  text-align: center;
-}
-
-#home-page-paragraph:after {
-  content: none;
-  display: none;
-  border: none;
 }
 
 /*
