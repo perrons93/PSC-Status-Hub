@@ -9,16 +9,16 @@ import LOCALIZE from "../../../text_resources";
 
 it("renders howToPage page", () => {
   const wrapper = mount(<Emib />);
-  const howToComponent = <HowTo inTest={false} />;
-  expect(wrapper.contains(howToComponent)).toEqual(true);
+  const emibTitle = <h1>{LOCALIZE.emibTest.homePage.testTitle}</h1>;
+  expect(wrapper.contains(emibTitle)).toEqual(true);
   expect(wrapper.state("curPage")).toEqual(PAGES.howTo);
 });
 
 it("renders howTo page when state changed", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.howTo });
-  const howToComponent = <HowTo inTest={false} />;
-  expect(wrapper.contains(howToComponent)).toEqual(true);
+  const emibTitle = <h1>{LOCALIZE.emibTest.homePage.testTitle}</h1>;
+  expect(wrapper.contains(emibTitle)).toEqual(true);
 });
 
 it("renders background page in test tabs", () => {
