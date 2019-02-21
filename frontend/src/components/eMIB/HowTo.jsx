@@ -9,10 +9,10 @@ import ProgressPane from "../commons/ProgressPane";
 import SideNavigation from "../commons/SideNavigation";
 
 const PROGRESS_SPECS = [
-  { id: 0, text: LOCALIZE.emibTest.howToPage.overview, body: <Overview /> },
-  { id: 1, text: LOCALIZE.emibTest.howToPage.tips, body: <TipsOnTest /> },
-  { id: 2, text: LOCALIZE.emibTest.howToPage.instructions, body: <TestInstructions /> },
-  { id: 3, text: LOCALIZE.emibTest.howToPage.evaluation, body: <Evaluation /> }
+  { id: 0, text: LOCALIZE.emibTest.howToPage.overview.title, body: <Overview /> },
+  { id: 1, text: LOCALIZE.emibTest.howToPage.tipsOnTest.title, body: <TipsOnTest /> },
+  { id: 2, text: LOCALIZE.emibTest.howToPage.instructions.title, body: <TestInstructions /> },
+  { id: 3, text: LOCALIZE.emibTest.howToPage.evaluation.title, body: <Evaluation /> }
 ];
 
 class HowTo extends Component {
