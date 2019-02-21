@@ -48,6 +48,16 @@ Override steps colors
   background-color: #009fae;
 }
 
+/* override primary and secondary button colors */
+.btn-primary {
+  background-color: #00565e;
+}
+
+.btn-secondary {
+  color: #00565e;
+  border-color: #00565e;
+}
+
 /*
 Formatting for banner image
 */
