@@ -9,7 +9,7 @@ import LOCALIZE from "../../../text_resources";
 
 it("renders howToPage page", () => {
   const wrapper = mount(<Emib />);
-  const emibTitle = <h1>{LOCALIZE.emibTest.homePage.testTitle}</h1>;
+  const emibTitle = <h1 className="progress-pane">{LOCALIZE.emibTest.homePage.testTitle}</h1>;
   expect(wrapper.contains(emibTitle)).toEqual(true);
   expect(wrapper.state("curPage")).toEqual(PAGES.howTo);
 });
@@ -17,7 +17,7 @@ it("renders howToPage page", () => {
 it("renders howTo page when state changed", () => {
   const wrapper = mount(<Emib />);
   wrapper.setState({ curPage: PAGES.howTo });
-  const emibTitle = <h1>{LOCALIZE.emibTest.homePage.testTitle}</h1>;
+  const emibTitle = <h1 className="progress-pane">{LOCALIZE.emibTest.homePage.testTitle}</h1>;
   expect(wrapper.contains(emibTitle)).toEqual(true);
 });
 
