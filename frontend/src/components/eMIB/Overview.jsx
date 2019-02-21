@@ -11,7 +11,10 @@ class Overview extends Component {
           <h2 className="emib-section-titles">{LOCALIZE.emibTest.howToPage.overview.title}</h2>
           <p>
             {LOCALIZE.emibTest.howToPage.overview.description}
-            <a href="">{LOCALIZE.emibTest.howToPage.overview.descriptionLink}</a>.
+            <a href="#keyLeadershipCompetencies">
+              {LOCALIZE.emibTest.howToPage.overview.descriptionLink}
+            </a>
+            .
           </p>
         </div>
         <div>

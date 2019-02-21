@@ -11,7 +11,9 @@ class TipsOnTest extends Component {
           <h2 className="emib-section-titles">{LOCALIZE.emibTest.howToPage.tipsOnTest.title}</h2>
           <p>
             {LOCALIZE.emibTest.howToPage.tipsOnTest.descriptionPart1}
-            <a href="">{LOCALIZE.emibTest.howToPage.tipsOnTest.descriptionLink}</a>
+            <a href="#keyLeadershipCompetencies">
+              {LOCALIZE.emibTest.howToPage.tipsOnTest.descriptionLink}
+            </a>
             {LOCALIZE.emibTest.howToPage.tipsOnTest.descriptionPart2}
           </p>
           <ul>
