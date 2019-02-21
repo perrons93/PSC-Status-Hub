@@ -10,7 +10,8 @@ import SideNavigation from "../commons/SideNavigation";
 
 class HowTo extends Component {
   static propTypes = {
-    inTest: PropTypes.bool.isRequired
+    inTest: PropTypes.bool.isRequired,
+    exitButton: PropTypes.object // optional exit button, to leave the HowTo
   };
 
   render() {
@@ -28,6 +29,7 @@ class HowTo extends Component {
             progressSpecs={PROGRESS}
             currentNode={0}
             paneTitle={LOCALIZE.emibTest.homePage.testTitle}
+            exitButton={this.props.exitButton}
           />
         )}
         {this.props.inTest === true && <SideNavigation progressSpecs={PROGRESS} currentNode={0} />}

@@ -33,16 +33,21 @@ class Emib extends Component {
     return (
       <div className="app">
         {this.state.curPage === PAGES.howTo && <img src={mini_banner} alt="" className="banner" />}
-        {this.state.curPage === PAGES.howTo && <HowTo inTest={false} />}
+        {this.state.curPage === PAGES.howTo && (
+          <HowTo
+            inTest={false}
+            exitButton={
+              <button type="button" className="btn btn-primary" onClick={this.changePage}>
+                {LOCALIZE.commons.startTest}
+              </button>
+            }
+          />
+        )}
         {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
         {this.state.curPage === PAGES.confirm && <Confirmation />}
-
-        {this.state.curPage !== PAGES.confirm && (
+        {this.state.curPage === PAGES.emibTabs && (
           <button type="button" className="btn btn-primary" onClick={this.changePage}>
-            {this.state.curPage === PAGES.howTo && <span>{LOCALIZE.commons.startTest}</span>}
-            {this.state.curPage === PAGES.emibTabs && (
-              <span>{LOCALIZE.commons.submitTestButton}</span>
-            )}
+            {LOCALIZE.commons.submitTestButton}
           </button>
         )}
       </div>

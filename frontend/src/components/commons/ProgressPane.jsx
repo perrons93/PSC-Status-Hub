@@ -6,7 +6,8 @@ class ProgressPane extends Component {
   static propTypes = {
     progressSpecs: PropTypes.array.isRequired,
     currentNode: PropTypes.number.isRequired,
-    paneTitle: PropTypes.string
+    paneTitle: PropTypes.string, //optional title parameter
+    exitButton: PropTypes.object // optional exit button, to leave the ProgressPane
   };
 
   state = {
@@ -42,6 +43,9 @@ class ProgressPane extends Component {
               Next to {this.props.progressSpecs[this.state.currentNode + 1].text}
             </button>
           </div>
+        )}
+        {this.state.currentNode === this.props.progressSpecs.length - 1 && (
+          <div>{this.props.exitButton}</div>
         )}
         {this.state.currentNode > 0 && (
           <div>
