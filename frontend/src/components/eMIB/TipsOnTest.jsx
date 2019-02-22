@@ -6,7 +6,7 @@ import "../../css/App.css";
 class TipsOnTest extends Component {
   render() {
     return (
-      <div className="emib-text-zone">
+      <div>
         <div>
           <h2 className="emib-section-titles">{LOCALIZE.emibTest.howToPage.tipsOnTest.title}</h2>
           <p>
