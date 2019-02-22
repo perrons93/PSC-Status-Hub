@@ -13,7 +13,7 @@ class TestInstructions extends Component {
   render() {
     return (
       <div>
-        <div className="emib-text-zone">
+        <div>
           <h2 className="emib-section-titles">
             {LOCALIZE.emibTest.howToPage.testInstructions.title}
           </h2>
