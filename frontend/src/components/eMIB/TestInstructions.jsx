@@ -3,17 +3,17 @@ import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/App.css";
 import original_email_emib_sample_test_example_en from "../../images/original_email_emib_sample_test_example_en.png";
-import original_email_emib_sample_test_example_fr from "../../images/original_email_emib_sample_test_example_fr.png";
+// import original_email_emib_sample_test_example_fr from "../../images/original_email_emib_sample_test_example_fr.png";
 import option_1_emib_sample_test_example_en from "../../images/option_1_emib_sample_test_example_en.png";
-import option_1_emib_sample_test_example_fr from "../../images/option_1_emib_sample_test_example_fr.png";
+// import option_1_emib_sample_test_example_fr from "../../images/option_1_emib_sample_test_example_fr.png";
 import option_2_emib_sample_test_example_en from "../../images/option_2_emib_sample_test_example_en.png";
-import option_2_emib_sample_test_example_fr from "../../images/option_2_emib_sample_test_example_fr.png";
+// import option_2_emib_sample_test_example_fr from "../../images/option_2_emib_sample_test_example_fr.png";
 
 class TestInstructions extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="emib-text-zone">
           <h2 className="emib-section-titles">
             {LOCALIZE.emibTest.howToPage.testInstructions.title}
           </h2>
