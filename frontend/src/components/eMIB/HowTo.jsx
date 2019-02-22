@@ -11,7 +11,7 @@ import SideNavigation from "../commons/SideNavigation";
 const PROGRESS_SPECS = [
   { id: 0, text: LOCALIZE.emibTest.howToPage.overview.title, body: <Overview /> },
   { id: 1, text: LOCALIZE.emibTest.howToPage.tipsOnTest.title, body: <TipsOnTest /> },
-  { id: 2, text: LOCALIZE.emibTest.howToPage.instructions.title, body: <TestInstructions /> },
+  { id: 2, text: LOCALIZE.emibTest.howToPage.testInstructions.title, body: <TestInstructions /> },
   { id: 3, text: LOCALIZE.emibTest.howToPage.evaluation.title, body: <Evaluation /> }
 ];
 
