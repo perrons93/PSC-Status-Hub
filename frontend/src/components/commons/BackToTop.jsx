@@ -3,7 +3,10 @@ import LOCALIZE from "../../text_resources";
 import scrollToTop from "../../helpers/scrollToTop";
 
 const styles = {
-  button: {
+  hiddenButton: {
+    visibility: "hidden"
+  },
+  displayedButton: {
     display: "block",
     position: "fixed",
     bottom: "5%",
@@ -12,30 +15,49 @@ const styles = {
 };
 
 class BackToTop extends Component {
-  displayBackToTopButton = () => {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("backToTopButton").style.display = "block";
+  state = {
+    displayButton: "hidden"
+  };
+
+  componentDidMount = () => {
+    window.addEventListener("scroll", this.handleOnScroll);
+  };
+
+  // handle onScroll event
+  handleOnScroll = () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 50) {
+      this.setState({ displayButton: "displayed" });
     } else {
-      document.getElementById("backToTopButton").style.display = "none";
+      this.setState({ displayButton: "hidden" });
     }
   };
 
   render() {
+    const { displayButton } = this.state;
     return (
       <div>
-        {/* {this.displayBackToTopButton()} */}
-        <div>
-          <a
-            id="backToTopButton"
-            style={styles.button}
-            href="#main-content"
-            className="btn btn-back-to-top"
-            onClick={scrollToTop()}
-          >
-            <i className="fa fa-arrow-up icon" />
-            &nbsp;{LOCALIZE.commons.backToTop}
-          </a>
-        </div>
+        {displayButton === "displayed" && (
+          <div>
+            <a
+              style={styles.displayedButton}
+              href="#main-content"
+              className="btn btn-back-to-top"
+              onClick={() => scrollToTop()}
+            >
+              <i className="fa fa-arrow-up icon" />
+              &nbsp;{LOCALIZE.commons.backToTop}
+            </a>
+          </div>
+        )}
+        {displayButton === "hidden" && (
+          <div>
+            <a style={styles.hiddenButton} href="#main-content">
+              <i className="fa fa-arrow-up icon" />
+              &nbsp;{LOCALIZE.commons.backToTop}
+            </a>
+          </div>
+        )}
       </div>
     );
   }
