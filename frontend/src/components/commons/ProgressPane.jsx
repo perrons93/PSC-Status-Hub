@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ProgressNode from "./ProgressNode";
 import LOCALIZE from "../../text_resources";
+import scrollToTop from "../../helpers/scrollToTop";
 
 class ProgressPane extends Component {
   static propTypes = {
@@ -19,6 +20,7 @@ class ProgressPane extends Component {
   changeNode(diff) {
     const index = this.state.currentNode + diff;
     this.setState({ currentNode: index, currentBody: this.props.progressSpecs[index].body });
+    scrollToTop();
   }
 
   render() {
