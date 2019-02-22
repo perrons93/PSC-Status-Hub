@@ -12,7 +12,7 @@ import option_2_emib_sample_test_example_fr from "../../images/option_2_emib_sam
 class TestInstructions extends Component {
   render() {
     return (
-      <div className="emib-text-zone">
+      <div>
         <div>
           <h2 className="emib-section-titles">
             {LOCALIZE.emibTest.howToPage.testInstructions.title}
