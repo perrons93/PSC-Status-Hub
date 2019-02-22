@@ -215,7 +215,8 @@ let LOCALIZE = new LocalizedStrings({
       passStatus: "Pass",
       failStatus: "Fail",
       enabled: "Enabled",
-      disabled: "Disabled"
+      disabled: "Disabled",
+      backToTop: "Back to top"
     }
   },
 
@@ -437,7 +438,8 @@ let LOCALIZE = new LocalizedStrings({
       passStatus: "Réussi",
       failStatus: "Échoue",
       enabled: "Activé",
-      disabled: "Désactivé"
+      disabled: "Désactivé",
+      backToTop: "Haut de la page"
     }
   }
 });
