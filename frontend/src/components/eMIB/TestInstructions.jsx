@@ -21,9 +21,9 @@ class TestInstructions extends Component {
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.para1}</p>
           </div>
           <div>
-            <p className="font-weight-bold">
+            <h3 className="emib-subsection-titles">
               {LOCALIZE.emibTest.howToPage.testInstructions.step1Section.title}
-            </p>
+            </h3>
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.step1Section.description}</p>
             <p className="font-weight-bold underline">
               {LOCALIZE.emibTest.howToPage.testInstructions.step1Section.part1.title}
@@ -47,9 +47,9 @@ class TestInstructions extends Component {
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.step1Section.part3.para3}</p>
           </div>
           <div>
-            <p className="font-weight-bold">
+            <h3 className="emib-subsection-titles">
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.title}
-            </p>
+            </h3>
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.step2Section.description}</p>
             <p className="font-weight-bold">
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.title}

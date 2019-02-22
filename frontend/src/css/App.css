@@ -55,7 +55,12 @@ Formatting of eMIB Sample Test
 
 /*Section Titles Formatting*/
 .emib-section-titles {
-  color: #137991;
+  color: #00565e;
+}
+
+/*Subsection Titles Formatting*/
+.emib-subsection-titles {
+  color: #009fae;
 }
 
 /*Images from Test Instructions formatting*/
