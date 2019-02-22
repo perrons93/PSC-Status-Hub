@@ -16,6 +16,15 @@ Formatting for English/French button
 }
 
 /*
+Header 1: add green line underneath
+*/
+h1.progress-pane:after {
+  content: " ";
+  display: block;
+  border: 2px solid #c7e68c;
+}
+
+/*
 Formatting for banner image
 */
 
@@ -51,6 +60,65 @@ Formatting of eMIB Sample Test
 
 /*Images from Test Instructions formatting*/
 .test-instruction-image {
+  width: 100%;
+}
+
+/*
+Override steps colors
+*/
+
+/* override color of text in active li*/
+.step-indicator .steps li.active {
+  color: #00565e;
+}
+
+/* override inner and outer cicle colors of active li */
+.step-indicator .steps li.active:before {
+  border-color: #009fae;
+  box-shadow: 0 0 0 0.2rem #c7e68c;
+}
+
+/* override checkmark and text color of completed li */
+.step-indicator .steps li.complete {
+  color: #009fae;
+}
+
+/* override circle color of completed li */
+.step-indicator .steps li.complete:before {
+  border-color: #009fae;
+}
+
+/* override line color of completed li to active li */
+.step-indicator .steps li.complete + li:after {
+  background-color: #009fae;
+}
+
+/* class to re-center any buttons contained within */
+.centeredButtons {
+  text-align: center;
+}
+
+/* override primary and secondary button colors */
+.btn-primary {
+  background-color: #00565e;
+}
+
+.btn-secondary {
+  color: #00565e;
+  border-color: #00565e;
+}
+
+/* override button width when inside ProgressPane */
+.progress-pane > div > button {
+  width: 400px;
+  margin-bottom: 10px;
+}
+
+/*
+Formatting for banner image
+*/
+
+img.banner {
   width: 100%;
 }
 

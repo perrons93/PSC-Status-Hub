@@ -46,7 +46,7 @@ let LOCALIZE = new LocalizedStrings({
     emibTest: {
       //Home Page
       homePage: {
-        testTitle: "eMIB - Sample Test",
+        testTitle: "The eMIB",
         welcomeMsg: "Welcome to the eMIB Sample Test"
       },
 
@@ -207,6 +207,7 @@ let LOCALIZE = new LocalizedStrings({
     commons: {
       psc: "Public Service Commission",
       nextButton: "Next",
+      backButton: "Back",
       startTest: "Start test",
       submitTestButton: "Submit test",
       exitTest: "Exit Test",
@@ -263,7 +264,7 @@ let LOCALIZE = new LocalizedStrings({
     emibTest: {
       //Home Page
       homePage: {
-        testTitle: "eMIB - Test Pratique",
+        testTitle: "La BRG-e",
         welcomeMsg: "Bienvenu dans le test pratique de eMIB"
       },
 
@@ -427,6 +428,7 @@ let LOCALIZE = new LocalizedStrings({
     commons: {
       psc: "Commission de la fonction publique",
       nextButton: "Suivant",
+      backButton: "Retour",
       startTest: "Commencer le test",
       submitTestButton: "Soumettre le test",
       exitTest: "Quitter le test",
