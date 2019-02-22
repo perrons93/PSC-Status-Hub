@@ -57,6 +57,7 @@ class TestInstructions extends Component {
             <p className="font-weight-bold underline">
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part1Title}
             </p>
+            {/* TODO: (fnormand01) Find a way to put the French image when we click on 'French' button */}
             <p>
               <img
                 src={original_email_emib_sample_test_example_en}
