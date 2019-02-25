@@ -7,15 +7,6 @@
 }
 
 /*
-Formatting for English/French button
-*/
-.translation-button {
-  position: fixed;
-  right: 2%;
-  top: 3.5%;
-}
-
-/*
 Header 1: add green line underneath
 */
 h1.progress-pane:after {
