@@ -36,7 +36,7 @@ class BackToTop extends Component {
     return (
       <div>
         {buttonVisible && (
-          <div id="displayedBtn">
+          <div id="unit-test-button-visible">
             {/* <span hidden>The back to top button is displayed</span> */}
             <a
               style={styles.displayedButton}
