@@ -6,9 +6,8 @@
   text-decoration: underline;
 }
 
-/*
-h1: add green line underneath
-*/
+/* Headers */
+/* h1: add green line underneath */
 h1.green-divider:after {
   content: " ";
   display: block;
@@ -19,12 +18,27 @@ h2 {
   color: #137991;
 }
 
+/* Buttons */
+.btn-primary {
+  background-color: #00565e;
+}
+
+.btn-secondary {
+  color: #00565e;
+  border-color: #00565e;
+}
+
+.btn-wide {
+  width: 400px;
+  margin-bottom: 10px;
+}
+
 .centered-buttons {
   text-align: center;
 }
 
 /*
-Override steps colors
+Progess Steps
 */
 
 /* override color of text in active li*/
@@ -51,21 +65,6 @@ Override steps colors
 /* override line color of completed li to active li */
 .step-indicator .steps li.complete + li:after {
   background-color: #009fae;
-}
-
-/* override primary and secondary button colors */
-.btn-primary {
-  background-color: #00565e;
-}
-
-.btn-secondary {
-  color: #00565e;
-  border-color: #00565e;
-}
-
-.btn-wide {
-  width: 400px;
-  margin-bottom: 10px;
 }
 
 /*
