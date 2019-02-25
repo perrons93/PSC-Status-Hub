@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="app">
       <img src={big_welcome_banner} alt={LOCALIZE.homePage.welcomeMsg} />
-      <ContentContainer>
+      <ContentContainer hideBanner={true}>
         <h1 id="home-page-paragraph">{LOCALIZE.homePage.title}</h1>
       </ContentContainer>
     </div>

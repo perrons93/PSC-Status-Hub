@@ -28,9 +28,6 @@ const styles = {
     position: "fixed",
     top: "3.5%",
     left: "2.5%"
-  },
-  headerSpace: {
-    paddingBottom: 40
   }
 };
 
@@ -107,7 +104,6 @@ class App extends Component {
               </div>
             </div>
           </nav>
-          <div style={styles.headerSpace} />
           <Route exact path={PATH.home} component={Home} />
           <Route path={PATH.prototype} component={Prototype} />
           <Route path={PATH.status} component={Status} />

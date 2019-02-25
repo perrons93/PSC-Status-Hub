@@ -3,7 +3,6 @@ import Confirmation from "./Confirmation";
 import HowTo from "./HowTo";
 import EmibTabs from "./EmibTabs";
 import LOCALIZE from "../../text_resources";
-import mini_banner from "./../../images/mini_banner.png";
 import ContentContainer from "../commons/ContentContainer";
 
 const PAGES = {
@@ -33,8 +32,7 @@ class Emib extends Component {
   render() {
     return (
       <div className="app">
-        {this.state.curPage === PAGES.howTo && <img src={mini_banner} alt="" className="banner" />}
-        <ContentContainer>
+        <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
           {this.state.curPage === PAGES.howTo && (
             <HowTo
               inTest={false}
