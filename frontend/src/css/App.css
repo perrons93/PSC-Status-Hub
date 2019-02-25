@@ -207,6 +207,7 @@ Formatting for Side Nav component and children
 .side-nav-btn-list {
   width: 20%;
   float: left;
+  padding-right: 25px;
 }
 .side-nav-btn {
   width: 100%;
