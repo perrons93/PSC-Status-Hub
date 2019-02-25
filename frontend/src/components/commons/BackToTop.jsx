@@ -26,7 +26,7 @@ class BackToTop extends Component {
   // handle onScroll event
   handleOnScroll = () => {
     const currentScroll = window.scrollY;
-    if (currentScroll > 50) {
+    if (currentScroll > 20) {
       this.setState({ displayButton: "displayed" });
     } else {
       this.setState({ displayButton: "hidden" });
@@ -39,6 +39,7 @@ class BackToTop extends Component {
       <div>
         {displayButton === "displayed" && (
           <div>
+            <span hidden>The back to top button is displayed</span>
             <a
               style={styles.displayedButton}
               href="#main-content"
@@ -52,6 +53,7 @@ class BackToTop extends Component {
         )}
         {displayButton === "hidden" && (
           <div>
+            <span hidden>The back to top button is hidden</span>
             <a style={styles.hiddenButton} href="#main-content">
               <i className="fa fa-arrow-up icon" />
               &nbsp;{LOCALIZE.commons.backToTop}
