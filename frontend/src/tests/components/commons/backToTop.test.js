@@ -5,16 +5,14 @@ import scrollToTop from "../../../helpers/scrollToTop";
 
 it("renders displayed back to top button", () => {
   const wrapper = mount(<BackToTop />);
-  wrapper.setState({ displayButton: "displayed" });
-  const backToTopBtn = <span hidden>The back to top button is displayed</span>;
-  expect(wrapper.contains(backToTopBtn)).toEqual(true);
+  wrapper.setState({ buttonVisible: true });
+  expect(wrapper.find("#displayedBtn").exists()).toEqual(true);
 });
 
 it("renders hidden back to top button", () => {
   const wrapper = mount(<BackToTop />);
-  wrapper.setState({ displayButton: "hidden" });
-  const backToTopBtn = <span hidden>The back to top button is hidden</span>;
-  expect(wrapper.contains(backToTopBtn)).toEqual(true);
+  wrapper.setState({ buttonVisible: false });
+  expect(wrapper.find("#displayedBtn").exists()).toEqual(false);
 });
 
 it("renders back the scrollTop to zero", () => {

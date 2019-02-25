@@ -3,9 +3,6 @@ import LOCALIZE from "../../text_resources";
 import scrollToTop from "../../helpers/scrollToTop";
 
 const styles = {
-  hiddenButton: {
-    visibility: "hidden"
-  },
   displayedButton: {
     display: "block",
     position: "fixed",
@@ -16,7 +13,7 @@ const styles = {
 
 class BackToTop extends Component {
   state = {
-    displayButton: "hidden"
+    buttonVisible: false
   };
 
   componentDidMount = () => {
@@ -28,34 +25,25 @@ class BackToTop extends Component {
     const currentScroll = document.documentElement.scrollTop;
     console.log(currentScroll);
     if (currentScroll > 20) {
-      this.setState({ displayButton: "displayed" });
+      this.setState({ buttonVisible: true });
     } else {
-      this.setState({ displayButton: "hidden" });
+      this.setState({ buttonVisible: false });
     }
   };
 
   render() {
-    const { displayButton } = this.state;
+    const { buttonVisible } = this.state;
     return (
       <div>
-        {displayButton === "displayed" && (
-          <div>
-            <span hidden>The back to top button is displayed</span>
+        {buttonVisible && (
+          <div id="displayedBtn">
+            {/* <span hidden>The back to top button is displayed</span> */}
             <a
               style={styles.displayedButton}
               href="#main-content"
               className="btn btn-back-to-top"
               onClick={() => scrollToTop()}
             >
-              <i className="fa fa-arrow-up icon" />
-              &nbsp;{LOCALIZE.commons.backToTop}
-            </a>
-          </div>
-        )}
-        {displayButton === "hidden" && (
-          <div>
-            <span hidden>The back to top button is hidden</span>
-            <a style={styles.hiddenButton} href="#main-content">
               <i className="fa fa-arrow-up icon" />
               &nbsp;{LOCALIZE.commons.backToTop}
             </a>
