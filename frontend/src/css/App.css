@@ -216,6 +216,7 @@ Formatting for Side Nav component and children
   float: left;
 }
 .side-nav-btn {
+  width: 100%;
   margin-bottom: 10px;
 }
 
