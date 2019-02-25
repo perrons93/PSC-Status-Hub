@@ -19,6 +19,10 @@ h2 {
   color: #137991;
 }
 
+.centered-buttons {
+  text-align: center;
+}
+
 /*
 Override steps colors
 */
@@ -47,11 +51,6 @@ Override steps colors
 /* override line color of completed li to active li */
 .step-indicator .steps li.complete + li:after {
   background-color: #009fae;
-}
-
-/* class to re-center any buttons contained within */
-.centeredButtons {
-  text-align: center;
 }
 
 /* override primary and secondary button colors */

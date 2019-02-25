@@ -39,17 +39,17 @@ class ProgressPane extends Component {
         {this.props.paneTitle ? <h1 className="green-divider">{this.props.paneTitle}</h1> : null}
         {this.state.currentBody}
         {this.state.currentNode < this.props.progressSpecs.length - 1 && (
-          <div className="centeredButtons">
+          <div className="centered-buttons">
             <button type="button" className="btn btn-primary" onClick={() => this.changeNode(1)}>
               {LOCALIZE.commons.nextButton}
             </button>
           </div>
         )}
         {this.state.currentNode === this.props.progressSpecs.length - 1 && (
-          <div className="centeredButtons">{this.props.exitButton}</div>
+          <div className="centered-buttons">{this.props.exitButton}</div>
         )}
         {this.state.currentNode > 0 && (
-          <div className="centeredButtons">
+          <div className="centered-buttons">
             <button type="button" className="btn btn-secondary" onClick={() => this.changeNode(-1)}>
               {LOCALIZE.commons.backButton}
             </button>
