@@ -6,9 +6,9 @@ import ContentContainer from "./components/commons/ContentContainer";
 const Home = () => {
   return (
     <div className="app">
-      <img src={big_welcome_banner} alt={LOCALIZE.homePage.welcomeMsg} />
-      <ContentContainer hideBanner={true}>
-        <h1 id="home-page-paragraph">{LOCALIZE.homePage.title}</h1>
+      <ContentContainer>
+        <h1>{LOCALIZE.homePage.title}</h1>
+        <p>{LOCALIZE.homePage.description}</p>
       </ContentContainer>
     </div>
   );
