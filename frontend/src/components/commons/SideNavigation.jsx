@@ -14,7 +14,6 @@ class SideNavigation extends Component {
 
   changeNode(id) {
     this.setState({ currentNode: id, currentBody: this.props.progressSpecs[id].body });
-    //this.refs[id].scrollIntoView({ block: "end", behavior: "smooth" });
   }
 
   render() {
@@ -44,14 +43,6 @@ class SideNavigation extends Component {
         </div>
         <div className="side-nav-body">{this.state.currentBody}</div>
       </div>
-      /*<div className="side-nav-body">
-          {this.props.progressSpecs.map(tab => (
-            <div key={tab.id} ref={tab.id}>
-              {tab.body}
-            </div>
-          ))}
-        </div>
-      </div>*/
     );
   }
 }
