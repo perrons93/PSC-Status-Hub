@@ -63,8 +63,7 @@ Override steps colors
   border-color: #00565e;
 }
 
-/* override button width when inside ProgressPane */
-.progress-pane > div > button {
+.btn-wide {
   width: 400px;
   margin-bottom: 10px;
 }

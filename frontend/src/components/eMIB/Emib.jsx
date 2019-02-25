@@ -37,7 +37,11 @@ class Emib extends Component {
             <HowTo
               inTest={false}
               exitButton={
-                <button type="button" className="btn btn-primary" onClick={this.changePage}>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-wide"
+                  onClick={this.changePage}
+                >
                   {LOCALIZE.commons.startTest}
                 </button>
               }

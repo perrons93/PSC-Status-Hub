@@ -23,7 +23,7 @@ class ProgressPane extends Component {
 
   render() {
     return (
-      <div className="progress-pane">
+      <div>
         <div aria-label="progress" className="step-indicator">
           <ul className="steps">
             {this.props.progressSpecs.map(tab => (
@@ -40,7 +40,11 @@ class ProgressPane extends Component {
         {this.state.currentBody}
         {this.state.currentNode < this.props.progressSpecs.length - 1 && (
           <div className="centered-buttons">
-            <button type="button" className="btn btn-primary" onClick={() => this.changeNode(1)}>
+            <button
+              type="button"
+              className="btn btn-primary btn-wide"
+              onClick={() => this.changeNode(1)}
+            >
               {LOCALIZE.commons.nextButton}
             </button>
           </div>
@@ -50,7 +54,11 @@ class ProgressPane extends Component {
         )}
         {this.state.currentNode > 0 && (
           <div className="centered-buttons">
-            <button type="button" className="btn btn-secondary" onClick={() => this.changeNode(-1)}>
+            <button
+              type="button"
+              className="btn btn-secondary btn-wide"
+              onClick={() => this.changeNode(-1)}
+            >
               {LOCALIZE.commons.backButton}
             </button>
           </div>
