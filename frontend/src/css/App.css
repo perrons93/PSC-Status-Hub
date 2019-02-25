@@ -204,6 +204,10 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
 Formatting for Side Nav component and children
 */
 
+.side-nav-btn-list {
+  width: 35%;
+  float: left;
+}
 .side-nav-btn {
   margin-bottom: 10px;
 }
