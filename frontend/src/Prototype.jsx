@@ -1,9 +1,10 @@
 import React from "react";
 import LOCALIZE from "./text_resources";
+import ContentContainer from "./components/commons/ContentContainer";
 
 const Prototype = () => {
   return (
-    <div className="app">
+    <ContentContainer>
       <h2>{LOCALIZE.prototypePage.title}</h2>
       <p>{LOCALIZE.prototypePage.welcomeMsg}</p>
 
@@ -12,7 +13,7 @@ const Prototype = () => {
           {LOCALIZE.prototypePage.startEmibSampleTest}
         </button>
       </form>
-    </div>
+    </ContentContainer>
   );
 };
 

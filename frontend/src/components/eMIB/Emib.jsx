@@ -4,6 +4,7 @@ import HowTo from "./HowTo";
 import EmibTabs from "./EmibTabs";
 import LOCALIZE from "../../text_resources";
 import mini_banner from "./../../images/mini_banner.png";
+import ContentContainer from "../commons/ContentContainer";
 
 const PAGES = {
   howTo: "howTo",
@@ -32,9 +33,9 @@ class Emib extends Component {
   render() {
     return (
       <div className="app">
-        {this.state.curPage === PAGES.howTo && (
-          <div>
-            <img src={mini_banner} alt="" className="banner" />
+        {this.state.curPage === PAGES.howTo && <img src={mini_banner} alt="" className="banner" />}
+        <ContentContainer>
+          {this.state.curPage === PAGES.howTo && (
             <HowTo
               inTest={false}
               exitButton={
@@ -43,15 +44,15 @@ class Emib extends Component {
                 </button>
               }
             />
-          </div>
-        )}
-        {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
-        {this.state.curPage === PAGES.confirm && <Confirmation />}
-        {this.state.curPage === PAGES.emibTabs && (
-          <button type="button" className="btn btn-primary" onClick={this.changePage}>
-            {LOCALIZE.commons.submitTestButton}
-          </button>
-        )}
+          )}
+          {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
+          {this.state.curPage === PAGES.confirm && <Confirmation />}
+          {this.state.curPage === PAGES.emibTabs && (
+            <button type="button" className="btn btn-primary" onClick={this.changePage}>
+              {LOCALIZE.commons.submitTestButton}
+            </button>
+          )}
+        </ContentContainer>
       </div>
     );
   }

@@ -6,12 +6,9 @@ import getIeVersion from "./helpers/getIeVersion";
 import getScreenResolution from "./helpers/getScreenResolution";
 import logo from "./images/logo.png";
 import LOCALIZE from "./text_resources";
+import ContentContainer from "./components/commons/ContentContainer";
 
 const styles = {
-  container: {
-    width: "50%",
-    margin: "0 auto"
-  },
   logo: {
     margin: 20,
     width: 30,
@@ -116,7 +113,7 @@ class Status extends Component {
       screenResolutionStatus
     } = this.state;
     return (
-      <div style={styles.container}>
+      <ContentContainer>
         <div className={"jumbotron"}>
           <h1>{LOCALIZE.statusPage.title}</h1>
           <p>{LOCALIZE.statusPage.welcomeMsg}</p>
@@ -207,7 +204,7 @@ class Status extends Component {
             </table>
           </div>
         </div>
-      </div>
+      </ContentContainer>
     );
   }
 }
