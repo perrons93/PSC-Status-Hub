@@ -205,7 +205,7 @@ Formatting for Side Nav component and children
 */
 
 .side-nav-btn-list {
-  width: 35%;
+  width: 20%;
   float: left;
 }
 .side-nav-btn {
@@ -214,9 +214,8 @@ Formatting for Side Nav component and children
 }
 
 .side-nav-body {
-  margin-left: 25%;
-  position: sticky;
-  right: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 .btn-primary.side-nav-btn {
   border: 2px solid #009fae;
