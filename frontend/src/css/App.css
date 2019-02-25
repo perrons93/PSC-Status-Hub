@@ -1,3 +1,8 @@
+/*
+App.css is used for overrides of existing CSS class names, tags, or in very specific cases where we'd want to add a new class.
+All component specific CSS lives in the React file with the component. 
+*/
+
 .app {
   text-align: center;
 }
