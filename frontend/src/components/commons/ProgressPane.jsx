@@ -23,7 +23,7 @@ class ProgressPane extends Component {
 
   render() {
     return (
-      <div className="progress-pane emib-text-zone">
+      <div className="progress-pane">
         <div aria-label="progress" className="step-indicator">
           <ul className="steps">
             {this.props.progressSpecs.map(tab => (
@@ -36,7 +36,7 @@ class ProgressPane extends Component {
             ))}
           </ul>
         </div>
-        {this.props.paneTitle ? <h1 className="progress-pane">{this.props.paneTitle}</h1> : null}
+        {this.props.paneTitle ? <h1 className="green-divider">{this.props.paneTitle}</h1> : null}
         {this.state.currentBody}
         {this.state.currentNode < this.props.progressSpecs.length - 1 && (
           <div className="centeredButtons">
