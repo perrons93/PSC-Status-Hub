@@ -15,12 +15,7 @@ h1.progress-pane:after {
   border: 2px solid #c7e68c;
 }
 
-/*
-Formatting of eMIB Sample Test
-*/
-
-/*Section Titles Formatting*/
-.emib-section-titles {
+h2 {
   color: #137991;
 }
 

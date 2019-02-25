@@ -8,7 +8,7 @@ class TipsOnTest extends Component {
     return (
       <div>
         <div>
-          <h2 className="emib-section-titles">{LOCALIZE.emibTest.howToPage.tipsOnTest.title}</h2>
+          <h2>{LOCALIZE.emibTest.howToPage.tipsOnTest.title}</h2>
           <p>
             {LOCALIZE.emibTest.howToPage.tipsOnTest.descriptionPart1}
             <a href="#keyLeadershipCompetencies">

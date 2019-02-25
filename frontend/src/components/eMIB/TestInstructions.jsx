@@ -20,9 +20,7 @@ class TestInstructions extends Component {
     return (
       <div>
         <div>
-          <h2 className="emib-section-titles">
-            {LOCALIZE.emibTest.howToPage.testInstructions.title}
-          </h2>
+          <h2>{LOCALIZE.emibTest.howToPage.testInstructions.title}</h2>
           <div>
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.para1}</p>
           </div>
