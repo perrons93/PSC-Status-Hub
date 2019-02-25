@@ -16,14 +16,6 @@ h1.progress-pane:after {
 }
 
 /*
-Formatting for banner image
-*/
-
-img.banner {
-  width: 100%;
-}
-
-/*
 Home Page
 */
 
@@ -96,14 +88,6 @@ Override steps colors
 .progress-pane > div > button {
   width: 400px;
   margin-bottom: 10px;
-}
-
-/*
-Formatting for banner image
-*/
-
-img.banner {
-  width: 100%;
 }
 
 /*
