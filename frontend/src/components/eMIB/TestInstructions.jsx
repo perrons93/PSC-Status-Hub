@@ -9,6 +9,12 @@ import option_1_emib_sample_test_example_en from "../../images/option_1_emib_sam
 import option_2_emib_sample_test_example_en from "../../images/option_2_emib_sample_test_example_en.png";
 // import option_2_emib_sample_test_example_fr from "../../images/option_2_emib_sample_test_example_fr.png";
 
+const styles = {
+  testImage: {
+    maxWidth: 600
+  }
+};
+
 class TestInstructions extends Component {
   render() {
     return (
@@ -62,7 +68,7 @@ class TestInstructions extends Component {
               <img
                 src={original_email_emib_sample_test_example_en}
                 alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part1Title}
-                className="test-instruction-image"
+                style={styles.testImage}
               />
             </p>
             <p>
@@ -75,7 +81,7 @@ class TestInstructions extends Component {
               <img
                 src={option_1_emib_sample_test_example_en}
                 alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part2Title}
-                className="test-instruction-image"
+                style={styles.testImage}
               />
             </p>
             <p className="font-weight-bold underline">
@@ -85,7 +91,7 @@ class TestInstructions extends Component {
               <img
                 src={option_2_emib_sample_test_example_en}
                 alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part3Title}
-                className="test-instruction-image"
+                style={styles.testImage}
               />
             </p>
           </div>
