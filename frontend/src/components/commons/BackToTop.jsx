@@ -25,7 +25,8 @@ class BackToTop extends Component {
 
   // handle onScroll event
   handleOnScroll = () => {
-    const currentScroll = window.scrollY;
+    const currentScroll = document.documentElement.scrollTop;
+    console.log(currentScroll);
     if (currentScroll > 20) {
       this.setState({ displayButton: "displayed" });
     } else {
