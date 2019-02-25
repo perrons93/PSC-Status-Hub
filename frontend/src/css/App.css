@@ -199,3 +199,24 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
   -o-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
 }
+
+/*
+Formatting for Side Nav component and children
+*/
+
+.side-nav-btn {
+  margin-bottom: 10px;
+}
+
+.side-nav-body {
+  margin-left: 25%;
+  position: sticky;
+  right: 0;
+}
+.btn-primary.side-nav-btn {
+  border: 2px solid #009fae;
+}
+
+.btn-secondary.side-nav-btn {
+  border: none;
+}
