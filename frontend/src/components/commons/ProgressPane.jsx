@@ -6,7 +6,10 @@ import scrollToTop from "../../helpers/scrollToTop";
 import BackToTop from "../commons/BackToTop";
 
 const styles = {
-  btn: {
+  nextBtn: {
+    padding: "32px 0 12px 0"
+  },
+  startTestBtn: {
     padding: "32px 0 12px 0"
   },
   progressPanePadding: {
@@ -55,7 +58,7 @@ class ProgressPane extends Component {
           {this.props.paneTitle && <h1 className="green-divider">{this.props.paneTitle}</h1>}
           {this.state.currentBody}
           {this.state.currentNode < this.props.progressSpecs.length - 1 && (
-            <div style={styles.btn} className="centered-buttons">
+            <div style={styles.nextBtn} className="centered-buttons">
               <button
                 type="button"
                 className="btn btn-primary btn-wide"
@@ -66,7 +69,9 @@ class ProgressPane extends Component {
             </div>
           )}
           {this.state.currentNode === this.props.progressSpecs.length - 1 && (
-            <div className="centered-buttons">{this.props.exitButton}</div>
+            <div style={styles.startTestBtn} className="centered-buttons">
+              {this.props.exitButton}
+            </div>
           )}
           {this.state.currentNode > 0 && (
             <div className="centered-buttons">
