@@ -1,5 +1,5 @@
 /*
-App.css is used for overrides of existing CSS class names, tags, or in very specific cases where we'd want to add a new class.
+App.css is used for overrides of existing CSS class names, or tags.
 All component specific CSS lives in the React file with the component. 
 */
 
@@ -9,6 +9,10 @@ All component specific CSS lives in the React file with the component.
 
 .underline {
   text-decoration: underline;
+}
+
+h3 {
+  color: #009fae;
 }
 
 /* Headers */
@@ -40,6 +44,14 @@ h2 {
 
 .centered-buttons {
   text-align: center;
+}
+
+/*
+Formatting for Back to top button; based off of Aurora
+*/
+.btn-backtotop {
+  border: 1px solid #009fae;
+  color: #009fae;
 }
 
 /*
