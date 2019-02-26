@@ -8,6 +8,10 @@ import BackToTop from "../commons/BackToTop";
 const styles = {
   btn: {
     padding: "32px 0 12px 0"
+  },
+  progressPanePadding: {
+    paddingBottom: 32,
+    paddingTop: 32
   }
 };
 
@@ -34,17 +38,19 @@ class ProgressPane extends Component {
     return (
       <div>
         <div>
-          <div aria-label="progress" className="step-indicator">
-            <ul className="steps">
-              {this.props.progressSpecs.map(tab => (
-                <ProgressNode
-                  key={tab.id}
-                  id={tab.id}
-                  text={tab.text}
-                  current={this.state.currentNode}
-                />
-              ))}
-            </ul>
+          <div style={styles.progressPanePadding}>
+            <div aria-label="progress" className="step-indicator">
+              <ul className="steps">
+                {this.props.progressSpecs.map(tab => (
+                  <ProgressNode
+                    key={tab.id}
+                    id={tab.id}
+                    text={tab.text}
+                    current={this.state.currentNode}
+                  />
+                ))}
+              </ul>
+            </div>
           </div>
           {this.props.paneTitle && <h1 className="green-divider">{this.props.paneTitle}</h1>}
           {this.state.currentBody}
