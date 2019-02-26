@@ -5,6 +5,12 @@ import LOCALIZE from "../../text_resources";
 import scrollToTop from "../../helpers/scrollToTop";
 import BackToTop from "../commons/BackToTop";
 
+const styles = {
+  btn: {
+    padding: "32px 0 12px 0"
+  }
+};
+
 class ProgressPane extends Component {
   static propTypes = {
     progressSpecs: PropTypes.array.isRequired,
@@ -43,7 +49,7 @@ class ProgressPane extends Component {
           {this.props.paneTitle && <h1 className="green-divider">{this.props.paneTitle}</h1>}
           {this.state.currentBody}
           {this.state.currentNode < this.props.progressSpecs.length - 1 && (
-            <div className="centered-buttons">
+            <div style={styles.btn} className="centered-buttons">
               <button
                 type="button"
                 className="btn btn-primary btn-wide"

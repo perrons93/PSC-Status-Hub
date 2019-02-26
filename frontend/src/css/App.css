@@ -14,17 +14,20 @@ All component specific CSS lives in the React file with the component.
 /* Headers */
 h3 {
   color: #009fae;
+  padding-top: 12px;
 }
 
 /* h1: add green line underneath */
 h1.green-divider:after {
   content: " ";
   display: block;
-  border: 2px solid #c7e68c;
+  border-bottom: 2px solid #c7e68c;
+  padding-bottom: 12px;
 }
 
 h2 {
   color: #137991;
+  padding-top: 24px;
 }
 
 /* Buttons */
