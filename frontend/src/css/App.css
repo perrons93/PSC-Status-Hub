@@ -35,9 +35,33 @@ h2 {
   background-color: #00565e;
 }
 
+.btn-primary:hover {
+  background-color: #327d78;
+}
+
+.btn-primary:active {
+  background-color: #00565e !important;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem red;
+}
+
 .btn-secondary {
   color: #00565e;
   border-color: #00565e;
+}
+
+.btn-secondary:hover {
+  background-color: #00565e;
+}
+
+.btn-secondary:active {
+  background-color: #00565e !important;
+}
+
+.btn-secondary:focus {
+  box-shadow: 0 0 0 0.2rem #00565e;
 }
 
 .btn-wide {
@@ -49,12 +73,13 @@ h2 {
   text-align: center;
 }
 
-/*
-Formatting for Back to top button; based off of Aurora
-*/
 .btn-backtotop {
   border: 1px solid #009fae;
   color: #009fae;
+}
+
+.btn-backtotop:focus {
+  box-shadow: 0 0 0 0.2rem #00565e;
 }
 
 /*
