@@ -44,10 +44,6 @@ class SideNavigation extends Component {
     this.setState({ currentNode: id, currentBody: this.props.navSpecs[id].body });
   }
 
-  genButtonID(id, status) {
-    return "unit-test-sidenav-button" + id + "-" + status;
-  }
-
   render() {
     const body_id = this.props.navSpecs[this.state.currentNode].text;
     return (
@@ -57,7 +53,6 @@ class SideNavigation extends Component {
             <div key={tab.id}>
               {tab.id === this.state.currentNode && (
                 <button
-                  id={this.genButtonID(tab.id, "selected")}
                   className="btn-primary"
                   style={{ ...styles.button, ...styles.primaryButton }}
                   onClick={() => this.changeNode(tab.id)}
@@ -67,7 +62,6 @@ class SideNavigation extends Component {
               )}
               {tab.id !== this.state.currentNode && (
                 <button
-                  id={this.genButtonID(tab.id, "unselected")}
                   className="btn-secondary"
                   style={{ ...styles.button, ...styles.secondaryButton }}
                   onClick={() => this.changeNode(tab.id)}
