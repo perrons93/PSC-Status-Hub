@@ -2,14 +2,20 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 const styles = {
+  sideNavPane: {
+    display: "flex",
+    flexDirection: "row"
+  },
   buttonList: {
-    width: 200,
-    paddingRight: 25,
-    float: "left"
+    width: 550,
+    paddingRight: 25
   },
   button: {
     width: "100%",
-    marginBottom: 10
+    marginBottom: 10,
+    display: "flex",
+    justifyContent: "flext-start",
+    textAlign: "center"
   },
   bodyContent: {
     display: "flex",
@@ -45,7 +51,7 @@ class SideNavigation extends Component {
   render() {
     const body_id = this.props.navSpecs[this.state.currentNode].text;
     return (
-      <div className="side-nav-pane">
+      <div style={styles.sideNavPane}>
         <div style={styles.buttonList}>
           {this.props.navSpecs.map(tab => (
             <div key={tab.id}>
