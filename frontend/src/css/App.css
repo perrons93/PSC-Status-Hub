@@ -16,6 +16,18 @@ Formatting for English/French button
 }
 
 /*
+Formatting for Back to top button; based off of Aurora
+*/
+.btn-backtotop {
+  border: 1px solid #009fae;
+  color: #009fae;
+}
+
+h3 {
+  color: #009fae;
+}
+
+/*
 Header 1: add green line underneath
 */
 h1.progress-pane:after {
@@ -48,7 +60,7 @@ Formatting of eMIB Sample Test
 
 /*Section Titles Formatting*/
 .emib-section-titles {
-  color: #137991;
+  color: #00565e;
 }
 
 /*Images from Test Instructions formatting*/
