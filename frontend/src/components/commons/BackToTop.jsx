@@ -23,7 +23,6 @@ class BackToTop extends Component {
   // handle onScroll event
   handleOnScroll = () => {
     const currentScroll = document.documentElement.scrollTop;
-    console.log(currentScroll);
     if (currentScroll > 20) {
       this.setState({ buttonVisible: true });
     } else {
@@ -37,7 +36,6 @@ class BackToTop extends Component {
       <div>
         {buttonVisible && (
           <div id="unit-test-button-visible">
-            {/* <span hidden>The back to top button is displayed</span> */}
             <a
               style={styles.displayedButton}
               href="#main-content"
