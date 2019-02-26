@@ -11,11 +11,11 @@ All component specific CSS lives in the React file with the component.
   text-decoration: underline;
 }
 
+/* Headers */
 h3 {
   color: #009fae;
 }
 
-/* Headers */
 /* h1: add green line underneath */
 h1.green-divider:after {
   content: " ";
