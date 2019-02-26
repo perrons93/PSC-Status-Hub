@@ -25,9 +25,7 @@ class Evaluation extends Component {
             </ul>
           </div>
           <div id="keyLeadershipCompetencies">
-            <h3 className="emib-subsection-titles">
-              {LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection.title}
-            </h3>
+            <h3>{LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection.title}</h3>
             <div>
               <p>
                 <span className="font-weight-bold">

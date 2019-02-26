@@ -23,6 +23,10 @@ Formatting for Back to top button; based off of Aurora
   color: #009fae;
 }
 
+h3 {
+  color: #009fae;
+}
+
 /*
 Header 1: add green line underneath
 */
@@ -64,11 +68,6 @@ Formatting of eMIB Sample Test
 /*Section Titles Formatting*/
 .emib-section-titles {
   color: #00565e;
-}
-
-/*Subsection Titles Formatting*/
-.emib-subsection-titles {
-  color: #009fae;
 }
 
 /*Images from Test Instructions formatting*/

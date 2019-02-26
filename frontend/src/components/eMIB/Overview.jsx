@@ -19,9 +19,7 @@ class Overview extends Component {
             </p>
           </div>
           <div>
-            <h3 className="emib-subsection-titles">
-              {LOCALIZE.emibTest.howToPage.overview.aboutSection.title}
-            </h3>
+            <h3>{LOCALIZE.emibTest.howToPage.overview.aboutSection.title}</h3>
             <p>{LOCALIZE.emibTest.howToPage.overview.aboutSection.para1}</p>
             <ul>
               <li>{LOCALIZE.emibTest.howToPage.overview.aboutSection.bullet1}</li>
