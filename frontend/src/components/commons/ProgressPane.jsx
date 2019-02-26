@@ -40,7 +40,7 @@ class ProgressPane extends Component {
               ))}
             </ul>
           </div>
-          {this.props.paneTitle && <h1 className="progress-pane">{this.props.paneTitle}</h1>}
+          {this.props.paneTitle && <h1 className="green-divider">{this.props.paneTitle}</h1>}
           {this.state.currentBody}
           {this.state.currentNode < this.props.progressSpecs.length - 1 && (
             <div className="centered-buttons">
