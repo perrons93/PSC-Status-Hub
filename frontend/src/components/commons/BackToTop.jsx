@@ -39,7 +39,7 @@ class BackToTop extends Component {
             <a
               style={styles.displayedButton}
               href="#main-content"
-              className="btn btn-back-to-top"
+              className="btn btn-backtotop"
               onClick={() => scrollToTop()}
             >
               <i className="fa fa-arrow-up icon" />
