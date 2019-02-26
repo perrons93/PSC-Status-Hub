@@ -26,8 +26,13 @@ const styles = {
   },
   pscImage: {
     position: "fixed",
-    top: "3.5%",
-    left: "2.5%"
+    top: 20,
+    left: 20
+  },
+  languageButton: {
+    position: "fixed",
+    right: 15,
+    top: 15
   }
 };
 
@@ -99,7 +104,7 @@ class App extends Component {
                   </NavLink>
                 </li>
               </ul>
-              <div id="translation-button" className="translation-button">
+              <div style={styles.languageButton}>
                 <Translation updateLanguageOnPage={this.updateLanguage} />
               </div>
             </div>
