@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import HowTo, { PROGRESS_SPECS } from "../../../components/eMIB/HowTo";
+import HowTo, { SPECS } from "../../../components/eMIB/HowTo";
 import { LANGUAGES } from "../../../components/commons/Translation";
 import ProgressPane from "../../../components/commons/ProgressPane";
 import SideNavigation from "../../../components/commons/SideNavigation";
@@ -11,7 +11,7 @@ it("renders ProgressPane within HowTo when inTest=false", () => {
   const wrapper = mount(<HowTo inTest={false} />);
   const progressPane = (
     <ProgressPane
-      progressSpecs={PROGRESS_SPECS}
+      progressSpecs={SPECS}
       currentNode={0}
       paneTitle={LOCALIZE.emibTest.homePage.testTitle}
     />
@@ -22,6 +22,6 @@ it("renders ProgressPane within HowTo when inTest=false", () => {
 it("renders SideNavigation within HowTo when in test=true", () => {
   LOCALIZE.setLanguage(LANGUAGES.english);
   const wrapper = mount(<HowTo inTest={true} />);
-  const sideNavigation = <SideNavigation progressSpecs={PROGRESS_SPECS} currentNode={0} />;
+  const sideNavigation = <SideNavigation navSpecs={SPECS} currentNode={0} />;
   expect(wrapper.contains(sideNavigation)).toEqual(true);
 });
