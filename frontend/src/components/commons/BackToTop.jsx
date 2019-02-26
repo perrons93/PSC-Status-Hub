@@ -6,8 +6,8 @@ const styles = {
   displayedButton: {
     display: "block",
     position: "fixed",
-    bottom: "5%",
-    right: "3%"
+    bottom: 20,
+    right: 20
   }
 };
 

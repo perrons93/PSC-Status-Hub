@@ -8,6 +8,9 @@ const styles = {
     margin: "0px auto",
     textAlign: "left",
     paddingTop: 20
+  },
+  banner: {
+    width: "100%"
   }
 };
 
@@ -16,7 +19,7 @@ const styles = {
 const ContentContainer = props => {
   return (
     <div>
-      {!props.hideBanner && <img src={mini_banner} alt="" className="banner" />}
+      {!props.hideBanner && <img src={mini_banner} alt="" style={styles.banner} />}
       <div style={styles.container}>{props.children}</div>
     </div>
   );

@@ -1,3 +1,8 @@
+/*
+App.css is used for overrides of existing CSS class names, or tags.
+All component specific CSS lives in the React file with the component. 
+*/
+
 .app {
   text-align: center;
 }
@@ -6,13 +11,39 @@
   text-decoration: underline;
 }
 
-/*
-Formatting for English/French button
-*/
-.translation-button {
-  position: fixed;
-  right: 2%;
-  top: 3.5%;
+/* Headers */
+h3 {
+  color: #009fae;
+}
+
+/* h1: add green line underneath */
+h1.green-divider:after {
+  content: " ";
+  display: block;
+  border: 2px solid #c7e68c;
+}
+
+h2 {
+  color: #137991;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #00565e;
+}
+
+.btn-secondary {
+  color: #00565e;
+  border-color: #00565e;
+}
+
+.btn-wide {
+  width: 400px;
+  margin-bottom: 10px;
+}
+
+.centered-buttons {
+  text-align: center;
 }
 
 /*
@@ -23,53 +54,8 @@ Formatting for Back to top button; based off of Aurora
   color: #009fae;
 }
 
-h3 {
-  color: #009fae;
-}
-
 /*
-Header 1: add green line underneath
-*/
-h1.progress-pane:after {
-  content: " ";
-  display: block;
-  border: 2px solid #c7e68c;
-}
-
-/*
-Formatting for banner image
-*/
-
-img.banner {
-  width: 100%;
-}
-
-/*
-Home Page
-*/
-
-#home-page-paragraph {
-  background-color: black;
-  color: white;
-  font-size: 38px;
-}
-
-/*
-Formatting of eMIB Sample Test
-*/
-
-/*Section Titles Formatting*/
-.emib-section-titles {
-  color: #00565e;
-}
-
-/*Images from Test Instructions formatting*/
-.test-instruction-image {
-  width: 100%;
-}
-
-/*
-Override steps colors
+Progess Steps
 */
 
 /* override color of text in active li*/
@@ -96,35 +82,6 @@ Override steps colors
 /* override line color of completed li to active li */
 .step-indicator .steps li.complete + li:after {
   background-color: #009fae;
-}
-
-/* class to re-center any buttons contained within */
-.centeredButtons {
-  text-align: center;
-}
-
-/* override primary and secondary button colors */
-.btn-primary {
-  background-color: #00565e;
-}
-
-.btn-secondary {
-  color: #00565e;
-  border-color: #00565e;
-}
-
-/* override button width when inside ProgressPane */
-.progress-pane > div > button {
-  width: 400px;
-  margin-bottom: 10px;
-}
-
-/*
-Formatting for banner image
-*/
-
-img.banner {
-  width: 100%;
 }
 
 /*

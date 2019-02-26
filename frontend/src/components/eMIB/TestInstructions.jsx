@@ -10,14 +10,18 @@ import option_1_emib_sample_test_example_fr from "../../images/option_1_emib_sam
 import option_2_emib_sample_test_example_en from "../../images/option_2_emib_sample_test_example_en.png";
 import option_2_emib_sample_test_example_fr from "../../images/option_2_emib_sample_test_example_fr.png";
 
+const styles = {
+  testImage: {
+    maxWidth: 600
+  }
+};
+
 class TestInstructions extends Component {
   render() {
     return (
       <div>
         <div>
-          <h2 className="emib-section-titles">
-            {LOCALIZE.emibTest.howToPage.testInstructions.title}
-          </h2>
+          <h2>{LOCALIZE.emibTest.howToPage.testInstructions.title}</h2>
           <div>
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.para1}</p>
           </div>
@@ -60,7 +64,7 @@ class TestInstructions extends Component {
                 <img
                   src={original_email_emib_sample_test_example_en}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part1Title}
-                  className="test-instruction-image"
+                  style={styles.testImage}
                 />
               )}
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
@@ -68,7 +72,7 @@ class TestInstructions extends Component {
                 <img
                   src={original_email_emib_sample_test_example_fr}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part1Title}
-                  className="test-instruction-image"
+                  style={styles.testImage}
                 />
               )}
             </p>
@@ -84,7 +88,7 @@ class TestInstructions extends Component {
                 <img
                   src={option_1_emib_sample_test_example_en}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part2Title}
-                  className="test-instruction-image"
+                  style={styles.testImage}
                 />
               )}
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
@@ -92,7 +96,7 @@ class TestInstructions extends Component {
                 <img
                   src={option_1_emib_sample_test_example_fr}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part2Title}
-                  className="test-instruction-image"
+                  style={styles.testImage}
                 />
               )}
             </p>
@@ -105,7 +109,7 @@ class TestInstructions extends Component {
                 <img
                   src={option_2_emib_sample_test_example_en}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part3Title}
-                  className="test-instruction-image"
+                  style={styles.testImage}
                 />
               )}
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
@@ -113,7 +117,7 @@ class TestInstructions extends Component {
                 <img
                   src={option_2_emib_sample_test_example_fr}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part3Title}
-                  className="test-instruction-image"
+                  style={styles.testImage}
                 />
               )}
             </p>
