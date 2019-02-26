@@ -8,7 +8,7 @@ import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
 import SideNavigation from "../commons/SideNavigation";
 
-const PROGRESS_SPECS = [
+const SPECS = [
   { id: 0, text: LOCALIZE.emibTest.howToPage.overview.title, body: <Overview /> },
   { id: 1, text: LOCALIZE.emibTest.howToPage.tipsOnTest.title, body: <TipsOnTest /> },
   { id: 2, text: LOCALIZE.emibTest.howToPage.testInstructions.title, body: <TestInstructions /> },
@@ -24,17 +24,15 @@ class HowTo extends Component {
   render() {
     return (
       <div>
-        {this.props.inTest === false && (
+        {!this.props.inTest && (
           <ProgressPane
-            progressSpecs={PROGRESS_SPECS}
+            progressSpecs={SPECS}
             currentNode={0}
             paneTitle={LOCALIZE.emibTest.homePage.testTitle}
             exitButton={this.props.exitButton}
           />
         )}
-        {this.props.inTest === true && (
-          <SideNavigation progressSpecs={PROGRESS_SPECS} currentNode={0} />
-        )}
+        {this.props.inTest && <SideNavigation navSpecs={SPECS} currentNode={0} />}
       </div>
     );
   }
@@ -42,4 +40,4 @@ class HowTo extends Component {
 
 export default HowTo;
 
-export { PROGRESS_SPECS };
+export { SPECS };
