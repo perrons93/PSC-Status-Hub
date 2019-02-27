@@ -122,16 +122,7 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
   text-decoration: none;
   background-color: #eeeeee;
 }
-.bootstrap-tabs > .nav > span > span > li.disabled > button {
-  color: #777777;
-}
-.bootstrap-tabs > .nav > span > span > li.disabled > button:hover,
-.bootstrap-tabs > .nav > span > span > li.disabled > button:focus {
-  color: #777777;
-  text-decoration: none;
-  cursor: not-allowed;
-  background-color: transparent;
-}
+
 .bootstrap-tabs > .nav .open > button,
 .bootstrap-tabs > .nav .open > button:hover,
 .bootstrap-tabs > .nav .open > button:focus {
