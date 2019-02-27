@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+//TODO fix fluctuating button width
 const styles = {
   sideNavPane: {
     display: "flex",
@@ -8,13 +9,14 @@ const styles = {
   },
   buttonList: {
     width: 550,
-    paddingRight: 25
+    paddingRight: 25,
+    marginTop: "18px"
   },
   button: {
     width: "100%",
     marginBottom: 10,
     display: "flex",
-    justifyContent: "flext-start",
+    justifyContent: "center",
     textAlign: "center"
   },
   bodyContent: {
