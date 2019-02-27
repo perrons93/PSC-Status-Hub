@@ -88,9 +88,9 @@ p {
   text-align: center;
 }
 
-.btn-backtotop {
-  border: 1px solid #009fae;
-  color: #009fae;
+.btn-backtotop:hover {
+  color: white;
+  background-color: #00565e;
 }
 
 /*
