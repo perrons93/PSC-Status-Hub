@@ -107,17 +107,27 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  border-bottom: 1px solid #00565e;
 }
+
 .bootstrap-tabs > .nav > span > span > li {
   position: relative;
   display: block;
+  float: left;
+  margin-bottom: -1px;
 }
+
 .bootstrap-tabs > .nav > span > span > li > button {
   position: relative;
   display: block;
   padding: 10px 15px;
   background-color: transparent;
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
 }
+
 .bootstrap-tabs > .nav > span > span > li > button:hover,
 .bootstrap-tabs > .nav > span > span > li > button:focus {
   text-decoration: none;
@@ -131,19 +141,6 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
 }
 .bootstrap-tabs > .nav > span > span > li > button > img {
   max-width: none;
-}
-.bootstrap-tabs > .nav {
-  border-bottom: 1px solid #00565e;
-}
-.bootstrap-tabs > .nav > span > span > li {
-  float: left;
-  margin-bottom: -1px;
-}
-.bootstrap-tabs > .nav > span > span > li > button {
-  margin-right: 2px;
-  line-height: 1.42857143;
-  border: 1px solid transparent;
-  border-radius: 4px 4px 0 0;
 }
 
 .bootstrap-tabs > .nav > span > span > li > button:hover {
