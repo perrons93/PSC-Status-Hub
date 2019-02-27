@@ -22,14 +22,20 @@ h1.green-divider:after {
 
 h2 {
   color: #137991;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 h3 {
   color: #009fae;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 h4 {
   color: #00565e;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 /* Buttons */
