@@ -28,18 +28,18 @@ class TestInstructions extends Component {
           <div>
             <h3>{LOCALIZE.emibTest.howToPage.testInstructions.step1Section.title}</h3>
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.step1Section.description}</p>
-            <p className="font-weight-bold underline">
+            <h4 className="font-weight-bold underline">
               {LOCALIZE.emibTest.howToPage.testInstructions.step1Section.part1.title}
-            </p>
+            </h4>
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.step1Section.part1.para1}</p>
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.step1Section.part1.para2}</p>
-            <p className="font-weight-bold underline">
+            <h4 className="font-weight-bold underline">
               {LOCALIZE.emibTest.howToPage.testInstructions.step1Section.part2.title}
-            </p>
+            </h4>
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.step1Section.part2.para1}</p>
-            <p className="font-weight-bold underline">
+            <h4 className="font-weight-bold underline">
               {LOCALIZE.emibTest.howToPage.testInstructions.step1Section.part3.title}
-            </p>
+            </h4>
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.step1Section.part3.para1}</p>
             <ol>
               <li>{LOCALIZE.emibTest.howToPage.testInstructions.step1Section.part3.bullet1}</li>
@@ -55,9 +55,9 @@ class TestInstructions extends Component {
             <p className="font-weight-bold">
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.title}
             </p>
-            <p className="font-weight-bold underline">
+            <h4 className="font-weight-bold underline">
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part1Title}
-            </p>
+            </h4>
             <p>
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
                 .conditionToDisplayImage === LANGUAGES.english && (
@@ -79,9 +79,9 @@ class TestInstructions extends Component {
             <p>
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part1Description}
             </p>
-            <p className="font-weight-bold underline">
+            <h4 className="font-weight-bold underline">
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part2Title}
-            </p>
+            </h4>
             <p>
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
                 .conditionToDisplayImage === LANGUAGES.english && (
@@ -100,9 +100,9 @@ class TestInstructions extends Component {
                 />
               )}
             </p>
-            <p className="font-weight-bold underline">
+            <h4 className="font-weight-bold underline">
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part3Title}
-            </p>
+            </h4>
             <p>
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
                 .conditionToDisplayImage === LANGUAGES.english && (
