@@ -123,12 +123,6 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
   background-color: #eeeeee;
 }
 
-.bootstrap-tabs > .nav .open > button,
-.bootstrap-tabs > .nav .open > button:hover,
-.bootstrap-tabs > .nav .open > button:focus {
-  background-color: #eeeeee;
-  border-color: #337ab7;
-}
 .bootstrap-tabs > .nav .nav-divider {
   height: 1px;
   margin: 9px 0;
