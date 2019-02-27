@@ -47,10 +47,12 @@ p {
 /* Buttons */
 .btn-primary {
   background-color: #00565e;
+  border-color: #00565e;
 }
 
 .btn-primary:hover {
   background-color: #327d78;
+  border-color: #327d78;
 }
 
 .btn-primary:active {
