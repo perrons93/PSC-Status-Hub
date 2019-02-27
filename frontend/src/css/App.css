@@ -137,13 +137,6 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
 .bootstrap-tabs > .nav > span > span > li > button:focus {
   text-decoration: none;
 }
-
-.bootstrap-tabs > .nav .nav-divider {
-  height: 1px;
-  margin: 9px 0;
-  overflow: hidden;
-  background-color: #e5e5e5;
-}
 .bootstrap-tabs > .nav > span > span > li > button > img {
   max-width: none;
 }
