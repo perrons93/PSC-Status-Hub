@@ -5,6 +5,19 @@ import LOCALIZE from "../../text_resources";
 import scrollToTop from "../../helpers/scrollToTop";
 import BackToTop from "../commons/BackToTop";
 
+const styles = {
+  nextBtn: {
+    padding: "32px 0 12px 0"
+  },
+  startTestBtn: {
+    padding: "32px 0 12px 0"
+  },
+  progressPanePadding: {
+    paddingBottom: 32,
+    paddingTop: 32
+  }
+};
+
 class ProgressPane extends Component {
   static propTypes = {
     progressSpecs: PropTypes.array.isRequired,
@@ -28,22 +41,24 @@ class ProgressPane extends Component {
     return (
       <div>
         <div>
-          <div aria-label="progress" className="step-indicator">
-            <ul className="steps">
-              {this.props.progressSpecs.map(tab => (
-                <ProgressNode
-                  key={tab.id}
-                  id={tab.id}
-                  text={tab.text}
-                  current={this.state.currentNode}
-                />
-              ))}
-            </ul>
+          <div style={styles.progressPanePadding}>
+            <div aria-label="progress" className="step-indicator">
+              <ul className="steps">
+                {this.props.progressSpecs.map(tab => (
+                  <ProgressNode
+                    key={tab.id}
+                    id={tab.id}
+                    text={tab.text}
+                    current={this.state.currentNode}
+                  />
+                ))}
+              </ul>
+            </div>
           </div>
           {this.props.paneTitle && <h1 className="green-divider">{this.props.paneTitle}</h1>}
           {this.state.currentBody}
           {this.state.currentNode < this.props.progressSpecs.length - 1 && (
-            <div className="centered-buttons">
+            <div style={styles.nextBtn} className="centered-buttons">
               <button
                 type="button"
                 className="btn btn-primary btn-wide"
@@ -54,7 +69,9 @@ class ProgressPane extends Component {
             </div>
           )}
           {this.state.currentNode === this.props.progressSpecs.length - 1 && (
-            <div className="centered-buttons">{this.props.exitButton}</div>
+            <div style={styles.startTestBtn} className="centered-buttons">
+              {this.props.exitButton}
+            </div>
           )}
           {this.state.currentNode > 0 && (
             <div className="centered-buttons">

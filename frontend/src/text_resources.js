@@ -60,8 +60,7 @@ let LOCALIZE = new LocalizedStrings({
         overview: {
           title: "Overview",
           description:
-            "The electronic managerial Inbox (e-MIB) simulates an email inbox in which you will respond to a series of emails depicting situations typically encountered by managers in the federal public service. These situations will provide you with the opportunity to demonstrate the ",
-          descriptionLink: "Key Leadership Competencies",
+            'The electronic managerial Inbox (e-MIB) simulates an email inbox in which you will respond to a series of emails depicting situations typically encountered by managers in the federal public service. These situations will provide you with the opportunity to demonstrate the Key Leadership Competencies, outlined in "Evaluation".',
           aboutSection: {
             title: "About the sample test",
             para1:
@@ -76,11 +75,8 @@ let LOCALIZE = new LocalizedStrings({
         },
         tipsOnTest: {
           title: "Tips on taking the e-MIB",
-          descriptionPart1:
-            "The e-MIB presents you with situations that will give you the opportunity to demonstrate the ",
-          descriptionLink: "Key Leadership Competencies",
-          descriptionPart2:
-            ". Here are some tips that will help you provide assessors with the information they need to evaluate your performance on those competencies:",
+          description:
+            'The e-MIB presents you with situations that will give you the opportunity to demonstrate the Key Leadership Competencies, outlined in "Evaluation". Here are some tips that will help you provide assessors with the information they need to evaluate your performance on those competencies:',
           bullet1:
             "Answer all the questions asked in the emails you receive. This will ensure that you have used all the opportunities designed to allow you to demonstrate the competencies.",
           bullet2:
@@ -282,8 +278,7 @@ let LOCALIZE = new LocalizedStrings({
         overview: {
           title: "Aperçu général",
           description:
-            "La boîte de réception pour la gestion électronique (BRG-e) simule d’une boîte de courriel dans laquelle vous allez répondre à des courriels décrivant des situations qui sont typiquement vécues par les gestionnaires de la fonction publique. Ces situations vous donneront l’occasion de démontrer les ",
-          descriptionLink: "compétences clés en leadership",
+            "La boîte de réception pour la gestion électronique (BRG-e) simule d’une boîte de courriel dans laquelle vous allez répondre à des courriels décrivant des situations qui sont typiquement vécues par les gestionnaires de la fonction publique. Ces situations vous donneront l’occasion de démontrer les compétences clés en leadership, décrit dans «Évaluation».",
           aboutSection: {
             title: "À propos de l’échantillon de test",
             para1:
@@ -299,11 +294,8 @@ let LOCALIZE = new LocalizedStrings({
         },
         tipsOnTest: {
           title: "Conseils pour répondre à la BRG-e",
-          descriptionPart1:
-            "La BRG-e vous présente des situations qui vous donneront l’occasion de démontrer les ",
-          descriptionLink: "compétences clés en matière de leadership",
-          descriptionPart2:
-            ". Voici quelques conseils qui vous aideront à fournir aux évaluateurs l’information dont ils ont besoin pour évaluer votre rendement par rapport à ces compétences :",
+          description:
+            "La BRG-e vous présente des situations qui vous donneront l’occasion de démontrer les compétences clés en matière de leadership, décrit dans «Évaluation». Voici quelques conseils qui vous aideront à fournir aux évaluateurs l’information dont ils ont besoin pour évaluer votre rendement par rapport à ces \u00A0 compétences :",
           bullet1:
             "Répondez à toutes les questions posées dans les courriels que vous recevez. Vous profiterez ainsi de toutes les occasions de démontrer les compétences recherchées.",
           bullet2:
