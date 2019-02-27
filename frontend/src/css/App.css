@@ -116,11 +116,11 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
   position: relative;
   display: block;
   padding: 10px 15px;
+  background-color: transparent;
 }
 .bootstrap-tabs > .nav > span > span > li > button:hover,
 .bootstrap-tabs > .nav > span > span > li > button:focus {
   text-decoration: none;
-  background-color: #eeeeee;
 }
 
 .bootstrap-tabs > .nav .nav-divider {
