@@ -7,10 +7,6 @@ All component specific CSS lives in the React file with the component.
   text-align: center;
 }
 
-.underline {
-  text-decoration: underline;
-}
-
 /* Headers */
 
 /* h1: add green line underneath */
