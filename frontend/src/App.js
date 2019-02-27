@@ -79,6 +79,7 @@ class App extends Component {
       <Router>
         <div>
           <nav
+            aria-label="main-menu"
             style={styles.navBar}
             className="fixed-top bg-white navbar navbar-expand"
             role="banner"
@@ -89,17 +90,32 @@ class App extends Component {
             <div style={styles.tabs} className="fixed-top nav nav-tabs">
               <ul id="navigation-tabs" className="mx-auto nav-site nav nav-tabs nav-item">
                 <li className="bg-white">
-                  <NavLink isActive={isHomeActive} className="nav-link" to={PATH.home}>
+                  <NavLink
+                    aria-current="page"
+                    isActive={isHomeActive}
+                    className="nav-link"
+                    to={PATH.home}
+                  >
                     {LOCALIZE.mainTabs.homeTabTitle}
                   </NavLink>
                 </li>
                 <li className="bg-white">
-                  <NavLink isActive={isPrototypeActive} className="nav-link" to={PATH.prototype}>
+                  <NavLink
+                    aria-current="page"
+                    isActive={isPrototypeActive}
+                    className="nav-link"
+                    to={PATH.prototype}
+                  >
                     {LOCALIZE.mainTabs.prototypeTabTitle}
                   </NavLink>
                 </li>
                 <li className="bg-white">
-                  <NavLink isActive={isStatusActive} className="nav-link" to={PATH.status}>
+                  <NavLink
+                    aria-current="page"
+                    isActive={isStatusActive}
+                    className="nav-link"
+                    to={PATH.status}
+                  >
                     {LOCALIZE.mainTabs.statusTabTitle}
                   </NavLink>
                 </li>
