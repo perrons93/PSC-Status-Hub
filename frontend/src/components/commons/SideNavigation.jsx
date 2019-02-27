@@ -8,20 +8,25 @@ const styles = {
     flexDirection: "row"
   },
   buttonList: {
-    width: 550,
+    width: 240,
     paddingRight: 25,
-    marginTop: "18px"
+    marginTop: 18
   },
   button: {
-    width: "100%",
+    width: 200,
     marginBottom: 10,
+    marginLeft: 20,
+    marginRight: 20,
     display: "flex",
     justifyContent: "center",
-    textAlign: "center"
+    textAlign: "center",
+    borderRadius: 4,
+    padding: 6
   },
   bodyContent: {
     display: "flex",
-    justifyContent: "flext-end"
+    justifyContent: "flext-end",
+    paddingRight: 20
   },
   secondaryButton: {
     border: "none"
