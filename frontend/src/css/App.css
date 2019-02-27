@@ -132,25 +132,27 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
 .bootstrap-tabs > .nav > span > span > li > button > img {
   max-width: none;
 }
-.bootstrap-tabs > .nav-tabs {
+.bootstrap-tabs > .nav {
   border-bottom: 1px solid #00565e;
 }
-.bootstrap-tabs > .nav-tabs > span > span > li {
+.bootstrap-tabs > .nav > span > span > li {
   float: left;
   margin-bottom: -1px;
 }
-.bootstrap-tabs > .nav-tabs > span > span > li > button {
+.bootstrap-tabs > .nav > span > span > li > button {
   margin-right: 2px;
   line-height: 1.42857143;
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
 }
-.bootstrap-tabs > .nav-tabs > span > span > li > button:hover {
+
+.bootstrap-tabs > .nav > span > span > li > button:hover {
   border-color: #eeeeee #eeeeee #dddddd;
 }
-.bootstrap-tabs > .nav-tabs > span > span > li.active > button,
-.bootstrap-tabs > .nav-tabs > span > span > li.active > button:hover,
-.bootstrap-tabs > .nav-tabs > span > span > li.active > button:focus {
+
+.bootstrap-tabs > .nav > span > span > li.active > button,
+.bootstrap-tabs > .nav > span > span > li.active > button:hover,
+.bootstrap-tabs > .nav > span > span > li.active > button:focus {
   color: black;
   background-color: white;
   border: 1px solid #00565e;
