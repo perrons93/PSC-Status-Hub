@@ -98,6 +98,10 @@ p {
 Progess Steps
 */
 
+.step-indicator .steps li {
+  text-transform: none;
+}
+
 /* override color of text in active li*/
 .step-indicator .steps li.active {
   color: #00565e;
@@ -111,7 +115,7 @@ Progess Steps
 
 /* override checkmark and text color of completed li */
 .step-indicator .steps li.complete {
-  color: #009fae;
+  color: #00565e;
 }
 
 /* override circle color of completed li */
