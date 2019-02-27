@@ -113,6 +113,7 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
   margin-bottom: 0;
   list-style: none;
   border-bottom: 1px solid #00565e;
+  margin-bottom: 32px;
 }
 
 .bootstrap-tabs > .nav > span > span > li {
@@ -137,6 +138,7 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
 .bootstrap-tabs > .nav > span > span > li > button:focus {
   text-decoration: none;
 }
+
 .bootstrap-tabs > .nav > span > span > li > button > img {
   max-width: none;
 }
