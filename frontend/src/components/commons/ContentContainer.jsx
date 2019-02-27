@@ -4,7 +4,7 @@ import mini_banner from "./../../images/mini_banner.png";
 
 const styles = {
   container: {
-    maxWidth: 1000,
+    maxWidth: 1140,
     margin: "0px auto",
     textAlign: "left",
     paddingTop: 20
