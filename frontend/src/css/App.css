@@ -151,11 +151,10 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
 .bootstrap-tabs > .nav-tabs > span > span > li.active > button,
 .bootstrap-tabs > .nav-tabs > span > span > li.active > button:hover,
 .bootstrap-tabs > .nav-tabs > span > span > li.active > button:focus {
-  color: #555555;
-  cursor: default;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
-  border-bottom-color: transparent;
+  color: black;
+  background-color: white;
+  border: 2px solid #00565e;
+  border-bottom-color: white;
 }
 
 .bootstrap-tabs > .tab-content {
