@@ -8,12 +8,19 @@ import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
 import SideNavigation from "../commons/SideNavigation";
 
-const SPECS = [
-  { id: 0, text: LOCALIZE.emibTest.howToPage.overview.title, body: <Overview /> },
-  { id: 1, text: LOCALIZE.emibTest.howToPage.tipsOnTest.title, body: <TipsOnTest /> },
-  { id: 2, text: LOCALIZE.emibTest.howToPage.testInstructions.title, body: <TestInstructions /> },
-  { id: 3, text: LOCALIZE.emibTest.howToPage.evaluation.title, body: <Evaluation /> }
-];
+//Returns array where each item indicates specifications related to How To Page including the title and the body
+export const getHowToPages = () => {
+  return [
+    { id: 0, text: LOCALIZE.emibTest.howToPage.overview.title, body: <Overview /> },
+    { id: 1, text: LOCALIZE.emibTest.howToPage.tipsOnTest.title, body: <TipsOnTest /> },
+    {
+      id: 2,
+      text: LOCALIZE.emibTest.howToPage.testInstructions.title,
+      body: <TestInstructions />
+    },
+    { id: 3, text: LOCALIZE.emibTest.howToPage.evaluation.title, body: <Evaluation /> }
+  ];
+};
 
 class HowTo extends Component {
   static propTypes = {
@@ -22,6 +29,8 @@ class HowTo extends Component {
   };
 
   render() {
+    const SPECS = getHowToPages();
+
     return (
       <div>
         {!this.props.inTest && (
@@ -39,5 +48,3 @@ class HowTo extends Component {
 }
 
 export default HowTo;
-
-export { SPECS };
