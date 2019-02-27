@@ -38,6 +38,11 @@ h4 {
   margin-bottom: 12px;
 }
 
+p {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
 /* Buttons */
 .btn-primary {
   background-color: #00565e;
