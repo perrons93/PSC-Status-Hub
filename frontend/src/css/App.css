@@ -12,9 +12,6 @@ All component specific CSS lives in the React file with the component.
 }
 
 /* Headers */
-h3 {
-  color: #009fae;
-}
 
 /* h1: add green line underneath */
 h1.green-divider:after {
@@ -25,6 +22,14 @@ h1.green-divider:after {
 
 h2 {
   color: #137991;
+}
+
+h3 {
+  color: #009fae;
+}
+
+h4 {
+  color: #00565e;
 }
 
 /* Buttons */
