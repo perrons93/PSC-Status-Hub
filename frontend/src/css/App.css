@@ -126,3 +126,23 @@ Progess Steps
 .step-indicator .steps li.complete + li:after {
   background-color: #009fae;
 }
+
+/* Nav */
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  border-color: transparent transparent #00565e;
+}
+.nav-tabs .nav-link.disabled {
+  color: #00565e;
+}
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #00565e;
+  border-color: transparent transparent #00565e;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #00565e;
+}
