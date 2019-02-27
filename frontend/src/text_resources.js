@@ -60,8 +60,7 @@ let LOCALIZE = new LocalizedStrings({
         overview: {
           title: "Overview",
           description:
-            "The electronic managerial Inbox (e-MIB) simulates an email inbox in which you will respond to a series of emails depicting situations typically encountered by managers in the federal public service. These situations will provide you with the opportunity to demonstrate the ",
-          descriptionLink: "Key Leadership Competencies",
+            'The electronic managerial Inbox (e-MIB) simulates an email inbox in which you will respond to a series of emails depicting situations typically encountered by managers in the federal public service. These situations will provide you with the opportunity to demonstrate the Key Leadership Competencies, outlined in "Evaluation".',
           aboutSection: {
             title: "About the sample test",
             para1:
@@ -282,8 +281,7 @@ let LOCALIZE = new LocalizedStrings({
         overview: {
           title: "Aperçu général",
           description:
-            "La boîte de réception pour la gestion électronique (BRG-e) simule d’une boîte de courriel dans laquelle vous allez répondre à des courriels décrivant des situations qui sont typiquement vécues par les gestionnaires de la fonction publique. Ces situations vous donneront l’occasion de démontrer les ",
-          descriptionLink: "compétences clés en leadership",
+            "La boîte de réception pour la gestion électronique (BRG-e) simule d’une boîte de courriel dans laquelle vous allez répondre à des courriels décrivant des situations qui sont typiquement vécues par les gestionnaires de la fonction publique. Ces situations vous donneront l’occasion de démontrer les compétences clés en leadership, décrit dans «Évaluation».",
           aboutSection: {
             title: "À propos de l’échantillon de test",
             para1:
