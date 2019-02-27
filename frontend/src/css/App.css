@@ -143,10 +143,6 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
   max-width: none;
 }
 
-.bootstrap-tabs > .nav > span > span > li > button:hover {
-  border-color: #eeeeee #eeeeee #dddddd;
-}
-
 .bootstrap-tabs > .nav > span > span > li.active > button,
 .bootstrap-tabs > .nav > span > span > li.active > button:hover,
 .bootstrap-tabs > .nav > span > span > li.active > button:focus {
