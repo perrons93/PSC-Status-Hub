@@ -9,13 +9,7 @@ class TipsOnTest extends Component {
       <div>
         <div>
           <h2>{LOCALIZE.emibTest.howToPage.tipsOnTest.title}</h2>
-          <p>
-            {LOCALIZE.emibTest.howToPage.tipsOnTest.descriptionPart1}
-            <a href="#keyLeadershipCompetencies">
-              {LOCALIZE.emibTest.howToPage.tipsOnTest.descriptionLink}
-            </a>
-            {LOCALIZE.emibTest.howToPage.tipsOnTest.descriptionPart2}
-          </p>
+          <p>{LOCALIZE.emibTest.howToPage.tipsOnTest.description}</p>
           <ul>
             <li>{LOCALIZE.emibTest.howToPage.tipsOnTest.bullet1}</li>
             <li>{LOCALIZE.emibTest.howToPage.tipsOnTest.bullet2}</li>
