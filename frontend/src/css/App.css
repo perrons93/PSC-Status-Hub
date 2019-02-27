@@ -112,8 +112,16 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  border-bottom: 1px solid #00565e;
-  margin-bottom: 32px;
+  border-bottom: none;
+}
+
+.bootstrap-tabs > .nav:after {
+  content: "";
+  background-color: white;
+  height: 32px;
+  width: 100%;
+  border: 1px solid #00565e;
+  border-bottom-color: transparent;
 }
 
 .bootstrap-tabs > .nav > span > span > li {
@@ -157,4 +165,7 @@ Formatting for Tab and TabNavigation; based off of react-bootstrap
   -webkit-transition: opacity 0.15s linear;
   -o-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
+  background-color: white;
+  border: 1px solid #00565e;
+  border-top-color: white;
 }
