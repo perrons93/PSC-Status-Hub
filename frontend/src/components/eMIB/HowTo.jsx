@@ -8,7 +8,8 @@ import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
 import SideNavigation from "../commons/SideNavigation";
 
-export const specsDefinition = () => {
+//Returns array where each item indicates specifications related to How To Page including the title and the body
+export const getHowToPages = () => {
   return [
     { id: 0, text: LOCALIZE.emibTest.howToPage.overview.title, body: <Overview /> },
     { id: 1, text: LOCALIZE.emibTest.howToPage.tipsOnTest.title, body: <TipsOnTest /> },
@@ -28,7 +29,7 @@ class HowTo extends Component {
   };
 
   render() {
-    const SPECS = specsDefinition();
+    const SPECS = getHowToPages();
 
     return (
       <div>

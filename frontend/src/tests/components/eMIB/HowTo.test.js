@@ -1,12 +1,12 @@
 import React from "react";
 import { shallow } from "enzyme";
-import HowTo, { specsDefinition } from "../../../components/eMIB/HowTo";
+import HowTo, { getHowToPages } from "../../../components/eMIB/HowTo";
 import { LANGUAGES } from "../../../components/commons/Translation";
 import ProgressPane from "../../../components/commons/ProgressPane";
 import SideNavigation from "../../../components/commons/SideNavigation";
 import LOCALIZE from "../../../text_resources";
 
-const SPECS = specsDefinition();
+const SPECS = getHowToPages();
 
 it("renders ProgressPane within HowTo when inTest=false", () => {
   LOCALIZE.setLanguage(LANGUAGES.english);
