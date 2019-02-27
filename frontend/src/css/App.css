@@ -14,17 +14,20 @@ All component specific CSS lives in the React file with the component.
 /* Headers */
 h3 {
   color: #009fae;
+  padding-top: 12px;
 }
 
 /* h1: add green line underneath */
 h1.green-divider:after {
   content: " ";
   display: block;
-  border: 2px solid #c7e68c;
+  border-bottom: 2px solid #c7e68c;
+  padding-bottom: 12px;
 }
 
 h2 {
   color: #137991;
+  padding-top: 12px;
 }
 
 /* Buttons */
@@ -32,9 +35,33 @@ h2 {
   background-color: #00565e;
 }
 
+.btn-primary:hover {
+  background-color: #327d78;
+}
+
+.btn-primary:active {
+  background-color: #00565e !important;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem #009fae;
+}
+
 .btn-secondary {
   color: #00565e;
   border-color: #00565e;
+}
+
+.btn-secondary:hover {
+  background-color: #00565e;
+}
+
+.btn-secondary:active {
+  background-color: #00565e !important;
+}
+
+.btn-secondary:focus {
+  box-shadow: 0 0 0 0.2rem #00565e;
 }
 
 .btn-wide {
@@ -46,9 +73,6 @@ h2 {
   text-align: center;
 }
 
-/*
-Formatting for Back to top button; based off of Aurora
-*/
 .btn-backtotop {
   border: 1px solid #009fae;
   color: #009fae;
