@@ -16,7 +16,7 @@ const styles = {
     width: "100%",
     marginBottom: 10,
     display: "flex",
-    justifyContent: "flext-start",
+    justifyContent: "center",
     textAlign: "center"
   },
   bodyContent: {
