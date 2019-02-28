@@ -82,7 +82,7 @@ class App extends Component {
             aria-label="main-menu"
             style={styles.navBar}
             className="fixed-top bg-white navbar navbar-expand"
-            role="banner"
+            role="navigation"
           >
             <div style={styles.pscImage} id="psc-image">
               <img src={psc_header} alt={LOCALIZE.commons.psc} />
