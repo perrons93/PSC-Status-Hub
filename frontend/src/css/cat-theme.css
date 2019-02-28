@@ -1,14 +1,10 @@
 /*
-App.css is used for overrides of existing CSS class names, or tags.
+cat-theme.css is used for overrides of existing Aurora CSS class names, or tags.
 All component specific CSS lives in the React file with the component. 
 */
 
 .app {
   text-align: center;
-}
-
-.underline {
-  text-decoration: underline;
 }
 
 /* Headers */
@@ -21,14 +17,17 @@ h1.green-divider:after {
   padding-bottom: 12px;
 }
 
+h1 {
+  padding-bottom: 12px;
+}
+
 h2 {
-  color: #137991;
+  color: #00565e;
   margin-top: 12px;
   margin-bottom: 12px;
 }
 
 h3 {
-  color: #009fae;
   margin-top: 12px;
   margin-bottom: 12px;
 }
@@ -47,10 +46,12 @@ p {
 /* Buttons */
 .btn-primary {
   background-color: #00565e;
+  border-color: #00565e;
 }
 
 .btn-primary:hover {
   background-color: #327d78;
+  border-color: #327d78;
 }
 
 .btn-primary:active {
@@ -87,14 +88,17 @@ p {
   text-align: center;
 }
 
-.btn-backtotop {
-  border: 1px solid #009fae;
-  color: #009fae;
+.btn-backtotop:hover {
+  background-color: #00565e;
 }
 
 /*
 Progess Steps
 */
+
+.step-indicator .steps li {
+  text-transform: none;
+}
 
 /* override color of text in active li*/
 .step-indicator .steps li.active {
@@ -109,7 +113,7 @@ Progess Steps
 
 /* override checkmark and text color of completed li */
 .step-indicator .steps li.complete {
-  color: #009fae;
+  color: #00565e;
 }
 
 /* override circle color of completed li */
@@ -120,4 +124,24 @@ Progess Steps
 /* override line color of completed li to active li */
 .step-indicator .steps li.complete + li:after {
   background-color: #009fae;
+}
+
+/* Nav */
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  border-color: transparent transparent #00565e;
+}
+.nav-tabs .nav-link.disabled {
+  color: #00565e;
+}
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #00565e;
+  border-color: transparent transparent #00565e;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #00565e;
 }

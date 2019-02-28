@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
-import "../../css/App.css";
+import "../../css/cat-theme.css";
 
 class Evaluation extends Component {
   render() {

@@ -15,6 +15,10 @@ const styles = {
   progressPanePadding: {
     paddingBottom: 32,
     paddingTop: 32
+  },
+  preTestContainer: {
+    maxWidth: 960,
+    margin: "0px auto"
   }
 };
 
@@ -39,7 +43,7 @@ class ProgressPane extends Component {
 
   render() {
     return (
-      <div>
+      <div style={styles.preTestContainer}>
         <div>
           <div style={styles.progressPanePadding}>
             <div aria-label="progress" className="step-indicator">

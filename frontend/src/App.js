@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import "./css/lib/aurora.min.css";
-import "./css/App.css";
+import "./css/cat-theme.css";
 import Status from "./Status";
 import Home from "./Home";
 import Prototype from "./Prototype";
