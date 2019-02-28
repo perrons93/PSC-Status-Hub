@@ -1,22 +1,21 @@
 import React from "react";
 import { mount } from "enzyme";
 import Emib, { PAGES } from "../../../components/eMIB/Emib";
-import HowTo from "../../../components/eMIB/HowTo";
 import Background from "../../../components/eMIB/Background";
 import Confirmation from "../../../components/eMIB/Confirmation";
 import { LANGUAGES } from "../../../components/commons/Translation";
 import LOCALIZE from "../../../text_resources";
 
-it("renders howToPage page", () => {
+it("renders pre-test page", () => {
   const wrapper = mount(<Emib />);
   const emibTitle = <h1 className="green-divider">{LOCALIZE.emibTest.homePage.testTitle}</h1>;
   expect(wrapper.contains(emibTitle)).toEqual(true);
-  expect(wrapper.state("curPage")).toEqual(PAGES.howTo);
+  expect(wrapper.state("curPage")).toEqual(PAGES.preTest);
 });
 
-it("renders howTo page when state changed", () => {
+it("renders pre-test page when state changed", () => {
   const wrapper = mount(<Emib />);
-  wrapper.setState({ curPage: PAGES.howTo });
+  wrapper.setState({ curPage: PAGES.preTest });
   const emibTitle = <h1 className="green-divider">{LOCALIZE.emibTest.homePage.testTitle}</h1>;
   expect(wrapper.contains(emibTitle)).toEqual(true);
 });

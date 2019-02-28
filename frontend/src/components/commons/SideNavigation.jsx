@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-//TODO fix fluctuating button width
 const styles = {
   sideNavPane: {
     display: "flex",
