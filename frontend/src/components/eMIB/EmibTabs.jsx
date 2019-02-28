@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Background from "./Background";
 import Inbox from "./Inbox";
 import SideNavigation from "../commons/SideNavigation";
@@ -7,6 +8,10 @@ import TabNavigation from "../commons/TabNavigation";
 import { getInstructionContent } from "./Emib";
 
 class EmibTabs extends Component {
+  static propTypes = {
+    submitTest: PropTypes.func.isRequired
+  };
+
   render() {
     const SPECS = getInstructionContent();
     const TABS = [
@@ -28,7 +33,10 @@ class EmibTabs extends Component {
     ];
     return (
       <div>
-        <div>{<TabNavigation tabSpecs={TABS} currentTab={1} />}</div>
+        <TabNavigation tabSpecs={TABS} currentTab={1} />
+        <button type="button" className="btn btn-primary" onClick={this.props.submitTest}>
+          {LOCALIZE.commons.submitTestButton}
+        </button>
       </div>
     );
   }
