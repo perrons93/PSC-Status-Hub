@@ -79,9 +79,10 @@ class App extends Component {
       <Router>
         <div>
           <nav
+            aria-label={LOCALIZE.ariaLabel.mainMenu}
             style={styles.navBar}
             className="fixed-top bg-white navbar navbar-expand"
-            role="banner"
+            role="dialog"
           >
             <div style={styles.pscImage} id="psc-image">
               <img src={psc_header} alt={LOCALIZE.commons.psc} />
@@ -89,22 +90,37 @@ class App extends Component {
             <div style={styles.tabs} className="fixed-top nav nav-tabs">
               <ul id="navigation-tabs" className="mx-auto nav-site nav nav-tabs nav-item">
                 <li className="bg-white">
-                  <NavLink isActive={isHomeActive} className="nav-link" to={PATH.home}>
+                  <NavLink
+                    aria-current="page"
+                    isActive={isHomeActive}
+                    className="nav-link"
+                    to={PATH.home}
+                  >
                     {LOCALIZE.mainTabs.homeTabTitle}
                   </NavLink>
                 </li>
                 <li className="bg-white">
-                  <NavLink isActive={isPrototypeActive} className="nav-link" to={PATH.prototype}>
+                  <NavLink
+                    aria-current="page"
+                    isActive={isPrototypeActive}
+                    className="nav-link"
+                    to={PATH.prototype}
+                  >
                     {LOCALIZE.mainTabs.prototypeTabTitle}
                   </NavLink>
                 </li>
                 <li className="bg-white">
-                  <NavLink isActive={isStatusActive} className="nav-link" to={PATH.status}>
+                  <NavLink
+                    aria-current="page"
+                    isActive={isStatusActive}
+                    className="nav-link"
+                    to={PATH.status}
+                  >
                     {LOCALIZE.mainTabs.statusTabTitle}
                   </NavLink>
                 </li>
               </ul>
-              <div style={styles.languageButton}>
+              <div aria-label={LOCALIZE.ariaLabel.languageToggleBtn} style={styles.languageButton}>
                 <Translation updateLanguageOnPage={this.updateLanguage} />
               </div>
             </div>

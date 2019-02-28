@@ -202,6 +202,12 @@ let LOCALIZE = new LocalizedStrings({
       }
     },
 
+    //Screen Reader
+    ariaLabel: {
+      mainMenu: "main-menu",
+      languageToggleBtn: "language-toggle-button"
+    },
+
     //Commons
     commons: {
       psc: "Public Service Commission",
@@ -421,6 +427,12 @@ let LOCALIZE = new LocalizedStrings({
         backgroundTabTitle: "Contexte",
         inboxTabTitle: "Boîte de réception"
       }
+    },
+
+    //Screen Reader
+    ariaLabel: {
+      mainMenu: "menu-principal",
+      languageToggleBtn: "bouton-de-langue-a-bascule"
     },
 
     //Commons
