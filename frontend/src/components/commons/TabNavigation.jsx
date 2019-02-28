@@ -24,7 +24,8 @@ const styles = {
     transition: "opacity 0.15s linear",
     backgroundColor: "white",
     border: "1px solid #00565e",
-    borderTopColor: "white"
+    borderTopColor: "white",
+    height: "calc(100vh - 210px)"
   }
 };
 
