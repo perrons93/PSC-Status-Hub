@@ -27,6 +27,7 @@ let LOCALIZE = new LocalizedStrings({
     //Status Page
     statusPage: {
       title: "CAT Status",
+      logo: "Thunder CAT Logo",
       welcomeMsg:
         "Internal status page to quickly determine the status / health of the Compotency Assessment Tool.",
       gitHubRepoBtn: "GitHub Repository",
@@ -251,6 +252,7 @@ let LOCALIZE = new LocalizedStrings({
     //Status Page
     statusPage: {
       title: "Statut de OEC",
+      logo: "Thunder CAT Logo",
       welcomeMsg:
         "Page de statut interne afin de déterminer rapidement l'état / la santé de l'Outil d'Évaluation des Compétences.",
       gitHubRepoBtn: "Répertoire GitHub",
