@@ -26,7 +26,9 @@ const styles = {
   bodyContent: {
     display: "flex",
     justifyContent: "flext-end",
-    paddingRight: 20
+    paddingRight: 20,
+    height: "calc(100vh - 220px)",
+    overflow: "auto"
   },
   secondaryButton: {
     border: "none"
