@@ -1,18 +1,19 @@
 import React, { Component } from "react";
-import HowTo from "./HowTo";
 import Background from "./Background";
 import Inbox from "./Inbox";
-
+import SideNavigation from "../commons/SideNavigation";
 import LOCALIZE from "../../text_resources";
 import TabNavigation from "../commons/TabNavigation";
+import { getInstructionContent } from "./Emib";
 
 class EmibTabs extends Component {
   render() {
+    const SPECS = getInstructionContent();
     const TABS = [
       {
         id: 0,
         tabName: LOCALIZE.emibTest.tabs.instructionsTabTitle,
-        body: <HowTo inTest={true} />
+        body: <SideNavigation navSpecs={SPECS} currentNode={0} />
       },
       {
         id: 1,
