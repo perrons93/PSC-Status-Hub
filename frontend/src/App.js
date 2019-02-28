@@ -79,10 +79,10 @@ class App extends Component {
       <Router>
         <div>
           <nav
-            aria-label="main-menu"
+            aria-label={LOCALIZE.ariaLabel.mainMenu}
             style={styles.navBar}
             className="fixed-top bg-white navbar navbar-expand"
-            role="navigation"
+            role="dialog"
           >
             <div style={styles.pscImage} id="psc-image">
               <img src={psc_header} alt={LOCALIZE.commons.psc} />
@@ -120,7 +120,7 @@ class App extends Component {
                   </NavLink>
                 </li>
               </ul>
-              <div style={styles.languageButton}>
+              <div aria-label={LOCALIZE.ariaLabel.languageToggleBtn} style={styles.languageButton}>
                 <Translation updateLanguageOnPage={this.updateLanguage} />
               </div>
             </div>
