@@ -7,7 +7,7 @@ const styles = {
     flexDirection: "row"
   },
   buttonList: {
-    width: 240,
+    width: 700,
     paddingRight: 25,
     marginTop: 18
   },
