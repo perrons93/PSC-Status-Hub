@@ -17,7 +17,8 @@
   "resolutions": {
     "mem": ">=4.1.0",
     "braces": ">=2.3.2",
-    "handlebars": ">=4.1.0"
+    "handlebars": ">=4.1.0",
+    "typescript": ">=3.3.3333"
   },
   "scripts": {
     "start": "react-scripts start",
