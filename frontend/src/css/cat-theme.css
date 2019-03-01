@@ -3,6 +3,13 @@ cat-theme.css is used for overrides of existing Aurora CSS class names, or tags.
 All component specific CSS lives in the React file with the component. 
 */
 
+/*
+Any css in here will be applied to the entire application (except <i> tags)
+*/
+*:not(i) {
+  font-family: Arial !important;
+}
+
 .app {
   text-align: center;
 }
