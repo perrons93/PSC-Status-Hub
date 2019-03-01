@@ -88,6 +88,10 @@ p {
   text-align: center;
 }
 
+.btn-backtotop {
+  background-color: white;
+}
+
 .btn-backtotop:hover {
   background-color: #00565e;
 }
