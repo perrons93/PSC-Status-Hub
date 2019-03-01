@@ -252,7 +252,7 @@ let LOCALIZE = new LocalizedStrings({
     //Status Page
     statusPage: {
       title: "Statut de OEC",
-      logo: "Thunder CAT Logo",
+      logo: "Logo Thunder CAT",
       welcomeMsg:
         "Page de statut interne afin de déterminer rapidement l'état / la santé de l'Outil d'Évaluation des Compétences.",
       gitHubRepoBtn: "Répertoire GitHub",
