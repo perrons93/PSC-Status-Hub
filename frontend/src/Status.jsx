@@ -124,7 +124,7 @@ class Status extends Component {
                 {LOCALIZE.statusPage.gitHubRepoBtn}
               </button>
             </a>
-            <img src={logo} className="App-logo" style={styles.logo} alt="logo" />
+            <img src={logo} style={styles.logo} alt={LOCALIZE.statusPage.logo} />
           </p>
         </div>
 
