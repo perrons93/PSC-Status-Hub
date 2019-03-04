@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
+import { setLanguage } from "../../modules/LocalizeRedux";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
 const LANGUAGES = {
   english: "en",
@@ -13,7 +16,8 @@ class Translation extends Component {
   };
 
   static propTypes = {
-    updateLanguageOnPage: PropTypes.func
+    updateLanguageOnPage: PropTypes.func,
+    setLanguage: PropTypes.func
   };
 
   onSetLanguageToFrench = () => {
@@ -46,5 +50,16 @@ class Translation extends Component {
   }
 }
 
-export default Translation;
 export { LANGUAGES };
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      setLanguage
+    },
+    dispatch
+  );
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Translation);
