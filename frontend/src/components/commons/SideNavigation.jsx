@@ -45,24 +45,21 @@ class SideNavigation extends Component {
     this.refs[id].scrollIntoView({ block: "start", behavior: "smooth" });
   }
 
-  componentDidMount = () => {
-    window.addEventListener("scroll", this.handleScroll);
-  };
-
-  componentWillUnmount = () => {
-    window.removeEventListener("scroll", this.handleScroll);
-  };
-
-  handleScroll(id) {
-    const currentScroll = document.documentElement.scrollTop;
-    console.log(currentScroll);
-    console.log(id);
-    console.log("BIINNGg");
+  onScroll = () => {
+    const curVw = document.getElementById("side-nav-grid-content-cell").getBoundingClientRect();
+    var id = 0;
+    for (var i = this.props.navSpecs.length - 1; i >= 0; i--) {
+      var tab = this.props.navSpecs[i];
+      var elmnt = document.getElementById(tab.text).getBoundingClientRect();
+      // Verify tha tthe top is at the same height or higher than tht etop and the bottom is still below the top
+      if (elmnt.top <= curVw.top && elmnt.bottom >= curVw.top) {
+        id = i;
+      }
+    }
     this.setState({ currentNode: id });
-  }
+  };
 
   render() {
-    const body_id = this.props.navSpecs[this.state.currentNode].text;
     return (
       <div className="side-nav-grid">
         <div className="side-nav-grid-buttons-cell" style={styles.buttonList}>
@@ -89,9 +86,14 @@ class SideNavigation extends Component {
             </div>
           ))}
         </div>
-        <div className="side-nav-grid-content-cell" style={styles.bodyContent} id={body_id}>
+        <div
+          className="side-nav-grid-content-cell"
+          style={styles.bodyContent}
+          id="side-nav-grid-content-cell"
+          onScroll={this.onScroll}
+        >
           {this.props.navSpecs.map(tab => (
-            <div key={tab.id} ref={tab.id} onScroll={() => this.handleScroll(tab.id)}>
+            <div id={tab.text} key={tab.id} ref={tab.id}>
               {tab.body}
             </div>
           ))}
