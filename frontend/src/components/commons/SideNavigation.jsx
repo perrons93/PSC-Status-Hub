@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "../../css/side-nav.css";
 
 const styles = {
-  sideNavPane: {
-    display: "flex",
-    flexDirection: "row"
-  },
   buttonList: {
     width: 240,
     paddingRight: 25,
@@ -16,18 +13,14 @@ const styles = {
     marginBottom: 10,
     marginLeft: 20,
     marginRight: 20,
-    display: "flex",
-    justifyContent: "center",
     textAlign: "center",
     borderRadius: 4,
     padding: 6
   },
   bodyContent: {
-    display: "flex",
-    justifyContent: "flext-end",
+    overflow: "auto",
     paddingRight: 20,
-    height: "calc(100vh - 220px)",
-    overflow: "auto"
+    height: "calc(100vh - 220px)"
   },
   secondaryButton: {
     border: "none"
@@ -55,8 +48,8 @@ class SideNavigation extends Component {
   render() {
     const body_id = this.props.navSpecs[this.state.currentNode].text;
     return (
-      <div style={styles.sideNavPane}>
-        <div style={styles.buttonList}>
+      <div className="side-nav-grid">
+        <div className="side-nav-grid-buttons-cell" style={styles.buttonList}>
           {this.props.navSpecs.map(tab => (
             <div key={tab.id}>
               {tab.id === this.state.currentNode && (
@@ -80,7 +73,7 @@ class SideNavigation extends Component {
             </div>
           ))}
         </div>
-        <div style={styles.bodyContent} id={body_id}>
+        <div className="side-nav-grid-content-cell" style={styles.bodyContent} id={body_id}>
           {this.state.currentBody}
         </div>
       </div>
