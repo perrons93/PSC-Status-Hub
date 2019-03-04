@@ -51,7 +51,7 @@ class SideNavigation extends Component {
     for (var i = this.props.navSpecs.length - 1; i >= 0; i--) {
       var tab = this.props.navSpecs[i];
       var elmnt = document.getElementById(tab.text).getBoundingClientRect();
-      // Verify tha tthe top is at the same height or higher than tht etop and the bottom is still below the top
+      // Verify that the top is at the same height or higher than tht etop and the bottom is still below the top
       if (elmnt.top <= curVw.top && elmnt.bottom >= curVw.top) {
         id = i;
       }
