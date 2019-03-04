@@ -37,12 +37,12 @@ class SideNavigation extends Component {
   };
 
   state = {
-    currentNode: this.props.currentNode,
-    currentBody: this.props.navSpecs[this.props.currentNode].body
+    currentNode: this.props.currentNode
   };
 
   changeNode(id) {
-    this.setState({ currentNode: id, currentBody: this.props.navSpecs[id].body });
+    this.setState({ currentNode: id });
+    this.refs[id].scrollIntoView({ block: "start", behavior: "smooth" });
   }
 
   render() {
@@ -75,7 +75,9 @@ class SideNavigation extends Component {
         </div>
         <div className="side-nav-grid-content-cell" style={styles.bodyContent} id={body_id}>
           {this.props.navSpecs.map(tab => (
-            <div>{tab.body}</div>
+            <div key={tab.id} ref={tab.id}>
+              {tab.body}
+            </div>
           ))}
         </div>
       </div>
