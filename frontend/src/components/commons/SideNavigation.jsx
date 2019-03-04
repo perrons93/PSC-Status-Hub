@@ -74,7 +74,9 @@ class SideNavigation extends Component {
           ))}
         </div>
         <div className="side-nav-grid-content-cell" style={styles.bodyContent} id={body_id}>
-          {this.state.currentBody}
+          {this.props.navSpecs.map(tab => (
+            <div>{tab.body}</div>
+          ))}
         </div>
       </div>
     );
