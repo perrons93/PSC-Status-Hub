@@ -45,6 +45,22 @@ class SideNavigation extends Component {
     this.refs[id].scrollIntoView({ block: "start", behavior: "smooth" });
   }
 
+  componentDidMount = () => {
+    window.addEventListener("scroll", this.handleScroll);
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener("scroll", this.handleScroll);
+  };
+
+  handleScroll(id) {
+    const currentScroll = document.documentElement.scrollTop;
+    console.log(currentScroll);
+    console.log(id);
+    console.log("BIINNGg");
+    this.setState({ currentNode: id });
+  }
+
   render() {
     const body_id = this.props.navSpecs[this.state.currentNode].text;
     return (
@@ -75,7 +91,7 @@ class SideNavigation extends Component {
         </div>
         <div className="side-nav-grid-content-cell" style={styles.bodyContent} id={body_id}>
           {this.props.navSpecs.map(tab => (
-            <div key={tab.id} ref={tab.id}>
+            <div key={tab.id} ref={tab.id} onScroll={() => this.handleScroll(tab.id)}>
               {tab.body}
             </div>
           ))}
