@@ -24,7 +24,8 @@ const styles = {
     backgroundColor: "white",
     border: "1px solid #00565e",
     borderRadius: "5px 5px 0 0",
-    width: 220
+    width: 220,
+    height: "calc(100vh - 208px)"
   },
   notepadSection: {
     overflow: "auto",
@@ -47,11 +48,11 @@ class Notepad extends Component {
       COLS = "20";
     }
     //if browser is Chrome
-    if (BROWSER_STRING === VALID_BROWSERS[0]) {
+    else if (BROWSER_STRING === VALID_BROWSERS[0]) {
       COLS = "22";
     }
     //if browser is Firefox
-    if (BROWSER_STRING === VALID_BROWSERS[1]) {
+    else if (BROWSER_STRING === VALID_BROWSERS[1]) {
       COLS = "18";
     }
     //other
