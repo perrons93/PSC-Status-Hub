@@ -76,7 +76,7 @@ class SideNavigation extends Component {
             {this.props.navSpecs.map(tab => (
               <div key={tab.id}>
                 {tab.id === this.state.currentNode && (
-                  <li style={styles.li}>
+                  <li style={styles.li} aria-current="page">
                     <button
                       className="btn-primary"
                       style={{ ...styles.button, ...styles.primaryButton }}
