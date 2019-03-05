@@ -149,3 +149,8 @@ Progess Steps
 .nav-pills .show > .nav-link {
   background-color: #00565e;
 }
+
+/* Notepad.jsx Text Area Focus Style */
+.textArea:focus {
+  outline: 0;
+}
