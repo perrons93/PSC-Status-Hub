@@ -25,17 +25,12 @@ Manual steps to reproduce this functionality:
 1.  Go to \_\_\_ page.
 2.  Click \_\_\_. Notice \_\_\_.
 
-Any concerns that need to be addressed in product usability testing:
-
-- Concern.
-
 Screenshot of unit tests run passing:
 
 # Checklist
 
 Applicable for all code changes.
 
-- [ ] My code follows the style guidelines of this project
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new compiler warnings
