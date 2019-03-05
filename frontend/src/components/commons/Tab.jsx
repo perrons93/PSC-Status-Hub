@@ -32,7 +32,7 @@ class Tab extends Component {
       <span>
         {this.props.selected === false && (
           <li role="menuitem" style={styles.li}>
-            <button id={this.props.tabName} style={styles.button} aria-selected="false">
+            <button style={styles.button} aria-selected="false" className="side-navigation-button">
               {this.props.tabName}
             </button>
           </li>
@@ -40,9 +40,9 @@ class Tab extends Component {
         {this.props.selected === true && (
           <li role="menuitem" style={styles.li} aria-current="page">
             <button
-              id={this.props.tabName}
               style={{ ...styles.button, ...styles.active }}
               aria-selected="true"
+              className="side-navigation-button"
             >
               {this.props.tabName}
             </button>
