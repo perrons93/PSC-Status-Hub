@@ -5,7 +5,7 @@ import Tab from "../../../components/commons/Tab";
 
 it("renders 2 tabs", () => {
   const TABS = [{ id: 0, tabName: "test1" }, { id: 1, tabName: "test2" }];
-  const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} />);
+  const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} menuName="testing" />);
   const tab1 = <Tab tabName={"test1"} selected={false} />;
   const tab2 = <Tab tabName={"test2"} selected={true} />;
   expect(wrapper.contains(tab1)).toEqual(true);
@@ -18,7 +18,7 @@ it("renders 3 tabs", () => {
     { id: 1, tabName: "test2" },
     { id: 2, tabName: "test3" }
   ];
-  const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} />);
+  const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} menuName="testing" />);
   const tab1 = <Tab tabName={"test1"} selected={false} />;
   const tab2 = <Tab tabName={"test2"} selected={true} />;
   const tab3 = <Tab tabName={"test3"} selected={false} />;
@@ -34,7 +34,7 @@ it("renders 4 tabs", () => {
     { id: 2, tabName: "test3" },
     { id: 3, tabName: "test4" }
   ];
-  const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} />);
+  const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} menuName="testing" />);
   const tab1 = <Tab tabName={"test1"} selected={false} />;
   const tab2 = <Tab tabName={"test2"} selected={true} />;
   const tab3 = <Tab tabName={"test3"} selected={false} />;
@@ -51,7 +51,7 @@ it("changes tabs to tab 1", () => {
     { id: 1, tabName: "test2" },
     { id: 2, tabName: "test3" }
   ];
-  const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} />);
+  const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} menuName="testing" />);
   wrapper.find("#test1").simulate("click");
   const tab1 = <Tab tabName={"test1"} selected={true} />;
   const tab2 = <Tab tabName={"test2"} selected={false} />;
@@ -67,7 +67,7 @@ it("changes tabs to tab 2", () => {
     { id: 1, tabName: "test2" },
     { id: 2, tabName: "test3" }
   ];
-  const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} />);
+  const wrapper = mount(<TabNavigation tabSpecs={TABS} currentTab={1} menuName="testing" />);
   wrapper.find("#test3").simulate("click");
   const tab1 = <Tab tabName={"test1"} selected={false} />;
   const tab2 = <Tab tabName={"test2"} selected={false} />;
