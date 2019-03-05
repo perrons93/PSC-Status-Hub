@@ -46,13 +46,15 @@ class SideNavigation extends Component {
   }
 
   onScroll = () => {
-    const curVw = document.getElementById("side-nav-grid-content-cell").getBoundingClientRect();
+    const currentView = document
+      .getElementById("side-nav-grid-content-cell")
+      .getBoundingClientRect();
     var id = 0;
     for (var i = this.props.navSpecs.length - 1; i >= 0; i--) {
       var tab = this.props.navSpecs[i];
-      var elmnt = document.getElementById(tab.text).getBoundingClientRect();
+      var element = document.getElementById(tab.text).getBoundingClientRect();
       // Verify that the top is at the same height or higher than tht etop and the bottom is still below the top
-      if (elmnt.top <= curVw.top && elmnt.bottom >= curVw.top) {
+      if (element.top <= currentView.top && element.bottom >= currentView.top) {
         id = i;
       }
     }
