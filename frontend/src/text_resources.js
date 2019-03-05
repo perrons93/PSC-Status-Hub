@@ -197,6 +197,8 @@ let LOCALIZE = new LocalizedStrings({
 
       //Test tabs
       tabs: {
+        menuName: "emib-tab-menu",
+        instructionsMenu: "instuctions-menu",
         instructionsTabTitle: "Instructions",
         backgroundTabTitle: "Background",
         inboxTabTitle: "Inbox"
@@ -425,6 +427,8 @@ let LOCALIZE = new LocalizedStrings({
 
       //Test tabs
       tabs: {
+        menuName: "fr-emib-tab-menu",
+        instructionsMenu: "fr-instuctions-menu",
         instructionsTabTitle: "Instructions",
         backgroundTabTitle: "Contexte",
         inboxTabTitle: "Boîte de réception"

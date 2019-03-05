@@ -39,7 +39,8 @@ const styles = {
 class SideNavigation extends Component {
   static propTypes = {
     navSpecs: PropTypes.array.isRequired,
-    currentNode: PropTypes.number.isRequired
+    currentNode: PropTypes.number.isRequired,
+    menuName: PropTypes.string.isRequired
   };
 
   state = {
@@ -71,7 +72,11 @@ class SideNavigation extends Component {
   render() {
     return (
       <div className="side-nav-grid">
-        <nav className="side-nav-grid-buttons-cell" style={styles.buttonList}>
+        <nav
+          className="side-nav-grid-buttons-cell"
+          style={styles.buttonList}
+          aria-label={this.props.menuName}
+        >
           <ul className="nav nav-tabs" style={styles.ul}>
             {this.props.navSpecs.map(tab => (
               <div key={tab.id}>

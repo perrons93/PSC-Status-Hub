@@ -33,7 +33,8 @@ const styles = {
 class TabNavigation extends Component {
   static propTypes = {
     tabSpecs: PropTypes.array.isRequired,
-    currentTab: PropTypes.number.isRequired
+    currentTab: PropTypes.number.isRequired,
+    menuName: PropTypes.string.isRequired
   };
 
   state = {
@@ -48,7 +49,7 @@ class TabNavigation extends Component {
   render() {
     return (
       <div>
-        <nav>
+        <nav aria-label={this.props.menuName}>
           <ul role="tablist" className="nav nav-tabs" style={styles.bootstrapNav}>
             {this.props.tabSpecs.map((tab, key) => (
               <span key={tab.id} onClick={() => this.selectTab(tab.id)}>
