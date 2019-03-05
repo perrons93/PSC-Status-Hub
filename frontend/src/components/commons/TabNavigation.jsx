@@ -48,14 +48,16 @@ class TabNavigation extends Component {
   render() {
     return (
       <div>
-        <ul role="tablist" className="nav nav-tabs" style={styles.bootstrapNav}>
-          {this.props.tabSpecs.map((tab, key) => (
-            <span key={tab.id} onClick={() => this.selectTab(tab.id)}>
-              <Tab tabName={tab.tabName} selected={tab.id === this.state.currentTab} />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-            </span>
-          ))}
-        </ul>
+        <nav>
+          <ul role="tablist" className="nav nav-tabs" style={styles.bootstrapNav}>
+            {this.props.tabSpecs.map((tab, key) => (
+              <span key={tab.id} onClick={() => this.selectTab(tab.id)}>
+                <Tab tabName={tab.tabName} selected={tab.id === this.state.currentTab} />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+              </span>
+            ))}
+          </ul>
+        </nav>
         <div style={styles.afterNav} />
         <div style={styles.tabContent}>{this.state.currentBody}</div>
       </div>
