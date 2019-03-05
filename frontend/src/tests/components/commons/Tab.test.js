@@ -6,7 +6,7 @@ it("renders selected tab", () => {
   const wrapper = shallow(<Tab tabName="Tab1" selected={true} />);
   const initialMessage = (
     <span>
-      <li role="presentation" style={styles.li}>
+      <li role="presentation" style={styles.li} aria-current="page">
         <button
           id="Tab1"
           style={{ ...styles.button, ...styles.active }}
