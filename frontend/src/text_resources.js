@@ -197,8 +197,8 @@ let LOCALIZE = new LocalizedStrings({
 
       //Test tabs
       tabs: {
-        menuName: "emib-tab-menu",
-        instructionsMenu: "instuctions-menu",
+        menuName: "eMIB Tab Menu",
+        instructionsMenu: "Instuctions Menu",
         instructionsTabTitle: "Instructions",
         backgroundTabTitle: "Background",
         inboxTabTitle: "Inbox"
@@ -207,7 +207,7 @@ let LOCALIZE = new LocalizedStrings({
 
     //Screen Reader
     ariaLabel: {
-      mainMenu: "main-menu",
+      mainMenu: "Main Menu",
       languageToggleBtn: "language-toggle-button"
     },
 
@@ -427,8 +427,8 @@ let LOCALIZE = new LocalizedStrings({
 
       //Test tabs
       tabs: {
-        menuName: "fr-emib-tab-menu",
-        instructionsMenu: "fr-instuctions-menu",
+        menuName: "fr eMIB Tab Menu",
+        instructionsMenu: "fr Instuctions Menu",
         instructionsTabTitle: "Instructions",
         backgroundTabTitle: "Contexte",
         inboxTabTitle: "Boîte de réception"
@@ -437,7 +437,7 @@ let LOCALIZE = new LocalizedStrings({
 
     //Screen Reader
     ariaLabel: {
-      mainMenu: "menu-principal",
+      mainMenu: "Menu Principal",
       languageToggleBtn: "bouton-de-langue-a-bascule"
     },
 
