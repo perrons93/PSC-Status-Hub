@@ -151,6 +151,6 @@ Progess Steps
 }
 
 /* Notepad.jsx Text Area Focus Style */
-.textArea:focus {
+.text-area:focus {
   outline: 0;
 }

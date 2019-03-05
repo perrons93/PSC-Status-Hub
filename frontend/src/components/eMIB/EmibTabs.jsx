@@ -7,18 +7,7 @@ import LOCALIZE from "../../text_resources";
 import TabNavigation from "../commons/TabNavigation";
 import { getInstructionContent } from "./Emib";
 import Notepad from "../commons/Notepad";
-
-const styles = {
-  container: {
-    display: "grid"
-  },
-  tabNavigation: {
-    gridColumn: "1"
-  },
-  notepad: {
-    gridColumn: "2"
-  }
-};
+import "../../css/emib-tabs.css";
 
 class EmibTabs extends Component {
   static propTypes = {
@@ -45,14 +34,14 @@ class EmibTabs extends Component {
       }
     ];
     return (
-      <div style={styles.container}>
-        <div style={styles.tabNavigation}>
+      <div className="emib-tabs-grid">
+        <div className="test-tabs-cell">
           <TabNavigation tabSpecs={TABS} currentTab={1} />
           <button type="button" className="btn btn-primary" onClick={this.props.submitTest}>
             {LOCALIZE.commons.submitTestButton}
           </button>
         </div>
-        <div style={styles.notepad}>
+        <div className="notepad-cell">
           <Notepad />
         </div>
       </div>

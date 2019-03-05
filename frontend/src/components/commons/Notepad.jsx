@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import LOCALIZE from "../../text_resources";
 import TextareaAutosize from "react-textarea-autosize";
+import { BROWSER_STRING, IE_STRING, VALID_BROWSERS } from "../../Status";
+
+let COLS = "";
 
 const styles = {
   windowPadding: {
@@ -37,11 +40,28 @@ const styles = {
 };
 
 class Notepad extends Component {
-  state = {
-    height: "3"
+  //Adjust the notepad text zone width depending on the browser
+  detectBrowser = () => {
+    //if browser is IE
+    if (BROWSER_STRING === IE_STRING) {
+      COLS = "20";
+    }
+    //if browser is Chrome
+    if (BROWSER_STRING === VALID_BROWSERS[0]) {
+      COLS = "22";
+    }
+    //if browser is Firefox
+    if (BROWSER_STRING === VALID_BROWSERS[1]) {
+      COLS = "18";
+    }
+    //other
+    else {
+      COLS = "18";
+    }
   };
 
   render() {
+    this.detectBrowser();
     return (
       <div style={styles.windowPadding}>
         <div style={styles.content}>
@@ -51,13 +71,16 @@ class Notepad extends Component {
           <div style={styles.notepadSection}>
             <form>
               <fieldset style={styles.center}>
+                <label for="text-area-zone" className="invisible position-absolute">
+                  {LOCALIZE.commons.notepad.title}
+                </label>
                 <TextareaAutosize
-                  maxlength="3000"
-                  className="textArea"
+                  id="text-area-zone"
+                  maxLength="3000"
+                  className="text-area"
                   style={styles.textArea}
-                  cols="22"
-                  minRows={3}
-                  maxRows={1000}
+                  cols={COLS}
+                  minRows={5}
                   placeholder={LOCALIZE.commons.notepad.placeholder}
                 />
               </fieldset>

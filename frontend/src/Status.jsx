@@ -22,10 +22,10 @@ const headers = new Headers({
 });
 
 // Valid browser other than IE
-const VALID_BROWSERS = ["chrome", "firefox"];
-const IE_STRING = "IE";
+export const VALID_BROWSERS = ["chrome", "firefox"];
+export const IE_STRING = "IE";
 
-const BROWSER_STRING = detectBrowser();
+export const BROWSER_STRING = detectBrowser();
 const IE_VERSION = getIeVersion();
 
 const SCREEN_RESOLUTION = getScreenResolution();
