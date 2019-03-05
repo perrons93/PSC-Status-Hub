@@ -37,16 +37,32 @@ class SideNavigation extends Component {
   };
 
   state = {
-    currentNode: this.props.currentNode,
-    currentBody: this.props.navSpecs[this.props.currentNode].body
+    currentNode: this.props.currentNode
   };
 
   changeNode(id) {
-    this.setState({ currentNode: id, currentBody: this.props.navSpecs[id].body });
+    this.setState({ currentNode: id });
+    this.refs[id].scrollIntoView({ block: "start", behavior: "smooth" });
   }
 
+  onScroll = () => {
+    const buffer = 50; // buffer to shift the "currentView"
+    const currentView = document
+      .getElementById("side-nav-grid-content-cell")
+      .getBoundingClientRect();
+    var id = this.state.currentNode; //default to currentNode
+    for (var i = this.props.navSpecs.length - 1; i >= 0; i--) {
+      var tab = this.props.navSpecs[i];
+      var element = document.getElementById(tab.text).getBoundingClientRect();
+      // Verify that the top is at the same height or higher than the top and the bottom is still below the top
+      if (element.top <= currentView.top + buffer && element.bottom >= currentView.top + buffer) {
+        id = i;
+      }
+    }
+    this.setState({ currentNode: id });
+  };
+
   render() {
-    const body_id = this.props.navSpecs[this.state.currentNode].text;
     return (
       <div className="side-nav-grid">
         <div className="side-nav-grid-buttons-cell" style={styles.buttonList}>
@@ -73,8 +89,17 @@ class SideNavigation extends Component {
             </div>
           ))}
         </div>
-        <div className="side-nav-grid-content-cell" style={styles.bodyContent} id={body_id}>
-          {this.state.currentBody}
+        <div
+          className="side-nav-grid-content-cell"
+          style={styles.bodyContent}
+          id="side-nav-grid-content-cell"
+          onScroll={this.onScroll}
+        >
+          {this.props.navSpecs.map(tab => (
+            <div id={tab.text} key={tab.id} ref={tab.id}>
+              {tab.body}
+            </div>
+          ))}
         </div>
       </div>
     );
