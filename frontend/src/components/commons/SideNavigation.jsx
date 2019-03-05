@@ -75,6 +75,7 @@ class SideNavigation extends Component {
         <nav
           className="side-nav-grid-buttons-cell"
           style={styles.buttonList}
+          role="dialog"
           aria-label={this.props.menuName}
         >
           <ul className="nav nav-tabs" style={styles.ul}>

@@ -49,7 +49,7 @@ class TabNavigation extends Component {
   render() {
     return (
       <div>
-        <nav aria-label={this.props.menuName}>
+        <nav aria-label={this.props.menuName} role="dialog">
           <ul role="tablist" className="nav nav-tabs" style={styles.bootstrapNav}>
             {this.props.tabSpecs.map((tab, key) => (
               <span key={tab.id} onClick={() => this.selectTab(tab.id)}>
