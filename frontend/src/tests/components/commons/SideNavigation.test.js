@@ -11,7 +11,8 @@ const TEXT2 = "test2";
 const TEXT3 = "test3";
 const TEXT4 = "test4";
 
-window.HTMLElement.prototype.scrollIntoView = function() {}; // dummy for the scrollIntoView call within SideNavigation's changeNode function
+// stubbing scrollIntoView function - used within SideNavigation's changeNode function
+window.HTMLElement.prototype.scrollIntoView = function() {};
 
 it("renders 2 buttons", () => {
   const SPECS = [{ id: 0, text: TEXT1, body: BODY1 }, { id: 1, text: TEXT2, body: BODY2 }];
