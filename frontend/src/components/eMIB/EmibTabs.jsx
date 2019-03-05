@@ -6,6 +6,19 @@ import SideNavigation from "../commons/SideNavigation";
 import LOCALIZE from "../../text_resources";
 import TabNavigation from "../commons/TabNavigation";
 import { getInstructionContent } from "./Emib";
+import Notepad from "../commons/Notepad";
+
+const styles = {
+  container: {
+    display: "grid"
+  },
+  tabNavigation: {
+    gridColumn: "1"
+  },
+  notepad: {
+    gridColumn: "2"
+  }
+};
 
 class EmibTabs extends Component {
   static propTypes = {
@@ -32,11 +45,16 @@ class EmibTabs extends Component {
       }
     ];
     return (
-      <div>
-        <TabNavigation tabSpecs={TABS} currentTab={1} />
-        <button type="button" className="btn btn-primary" onClick={this.props.submitTest}>
-          {LOCALIZE.commons.submitTestButton}
-        </button>
+      <div style={styles.container}>
+        <div style={styles.tabNavigation}>
+          <TabNavigation tabSpecs={TABS} currentTab={1} />
+          <button type="button" className="btn btn-primary" onClick={this.props.submitTest}>
+            {LOCALIZE.commons.submitTestButton}
+          </button>
+        </div>
+        <div style={styles.notepad}>
+          <Notepad />
+        </div>
       </div>
     );
   }

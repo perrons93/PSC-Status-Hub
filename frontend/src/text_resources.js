@@ -221,7 +221,11 @@ let LOCALIZE = new LocalizedStrings({
       failStatus: "Fail",
       enabled: "Enabled",
       disabled: "Disabled",
-      backToTop: "Back to top"
+      backToTop: "Back to top",
+      notepad: {
+        title: "Notepad",
+        placeholder: "Put your notes here..."
+      }
     }
   },
 
@@ -449,7 +453,11 @@ let LOCALIZE = new LocalizedStrings({
       failStatus: "Échoue",
       enabled: "Activé",
       disabled: "Désactivé",
-      backToTop: "Haut de la page"
+      backToTop: "Haut de la page",
+      notepad: {
+        title: "Bloc-notes",
+        placeholder: "Mettez vos notes ici..."
+      }
     }
   }
 });
