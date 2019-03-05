@@ -46,15 +46,16 @@ class SideNavigation extends Component {
   }
 
   onScroll = () => {
+    const buffer = 50; // buffer to shift the "currentView"
     const currentView = document
       .getElementById("side-nav-grid-content-cell")
       .getBoundingClientRect();
-    var id = 0;
+    var id = this.state.currentNode; //default to currentNode
     for (var i = this.props.navSpecs.length - 1; i >= 0; i--) {
       var tab = this.props.navSpecs[i];
       var element = document.getElementById(tab.text).getBoundingClientRect();
       // Verify that the top is at the same height or higher than the top and the bottom is still below the top
-      if (element.top <= currentView.top && element.bottom >= currentView.top) {
+      if (element.top <= currentView.top + buffer && element.bottom >= currentView.top + buffer) {
         id = i;
       }
     }
