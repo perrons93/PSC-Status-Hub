@@ -31,7 +31,6 @@ Screenshot of unit tests run passing:
 
 Applicable for all code changes.
 
-- [ ] My code follows the style guidelines of this project
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new compiler warnings
