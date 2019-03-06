@@ -20,7 +20,7 @@ const styles = {
   bodyContent: {
     overflow: "auto",
     paddingRight: 20,
-    height: "calc(100vh - 220px)"
+    height: "calc(100vh - 273px)"
   },
   secondaryButton: {
     border: "none"
