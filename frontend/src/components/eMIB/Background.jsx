@@ -6,6 +6,12 @@ import OrganizationalInformation from "./OrganizationalInformation";
 import OrganizationalStructure from "./OrganizationalStructure";
 import SideNavigation from "../commons/SideNavigation";
 
+const styles = {
+  padding: {
+    padding: 20
+  }
+};
+
 export const getInstructionContent = () => {
   return [
     {
@@ -34,7 +40,11 @@ export const getInstructionContent = () => {
 class Background extends Component {
   render() {
     const SPECS = getInstructionContent();
-    return <SideNavigation navSpecs={SPECS} currentNode={0} />;
+    return (
+      <div style={styles.padding}>
+        <SideNavigation navSpecs={SPECS} currentNode={0} />
+      </div>
+    );
   }
 }
 

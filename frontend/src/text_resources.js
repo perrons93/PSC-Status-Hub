@@ -261,7 +261,7 @@ let LOCALIZE = new LocalizedStrings({
 
       //Inbox Page
       inboxPage: {
-        title: "Inbox",
+        title: "Inbox Coming Soon!",
         taskList: "Tasks List",
         notePad: "NotePad",
         textTools: "Text Tools",
@@ -285,7 +285,9 @@ let LOCALIZE = new LocalizedStrings({
 
     //Screen Reader
     ariaLabel: {
-      mainMenu: "main-menu",
+      mainMenu: "Main Menu",
+      tabMenu: "eMIB Tab Menu",
+      instructionsMenu: "Instructions Menu",
       languageToggleBtn: "language-toggle-button"
     },
 
@@ -301,7 +303,11 @@ let LOCALIZE = new LocalizedStrings({
       failStatus: "Fail",
       enabled: "Enabled",
       disabled: "Disabled",
-      backToTop: "Back to top"
+      backToTop: "Back to top",
+      notepad: {
+        title: "Notepad",
+        placeholder: "Put your notes here..."
+      }
     }
   },
 
@@ -594,7 +600,9 @@ let LOCALIZE = new LocalizedStrings({
 
     //Screen Reader
     ariaLabel: {
-      mainMenu: "menu-principal",
+      mainMenu: "Menu Principal",
+      tabMenu: "Menu des onglets de la BRG-e",
+      instructionsMenu: "Menu des instructions",
       languageToggleBtn: "bouton-de-langue-a-bascule"
     },
 
@@ -610,7 +618,11 @@ let LOCALIZE = new LocalizedStrings({
       failStatus: "Échoue",
       enabled: "Activé",
       disabled: "Désactivé",
-      backToTop: "Haut de la page"
+      backToTop: "Haut de la page",
+      notepad: {
+        title: "Bloc-notes",
+        placeholder: "Mettez vos notes ici..."
+      }
     }
   }
 });

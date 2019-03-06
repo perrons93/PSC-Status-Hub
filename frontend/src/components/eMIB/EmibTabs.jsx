@@ -6,6 +6,8 @@ import SideNavigation from "../commons/SideNavigation";
 import LOCALIZE from "../../text_resources";
 import TabNavigation from "../commons/TabNavigation";
 import { getInstructionContent } from "./Emib";
+import Notepad from "../commons/Notepad";
+import "../../css/emib-tabs.css";
 
 class EmibTabs extends Component {
   static propTypes = {
@@ -18,7 +20,13 @@ class EmibTabs extends Component {
       {
         id: 0,
         tabName: LOCALIZE.emibTest.tabs.instructionsTabTitle,
-        body: <SideNavigation navSpecs={SPECS} currentNode={0} />
+        body: (
+          <SideNavigation
+            navSpecs={SPECS}
+            currentNode={0}
+            menuName={LOCALIZE.ariaLabel.instructionsMenu}
+          />
+        )
       },
       {
         id: 1,
@@ -32,11 +40,16 @@ class EmibTabs extends Component {
       }
     ];
     return (
-      <div>
-        <TabNavigation tabSpecs={TABS} currentTab={1} />
-        <button type="button" className="btn btn-primary" onClick={this.props.submitTest}>
-          {LOCALIZE.commons.submitTestButton}
-        </button>
+      <div className="emib-tabs-grid">
+        <div className="test-tabs-cell">
+          <TabNavigation tabSpecs={TABS} currentTab={1} menuName={LOCALIZE.ariaLabel.tabMenu} />
+          <button type="button" className="btn btn-primary" onClick={this.props.submitTest}>
+            {LOCALIZE.commons.submitTestButton}
+          </button>
+        </div>
+        <div className="notepad-cell">
+          <Notepad />
+        </div>
       </div>
     );
   }
