@@ -218,7 +218,41 @@ let LOCALIZE = new LocalizedStrings({
             "The main goals of the SC unit are to continuously evaluate training programs offered by organizations in the public service, conduct internal and external audits for partners and clients, and oversee the dissemination of information (e.g., content review for online tools, developing documentation for training programs). The SC unit is comprised of the Quality Assurance Team, the Service and support Team, the Audits Team, and the E-Training Team.",
           orgChart: { desciption: "Organizational Chart (ODC)", link: "Image Description" }
         },
-        teamInformation: { title: "Information about he Quality Assurance (QA) Team" }
+        teamInformation: {
+          title: "Information about the Quality Assurance (QA) Team",
+          teamMembersSection: {
+            title: "Team Members",
+            para1Title: "DIRECTOR: NANCY WARD",
+            para1:
+              "Your Director is Nancy Ward. The director of the Services and Communications unit applies policies and oversees the creation, delivery, and evaluation of training programs and audits. The director is also responsible for overseeing all internal and external communication channels including web content.",
+            para2Title: "MANAGER: CLAUDE HUARD (YOU)",
+            para2:
+              "Your role as manager of the Quality Assurance Team is to oversee the content review and make final recommendations for training manuals, specifications, and other related training documents. The role also involves making staffing recommendations, managing the performance of team members, as well as coordinating the sharing of information and expertise with partners and stakeholders. The manager is also responsible for ensuring compliance to policy and professional standards and for delivering executive reports that include project updates, timelines, and budgetary implications.",
+            para3Title: "QUALITY ASSURANCE ANALYSTS",
+            para3:
+              "The members of your team are Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier. All team members are Quality Assurance Analysts and, as such, are experts in documentation and make recommendations on training documents and online content."
+          },
+          teamChart: {
+            desciption: "Organizational Chart The Quality Assurance (QA) Team",
+            link: "Image Description"
+          },
+          responsibilitiesSection: {
+            title: "QA Team Responsibilities",
+            listDescription: "The Quality Assurance Team is responsible for:",
+            item1Title: "Providing information management services. ",
+            item1:
+              "Responsibilities include ensuring that organizational development training programs across the public service are well documented. This priority includes synthesizing a large volume of information from various government organizations, ensuring adherence to information security policies, and providing appropriate accessibility to archived documents.",
+            item2Title: "Reviewing online content. ",
+            item2:
+              "Responsibilities include reviewing a large volume of information regarding organizational training programs from various clients and partners, ensuring adherence to internal and external communications policies, and making recommendations to executives for final approval before information dissemination.",
+            item3Title: "Reviewing training documentation. ",
+            item3:
+              " Responsibilities include ensuring the completeness and quality of content in all organizational development training- related documents. This priority includes reviewing training instructions, scoring manuals, training specifications, statistical reports, and other training-related materials.",
+            para1Title: "NEW INITIATIVES",
+            para1:
+              "You have been mandated to make a recommendation on the adoption of an “off-the- shelf” online request processing system. The proposed system, called Serv, provides features that would facilitate the management of client and partner requests for content review and documentation services. This includes enhanced categorization and tracking of pending requests, customizable forms applications, and various report generators. The Information Technology (IT) Team of the ODC recently facilitated a pilot test with Serv that included Danny McBride, who is a member of the Quality Assurance Team. Danny came back with positive feedback on his experience with the Serv system. Your team has been discussing the proposal to introduce this new technology in hopes of improving your services."
+          }
+        }
       },
 
       //Background Page
