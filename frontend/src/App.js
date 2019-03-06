@@ -78,57 +78,62 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav
-            aria-label={LOCALIZE.ariaLabel.mainMenu}
-            style={styles.navBar}
-            className="fixed-top bg-white navbar navbar-expand"
-            role="dialog"
-          >
-            <div style={styles.pscImage} id="psc-image">
-              <img src={psc_header} alt={LOCALIZE.commons.psc} />
-            </div>
-            <div style={styles.tabs} className="fixed-top nav nav-tabs">
-              <ul
-                id="navigation-tabs"
-                className="mx-auto nav-site nav nav-tabs nav-item"
-                role="menubar"
-              >
-                <li className="bg-white" role="menuitem">
-                  <NavLink
-                    aria-current="page"
-                    isActive={isHomeActive}
-                    className="nav-link"
-                    to={PATH.home}
-                  >
-                    {LOCALIZE.mainTabs.homeTabTitle}
-                  </NavLink>
-                </li>
-                <li className="bg-white" role="menuitem">
-                  <NavLink
-                    aria-current="page"
-                    isActive={isPrototypeActive}
-                    className="nav-link"
-                    to={PATH.prototype}
-                  >
-                    {LOCALIZE.mainTabs.prototypeTabTitle}
-                  </NavLink>
-                </li>
-                <li className="bg-white" role="menuitem">
-                  <NavLink
-                    aria-current="page"
-                    isActive={isStatusActive}
-                    className="nav-link"
-                    to={PATH.status}
-                  >
-                    {LOCALIZE.mainTabs.statusTabTitle}
-                  </NavLink>
-                </li>
-              </ul>
-              <div aria-label={LOCALIZE.ariaLabel.languageToggleBtn} style={styles.languageButton}>
-                <Translation updateLanguageOnPage={this.updateLanguage} />
+          <header role="heading" aria-level="1">
+            <nav
+              aria-label={LOCALIZE.ariaLabel.mainMenu}
+              style={styles.navBar}
+              className="fixed-top bg-white navbar navbar-expand"
+              role="dialog"
+            >
+              <div style={styles.pscImage} id="psc-image">
+                <img src={psc_header} alt={LOCALIZE.commons.psc} />
               </div>
-            </div>
-          </nav>
+              <div style={styles.tabs} className="fixed-top nav nav-tabs">
+                <ul
+                  id="navigation-tabs"
+                  className="mx-auto nav-site nav nav-tabs nav-item"
+                  role="menubar"
+                >
+                  <li className="bg-white" role="menuitem">
+                    <NavLink
+                      aria-current="page"
+                      isActive={isHomeActive}
+                      className="nav-link"
+                      to={PATH.home}
+                    >
+                      {LOCALIZE.mainTabs.homeTabTitle}
+                    </NavLink>
+                  </li>
+                  <li className="bg-white" role="menuitem">
+                    <NavLink
+                      aria-current="page"
+                      isActive={isPrototypeActive}
+                      className="nav-link"
+                      to={PATH.prototype}
+                    >
+                      {LOCALIZE.mainTabs.prototypeTabTitle}
+                    </NavLink>
+                  </li>
+                  <li className="bg-white" role="menuitem">
+                    <NavLink
+                      aria-current="page"
+                      isActive={isStatusActive}
+                      className="nav-link"
+                      to={PATH.status}
+                    >
+                      {LOCALIZE.mainTabs.statusTabTitle}
+                    </NavLink>
+                  </li>
+                </ul>
+                <div
+                  aria-label={LOCALIZE.ariaLabel.languageToggleBtn}
+                  style={styles.languageButton}
+                >
+                  <Translation updateLanguageOnPage={this.updateLanguage} />
+                </div>
+              </div>
+            </nav>
+          </header>
           <Route exact path={PATH.home} component={Home} />
           <Route path={PATH.prototype} component={Prototype} />
           <Route path={PATH.status} component={Status} />
