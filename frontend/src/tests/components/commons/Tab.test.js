@@ -7,11 +7,7 @@ it("renders selected tab", () => {
   const initialMessage = (
     <span>
       <li role="menuitem" style={styles.li} aria-current="page">
-        <button
-          style={{ ...styles.button, ...styles.active }}
-          aria-selected="true"
-          className="side-navigation-button"
-        >
+        <button style={{ ...styles.button, ...styles.active }} className="side-navigation-button">
           Tab1
         </button>
       </li>
@@ -25,7 +21,7 @@ it("renders unselected tab", () => {
   const initialMessage = (
     <span>
       <li role="menuitem" style={styles.li}>
-        <button style={styles.button} aria-selected="false" className="side-navigation-button">
+        <button style={styles.button} className="side-navigation-button">
           Tab2
         </button>
       </li>
