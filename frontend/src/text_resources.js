@@ -174,14 +174,14 @@ let LOCALIZE = new LocalizedStrings({
 
       //Background Page
       backgroundPage: {
-        title: "Background Page",
+        title: "Background Coming Soon!",
         orgChart: "Org Chart",
         Scenarios: "Scenarios"
       },
 
       //Inbox Page
       inboxPage: {
-        title: "Inbox",
+        title: "Inbox Coming Soon!",
         taskList: "Tasks List",
         notePad: "NotePad",
         textTools: "Text Tools",
