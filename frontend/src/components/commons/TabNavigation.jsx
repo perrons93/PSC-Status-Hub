@@ -23,7 +23,7 @@ const styles = {
     OTransition: "opacity 0.15s linear",
     transition: "opacity 0.15s linear",
     backgroundColor: "white",
-    borderWidth: "1px 1px 0px 1px",
+    borderWidth: "1px 1px 0 1px",
     borderStyle: "solid",
     borderColor: "#00565e",
     borderTopColor: "white",

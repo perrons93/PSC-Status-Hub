@@ -21,7 +21,7 @@ const styles = {
   },
   content: {
     backgroundColor: "white",
-    borderWidth: "1px 1px 0px 1px",
+    borderWidth: "1px 1px 0 1px",
     borderStyle: "solid",
     borderColor: "#00565e",
     borderRadius: "5px 5px 0 0",
