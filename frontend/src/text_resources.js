@@ -172,6 +172,15 @@ let LOCALIZE = new LocalizedStrings({
         }
       },
 
+      background: {
+        backgroundEvaluation: { title: "Evaluation" },
+        backgroundInformation: { title: "Background Information" },
+        organizationalInformation: {
+          title: "Information about the Organizational Development Council (ODC)"
+        },
+        organizationalStructure: { title: "Organizational Structure" }
+      },
+
       //Background Page
       backgroundPage: {
         title: "Background Page",
