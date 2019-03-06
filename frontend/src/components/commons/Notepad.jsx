@@ -4,8 +4,6 @@ import TextareaAutosize from "react-textarea-autosize";
 import { BROWSER_STRING, IE_STRING, VALID_BROWSERS } from "../../Status";
 import "../../css/emib-tabs.css";
 
-let COLS = 0;
-
 const styles = {
   windowPadding: {
     paddingTop: 43,
@@ -42,6 +40,10 @@ const styles = {
 };
 
 class Notepad extends Component {
+  state = {
+    columnWidth: 0
+  };
+
   /*
   Adjust the notepad text zone width depending on the browser
   Each browser has its own interpretation of the notepad text zone width
@@ -49,21 +51,24 @@ class Notepad extends Component {
   detectBrowser = () => {
     switch (BROWSER_STRING) {
       case IE_STRING:
-        COLS = 20;
+        this.setState({ columnWidth: 20 });
         break;
       case VALID_BROWSERS[0]:
-        COLS = 22;
+        this.setState({ columnWidth: 22 });
         break;
       case VALID_BROWSERS[1]:
-        COLS = 18;
+        this.setState({ columnWidth: 18 });
         break;
       default:
-        COLS = 18;
+        this.setState({ columnWidth: 18 });
     }
   };
 
-  render() {
+  componentDidMount() {
     this.detectBrowser();
+  }
+
+  render() {
     return (
       <div style={styles.windowPadding}>
         <div style={styles.content}>
@@ -81,7 +86,7 @@ class Notepad extends Component {
                   maxLength="3000"
                   className="text-area"
                   style={styles.textArea}
-                  cols={COLS}
+                  cols={this.state.columnWidth}
                   minRows={5}
                   placeholder={LOCALIZE.commons.notepad.placeholder}
                 />
