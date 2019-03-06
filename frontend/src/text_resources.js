@@ -200,7 +200,24 @@ let LOCALIZE = new LocalizedStrings({
               " The scope and complexity of training programs pose ongoing challenges for (1) their timely delivery and effectiveness in responding to new and emerging policy priorities; (2) maintaining partnerships that are essential for high-quality training program development, delivery, and evaluation; (3) keeping pace with the evolving demands of clients and with new learning technology."
           }
         },
-        organizationalStructure: { title: "Organizational Structure" },
+        organizationalStructure: {
+          title: "Organizational Structure",
+          description:
+            "The ODC has an organizational structure consisting of four units including: Corporate Affairs, Research and Innovations, Training Program Development, and Services and Communications.",
+          para1Title: "Corporate affairs (CA). ",
+          para1:
+            "The CA unit is comprised of the Human Resources Team, the Finance Team and the Information Technology Team. Together these teams are responsible for the management of the workforce, the work environment, the finances, as well as the technology and information in ODC.",
+          para2Title: "Research and innovations (RI). ",
+          para2:
+            "The main goals of the RI unit are to conduct research initiatives in learning, transfer of training, and technology and to help develop innovative teaching techniques that promote employee productivity and general well-being. ",
+          para3Title: "Program development (PD).  ",
+          para3:
+            "The focus of the PD unit is to plan, develop and administer training programs across the public service. To do so, the unit establishes and maintains relationships with clients and partners, and conducts analyses of their organizational development training needs.",
+          para4Title: "Services and communications (SC). ",
+          para4:
+            "The main goals of the SC unit are to continuously evaluate training programs offered by organizations in the public service, conduct internal and external audits for partners and clients, and oversee the dissemination of information (e.g., content review for online tools, developing documentation for training programs). The SC unit is comprised of the Quality Assurance Team, the Service and support Team, the Audits Team, and the E-Training Team.",
+          orgChart: { desciption: "Organizational Chart (ODC)", link: "Image Description" }
+        },
         teamInformation: { title: "Information about he Quality Assurance (QA) Team" }
       },
 
