@@ -205,7 +205,9 @@ let LOCALIZE = new LocalizedStrings({
 
     //Screen Reader
     ariaLabel: {
-      mainMenu: "main-menu",
+      mainMenu: "Main Menu",
+      tabMenu: "eMIB Tab Menu",
+      instructionsMenu: "Instructions Menu",
       languageToggleBtn: "language-toggle-button"
     },
 
@@ -437,7 +439,9 @@ let LOCALIZE = new LocalizedStrings({
 
     //Screen Reader
     ariaLabel: {
-      mainMenu: "menu-principal",
+      mainMenu: "Menu Principal",
+      tabMenu: "Menu des onglets de la BRG-e",
+      instructionsMenu: "Menu des instructions",
       languageToggleBtn: "bouton-de-langue-a-bascule"
     },
 

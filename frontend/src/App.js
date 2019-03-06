@@ -88,8 +88,12 @@ class App extends Component {
               <img src={psc_header} alt={LOCALIZE.commons.psc} />
             </div>
             <div style={styles.tabs} className="fixed-top nav nav-tabs">
-              <ul id="navigation-tabs" className="mx-auto nav-site nav nav-tabs nav-item">
-                <li className="bg-white">
+              <ul
+                id="navigation-tabs"
+                className="mx-auto nav-site nav nav-tabs nav-item"
+                role="menubar"
+              >
+                <li className="bg-white" role="menuitem">
                   <NavLink
                     aria-current="page"
                     isActive={isHomeActive}
@@ -99,7 +103,7 @@ class App extends Component {
                     {LOCALIZE.mainTabs.homeTabTitle}
                   </NavLink>
                 </li>
-                <li className="bg-white">
+                <li className="bg-white" role="menuitem">
                   <NavLink
                     aria-current="page"
                     isActive={isPrototypeActive}
@@ -109,7 +113,7 @@ class App extends Component {
                     {LOCALIZE.mainTabs.prototypeTabTitle}
                   </NavLink>
                 </li>
-                <li className="bg-white">
+                <li className="bg-white" role="menuitem">
                   <NavLink
                     aria-current="page"
                     isActive={isStatusActive}
