@@ -78,11 +78,11 @@ class SideNavigation extends Component {
           role="dialog"
           aria-label={this.props.menuName}
         >
-          <ul className="nav nav-tabs" style={styles.ul}>
+          <ul className="nav nav-tabs" style={styles.ul} role="menubar">
             {this.props.navSpecs.map(tab => (
               <div key={tab.id}>
                 {tab.id === this.state.currentNode && (
-                  <li style={styles.li} aria-current="page">
+                  <li style={styles.li} aria-current="page" role="menuitem">
                     <button
                       className="btn-primary"
                       style={{ ...styles.button, ...styles.primaryButton }}
@@ -93,7 +93,7 @@ class SideNavigation extends Component {
                   </li>
                 )}
                 {tab.id !== this.state.currentNode && (
-                  <li style={styles.li}>
+                  <li style={styles.li} role="menuitem">
                     <button
                       className="btn-secondary"
                       style={{ ...styles.button, ...styles.secondaryButton }}

@@ -31,19 +31,17 @@ class Tab extends Component {
     return (
       <span>
         {this.props.selected === false && (
-          <li role="presentation" style={styles.li}>
-            <button id={this.props.tabName} style={styles.button} role="tab" aria-selected="false">
+          <li role="menuitem" style={styles.li}>
+            <button style={styles.button} className="side-navigation-button">
               {this.props.tabName}
             </button>
           </li>
         )}
         {this.props.selected === true && (
-          <li role="presentation" style={styles.li} aria-current="page">
+          <li role="menuitem" style={styles.li} aria-current="page">
             <button
-              id={this.props.tabName}
               style={{ ...styles.button, ...styles.active }}
-              role="tab"
-              aria-selected="true"
+              className="side-navigation-button"
             >
               {this.props.tabName}
             </button>

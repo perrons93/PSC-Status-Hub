@@ -6,13 +6,8 @@ it("renders selected tab", () => {
   const wrapper = shallow(<Tab tabName="Tab1" selected={true} />);
   const initialMessage = (
     <span>
-      <li role="presentation" style={styles.li} aria-current="page">
-        <button
-          id="Tab1"
-          style={{ ...styles.button, ...styles.active }}
-          role="tab"
-          aria-selected="true"
-        >
+      <li role="menuitem" style={styles.li} aria-current="page">
+        <button style={{ ...styles.button, ...styles.active }} className="side-navigation-button">
           Tab1
         </button>
       </li>
@@ -25,8 +20,8 @@ it("renders unselected tab", () => {
   const wrapper = shallow(<Tab tabName="Tab2" selected={false} />);
   const initialMessage = (
     <span>
-      <li role="presentation" style={styles.li}>
-        <button id="Tab2" style={styles.button} role="tab" aria-selected="false">
+      <li role="menuitem" style={styles.li}>
+        <button style={styles.button} className="side-navigation-button">
           Tab2
         </button>
       </li>
