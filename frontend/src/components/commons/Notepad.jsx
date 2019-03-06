@@ -3,7 +3,7 @@ import LOCALIZE from "../../text_resources";
 import TextareaAutosize from "react-textarea-autosize";
 import { BROWSER_STRING, IE_STRING, VALID_BROWSERS } from "../../Status";
 
-let COLS = "";
+let COLS = 0;
 
 const styles = {
   windowPadding: {
@@ -43,21 +43,18 @@ const styles = {
 class Notepad extends Component {
   //Adjust the notepad text zone width depending on the browser
   detectBrowser = () => {
-    //if browser is IE
-    if (BROWSER_STRING === IE_STRING) {
-      COLS = "20";
-    }
-    //if browser is Chrome
-    else if (BROWSER_STRING === VALID_BROWSERS[0]) {
-      COLS = "22";
-    }
-    //if browser is Firefox
-    else if (BROWSER_STRING === VALID_BROWSERS[1]) {
-      COLS = "18";
-    }
-    //other
-    else {
-      COLS = "18";
+    switch (BROWSER_STRING) {
+      case IE_STRING:
+        COLS = 20;
+        break;
+      case VALID_BROWSERS[0]:
+        COLS = 22;
+        break;
+      case VALID_BROWSERS[1]:
+        COLS = 18;
+        break;
+      default:
+        COLS = 18;
     }
   };
 
