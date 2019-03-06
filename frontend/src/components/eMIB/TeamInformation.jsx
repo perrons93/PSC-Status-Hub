@@ -4,7 +4,7 @@ import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
 import { LANGUAGES } from "../commons/Translation";
 
-class BackgroundEvaluation extends Component {
+class TeamInformation extends Component {
   render() {
     return (
       <div>
@@ -16,4 +16,4 @@ class BackgroundEvaluation extends Component {
   }
 }
 
-export default BackgroundEvaluation;
+export default TeamInformation;

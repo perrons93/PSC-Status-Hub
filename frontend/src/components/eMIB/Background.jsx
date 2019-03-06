@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LOCALIZE from "../../text_resources";
-import BackgroundEvaluation from "./BackgroundEvaluation";
+import TeamInformation from "./TeamInformation";
 import BackgroundInformation from "./BackgroundInformation";
 import OrganizationalInformation from "./OrganizationalInformation";
 import OrganizationalStructure from "./OrganizationalStructure";
@@ -25,8 +25,8 @@ export const getInstructionContent = () => {
     },
     {
       id: 3,
-      text: LOCALIZE.emibTest.background.backgroundEvaluation.title,
-      body: <BackgroundEvaluation />
+      text: LOCALIZE.emibTest.background.teamInformation.title,
+      body: <TeamInformation />
     }
   ];
 };

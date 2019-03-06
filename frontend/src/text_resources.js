@@ -173,7 +173,6 @@ let LOCALIZE = new LocalizedStrings({
       },
 
       background: {
-        backgroundEvaluation: { title: "Evaluation" },
         backgroundInformation: {
           title: "Background Information",
           paragraph1:
@@ -201,7 +200,8 @@ let LOCALIZE = new LocalizedStrings({
               " The scope and complexity of training programs pose ongoing challenges for (1) their timely delivery and effectiveness in responding to new and emerging policy priorities; (2) maintaining partnerships that are essential for high-quality training program development, delivery, and evaluation; (3) keeping pace with the evolving demands of clients and with new learning technology."
           }
         },
-        organizationalStructure: { title: "Organizational Structure" }
+        organizationalStructure: { title: "Organizational Structure" },
+        teamInformation: { title: "Information about he Quality Assurance (QA) Team" }
       },
 
       //Background Page
