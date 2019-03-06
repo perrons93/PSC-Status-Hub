@@ -22,10 +22,10 @@ const headers = new Headers({
 });
 
 // Valid browser other than IE
-const VALID_BROWSERS = ["chrome", "firefox"];
-const IE_STRING = "IE";
+export const VALID_BROWSERS = ["chrome", "firefox"];
+export const IE_STRING = "IE";
 
-const BROWSER_STRING = detectBrowser();
+export const BROWSER_STRING = detectBrowser();
 const IE_VERSION = getIeVersion();
 
 const SCREEN_RESOLUTION = getScreenResolution();
@@ -54,7 +54,7 @@ class Status extends Component {
   }
 
   checkBackend = async () => {
-    const test = await fetch("http://localhost:80/api/", {
+    const test = await fetch("/api/", {
       method: "GET",
       headers,
       cache: "default"
@@ -66,7 +66,7 @@ class Status extends Component {
   };
 
   checkDatabase = async () => {
-    const test = await fetch("http://localhost:80/database_check/", {
+    const test = await fetch("/database_check/", {
       method: "GET",
       headers,
       cache: "default"

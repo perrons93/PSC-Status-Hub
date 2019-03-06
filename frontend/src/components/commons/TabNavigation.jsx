@@ -13,7 +13,7 @@ const styles = {
     //this replaces the .bootstrap-tabs > .nav:after
     content: "",
     backgroundColor: "white",
-    width: 1140,
+    width: 900,
     border: "1px solid #00565e",
     borderBottomColor: "transparent"
   },
@@ -26,7 +26,7 @@ const styles = {
     border: "1px solid #00565e",
     borderTopColor: "white",
     height: "calc(100vh - 210px)",
-    width: 1140
+    width: 900
   }
 };
 
