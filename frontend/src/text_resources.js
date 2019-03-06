@@ -207,7 +207,7 @@ let LOCALIZE = new LocalizedStrings({
     ariaLabel: {
       mainMenu: "Main Menu",
       tabMenu: "eMIB Tab Menu",
-      instructionsMenu: "Instuctions Menu",
+      instructionsMenu: "Instructions Menu",
       languageToggleBtn: "language-toggle-button"
     },
 
