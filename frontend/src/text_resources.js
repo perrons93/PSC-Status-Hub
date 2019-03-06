@@ -217,7 +217,10 @@ let LOCALIZE = new LocalizedStrings({
           para4Title: "Services and communications (SC). ",
           para4:
             "The main goals of the SC unit are to continuously evaluate training programs offered by organizations in the public service, conduct internal and external audits for partners and clients, and oversee the dissemination of information (e.g., content review for online tools, developing documentation for training programs). The SC unit is comprised of the Quality Assurance Team, the Service and support Team, the Audits Team, and the E-Training Team.",
-          orgChart: { desciption: "Organizational Chart (ODC)", link: "Image Description" }
+          orgChart: {
+            desciption: "Organizational Chart (ODC)",
+            link: "Image Description (Coming Soon)"
+          }
         },
         teamInformation: {
           title: "Information about the Quality Assurance (QA) Team",
@@ -235,7 +238,7 @@ let LOCALIZE = new LocalizedStrings({
           },
           teamChart: {
             desciption: "Organizational Chart The Quality Assurance (QA) Team",
-            link: "Image Description"
+            link: "Image Description (Coming Soon)"
           },
           responsibilitiesSection: {
             title: "QA Team Responsibilities",
@@ -480,7 +483,7 @@ let LOCALIZE = new LocalizedStrings({
       //Background Page
       background: {
         backgroundInformation: {
-          title: "Page de contexte",
+          title: "Page de contexte (Translation Coming Soon)",
           paragraph1:
             "FR In this exercise, you are assuming the role of Claude Huard, the new manager of the Quality Assurance (QA) team. You are replacing Gary Severna, who recently retired. Your team is a part of the Services and Communications (SC) unit of a public service organisation called the Organizational Development Council (ODC). It is now 9:30 a.m. on Monday, November 7th.",
           paragraph2:
@@ -523,7 +526,10 @@ let LOCALIZE = new LocalizedStrings({
           para4Title: "FR Services and communications (SC). ",
           para4:
             "FR The main goals of the SC unit are to continuously evaluate training programs offered by organizations in the public service, conduct internal and external audits for partners and clients, and oversee the dissemination of information (e.g., content review for online tools, developing documentation for training programs). The SC unit is comprised of the Quality Assurance Team, the Service and support Team, the Audits Team, and the E-Training Team.",
-          orgChart: { desciption: "FR Organizational Chart (ODC)", link: "FR Image Description" }
+          orgChart: {
+            desciption: "FR Organizational Chart (ODC)",
+            link: "FR Image Description (Coming Soon)"
+          }
         },
         teamInformation: {
           title: "FR Information about the Quality Assurance (QA) Team",
@@ -541,7 +547,7 @@ let LOCALIZE = new LocalizedStrings({
           },
           teamChart: {
             desciption: "FR Organizational Chart The Quality Assurance (QA) Team",
-            link: "FR Image Description"
+            link: "FR Image Description (Coming Soon)"
           },
           responsibilitiesSection: {
             title: "FR QA Team Responsibilities",
