@@ -182,7 +182,24 @@ let LOCALIZE = new LocalizedStrings({
             "In the following sections, you will find information about ODC and the QA Team. You will be able to access it throughout the test."
         },
         organizationalInformation: {
-          title: "Information about the Organizational Development Council (ODC)"
+          title: "Information about the Organizational Development Council (ODC)",
+          description:
+            "The ODC is an independent government agency that promotes organizational development across the public service. The ODC’s mandate is to provide training to all public service employees to maintain a productive and commendable workforce. The organization is responsible for: (1) the creation and evaluation of training programs; (2) research and innovation in learning, transfer of training, and technology; and (3) conducting audits on workplace behaviors in adherence to the ethical and professional standards of public service. With its headquarters located in the National Capital Region, the ODC currently employs approximately 100 individuals.",
+          prioritiesSection: {
+            title: "Priorities",
+            bullet1:
+              "To ensure that the organization continues to enhance productive workplace behaviors through policies of ethical and professional conduct.",
+            bullet2:
+              "To continuously evaluate the effectiveness and utility of training programs across the public service.",
+            bullet3:
+              "To deliver high-quality training programs across the public service, supporting the Government of Canada’s priorities.",
+            bullet4: "To manage the documentation and communication of client training activities."
+          },
+          risksSection: {
+            title: "Risks",
+            bullet1:
+              " The scope and complexity of training programs pose ongoing challenges for (1) their timely delivery and effectiveness in responding to new and emerging policy priorities; (2) maintaining partnerships that are essential for high-quality training program development, delivery, and evaluation; (3) keeping pace with the evolving demands of clients and with new learning technology."
+          }
         },
         organizationalStructure: { title: "Organizational Structure" }
       },
