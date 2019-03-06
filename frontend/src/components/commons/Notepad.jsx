@@ -42,7 +42,10 @@ const styles = {
 };
 
 class Notepad extends Component {
-  //Adjust the notepad text zone width depending on the browser
+  /*
+  Adjust the notepad text zone width depending on the browser
+  Each browser has its own interpretation of the notepad text zone width
+  */
   detectBrowser = () => {
     switch (BROWSER_STRING) {
       case IE_STRING:
