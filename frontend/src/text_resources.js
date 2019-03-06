@@ -172,6 +172,7 @@ let LOCALIZE = new LocalizedStrings({
         }
       },
 
+      //Background Page
       background: {
         backgroundInformation: {
           title: "Background Information",
@@ -197,7 +198,7 @@ let LOCALIZE = new LocalizedStrings({
           risksSection: {
             title: "Risks",
             bullet1:
-              " The scope and complexity of training programs pose ongoing challenges for (1) their timely delivery and effectiveness in responding to new and emerging policy priorities; (2) maintaining partnerships that are essential for high-quality training program development, delivery, and evaluation; (3) keeping pace with the evolving demands of clients and with new learning technology."
+              "The scope and complexity of training programs pose ongoing challenges for (1) their timely delivery and effectiveness in responding to new and emerging policy priorities; (2) maintaining partnerships that are essential for high-quality training program development, delivery, and evaluation; (3) keeping pace with the evolving demands of clients and with new learning technology."
           }
         },
         organizationalStructure: {
@@ -247,19 +248,12 @@ let LOCALIZE = new LocalizedStrings({
               "Responsibilities include reviewing a large volume of information regarding organizational training programs from various clients and partners, ensuring adherence to internal and external communications policies, and making recommendations to executives for final approval before information dissemination.",
             item3Title: "Reviewing training documentation. ",
             item3:
-              " Responsibilities include ensuring the completeness and quality of content in all organizational development training- related documents. This priority includes reviewing training instructions, scoring manuals, training specifications, statistical reports, and other training-related materials.",
+              "Responsibilities include ensuring the completeness and quality of content in all organizational development training- related documents. This priority includes reviewing training instructions, scoring manuals, training specifications, statistical reports, and other training-related materials.",
             para1Title: "NEW INITIATIVES",
             para1:
               "You have been mandated to make a recommendation on the adoption of an “off-the- shelf” online request processing system. The proposed system, called Serv, provides features that would facilitate the management of client and partner requests for content review and documentation services. This includes enhanced categorization and tracking of pending requests, customizable forms applications, and various report generators. The Information Technology (IT) Team of the ODC recently facilitated a pilot test with Serv that included Danny McBride, who is a member of the Quality Assurance Team. Danny came back with positive feedback on his experience with the Serv system. Your team has been discussing the proposal to introduce this new technology in hopes of improving your services."
           }
         }
-      },
-
-      //Background Page
-      backgroundPage: {
-        title: "Background Page",
-        orgChart: "Org Chart",
-        Scenarios: "Scenarios"
       },
 
       //Inbox Page
@@ -484,10 +478,88 @@ let LOCALIZE = new LocalizedStrings({
       },
 
       //Background Page
-      backgroundPage: {
-        title: "Page de contexte",
-        orgChart: "Organigramme",
-        Scenarios: "Scénarios"
+      background: {
+        backgroundInformation: {
+          title: "Page de contexte",
+          paragraph1:
+            "FR In this exercise, you are assuming the role of Claude Huard, the new manager of the Quality Assurance (QA) team. You are replacing Gary Severna, who recently retired. Your team is a part of the Services and Communications (SC) unit of a public service organisation called the Organizational Development Council (ODC). It is now 9:30 a.m. on Monday, November 7th.",
+          paragraph2:
+            "FR In the following sections, you will find information about ODC and the QA Team. You will be able to access it throughout the test."
+        },
+        organizationalInformation: {
+          title: "FR Information about the Organizational Development Council (ODC)",
+          description:
+            "FR The ODC is an independent government agency that promotes organizational development across the public service. The ODC’s mandate is to provide training to all public service employees to maintain a productive and commendable workforce. The organization is responsible for: (1) the creation and evaluation of training programs; (2) research and innovation in learning, transfer of training, and technology; and (3) conducting audits on workplace behaviors in adherence to the ethical and professional standards of public service. With its headquarters located in the National Capital Region, the ODC currently employs approximately 100 individuals.",
+          prioritiesSection: {
+            title: "FR Priorities",
+            bullet1:
+              "FR To ensure that the organization continues to enhance productive workplace behaviors through policies of ethical and professional conduct.",
+            bullet2:
+              "FR To continuously evaluate the effectiveness and utility of training programs across the public service.",
+            bullet3:
+              "FR To deliver high-quality training programs across the public service, supporting the Government of Canada’s priorities.",
+            bullet4:
+              "FR To manage the documentation and communication of client training activities."
+          },
+          risksSection: {
+            title: "FR Risks",
+            bullet1:
+              "FR The scope and complexity of training programs pose ongoing challenges for (1) their timely delivery and effectiveness in responding to new and emerging policy priorities; (2) maintaining partnerships that are essential for high-quality training program development, delivery, and evaluation; (3) keeping pace with the evolving demands of clients and with new learning technology."
+          }
+        },
+        organizationalStructure: {
+          title: "FR Organizational Structure",
+          description:
+            "FR The ODC has an organizational structure consisting of four units including: Corporate Affairs, Research and Innovations, Training Program Development, and Services and Communications.",
+          para1Title: "FR Corporate affairs (CA). ",
+          para1:
+            "FR The CA unit is comprised of the Human Resources Team, the Finance Team and the Information Technology Team. Together these teams are responsible for the management of the workforce, the work environment, the finances, as well as the technology and information in ODC.",
+          para2Title: "FR Research and innovations (RI). ",
+          para2:
+            "FR The main goals of the RI unit are to conduct research initiatives in learning, transfer of training, and technology and to help develop innovative teaching techniques that promote employee productivity and general well-being. ",
+          para3Title: "FR Program development (PD).  ",
+          para3:
+            "FR The focus of the PD unit is to plan, develop and administer training programs across the public service. To do so, the unit establishes and maintains relationships with clients and partners, and conducts analyses of their organizational development training needs.",
+          para4Title: "FR Services and communications (SC). ",
+          para4:
+            "FR The main goals of the SC unit are to continuously evaluate training programs offered by organizations in the public service, conduct internal and external audits for partners and clients, and oversee the dissemination of information (e.g., content review for online tools, developing documentation for training programs). The SC unit is comprised of the Quality Assurance Team, the Service and support Team, the Audits Team, and the E-Training Team.",
+          orgChart: { desciption: "FR Organizational Chart (ODC)", link: "FR Image Description" }
+        },
+        teamInformation: {
+          title: "FR Information about the Quality Assurance (QA) Team",
+          teamMembersSection: {
+            title: "FR Team Members",
+            para1Title: "FR DIRECTOR: NANCY WARD",
+            para1:
+              "FR Your Director is Nancy Ward. The director of the Services and Communications unit applies policies and oversees the creation, delivery, and evaluation of training programs and audits. The director is also responsible for overseeing all internal and external communication channels including web content.",
+            para2Title: "FR MANAGER: CLAUDE HUARD (YOU)",
+            para2:
+              "FR Your role as manager of the Quality Assurance Team is to oversee the content review and make final recommendations for training manuals, specifications, and other related training documents. The role also involves making staffing recommendations, managing the performance of team members, as well as coordinating the sharing of information and expertise with partners and stakeholders. The manager is also responsible for ensuring compliance to policy and professional standards and for delivering executive reports that include project updates, timelines, and budgetary implications.",
+            para3Title: "FR QUALITY ASSURANCE ANALYSTS",
+            para3:
+              "FR The members of your team are Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier. All team members are Quality Assurance Analysts and, as such, are experts in documentation and make recommendations on training documents and online content."
+          },
+          teamChart: {
+            desciption: "FR Organizational Chart The Quality Assurance (QA) Team",
+            link: "FR Image Description"
+          },
+          responsibilitiesSection: {
+            title: "FR QA Team Responsibilities",
+            listDescription: "FR The Quality Assurance Team is responsible for:",
+            item1Title: "FR Providing information management services. ",
+            item1:
+              "FR Responsibilities include ensuring that organizational development training programs across the public service are well documented. This priority includes synthesizing a large volume of information from various government organizations, ensuring adherence to information security policies, and providing appropriate accessibility to archived documents.",
+            item2Title: "FR Reviewing online content. ",
+            item2:
+              "FR Responsibilities include reviewing a large volume of information regarding organizational training programs from various clients and partners, ensuring adherence to internal and external communications policies, and making recommendations to executives for final approval before information dissemination.",
+            item3Title: "FR Reviewing training documentation. ",
+            item3:
+              "FR Responsibilities include ensuring the completeness and quality of content in all organizational development training- related documents. This priority includes reviewing training instructions, scoring manuals, training specifications, statistical reports, and other training-related materials.",
+            para1Title: "FR NEW INITIATIVES",
+            para1:
+              "FR You have been mandated to make a recommendation on the adoption of an “off-the- shelf” online request processing system. The proposed system, called Serv, provides features that would facilitate the management of client and partner requests for content review and documentation services. This includes enhanced categorization and tracking of pending requests, customizable forms applications, and various report generators. The Information Technology (IT) Team of the ODC recently facilitated a pilot test with Serv that included Danny McBride, who is a member of the Quality Assurance Team. Danny came back with positive feedback on his experience with the Serv system. Your team has been discussing the proposal to introduce this new technology in hopes of improving your services."
+          }
+        }
       },
 
       //Inbox Page
