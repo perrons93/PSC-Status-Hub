@@ -6,12 +6,6 @@ import OrganizationalInformation from "./OrganizationalInformation";
 import OrganizationalStructure from "./OrganizationalStructure";
 import SideNavigation from "../commons/SideNavigation";
 
-const styles = {
-  padding: {
-    padding: 20
-  }
-};
-
 export const getInstructionContent = () => {
   return [
     {
@@ -41,9 +35,11 @@ class Background extends Component {
   render() {
     const SPECS = getInstructionContent();
     return (
-      <div style={styles.padding}>
-        <SideNavigation navSpecs={SPECS} currentNode={0} />
-      </div>
+      <SideNavigation
+        navSpecs={SPECS}
+        currentNode={0}
+        menuName={LOCALIZE.ariaLabel.backgroundMenu}
+      />
     );
   }
 }

@@ -285,6 +285,7 @@ let LOCALIZE = new LocalizedStrings({
 
     //Screen Reader
     ariaLabel: {
+      backgroundMenu: "Background Menu",
       mainMenu: "Main Menu",
       tabMenu: "eMIB Tab Menu",
       instructionsMenu: "Instructions Menu",
@@ -600,6 +601,7 @@ let LOCALIZE = new LocalizedStrings({
 
     //Screen Reader
     ariaLabel: {
+      backgroundMenu: "FR Background Menu",
       mainMenu: "Menu Principal",
       tabMenu: "Menu des onglets de la BRG-e",
       instructionsMenu: "Menu des instructions",
