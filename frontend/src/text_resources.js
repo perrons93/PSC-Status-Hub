@@ -427,8 +427,8 @@ let LOCALIZE = new LocalizedStrings({
 
       //Test tabs
       tabs: {
-        menuName: "fr eMIB Tab Menu",
-        instructionsMenu: "fr Instuctions Menu",
+        menuName: "Menu des onglets de la BRG-e",
+        instructionsMenu: "Menu des instructions",
         instructionsTabTitle: "Instructions",
         backgroundTabTitle: "Contexte",
         inboxTabTitle: "Boîte de réception"
