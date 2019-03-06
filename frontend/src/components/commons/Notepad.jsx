@@ -72,7 +72,7 @@ class Notepad extends Component {
           <div style={styles.notepadSection}>
             <form>
               <fieldset style={styles.center}>
-                <label for="text-area-zone" className="invisible position-absolute">
+                <label htmlFor="text-area-zone" className="invisible position-absolute">
                   {LOCALIZE.commons.notepad.title}
                 </label>
                 <TextareaAutosize
