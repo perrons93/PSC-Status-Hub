@@ -26,7 +26,7 @@ const styles = {
     borderColor: "#00565e",
     borderRadius: "5px 5px 0 0",
     width: 220,
-    height: "calc(100vh - 268px)"
+    height: "calc(100vh - 270px)"
   },
   notepadSection: {
     overflow: "auto",

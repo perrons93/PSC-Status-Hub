@@ -27,7 +27,7 @@ const styles = {
     borderStyle: "solid",
     borderColor: "#00565e",
     borderTopColor: "white",
-    height: "calc(100vh - 270px)",
+    height: "calc(100vh - 272px)",
     width: 900
   }
 };
