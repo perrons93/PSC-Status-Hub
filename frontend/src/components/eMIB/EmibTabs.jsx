@@ -38,9 +38,6 @@ class EmibTabs extends Component {
       <div className="emib-tabs-grid">
         <div className="test-tabs-cell">
           <TabNavigation tabSpecs={TABS} currentTab={1} menuName={LOCALIZE.ariaLabel.tabMenu} />
-          <button type="button" className="btn btn-primary" onClick={this.props.submitTest}>
-            {LOCALIZE.commons.submitTestButton}
-          </button>
         </div>
         <div className="notepad-cell">
           <Notepad />

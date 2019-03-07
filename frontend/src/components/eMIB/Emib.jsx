@@ -70,7 +70,7 @@ class Emib extends Component {
               }
             />
           )}
-          {this.state.curPage === PAGES.emibTabs && <EmibTabs submitTest={this.changePage} />}
+          {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
           {this.state.curPage === PAGES.confirm && <Confirmation />}
         </ContentContainer>
         {this.state.curPage === PAGES.emibTabs && <TestFooter submitTest={this.changePage} />}
