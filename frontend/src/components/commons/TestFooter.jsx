@@ -8,7 +8,7 @@ const styles = {
     marginLeft: "auto",
     marginRight: "auto",
     width: 1140,
-    height: 104
+    height: 72
   },
   hr: {
     width: "100%",
@@ -17,11 +17,11 @@ const styles = {
   },
   submitBtn: {
     float: "right",
-    paddingTop: 32
+    paddingTop: 17
   },
   quitTestBtn: {
     float: "left",
-    paddingTop: 32
+    paddingTop: 17
   }
 };
 

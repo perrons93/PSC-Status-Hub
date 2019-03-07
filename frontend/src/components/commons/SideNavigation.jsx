@@ -26,7 +26,7 @@ const styles = {
   bodyContent: {
     overflow: "auto",
     paddingRight: 20,
-    height: "calc(100vh - 273px)"
+    height: "calc(100vh - 241px)"
   },
   secondaryButton: {
     border: "none"
