@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Confirmation from "./Confirmation";
 import EmibTabs from "./EmibTabs";
+import TestFooter from "../commons/TestFooter";
 import LOCALIZE from "../../text_resources";
 import ContentContainer from "../commons/ContentContainer";
 import Overview from "./Overview";
@@ -69,9 +70,10 @@ class Emib extends Component {
               }
             />
           )}
-          {this.state.curPage === PAGES.emibTabs && <EmibTabs submitTest={this.changePage} />}
+          {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
           {this.state.curPage === PAGES.confirm && <Confirmation />}
         </ContentContainer>
+        {this.state.curPage === PAGES.emibTabs && <TestFooter submitTest={this.changePage} />}
       </div>
     );
   }

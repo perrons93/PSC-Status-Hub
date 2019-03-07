@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Background from "./Background";
 import Inbox from "./Inbox";
 import SideNavigation from "../commons/SideNavigation";
@@ -10,10 +9,6 @@ import Notepad from "../commons/Notepad";
 import "../../css/emib-tabs.css";
 
 class EmibTabs extends Component {
-  static propTypes = {
-    submitTest: PropTypes.func.isRequired
-  };
-
   render() {
     const SPECS = getInstructionContent();
     const TABS = [
@@ -43,9 +38,6 @@ class EmibTabs extends Component {
       <div className="emib-tabs-grid">
         <div className="test-tabs-cell">
           <TabNavigation tabSpecs={TABS} currentTab={1} menuName={LOCALIZE.ariaLabel.tabMenu} />
-          <button type="button" className="btn btn-primary" onClick={this.props.submitTest}>
-            {LOCALIZE.commons.submitTestButton}
-          </button>
         </div>
         <div className="notepad-cell">
           <Notepad />

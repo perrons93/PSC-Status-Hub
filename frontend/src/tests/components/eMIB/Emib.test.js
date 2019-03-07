@@ -33,27 +33,3 @@ it("renders confirm page", () => {
   const confirmationComponent = <Confirmation />;
   expect(wrapper.contains(confirmationComponent)).toEqual(true);
 });
-
-it("renders Submit Test in English", () => {
-  LOCALIZE.setLanguage(LANGUAGES.english);
-  const wrapper = mount(<Emib />);
-  wrapper.setState({ curPage: PAGES.confirm });
-  const submitTest = (
-    <button type="submit" className="btn btn-primary">
-      Exit Test
-    </button>
-  );
-  expect(wrapper.contains(submitTest)).toEqual(true);
-});
-
-it("renders Submit Test in French", () => {
-  LOCALIZE.setLanguage(LANGUAGES.french);
-  const wrapper = mount(<Emib />);
-  wrapper.setState({ curPage: PAGES.confirm });
-  const submitTest = (
-    <button type="submit" className="btn btn-primary">
-      Quitter le test
-    </button>
-  );
-  expect(wrapper.contains(submitTest)).toEqual(true);
-});

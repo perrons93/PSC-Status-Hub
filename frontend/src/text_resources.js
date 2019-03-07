@@ -299,7 +299,7 @@ let LOCALIZE = new LocalizedStrings({
       backButton: "Back",
       startTest: "Start test",
       submitTestButton: "Submit test",
-      exitTest: "Exit Test",
+      exitTest: "Quit Test",
       passStatus: "Pass",
       failStatus: "Fail",
       enabled: "Enabled",

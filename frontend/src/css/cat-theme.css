@@ -79,6 +79,10 @@ p {
   box-shadow: 0 0 0 0.2rem #00565e;
 }
 
+.btn-danger:focus {
+  box-shadow: 0 0 0 0.2rem #009fae;
+}
+
 .btn-wide {
   width: 400px;
   margin-bottom: 10px;
