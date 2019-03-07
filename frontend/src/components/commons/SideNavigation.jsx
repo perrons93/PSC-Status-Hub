@@ -3,6 +3,12 @@ import PropTypes from "prop-types";
 import "../../css/side-nav.css";
 
 const styles = {
+  ul: {
+    borderBottom: "none"
+  },
+  li: {
+    listStyleType: "none"
+  },
   buttonList: {
     width: 240,
     paddingRight: 25,
@@ -33,7 +39,8 @@ const styles = {
 class SideNavigation extends Component {
   static propTypes = {
     navSpecs: PropTypes.array.isRequired,
-    currentNode: PropTypes.number.isRequired
+    currentNode: PropTypes.number.isRequired,
+    menuName: PropTypes.string.isRequired
   };
 
   state = {
@@ -65,30 +72,41 @@ class SideNavigation extends Component {
   render() {
     return (
       <div className="side-nav-grid">
-        <div className="side-nav-grid-buttons-cell" style={styles.buttonList}>
-          {this.props.navSpecs.map(tab => (
-            <div key={tab.id}>
-              {tab.id === this.state.currentNode && (
-                <button
-                  className="btn-primary"
-                  style={{ ...styles.button, ...styles.primaryButton }}
-                  onClick={() => this.changeNode(tab.id)}
-                >
-                  {tab.text}
-                </button>
-              )}
-              {tab.id !== this.state.currentNode && (
-                <button
-                  className="btn-secondary"
-                  style={{ ...styles.button, ...styles.secondaryButton }}
-                  onClick={() => this.changeNode(tab.id)}
-                >
-                  {tab.text}
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
+        <nav
+          className="side-nav-grid-buttons-cell"
+          style={styles.buttonList}
+          role="dialog"
+          aria-label={this.props.menuName}
+        >
+          <ul className="nav nav-tabs" style={styles.ul} role="menubar">
+            {this.props.navSpecs.map(tab => (
+              <div key={tab.id}>
+                {tab.id === this.state.currentNode && (
+                  <li style={styles.li} aria-current="page" role="menuitem">
+                    <button
+                      className="btn-primary"
+                      style={{ ...styles.button, ...styles.primaryButton }}
+                      onClick={() => this.changeNode(tab.id)}
+                    >
+                      {tab.text}
+                    </button>
+                  </li>
+                )}
+                {tab.id !== this.state.currentNode && (
+                  <li style={styles.li} role="menuitem">
+                    <button
+                      className="btn-secondary"
+                      style={{ ...styles.button, ...styles.secondaryButton }}
+                      onClick={() => this.changeNode(tab.id)}
+                    >
+                      {tab.text}
+                    </button>
+                  </li>
+                )}
+              </div>
+            ))}
+          </ul>
+        </nav>
         <div
           className="side-nav-grid-content-cell"
           style={styles.bodyContent}

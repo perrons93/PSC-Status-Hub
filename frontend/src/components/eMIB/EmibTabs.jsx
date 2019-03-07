@@ -15,7 +15,13 @@ class EmibTabs extends Component {
       {
         id: 0,
         tabName: LOCALIZE.emibTest.tabs.instructionsTabTitle,
-        body: <SideNavigation navSpecs={SPECS} currentNode={0} />
+        body: (
+          <SideNavigation
+            navSpecs={SPECS}
+            currentNode={0}
+            menuName={LOCALIZE.ariaLabel.instructionsMenu}
+          />
+        )
       },
       {
         id: 1,
@@ -31,7 +37,10 @@ class EmibTabs extends Component {
     return (
       <div className="emib-tabs-grid">
         <div className="test-tabs-cell">
-          <TabNavigation tabSpecs={TABS} currentTab={1} />
+          <TabNavigation tabSpecs={TABS} currentTab={1} menuName={LOCALIZE.ariaLabel.tabMenu} />
+          <button type="button" className="btn btn-primary" onClick={this.props.submitTest}>
+            {LOCALIZE.commons.submitTestButton}
+          </button>
         </div>
         <div className="notepad-cell">
           <Notepad />
