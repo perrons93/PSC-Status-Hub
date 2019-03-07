@@ -36,7 +36,12 @@ class TestFooter extends Component {
         <hr style={styles.hr} />
         <div style={styles.footer}>
           <div style={styles.submitBtn}>
-            <button type="button" className="btn btn-primary" onClick={this.props.submitTest}>
+            <button
+              id="unit-test-submit-btn"
+              type="button"
+              className="btn btn-primary"
+              onClick={this.props.submitTest}
+            >
               {LOCALIZE.commons.submitTestButton}
             </button>
           </div>
