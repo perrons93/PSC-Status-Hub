@@ -13,7 +13,7 @@ const styles = {
     color: "white"
   },
   title: {
-    paddingLeft: 15,
+    paddingLeft: 12,
     paddingTop: 0.1,
     height: 55,
     backgroundColor: "#00565e",
@@ -26,11 +26,11 @@ const styles = {
     borderColor: "#00565e",
     borderRadius: "5px 5px 0 0",
     width: 220,
-    height: "calc(100vh - 270px)"
+    height: "calc(100vh - 237px)"
   },
   notepadSection: {
     overflow: "auto",
-    height: "calc(100vh - 330px)"
+    height: "calc(100vh - 297px)"
   },
   textArea: {
     resize: "none",
