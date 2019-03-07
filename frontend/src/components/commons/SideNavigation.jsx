@@ -70,6 +70,7 @@ class SideNavigation extends Component {
   };
 
   render() {
+    const length = this.props.navSpecs.length - 1;
     return (
       <div className="side-nav-grid">
         <nav
@@ -116,6 +117,7 @@ class SideNavigation extends Component {
           {this.props.navSpecs.map(tab => (
             <div id={tab.text} key={tab.id} ref={tab.id}>
               {tab.body}
+              {tab.id < length && <hr />}
             </div>
           ))}
         </div>
