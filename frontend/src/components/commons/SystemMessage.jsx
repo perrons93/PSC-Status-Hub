@@ -22,7 +22,7 @@ const styles = {
   }
 };
 
-class WarningMessage extends Component {
+class SystemMessage extends Component {
   static propTypes = {
     messageType: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -63,4 +63,4 @@ class WarningMessage extends Component {
   }
 }
 
-export default WarningMessage;
+export default SystemMessage;
