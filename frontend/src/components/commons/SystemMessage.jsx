@@ -8,7 +8,8 @@ export const MESSAGE_TYPE = {
 
 //only useful for unit test
 export let UNIT_TEST_VALIDATION = {
-  validation: ""
+  validation: "",
+  iconClassName: ""
 };
 
 const styles = {
@@ -37,11 +38,13 @@ class WarningMessage extends Component {
       iconClassName = "far fa-times-circle";
       //only useful for unit test
       UNIT_TEST_VALIDATION.validation = MESSAGE_TYPE.error;
+      UNIT_TEST_VALIDATION.iconClassName = iconClassName;
     } else {
       alertClassName = "alert-icon alert-warning";
       iconClassName = "fas fa-exclamation-circle";
       //only useful for unit test
       UNIT_TEST_VALIDATION.validation = MESSAGE_TYPE.warning;
+      UNIT_TEST_VALIDATION.iconClassName = iconClassName;
     }
 
     return (
