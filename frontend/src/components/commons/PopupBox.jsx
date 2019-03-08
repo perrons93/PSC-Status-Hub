@@ -24,11 +24,6 @@ const styles = {
   button: {
     marginLeft: 5,
     marginRight: 5
-  },
-  test: {
-    display: "block",
-    marginTop: "auto",
-    marginBottom: "auto"
   }
 };
 
