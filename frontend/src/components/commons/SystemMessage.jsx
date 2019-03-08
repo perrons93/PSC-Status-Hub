@@ -30,7 +30,6 @@ class WarningMessage extends Component {
 
   render() {
     const { title, message, messageType } = this.props;
-    console.log(messageType);
     let iconClassName = "";
     let alertClassName = "";
     if (messageType === MESSAGE_TYPE.error) {
