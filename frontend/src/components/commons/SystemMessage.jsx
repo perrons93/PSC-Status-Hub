@@ -6,10 +6,9 @@ export const MESSAGE_TYPE = {
   error: "error"
 };
 
-//only useful for unit test
-export let UNIT_TEST_VALIDATION = {
-  validation: "",
-  iconClassName: ""
+export let CLASS_NAME = {
+  alert: "",
+  icon: ""
 };
 
 const styles = {
@@ -31,27 +30,19 @@ class SystemMessage extends Component {
 
   render() {
     const { title, message, messageType } = this.props;
-    let iconClassName = "";
-    let alertClassName = "";
     if (messageType === MESSAGE_TYPE.error) {
-      alertClassName = "alert-icon alert-danger";
-      iconClassName = "far fa-times-circle";
-      //only useful for unit test
-      UNIT_TEST_VALIDATION.validation = MESSAGE_TYPE.error;
-      UNIT_TEST_VALIDATION.iconClassName = iconClassName;
+      CLASS_NAME.alert = "alert-icon alert-danger";
+      CLASS_NAME.icon = "far fa-times-circle";
     } else {
-      alertClassName = "alert-icon alert-warning";
-      iconClassName = "fas fa-exclamation-circle";
-      //only useful for unit test
-      UNIT_TEST_VALIDATION.validation = MESSAGE_TYPE.warning;
-      UNIT_TEST_VALIDATION.iconClassName = iconClassName;
+      CLASS_NAME.alert = "alert-icon alert-warning";
+      CLASS_NAME.icon = "fas fa-exclamation-circle";
     }
 
     return (
       <div>
-        <div className={alertClassName} role="alert">
+        <div className={CLASS_NAME.alert} role="alert">
           <div className="icon" aria-hidden="true">
-            <i className={iconClassName} style={styles.logo} />
+            <i className={CLASS_NAME.icon} style={styles.logo} />
           </div>
           <div style={styles.textBox}>
             <h3>{title}</h3>
