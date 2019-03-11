@@ -38,10 +38,10 @@ class PopupBox extends Component {
     this.PropTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      buttonOneTitle: PropTypes.string.isRequired,
-      buttonOneAction: PropTypes.func,
-      buttonTwoTitle: PropTypes.string,
-      buttonTwoAction: PropTypes.func
+      leftButtonTitle: PropTypes.string.isRequired,
+      leftButtonAction: PropTypes.func,
+      rightButtonTitle: PropTypes.string,
+      rightButtonAction: PropTypes.func
     };
   }
 
@@ -54,21 +54,21 @@ class PopupBox extends Component {
   };
 
   buttonOneCloseAndAction = () => {
-    if (this.props.buttonOneAction) {
-      this.props.buttonOneAction();
+    if (this.props.leftButtonAction) {
+      this.props.leftButtonAction();
     }
     this.setState({ show: false });
   };
 
   buttonTwoCloseAndAction = () => {
-    if (this.props.buttonTwoAction) {
-      this.props.buttonTwoAction();
+    if (this.props.rightButtonAction) {
+      this.props.rightButtonAction();
     }
     this.setState({ show: false });
   };
 
   render() {
-    const { title, description, buttonOneTitle, buttonTwoTitle } = this.props;
+    const { title, description, leftButtonTitle, rightButtonTitle } = this.props;
 
     return (
       <div>
@@ -79,31 +79,35 @@ class PopupBox extends Component {
         <Modal show={this.state.show} onHide={this.handleClose}>
           <div style={styles.boxContent}>
             <Modal.Header closeButton>
-              <Modal.Title style={styles.modelTitle}>{title}</Modal.Title>
+              <Modal.Title id="unit-test-popup-box-title" style={styles.modelTitle}>
+                {title}
+              </Modal.Title>
             </Modal.Header>
-            <Modal.Body>{description}</Modal.Body>
+            <Modal.Body id="unit-test-popup-box-description">{description}</Modal.Body>
             <Modal.Footer>
               <div style={styles.buttonsZone}>
-                {buttonOneTitle && (
+                {leftButtonTitle && (
                   <div style={styles.leftButton}>
                     <button
+                      id="unit-test-left-btn-title"
                       type="button"
                       className="btn btn-secondary"
                       onClick={this.buttonOneCloseAndAction}
                     >
-                      {buttonOneTitle}
+                      {leftButtonTitle}
                     </button>
                   </div>
                 )}
 
-                {buttonTwoTitle && (
+                {rightButtonTitle && (
                   <div style={styles.rightButton}>
                     <button
+                      id="unit-test-right-btn-title"
                       type="button"
                       className="btn btn-primary"
                       onClick={this.buttonTwoCloseAndAction}
                     >
-                      {buttonTwoTitle}
+                      {rightButtonTitle}
                     </button>
                   </div>
                 )}
