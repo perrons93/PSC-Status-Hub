@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
 import PropTypes from "prop-types";
 
+export const BUTTON_TYPE = {
+  primary: "btn btn-primary",
+  secondary: "btn btn-secondary"
+};
+
 const styles = {
   boxshape: {
     borderWidth: "1px 1px 0 1px",
@@ -41,8 +46,10 @@ class PopupBox extends Component {
     this.PropTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
+      leftButtonType: PropTypes.string.isRequired,
       leftButtonTitle: PropTypes.string.isRequired,
       leftButtonAction: PropTypes.func,
+      rightButtonType: PropTypes.string.isRequired,
       rightButtonTitle: PropTypes.string,
       rightButtonAction: PropTypes.func
     };
@@ -71,7 +78,14 @@ class PopupBox extends Component {
   };
 
   render() {
-    const { title, description, leftButtonTitle, rightButtonTitle } = this.props;
+    const {
+      title,
+      description,
+      leftButtonType,
+      leftButtonTitle,
+      rightButtonType,
+      rightButtonTitle
+    } = this.props;
 
     return (
       <div>
@@ -94,7 +108,7 @@ class PopupBox extends Component {
                     <button
                       id="unit-test-left-btn-title"
                       type="button"
-                      className="btn btn-secondary"
+                      className={leftButtonType}
                       style={styles.buttonSize}
                       onClick={this.buttonOneCloseAndAction}
                     >
@@ -108,7 +122,7 @@ class PopupBox extends Component {
                     <button
                       id="unit-test-right-btn-title"
                       type="button"
-                      className="btn btn-primary"
+                      className={rightButtonType}
                       style={styles.buttonSize}
                       onClick={this.buttonTwoCloseAndAction}
                     >
