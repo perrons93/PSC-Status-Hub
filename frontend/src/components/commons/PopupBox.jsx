@@ -17,22 +17,19 @@ const styles = {
     position: "absolute"
   },
   buttonsZone: {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto"
+    width: "100%"
   },
-  button: {
-    marginLeft: 5,
-    marginRight: 5
+  leftButton: {
+    float: "left"
+  },
+  rightButton: {
+    float: "right"
   }
 };
 
 class PopupBox extends Component {
   constructor(props, context) {
     super(props, context);
-
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
 
     this.state = {
       show: false
@@ -41,21 +38,47 @@ class PopupBox extends Component {
     this.PropTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      buttonOne: PropTypes.string.isRequired,
-      buttonTwo: PropTypes.string.isRequired
+      buttonOneEnabled: PropTypes.bool.isRequired,
+      buttonOneTitle: PropTypes.string.isRequired,
+      buttonOneAction: PropTypes.func,
+      buttonTwoEnabled: PropTypes.bool.isRequired,
+      buttonTwoTitle: PropTypes.string.isRequired,
+      buttonTwoAction: PropTypes.func
     };
   }
 
-  handleClose() {
+  handleClose = () => {
     this.setState({ show: false });
-  }
+  };
 
-  handleShow() {
+  handleShow = () => {
     this.setState({ show: true });
-  }
+  };
+
+  buttonOneCloseAndAction = () => {
+    if (this.props.buttonOneAction) {
+      this.props.buttonOneAction();
+    }
+    this.setState({ show: false });
+  };
+
+  buttonTwoCloseAndAction = () => {
+    if (this.props.buttonTwoAction) {
+      this.props.buttonTwoAction();
+    }
+    this.setState({ show: false });
+  };
 
   render() {
-    const { title, description, buttonOne, buttonTwo } = this.props;
+    const {
+      title,
+      description,
+      buttonOneEnabled,
+      buttonOneTitle,
+      buttonTwoTitle,
+      buttonTwoEnabled
+    } = this.props;
+
     return (
       <div>
         <button variant="primary" onClick={this.handleShow}>
@@ -70,22 +93,29 @@ class PopupBox extends Component {
             <Modal.Body>{description}</Modal.Body>
             <Modal.Footer>
               <div style={styles.buttonsZone}>
-                <button
-                  style={styles.button}
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={this.handleClose}
-                >
-                  {buttonOne}
-                </button>
-                <button
-                  style={styles.button}
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={this.handleClose}
-                >
-                  {buttonTwo}
-                </button>
+                {buttonOneEnabled && (
+                  <div style={styles.leftButton}>
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={this.buttonOneCloseAndAction}
+                    >
+                      {buttonOneTitle}
+                    </button>
+                  </div>
+                )}
+
+                {buttonTwoEnabled && (
+                  <div style={styles.rightButton}>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={this.buttonTwoCloseAndAction}
+                    >
+                      {buttonTwoTitle}
+                    </button>
+                  </div>
+                )}
               </div>
             </Modal.Footer>
           </div>
