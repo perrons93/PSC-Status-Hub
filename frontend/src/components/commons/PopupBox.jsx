@@ -18,6 +18,10 @@ const styles = {
     paddingLeft: 20,
     paddingRight: 20
   },
+  modalHeader: {
+    display: "table",
+    width: "100%"
+  },
   modelTitle: {
     position: "absolute"
   },
@@ -95,7 +99,7 @@ class PopupBox extends Component {
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <div style={styles.boxContent}>
-            <Modal.Header closeButton>
+            <Modal.Header closeButton style={styles.modalHeader}>
               <Modal.Title id="unit-test-popup-box-title" style={styles.modelTitle}>
                 {title}
               </Modal.Title>
