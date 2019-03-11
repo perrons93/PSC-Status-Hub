@@ -19,11 +19,14 @@ const styles = {
   buttonsZone: {
     width: "100%"
   },
-  leftButton: {
+  leftBtnLocation: {
     float: "left"
   },
-  rightButton: {
+  rightBtnLocation: {
     float: "right"
+  },
+  buttonSize: {
+    minWidth: 125
   }
 };
 
@@ -87,11 +90,12 @@ class PopupBox extends Component {
             <Modal.Footer>
               <div style={styles.buttonsZone}>
                 {leftButtonTitle && (
-                  <div style={styles.leftButton}>
+                  <div style={styles.leftBtnLocation}>
                     <button
                       id="unit-test-left-btn-title"
                       type="button"
                       className="btn btn-secondary"
+                      style={styles.buttonSize}
                       onClick={this.buttonOneCloseAndAction}
                     >
                       {leftButtonTitle}
@@ -100,11 +104,12 @@ class PopupBox extends Component {
                 )}
 
                 {rightButtonTitle && (
-                  <div style={styles.rightButton}>
+                  <div style={styles.rightBtnLocation}>
                     <button
                       id="unit-test-right-btn-title"
                       type="button"
                       className="btn btn-primary"
+                      style={styles.buttonSize}
                       onClick={this.buttonTwoCloseAndAction}
                     >
                       {rightButtonTitle}
