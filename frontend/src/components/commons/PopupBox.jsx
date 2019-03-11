@@ -38,11 +38,9 @@ class PopupBox extends Component {
     this.PropTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      buttonOneEnabled: PropTypes.bool.isRequired,
       buttonOneTitle: PropTypes.string.isRequired,
       buttonOneAction: PropTypes.func,
-      buttonTwoEnabled: PropTypes.bool.isRequired,
-      buttonTwoTitle: PropTypes.string.isRequired,
+      buttonTwoTitle: PropTypes.string,
       buttonTwoAction: PropTypes.func
     };
   }
@@ -70,14 +68,7 @@ class PopupBox extends Component {
   };
 
   render() {
-    const {
-      title,
-      description,
-      buttonOneEnabled,
-      buttonOneTitle,
-      buttonTwoTitle,
-      buttonTwoEnabled
-    } = this.props;
+    const { title, description, buttonOneTitle, buttonTwoTitle } = this.props;
 
     return (
       <div>
@@ -93,7 +84,7 @@ class PopupBox extends Component {
             <Modal.Body>{description}</Modal.Body>
             <Modal.Footer>
               <div style={styles.buttonsZone}>
-                {buttonOneEnabled && (
+                {buttonOneTitle && (
                   <div style={styles.leftButton}>
                     <button
                       type="button"
@@ -105,7 +96,7 @@ class PopupBox extends Component {
                   </div>
                 )}
 
-                {buttonTwoEnabled && (
+                {buttonTwoTitle && (
                   <div style={styles.rightButton}>
                     <button
                       type="button"
