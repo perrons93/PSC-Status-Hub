@@ -26,7 +26,8 @@ const styles = {
     position: "absolute"
   },
   buttonsZone: {
-    width: "100%"
+    width: "100%",
+    paddingBottom: 15
   },
   leftBtnLocation: {
     float: "left"
