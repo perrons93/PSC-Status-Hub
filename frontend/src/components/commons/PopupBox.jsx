@@ -65,14 +65,14 @@ class PopupBox extends Component {
     };
   }
 
-  buttonOneCloseAndAction = () => {
+  leftButtonCloseAndAction = () => {
     if (this.props.leftButtonAction) {
       this.props.leftButtonAction();
     }
     this.props.handleClose();
   };
 
-  buttonTwoCloseAndAction = () => {
+  rightButtonCloseAndAction = () => {
     if (this.props.rightButtonAction) {
       this.props.rightButtonAction();
     }
@@ -110,7 +110,7 @@ class PopupBox extends Component {
                       type="button"
                       className={leftButtonType}
                       style={styles.buttonSize}
-                      onClick={this.buttonOneCloseAndAction}
+                      onClick={this.leftButtonCloseAndAction}
                     >
                       {leftButtonTitle}
                     </button>
@@ -124,7 +124,7 @@ class PopupBox extends Component {
                       type="button"
                       className={rightButtonType}
                       style={styles.buttonSize}
-                      onClick={this.buttonTwoCloseAndAction}
+                      onClick={this.rightButtonCloseAndAction}
                     >
                       {rightButtonTitle}
                     </button>

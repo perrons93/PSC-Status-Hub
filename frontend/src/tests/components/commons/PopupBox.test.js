@@ -40,6 +40,8 @@ it("calls button actions on click", () => {
   const submitMock2 = jest.fn();
   const wrapper = shallow(
     <PopupBox
+      show={true}
+      handleClose={function() {}}
       title={"title"}
       description={"description"}
       leftButtonType={BUTTON_TYPE.primary}
