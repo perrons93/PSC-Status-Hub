@@ -12,6 +12,9 @@ export let CLASS_NAME = {
 };
 
 const styles = {
+  logoZone: {
+    minWidth: 75
+  },
   logo: {
     fontSize: "40px"
   },
@@ -41,7 +44,7 @@ class SystemMessage extends Component {
     return (
       <div>
         <div className={CLASS_NAME.alert} role="alert">
-          <div className="icon" aria-hidden="true">
+          <div className="icon" aria-hidden="true" style={styles.logoZone}>
             <i className={CLASS_NAME.icon} style={styles.logo} />
           </div>
           <div style={styles.textBox}>
