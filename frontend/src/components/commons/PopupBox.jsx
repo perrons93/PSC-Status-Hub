@@ -1,11 +1,3 @@
-/*
-To make the buttons appear, you need to specify the button type, the button title and if needed the button action (button action is not mandatory).
-By default, all buttons close the popup box, even if no action has been assigned.
-This component can provide a popup box that contains 0 to 2 buttons: none, leftButton and rightButton
-Example with one button (1 action): <PopupBox rightButtonType={BUTTON_TYPE.secondary} rightButtonTitle={"Ok"} rightButtonAction={() => someFunction()} />
-Example with two buttons (no action): <PopupBox rightButtonType={BUTTON_TYPE.primary} rightButtonTitle={"Cancel"} leftButtonType={BUTTON_TYPE.secondary} leftButtonTitle={"Ok"} />
-*/
-
 import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
 import PropTypes from "prop-types";
@@ -47,6 +39,13 @@ const styles = {
   }
 };
 
+/*
+To make the buttons appear, you need to specify the button type, the button title and if needed the button action (button action is not mandatory).
+By default, all buttons close the popup box, even if no action has been assigned.
+This component can provide a popup box that contains 0 to 2 buttons: none, leftButton and rightButton
+Example with one button (1 action): <PopupBox rightButtonType={BUTTON_TYPE.secondary} rightButtonTitle={"Ok"} rightButtonAction={() => someFunction()} />
+Example with two buttons (no action): <PopupBox rightButtonType={BUTTON_TYPE.primary} rightButtonTitle={"Cancel"} leftButtonType={BUTTON_TYPE.secondary} leftButtonTitle={"Ok"} />
+*/
 class PopupBox extends Component {
   constructor(props, context) {
     super(props, context);
