@@ -220,6 +220,11 @@ let LOCALIZE = new LocalizedStrings({
           orgChart: {
             desciption: "Organizational Chart (ODC)",
             link: "Image Description (Coming Soon)"
+          },
+          dialog: {
+            title: "The Organizational Chart of the Organizational Development Council’s (ODC)",
+            description:
+              "The Organizational Chart for ODC. At the top is President: Jenna Icart. Under the president are 4 directors: Amari Kinsler from Corporate Affairs, nameless from Research and Innovations, Bartosz Greco from Program Development, nameless from Services and Communications. Corporate Affairs has 3 managers: HR, Bob McNutt manager from Finance, and Lana Hussad from Information Technology. etc. etc."
           }
         },
         teamInformation: {
@@ -239,6 +244,10 @@ let LOCALIZE = new LocalizedStrings({
           teamChart: {
             desciption: "Organizational Chart The Quality Assurance (QA) Team",
             link: "Image Description (Coming Soon)"
+          },
+          dialog: {
+            title: "The Organizational Chart The Quality Assurance (QA) Team",
+            description: "Description (coming soon)"
           },
           responsibilitiesSection: {
             title: "QA Team Responsibilities",
@@ -323,7 +332,8 @@ let LOCALIZE = new LocalizedStrings({
         title: "Notepad",
         placeholder: "Put your notes here..."
       },
-      cancel: "Cancel"
+      cancel: "Cancel",
+      close: "Close"
     }
   },
 
@@ -551,6 +561,11 @@ let LOCALIZE = new LocalizedStrings({
           orgChart: {
             desciption: "Organigramme (CDO)",
             link: "FR Image Description (Coming Soon)"
+          },
+          dialog: {
+            title: "FR The Organizational Chart of the Organizational Development Council’s (ODC)",
+            description:
+              "FR The Organizational Chart for ODC. At the top is President: Jenna Icart. Under the president are 4 directors: Amari Kinsler from Corporate Affairs, nameless from Research and Innovations, Bartosz Greco from Program Development, nameless from Services and Communications. Corporate Affairs has 3 managers: HR, Bob McNutt manager from Finance, and Lana Hussad from Information Technology. etc. etc."
           }
         },
         teamInformation: {
@@ -570,6 +585,10 @@ let LOCALIZE = new LocalizedStrings({
           teamChart: {
             desciption: "Organigramme Équipe de l'assurance de la qualité (AQ) Team",
             link: "FR Image Description (Coming Soon)"
+          },
+          dialog: {
+            title: "Organigramme Équipe de l'assurance de la qualité (AQ) Team",
+            description: "FR Description (coming soon)"
           },
           responsibilitiesSection: {
             title: "Responsabilités de l’Équipe de l’AQ",
@@ -655,7 +674,8 @@ let LOCALIZE = new LocalizedStrings({
         title: "Bloc-notes",
         placeholder: "Mettez vos notes ici..."
       },
-      cancel: "Annuler"
+      cancel: "Annuler",
+      close: "FR Close"
     }
   }
 });
