@@ -26,7 +26,8 @@ const styles = {
     position: "absolute"
   },
   buttonsZone: {
-    width: "100%"
+    width: "100%",
+    paddingBottom: 15
   },
   leftBtnLocation: {
     float: "left"
@@ -50,11 +51,9 @@ class PopupBox extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.state = {
-      show: false
-    };
-
     this.PropTypes = {
+      show: PropTypes.bool,
+      handleClose: PropTypes.func,
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       leftButtonType: PropTypes.string,
@@ -66,30 +65,24 @@ class PopupBox extends Component {
     };
   }
 
-  handleClose = () => {
-    this.setState({ show: false });
-  };
-
-  handleShow = () => {
-    this.setState({ show: true });
-  };
-
-  buttonOneCloseAndAction = () => {
+  leftButtonCloseAndAction = () => {
     if (this.props.leftButtonAction) {
       this.props.leftButtonAction();
     }
-    this.setState({ show: false });
+    this.props.handleClose();
   };
 
-  buttonTwoCloseAndAction = () => {
+  rightButtonCloseAndAction = () => {
     if (this.props.rightButtonAction) {
       this.props.rightButtonAction();
     }
-    this.setState({ show: false });
+    this.props.handleClose();
   };
 
   render() {
     const {
+      show,
+      handleClose,
       title,
       description,
       leftButtonType,
@@ -100,7 +93,7 @@ class PopupBox extends Component {
 
     return (
       <div>
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal show={show} onHide={handleClose}>
           <div style={styles.boxContent}>
             <Modal.Header closeButton style={styles.modalHeader}>
               <Modal.Title id="unit-test-popup-box-title" style={styles.modelTitle}>
@@ -117,7 +110,7 @@ class PopupBox extends Component {
                       type="button"
                       className={leftButtonType}
                       style={styles.buttonSize}
-                      onClick={this.buttonOneCloseAndAction}
+                      onClick={this.leftButtonCloseAndAction}
                     >
                       {leftButtonTitle}
                     </button>
@@ -131,7 +124,7 @@ class PopupBox extends Component {
                       type="button"
                       className={rightButtonType}
                       style={styles.buttonSize}
-                      onClick={this.buttonTwoCloseAndAction}
+                      onClick={this.rightButtonCloseAndAction}
                     >
                       {rightButtonTitle}
                     </button>

@@ -9,6 +9,9 @@ import TipsOnTest from "./TipsOnTest";
 import TestInstructions from "./TestInstructions";
 import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
+import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
+import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
+import "../../css/emib.css";
 
 const PAGES = {
   preTest: "preTest",
@@ -32,7 +35,8 @@ export const getInstructionContent = () => {
 
 class Emib extends Component {
   state = {
-    curPage: PAGES.preTest
+    curPage: PAGES.preTest,
+    showPopupBox: false
   };
 
   changePage = () => {
@@ -47,6 +51,14 @@ class Emib extends Component {
         this.setState({ curPage: PAGES.preTest });
         break;
     }
+  };
+
+  openPopup = () => {
+    this.setState({ showPopupBox: true });
+  };
+
+  closePopup = () => {
+    this.setState({ showPopupBox: false });
   };
 
   render() {
@@ -73,7 +85,30 @@ class Emib extends Component {
           {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
           {this.state.curPage === PAGES.confirm && <Confirmation />}
         </ContentContainer>
-        {this.state.curPage === PAGES.emibTabs && <TestFooter submitTest={this.changePage} />}
+        {this.state.curPage === PAGES.emibTabs && <TestFooter submitTest={this.openPopup} />}
+
+        <PopupBox
+          show={this.state.showPopupBox}
+          handleClose={this.closePopup}
+          title={LOCALIZE.emibTest.testFooter.submitTestPopupBox.title}
+          description={
+            <div>
+              <div>
+                <SystemMessage
+                  messageType={MESSAGE_TYPE.warning}
+                  title={LOCALIZE.emibTest.testFooter.submitTestPopupBox.warning.title}
+                  message={LOCALIZE.emibTest.testFooter.submitTestPopupBox.warning.message}
+                />
+              </div>
+              <div>{LOCALIZE.emibTest.testFooter.submitTestPopupBox.description}</div>
+            </div>
+          }
+          leftButtonType={BUTTON_TYPE.secondary}
+          leftButtonTitle={LOCALIZE.commons.cancel}
+          rightButtonType={BUTTON_TYPE.primary}
+          rightButtonTitle={LOCALIZE.commons.submitTestButton}
+          rightButtonAction={this.changePage}
+        />
       </div>
     );
   }
