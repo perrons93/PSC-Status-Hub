@@ -246,7 +246,7 @@ let LOCALIZE = new LocalizedStrings({
             link: "Image Description"
           },
           dialog: {
-            title: "The Organizational Chart The Quality Assurance (QA) Team",
+            title: "The Organizational Chart of the Quality Assurance (QA) Team",
             description:
               "The Organizational Chart for the Quality Assurance (QA) Team. At the top is the Manager, Claude Huard (you). Under the manager are 6 Quality Assurance Analysts: Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier."
           },
@@ -588,7 +588,7 @@ let LOCALIZE = new LocalizedStrings({
             link: "FR Image Description"
           },
           dialog: {
-            title: "Organigramme Équipe de l'assurance de la qualité (AQ) Team",
+            title: "FR The Organizational Chart of the Quality Assurance (QA) Team",
             description:
               "FR The Organizational Chart for the Quality Assurance (QA) Team. At the top is the Manager, Claude Huard (you). Under the manager are 6 Quality Assurance Analysts: Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier."
           },
