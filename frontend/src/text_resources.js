@@ -219,12 +219,12 @@ let LOCALIZE = new LocalizedStrings({
             "The main goals of the SC unit are to continuously evaluate training programs offered by organizations in the public service, conduct internal and external audits for partners and clients, and oversee the dissemination of information (e.g., content review for online tools, developing documentation for training programs). The SC unit is comprised of the Quality Assurance Team, the Service and support Team, the Audits Team, and the E-Training Team.",
           orgChart: {
             desciption: "Organizational Chart (ODC)",
-            link: "Image Description (Coming Soon)"
+            link: "Image Description"
           },
           dialog: {
             title: "The Organizational Chart of the Organizational Development Council’s (ODC)",
             description:
-              "The Organizational Chart for ODC. At the top is President: Jenna Icart. Under the president are 4 directors: Amari Kinsler from Corporate Affairs, nameless from Research and Innovations, Bartosz Greco from Program Development, nameless from Services and Communications. Corporate Affairs has 3 managers: HR, Bob McNutt manager from Finance, and Lana Hussad from Information Technology. etc. etc."
+              "The Organizational Chart for the Organizational Development Council (ODC). At the top is the President: Jenna Icart. Under the president are 4 directors: Amari Kinsler from Corporate Affairs, Geneviève Bédard from Research and Innovations, Bartosz Greco from Program Development, Nancy Ward from Services and Communications. Corporate Affairs has 3 managers: Marc Sheridan from Human Resources, Bob McNutt from Finance, and Lana Hussad from Information Technology. Services and Communications has 4 managers: Claude Huard (You) from Quality Assurance, Haydar Kalil from Services and Support, Geoffrey Hamma from Audits, and Lucy Trang from E-Training."
           }
         },
         teamInformation: {
@@ -243,11 +243,12 @@ let LOCALIZE = new LocalizedStrings({
           },
           teamChart: {
             desciption: "Organizational Chart The Quality Assurance (QA) Team",
-            link: "Image Description (Coming Soon)"
+            link: "Image Description"
           },
           dialog: {
             title: "The Organizational Chart The Quality Assurance (QA) Team",
-            description: "Description (coming soon)"
+            description:
+              "The Organizational Chart for the Quality Assurance (QA) Team. At the top is the Manager, Claude Huard (you). Under the manager are 6 Quality Assurance Analysts: Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier."
           },
           responsibilitiesSection: {
             title: "QA Team Responsibilities",
@@ -560,12 +561,12 @@ let LOCALIZE = new LocalizedStrings({
             "Les principaux objectifs de l’Unité des SC sont d’évaluer de façon continue les programmes de formation offerts par les organisations de la fonction publique, effectuer des vérifications internes et externes pour les partenaires et les clients, et surveiller la diffusion de l’information (p. ex., évaluer le contenu des outils en ligne, rédiger les documents relatifs aux programmes de formation). L’Unité des SC est composée de l’Équipe de l’assurance de la qualité, l’Équipe du service et soutien, l’Équipe des vérifications et de l’Équipe des formations en ligne.",
           orgChart: {
             desciption: "Organigramme (CDO)",
-            link: "FR Image Description (Coming Soon)"
+            link: "FR Image Description"
           },
           dialog: {
             title: "FR The Organizational Chart of the Organizational Development Council’s (ODC)",
             description:
-              "FR The Organizational Chart for ODC. At the top is President: Jenna Icart. Under the president are 4 directors: Amari Kinsler from Corporate Affairs, nameless from Research and Innovations, Bartosz Greco from Program Development, nameless from Services and Communications. Corporate Affairs has 3 managers: HR, Bob McNutt manager from Finance, and Lana Hussad from Information Technology. etc. etc."
+              "FR The Organizational Chart for the Organizational Development Council (ODC). At the top is the President: Jenna Icart. Under the president are 4 directors: Amari Kinsler from Corporate Affairs, Geneviève Bédard from Research and Innovations, Bartosz Greco from Program Development, Nancy Ward from Services and Communications. Corporate Affairs has 3 managers: Marc Sheridan from Human Resources, Bob McNutt from Finance, and Lana Hussad from Information Technology. Services and Communications has 4 managers: Claude Huard (You) from Quality Assurance, Haydar Kalil from Services and Support, Geoffrey Hamma from Audits, and Lucy Trang from E-Training."
           }
         },
         teamInformation: {
@@ -584,11 +585,12 @@ let LOCALIZE = new LocalizedStrings({
           },
           teamChart: {
             desciption: "Organigramme Équipe de l'assurance de la qualité (AQ) Team",
-            link: "FR Image Description (Coming Soon)"
+            link: "FR Image Description"
           },
           dialog: {
             title: "Organigramme Équipe de l'assurance de la qualité (AQ) Team",
-            description: "FR Description (coming soon)"
+            description:
+              "FR The Organizational Chart for the Quality Assurance (QA) Team. At the top is the Manager, Claude Huard (you). Under the manager are 6 Quality Assurance Analysts: Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier."
           },
           responsibilitiesSection: {
             title: "Responsabilités de l’Équipe de l’AQ",
