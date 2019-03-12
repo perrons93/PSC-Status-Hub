@@ -101,10 +101,6 @@ class PopupBox extends Component {
 
     return (
       <div>
-        <button variant="primary" onClick={this.handleShow}>
-          Launch demo modal
-        </button>
-
         <Modal show={this.state.show} onHide={this.handleClose}>
           <div style={styles.boxContent}>
             <Modal.Header closeButton style={styles.modalHeader}>
