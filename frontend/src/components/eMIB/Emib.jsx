@@ -10,6 +10,8 @@ import TestInstructions from "./TestInstructions";
 import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
 import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
+import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
+import "../../css/emib.css";
 
 const PAGES = {
   preTest: "preTest",
@@ -84,11 +86,28 @@ class Emib extends Component {
           {this.state.curPage === PAGES.confirm && <Confirmation />}
         </ContentContainer>
         {this.state.curPage === PAGES.emibTabs && <TestFooter submitTest={this.openPopup} />}
+
         <PopupBox
-          title={"title"}
-          description={"description..."}
           show={this.state.showPopupBox}
           handleClose={this.closePopup}
+          title={LOCALIZE.emibTest.testFooter.submitTestPopupBox.title}
+          description={
+            <div>
+              <div>
+                <SystemMessage
+                  messageType={MESSAGE_TYPE.warning}
+                  title={LOCALIZE.emibTest.testFooter.submitTestPopupBox.warning.title}
+                  message={LOCALIZE.emibTest.testFooter.submitTestPopupBox.warning.message}
+                />
+              </div>
+              <div>{LOCALIZE.emibTest.testFooter.submitTestPopupBox.description}</div>
+            </div>
+          }
+          leftButtonType={BUTTON_TYPE.secondary}
+          leftButtonTitle={LOCALIZE.commons.cancel}
+          rightButtonType={BUTTON_TYPE.primary}
+          rightButtonTitle={LOCALIZE.commons.submitTestButton}
+          rightButtonAction={this.changePage}
         />
       </div>
     );

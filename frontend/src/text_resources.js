@@ -280,6 +280,20 @@ let LOCALIZE = new LocalizedStrings({
         instructionsTabTitle: "Instructions",
         backgroundTabTitle: "Background",
         inboxTabTitle: "Inbox"
+      },
+
+      //Test Footer
+      testFooter: {
+        submitTestPopupBox: {
+          title: "Confirm test submission?",
+          warning: {
+            title: "Warning! All draft items will not be saved.",
+            message:
+              "All draft emails, tasks and everything in the notepad will not be submitted with the test for scoring. Review drafts before submitting the test"
+          },
+          description:
+            'If you are ready to send your test in for scoring, click the "Submit test" button. You will be exited out of this test session and provided further instructions'
+        }
       }
     },
 
@@ -308,7 +322,8 @@ let LOCALIZE = new LocalizedStrings({
       notepad: {
         title: "Notepad",
         placeholder: "Put your notes here..."
-      }
+      },
+      cancel: "Cancel"
     }
   },
 
@@ -597,6 +612,20 @@ let LOCALIZE = new LocalizedStrings({
         instructionsTabTitle: "Instructions",
         backgroundTabTitle: "Contexte",
         inboxTabTitle: "Boîte de réception"
+      },
+
+      //Test Footer
+      testFooter: {
+        submitTestPopupBox: {
+          title: "Confirmer la soumission du test?",
+          warning: {
+            title: "FR Warning! All draft items will not be saved.",
+            message:
+              "FR All draft emails, tasks and everything in the notepad will not be submitted with the test for scoring. Review drafts before submitting the test"
+          },
+          description:
+            'FR If you are ready to send your test in for scoring, click the "Submit test" button. You will be exited out of this test session and provided further instructions'
+        }
       }
     },
 
@@ -625,7 +654,8 @@ let LOCALIZE = new LocalizedStrings({
       notepad: {
         title: "Bloc-notes",
         placeholder: "Mettez vos notes ici..."
-      }
+      },
+      cancel: "Annuler"
     }
   }
 });
