@@ -85,9 +85,9 @@ class OrganizationalStructure extends Component {
                 />
               )}
             </p>
-            <span onClick={this.openPopup}>
+            <button onClick={this.openPopup} className="button-link">
               {LOCALIZE.emibTest.background.organizationalStructure.orgChart.link}
-            </span>
+            </button>
           </div>
         </div>
       </div>

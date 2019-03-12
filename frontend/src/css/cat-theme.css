@@ -187,3 +187,13 @@ Progess Steps
   min-width: 500px;
   max-width: 1000px;
 }
+
+.button-link {
+  background: none !important;
+  color: blue;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  border-bottom: 1px solid blue;
+  cursor: pointer;
+}
