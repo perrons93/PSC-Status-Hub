@@ -50,11 +50,9 @@ class PopupBox extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.state = {
-      show: false
-    };
-
     this.PropTypes = {
+      show: PropTypes.bool,
+      handleClose: PropTypes.func,
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       leftButtonType: PropTypes.string,
@@ -66,30 +64,24 @@ class PopupBox extends Component {
     };
   }
 
-  handleClose = () => {
-    this.setState({ show: false });
-  };
-
-  handleShow = () => {
-    this.setState({ show: true });
-  };
-
   buttonOneCloseAndAction = () => {
     if (this.props.leftButtonAction) {
       this.props.leftButtonAction();
     }
-    this.setState({ show: false });
+    this.props.handleClose();
   };
 
   buttonTwoCloseAndAction = () => {
     if (this.props.rightButtonAction) {
       this.props.rightButtonAction();
     }
-    this.setState({ show: false });
+    this.props.handleClose();
   };
 
   render() {
     const {
+      show,
+      handleClose,
       title,
       description,
       leftButtonType,
@@ -100,7 +92,7 @@ class PopupBox extends Component {
 
     return (
       <div>
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal show={show} onHide={handleClose}>
           <div style={styles.boxContent}>
             <Modal.Header closeButton style={styles.modalHeader}>
               <Modal.Title id="unit-test-popup-box-title" style={styles.modelTitle}>
