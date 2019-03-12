@@ -1,3 +1,11 @@
+/*
+To make the buttons appear, you need to specify the button type, the button title and if needed the button action (button action is not mandatory).
+By default, all buttons close the popup box, even if no action has been assigned.
+This component can provide a popup box that contains 0 to 2 buttons: none, leftButton and rightButton
+Example with one button (1 action): <PopupBox rightButtonType={BUTTON_TYPE.secondary} rightButtonTitle={"Ok"} rightButtonAction={() => someFunction()} />
+Example with two buttons (no action): <PopupBox rightButtonType={BUTTON_TYPE.primary} rightButtonTitle={"Cancel"} leftButtonType={BUTTON_TYPE.secondary} leftButtonTitle={"Ok"} />
+*/
+
 import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
 import PropTypes from "prop-types";
@@ -50,10 +58,10 @@ class PopupBox extends Component {
     this.PropTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      leftButtonType: PropTypes.string.isRequired,
-      leftButtonTitle: PropTypes.string.isRequired,
+      leftButtonType: PropTypes.string,
+      leftButtonTitle: PropTypes.string,
       leftButtonAction: PropTypes.func,
-      rightButtonType: PropTypes.string.isRequired,
+      rightButtonType: PropTypes.string,
       rightButtonTitle: PropTypes.string,
       rightButtonAction: PropTypes.func
     };
@@ -107,7 +115,7 @@ class PopupBox extends Component {
             <Modal.Body id="unit-test-popup-box-description">{description}</Modal.Body>
             <Modal.Footer>
               <div style={styles.buttonsZone}>
-                {leftButtonTitle && (
+                {leftButtonType && leftButtonTitle && (
                   <div style={styles.leftBtnLocation}>
                     <button
                       id="unit-test-left-btn-title"
@@ -121,7 +129,7 @@ class PopupBox extends Component {
                   </div>
                 )}
 
-                {rightButtonTitle && (
+                {rightButtonType && rightButtonTitle && (
                   <div style={styles.rightBtnLocation}>
                     <button
                       id="unit-test-right-btn-title"
