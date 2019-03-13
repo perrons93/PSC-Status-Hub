@@ -58,6 +58,13 @@ emib.css is used for the Emib.jsx styles that cannot be added inside a const
 .checkbox {
   width: 18px;
   height: 18px;
-  background-color: white;
   margin: 14px 12px 0 0;
+}
+
+.checkbox-not-selected {
+  background-color: white;
+}
+
+.checkbox-selected {
+  background-color: #00565e;
 }

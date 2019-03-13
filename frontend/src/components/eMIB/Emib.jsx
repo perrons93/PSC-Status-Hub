@@ -13,18 +13,27 @@ import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 import "../../css/emib.css";
 
+const PAGES = {
+  preTest: "preTest",
+  emibTabs: "emibTabs",
+  confirm: "confirm"
+};
+
+const CHECKBOX_CLASS = {
+  firstCheckboxNotSelected: "checkbox checkbox-not-selected first-checkbox-cell",
+  firstCheckboxSelected: "checkbox checkbox-selected first-checkbox-cell",
+  secondCheckboxNotSelected: "checkbox checkbox-not-selected second-checkbox-cell",
+  secondCheckboxSelected: "checkbox checkbox-selected second-checkbox-cell",
+  thirdCheckboxNotSelected: "checkbox checkbox-not-selected third-checkbox-cell",
+  thirdCheckboxSelected: "checkbox checkbox-selected third-checkbox-cell"
+};
+
 const styles = {
   hr: {
     width: "100%",
     borderTop: "2px solid #96a8b2",
     margin: 0
   }
-};
-
-const PAGES = {
-  preTest: "preTest",
-  emibTabs: "emibTabs",
-  confirm: "confirm"
 };
 
 //Returns array where each item indicates specifications related to How To Page including the title and the body
@@ -49,7 +58,10 @@ class Emib extends Component {
     firstCheckboxChecked: false,
     secondCheckboxChecked: false,
     thirdCheckboxChecked: false,
-    buttonState: BUTTON_STATE.disabled
+    checkboxState: BUTTON_STATE.disabled,
+    firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected,
+    secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected,
+    thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected
   };
 
   changePage = () => {
@@ -82,11 +94,13 @@ class Emib extends Component {
   firstCheckboxToggle = () => {
     if (this.state.firstCheckboxChecked === true) {
       this.setState({ firstCheckboxChecked: false });
-      this.setState({ buttonState: BUTTON_STATE.disabled });
+      this.setState({ firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected });
+      this.setState({ checkboxState: BUTTON_STATE.disabled });
     } else {
       this.setState({ firstCheckboxChecked: true });
+      this.setState({ firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxSelected });
       if (this.state.secondCheckboxChecked === true && this.state.thirdCheckboxChecked === true) {
-        this.setState({ buttonState: BUTTON_STATE.enabled });
+        this.setState({ checkboxState: BUTTON_STATE.enabled });
       }
     }
   };
@@ -94,11 +108,13 @@ class Emib extends Component {
   secondCheckboxToggle = () => {
     if (this.state.secondCheckboxChecked === true) {
       this.setState({ secondCheckboxChecked: false });
-      this.setState({ buttonState: BUTTON_STATE.disabled });
+      this.setState({ secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected });
+      this.setState({ checkboxState: BUTTON_STATE.disabled });
     } else {
       this.setState({ secondCheckboxChecked: true });
+      this.setState({ secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxSelected });
       if (this.state.firstCheckboxChecked === true && this.state.thirdCheckboxChecked === true) {
-        this.setState({ buttonState: BUTTON_STATE.enabled });
+        this.setState({ checkboxState: BUTTON_STATE.enabled });
       }
     }
   };
@@ -106,11 +122,13 @@ class Emib extends Component {
   thirdCheckboxToggle = () => {
     if (this.state.thirdCheckboxChecked === true) {
       this.setState({ thirdCheckboxChecked: false });
-      this.setState({ buttonState: BUTTON_STATE.disabled });
+      this.setState({ thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected });
+      this.setState({ checkboxState: BUTTON_STATE.disabled });
     } else {
       this.setState({ thirdCheckboxChecked: true });
+      this.setState({ thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxSelected });
       if (this.state.firstCheckboxChecked === true && this.state.secondCheckboxChecked === true) {
-        this.setState({ buttonState: BUTTON_STATE.enabled });
+        this.setState({ checkboxState: BUTTON_STATE.enabled });
       }
     }
   };
@@ -184,17 +202,15 @@ class Emib extends Component {
               </p>
               <div className="popup-box-checkbox-grid">
                 <button
-                  className="checkbox first-checkbox-cell"
+                  className={this.state.firstCheckboxStyle}
                   onClick={this.firstCheckboxToggle}
                 />
-                <br />
                 <button
-                  className="checkbox second-checkbox-cell"
+                  className={this.state.secondCheckboxStyle}
                   onClick={this.secondCheckboxToggle}
                 />
-                <br />
                 <button
-                  className="checkbox third-checkbox-cell"
+                  className={this.state.thirdCheckboxStyle}
                   onClick={this.thirdCheckboxToggle}
                 />
 
@@ -217,7 +233,7 @@ class Emib extends Component {
           leftButtonType={BUTTON_TYPE.danger}
           leftButtonTitle={LOCALIZE.commons.quitTest}
           leftButtonAction={this.changePage}
-          leftButtonState={this.state.buttonState}
+          leftButtonState={this.state.checkboxState}
           rightButtonType={BUTTON_TYPE.primary}
           rightButtonTitle={LOCALIZE.commons.returnToTest}
         />
