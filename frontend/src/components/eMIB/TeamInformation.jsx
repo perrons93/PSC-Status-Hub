@@ -10,6 +10,9 @@ import emib_sample_test_example_team_chart_fr from "../../images/emib_sample_tes
 const styles = {
   testImage: {
     maxWidth: 600
+  },
+  button: {
+    marginLeft: 5
   }
 };
 
@@ -69,7 +72,7 @@ class TeamInformation extends Component {
                 />
               )}
             </p>
-            <button onClick={this.openPopup} className="btn btn-secondary">
+            <button onClick={this.openPopup} className="btn btn-secondary" style={styles.button}>
               {LOCALIZE.emibTest.background.teamInformation.teamChart.link}
             </button>
           </div>

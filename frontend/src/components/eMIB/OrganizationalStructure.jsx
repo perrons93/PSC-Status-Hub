@@ -10,6 +10,9 @@ import emib_sample_test_example_org_chart_fr from "../../images/emib_sample_test
 const styles = {
   testImage: {
     maxWidth: 600
+  },
+  button: {
+    marginLeft: 5
   }
 };
 
@@ -85,7 +88,7 @@ class OrganizationalStructure extends Component {
                 />
               )}
             </p>
-            <button onClick={this.openPopup} className="btn btn-secondary">
+            <button onClick={this.openPopup} className="btn btn-secondary" style={styles.button}>
               {LOCALIZE.emibTest.background.organizationalStructure.orgChart.link}
             </button>
           </div>
