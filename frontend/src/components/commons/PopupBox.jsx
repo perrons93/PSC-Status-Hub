@@ -8,6 +8,10 @@ export const BUTTON_TYPE = {
   danger: "btn btn-danger"
 };
 
+export const BUTTON_STATE = {
+  disabled: "false"
+};
+
 const styles = {
   boxshape: {
     borderWidth: "1px 1px 0 1px",
@@ -59,10 +63,12 @@ class PopupBox extends Component {
       description: PropTypes.string.isRequired,
       leftButtonType: PropTypes.string,
       leftButtonTitle: PropTypes.string,
+      leftButtonState: PropTypes.string,
       leftButtonAction: PropTypes.func,
       rightButtonType: PropTypes.string,
       rightButtonTitle: PropTypes.string,
-      rightButtonAction: PropTypes.func
+      rightButtonAction: PropTypes.func,
+      rightButtonState: PropTypes.string
     };
   }
 
@@ -88,8 +94,10 @@ class PopupBox extends Component {
       description,
       leftButtonType,
       leftButtonTitle,
+      leftButtonState,
       rightButtonType,
-      rightButtonTitle
+      rightButtonTitle,
+      rightButtonState
     } = this.props;
 
     return (
@@ -107,6 +115,7 @@ class PopupBox extends Component {
                 {leftButtonType && leftButtonTitle && (
                   <div style={styles.leftBtnLocation}>
                     <button
+                      disabled={leftButtonState}
                       id="unit-test-left-btn-title"
                       type="button"
                       className={leftButtonType}
@@ -121,6 +130,7 @@ class PopupBox extends Component {
                 {rightButtonType && rightButtonTitle && (
                   <div style={styles.rightBtnLocation}>
                     <button
+                      disabled={rightButtonState}
                       id="unit-test-right-btn-title"
                       type="button"
                       className={rightButtonType}

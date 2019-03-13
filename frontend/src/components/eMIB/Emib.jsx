@@ -9,7 +9,7 @@ import TipsOnTest from "./TipsOnTest";
 import TestInstructions from "./TestInstructions";
 import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
-import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
+import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 import "../../css/emib.css";
 
@@ -204,6 +204,7 @@ class Emib extends Component {
           leftButtonType={BUTTON_TYPE.danger}
           leftButtonTitle={LOCALIZE.commons.quitTest}
           leftButtonAction={this.changePage}
+          leftButtonState={BUTTON_STATE.disabled}
           rightButtonType={BUTTON_TYPE.primary}
           rightButtonTitle={LOCALIZE.commons.returnToTest}
         />
