@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 
 export const BUTTON_TYPE = {
   primary: "btn btn-primary",
-  secondary: "btn btn-secondary"
+  secondary: "btn btn-secondary",
+  danger: "btn btn-danger"
 };
 
 const styles = {

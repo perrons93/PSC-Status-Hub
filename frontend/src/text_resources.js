@@ -293,6 +293,22 @@ let LOCALIZE = new LocalizedStrings({
           },
           description:
             'If you are ready to send your test in for scoring, click the "Submit test" button. You will be exited out of this test session and provided further instructions'
+        },
+        quitTestPopupBox: {
+          title: "Are you sure you want to quit this test?",
+          error: {
+            title: "Warning! All answers will be deleted.",
+            message:
+              "All the work in this session will be lost if you quit this test. You will not be able to recover your answers, and will forfeit this assessment. You may be re-tested at a later time."
+          },
+          descriptionPart1:
+            "You are about to withdraw from this test. By proceeding, you acknowledge and consent to the following:",
+          checkboxOne: "I voluntarily withdraw from this examination",
+          checkboxTwo: "I do not wish to have my test scored",
+          checkboxThree:
+            "I am aware that the retest period for this test may apply, should I wish to write this test again",
+          descriptionPart2:
+            'If you are certain that you want to quit this session, click the "Quit test" button. You will be exited out of this test session and provided instructions to complete your withdrawal.'
         }
       }
     },
@@ -313,7 +329,8 @@ let LOCALIZE = new LocalizedStrings({
       backButton: "Back",
       startTest: "Start test",
       submitTestButton: "Submit test",
-      exitTest: "Quit Test",
+      quitTest: "Quit Test",
+      returnToTest: "Return to test",
       passStatus: "Pass",
       failStatus: "Fail",
       enabled: "Enabled",
@@ -625,6 +642,22 @@ let LOCALIZE = new LocalizedStrings({
           },
           description:
             'FR If you are ready to send your test in for scoring, click the "Submit test" button. You will be exited out of this test session and provided further instructions'
+        },
+        quitTestPopupBox: {
+          title: "FR Are you sure you want to quit this test?",
+          error: {
+            title: "FR Warning! All answers will be deleted.",
+            message:
+              "FR All the work in this session will be lost if you quit this test. You will not be able to recover your answers, and will forfeit this assessment. You may be re-tested at a later time."
+          },
+          descriptionPart1:
+            "FR You are about to withdraw from this test. By proceeding, you acknowledge and consent to the following:",
+          checkboxOne: "FR I voluntarily withdraw from this examination",
+          checkboxTwo: "FR I do not wish to have my test scored",
+          checkboxThree:
+            "FR I am aware that the retest period for this test may apply, should I wish to write this test again",
+          descriptionPart2:
+            'FR If you are certain that you want to quit this session, click the "Quit test" button. You will be exited out of this test session and provided instructions to complete your withdrawal.'
         }
       }
     },
@@ -645,7 +678,8 @@ let LOCALIZE = new LocalizedStrings({
       backButton: "Retour",
       startTest: "Commencer le test",
       submitTestButton: "Soumettre le test",
-      exitTest: "Quitter le test",
+      quitTest: "Quitter le test",
+      returnToTest: "Retour au test",
       passStatus: "Réussi",
       failStatus: "Échoue",
       enabled: "Activé",

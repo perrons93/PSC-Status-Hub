@@ -9,7 +9,7 @@ class Confirmation extends Component {
         <p>{LOCALIZE.emibTest.confirmationPage.submissionConfirmed}</p>
         <form method="get" action={PATH.prototype}>
           <button type="submit" className="btn btn-primary">
-            {LOCALIZE.commons.exitTest}
+            {LOCALIZE.commons.quitTest}
           </button>
         </form>
       </div>

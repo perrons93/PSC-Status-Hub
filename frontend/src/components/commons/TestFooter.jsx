@@ -27,7 +27,8 @@ const styles = {
 
 class TestFooter extends Component {
   static propTypes = {
-    submitTest: PropTypes.func.isRequired
+    submitTest: PropTypes.func.isRequired,
+    quitTest: PropTypes.func.isRequired
   };
 
   render() {
@@ -46,8 +47,8 @@ class TestFooter extends Component {
             </button>
           </div>
           <div style={styles.quitTestBtn}>
-            <button type="button" className="btn btn-danger">
-              {LOCALIZE.commons.exitTest}
+            <button type="button" className="btn btn-danger" onClick={this.props.quitTest}>
+              {LOCALIZE.commons.quitTest}
             </button>
           </div>
         </div>

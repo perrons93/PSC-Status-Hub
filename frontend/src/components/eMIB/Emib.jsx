@@ -13,6 +13,14 @@ import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 import "../../css/emib.css";
 
+const styles = {
+  hr: {
+    width: "100%",
+    borderTop: "2px solid #96a8b2",
+    margin: 0
+  }
+};
+
 const PAGES = {
   preTest: "preTest",
   emibTabs: "emibTabs",
@@ -36,7 +44,8 @@ export const getInstructionContent = () => {
 class Emib extends Component {
   state = {
     curPage: PAGES.preTest,
-    showPopupBox: false
+    showSubmitPopup: false,
+    showQuitPopup: false
   };
 
   changePage = () => {
@@ -53,12 +62,17 @@ class Emib extends Component {
     }
   };
 
-  openPopup = () => {
-    this.setState({ showPopupBox: true });
+  openSubmitPopup = () => {
+    this.setState({ showSubmitPopup: true });
   };
 
   closePopup = () => {
-    this.setState({ showPopupBox: false });
+    this.setState({ showSubmitPopup: false });
+    this.setState({ showQuitPopup: false });
+  };
+
+  openQuitPopup = () => {
+    this.setState({ showQuitPopup: true });
   };
 
   render() {
@@ -85,10 +99,12 @@ class Emib extends Component {
           {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
           {this.state.curPage === PAGES.confirm && <Confirmation />}
         </ContentContainer>
-        {this.state.curPage === PAGES.emibTabs && <TestFooter submitTest={this.openPopup} />}
+        {this.state.curPage === PAGES.emibTabs && (
+          <TestFooter submitTest={this.openSubmitPopup} quitTest={this.openQuitPopup} />
+        )}
 
         <PopupBox
-          show={this.state.showPopupBox}
+          show={this.state.showSubmitPopup}
           handleClose={this.closePopup}
           title={LOCALIZE.emibTest.testFooter.submitTestPopupBox.title}
           description={
@@ -108,6 +124,49 @@ class Emib extends Component {
           rightButtonType={BUTTON_TYPE.primary}
           rightButtonTitle={LOCALIZE.commons.submitTestButton}
           rightButtonAction={this.changePage}
+        />
+
+        <PopupBox
+          show={this.state.showQuitPopup}
+          handleClose={this.closePopup}
+          title={LOCALIZE.emibTest.testFooter.quitTestPopupBox.title}
+          description={
+            <div>
+              <div>
+                <SystemMessage
+                  messageType={MESSAGE_TYPE.error}
+                  title={LOCALIZE.emibTest.testFooter.quitTestPopupBox.error.title}
+                  message={LOCALIZE.emibTest.testFooter.quitTestPopupBox.error.message}
+                />
+              </div>
+              <p className="font-weight-bold">
+                {LOCALIZE.emibTest.testFooter.quitTestPopupBox.descriptionPart1}
+              </p>
+              <div className="popup-box-checkbox-grid">
+                <button className="checkbox checkbox-cell" />
+                <p className="description-cell">
+                  {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne}
+                </p>
+                <button className="checkbox checkbox-cell" />
+                <p className="description-cell">
+                  {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxTwo}
+                </p>
+                <button className="checkbox checkbox-cell" />
+                <p className="description-cell">
+                  {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxThree}
+                </p>
+              </div>
+              <hr style={styles.hr} />
+              <p className="font-weight-bold">
+                {LOCALIZE.emibTest.testFooter.quitTestPopupBox.descriptionPart2}
+              </p>
+            </div>
+          }
+          leftButtonType={BUTTON_TYPE.danger}
+          leftButtonTitle={LOCALIZE.commons.quitTest}
+          leftButtonAction={this.changePage}
+          rightButtonType={BUTTON_TYPE.primary}
+          rightButtonTitle={LOCALIZE.commons.returnToTest}
         />
       </div>
     );

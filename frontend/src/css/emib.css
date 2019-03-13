@@ -6,3 +6,25 @@ emib.css is used for the Emib.jsx styles that cannot be added inside a const
 .modal-content {
   background-color: #fafafa;
 }
+
+.popup-box-checkbox-grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+.checkbox-cell {
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+.description-cell {
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  margin: 14px 12px 0 0;
+}
