@@ -9,7 +9,8 @@ export const BUTTON_TYPE = {
 };
 
 export const BUTTON_STATE = {
-  disabled: "false"
+  disabled: true,
+  enabled: false
 };
 
 const styles = {

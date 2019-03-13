@@ -48,7 +48,8 @@ class Emib extends Component {
     showQuitPopup: false,
     firstCheckboxChecked: false,
     secondCheckboxChecked: false,
-    thirdCheckboxChecked: false
+    thirdCheckboxChecked: false,
+    buttonState: BUTTON_STATE.disabled
   };
 
   changePage = () => {
@@ -79,26 +80,38 @@ class Emib extends Component {
   };
 
   firstCheckboxToggle = () => {
-    if (this.state.firstCheckboxChecked) {
+    if (this.state.firstCheckboxChecked === true) {
       this.setState({ firstCheckboxChecked: false });
-    } else if (!this.state.firstCheckboxChecked) {
+      this.setState({ buttonState: BUTTON_STATE.disabled });
+    } else {
       this.setState({ firstCheckboxChecked: true });
+      if (this.state.secondCheckboxChecked === true && this.state.thirdCheckboxChecked === true) {
+        this.setState({ buttonState: BUTTON_STATE.enabled });
+      }
     }
   };
 
   secondCheckboxToggle = () => {
-    if (this.state.secondCheckboxChecked) {
+    if (this.state.secondCheckboxChecked === true) {
       this.setState({ secondCheckboxChecked: false });
-    } else if (!this.state.secondCheckboxChecked) {
+      this.setState({ buttonState: BUTTON_STATE.disabled });
+    } else {
       this.setState({ secondCheckboxChecked: true });
+      if (this.state.firstCheckboxChecked === true && this.state.thirdCheckboxChecked === true) {
+        this.setState({ buttonState: BUTTON_STATE.enabled });
+      }
     }
   };
 
   thirdCheckboxToggle = () => {
-    if (this.state.thirdCheckboxChecked) {
+    if (this.state.thirdCheckboxChecked === true) {
       this.setState({ thirdCheckboxChecked: false });
-    } else if (!this.state.thirdCheckboxChecked) {
+      this.setState({ buttonState: BUTTON_STATE.disabled });
+    } else {
       this.setState({ thirdCheckboxChecked: true });
+      if (this.state.firstCheckboxChecked === true && this.state.secondCheckboxChecked === true) {
+        this.setState({ buttonState: BUTTON_STATE.enabled });
+      }
     }
   };
 
@@ -204,7 +217,7 @@ class Emib extends Component {
           leftButtonType={BUTTON_TYPE.danger}
           leftButtonTitle={LOCALIZE.commons.quitTest}
           leftButtonAction={this.changePage}
-          leftButtonState={BUTTON_STATE.disabled}
+          leftButtonState={this.state.buttonState}
           rightButtonType={BUTTON_TYPE.primary}
           rightButtonTitle={LOCALIZE.commons.returnToTest}
         />
