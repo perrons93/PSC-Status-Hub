@@ -222,7 +222,7 @@ let LOCALIZE = new LocalizedStrings({
             link: "Image Description"
           },
           dialog: {
-            title: "The Organizational Chart of the Organizational Development Council’s (ODC)",
+            title: "The Organizational Chart of the ODC",
             description:
               "The Organizational Chart for the Organizational Development Council (ODC). At the top is the President: Jenna Icart. Under the president are 4 directors: Amari Kinsler from Corporate Affairs, Geneviève Bédard from Research and Innovations, Bartosz Greco from Program Development, Nancy Ward from Services and Communications. Corporate Affairs has 3 managers: Marc Sheridan from Human Resources, Bob McNutt from Finance, and Lana Hussad from Information Technology. Services and Communications has 4 managers: Claude Huard (You) from Quality Assurance, Haydar Kalil from Services and Support, Geoffrey Hamma from Audits, and Lucy Trang from E-Training."
           }
@@ -246,7 +246,7 @@ let LOCALIZE = new LocalizedStrings({
             link: "Image Description"
           },
           dialog: {
-            title: "The Organizational Chart of the Quality Assurance (QA) Team",
+            title: "The Organizational Chart of the QA Team",
             description:
               "The Organizational Chart for the Quality Assurance (QA) Team. At the top is the Manager, Claude Huard (you). Under the manager are 6 Quality Assurance Analysts: Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier."
           },
@@ -564,7 +564,7 @@ let LOCALIZE = new LocalizedStrings({
             link: "FR Image Description"
           },
           dialog: {
-            title: "FR The Organizational Chart of the Organizational Development Council’s (ODC)",
+            title: "FR The Organizational Chart of the ODC",
             description:
               "FR The Organizational Chart for the Organizational Development Council (ODC). At the top is the President: Jenna Icart. Under the president are 4 directors: Amari Kinsler from Corporate Affairs, Geneviève Bédard from Research and Innovations, Bartosz Greco from Program Development, Nancy Ward from Services and Communications. Corporate Affairs has 3 managers: Marc Sheridan from Human Resources, Bob McNutt from Finance, and Lana Hussad from Information Technology. Services and Communications has 4 managers: Claude Huard (You) from Quality Assurance, Haydar Kalil from Services and Support, Geoffrey Hamma from Audits, and Lucy Trang from E-Training."
           }
@@ -588,7 +588,7 @@ let LOCALIZE = new LocalizedStrings({
             link: "FR Image Description"
           },
           dialog: {
-            title: "FR The Organizational Chart of the Quality Assurance (QA) Team",
+            title: "FR The Organizational Chart of the QA Team",
             description:
               "FR The Organizational Chart for the Quality Assurance (QA) Team. At the top is the Manager, Claude Huard (you). Under the manager are 6 Quality Assurance Analysts: Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier."
           },
