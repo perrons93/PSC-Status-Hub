@@ -83,8 +83,7 @@ class Emib extends Component {
   };
 
   closePopup = () => {
-    this.setState({ showSubmitPopup: false });
-    this.setState({ showQuitPopup: false });
+    this.setState({ showSubmitPopup: false, showQuitPopup: false });
     //reset all checkbox states on close
     this.resetCheckboxStates();
   };
@@ -96,13 +95,17 @@ class Emib extends Component {
   firstCheckboxToggle = () => {
     //checkbox = checked
     if (this.state.firstCheckboxChecked === true) {
-      this.setState({ firstCheckboxChecked: false });
-      this.setState({ firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected });
-      this.setState({ checkboxState: BUTTON_STATE.disabled });
+      this.setState({
+        firstCheckboxChecked: false,
+        firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected,
+        checkboxState: BUTTON_STATE.disabled
+      });
       //checkbox = unchecked
     } else {
-      this.setState({ firstCheckboxChecked: true });
-      this.setState({ firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxSelected });
+      this.setState({
+        firstCheckboxChecked: true,
+        firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxSelected
+      });
       if (this.state.secondCheckboxChecked === true && this.state.thirdCheckboxChecked === true) {
         this.setState({ checkboxState: BUTTON_STATE.enabled });
       }
@@ -112,13 +115,17 @@ class Emib extends Component {
   secondCheckboxToggle = () => {
     //checkbox = checked
     if (this.state.secondCheckboxChecked === true) {
-      this.setState({ secondCheckboxChecked: false });
-      this.setState({ secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected });
-      this.setState({ checkboxState: BUTTON_STATE.disabled });
+      this.setState({
+        secondCheckboxChecked: false,
+        secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected,
+        checkboxState: BUTTON_STATE.disabled
+      });
       //checkbox = unchecked
     } else {
-      this.setState({ secondCheckboxChecked: true });
-      this.setState({ secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxSelected });
+      this.setState({
+        secondCheckboxChecked: true,
+        secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxSelected
+      });
       if (this.state.firstCheckboxChecked === true && this.state.thirdCheckboxChecked === true) {
         this.setState({ checkboxState: BUTTON_STATE.enabled });
       }
@@ -128,13 +135,17 @@ class Emib extends Component {
   thirdCheckboxToggle = () => {
     //checkbox = checked
     if (this.state.thirdCheckboxChecked === true) {
-      this.setState({ thirdCheckboxChecked: false });
-      this.setState({ thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected });
-      this.setState({ checkboxState: BUTTON_STATE.disabled });
+      this.setState({
+        thirdCheckboxChecked: false,
+        thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected,
+        checkboxState: BUTTON_STATE.disabled
+      });
       //checkbox = unchecked
     } else {
-      this.setState({ thirdCheckboxChecked: true });
-      this.setState({ thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxSelected });
+      this.setState({
+        thirdCheckboxChecked: true,
+        thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxSelected
+      });
       if (this.state.firstCheckboxChecked === true && this.state.secondCheckboxChecked === true) {
         this.setState({ checkboxState: BUTTON_STATE.enabled });
       }
@@ -142,20 +153,19 @@ class Emib extends Component {
   };
 
   resetCheckboxStates = () => {
-    //first checkbox
-    this.setState({ firstCheckboxChecked: false });
-    this.setState({ firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected });
-
-    //second checkbox
-    this.setState({ secondCheckboxChecked: false });
-    this.setState({ secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected });
-
-    //third checkbox
-    this.setState({ thirdCheckboxChecked: false });
-    this.setState({ thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected });
-
-    //disable quit test button
-    this.setState({ checkboxState: BUTTON_STATE.disabled });
+    this.setState({
+      /* first checkbox */
+      firstCheckboxChecked: false,
+      firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected,
+      /* second checkbox */
+      secondCheckboxChecked: false,
+      secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected,
+      /* third checkbox */
+      thirdCheckboxChecked: false,
+      thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected,
+      /* //disable quit test button */
+      checkboxState: BUTTON_STATE.disabled
+    });
   };
 
   render() {
