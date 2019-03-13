@@ -69,7 +69,7 @@ class TeamInformation extends Component {
                 />
               )}
             </p>
-            <button onClick={this.openPopup} className="button-link">
+            <button onClick={this.openPopup} className="btn btn-secondary">
               {LOCALIZE.emibTest.background.teamInformation.teamChart.link}
             </button>
           </div>
