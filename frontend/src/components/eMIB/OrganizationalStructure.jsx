@@ -3,19 +3,45 @@ import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
 import { LANGUAGES } from "../commons/Translation";
+import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 import emib_sample_test_example_org_chart_en from "../../images/emib_sample_test_example_org_chart_en.png";
 import emib_sample_test_example_org_chart_fr from "../../images/emib_sample_test_example_org_chart_fr.png";
 
 const styles = {
   testImage: {
     maxWidth: 600
+  },
+  button: {
+    marginLeft: 5
   }
 };
 
 class OrganizationalStructure extends Component {
+  state = {
+    showPopupBox: false
+  };
+
+  openPopup = () => {
+    this.setState({ showPopupBox: true });
+  };
+
+  closePopup = () => {
+    this.setState({ showPopupBox: false });
+  };
+
   render() {
     return (
       <div>
+        <PopupBox
+          show={this.state.showPopupBox}
+          handleClose={this.closePopup}
+          title={LOCALIZE.emibTest.background.organizationalStructure.dialog.title}
+          description={
+            <div>{LOCALIZE.emibTest.background.organizationalStructure.dialog.description}</div>
+          }
+          rightButtonType={BUTTON_TYPE.secondary}
+          rightButtonTitle={LOCALIZE.commons.close}
+        />
         <div>
           <h2>{LOCALIZE.emibTest.background.organizationalStructure.title}</h2>
           <div>
@@ -62,7 +88,9 @@ class OrganizationalStructure extends Component {
                 />
               )}
             </p>
-            <p>{LOCALIZE.emibTest.background.organizationalStructure.orgChart.link}</p>
+            <button onClick={this.openPopup} className="btn btn-secondary" style={styles.button}>
+              {LOCALIZE.emibTest.background.organizationalStructure.orgChart.link}
+            </button>
           </div>
         </div>
       </div>
