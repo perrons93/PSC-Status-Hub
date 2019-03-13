@@ -32,7 +32,7 @@ const styles = {
   hr: {
     width: "100%",
     borderTop: "2px solid #96a8b2",
-    margin: 0
+    margin: "12px 0 0 0"
   }
 };
 
