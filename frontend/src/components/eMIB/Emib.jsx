@@ -45,7 +45,10 @@ class Emib extends Component {
   state = {
     curPage: PAGES.preTest,
     showSubmitPopup: false,
-    showQuitPopup: false
+    showQuitPopup: false,
+    firstCheckboxChecked: false,
+    secondCheckboxChecked: false,
+    thirdCheckboxChecked: false
   };
 
   changePage = () => {
@@ -73,6 +76,30 @@ class Emib extends Component {
 
   openQuitPopup = () => {
     this.setState({ showQuitPopup: true });
+  };
+
+  firstCheckboxToggle = () => {
+    if (this.state.firstCheckboxChecked) {
+      this.setState({ firstCheckboxChecked: false });
+    } else if (!this.state.firstCheckboxChecked) {
+      this.setState({ firstCheckboxChecked: true });
+    }
+  };
+
+  secondCheckboxToggle = () => {
+    if (this.state.secondCheckboxChecked) {
+      this.setState({ secondCheckboxChecked: false });
+    } else if (!this.state.secondCheckboxChecked) {
+      this.setState({ secondCheckboxChecked: true });
+    }
+  };
+
+  thirdCheckboxToggle = () => {
+    if (this.state.thirdCheckboxChecked) {
+      this.setState({ thirdCheckboxChecked: false });
+    } else if (!this.state.thirdCheckboxChecked) {
+      this.setState({ thirdCheckboxChecked: true });
+    }
   };
 
   render() {
@@ -143,16 +170,28 @@ class Emib extends Component {
                 {LOCALIZE.emibTest.testFooter.quitTestPopupBox.descriptionPart1}
               </p>
               <div className="popup-box-checkbox-grid">
-                <button className="checkbox checkbox-cell" />
-                <p className="description-cell">
+                <button
+                  className="checkbox first-checkbox-cell"
+                  onClick={this.firstCheckboxToggle}
+                />
+                <br />
+                <button
+                  className="checkbox second-checkbox-cell"
+                  onClick={this.secondCheckboxToggle}
+                />
+                <br />
+                <button
+                  className="checkbox third-checkbox-cell"
+                  onClick={this.thirdCheckboxToggle}
+                />
+
+                <p className="first-description-cell">
                   {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne}
                 </p>
-                <button className="checkbox checkbox-cell" />
-                <p className="description-cell">
+                <p className="second-description-cell">
                   {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxTwo}
                 </p>
-                <button className="checkbox checkbox-cell" />
-                <p className="description-cell">
+                <p className="third-description-cell">
                   {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxThree}
                 </p>
               </div>
