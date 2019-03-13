@@ -561,7 +561,7 @@ let LOCALIZE = new LocalizedStrings({
             "Les principaux objectifs de l’Unité des SC sont d’évaluer de façon continue les programmes de formation offerts par les organisations de la fonction publique, effectuer des vérifications internes et externes pour les partenaires et les clients, et surveiller la diffusion de l’information (p. ex., évaluer le contenu des outils en ligne, rédiger les documents relatifs aux programmes de formation). L’Unité des SC est composée de l’Équipe de l’assurance de la qualité, l’Équipe du service et soutien, l’Équipe des vérifications et de l’Équipe des formations en ligne.",
           orgChart: {
             desciption: "Organigramme (CDO)",
-            link: "FR Image Description"
+            link: "Description de l'image"
           },
           dialog: {
             title: "FR The Organizational Chart of the ODC",
@@ -585,7 +585,7 @@ let LOCALIZE = new LocalizedStrings({
           },
           teamChart: {
             desciption: "Organigramme Équipe de l'assurance de la qualité (AQ) Team",
-            link: "FR Image Description"
+            link: "Description de l'image"
           },
           dialog: {
             title: "FR The Organizational Chart of the QA Team",
@@ -677,7 +677,7 @@ let LOCALIZE = new LocalizedStrings({
         placeholder: "Mettez vos notes ici..."
       },
       cancel: "Annuler",
-      close: "FR Close"
+      close: "Fermer"
     }
   }
 });
