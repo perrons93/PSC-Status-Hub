@@ -47,7 +47,12 @@ class TestFooter extends Component {
             </button>
           </div>
           <div style={styles.quitTestBtn}>
-            <button type="button" className="btn btn-danger" onClick={this.props.quitTest}>
+            <button
+              id="unit-test-quit-btn"
+              type="button"
+              className="btn btn-danger"
+              onClick={this.props.quitTest}
+            >
               {LOCALIZE.commons.quitTest}
             </button>
           </div>
