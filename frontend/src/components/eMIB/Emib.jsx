@@ -7,6 +7,7 @@ import ContentContainer from "../commons/ContentContainer";
 import Overview from "./Overview";
 import TipsOnTest from "./TipsOnTest";
 import TestInstructions from "./TestInstructions";
+import TestExamples from "./TestExamples";
 import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
 import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
@@ -35,8 +36,13 @@ export const getInstructionContent = () => {
       text: LOCALIZE.emibTest.howToPage.testInstructions.title,
       body: <TestInstructions />
     },
-    { id: 2, text: LOCALIZE.emibTest.howToPage.tipsOnTest.title, body: <TipsOnTest /> },
-    { id: 3, text: LOCALIZE.emibTest.howToPage.evaluation.title, body: <Evaluation /> }
+    {
+      id: 2,
+      text: LOCALIZE.emibTest.howToPage.testExamples.title,
+      body: <TestExamples />
+    },
+    { id: 3, text: LOCALIZE.emibTest.howToPage.tipsOnTest.title, body: <TipsOnTest /> },
+    { id: 4, text: LOCALIZE.emibTest.howToPage.evaluation.title, body: <Evaluation /> }
   ];
 };
 
