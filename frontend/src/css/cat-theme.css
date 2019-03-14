@@ -106,6 +106,7 @@ Progess Steps
 
 .step-indicator .steps li {
   text-transform: none;
+  width: 20%;
 }
 
 /* override color of text in active li*/
