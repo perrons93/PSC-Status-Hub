@@ -219,7 +219,12 @@ let LOCALIZE = new LocalizedStrings({
             "The main goals of the SC unit are to continuously evaluate training programs offered by organizations in the public service, conduct internal and external audits for partners and clients, and oversee the dissemination of information (e.g., content review for online tools, developing documentation for training programs). The SC unit is comprised of the Quality Assurance Team, the Service and support Team, the Audits Team, and the E-Training Team.",
           orgChart: {
             desciption: "Organizational Chart (ODC)",
-            link: "Image Description (Coming Soon)"
+            link: "Image Description"
+          },
+          dialog: {
+            title: "The Organizational Chart of the ODC",
+            description:
+              "The Organizational Chart for the Organizational Development Council (ODC). At the top is the President: Jenna Icart. Under the president are 4 directors: Amari Kinsler from Corporate Affairs, Geneviève Bédard from Research and Innovations, Bartosz Greco from Program Development, Nancy Ward from Services and Communications. Corporate Affairs has 3 managers: Marc Sheridan from Human Resources, Bob McNutt from Finance, and Lana Hussad from Information Technology. Services and Communications has 4 managers: Claude Huard (You) from Quality Assurance, Haydar Kalil from Services and Support, Geoffrey Hamma from Audits, and Lucy Trang from E-Training."
           }
         },
         teamInformation: {
@@ -238,7 +243,12 @@ let LOCALIZE = new LocalizedStrings({
           },
           teamChart: {
             desciption: "Organizational Chart The Quality Assurance (QA) Team",
-            link: "Image Description (Coming Soon)"
+            link: "Image Description"
+          },
+          dialog: {
+            title: "The Organizational Chart of the QA Team",
+            description:
+              "The Organizational Chart for the Quality Assurance (QA) Team. At the top is the Manager, Claude Huard (you). Under the manager are 6 Quality Assurance Analysts: Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier."
           },
           responsibilitiesSection: {
             title: "QA Team Responsibilities",
@@ -296,19 +306,20 @@ let LOCALIZE = new LocalizedStrings({
         },
         quitTestPopupBox: {
           title: "Are you sure you want to quit this test?",
-          error: {
-            title: "Warning! All answers will be deleted.",
+          warning: {
+            title: "Warning! Once you exit the test, you will not be able to get back in.",
             message:
-              "All the work in this session will be lost if you quit this test. You will not be able to recover your answers, and will forfeit this assessment. You may be re-tested at a later time."
+              "You will not be able to recover your answers, and will be withdrawn from this test session. You may be retested at a later time."
           },
           descriptionPart1:
-            "You are about to withdraw from this test. By proceeding, you acknowledge and consent to the following:",
+            "You are about to withdraw from this test. By proceeding, you acknowledge the following:",
           checkboxOne: "I voluntarily withdraw from this examination",
-          checkboxTwo: "I do not wish to have my test scored",
+          checkboxTwo: "my test will not be scored",
           checkboxThree:
             "I am aware that the retest period for this test may apply, should I wish to write this test again",
           descriptionPart2:
-            'If you are certain that you want to quit this session, click the "Quit test" button. You will be exited out of this test session and provided instructions to complete your withdrawal.'
+            "If you are certain that you want to quit this session, click the “Quit test” button. You will be exited out of this test session and provided instructions to complete your withdrawal.",
+          descriptionPart3: "Are you sure you want to quit this test?"
         }
       }
     },
@@ -330,7 +341,7 @@ let LOCALIZE = new LocalizedStrings({
       startTest: "Start test",
       submitTestButton: "Submit test",
       quitTest: "Quit Test",
-      returnToTest: "Return to test",
+      returnToTest: "Return to Test",
       passStatus: "Pass",
       failStatus: "Fail",
       enabled: "Enabled",
@@ -340,7 +351,8 @@ let LOCALIZE = new LocalizedStrings({
         title: "Notepad",
         placeholder: "Put your notes here..."
       },
-      cancel: "Cancel"
+      cancel: "Cancel",
+      close: "Close"
     }
   },
 
@@ -567,7 +579,12 @@ let LOCALIZE = new LocalizedStrings({
             "Les principaux objectifs de l’Unité des SC sont d’évaluer de façon continue les programmes de formation offerts par les organisations de la fonction publique, effectuer des vérifications internes et externes pour les partenaires et les clients, et surveiller la diffusion de l’information (p. ex., évaluer le contenu des outils en ligne, rédiger les documents relatifs aux programmes de formation). L’Unité des SC est composée de l’Équipe de l’assurance de la qualité, l’Équipe du service et soutien, l’Équipe des vérifications et de l’Équipe des formations en ligne.",
           orgChart: {
             desciption: "Organigramme (CDO)",
-            link: "FR Image Description (Coming Soon)"
+            link: "Description de l'image"
+          },
+          dialog: {
+            title: "FR The Organizational Chart of the ODC",
+            description:
+              "FR The Organizational Chart for the Organizational Development Council (ODC). At the top is the President: Jenna Icart. Under the president are 4 directors: Amari Kinsler from Corporate Affairs, Geneviève Bédard from Research and Innovations, Bartosz Greco from Program Development, Nancy Ward from Services and Communications. Corporate Affairs has 3 managers: Marc Sheridan from Human Resources, Bob McNutt from Finance, and Lana Hussad from Information Technology. Services and Communications has 4 managers: Claude Huard (You) from Quality Assurance, Haydar Kalil from Services and Support, Geoffrey Hamma from Audits, and Lucy Trang from E-Training."
           }
         },
         teamInformation: {
@@ -586,7 +603,12 @@ let LOCALIZE = new LocalizedStrings({
           },
           teamChart: {
             desciption: "Organigramme Équipe de l'assurance de la qualité (AQ) Team",
-            link: "FR Image Description (Coming Soon)"
+            link: "Description de l'image"
+          },
+          dialog: {
+            title: "FR The Organizational Chart of the QA Team",
+            description:
+              "FR The Organizational Chart for the Quality Assurance (QA) Team. At the top is the Manager, Claude Huard (you). Under the manager are 6 Quality Assurance Analysts: Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier."
           },
           responsibilitiesSection: {
             title: "Responsabilités de l’Équipe de l’AQ",
@@ -644,20 +666,22 @@ let LOCALIZE = new LocalizedStrings({
             "Si vous êtes prêt(e) à envoyer votre test pour la notation, cliquez sur le bouton « Envoyer le test ». La séance de test sera fermée et vous recevrez d’autres instructions."
         },
         quitTestPopupBox: {
-          title: "FR Are you sure you want to quit this test?",
-          error: {
-            title: "FR Warning! All answers will be deleted.",
+          title: "Souhaitez-vous mettre fin à cette séance de test?",
+          warning: {
+            title:
+              "Avertissement : une fois la séance de test terminée, vous ne pourrez plus y retourner.",
             message:
-              "FR All the work in this session will be lost if you quit this test. You will not be able to recover your answers, and will forfeit this assessment. You may be re-tested at a later time."
+              "Vous ne pourrez pas récupérer vos réponses et n’aurez plus accès à la séance de test. Vous pourrez reprendre le test à une date ultérieure."
           },
           descriptionPart1:
-            "FR You are about to withdraw from this test. By proceeding, you acknowledge and consent to the following:",
-          checkboxOne: "FR I voluntarily withdraw from this examination",
-          checkboxTwo: "FR I do not wish to have my test scored",
+            "Vous êtes sur le point de mettre fin à la séance de test. Ce faisant, vous affirmez et reconnaissez :",
+          checkboxOne: "je me retire volontairement de ce test;",
+          checkboxTwo: "mon test ne sera pas noté;",
           checkboxThree:
-            "FR I am aware that the retest period for this test may apply, should I wish to write this test again",
+            "je suis conscient(e) que la période d'attente pour ce test peut s’appliquer, si je veux écrire ce test de nouveau dans le futur.",
           descriptionPart2:
-            'FR If you are certain that you want to quit this session, click the "Quit test" button. You will be exited out of this test session and provided instructions to complete your withdrawal.'
+            "Si vous êtes certain(e) de vouloir mettre fin à cette séance, cliquez sur le bouton « Quitter la séance test ». La séance de test sera fermée et vous recevrez des instructions sur la façon de vous retirer.",
+          descriptionPart3: "Souhaitez-vous mettre fin à cette séance de test?"
         }
       }
     },
@@ -678,8 +702,8 @@ let LOCALIZE = new LocalizedStrings({
       backButton: "Retour",
       startTest: "Commencer le test",
       submitTestButton: "Envoyer le test",
-      quitTest: "Quitter le test",
-      returnToTest: "Retour au test",
+      quitTest: "Quitter la séance de test",
+      returnToTest: "Retourner à la séance",
       passStatus: "Réussi",
       failStatus: "Échoue",
       enabled: "Activé",
@@ -689,7 +713,8 @@ let LOCALIZE = new LocalizedStrings({
         title: "Bloc-notes",
         placeholder: "Mettez vos notes ici..."
       },
-      cancel: "Annuler"
+      cancel: "Annuler",
+      close: "Fermer"
     }
   }
 });
