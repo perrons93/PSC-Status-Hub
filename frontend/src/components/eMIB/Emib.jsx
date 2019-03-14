@@ -19,15 +19,6 @@ const PAGES = {
   confirm: "confirm"
 };
 
-const CHECKBOX_CLASS = {
-  firstCheckboxNotSelected: "checkbox checkbox-not-selected first-checkbox-cell",
-  firstCheckboxSelected: "checkbox checkbox-selected first-checkbox-cell",
-  secondCheckboxNotSelected: "checkbox checkbox-not-selected second-checkbox-cell",
-  secondCheckboxSelected: "checkbox checkbox-selected second-checkbox-cell",
-  thirdCheckboxNotSelected: "checkbox checkbox-not-selected third-checkbox-cell",
-  thirdCheckboxSelected: "checkbox checkbox-selected third-checkbox-cell"
-};
-
 const styles = {
   hr: {
     width: "100%",
@@ -57,10 +48,7 @@ class Emib extends Component {
     showQuitPopup: false,
     firstCheckboxChecked: false,
     secondCheckboxChecked: false,
-    thirdCheckboxChecked: false,
-    firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected,
-    secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected,
-    thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected
+    thirdCheckboxChecked: false
   };
 
   changePage = () => {
@@ -95,14 +83,12 @@ class Emib extends Component {
     //checkbox = checked
     if (this.state.firstCheckboxChecked === true) {
       this.setState({
-        firstCheckboxChecked: false,
-        firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected
+        firstCheckboxChecked: false
       });
       //checkbox = unchecked
     } else {
       this.setState({
-        firstCheckboxChecked: true,
-        firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxSelected
+        firstCheckboxChecked: true
       });
     }
   };
@@ -111,14 +97,12 @@ class Emib extends Component {
     //checkbox = checked
     if (this.state.secondCheckboxChecked === true) {
       this.setState({
-        secondCheckboxChecked: false,
-        secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected
+        secondCheckboxChecked: false
       });
       //checkbox = unchecked
     } else {
       this.setState({
-        secondCheckboxChecked: true,
-        secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxSelected
+        secondCheckboxChecked: true
       });
     }
   };
@@ -127,29 +111,21 @@ class Emib extends Component {
     //checkbox = checked
     if (this.state.thirdCheckboxChecked === true) {
       this.setState({
-        thirdCheckboxChecked: false,
-        thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected
+        thirdCheckboxChecked: false
       });
       //checkbox = unchecked
     } else {
       this.setState({
-        thirdCheckboxChecked: true,
-        thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxSelected
+        thirdCheckboxChecked: true
       });
     }
   };
 
   resetCheckboxStates = () => {
     this.setState({
-      /* first checkbox */
       firstCheckboxChecked: false,
-      firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected,
-      /* second checkbox */
       secondCheckboxChecked: false,
-      secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected,
-      /* third checkbox */
-      thirdCheckboxChecked: false,
-      thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected
+      thirdCheckboxChecked: false
     });
   };
 
@@ -225,29 +201,27 @@ class Emib extends Component {
               <p className="font-weight-bold">
                 {LOCALIZE.emibTest.testFooter.quitTestPopupBox.descriptionPart1}
               </p>
-              <div className="popup-box-checkbox-grid">
-                <button
-                  className={this.state.firstCheckboxStyle}
-                  onClick={this.firstCheckboxToggle}
-                />
-                <button
-                  className={this.state.secondCheckboxStyle}
-                  onClick={this.secondCheckboxToggle}
-                />
-                <button
-                  className={this.state.thirdCheckboxStyle}
-                  onClick={this.thirdCheckboxToggle}
-                />
+              <div>
+                <div className="custom-control custom-checkbox">
+                  <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                  <label className="custom-control-label" htmlFor="customCheck1">
+                    {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne}
+                  </label>
+                </div>
 
-                <p className="first-description-cell">
-                  {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne}
-                </p>
-                <p className="second-description-cell">
-                  {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxTwo}
-                </p>
-                <p className="third-description-cell">
-                  {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxThree}
-                </p>
+                <div className="custom-control custom-checkbox">
+                  <input type="checkbox" className="custom-control-input" id="customCheck2" />
+                  <label className="custom-control-label" htmlFor="customCheck2">
+                    {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxTwo}
+                  </label>
+                </div>
+
+                <div className="custom-control custom-checkbox">
+                  <input type="checkbox" className="custom-control-input" id="customCheck3" />
+                  <label className="custom-control-label" htmlFor="customCheck3">
+                    {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxThree}
+                  </label>
+                </div>
               </div>
               <hr style={styles.hr} />
               <p className="font-weight-bold">
