@@ -79,13 +79,11 @@ class Emib extends Component {
     this.setState({ showQuitPopup: true });
   };
 
-  firstCheckboxToggle = () => {
-    //checkbox = checked
+  updateFirstCheck = () => {
     if (this.state.firstCheckboxChecked === true) {
       this.setState({
         firstCheckboxChecked: false
       });
-      //checkbox = unchecked
     } else {
       this.setState({
         firstCheckboxChecked: true
@@ -93,13 +91,11 @@ class Emib extends Component {
     }
   };
 
-  secondCheckboxToggle = () => {
-    //checkbox = checked
+  updateSecondCheck = () => {
     if (this.state.secondCheckboxChecked === true) {
       this.setState({
         secondCheckboxChecked: false
       });
-      //checkbox = unchecked
     } else {
       this.setState({
         secondCheckboxChecked: true
@@ -107,13 +103,11 @@ class Emib extends Component {
     }
   };
 
-  thirdCheckboxToggle = () => {
-    //checkbox = checked
+  updateThirdCheck = () => {
     if (this.state.thirdCheckboxChecked === true) {
       this.setState({
         thirdCheckboxChecked: false
       });
-      //checkbox = unchecked
     } else {
       this.setState({
         thirdCheckboxChecked: true
@@ -203,21 +197,39 @@ class Emib extends Component {
               </p>
               <div>
                 <div className="custom-control custom-checkbox">
-                  <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                  <input
+                    type="checkbox"
+                    className="custom-control-input"
+                    id="customCheck1"
+                    checked={firstCheckboxChecked}
+                    onChange={this.updateFirstCheck}
+                  />
                   <label className="custom-control-label" htmlFor="customCheck1">
                     {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne}
                   </label>
                 </div>
 
                 <div className="custom-control custom-checkbox">
-                  <input type="checkbox" className="custom-control-input" id="customCheck2" />
+                  <input
+                    type="checkbox"
+                    className="custom-control-input"
+                    id="customCheck2"
+                    checked={secondCheckboxChecked}
+                    onChange={this.updateSecondCheck}
+                  />
                   <label className="custom-control-label" htmlFor="customCheck2">
                     {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxTwo}
                   </label>
                 </div>
 
                 <div className="custom-control custom-checkbox">
-                  <input type="checkbox" className="custom-control-input" id="customCheck3" />
+                  <input
+                    type="checkbox"
+                    className="custom-control-input"
+                    id="customCheck3"
+                    checked={thirdCheckboxChecked}
+                    onChange={this.updateThirdCheck}
+                  />
                   <label className="custom-control-label" htmlFor="customCheck3">
                     {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxThree}
                   </label>
