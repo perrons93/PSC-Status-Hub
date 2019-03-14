@@ -71,16 +71,16 @@ class OrganizationalStructure extends Component {
               {LOCALIZE.emibTest.background.organizationalStructure.para4}
             </p>
             <p>
-              {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
-                .conditionToDisplayImage === LANGUAGES.english && (
+              {LOCALIZE.emibTest.howToPage.testExamples.conditionToDisplayImage ===
+                LANGUAGES.english && (
                 <img
                   src={emib_sample_test_example_org_chart_en}
                   alt={LOCALIZE.emibTest.background.organizationalStructure.orgChart.desciption}
                   style={styles.testImage}
                 />
               )}
-              {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
-                .conditionToDisplayImage === LANGUAGES.french && (
+              {LOCALIZE.emibTest.howToPage.testExamples.conditionToDisplayImage ===
+                LANGUAGES.french && (
                 <img
                   src={emib_sample_test_example_org_chart_fr}
                   alt={LOCALIZE.emibTest.background.organizationalStructure.orgChart.desciption}

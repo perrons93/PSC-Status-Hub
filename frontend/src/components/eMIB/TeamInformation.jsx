@@ -55,8 +55,8 @@ class TeamInformation extends Component {
           </div>
           <div>
             <p>
-              {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
-                .conditionToDisplayImage === LANGUAGES.english && (
+              {LOCALIZE.emibTest.howToPage.testExamples.conditionToDisplayImage ===
+                LANGUAGES.english && (
                 <img
                   src={emib_sample_test_example_team_chart_en}
                   alt={LOCALIZE.emibTest.background.teamInformation.teamChart.desciption}
@@ -64,8 +64,8 @@ class TeamInformation extends Component {
                   longdesc="#team-image-description"
                 />
               )}
-              {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
-                .conditionToDisplayImage === LANGUAGES.french && (
+              {LOCALIZE.emibTest.howToPage.testExamples.conditionToDisplayImage ===
+                LANGUAGES.french && (
                 <img
                   src={emib_sample_test_example_team_chart_fr}
                   alt={LOCALIZE.emibTest.background.teamInformation.teamChart.desciption}

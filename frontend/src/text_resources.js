@@ -123,17 +123,18 @@ let LOCALIZE = new LocalizedStrings({
           step2Section: {
             title: "Step 2 - Adding Reasons for Action (optional)",
             description:
-              "After sending an email or adding a task, you will be able to provide a justification in the “Reasons for Action” section. Here, you can explain why you took a specific action in response to a situation if you feel the need to provide additional information. Filling out the Reasons for Action section is optional. Note that you may decide to add Reasons for Action when responding to some emails and not others. This also applies for tasks in the task list. In addition, if you add Reasons for Action, you may choose to clarify only certain actions while others may not require additional explanations.",
-            example: {
-              title: "Example of an email and ways of responding",
-              part1Title: "Original email",
-              conditionToDisplayImage: "en",
-              part1Description:
-                "Two options are provided below to demonstrate different methods of responding to the email. As previously mentioned, you can choose one of the two options presented or a combination of the two. Note that the responses provided were not evaluated for how well they demonstrate the competency targeted in the email. They are presented here only to illustrate how to use each of the two ways of responding.",
-              part2Title: "Option 1 – Sending an email with Reasons for Action",
-              part3Title: "Option 2 – Adding tasks to task list with Reasons for Action"
-            }
+              "After sending an email or adding a task, you will be able to provide a justification in the “Reasons for Action” section. Here, you can explain why you took a specific action in response to a situation if you feel the need to provide additional information. Filling out the Reasons for Action section is optional. Note that you may decide to add Reasons for Action when responding to some emails and not others. This also applies for tasks in the task list. In addition, if you add Reasons for Action, you may choose to clarify only certain actions while others may not require additional explanations."
           }
+        },
+        testExamples: {
+          title: "Test examples",
+          para1: "Example of an email and ways of responding",
+          part1Title: "Original email",
+          conditionToDisplayImage: "en",
+          part1Description:
+            "Two options are provided below to demonstrate different methods of responding to the email. As previously mentioned, you can choose one of the two options presented or a combination of the two. Note that the responses provided were not evaluated for how well they demonstrate the competency targeted in the email. They are presented here only to illustrate how to use each of the two ways of responding.",
+          part2Title: "Option 1 – Sending an email with Reasons for Action",
+          part3Title: "Option 2 – Adding tasks to task list with Reasons for Action"
         },
         evaluation: {
           title: "Evaluation",
@@ -480,19 +481,20 @@ let LOCALIZE = new LocalizedStrings({
           step2Section: {
             title: "Étape 2 — Ajouter une justification des mesures prises (facultatif)",
             description:
-              "Après avoir envoyé un courriel ou ajouté une tâche, vous avez la possibilité d’expliquer votre raisonnement dans la section « Justification des mesures prises ». Vous pouvez expliquer dans cette section pourquoi vous avez pris une ou des mesures pour gérer la situation présentée dans le courriel en question. Remplir la section « Justification des mesures prises » est facultatif. Notez que vous pouvez décider d’ajouter une « Justification des mesures prises » lorsque vous répondez à certains courriels, mais pas pour d’autres. Ceci est également vrai pour les tâches dans la liste de tâches. De plus, si vous ajoutez une « Justification des mesures prises », vous pouvez choisir de justifier certaines des mesures prises tandis que d’autres ne nécessitent pas d’explications supplémentaires.",
-            example: {
-              conditionToDisplayImage: "fr",
-              title: "Exemple de courriel et façons de répondre",
-              part1Title: "Courriel original",
-              part1Description:
-                "Vous trouverez ci-dessous deux façons différentes de répondre au courriel. Comme il est mentionné précédemment, vous pouvez choisir l’une ou l’autre des deux options présentées ou combiner les deux. Veuillez noter que les réponses fournies n’ont pas été évaluées pour déterminer la mesure dans laquelle elles démontrent la compétence ciblée dans le courriel. Elles sont présentées ici uniquement pour illustrer comment utiliser chacune des deux façons de répondre.",
-              part2Title:
-                "Option 1 – Envoyer un courriel renfermant une justification des mesures prises",
-              part3Title:
-                "Option 2 – Ajouter des tâches à la liste de tâches et l’accompagner d’une justification des mesures prises"
-            }
+              "Après avoir envoyé un courriel ou ajouté une tâche, vous avez la possibilité d’expliquer votre raisonnement dans la section « Justification des mesures prises ». Vous pouvez expliquer dans cette section pourquoi vous avez pris une ou des mesures pour gérer la situation présentée dans le courriel en question. Remplir la section « Justification des mesures prises » est facultatif. Notez que vous pouvez décider d’ajouter une « Justification des mesures prises » lorsque vous répondez à certains courriels, mais pas pour d’autres. Ceci est également vrai pour les tâches dans la liste de tâches. De plus, si vous ajoutez une « Justification des mesures prises », vous pouvez choisir de justifier certaines des mesures prises tandis que d’autres ne nécessitent pas d’explications supplémentaires."
           }
+        },
+        testExamples: {
+          conditionToDisplayImage: "fr",
+          title: "FR Test examples",
+          para1: "Exemple de courriel et façons de répondre",
+          part1Title: "Courriel original",
+          part1Description:
+            "Vous trouverez ci-dessous deux façons différentes de répondre au courriel. Comme il est mentionné précédemment, vous pouvez choisir l’une ou l’autre des deux options présentées ou combiner les deux. Veuillez noter que les réponses fournies n’ont pas été évaluées pour déterminer la mesure dans laquelle elles démontrent la compétence ciblée dans le courriel. Elles sont présentées ici uniquement pour illustrer comment utiliser chacune des deux façons de répondre.",
+          part2Title:
+            "Option 1 – Envoyer un courriel renfermant une justification des mesures prises",
+          part3Title:
+            "Option 2 – Ajouter des tâches à la liste de tâches et l’accompagner d’une justification des mesures prises"
         },
         evaluation: {
           title: "Évaluation",
