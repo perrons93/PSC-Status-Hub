@@ -306,19 +306,20 @@ let LOCALIZE = new LocalizedStrings({
         },
         quitTestPopupBox: {
           title: "Are you sure you want to quit this test?",
-          error: {
-            title: "Warning! All answers will be deleted.",
+          warning: {
+            title: "Warning! Once you exit the test, you will not be able to get back in.",
             message:
-              "All the work in this session will be lost if you quit this test. You will not be able to recover your answers, and will forfeit this assessment. You may be re-tested at a later time."
+              "You will not be able to recover your answers, and will be withdrawn from this test session. You may be retested at a later time."
           },
           descriptionPart1:
-            "You are about to withdraw from this test. By proceeding, you acknowledge and consent to the following:",
+            "You are about to withdraw from this test. By proceeding, you acknowledge the following:",
           checkboxOne: "I voluntarily withdraw from this examination",
-          checkboxTwo: "I do not wish to have my test scored",
+          checkboxTwo: "my test will not be scored",
           checkboxThree:
             "I am aware that the retest period for this test may apply, should I wish to write this test again",
           descriptionPart2:
-            'If you are certain that you want to quit this session, click the "Quit test" button. You will be exited out of this test session and provided instructions to complete your withdrawal.'
+            "If you are certain that you want to quit this session, click the “Quit test” button. You will be exited out of this test session and provided instructions to complete your withdrawal.",
+          descriptionPart3: "Are you sure you want to quit this test?"
         }
       }
     },
@@ -340,7 +341,7 @@ let LOCALIZE = new LocalizedStrings({
       startTest: "Start test",
       submitTestButton: "Submit test",
       quitTest: "Quit Test",
-      returnToTest: "Return to test",
+      returnToTest: "Return to Test",
       passStatus: "Pass",
       failStatus: "Fail",
       enabled: "Enabled",
@@ -665,20 +666,22 @@ let LOCALIZE = new LocalizedStrings({
             'FR If you are ready to send your test in for scoring, click the "Submit test" button. You will be exited out of this test session and provided further instructions'
         },
         quitTestPopupBox: {
-          title: "FR Are you sure you want to quit this test?",
-          error: {
-            title: "FR Warning! All answers will be deleted.",
+          title: "Souhaitez-vous mettre fin à cette séance de test?",
+          warning: {
+            title:
+              "Avertissement : une fois la séance de test terminée, vous ne pourrez plus y retourner.",
             message:
-              "FR All the work in this session will be lost if you quit this test. You will not be able to recover your answers, and will forfeit this assessment. You may be re-tested at a later time."
+              "Vous ne pourrez pas récupérer vos réponses et n’aurez plus accès à la séance de test. Vous pourrez reprendre le test à une date ultérieure."
           },
           descriptionPart1:
-            "FR You are about to withdraw from this test. By proceeding, you acknowledge and consent to the following:",
-          checkboxOne: "FR I voluntarily withdraw from this examination",
-          checkboxTwo: "FR I do not wish to have my test scored",
+            "Vous êtes sur le point de mettre fin à la séance de test. Ce faisant, vous affirmez et reconnaissez :",
+          checkboxOne: "je me retire volontairement de ce test;",
+          checkboxTwo: "mon test ne sera pas noté;",
           checkboxThree:
-            "FR I am aware that the retest period for this test may apply, should I wish to write this test again",
+            "je suis conscient(e) que la période d'attente pour ce test peut s’appliquer, si je veux écrire ce test de nouveau dans le futur.",
           descriptionPart2:
-            'FR If you are certain that you want to quit this session, click the "Quit test" button. You will be exited out of this test session and provided instructions to complete your withdrawal.'
+            "Si vous êtes certain(e) de vouloir mettre fin à cette séance, cliquez sur le bouton « Quitter la séance test ». La séance de test sera fermée et vous recevrez des instructions sur la façon de vous retirer.",
+          descriptionPart3: "Souhaitez-vous mettre fin à cette séance de test?"
         }
       }
     },
@@ -699,8 +702,8 @@ let LOCALIZE = new LocalizedStrings({
       backButton: "Retour",
       startTest: "Commencer le test",
       submitTestButton: "Soumettre le test",
-      quitTest: "Quitter le test",
-      returnToTest: "Retour au test",
+      quitTest: "Quitter la séance de test",
+      returnToTest: "Retourner à la séance",
       passStatus: "Réussi",
       failStatus: "Échoue",
       enabled: "Activé",

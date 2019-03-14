@@ -160,8 +160,8 @@ class Emib extends Component {
               <div>
                 <SystemMessage
                   messageType={MESSAGE_TYPE.error}
-                  title={LOCALIZE.emibTest.testFooter.quitTestPopupBox.error.title}
-                  message={LOCALIZE.emibTest.testFooter.quitTestPopupBox.error.message}
+                  title={LOCALIZE.emibTest.testFooter.quitTestPopupBox.warning.title}
+                  message={LOCALIZE.emibTest.testFooter.quitTestPopupBox.warning.message}
                 />
               </div>
               <p className="font-weight-bold">
@@ -188,6 +188,9 @@ class Emib extends Component {
               <hr style={styles.hr} />
               <p className="font-weight-bold">
                 {LOCALIZE.emibTest.testFooter.quitTestPopupBox.descriptionPart2}
+              </p>
+              <p className="font-weight-bold">
+                {LOCALIZE.emibTest.testFooter.quitTestPopupBox.descriptionPart3}
               </p>
             </div>
           }
