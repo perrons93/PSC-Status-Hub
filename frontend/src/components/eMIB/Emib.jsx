@@ -11,7 +11,6 @@ import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
 import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
-import "../../css/emib.css";
 
 const PAGES = {
   preTest: "preTest",
