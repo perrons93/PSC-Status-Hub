@@ -299,10 +299,10 @@ let LOCALIZE = new LocalizedStrings({
           warning: {
             title: "Warning! All draft items will not be saved.",
             message:
-              "All draft emails, tasks and everything in the notepad will not be submitted with the test for scoring. Review drafts before submitting the test"
+              "All draft emails and any notes in the notepad will not be submitted with the test for scoring. Review draft emails and the notepad before submitting the test."
           },
           description:
-            'If you are ready to send your test in for scoring, click the "Submit test" button. You will be exited out of this test session and provided further instructions'
+            "If you are ready to send your test in for scoring, click the “Submit test” button. You will be exited out of this test session and provided further instructions."
         },
         quitTestPopupBox: {
           title: "Are you sure you want to quit this test?",
@@ -656,14 +656,14 @@ let LOCALIZE = new LocalizedStrings({
       //Test Footer
       testFooter: {
         submitTestPopupBox: {
-          title: "Confirmer la soumission du test?",
+          title: "Confirmer l’envoi du test?",
           warning: {
-            title: "FR Warning! All draft items will not be saved.",
+            title: "Avertissement : aucun brouillon ne sera sauvegardé.",
             message:
-              "FR All draft emails, tasks and everything in the notepad will not be submitted with the test for scoring. Review drafts before submitting the test"
+              "Les ébauches de courriels et le contenu du bloc-notes ne seront pas envoyés avec le test pour la notation. Passez en revue les ébauches de courriels et le bloc-notes avant d’envoyer le test."
           },
           description:
-            'FR If you are ready to send your test in for scoring, click the "Submit test" button. You will be exited out of this test session and provided further instructions'
+            "Si vous êtes prêt(e) à envoyer votre test pour la notation, cliquez sur le bouton « Envoyer le test ». La séance de test sera fermée et vous recevrez d’autres instructions."
         },
         quitTestPopupBox: {
           title: "Souhaitez-vous mettre fin à cette séance de test?",
@@ -701,7 +701,7 @@ let LOCALIZE = new LocalizedStrings({
       nextButton: "Suivant",
       backButton: "Retour",
       startTest: "Commencer le test",
-      submitTestButton: "Soumettre le test",
+      submitTestButton: "Envoyer le test",
       quitTest: "Quitter la séance de test",
       returnToTest: "Retourner à la séance",
       passStatus: "Réussi",
