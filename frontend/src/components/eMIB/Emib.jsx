@@ -9,14 +9,21 @@ import TipsOnTest from "./TipsOnTest";
 import TestInstructions from "./TestInstructions";
 import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
-import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
+import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
-import "../../css/emib.css";
 
 const PAGES = {
   preTest: "preTest",
   emibTabs: "emibTabs",
   confirm: "confirm"
+};
+
+const styles = {
+  hr: {
+    width: "100%",
+    borderTop: "2px solid #96a8b2",
+    margin: "12px 0 0 0"
+  }
 };
 
 //Returns array where each item indicates specifications related to How To Page including the title and the body
@@ -33,10 +40,20 @@ export const getInstructionContent = () => {
   ];
 };
 
+const quitConditions = () => {
+  return [
+    { text: LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne, checked: false },
+    { text: LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxTwo, checked: false },
+    { text: LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxThree, checked: false }
+  ];
+};
+
 class Emib extends Component {
   state = {
     curPage: PAGES.preTest,
-    showPopupBox: false
+    showSubmitPopup: false,
+    showQuitPopup: false,
+    quitConditions: quitConditions()
   };
 
   changePage = () => {
@@ -53,16 +70,38 @@ class Emib extends Component {
     }
   };
 
-  openPopup = () => {
-    this.setState({ showPopupBox: true });
+  openSubmitPopup = () => {
+    this.setState({ showSubmitPopup: true });
   };
 
   closePopup = () => {
-    this.setState({ showPopupBox: false });
+    this.setState({ showSubmitPopup: false, showQuitPopup: false });
+    //reset all checkbox states on close
+    this.resetCheckboxStates();
+  };
+
+  openQuitPopup = () => {
+    this.setState({ showQuitPopup: true });
+  };
+
+  resetCheckboxStates = () => {
+    this.setState({ quitConditions: quitConditions() });
+  };
+
+  toggleCheckbox = id => {
+    let updatedQuitConditions = Array.from(this.state.quitConditions);
+    updatedQuitConditions[id].checked = !updatedQuitConditions[id].checked;
+    this.setState({ quitConditions: updatedQuitConditions });
   };
 
   render() {
     const SPECS = getInstructionContent();
+    const submitButtonState =
+      this.state.quitConditions[0].checked &&
+      this.state.quitConditions[1].checked &&
+      this.state.quitConditions[2].checked
+        ? BUTTON_STATE.enabled
+        : BUTTON_STATE.disabled;
     return (
       <div className="app">
         <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
@@ -85,10 +124,12 @@ class Emib extends Component {
           {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
           {this.state.curPage === PAGES.confirm && <Confirmation />}
         </ContentContainer>
-        {this.state.curPage === PAGES.emibTabs && <TestFooter submitTest={this.openPopup} />}
+        {this.state.curPage === PAGES.emibTabs && (
+          <TestFooter submitTest={this.openSubmitPopup} quitTest={this.openQuitPopup} />
+        )}
 
         <PopupBox
-          show={this.state.showPopupBox}
+          show={this.state.showSubmitPopup}
           handleClose={this.closePopup}
           title={LOCALIZE.emibTest.testFooter.submitTestPopupBox.title}
           description={
@@ -108,6 +149,54 @@ class Emib extends Component {
           rightButtonType={BUTTON_TYPE.primary}
           rightButtonTitle={LOCALIZE.commons.submitTestButton}
           rightButtonAction={this.changePage}
+        />
+
+        <PopupBox
+          show={this.state.showQuitPopup}
+          handleClose={this.closePopup}
+          title={LOCALIZE.emibTest.testFooter.quitTestPopupBox.title}
+          description={
+            <div>
+              <div>
+                <SystemMessage
+                  messageType={MESSAGE_TYPE.error}
+                  title={LOCALIZE.emibTest.testFooter.quitTestPopupBox.error.title}
+                  message={LOCALIZE.emibTest.testFooter.quitTestPopupBox.error.message}
+                />
+              </div>
+              <p className="font-weight-bold">
+                {LOCALIZE.emibTest.testFooter.quitTestPopupBox.descriptionPart1}
+              </p>
+              <div>
+                {this.state.quitConditions.map((condition, id) => {
+                  return (
+                    <div key={id} className="custom-control custom-checkbox">
+                      <input
+                        type="checkbox"
+                        className="custom-control-input"
+                        id={id}
+                        checked={condition.checked}
+                        onChange={() => this.toggleCheckbox(id)}
+                      />
+                      <label className="custom-control-label" htmlFor={id}>
+                        {condition.text}
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+              <hr style={styles.hr} />
+              <p className="font-weight-bold">
+                {LOCALIZE.emibTest.testFooter.quitTestPopupBox.descriptionPart2}
+              </p>
+            </div>
+          }
+          leftButtonType={BUTTON_TYPE.danger}
+          leftButtonTitle={LOCALIZE.commons.quitTest}
+          leftButtonAction={this.changePage}
+          leftButtonState={submitButtonState}
+          rightButtonType={BUTTON_TYPE.primary}
+          rightButtonTitle={LOCALIZE.commons.returnToTest}
         />
       </div>
     );

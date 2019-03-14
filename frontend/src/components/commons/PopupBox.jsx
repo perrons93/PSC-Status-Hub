@@ -4,7 +4,13 @@ import PropTypes from "prop-types";
 
 export const BUTTON_TYPE = {
   primary: "btn btn-primary",
-  secondary: "btn btn-secondary"
+  secondary: "btn btn-secondary",
+  danger: "btn btn-danger"
+};
+
+export const BUTTON_STATE = {
+  disabled: true,
+  enabled: false
 };
 
 const styles = {
@@ -58,10 +64,12 @@ class PopupBox extends Component {
       description: PropTypes.string.isRequired,
       leftButtonType: PropTypes.string,
       leftButtonTitle: PropTypes.string,
+      leftButtonState: PropTypes.string,
       leftButtonAction: PropTypes.func,
       rightButtonType: PropTypes.string,
       rightButtonTitle: PropTypes.string,
-      rightButtonAction: PropTypes.func
+      rightButtonAction: PropTypes.func,
+      rightButtonState: PropTypes.string
     };
   }
 
@@ -87,8 +95,10 @@ class PopupBox extends Component {
       description,
       leftButtonType,
       leftButtonTitle,
+      leftButtonState,
       rightButtonType,
-      rightButtonTitle
+      rightButtonTitle,
+      rightButtonState
     } = this.props;
 
     return (
@@ -106,6 +116,7 @@ class PopupBox extends Component {
                 {leftButtonType && leftButtonTitle && (
                   <div style={styles.leftBtnLocation}>
                     <button
+                      disabled={leftButtonState}
                       id="unit-test-left-btn-title"
                       type="button"
                       className={leftButtonType}
@@ -120,6 +131,7 @@ class PopupBox extends Component {
                 {rightButtonType && rightButtonTitle && (
                   <div style={styles.rightBtnLocation}>
                     <button
+                      disabled={rightButtonState}
                       id="unit-test-right-btn-title"
                       type="button"
                       className={rightButtonType}

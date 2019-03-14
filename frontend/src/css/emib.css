@@ -1,8 +1,0 @@
-/*
-emib.css is used for the Emib.jsx styles that cannot be added inside a const
-*/
-
-/* overriding the modal content background color */
-.modal-content {
-  background-color: #fafafa;
-}
