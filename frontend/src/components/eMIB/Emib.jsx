@@ -41,14 +41,20 @@ export const getInstructionContent = () => {
   ];
 };
 
+const quitConditions = () => {
+  return [
+    { text: LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne, checked: false },
+    { text: LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxTwo, checked: false },
+    { text: LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxThree, checked: false }
+  ];
+};
+
 class Emib extends Component {
   state = {
     curPage: PAGES.preTest,
     showSubmitPopup: false,
     showQuitPopup: false,
-    firstCheckboxChecked: false,
-    secondCheckboxChecked: false,
-    thirdCheckboxChecked: false
+    quitConditions: quitConditions()
   };
 
   changePage = () => {
@@ -79,55 +85,22 @@ class Emib extends Component {
     this.setState({ showQuitPopup: true });
   };
 
-  updateFirstCheck = () => {
-    if (this.state.firstCheckboxChecked === true) {
-      this.setState({
-        firstCheckboxChecked: false
-      });
-    } else {
-      this.setState({
-        firstCheckboxChecked: true
-      });
-    }
-  };
-
-  updateSecondCheck = () => {
-    if (this.state.secondCheckboxChecked === true) {
-      this.setState({
-        secondCheckboxChecked: false
-      });
-    } else {
-      this.setState({
-        secondCheckboxChecked: true
-      });
-    }
-  };
-
-  updateThirdCheck = () => {
-    if (this.state.thirdCheckboxChecked === true) {
-      this.setState({
-        thirdCheckboxChecked: false
-      });
-    } else {
-      this.setState({
-        thirdCheckboxChecked: true
-      });
-    }
-  };
-
   resetCheckboxStates = () => {
-    this.setState({
-      firstCheckboxChecked: false,
-      secondCheckboxChecked: false,
-      thirdCheckboxChecked: false
-    });
+    this.setState({ quitConditions: quitConditions() });
+  };
+
+  toggleCheckbox = id => {
+    let updatedQuitConditions = Array.from(this.state.quitConditions);
+    updatedQuitConditions[id].checked = !updatedQuitConditions[id].checked;
+    this.setState({ quitConditions: updatedQuitConditions });
   };
 
   render() {
-    const { firstCheckboxChecked, secondCheckboxChecked, thirdCheckboxChecked } = this.state;
     const SPECS = getInstructionContent();
     const submitButtonState =
-      firstCheckboxChecked && secondCheckboxChecked && thirdCheckboxChecked
+      this.state.quitConditions[0].checked &&
+      this.state.quitConditions[1].checked &&
+      this.state.quitConditions[2].checked
         ? BUTTON_STATE.enabled
         : BUTTON_STATE.disabled;
     return (
@@ -196,44 +169,22 @@ class Emib extends Component {
                 {LOCALIZE.emibTest.testFooter.quitTestPopupBox.descriptionPart1}
               </p>
               <div>
-                <div className="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input"
-                    id="customCheck1"
-                    checked={firstCheckboxChecked}
-                    onChange={this.updateFirstCheck}
-                  />
-                  <label className="custom-control-label" htmlFor="customCheck1">
-                    {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne}
-                  </label>
-                </div>
-
-                <div className="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input"
-                    id="customCheck2"
-                    checked={secondCheckboxChecked}
-                    onChange={this.updateSecondCheck}
-                  />
-                  <label className="custom-control-label" htmlFor="customCheck2">
-                    {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxTwo}
-                  </label>
-                </div>
-
-                <div className="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input"
-                    id="customCheck3"
-                    checked={thirdCheckboxChecked}
-                    onChange={this.updateThirdCheck}
-                  />
-                  <label className="custom-control-label" htmlFor="customCheck3">
-                    {LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxThree}
-                  </label>
-                </div>
+                {this.state.quitConditions.map((condition, id) => {
+                  return (
+                    <div key={id} className="custom-control custom-checkbox">
+                      <input
+                        type="checkbox"
+                        className="custom-control-input"
+                        id={id}
+                        checked={condition.checked}
+                        onChange={() => this.toggleCheckbox(id)}
+                      />
+                      <label className="custom-control-label" htmlFor={id}>
+                        {condition.text}
+                      </label>
+                    </div>
+                  );
+                })}
               </div>
               <hr style={styles.hr} />
               <p className="font-weight-bold">
