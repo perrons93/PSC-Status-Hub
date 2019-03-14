@@ -58,7 +58,6 @@ class Emib extends Component {
     firstCheckboxChecked: false,
     secondCheckboxChecked: false,
     thirdCheckboxChecked: false,
-    checkboxState: BUTTON_STATE.disabled,
     firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected,
     secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected,
     thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected
@@ -97,8 +96,7 @@ class Emib extends Component {
     if (this.state.firstCheckboxChecked === true) {
       this.setState({
         firstCheckboxChecked: false,
-        firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected,
-        checkboxState: BUTTON_STATE.disabled
+        firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxNotSelected
       });
       //checkbox = unchecked
     } else {
@@ -106,9 +104,6 @@ class Emib extends Component {
         firstCheckboxChecked: true,
         firstCheckboxStyle: CHECKBOX_CLASS.firstCheckboxSelected
       });
-      if (this.state.secondCheckboxChecked === true && this.state.thirdCheckboxChecked === true) {
-        this.setState({ checkboxState: BUTTON_STATE.enabled });
-      }
     }
   };
 
@@ -117,8 +112,7 @@ class Emib extends Component {
     if (this.state.secondCheckboxChecked === true) {
       this.setState({
         secondCheckboxChecked: false,
-        secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected,
-        checkboxState: BUTTON_STATE.disabled
+        secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected
       });
       //checkbox = unchecked
     } else {
@@ -126,9 +120,6 @@ class Emib extends Component {
         secondCheckboxChecked: true,
         secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxSelected
       });
-      if (this.state.firstCheckboxChecked === true && this.state.thirdCheckboxChecked === true) {
-        this.setState({ checkboxState: BUTTON_STATE.enabled });
-      }
     }
   };
 
@@ -137,8 +128,7 @@ class Emib extends Component {
     if (this.state.thirdCheckboxChecked === true) {
       this.setState({
         thirdCheckboxChecked: false,
-        thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected,
-        checkboxState: BUTTON_STATE.disabled
+        thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected
       });
       //checkbox = unchecked
     } else {
@@ -146,9 +136,6 @@ class Emib extends Component {
         thirdCheckboxChecked: true,
         thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxSelected
       });
-      if (this.state.firstCheckboxChecked === true && this.state.secondCheckboxChecked === true) {
-        this.setState({ checkboxState: BUTTON_STATE.enabled });
-      }
     }
   };
 
@@ -162,14 +149,17 @@ class Emib extends Component {
       secondCheckboxStyle: CHECKBOX_CLASS.secondCheckboxNotSelected,
       /* third checkbox */
       thirdCheckboxChecked: false,
-      thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected,
-      /* //disable quit test button */
-      checkboxState: BUTTON_STATE.disabled
+      thirdCheckboxStyle: CHECKBOX_CLASS.thirdCheckboxNotSelected
     });
   };
 
   render() {
+    const { firstCheckboxChecked, secondCheckboxChecked, thirdCheckboxChecked } = this.state;
     const SPECS = getInstructionContent();
+    let submitButtonState = BUTTON_STATE.disabled;
+    if (firstCheckboxChecked && secondCheckboxChecked && thirdCheckboxChecked) {
+      submitButtonState = BUTTON_STATE.enabled;
+    }
     return (
       <div className="app">
         <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
@@ -268,7 +258,7 @@ class Emib extends Component {
           leftButtonType={BUTTON_TYPE.danger}
           leftButtonTitle={LOCALIZE.commons.quitTest}
           leftButtonAction={this.changePage}
-          leftButtonState={this.state.checkboxState}
+          leftButtonState={submitButtonState}
           rightButtonType={BUTTON_TYPE.primary}
           rightButtonTitle={LOCALIZE.commons.returnToTest}
         />
