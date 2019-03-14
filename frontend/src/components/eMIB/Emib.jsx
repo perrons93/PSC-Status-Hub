@@ -156,10 +156,10 @@ class Emib extends Component {
   render() {
     const { firstCheckboxChecked, secondCheckboxChecked, thirdCheckboxChecked } = this.state;
     const SPECS = getInstructionContent();
-    let submitButtonState = BUTTON_STATE.disabled;
-    if (firstCheckboxChecked && secondCheckboxChecked && thirdCheckboxChecked) {
-      submitButtonState = BUTTON_STATE.enabled;
-    }
+    const submitButtonState =
+      firstCheckboxChecked && secondCheckboxChecked && thirdCheckboxChecked
+        ? BUTTON_STATE.enabled
+        : BUTTON_STATE.disabled;
     return (
       <div className="app">
         <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
