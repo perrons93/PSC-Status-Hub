@@ -85,10 +85,16 @@ class OrganizationalStructure extends Component {
                   src={emib_sample_test_example_org_chart_fr}
                   alt={LOCALIZE.emibTest.background.organizationalStructure.orgChart.desciption}
                   style={styles.testImage}
+                  longdesc="#org-image-description"
                 />
               )}
             </p>
-            <button onClick={this.openPopup} className="btn btn-secondary" style={styles.button}>
+            <button
+              id="org-image-description"
+              onClick={this.openPopup}
+              className="btn btn-secondary"
+              style={styles.button}
+            >
               {LOCALIZE.emibTest.background.organizationalStructure.orgChart.link}
             </button>
           </div>

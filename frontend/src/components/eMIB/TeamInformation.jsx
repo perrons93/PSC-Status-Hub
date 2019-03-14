@@ -61,6 +61,7 @@ class TeamInformation extends Component {
                   src={emib_sample_test_example_team_chart_en}
                   alt={LOCALIZE.emibTest.background.teamInformation.teamChart.desciption}
                   style={styles.testImage}
+                  longdesc="#team-image-description"
                 />
               )}
               {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
@@ -72,7 +73,12 @@ class TeamInformation extends Component {
                 />
               )}
             </p>
-            <button onClick={this.openPopup} className="btn btn-secondary" style={styles.button}>
+            <button
+              id="team-image-description"
+              onClick={this.openPopup}
+              className="btn btn-secondary"
+              style={styles.button}
+            >
               {LOCALIZE.emibTest.background.teamInformation.teamChart.link}
             </button>
           </div>
