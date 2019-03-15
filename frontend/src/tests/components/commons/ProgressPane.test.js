@@ -27,11 +27,15 @@ it("renders when fourth node selected", () => {
   generateAndTestCore(3);
 });
 
+// Generic function to create a progressPane based on specs, then run checks with test core
 function generateAndTestCore(selected) {
   const wrapper = mount(<ProgressPane progressSpecs={PROGRESS} currentNode={selected} />);
   testCore(selected, wrapper);
 }
 
+// Generic function to verify that within the wrapper the following occurs:
+// - 4 progress-nodes are rendererd
+// - only the selected node has the active class
 function testCore(selected, wrapper) {
   for (let i = 0; i < 4; i++) {
     const check = wrapper
@@ -49,6 +53,7 @@ function testCore(selected, wrapper) {
   }
 }
 
+// Similar to the above tests, but includes simulated clicks to verify that the selected node changes
 it("can change nodes by clicking on them", () => {
   const wrapper = mount(<ProgressPane progressSpecs={PROGRESS} currentNode={1} />);
   testCore(1, wrapper);
