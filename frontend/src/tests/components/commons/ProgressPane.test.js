@@ -34,23 +34,20 @@ function generateAndTestCore(selected) {
 }
 
 function testCore(selected, wrapper) {
-  console.log(selected);
-  const node1 = (
-    <ProgressNode id={0} text={"node 1"} current={selected} clickFunction={emptyFunc} />
-  );
-  const node2 = (
-    <ProgressNode id={1} text={"node 2"} current={selected} clickFunction={emptyFunc} />
-  );
-  const node3 = (
-    <ProgressNode id={2} text={"node 3"} current={selected} clickFunction={emptyFunc} />
-  );
-  const node4 = (
-    <ProgressNode id={3} text={"node 4"} current={selected} clickFunction={emptyFunc} />
-  );
-  expect(wrapper.contains(node1)).toEqual(true);
-  expect(wrapper.contains(node2)).toEqual(true);
-  expect(wrapper.contains(node3)).toEqual(true);
-  expect(wrapper.contains(node4)).toEqual(true);
+  for (let i = 0; i < 4; i++) {
+    const check = wrapper
+      .find(".progress-node")
+      .at(i)
+      .hasClass("active");
+    if (i === selected) {
+      // if the current one is selected
+      expect(check).toEqual(true);
+    }
+    if (i !== selected) {
+      // if not
+      expect(check).toEqual(false);
+    }
+  }
 }
 
 it("can change nodes by clicking on them", () => {
