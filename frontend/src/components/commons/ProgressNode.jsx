@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+const styles = {
+  clickable: {
+    cursor: "pointer"
+  }
+};
+
 class ProgressNode extends Component {
   static propTypes = {
     id: PropTypes.number.isRequired,
@@ -11,7 +17,11 @@ class ProgressNode extends Component {
   render() {
     if (this.props.id < this.props.current)
       return (
-        <li className="complete" onClick={() => this.props.clickFunction(this.props.id)}>
+        <li
+          style={styles.clickable}
+          className="complete"
+          onClick={() => this.props.clickFunction(this.props.id)}
+        >
           {this.props.text}
           <span className="sr-only">completed</span>
         </li>
@@ -19,6 +29,7 @@ class ProgressNode extends Component {
     if (this.props.id === this.props.current)
       return (
         <li
+          style={styles.clickable}
           className="active"
           aria-current="true"
           onClick={() => this.props.clickFunction(this.props.id)}
@@ -28,7 +39,7 @@ class ProgressNode extends Component {
       );
     if (this.props.id > this.props.current)
       return (
-        <li onClick={() => this.props.clickFunction(this.props.id)}>
+        <li style={styles.clickable} onClick={() => this.props.clickFunction(this.props.id)}>
           {this.props.text}
           <span className="sr-only">not completed</span>
         </li>
