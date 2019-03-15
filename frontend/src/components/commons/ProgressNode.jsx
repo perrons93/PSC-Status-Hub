@@ -19,7 +19,7 @@ class ProgressNode extends Component {
       return (
         <li
           style={styles.clickable}
-          className="complete"
+          className="complete progress-node"
           onClick={() => this.props.clickFunction(this.props.id)}
         >
           {this.props.text}
@@ -30,7 +30,7 @@ class ProgressNode extends Component {
       return (
         <li
           style={styles.clickable}
-          className="active"
+          className="active progress-node"
           aria-current="true"
           onClick={() => this.props.clickFunction(this.props.id)}
         >
@@ -39,7 +39,11 @@ class ProgressNode extends Component {
       );
     if (this.props.id > this.props.current)
       return (
-        <li style={styles.clickable} onClick={() => this.props.clickFunction(this.props.id)}>
+        <li
+          className="progress-node"
+          style={styles.clickable}
+          onClick={() => this.props.clickFunction(this.props.id)}
+        >
           {this.props.text}
           <span className="sr-only">not completed</span>
         </li>
@@ -48,3 +52,5 @@ class ProgressNode extends Component {
 }
 
 export default ProgressNode;
+
+export { styles };

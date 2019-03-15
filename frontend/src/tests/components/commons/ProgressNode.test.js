@@ -1,11 +1,15 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ProgressNode from "../../../components/commons/ProgressNode";
+import ProgressNode, { styles } from "../../../components/commons/ProgressNode";
+
+const emptyFunc = function(arg) {};
 
 it("renders passed node", () => {
-  const wrapper = shallow(<ProgressNode id={1} text={"Tab 1"} current={2} />);
+  const wrapper = shallow(
+    <ProgressNode id={1} text={"Tab 1"} current={2} clickFunction={emptyFunc} />
+  );
   const passedNode = (
-    <li className="complete">
+    <li style={styles.clickable} className="complete progress-node" onClick={emptyFunc}>
       Tab 1<span className="sr-only">completed</span>
     </li>
   );
@@ -13,9 +17,11 @@ it("renders passed node", () => {
 });
 
 it("renders active node", () => {
-  const wrapper = shallow(<ProgressNode id={2} text={"Tab 2"} current={2} />);
+  const wrapper = shallow(
+    <ProgressNode id={2} text={"Tab 2"} current={2} clickFunction={emptyFunc} />
+  );
   const activeNode = (
-    <li className="active" aria-current="true">
+    <li style={styles.clickable} className="active progress-node" aria-current="true">
       Tab 2
     </li>
   );
@@ -23,9 +29,11 @@ it("renders active node", () => {
 });
 
 it("renders future node", () => {
-  const wrapper = shallow(<ProgressNode id={3} text={"Tab 3"} current={2} />);
+  const wrapper = shallow(
+    <ProgressNode id={3} text={"Tab 3"} current={2} clickFunction={emptyFunc} />
+  );
   const futureNode = (
-    <li>
+    <li className="progress-node" style={styles.clickable}>
       Tab 3<span className="sr-only">not completed</span>
     </li>
   );
