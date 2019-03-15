@@ -100,14 +100,16 @@ class Emib extends Component {
     this.setState({ quitConditions: updatedQuitConditions });
   };
 
+  isChecked = currentCheckbox => {
+    return currentCheckbox.checked;
+  };
+
   render() {
+    const { quitConditions } = this.state;
+    const allChecked = quitConditions.every(this.isChecked);
     const SPECS = getInstructionContent();
-    const submitButtonState =
-      this.state.quitConditions[0].checked &&
-      this.state.quitConditions[1].checked &&
-      this.state.quitConditions[2].checked
-        ? BUTTON_STATE.enabled
-        : BUTTON_STATE.disabled;
+
+    const submitButtonState = allChecked ? BUTTON_STATE.enabled : BUTTON_STATE.disabled;
     return (
       <div className="app">
         <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
