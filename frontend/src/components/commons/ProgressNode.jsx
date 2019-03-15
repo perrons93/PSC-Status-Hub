@@ -18,6 +18,7 @@ class ProgressNode extends Component {
     if (this.props.id < this.props.current)
       return (
         <li
+          id="unit-test-passed-node"
           style={styles.clickable}
           className="complete progress-node"
           onClick={() => this.props.clickFunction(this.props.id)}
@@ -29,6 +30,7 @@ class ProgressNode extends Component {
     if (this.props.id === this.props.current)
       return (
         <li
+          id="unit-test-active-node"
           style={styles.clickable}
           className="active progress-node"
           aria-current="true"
@@ -40,6 +42,7 @@ class ProgressNode extends Component {
     if (this.props.id > this.props.current)
       return (
         <li
+          id="unit-test-future-node"
           className="progress-node"
           style={styles.clickable}
           onClick={() => this.props.clickFunction(this.props.id)}
