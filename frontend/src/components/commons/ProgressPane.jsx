@@ -23,10 +23,6 @@ const styles = {
 };
 
 class ProgressPane extends Component {
-  constructor(props) {
-    super(props);
-    this.changeNode = this.changeNode.bind(this);
-  }
   static propTypes = {
     progressSpecs: PropTypes.array.isRequired,
     currentNode: PropTypes.number.isRequired,
@@ -39,10 +35,10 @@ class ProgressPane extends Component {
     currentBody: this.props.progressSpecs[this.props.currentNode].body
   };
 
-  changeNode(index) {
+  changeNode = index => {
     this.setState({ currentNode: index, currentBody: this.props.progressSpecs[index].body });
     scrollToTop();
-  }
+  };
 
   changeNodeBy(diff) {
     this.changeNode(this.state.currentNode + diff);
