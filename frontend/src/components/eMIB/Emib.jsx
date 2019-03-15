@@ -100,13 +100,13 @@ class Emib extends Component {
     this.setState({ quitConditions: updatedQuitConditions });
   };
 
-  allChecked = currentCheckbox => {
+  isChecked = currentCheckbox => {
     return currentCheckbox.checked;
   };
 
   render() {
     const { quitConditions } = this.state;
-    const allChecked = quitConditions.every(this.allChecked);
+    const allChecked = quitConditions.every(this.isChecked);
     const SPECS = getInstructionContent();
 
     const submitButtonState = allChecked ? BUTTON_STATE.enabled : BUTTON_STATE.disabled;
