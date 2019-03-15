@@ -55,5 +55,3 @@ class ProgressNode extends Component {
 }
 
 export default ProgressNode;
-
-export { styles };

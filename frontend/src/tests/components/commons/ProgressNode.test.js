@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import ProgressNode, { styles } from "../../../components/commons/ProgressNode";
+import ProgressNode from "../../../components/commons/ProgressNode";
 
 it("renders passed node", () => {
   const wrapper = mount(

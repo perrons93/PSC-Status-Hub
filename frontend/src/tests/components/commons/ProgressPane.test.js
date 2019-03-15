@@ -1,7 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
 import ProgressPane from "../../../components/commons/ProgressPane";
-import ProgressNode from "../../../components/commons/ProgressNode";
 
 const emptyFunc = function(arg) {};
 
