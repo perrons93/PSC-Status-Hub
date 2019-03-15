@@ -8242,6 +8242,11 @@ react-localization@^1.0.13:
     localized-strings "^0.2.00"
     react "^16.0.0"
 
+react-medium-image-zoom@^3.0.15:
+  version "3.0.15"
+  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-3.0.15.tgz#c566c08225cff9c7c6454fe66b570609ffa2991d"
+  integrity sha512-OJc6XXmSFr0ApniFdCL1TliP6BG9eQabkcahWA9CbHha3y2IJXo1aAsQs7Irc2Wcek/N9QCeAY4wTitoMg5iLg==
+
 react-overlays@^0.8.0:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.8.3.tgz#fad65eea5b24301cca192a169f5dddb0b20d3ac5"
