@@ -11,6 +11,7 @@ import emib_sample_test_example_team_chart_fr from "../../images/emib_sample_tes
 //TODO (fnormand): Put a zoomed image of better quality
 import emib_sample_test_example_team_chart_fr_zoomed from "../../images/emib_sample_test_example_team_chart_fr.png";
 import ImageZoom from "react-medium-image-zoom";
+import "../../css/react-medium-image-zoom.css";
 
 const styles = {
   testImage: {
@@ -67,11 +68,13 @@ class TeamInformation extends Component {
                   image={{
                     src: emib_sample_test_example_team_chart_en,
                     alt: LOCALIZE.emibTest.background.teamInformation.teamChart.desciption,
-                    style: styles.testImage
+                    style: styles.testImage,
+                    className: "ie-zoom-cursor"
                   }}
                   zoomImage={{
                     src: emib_sample_test_example_team_chart_en_zoomed,
-                    alt: LOCALIZE.emibTest.background.teamInformation.teamChart.desciption
+                    alt: LOCALIZE.emibTest.background.teamInformation.teamChart.desciption,
+                    className: "ie-zoom-cursor"
                   }}
                 />
               )}
@@ -82,11 +85,13 @@ class TeamInformation extends Component {
                   image={{
                     src: emib_sample_test_example_team_chart_fr,
                     alt: LOCALIZE.emibTest.background.teamInformation.teamChart.desciption,
-                    style: styles.testImage
+                    style: styles.testImage,
+                    className: "ie-zoom-cursor"
                   }}
                   zoomImage={{
                     src: emib_sample_test_example_team_chart_fr_zoomed,
-                    alt: LOCALIZE.emibTest.background.teamInformation.teamChart.desciption
+                    alt: LOCALIZE.emibTest.background.teamInformation.teamChart.desciption,
+                    className: "ie-zoom-cursor"
                   }}
                 />
               )}
