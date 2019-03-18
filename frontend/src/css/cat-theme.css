@@ -7,6 +7,11 @@ All component specific CSS lives in the React file with the component.
   text-align: center;
 }
 
+/* App header overridden class */
+.fixed-top {
+  z-index: 998;
+}
+
 /* Headers */
 
 /* h1: add green line underneath */

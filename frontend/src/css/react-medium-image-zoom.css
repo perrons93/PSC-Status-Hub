@@ -1,0 +1,8 @@
+/*
+react-medium-image-zoom.css is used to override the style of react-medium-image-zoom library
+*/
+
+/* for IE */
+.ie-zoom-cursor {
+  cursor: pointer;
+}
