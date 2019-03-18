@@ -8,6 +8,8 @@ import emib_sample_test_example_org_chart_en from "../../images/emib_sample_test
 //TODO (fnormand): Put a zoomed image of better quality
 import emib_sample_test_example_org_chart_en_zoomed from "../../images/emib_sample_test_example_org_chart_en.png";
 import emib_sample_test_example_org_chart_fr from "../../images/emib_sample_test_example_org_chart_fr.png";
+//TODO (fnormand): Put a zoomed image of better quality
+import emib_sample_test_example_org_chart_fr_zoomed from "../../images/emib_sample_test_example_org_chart_fr.png";
 import ImageZoom from "react-medium-image-zoom";
 
 const styles = {
@@ -97,7 +99,7 @@ class OrganizationalStructure extends Component {
                     style: styles.testImage
                   }}
                   zoomImage={{
-                    src: emib_sample_test_example_org_chart_fr,
+                    src: emib_sample_test_example_org_chart_fr_zoomed,
                     alt: LOCALIZE.emibTest.background.organizationalStructure.orgChart.desciption
                   }}
                 />
