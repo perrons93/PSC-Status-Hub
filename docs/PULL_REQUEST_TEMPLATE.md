@@ -25,8 +25,6 @@ Manual steps to reproduce this functionality:
 1.  Go to \_\_\_ page.
 2.  Click \_\_\_. Notice \_\_\_.
 
-Screenshot of unit tests run passing:
-
 # Checklist
 
 Applicable for all code changes.
@@ -36,6 +34,5 @@ Applicable for all code changes.
 - [ ] My changes generate no new compiler warnings
 - [ ] My changes generate no new accessibility errors and/or warnings
 - [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
 - [ ] I have researched WCAG2.1 accessibility standards and met them in this PR (can be navigated using a keyboard)
 - [ ] My changes look good on IE 10+, Firefox, and Chrome
