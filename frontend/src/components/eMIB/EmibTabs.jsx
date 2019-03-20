@@ -4,24 +4,17 @@ import Inbox from "./Inbox";
 import SideNavigation from "../commons/SideNavigation";
 import LOCALIZE from "../../text_resources";
 import TabNavigation from "../commons/TabNavigation";
-import { getInstructionContent } from "./Emib";
+import InTestInstructions from "./InTestInstructions";
 import Notepad from "../commons/Notepad";
 import "../../css/emib-tabs.css";
 
 class EmibTabs extends Component {
   render() {
-    const SPECS = getInstructionContent();
     const TABS = [
       {
         id: 0,
         tabName: LOCALIZE.emibTest.tabs.instructionsTabTitle,
-        body: (
-          <SideNavigation
-            navSpecs={SPECS}
-            currentNode={0}
-            menuName={LOCALIZE.ariaLabel.instructionsMenu}
-          />
-        )
+        body: <InTestInstructions />
       },
       {
         id: 1,
