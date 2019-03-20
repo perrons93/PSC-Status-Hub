@@ -1,0 +1,20 @@
+# Heroku
+
+(insert summary about heroku)
+
+See [SETUP.md](../SETUP.md) for sets on installing Heroku
+
+## Add Heroku to a git project
+
+(add online steps here)
+
+- Open a terminal with Heroku installed
+- Navigate into the repo
+- Run 'heroku create (insert-project-name) -> this creates a git remote called heroku
+- Create and add a heroku.yml file see tutorial [here](https://devcenter.heroku.com/articles/build-docker-images-heroku-yml#getting-started-existing-app)
+- Run 'heroku stack:set container'
+- Run 'git push heroku master'
+
+## .....
+
+'git push heroku master'

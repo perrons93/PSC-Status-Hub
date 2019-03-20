@@ -80,3 +80,15 @@ Ensure that you have docker and docker-compose installed on your machine, as wel
   - Make sure that the npm directory containing pa11y is part of the path system environment variable (usually "C:\Users\<name>\AppData\Roaming\npm")
     - Should have already been added during Snyk configuration (see above)
   - Click [here](https://github.com/pa11y/pa11y) to have more details about pa11y.
+
+* Heroku
+  - Create a Heroku account
+  - Install Heroku CLI from their site:
+    - https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+    - npm install is not recommended, see the "npm" header at the above link
+  - You will need to restart the shell
+  - Run 'heroku -v' to veriy that it has installed/configured properly
+  - Login to Heroku cli by running one of the following:
+    - 'heroku login' -> login with webbrowser pop up
+    - 'heroku login -i' -> login through the terminal
+  - See [heroku.md](docs/heroku.md) for more details on Heroku and how to use it
