@@ -23,3 +23,5 @@ See [SETUP.md](../SETUP.md) for sets on installing Heroku
 'heroku buildpacks:add heroku/python'
 
 Connect to github via heroku web ui
+
+check errors with 'heroku logs --tail' in command line
