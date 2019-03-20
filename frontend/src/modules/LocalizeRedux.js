@@ -24,4 +24,4 @@ const localize = (state = initialState, action) => {
 };
 
 export default localize;
-export { setLanguage };
+export { setLanguage, initialState };
