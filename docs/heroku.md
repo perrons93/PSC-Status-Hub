@@ -21,3 +21,5 @@ See [SETUP.md](../SETUP.md) for sets on installing Heroku
 
 'heroku buildpacks:add heroku/nodejs'
 'heroku buildpacks:add heroku/python'
+
+Connect to github via heroku web ui
