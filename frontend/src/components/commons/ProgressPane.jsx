@@ -35,10 +35,13 @@ class ProgressPane extends Component {
     currentBody: this.props.progressSpecs[this.props.currentNode].body
   };
 
-  changeNode(diff) {
-    const index = this.state.currentNode + diff;
+  changeNode = index => {
     this.setState({ currentNode: index, currentBody: this.props.progressSpecs[index].body });
     scrollToTop();
+  };
+
+  changeNodeBy(diff) {
+    this.changeNode(this.state.currentNode + diff);
   }
 
   render() {
@@ -54,6 +57,7 @@ class ProgressPane extends Component {
                     id={tab.id}
                     text={tab.text}
                     current={this.state.currentNode}
+                    clickFunction={this.changeNode}
                   />
                 ))}
               </ul>
@@ -66,7 +70,7 @@ class ProgressPane extends Component {
               <button
                 type="button"
                 className="btn btn-primary btn-wide"
-                onClick={() => this.changeNode(1)}
+                onClick={() => this.changeNodeBy(1)}
               >
                 {LOCALIZE.commons.nextButton}
               </button>
@@ -82,7 +86,7 @@ class ProgressPane extends Component {
               <button
                 type="button"
                 className="btn btn-secondary btn-wide"
-                onClick={() => this.changeNode(-1)}
+                onClick={() => this.changeNodeBy(-1)}
               >
                 {LOCALIZE.commons.backButton}
               </button>

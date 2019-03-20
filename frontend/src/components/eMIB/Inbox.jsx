@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import LOCALIZE from "../../text_resources";
 
+const styles = {
+  padding: {
+    padding: 20
+  }
+};
+
 class Inbox extends Component {
   render() {
     return (
-      <div>
+      <div style={styles.padding}>
         <h2>{LOCALIZE.emibTest.inboxPage.title}</h2>
         <h3>{LOCALIZE.emibTest.inboxPage.taskList}</h3>
         <h3>{LOCALIZE.emibTest.inboxPage.notePad}</h3>

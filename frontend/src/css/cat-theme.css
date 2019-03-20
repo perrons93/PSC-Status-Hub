@@ -7,6 +7,11 @@ All component specific CSS lives in the React file with the component.
   text-align: center;
 }
 
+/* App header overridden class */
+.fixed-top {
+  z-index: 998;
+}
+
 /* Headers */
 
 /* h1: add green line underneath */
@@ -79,6 +84,10 @@ p {
   box-shadow: 0 0 0 0.2rem #00565e;
 }
 
+.btn-danger:focus {
+  box-shadow: 0 0 0 0.2rem #009fae;
+}
+
 .btn-wide {
   width: 400px;
   margin-bottom: 10px;
@@ -102,6 +111,7 @@ Progess Steps
 
 .step-indicator .steps li {
   text-transform: none;
+  width: 20%;
 }
 
 /* override color of text in active li*/
@@ -148,4 +158,39 @@ Progess Steps
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   background-color: #00565e;
+}
+
+/* React Bootstrap Modal */
+/* ref: https://github.com/shlomiassaf/ngx-modialog/issues/280 */
+/* https://github.com/react-bootstrap/react-bootstrap/issues/995 */
+
+.fade.in {
+  opacity: 1;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.modal-backdrop .fade .in {
+  opacity: 0.5 !important;
+}
+
+.modal-backdrop.fade {
+  opacity: 0.5 !important;
+}
+
+.modal-content {
+  border-radius: 10px;
+  background-color: #fafafa;
+}
+
+.modal-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  min-width: 500px;
+  max-width: 1000px;
 }

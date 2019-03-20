@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "../../css/side-nav.css";
 
 const styles = {
-  sideNavPane: {
-    display: "flex",
-    flexDirection: "row"
+  ul: {
+    borderBottom: "none"
+  },
+  li: {
+    listStyleType: "none"
   },
   buttonList: {
     width: 240,
@@ -16,18 +19,14 @@ const styles = {
     marginBottom: 10,
     marginLeft: 20,
     marginRight: 20,
-    display: "flex",
-    justifyContent: "center",
     textAlign: "center",
     borderRadius: 4,
     padding: 6
   },
   bodyContent: {
-    display: "flex",
-    justifyContent: "flext-end",
+    overflow: "auto",
     paddingRight: 20,
-    height: "calc(100vh - 220px)",
-    overflow: "auto"
+    height: "calc(100vh - 241px)"
   },
   secondaryButton: {
     border: "none"
@@ -40,48 +39,87 @@ const styles = {
 class SideNavigation extends Component {
   static propTypes = {
     navSpecs: PropTypes.array.isRequired,
-    currentNode: PropTypes.number.isRequired
+    currentNode: PropTypes.number.isRequired,
+    menuName: PropTypes.string.isRequired
   };
 
   state = {
-    currentNode: this.props.currentNode,
-    currentBody: this.props.navSpecs[this.props.currentNode].body
+    currentNode: this.props.currentNode
   };
 
   changeNode(id) {
-    this.setState({ currentNode: id, currentBody: this.props.navSpecs[id].body });
+    this.setState({ currentNode: id });
+    this.refs[id].scrollIntoView({ block: "start", behavior: "smooth" });
   }
 
+  onScroll = () => {
+    const buffer = 50; // buffer to shift the "currentView"
+    const currentView = document
+      .getElementById("side-nav-grid-content-cell")
+      .getBoundingClientRect();
+    var id = this.state.currentNode; //default to currentNode
+    for (var i = this.props.navSpecs.length - 1; i >= 0; i--) {
+      var tab = this.props.navSpecs[i];
+      var element = document.getElementById(tab.text).getBoundingClientRect();
+      // Verify that the top is at the same height or higher than the top and the bottom is still below the top
+      if (element.top <= currentView.top + buffer && element.bottom >= currentView.top + buffer) {
+        id = i;
+      }
+    }
+    this.setState({ currentNode: id });
+  };
+
   render() {
-    const body_id = this.props.navSpecs[this.state.currentNode].text;
+    const length = this.props.navSpecs.length - 1;
     return (
-      <div style={styles.sideNavPane}>
-        <div style={styles.buttonList}>
+      <div className="side-nav-grid">
+        <nav
+          className="side-nav-grid-buttons-cell"
+          style={styles.buttonList}
+          role="dialog"
+          aria-label={this.props.menuName}
+        >
+          <ul className="nav nav-tabs" style={styles.ul} role="menubar">
+            {this.props.navSpecs.map(tab => (
+              <div key={tab.id}>
+                {tab.id === this.state.currentNode && (
+                  <li style={styles.li} aria-current="page" role="menuitem">
+                    <button
+                      className="btn-primary"
+                      style={{ ...styles.button, ...styles.primaryButton }}
+                      onClick={() => this.changeNode(tab.id)}
+                    >
+                      {tab.text}
+                    </button>
+                  </li>
+                )}
+                {tab.id !== this.state.currentNode && (
+                  <li style={styles.li} role="menuitem">
+                    <button
+                      className="btn-secondary"
+                      style={{ ...styles.button, ...styles.secondaryButton }}
+                      onClick={() => this.changeNode(tab.id)}
+                    >
+                      {tab.text}
+                    </button>
+                  </li>
+                )}
+              </div>
+            ))}
+          </ul>
+        </nav>
+        <div
+          className="side-nav-grid-content-cell"
+          style={styles.bodyContent}
+          id="side-nav-grid-content-cell"
+          onScroll={this.onScroll}
+        >
           {this.props.navSpecs.map(tab => (
-            <div key={tab.id}>
-              {tab.id === this.state.currentNode && (
-                <button
-                  className="btn-primary"
-                  style={{ ...styles.button, ...styles.primaryButton }}
-                  onClick={() => this.changeNode(tab.id)}
-                >
-                  {tab.text}
-                </button>
-              )}
-              {tab.id !== this.state.currentNode && (
-                <button
-                  className="btn-secondary"
-                  style={{ ...styles.button, ...styles.secondaryButton }}
-                  onClick={() => this.changeNode(tab.id)}
-                >
-                  {tab.text}
-                </button>
-              )}
+            <div id={tab.text} key={tab.id} ref={tab.id}>
+              {tab.body}
+              {tab.id < length && <hr />}
             </div>
           ))}
-        </div>
-        <div style={styles.bodyContent} id={body_id}>
-          {this.state.currentBody}
         </div>
       </div>
     );

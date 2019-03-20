@@ -1,7 +1,8 @@
 import React from "react";
 import { mount } from "enzyme";
 import ProgressPane from "../../../components/commons/ProgressPane";
-import ProgressNode from "../../../components/commons/ProgressNode";
+
+const emptyFunc = function(arg) {};
 
 const PROGRESS = [
   { id: 0, text: "node 1", body: <div>Body 1</div> },
@@ -11,29 +12,59 @@ const PROGRESS = [
 ];
 
 it("renders when first node selected", () => {
-  testCore(0);
+  generateAndTestCore(0);
 });
 
 it("renders when second node selected", () => {
-  testCore(1);
+  generateAndTestCore(1);
 });
 
 it("renders when third node selected", () => {
-  testCore(2);
+  generateAndTestCore(2);
 });
 
 it("renders when fourth node selected", () => {
-  testCore(3);
+  generateAndTestCore(3);
 });
 
-function testCore(selected) {
+// Generic function to create a progressPane based on specs, then run checks with test core
+function generateAndTestCore(selected) {
   const wrapper = mount(<ProgressPane progressSpecs={PROGRESS} currentNode={selected} />);
-  const node1 = <ProgressNode id={0} text={"node 1"} current={selected} />;
-  const node2 = <ProgressNode id={1} text={"node 2"} current={selected} />;
-  const node3 = <ProgressNode id={2} text={"node 3"} current={selected} />;
-  const node4 = <ProgressNode id={3} text={"node 4"} current={selected} />;
-  expect(wrapper.contains(node1)).toEqual(true);
-  expect(wrapper.contains(node2)).toEqual(true);
-  expect(wrapper.contains(node3)).toEqual(true);
-  expect(wrapper.contains(node4)).toEqual(true);
+  testCore(selected, wrapper);
 }
+
+// Generic function to verify that within the wrapper the following occurs:
+// - 4 progress-nodes are rendererd
+// - only the selected node has the active class
+function testCore(selected, wrapper) {
+  for (let i = 0; i < 4; i++) {
+    const check = wrapper
+      .find(".progress-node")
+      .at(i)
+      .hasClass("active");
+    if (i === selected) {
+      // if the current one is selected
+      expect(check).toEqual(true);
+    }
+    if (i !== selected) {
+      // if not
+      expect(check).toEqual(false);
+    }
+  }
+}
+
+// Similar to the above tests, but includes simulated clicks to verify that the selected node changes
+it("can change nodes by clicking on them", () => {
+  const wrapper = mount(<ProgressPane progressSpecs={PROGRESS} currentNode={1} />);
+  testCore(1, wrapper);
+  wrapper
+    .find(".progress-node")
+    .first()
+    .simulate("click");
+  testCore(0, wrapper);
+  wrapper
+    .find(".progress-node")
+    .last()
+    .simulate("click");
+  testCore(3, wrapper);
+});

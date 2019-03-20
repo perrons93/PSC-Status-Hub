@@ -13,7 +13,7 @@ const styles = {
     //this replaces the .bootstrap-tabs > .nav:after
     content: "",
     backgroundColor: "white",
-    width: "100%",
+    width: 900,
     border: "1px solid #00565e",
     borderBottomColor: "transparent"
   },
@@ -23,16 +23,20 @@ const styles = {
     OTransition: "opacity 0.15s linear",
     transition: "opacity 0.15s linear",
     backgroundColor: "white",
-    border: "1px solid #00565e",
+    borderWidth: "1px 1px 0 1px",
+    borderStyle: "solid",
+    borderColor: "#00565e",
     borderTopColor: "white",
-    height: "calc(100vh - 210px)"
+    height: "calc(100vh - 241px)",
+    width: 900
   }
 };
 
 class TabNavigation extends Component {
   static propTypes = {
     tabSpecs: PropTypes.array.isRequired,
-    currentTab: PropTypes.number.isRequired
+    currentTab: PropTypes.number.isRequired,
+    menuName: PropTypes.string.isRequired
   };
 
   state = {
@@ -47,14 +51,16 @@ class TabNavigation extends Component {
   render() {
     return (
       <div>
-        <ul role="tablist" className="nav nav-tabs" style={styles.bootstrapNav}>
-          {this.props.tabSpecs.map((tab, key) => (
-            <span key={tab.id} onClick={() => this.selectTab(tab.id)}>
-              <Tab tabName={tab.tabName} selected={tab.id === this.state.currentTab} />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-            </span>
-          ))}
-        </ul>
+        <nav aria-label={this.props.menuName} role="dialog">
+          <ul role="menubar" className="nav nav-tabs" style={styles.bootstrapNav}>
+            {this.props.tabSpecs.map((tab, key) => (
+              <span key={tab.id} onClick={() => this.selectTab(tab.id)}>
+                <Tab tabName={tab.tabName} selected={tab.id === this.state.currentTab} />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+              </span>
+            ))}
+          </ul>
+        </nav>
         <div style={styles.afterNav} />
         <div style={styles.tabContent}>{this.state.currentBody}</div>
       </div>

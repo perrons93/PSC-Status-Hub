@@ -13,6 +13,14 @@ class Overview extends Component {
             <p>{LOCALIZE.emibTest.howToPage.overview.description}</p>
           </div>
           <div>
+            <p>{LOCALIZE.emibTest.howToPage.overview.noteSection.para1}</p>
+            <ul>
+              <li>{LOCALIZE.emibTest.howToPage.overview.noteSection.bullet1}</li>
+              <li>{LOCALIZE.emibTest.howToPage.overview.noteSection.bullet2}</li>
+              <li>{LOCALIZE.emibTest.howToPage.overview.noteSection.bullet3}</li>
+            </ul>
+          </div>
+          <div>
             <h3>{LOCALIZE.emibTest.howToPage.overview.aboutSection.title}</h3>
             <p>{LOCALIZE.emibTest.howToPage.overview.aboutSection.para1}</p>
             <ul>

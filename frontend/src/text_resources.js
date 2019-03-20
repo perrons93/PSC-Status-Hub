@@ -62,6 +62,13 @@ let LOCALIZE = new LocalizedStrings({
           title: "Overview",
           description:
             'The electronic managerial Inbox (e-MIB) simulates an email inbox in which you will respond to a series of emails depicting situations typically encountered by managers in the federal public service. These situations will provide you with the opportunity to demonstrate the Key Leadership Competencies, outlined in "Evaluation".',
+          noteSection: {
+            para1: "While completing the e-MIB, you will have access to:",
+            bullet1: "The test instructions (the current document).",
+            bullet2:
+              "The background information describing your job as the manager and the fictitious organization where you work.",
+            bullet3: "A Notepad to serve as scrap paper. The Notepad will not be evaluated."
+          },
           aboutSection: {
             title: "About the sample test",
             para1:
@@ -123,17 +130,18 @@ let LOCALIZE = new LocalizedStrings({
           step2Section: {
             title: "Step 2 - Adding Reasons for Action (optional)",
             description:
-              "After sending an email or adding a task, you will be able to provide a justification in the “Reasons for Action” section. Here, you can explain why you took a specific action in response to a situation if you feel the need to provide additional information. Filling out the Reasons for Action section is optional. Note that you may decide to add Reasons for Action when responding to some emails and not others. This also applies for tasks in the task list. In addition, if you add Reasons for Action, you may choose to clarify only certain actions while others may not require additional explanations.",
-            example: {
-              title: "Example of an email and ways of responding",
-              part1Title: "Original email",
-              conditionToDisplayImage: "en",
-              part1Description:
-                "Two options are provided below to demonstrate different methods of responding to the email. As previously mentioned, you can choose one of the two options presented or a combination of the two. Note that the responses provided were not evaluated for how well they demonstrate the competency targeted in the email. They are presented here only to illustrate how to use each of the two ways of responding.",
-              part2Title: "Option 1 – Sending an email with Reasons for Action",
-              part3Title: "Option 2 – Adding tasks to task list with Reasons for Action"
-            }
+              "After sending an email or adding a task, you will be able to provide a justification in the “Reasons for Action” section. Here, you can explain why you took a specific action in response to a situation if you feel the need to provide additional information. Filling out the Reasons for Action section is optional. Note that you may decide to add Reasons for Action when responding to some emails and not others. This also applies for tasks in the task list. In addition, if you add Reasons for Action, you may choose to clarify only certain actions while others may not require additional explanations."
           }
+        },
+        testExamples: {
+          title: "Test examples",
+          para1: "Example of an email and ways of responding",
+          part1Title: "Original email",
+          conditionToDisplayImage: "en",
+          part1Description:
+            "Two options are provided below to demonstrate different methods of responding to the email. As previously mentioned, you can choose one of the two options presented or a combination of the two. Note that the responses provided were not evaluated for how well they demonstrate the competency targeted in the email. They are presented here only to illustrate how to use each of the two ways of responding.",
+          part2Title: "Option 1 – Sending an email with Reasons for Action",
+          part3Title: "Option 2 – Adding tasks to task list with Reasons for Action"
         },
         evaluation: {
           title: "Evaluation",
@@ -173,15 +181,105 @@ let LOCALIZE = new LocalizedStrings({
       },
 
       //Background Page
-      backgroundPage: {
-        title: "Background Page",
-        orgChart: "Org Chart",
-        Scenarios: "Scenarios"
+      background: {
+        backgroundInformation: {
+          title: "Background Information",
+          paragraph1:
+            "In this exercise, you are assuming the role of Claude Huard, the new manager of the Quality Assurance (QA) team. You are replacing Gary Severna, who recently retired. Your team is a part of the Services and Communications (SC) unit of a public service organisation called the Organizational Development Council (ODC). It is now 9:30 a.m. on Monday, November 7th.",
+          paragraph2:
+            "In the following sections, you will find information about ODC and the QA Team. You will be able to access it throughout the test."
+        },
+        organizationalInformation: {
+          title: "Information about the Organizational Development Council (ODC)",
+          description:
+            "The ODC is an independent government agency that promotes organizational development across the public service. The ODC’s mandate is to provide training to all public service employees to maintain a productive and commendable workforce. The organization is responsible for: (1) the creation and evaluation of training programs; (2) research and innovation in learning, transfer of training, and technology; and (3) conducting audits on workplace behaviors in adherence to the ethical and professional standards of public service. With its headquarters located in the National Capital Region, the ODC currently employs approximately 100 individuals.",
+          prioritiesSection: {
+            title: "Priorities",
+            bullet1:
+              "To ensure that the organization continues to enhance productive workplace behaviors through policies of ethical and professional conduct.",
+            bullet2:
+              "To continuously evaluate the effectiveness and utility of training programs across the public service.",
+            bullet3:
+              "To deliver high-quality training programs across the public service, supporting the Government of Canada’s priorities.",
+            bullet4: "To manage the documentation and communication of client training activities."
+          },
+          risksSection: {
+            title: "Risks",
+            bullet1:
+              "The scope and complexity of training programs pose ongoing challenges for (1) their timely delivery and effectiveness in responding to new and emerging policy priorities; (2) maintaining partnerships that are essential for high-quality training program development, delivery, and evaluation; (3) keeping pace with the evolving demands of clients and with new learning technology."
+          }
+        },
+        organizationalStructure: {
+          title: "Organizational Structure",
+          description:
+            "The ODC has an organizational structure consisting of four units including: Corporate Affairs, Research and Innovations, Training Program Development, and Services and Communications.",
+          para1Title: "Corporate affairs (CA). ",
+          para1:
+            "The CA unit is comprised of the Human Resources Team, the Finance Team and the Information Technology Team. Together these teams are responsible for the management of the workforce, the work environment, the finances, as well as the technology and information in ODC.",
+          para2Title: "Research and innovations (RI). ",
+          para2:
+            "The main goals of the RI unit are to conduct research initiatives in learning, transfer of training, and technology and to help develop innovative teaching techniques that promote employee productivity and general well-being. ",
+          para3Title: "Program development (PD).  ",
+          para3:
+            "The focus of the PD unit is to plan, develop and administer training programs across the public service. To do so, the unit establishes and maintains relationships with clients and partners, and conducts analyses of their organizational development training needs.",
+          para4Title: "Services and communications (SC). ",
+          para4:
+            "The main goals of the SC unit are to continuously evaluate training programs offered by organizations in the public service, conduct internal and external audits for partners and clients, and oversee the dissemination of information (e.g., content review for online tools, developing documentation for training programs). The SC unit is comprised of the Quality Assurance Team, the Service and support Team, the Audits Team, and the E-Training Team.",
+          orgChart: {
+            desciption: "Organizational Chart (ODC)",
+            link: "Image Description"
+          },
+          dialog: {
+            title: "The Organizational Chart of the ODC",
+            description:
+              "This is the organizational chart for the Organizational Development Council (ODC). At the top is the President: Jenna Icart. Under the president are 4 directors, one representing each unit of the council. These are presented left to right as: Amari Kinsler from Corporate Affairs, Geneviève Bédard from Research and Innovations, Bartosz Greco from Program Development, Nancy Ward from Services and Communications.  Corporate Affairs has 3 managers: Marc Sheridan from Human Resources, Bob McNutt from Finance, and Lana Hussad from Information Technology. Services and Communications has 4 managers: You are Claude Huard from Quality Assurance, Haydar Kalil from Services and Support, Geoffrey Hamma from Audits, and Lucy Trang from E-Training."
+          }
+        },
+        teamInformation: {
+          title: "Information about the Quality Assurance (QA) Team",
+          teamMembersSection: {
+            title: "Team Members",
+            para1Title: "Director: Nancy Ward",
+            para1:
+              "Your Director is Nancy Ward. The director of the Services and Communications unit applies policies and oversees the creation, delivery, and evaluation of training programs and audits. The director is also responsible for overseeing all internal and external communication channels including web content.",
+            para2Title: "Manager: Claude Huard (you)",
+            para2:
+              "Your role as manager of the Quality Assurance Team is to oversee the content review and make final recommendations for training manuals, specifications, and other related training documents. The role also involves making staffing recommendations, managing the performance of team members, as well as coordinating the sharing of information and expertise with partners and stakeholders. The manager is also responsible for ensuring compliance to policy and professional standards and for delivering executive reports that include project updates, timelines, and budgetary implications.",
+            para3Title: "Quality Assurance Analysts",
+            para3:
+              "The members of your team are Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier. All team members are Quality Assurance Analysts and, as such, are experts in documentation and make recommendations on training documents and online content."
+          },
+          teamChart: {
+            desciption: "Organizational Chart The Quality Assurance (QA) Team",
+            link: "Image Description"
+          },
+          dialog: {
+            title: "The Organizational Chart of the QA Team",
+            description:
+              "This is the organizational chart for the Quality Assurance (QA) Team at the Organizational Development Council. You, Claude Huard are the Manager of this unit, and are located at the top of the organizational chart. Under you, The Manager, are 6 Quality Assurance Analysts: Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier."
+          },
+          responsibilitiesSection: {
+            title: "QA Team Responsibilities",
+            listDescription: "The Quality Assurance Team is responsible for:",
+            item1Title: "Providing information management services. ",
+            item1:
+              "Responsibilities include ensuring that organizational development training programs across the public service are well documented. This priority includes synthesizing a large volume of information from various government organizations, ensuring adherence to information security policies, and providing appropriate accessibility to archived documents.",
+            item2Title: "Reviewing online content. ",
+            item2:
+              "Responsibilities include reviewing a large volume of information regarding organizational training programs from various clients and partners, ensuring adherence to internal and external communications policies, and making recommendations to executives for final approval before information dissemination.",
+            item3Title: "Reviewing training documentation. ",
+            item3:
+              "Responsibilities include ensuring the completeness and quality of content in all organizational development training- related documents. This priority includes reviewing training instructions, scoring manuals, training specifications, statistical reports, and other training-related materials.",
+            para1Title: "New initiatives",
+            para1:
+              "You have been mandated to make a recommendation on the adoption of an “off-the- shelf” online request processing system. The proposed system, called Serv, provides features that would facilitate the management of client and partner requests for content review and documentation services. This includes enhanced categorization and tracking of pending requests, customizable forms applications, and various report generators. The Information Technology (IT) Team of the ODC recently facilitated a pilot test with Serv that included Danny McBride, who is a member of the Quality Assurance Team. Danny came back with positive feedback on his experience with the Serv system. Your team has been discussing the proposal to introduce this new technology in hopes of improving your services."
+          }
+        }
       },
 
       //Inbox Page
       inboxPage: {
-        title: "Inbox",
+        title: "Inbox Coming Soon!",
         taskList: "Tasks List",
         notePad: "NotePad",
         textTools: "Text Tools",
@@ -200,12 +298,46 @@ let LOCALIZE = new LocalizedStrings({
         instructionsTabTitle: "Instructions",
         backgroundTabTitle: "Background",
         inboxTabTitle: "Inbox"
+      },
+
+      //Test Footer
+      testFooter: {
+        submitTestPopupBox: {
+          title: "Confirm test submission?",
+          warning: {
+            title: "Warning! All draft items will not be saved.",
+            message:
+              "All draft emails and any notes in the notepad will not be submitted with the test for scoring. Review draft emails and the notepad before submitting the test."
+          },
+          description:
+            "If you are ready to send your test in for scoring, click the “Submit test” button. You will be exited out of this test session and provided further instructions."
+        },
+        quitTestPopupBox: {
+          title: "Are you sure you want to quit this test?",
+          warning: {
+            title: "Warning! Once you exit the test, you will not be able to get back in.",
+            message:
+              "You will not be able to recover your answers, and will be withdrawn from this test session. You may be retested at a later time."
+          },
+          descriptionPart1:
+            "You are about to withdraw from this test. By proceeding, you acknowledge the following:",
+          checkboxOne: "I voluntarily withdraw from this examination",
+          checkboxTwo: "my test will not be scored",
+          checkboxThree:
+            "I am aware that the retest period for this test may apply, should I wish to write this test again",
+          descriptionPart2:
+            "If you are certain that you want to quit this session, click the “Quit test” button. You will be exited out of this test session and provided instructions to complete your withdrawal.",
+          descriptionPart3: "Are you sure you want to quit this test?"
+        }
       }
     },
 
     //Screen Reader
     ariaLabel: {
-      mainMenu: "main-menu",
+      backgroundMenu: "Background Menu",
+      mainMenu: "Main Menu",
+      tabMenu: "eMIB Tab Menu",
+      instructionsMenu: "Instructions Menu",
       languageToggleBtn: "language-toggle-button"
     },
 
@@ -216,12 +348,19 @@ let LOCALIZE = new LocalizedStrings({
       backButton: "Back",
       startTest: "Start test",
       submitTestButton: "Submit test",
-      exitTest: "Exit Test",
+      quitTest: "Quit Test",
+      returnToTest: "Return to Test",
       passStatus: "Pass",
       failStatus: "Fail",
       enabled: "Enabled",
       disabled: "Disabled",
-      backToTop: "Back to top"
+      backToTop: "Back to top",
+      notepad: {
+        title: "Notepad",
+        placeholder: "Put your notes here..."
+      },
+      cancel: "Cancel",
+      close: "Close"
     }
   },
 
@@ -287,6 +426,14 @@ let LOCALIZE = new LocalizedStrings({
           title: "Aperçu général",
           description:
             "La boîte de réception pour la gestion électronique (BRG-e) simule d’une boîte de courriel dans laquelle vous allez répondre à des courriels décrivant des situations qui sont typiquement vécues par les gestionnaires de la fonction publique. Ces situations vous donneront l’occasion de démontrer les compétences clés en leadership, décrit dans «Évaluation».",
+          noteSection: {
+            para1: "En complétant la BRG-e, vous aurez accès :",
+            bullet1: "Aux directives du test (le présent document).",
+            bullet2:
+              "À de l’information contextuelle décrivant votre rôle en tant que gestionnaire et l’organisation fictive où vous travaillez.",
+            bullet3:
+              "À un bloc-notes pouvant servir de papier brouillon. Le contenu du bloc-notes ne sera pas évalué."
+          },
           aboutSection: {
             title: "À propos de l’échantillon de test",
             para1:
@@ -349,19 +496,20 @@ let LOCALIZE = new LocalizedStrings({
           step2Section: {
             title: "Étape 2 — Ajouter une justification des mesures prises (facultatif)",
             description:
-              "Après avoir envoyé un courriel ou ajouté une tâche, vous avez la possibilité d’expliquer votre raisonnement dans la section « Justification des mesures prises ». Vous pouvez expliquer dans cette section pourquoi vous avez pris une ou des mesures pour gérer la situation présentée dans le courriel en question. Remplir la section « Justification des mesures prises » est facultatif. Notez que vous pouvez décider d’ajouter une « Justification des mesures prises » lorsque vous répondez à certains courriels, mais pas pour d’autres. Ceci est également vrai pour les tâches dans la liste de tâches. De plus, si vous ajoutez une « Justification des mesures prises », vous pouvez choisir de justifier certaines des mesures prises tandis que d’autres ne nécessitent pas d’explications supplémentaires.",
-            example: {
-              conditionToDisplayImage: "fr",
-              title: "Exemple de courriel et façons de répondre",
-              part1Title: "Courriel original",
-              part1Description:
-                "Vous trouverez ci-dessous deux façons différentes de répondre au courriel. Comme il est mentionné précédemment, vous pouvez choisir l’une ou l’autre des deux options présentées ou combiner les deux. Veuillez noter que les réponses fournies n’ont pas été évaluées pour déterminer la mesure dans laquelle elles démontrent la compétence ciblée dans le courriel. Elles sont présentées ici uniquement pour illustrer comment utiliser chacune des deux façons de répondre.",
-              part2Title:
-                "Option 1 – Envoyer un courriel renfermant une justification des mesures prises",
-              part3Title:
-                "Option 2 – Ajouter des tâches à la liste de tâches et l’accompagner d’une justification des mesures prises"
-            }
+              "Après avoir envoyé un courriel ou ajouté une tâche, vous avez la possibilité d’expliquer votre raisonnement dans la section « Justification des mesures prises ». Vous pouvez expliquer dans cette section pourquoi vous avez pris une ou des mesures pour gérer la situation présentée dans le courriel en question. Remplir la section « Justification des mesures prises » est facultatif. Notez que vous pouvez décider d’ajouter une « Justification des mesures prises » lorsque vous répondez à certains courriels, mais pas pour d’autres. Ceci est également vrai pour les tâches dans la liste de tâches. De plus, si vous ajoutez une « Justification des mesures prises », vous pouvez choisir de justifier certaines des mesures prises tandis que d’autres ne nécessitent pas d’explications supplémentaires."
           }
+        },
+        testExamples: {
+          conditionToDisplayImage: "fr",
+          title: "FR Test examples",
+          para1: "Exemple de courriel et façons de répondre",
+          part1Title: "Courriel original",
+          part1Description:
+            "Vous trouverez ci-dessous deux façons différentes de répondre au courriel. Comme il est mentionné précédemment, vous pouvez choisir l’une ou l’autre des deux options présentées ou combiner les deux. Veuillez noter que les réponses fournies n’ont pas été évaluées pour déterminer la mesure dans laquelle elles démontrent la compétence ciblée dans le courriel. Elles sont présentées ici uniquement pour illustrer comment utiliser chacune des deux façons de répondre.",
+          part2Title:
+            "Option 1 – Envoyer un courriel renfermant une justification des mesures prises",
+          part3Title:
+            "Option 2 – Ajouter des tâches à la liste de tâches et l’accompagner d’une justification des mesures prises"
         },
         evaluation: {
           title: "Évaluation",
@@ -401,10 +549,102 @@ let LOCALIZE = new LocalizedStrings({
       },
 
       //Background Page
-      backgroundPage: {
-        title: "Page de contexte",
-        orgChart: "Organigramme",
-        Scenarios: "Scénarios"
+      background: {
+        backgroundInformation: {
+          title: "Contexte",
+          paragraph1:
+            "Dans cet exercice, vous jouez le rôle de Claude Huard, le nouveau gestionnaire de l’Équipe de l’assurance de la qualité (AQ). Vous remplacez Gary Severna, qui a récemment pris sa retraite. Votre équipe fait partie de l’Unité des services et communications (SC) d’un organisme de la fonction publique appelé Conseil du développement organisationnel (CDO). Il est 9 h 30 le lundi 7 novembre.",
+          paragraph2:
+            "Dans les sections suivantes, vous trouverez de l’information sur le CDO et l’Équipe d’AQ. Vous serez en mesure d’y accéder tout au long du test."
+        },
+        organizationalInformation: {
+          title: "Renseignements sur le Conseil du Développement Organisationnel  (CDO)",
+          description:
+            "Le CDO est un organisme gouvernemental indépendant qui œuvre à la promotion du développement organisationnel au sein de la fonction publique. Le mandat du CDO est d’offrir de la formation à tous les employés de la fonction publique afin de maintenir une main-d’œuvre productive et digne d’éloges. L’organisme est responsable de : (1) la création et l’évaluation des programmes de formation; (2) la recherche et l’innovation dans les domaines de l’apprentissage, du transfert de formation et de la technologie; (3) la réalisation de vérifications en matière de comportements en milieu de travail, conformément aux normes d’éthique et de conduite professionnelle de la fonction publique. Le CDO, dont l’administration centrale est située dans la région de la capitale nationale, compte actuellement environ 100 employés.",
+          prioritiesSection: {
+            title: "Priorités",
+            bullet1:
+              "Veiller à ce que l’organisme continue d’améliorer les comportements productifs au travail par la mise en place de politiques en matière de comportement éthique et professionnel.",
+            bullet2:
+              "Évaluer de façon continue l’efficacité et l’utilité des programmes de formation au sein de la fonction publique.",
+            bullet3:
+              "Offrir à l’échelle de la fonction publique des programmes de qualité supérieure qui appuient les priorités du gouvernement du Canada.",
+            bullet4:
+              "Gérer la documentation et la communication des activités de formation des clients."
+          },
+          risksSection: {
+            title: "Risques",
+            bullet1:
+              "La portée et la complexité des programmes de formation posent des défis continuels quant à : (1) leur livraison dans les délais prévus et leur efficacité à répondre aux priorités stratégiques nouvelles ou émergentes; (2) le maintien de partenariats essentiels à l’élaboration, à la livraison et à l’évaluation de programmes de formation de haute qualité; (3) la capacité de suivre le rythme des demandes changeantes des clients et la nouvelle technologie d’apprentissage."
+          }
+        },
+        organizationalStructure: {
+          title: "Structure organisationnelle",
+          description:
+            "Le CDO a une structure organisationnelle qui comporte les quatre unités suivantes : Affaires ministérielles, Recherche et innovations, Développement de programmes, et Services et communications.",
+          para1Title: "Affaires ministérielles (AM) ",
+          para1:
+            "L’Unité des AM est composée de l’Équipe des ressources humaines, l’Équipe des finances et l’Équipe de la technologie de l’information. Ensemble, ces équipes sont responsables de la gestion de la main-d’œuvre, de l’environnement de travail, des finances, ainsi que de la technologie et de l’information à l’intérieur du CDO.",
+          para2Title: "Recherche et innovations (RI). ",
+          para2:
+            "Les principaux objectifs de l’Unité de RI sont de mener des initiatives de recherche en apprentissage, en transfert de formation et en technologie; et de contribuer à l’élaboration de techniques d’enseignement novatrices, afin de promouvoir la productivité et le bien-être général des employés.",
+          para3Title: "Développement de programmes (DP). ",
+          para3:
+            "L’Unité du DP vise à planifier, à créer et à administrer les programmes de formation au sein de la fonction publique. Pour ce faire, l’unité établit et entretient des relations avec les clients et les partenaires, et analyse  leurs besoins de formation en développement organisationnel.",
+          para4Title: "Services et communications (SC). ",
+          para4:
+            "Les principaux objectifs de l’Unité des SC sont d’évaluer de façon continue les programmes de formation offerts par les organisations de la fonction publique, effectuer des vérifications internes et externes pour les partenaires et les clients, et surveiller la diffusion de l’information (p. ex., évaluer le contenu des outils en ligne, rédiger les documents relatifs aux programmes de formation). L’Unité des SC est composée de l’Équipe de l’assurance de la qualité, l’Équipe du service et soutien, l’Équipe des vérifications et de l’Équipe des formations en ligne.",
+          orgChart: {
+            desciption: "Organigramme (CDO)",
+            link: "Description de l'image"
+          },
+          dialog: {
+            title: "FR The Organizational Chart of the ODC",
+            description:
+              "FR This is the organizational chart for the Organizational Development Council (ODC). At the top is the President: Jenna Icart. Under the president are 4 directors, one representing each unit of the council. These are presented left to right as: Amari Kinsler from Corporate Affairs, Geneviève Bédard from Research and Innovations, Bartosz Greco from Program Development, Nancy Ward from Services and Communications.  Corporate Affairs has 3 managers: Marc Sheridan from Human Resources, Bob McNutt from Finance, and Lana Hussad from Information Technology. Services and Communications has 4 managers: You are Claude Huard from Quality Assurance, Haydar Kalil from Services and Support, Geoffrey Hamma from Audits, and Lucy Trang from E-Training."
+          }
+        },
+        teamInformation: {
+          title: "Information sur l’Équipe de l’assurance de la qualité (AQ)",
+          teamMembersSection: {
+            title: "Membres de l’équipe",
+            para1Title: "Directrice : Nancy Ward",
+            para1:
+              "Votre directrice est Nancy Ward. La directrice de l’Unité des services et communications veille à l’application des politiques et supervise la création, l’exécution et l’évaluation des programmes de formation ainsi que les vérifications. Elle a également la responsabilité de superviser tous les canaux de communication internes et externes, y compris le contenu Web en ligne.",
+            para2Title: "Gestionnaire : Claude Huard (vous)",
+            para2:
+              "Votre rôle en tant que gestionnaire de l’Équipe de l’assurance de la qualité est de superviser la révision de contenu et de formuler des recommandations finales au sujet des manuels de formation, des spécifications de formation et d’autres documents de formation connexes. Votre rôle consiste également à formuler des recommandations en matière de dotation, gérer le rendement des membres de l’équipe ainsi que coordonner l’échange d’information et d’expertise avec les partenaires et les intervenants. Le gestionnaire est également responsable d’assurer la conformité à la politique et aux normes professionnelles et de présenter aux cadres des rapports, lesquels comprennent des mises à jour, des échéanciers et les incidences budgétaires des projets.",
+            para3Title: "Analystes de l’assurance de la qualité",
+            para3:
+              "Les membres de votre équipe sont Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang et Jack Laurier. Tous les membres de l’équipe sont des analystes de l’assurance de la qualité et, par conséquent, des experts en documentation qui formulent des recommandations sur les documents de formation et le contenu en ligne."
+          },
+          teamChart: {
+            desciption: "Organigramme Équipe de l'assurance de la qualité (AQ) Team",
+            link: "Description de l'image"
+          },
+          dialog: {
+            title: "FR The Organizational Chart of the QA Team",
+            description:
+              "FR This is the organizational chart for the Quality Assurance (QA) Team at the Organizational Development Council. You, Claude Huard are the Manager of this unit, and are located at the top of the organizational chart. Under you, The Manager, are 6 Quality Assurance Analysts: Danny McBride, Serge Duplessis, Marina Richter, Mary Woodside, Charlie Wang, and Jack Laurier."
+          },
+          responsibilitiesSection: {
+            title: "Responsabilités de l’Équipe de l’AQ",
+            listDescription:
+              "L’Équipe de l’assurance de la qualité doit s’acquitter de ce qui suit :",
+            item1Title: "Fournir des services de gestion de l’information. ",
+            item1:
+              "L’équipe doit veiller à ce que les programmes en développement organisationnel au sein de la fonction publique soient bien documentés. Cette priorité comprend : synthétiser un grand volume de renseignements provenant de divers organismes gouvernementaux, s’assurer que les politiques sur la sécurité de l’information sont respectées et donner un accès approprié aux documents archivés.",
+            item2Title: "Examiner le contenu en ligne. ",
+            item2:
+              "Les responsabilités de l’équipe comprennent les suivantes : Examiner un grand volume d’information sur les programmes de formation organisationnels de divers clients et partenaires, s’assurer que les politiques sur les communications internes et les communications externes sont respectées et formuler des recommandations aux cadres supérieurs aux fins d’approbation définitive avant la diffusion de l’information.",
+            item3Title: "Examiner les documents de formation. ",
+            item3:
+              "L’équipe doit s’assurer de l’intégralité et de la qualité du contenu de tous les documents liés à la formation en développement organisationnel. Cette priorité inclut l’examen des instructions de formation, des guides de correction, des spécifications de la formation, des rapports statistiques et d’autres documents de formation connexes.",
+            para1Title: "Nouvelles initiatives",
+            para1:
+              "Vous avez reçu le mandat de formuler une recommandation au sujet de l’adoption d’un système commercial de traitement des demandes en ligne. Le système proposé, appelé Serv, offre des fonctionnalités qui faciliteraient la gestion des demandes des clients et des partenaires qui cherchent à obtenir des services de révision du contenu et de gestion de la documentation. Cela inclut l’amélioration du processus de catégorisation et de suivi des demandes en attente, la personnalisation des formulaires de demande et divers générateurs de rapports. L’Équipe de la technologie de l’information (TI) du CDO a récemment fait un essai pilote de Serv auquel a participé Danny McBride, un des membres de l’Équipe de l’assurance de la qualité. Danny a donné des commentaires positifs sur son expérience avec le système Serv. Votre équipe discute actuellement de la proposition visant à introduire cette nouvelle technologie afin d’améliorer vos services."
+          }
+        }
       },
 
       //Inbox Page
@@ -428,12 +668,47 @@ let LOCALIZE = new LocalizedStrings({
         instructionsTabTitle: "Instructions",
         backgroundTabTitle: "Contexte",
         inboxTabTitle: "Boîte de réception"
+      },
+
+      //Test Footer
+      testFooter: {
+        submitTestPopupBox: {
+          title: "Confirmer l’envoi du test?",
+          warning: {
+            title: "Avertissement : aucun brouillon ne sera sauvegardé.",
+            message:
+              "Les ébauches de courriels et le contenu du bloc-notes ne seront pas envoyés avec le test pour la notation. Passez en revue les ébauches de courriels et le bloc-notes avant d’envoyer le test."
+          },
+          description:
+            "Si vous êtes prêt(e) à envoyer votre test pour la notation, cliquez sur le bouton « Envoyer le test ». La séance de test sera fermée et vous recevrez d’autres instructions."
+        },
+        quitTestPopupBox: {
+          title: "Souhaitez-vous mettre fin à cette séance de test?",
+          warning: {
+            title:
+              "Avertissement : une fois la séance de test terminée, vous ne pourrez plus y retourner.",
+            message:
+              "Vous ne pourrez pas récupérer vos réponses et n’aurez plus accès à la séance de test. Vous pourrez reprendre le test à une date ultérieure."
+          },
+          descriptionPart1:
+            "Vous êtes sur le point de mettre fin à la séance de test. Ce faisant, vous affirmez et reconnaissez :",
+          checkboxOne: "je me retire volontairement de ce test;",
+          checkboxTwo: "mon test ne sera pas noté;",
+          checkboxThree:
+            "je suis conscient(e) que la période d'attente pour ce test peut s’appliquer, si je veux écrire ce test de nouveau dans le futur.",
+          descriptionPart2:
+            "Si vous êtes certain(e) de vouloir mettre fin à cette séance, cliquez sur le bouton « Quitter la séance test ». La séance de test sera fermée et vous recevrez des instructions sur la façon de vous retirer.",
+          descriptionPart3: "Souhaitez-vous mettre fin à cette séance de test?"
+        }
       }
     },
 
     //Screen Reader
     ariaLabel: {
-      mainMenu: "menu-principal",
+      backgroundMenu: "FR Background Menu",
+      mainMenu: "Menu Principal",
+      tabMenu: "Menu des onglets de la BRG-e",
+      instructionsMenu: "Menu des instructions",
       languageToggleBtn: "bouton-de-langue-a-bascule"
     },
 
@@ -443,13 +718,20 @@ let LOCALIZE = new LocalizedStrings({
       nextButton: "Suivant",
       backButton: "Retour",
       startTest: "Commencer le test",
-      submitTestButton: "Soumettre le test",
-      exitTest: "Quitter le test",
+      submitTestButton: "Envoyer le test",
+      quitTest: "Quitter la séance de test",
+      returnToTest: "Retourner à la séance",
       passStatus: "Réussi",
       failStatus: "Échoue",
       enabled: "Activé",
       disabled: "Désactivé",
-      backToTop: "Haut de la page"
+      backToTop: "Haut de la page",
+      notepad: {
+        title: "Bloc-notes",
+        placeholder: "Mettez vos notes ici..."
+      },
+      cancel: "Annuler",
+      close: "Fermer"
     }
   }
 });

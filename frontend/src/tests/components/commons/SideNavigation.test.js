@@ -11,10 +11,13 @@ const TEXT2 = "test2";
 const TEXT3 = "test3";
 const TEXT4 = "test4";
 
+// stubbing scrollIntoView function - used within SideNavigation's changeNode function
+window.HTMLElement.prototype.scrollIntoView = function() {};
+
 it("renders 2 buttons", () => {
   const SPECS = [{ id: 0, text: TEXT1, body: BODY1 }, { id: 1, text: TEXT2, body: BODY2 }];
-  const wrapper = mount(<SideNavigation navSpecs={SPECS} currentNode={1} />);
-  expect(wrapper.find("#" + TEXT2).exists()).toEqual(true);
+  const wrapper = mount(<SideNavigation navSpecs={SPECS} currentNode={1} menuName="testing" />);
+  expect(wrapper.state("currentNode")).toEqual(1);
   expect(wrapper.find(".btn-primary")).toHaveLength(1);
   expect(wrapper.find(".btn-secondary")).toHaveLength(1);
 });
@@ -25,8 +28,8 @@ it("renders 3 buttons", () => {
     { id: 1, text: TEXT2, body: BODY2 },
     { id: 2, text: TEXT3, body: BODY3 }
   ];
-  const wrapper = mount(<SideNavigation navSpecs={SPECS} currentNode={1} />);
-  expect(wrapper.find("#" + TEXT2).exists()).toEqual(true);
+  const wrapper = mount(<SideNavigation navSpecs={SPECS} currentNode={1} menuName="testing" />);
+  expect(wrapper.state("currentNode")).toEqual(1);
   expect(wrapper.find(".btn-primary")).toHaveLength(1);
   expect(wrapper.find(".btn-secondary")).toHaveLength(2);
 });
@@ -38,8 +41,8 @@ it("renders 4 buttons", () => {
     { id: 2, text: TEXT3, body: BODY3 },
     { id: 3, text: TEXT4, body: BODY4 }
   ];
-  const wrapper = mount(<SideNavigation navSpecs={SPECS} currentNode={1} />);
-  expect(wrapper.find("#" + TEXT2).exists()).toEqual(true);
+  const wrapper = mount(<SideNavigation navSpecs={SPECS} currentNode={1} menuName="testing" />);
+  expect(wrapper.state("currentNode")).toEqual(1);
   expect(wrapper.find(".btn-primary")).toHaveLength(1);
   expect(wrapper.find(".btn-secondary")).toHaveLength(3);
 });
@@ -50,12 +53,12 @@ it("changes page to test1", () => {
     { id: 1, text: TEXT2, body: BODY2 },
     { id: 2, text: TEXT3, body: BODY3 }
   ];
-  const wrapper = mount(<SideNavigation navSpecs={SPECS} currentNode={1} />);
+  const wrapper = mount(<SideNavigation navSpecs={SPECS} currentNode={1} menuName="testing" />);
   wrapper
     .find(".btn-secondary")
     .first()
     .simulate("click");
-  expect(wrapper.find("#" + TEXT1).exists()).toEqual(true);
+  expect(wrapper.state("currentNode")).toEqual(0);
   expect(wrapper.find(".btn-primary")).toHaveLength(1);
   expect(wrapper.find(".btn-secondary")).toHaveLength(2);
 });
@@ -66,12 +69,12 @@ it("changes page to test2", () => {
     { id: 1, text: TEXT2, body: BODY2 },
     { id: 2, text: TEXT3, body: BODY3 }
   ];
-  const wrapper = mount(<SideNavigation navSpecs={SPECS} currentNode={1} />);
+  const wrapper = mount(<SideNavigation navSpecs={SPECS} currentNode={1} menuName="testing" />);
   wrapper
     .find(".btn-secondary")
     .last()
     .simulate("click");
-  expect(wrapper.find("#" + TEXT3).exists()).toEqual(true);
+  expect(wrapper.state("currentNode")).toEqual(2);
   expect(wrapper.find(".btn-primary")).toHaveLength(1);
   expect(wrapper.find(".btn-secondary")).toHaveLength(2);
 });
