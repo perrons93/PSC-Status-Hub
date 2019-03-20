@@ -13,8 +13,11 @@ See [SETUP.md](../SETUP.md) for sets on installing Heroku
 - Run 'heroku create (insert-project-name) -> this creates a git remote called heroku
 - Create and add a heroku.yml file see tutorial [here](https://devcenter.heroku.com/articles/build-docker-images-heroku-yml#getting-started-existing-app)
 - Run 'heroku stack:set container'
-- Run 'git push heroku master'
+- Run 'git push heroku (branch name)'
 
 ## .....
 
 'git push heroku master'
+
+'heroku buildpacks:add heroku/nodejs'
+'heroku buildpacks:add heroku/python'
