@@ -91,4 +91,5 @@ Ensure that you have docker and docker-compose installed on your machine, as wel
   - Login to Heroku cli by running one of the following:
     - 'heroku login' -> login with webbrowser pop up
     - 'heroku login -i' -> login through the terminal
+  - Run 'heroku container:login' to login to the heroku container registry
   - See [heroku.md](docs/heroku.md) for more details on Heroku and how to use it
