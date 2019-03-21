@@ -1,4 +1,4 @@
 # Trying to trigger this.....
 build:
   docker:
-    web: backend/Dockerfile
+    web: frontend/Dockerfile
