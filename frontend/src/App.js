@@ -145,7 +145,7 @@ class App extends Component {
           <Route exact path={PATH.home} component={Home} />
           <Route path={PATH.prototype} component={Prototype} />
           <Route path={PATH.status} component={Status} />
-          {/* <Route path={PATH.emibSampleTest} component={Emib} /> */}
+          <Route path={PATH.emibSampleTest} component={Emib} />
           <Route path={PATH.loginPage} component={LoginPage} />
         </div>
       </Router>
