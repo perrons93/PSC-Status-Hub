@@ -27,3 +27,10 @@ Connect to github via heroku web ui
 check errors with 'heroku logs --tail' in command line
 
 heroku ps:scale (container_name)=1
+
+docker build -t heroku_frontend frontend/
+docker build -t heroku_backend backend/
+docker run --rm -it -p 8080:8080 testing
+
+docker-compose up -d
+heroku container:push frontend
