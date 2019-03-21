@@ -5,7 +5,8 @@ import Tab from "./Tab";
 const styles = {
   tabContainer: {
     order: 1,
-    textAlign: "left"
+    textAlign: "left",
+    width: "100%"
   },
   bootstrapNav: {
     paddingLeft: "0",
