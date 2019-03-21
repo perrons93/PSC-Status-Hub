@@ -11,7 +11,7 @@ export let CLASS_NAME = {
   icon: ""
 };
 
-const styles = {
+export const styles = {
   boxPadding: {
     paddingTop: 18
   },
