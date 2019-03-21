@@ -12,6 +12,9 @@ export let CLASS_NAME = {
 };
 
 const styles = {
+  boxPadding: {
+    paddingTop: 18
+  },
   logoZone: {
     minWidth: 75
   },
@@ -20,7 +23,12 @@ const styles = {
   },
   textBox: {
     textAlign: "left",
-    paddingLeft: 25
+    paddingLeft: 24,
+    paddingRight: 24
+  },
+  h5: {
+    fontWeight: "bold",
+    paddingTop: 12
   }
 };
 
@@ -42,13 +50,13 @@ class SystemMessage extends Component {
     }
 
     return (
-      <div>
+      <div style={styles.boxPadding}>
         <div className={CLASS_NAME.alert} role="alert">
           <div className="icon" aria-hidden="true" style={styles.logoZone}>
             <i className={CLASS_NAME.icon} style={styles.logo} />
           </div>
           <div style={styles.textBox}>
-            <h3>{title}</h3>
+            <h5 style={styles.h5}>{title}</h5>
             <p>{message}</p>
           </div>
         </div>

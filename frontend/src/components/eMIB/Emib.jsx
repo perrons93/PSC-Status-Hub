@@ -23,7 +23,10 @@ const styles = {
   hr: {
     width: "100%",
     borderTop: "2px solid #96a8b2",
-    margin: "12px 0 0 0"
+    margin: "16px 0 16px 0"
+  },
+  checkboxZone: {
+    paddingTop: 8
   }
 };
 
@@ -178,7 +181,11 @@ class Emib extends Component {
               <div>
                 {this.state.quitConditions.map((condition, id) => {
                   return (
-                    <div key={id} className="custom-control custom-checkbox">
+                    <div
+                      key={id}
+                      className="custom-control custom-checkbox"
+                      style={styles.checkboxZone}
+                    >
                       <input
                         type="checkbox"
                         className="custom-control-input"
