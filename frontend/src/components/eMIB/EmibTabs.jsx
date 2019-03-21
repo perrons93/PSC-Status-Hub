@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Background from "./Background";
 import Inbox from "./Inbox";
-import SideNavigation from "../commons/SideNavigation";
 import LOCALIZE from "../../text_resources";
 import TabNavigation from "../commons/TabNavigation";
 import InTestInstructions from "./InTestInstructions";
