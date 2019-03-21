@@ -9,7 +9,9 @@ const styles = {
     marginRight: "auto",
     maxWidth: 1400,
     minWidth: 900,
-    height: 72
+    height: 72,
+    paddingRight: 20,
+    paddingLeft: 20
   },
   hr: {
     width: "100%",

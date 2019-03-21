@@ -6,7 +6,6 @@ import TabNavigation from "../commons/TabNavigation";
 import InTestInstructions from "./InTestInstructions";
 import Notepad from "../commons/Notepad";
 import "../../css/emib-tabs.css";
-import { styles } from "../commons/Tab";
 
 const customStyles = {
   container: {
@@ -14,7 +13,9 @@ const customStyles = {
     minWidth: 900,
     margin: "0px auto",
     paddingTop: 20,
-    display: "flex"
+    display: "flex",
+    paddingRight: 20,
+    paddingLeft: 20
   }
 };
 
