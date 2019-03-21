@@ -112,6 +112,7 @@ class Emib extends Component {
     const submitButtonState = allChecked ? BUTTON_STATE.enabled : BUTTON_STATE.disabled;
     return (
       <div className="app">
+        <div>{this.state.curPage === PAGES.emibTabs && <EmibTabs />}</div>
         <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
           {this.state.curPage === PAGES.preTest && (
             <ProgressPane
@@ -129,7 +130,7 @@ class Emib extends Component {
               }
             />
           )}
-          {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
+
           {this.state.curPage === PAGES.confirm && <Confirmation />}
         </ContentContainer>
         {this.state.curPage === PAGES.emibTabs && (
