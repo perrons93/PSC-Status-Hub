@@ -1,4 +1,12 @@
 # Trying to trigger this.....
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: db
 build:
   docker:
-    web: frontend/Dockerfile
+    frontend: frontend/Dockerfile
+    backend: backend/Dockerfile
+run:
+  frontend: sh frontend/entrypoint.sh
+  backend: sh backend/entrypoint.sh
