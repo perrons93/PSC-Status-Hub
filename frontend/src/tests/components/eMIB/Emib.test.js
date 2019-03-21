@@ -1,7 +1,9 @@
 import React from "react";
-import { mount } from "enzyme";
+import { mount, shallow } from "enzyme";
 import Emib, { PAGES } from "../../../components/eMIB/Emib";
+import EmibTabs from "../../../components/eMIB/EmibTabs";
 import Confirmation from "../../../components/eMIB/Confirmation";
+import { LANGUAGES } from "../../../components/commons/Translation";
 import LOCALIZE from "../../../text_resources";
 
 it("renders pre-test page", () => {
@@ -16,6 +18,13 @@ it("renders pre-test page when state changed", () => {
   wrapper.setState({ curPage: PAGES.preTest });
   const emibTitle = <h1 className="green-divider">{LOCALIZE.emibTest.homePage.testTitle}</h1>;
   expect(wrapper.contains(emibTitle)).toEqual(true);
+});
+
+it("renders tabs", () => {
+  const wrapper = shallow(<Emib />);
+  wrapper.setState({ curPage: PAGES.emibTabs });
+  const backgroundComponent = <EmibTabs />;
+  expect(wrapper.contains(backgroundComponent)).toEqual(true);
 });
 
 it("renders confirm page", () => {
