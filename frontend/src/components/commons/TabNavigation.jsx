@@ -3,6 +3,11 @@ import PropTypes from "prop-types";
 import Tab from "./Tab";
 
 const styles = {
+  tabContainer: {
+    order: 1,
+    textAlign: "left",
+    width: "100%"
+  },
   bootstrapNav: {
     paddingLeft: "0",
     marginBottom: "0",
@@ -13,7 +18,6 @@ const styles = {
     //this replaces the .bootstrap-tabs > .nav:after
     content: "",
     backgroundColor: "white",
-    width: 900,
     border: "1px solid #00565e",
     borderBottomColor: "transparent"
   },
@@ -27,8 +31,7 @@ const styles = {
     borderStyle: "solid",
     borderColor: "#00565e",
     borderTopColor: "white",
-    height: "calc(100vh - 241px)",
-    width: 900
+    height: "calc(100vh - 241px)"
   }
 };
 
@@ -50,7 +53,7 @@ class TabNavigation extends Component {
 
   render() {
     return (
-      <div>
+      <div style={styles.tabContainer}>
         <nav aria-label={this.props.menuName} role="dialog">
           <ul role="menubar" className="nav nav-tabs" style={styles.bootstrapNav}>
             {this.props.tabSpecs.map((tab, key) => (
