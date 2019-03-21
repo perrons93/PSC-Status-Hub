@@ -7,7 +7,8 @@ const styles = {
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
-    width: 1140,
+    maxWidth: 1400,
+    minWidth: 900,
     height: 72
   },
   hr: {
