@@ -25,3 +25,5 @@ See [SETUP.md](../SETUP.md) for sets on installing Heroku
 Connect to github via heroku web ui
 
 check errors with 'heroku logs --tail' in command line
+
+heroku ps:scale (container_name)=1
