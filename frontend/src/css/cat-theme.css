@@ -191,6 +191,6 @@ Progess Steps
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) !important;
-  min-width: 500px;
-  max-width: 1000px;
+  min-width: 500px !important;
+  max-width: 750px !important;
 }
