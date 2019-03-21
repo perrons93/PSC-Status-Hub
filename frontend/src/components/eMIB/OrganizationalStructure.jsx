@@ -5,16 +5,15 @@ import "../../css/cat-theme.css";
 import { LANGUAGES } from "../commons/Translation";
 import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 import emib_sample_test_example_org_chart_en from "../../images/emib_sample_test_example_org_chart_en.png";
-//TODO (fnormand): Put a zoomed image of better quality
 import emib_sample_test_example_org_chart_en_zoomed from "../../images/emib_sample_test_example_org_chart_en.png";
 import emib_sample_test_example_org_chart_fr from "../../images/emib_sample_test_example_org_chart_fr.png";
-//TODO (fnormand): Put a zoomed image of better quality
 import emib_sample_test_example_org_chart_fr_zoomed from "../../images/emib_sample_test_example_org_chart_fr.png";
 import ImageZoom from "react-medium-image-zoom";
 import "../../css/react-medium-image-zoom.css";
 
 const styles = {
   testImage: {
+    width: "100%",
     maxWidth: 600
   },
   button: {

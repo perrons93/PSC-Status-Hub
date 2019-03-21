@@ -62,6 +62,13 @@ let LOCALIZE = new LocalizedStrings({
           title: "Overview",
           description:
             'The electronic managerial Inbox (e-MIB) simulates an email inbox in which you will respond to a series of emails depicting situations typically encountered by managers in the federal public service. These situations will provide you with the opportunity to demonstrate the Key Leadership Competencies, outlined in "Evaluation".',
+          noteSection: {
+            para1: "While completing the e-MIB, you will have access to:",
+            bullet1: "The test instructions (the current document).",
+            bullet2:
+              "The background information describing your job as the manager and the fictitious organization where you work.",
+            bullet3: "A Notepad to serve as scrap paper. The Notepad will not be evaluated."
+          },
           aboutSection: {
             title: "About the sample test",
             para1:
@@ -419,6 +426,14 @@ let LOCALIZE = new LocalizedStrings({
           title: "Aperçu général",
           description:
             "La boîte de réception pour la gestion électronique (BRG-e) simule d’une boîte de courriel dans laquelle vous allez répondre à des courriels décrivant des situations qui sont typiquement vécues par les gestionnaires de la fonction publique. Ces situations vous donneront l’occasion de démontrer les compétences clés en leadership, décrit dans «Évaluation».",
+          noteSection: {
+            para1: "En complétant la BRG-e, vous aurez accès :",
+            bullet1: "Aux directives du test (le présent document).",
+            bullet2:
+              "À de l’information contextuelle décrivant votre rôle en tant que gestionnaire et l’organisation fictive où vous travaillez.",
+            bullet3:
+              "À un bloc-notes pouvant servir de papier brouillon. Le contenu du bloc-notes ne sera pas évalué."
+          },
           aboutSection: {
             title: "À propos de l’échantillon de test",
             para1:

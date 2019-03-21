@@ -7,7 +7,8 @@ import "../../css/emib-tabs.css";
 const styles = {
   windowPadding: {
     paddingTop: 43,
-    paddingLeft: 20
+    paddingLeft: 20,
+    order: 2
   },
   h4: {
     color: "white"

@@ -23,7 +23,10 @@ const styles = {
   hr: {
     width: "100%",
     borderTop: "2px solid #96a8b2",
-    margin: "12px 0 0 0"
+    margin: "16px 0 16px 0"
+  },
+  checkboxZone: {
+    paddingTop: 8
   }
 };
 
@@ -112,26 +115,29 @@ class Emib extends Component {
     const submitButtonState = allChecked ? BUTTON_STATE.enabled : BUTTON_STATE.disabled;
     return (
       <div className="app">
-        <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
-          {this.state.curPage === PAGES.preTest && (
-            <ProgressPane
-              progressSpecs={SPECS}
-              currentNode={0}
-              paneTitle={LOCALIZE.emibTest.homePage.testTitle}
-              exitButton={
-                <button
-                  type="button"
-                  className="btn btn-primary btn-wide"
-                  onClick={this.changePage}
-                >
-                  {LOCALIZE.commons.startTest}
-                </button>
-              }
-            />
-          )}
-          {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
-          {this.state.curPage === PAGES.confirm && <Confirmation />}
-        </ContentContainer>
+        <div>{this.state.curPage === PAGES.emibTabs && <EmibTabs />}</div>
+        {this.state.curPage !== PAGES.emibTabs && (
+          <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
+            {this.state.curPage === PAGES.preTest && (
+              <ProgressPane
+                progressSpecs={SPECS}
+                currentNode={0}
+                paneTitle={LOCALIZE.emibTest.homePage.testTitle}
+                exitButton={
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-wide"
+                    onClick={this.changePage}
+                  >
+                    {LOCALIZE.commons.startTest}
+                  </button>
+                }
+              />
+            )}
+
+            {this.state.curPage === PAGES.confirm && <Confirmation />}
+          </ContentContainer>
+        )}
         {this.state.curPage === PAGES.emibTabs && (
           <TestFooter submitTest={this.openSubmitPopup} quitTest={this.openQuitPopup} />
         )}
@@ -178,7 +184,11 @@ class Emib extends Component {
               <div>
                 {this.state.quitConditions.map((condition, id) => {
                   return (
-                    <div key={id} className="custom-control custom-checkbox">
+                    <div
+                      key={id}
+                      className="custom-control custom-checkbox"
+                      style={styles.checkboxZone}
+                    >
                       <input
                         type="checkbox"
                         className="custom-control-input"
