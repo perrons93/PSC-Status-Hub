@@ -8,9 +8,15 @@ const Prototype = () => {
       <h2>{LOCALIZE.prototypePage.title}</h2>
       <p>{LOCALIZE.prototypePage.welcomeMsg}</p>
 
-      <form method="get" action="/emib-sample">
+      {/* <form method="get" action="/emib-sample">
         <button type="submit" className="btn btn-primary">
           {LOCALIZE.prototypePage.startEmibSampleTest}
+        </button>
+      </form> */}
+
+      <form method="get" action="/login">
+        <button type="submit" className="btn btn-primary">
+          Login
         </button>
       </form>
     </ContentContainer>

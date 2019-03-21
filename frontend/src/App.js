@@ -6,6 +6,7 @@ import Status from "./Status";
 import Home from "./Home";
 import Prototype from "./Prototype";
 import Emib from "./components/eMIB/Emib";
+import LoginPage from "./components/commons/LoginPage";
 import Translation, { LANGUAGES } from "./components/commons/Translation";
 import LOCALIZE from "./text_resources";
 import psc_header from "./images/psc_header.png";
@@ -14,7 +15,8 @@ const PATH = {
   home: "/",
   prototype: "/prototype",
   status: "/status",
-  emibSampleTest: "/emib-sample"
+  emibSampleTest: "/emib-sample",
+  loginPage: "/login"
 };
 
 const styles = {
@@ -47,8 +49,14 @@ const isHomeActive = (match, location) => {
 const isPrototypeActive = (match, location) => {
   if (!location) return false;
   const { pathname } = location;
-  if (pathname === PATH.prototype || pathname === PATH.emibSampleTest) {
-    return pathname === PATH.prototype || pathname === PATH.emibSampleTest;
+  if (
+    pathname === PATH.prototype ||
+    pathname === PATH.emibSampleTest ||
+    pathname === PATH.loginPage
+  ) {
+    return (
+      pathname === PATH.prototype || pathname === PATH.emibSampleTest || pathname === PATH.loginPage
+    );
   }
 };
 
@@ -137,7 +145,8 @@ class App extends Component {
           <Route exact path={PATH.home} component={Home} />
           <Route path={PATH.prototype} component={Prototype} />
           <Route path={PATH.status} component={Status} />
-          <Route path={PATH.emibSampleTest} component={Emib} />
+          {/* <Route path={PATH.emibSampleTest} component={Emib} /> */}
+          <Route path={PATH.loginPage} component={LoginPage} />
         </div>
       </Router>
     );
