@@ -7,6 +7,18 @@ import InTestInstructions from "./InTestInstructions";
 import Notepad from "../commons/Notepad";
 import "../../css/emib-tabs.css";
 
+const customStyles = {
+  container: {
+    maxWidth: 1400,
+    minWidth: 900,
+    margin: "0px auto",
+    paddingTop: 20,
+    display: "flex",
+    paddingRight: 20,
+    paddingLeft: 20
+  }
+};
+
 class EmibTabs extends Component {
   render() {
     const TABS = [
@@ -27,13 +39,9 @@ class EmibTabs extends Component {
       }
     ];
     return (
-      <div className="emib-tabs-grid">
-        <div className="test-tabs-cell">
-          <TabNavigation tabSpecs={TABS} currentTab={1} menuName={LOCALIZE.ariaLabel.tabMenu} />
-        </div>
-        <div className="notepad-cell">
-          <Notepad />
-        </div>
+      <div style={customStyles.container}>
+        <TabNavigation tabSpecs={TABS} currentTab={1} menuName={LOCALIZE.ariaLabel.tabMenu} />
+        <Notepad />
       </div>
     );
   }

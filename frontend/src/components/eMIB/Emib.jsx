@@ -112,26 +112,29 @@ class Emib extends Component {
     const submitButtonState = allChecked ? BUTTON_STATE.enabled : BUTTON_STATE.disabled;
     return (
       <div className="app">
-        <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
-          {this.state.curPage === PAGES.preTest && (
-            <ProgressPane
-              progressSpecs={SPECS}
-              currentNode={0}
-              paneTitle={LOCALIZE.emibTest.homePage.testTitle}
-              exitButton={
-                <button
-                  type="button"
-                  className="btn btn-primary btn-wide"
-                  onClick={this.changePage}
-                >
-                  {LOCALIZE.commons.startTest}
-                </button>
-              }
-            />
-          )}
-          {this.state.curPage === PAGES.emibTabs && <EmibTabs />}
-          {this.state.curPage === PAGES.confirm && <Confirmation />}
-        </ContentContainer>
+        <div>{this.state.curPage === PAGES.emibTabs && <EmibTabs />}</div>
+        {this.state.curPage !== PAGES.emibTabs && (
+          <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
+            {this.state.curPage === PAGES.preTest && (
+              <ProgressPane
+                progressSpecs={SPECS}
+                currentNode={0}
+                paneTitle={LOCALIZE.emibTest.homePage.testTitle}
+                exitButton={
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-wide"
+                    onClick={this.changePage}
+                  >
+                    {LOCALIZE.commons.startTest}
+                  </button>
+                }
+              />
+            )}
+
+            {this.state.curPage === PAGES.confirm && <Confirmation />}
+          </ContentContainer>
+        )}
         {this.state.curPage === PAGES.emibTabs && (
           <TestFooter submitTest={this.openSubmitPopup} quitTest={this.openQuitPopup} />
         )}
