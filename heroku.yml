@@ -7,6 +7,6 @@ build:
   docker:
     frontend: frontend/Dockerfile
     backend: backend/Dockerfile
-run:
-  frontend: sh frontend/entrypoint.sh
-  backend: sh backend/entrypoint.sh
+#run:
+#  frontend: sh frontend/entrypoint.sh
+#  backend: sh backend/entrypoint.sh
