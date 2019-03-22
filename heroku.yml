@@ -6,7 +6,7 @@ setup:
 build:
   docker:
     frontend: frontend/Dockerfile
-    backend: backend/Dockerfile
+#    backend: backend/Dockerfile
 run:
   frontend: entrypoint.sh
-  backend: entrypoint.sh
+#  backend: entrypoint.sh
