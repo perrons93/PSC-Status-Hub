@@ -8,7 +8,5 @@ build:
     frontend: frontend/Dockerfile
     backend: backend/Dockerfile
 run:
-  frontend:
-    command: sh frontend/entrypoint.sh
-  backend:
-    command: sh backend/entrypoint.sh
+  frontend: /bin/bash sh frontend/entrypoint.sh
+  backend: /bin/bash sh backend/entrypoint.sh

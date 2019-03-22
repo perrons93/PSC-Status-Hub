@@ -34,3 +34,8 @@ docker run --rm -it -p 8080:8080 testing
 
 docker-compose up -d
 heroku container:push frontend
+
+heroku plugins:install heroku-builds
+heroku builds:cancel <id> -a example-app
+
+heroku builds:cancel
