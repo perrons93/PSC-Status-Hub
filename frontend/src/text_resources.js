@@ -137,7 +137,6 @@ let LOCALIZE = new LocalizedStrings({
           title: "Test examples",
           para1: "Example of an email and ways of responding",
           part1Title: "Original email",
-          conditionToDisplayImage: "en",
           part1Description:
             "Two options are provided below to demonstrate different methods of responding to the email. As previously mentioned, you can choose one of the two options presented or a combination of the two. Note that the responses provided were not evaluated for how well they demonstrate the competency targeted in the email. They are presented here only to illustrate how to use each of the two ways of responding.",
           part2Title: "Option 1 – Sending an email with Reasons for Action",
@@ -500,7 +499,6 @@ let LOCALIZE = new LocalizedStrings({
           }
         },
         testExamples: {
-          conditionToDisplayImage: "fr",
           title: "FR Test examples",
           para1: "Exemple de courriel et façons de répondre",
           part1Title: "Courriel original",

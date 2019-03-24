@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
@@ -22,6 +24,11 @@ const styles = {
 };
 
 class OrganizationalStructure extends Component {
+  static propTypes = {
+    // Props from Redux
+    currentLanguage: PropTypes.string
+  };
+
   state = {
     showPopupBox: false
   };
@@ -35,6 +42,7 @@ class OrganizationalStructure extends Component {
   };
 
   render() {
+    const { currentLanguage } = this.props;
     return (
       <div>
         <PopupBox
@@ -76,8 +84,7 @@ class OrganizationalStructure extends Component {
               {LOCALIZE.emibTest.background.organizationalStructure.para4}
             </p>
             <p>
-              {LOCALIZE.emibTest.howToPage.testExamples.conditionToDisplayImage ===
-                LANGUAGES.english && (
+              {currentLanguage === LANGUAGES.english && (
                 <ImageZoom
                   image={{
                     src: emib_sample_test_example_org_chart_en,
@@ -92,8 +99,7 @@ class OrganizationalStructure extends Component {
                   }}
                 />
               )}
-              {LOCALIZE.emibTest.howToPage.testExamples.conditionToDisplayImage ===
-                LANGUAGES.french && (
+              {currentLanguage === LANGUAGES.french && (
                 <ImageZoom
                   image={{
                     src: emib_sample_test_example_org_chart_fr,
@@ -124,4 +130,13 @@ class OrganizationalStructure extends Component {
   }
 }
 
-export default OrganizationalStructure;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    currentLanguage: state.localize.language
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(OrganizationalStructure);

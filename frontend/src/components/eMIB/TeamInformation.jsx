@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
@@ -22,6 +24,11 @@ const styles = {
 };
 
 class TeamInformation extends Component {
+  static propTypes = {
+    // Props from Redux
+    currentLanguage: PropTypes.string
+  };
+
   state = {
     showPopupBox: false
   };
@@ -35,6 +42,7 @@ class TeamInformation extends Component {
   };
 
   render() {
+    const { currentLanguage } = this.props;
     return (
       <div>
         <PopupBox
@@ -60,8 +68,7 @@ class TeamInformation extends Component {
           </div>
           <div>
             <p>
-              {LOCALIZE.emibTest.howToPage.testExamples.conditionToDisplayImage ===
-                LANGUAGES.english && (
+              {currentLanguage === LANGUAGES.english && (
                 <ImageZoom
                   longdesc="#team-image-description"
                   image={{
@@ -77,8 +84,7 @@ class TeamInformation extends Component {
                   }}
                 />
               )}
-              {LOCALIZE.emibTest.howToPage.testExamples.conditionToDisplayImage ===
-                LANGUAGES.french && (
+              {currentLanguage === LANGUAGES.french && (
                 <ImageZoom
                   longdesc="#team-image-description"
                   image={{
@@ -156,4 +162,13 @@ class TeamInformation extends Component {
   }
 }
 
-export default TeamInformation;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    currentLanguage: state.localize.language
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(TeamInformation);

@@ -1,7 +1,7 @@
 import React from "react";
-import { mount } from "enzyme";
+import { mount, shallow } from "enzyme";
 import Emib, { PAGES } from "../../../components/eMIB/Emib";
-import Background from "../../../components/eMIB/Background";
+import EmibTabs from "../../../components/eMIB/EmibTabs";
 import Confirmation from "../../../components/eMIB/Confirmation";
 import { LANGUAGES } from "../../../components/commons/Translation";
 import LOCALIZE from "../../../text_resources";
@@ -20,10 +20,10 @@ it("renders pre-test page when state changed", () => {
   expect(wrapper.contains(emibTitle)).toEqual(true);
 });
 
-it("renders background page in test tabs", () => {
-  const wrapper = mount(<Emib />);
+it("renders tabs", () => {
+  const wrapper = shallow(<Emib />);
   wrapper.setState({ curPage: PAGES.emibTabs });
-  const backgroundComponent = <Background />;
+  const backgroundComponent = <EmibTabs />;
   expect(wrapper.contains(backgroundComponent)).toEqual(true);
 });
 
