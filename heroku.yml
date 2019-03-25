@@ -4,6 +4,5 @@ build:
     frontend: frontend/Dockerfile
 #    backend: backend/Dockerfile
 run:
-  frontend: "cd frontend/
-  yarn start"
+  frontend: "ls"
 #  backend: entrypoint.sh
