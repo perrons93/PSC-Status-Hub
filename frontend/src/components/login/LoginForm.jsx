@@ -138,6 +138,7 @@ class LoginForm extends Component {
             </div>
           </div>
         )}
+        {this.state.isLoaded && <div>You've just logged in</div>}
       </div>
     );
   }
