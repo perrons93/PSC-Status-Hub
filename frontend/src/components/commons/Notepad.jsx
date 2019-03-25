@@ -6,71 +6,43 @@ import "../../css/emib-tabs.css";
 
 const styles = {
   windowPadding: {
-    paddingTop: 43,
-    paddingLeft: 20,
+    paddingTop: 43.5,
     order: 2
   },
   h4: {
-    color: "white"
+    textAlign: "left",
+    fontSize: "16px",
+    fontWeight: "bold",
+    color: "#00565e",
+    padding: "0 0 8px 12px",
+    borderBottom: "1px solid green"
   },
   title: {
-    paddingLeft: 12,
     paddingTop: 0.1,
-    height: 55,
-    backgroundColor: "#00565e",
-    borderRadius: "5px 5px 0 0"
+    borderRadius: "0 5px 0 0"
   },
   content: {
     backgroundColor: "white",
     borderWidth: "1px 1px 0 1px",
     borderStyle: "solid",
     borderColor: "#00565e",
-    borderRadius: "5px 5px 0 0",
-    width: 220,
-    height: "calc(100vh - 237px)"
+    borderRadius: "0 5px 0 0",
+    width: "100%",
+    height: "calc(100vh - 238px)"
   },
   notepadSection: {
     overflow: "auto",
-    height: "calc(100vh - 297px)"
+    height: "calc(100vh - 291px)"
   },
   textArea: {
+    padding: "0 6px 6px 6px",
+    width: "100%",
     resize: "none",
     border: "none"
-  },
-  center: {
-    textAlign: "center"
   }
 };
 
 class Notepad extends Component {
-  state = {
-    columnWidth: 0
-  };
-
-  /*
-  Adjust the notepad text zone width depending on the browser
-  Each browser has its own interpretation of the notepad text zone width
-  */
-  detectBrowser = () => {
-    switch (BROWSER_STRING) {
-      case IE_STRING:
-        this.setState({ columnWidth: 20 });
-        break;
-      case VALID_BROWSERS[0]:
-        this.setState({ columnWidth: 22 });
-        break;
-      case VALID_BROWSERS[1]:
-        this.setState({ columnWidth: 18 });
-        break;
-      default:
-        this.setState({ columnWidth: 18 });
-    }
-  };
-
-  componentDidMount() {
-    this.detectBrowser();
-  }
-
   render() {
     return (
       <div style={styles.windowPadding}>
@@ -80,7 +52,7 @@ class Notepad extends Component {
           </div>
           <div style={styles.notepadSection}>
             <form>
-              <fieldset style={styles.center}>
+              <fieldset>
                 <label htmlFor="text-area-zone" className="invisible position-absolute">
                   {LOCALIZE.commons.notepad.title}
                 </label>
@@ -89,7 +61,7 @@ class Notepad extends Component {
                   maxLength="3000"
                   className="text-area"
                   style={styles.textArea}
-                  cols={this.state.columnWidth}
+                  cols="45"
                   minRows={5}
                   placeholder={LOCALIZE.commons.notepad.placeholder}
                 />
