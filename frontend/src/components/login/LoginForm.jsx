@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import LOCALIZE from "../../text_resources";
 
 const styles = {
   loginContent: {
@@ -25,7 +26,7 @@ const styles = {
   }
 };
 
-class LoginPage extends Component {
+class LoginForm extends Component {
   state = {
     // token: "",
     isLoaded: false,
@@ -90,42 +91,47 @@ class LoginPage extends Component {
         {!this.state.isLoaded && (
           <div>
             <div style={styles.loginContent}>
-              <h3>Login</h3>
-              <span>
-                An account is required to proceed further. To log in, enter your credentials below
-              </span>
+              <h3>{LOCALIZE.homePage.login.content.title}</h3>
+              <span>{LOCALIZE.homePage.login.content.description}</span>
               <form onSubmit={this.handleSubmit}>
                 <div>
                   <div style={styles.inputTitles}>
-                    <span>Email Address:</span>
+                    <span>{LOCALIZE.homePage.login.content.inputs.inputOneTitle}</span>
                   </div>
-                  <input type="text" placeholder="Username" id="username" style={styles.inputs} />
+                  <input
+                    type="text"
+                    placeholder={LOCALIZE.homePage.login.content.inputs.inputOnePlaceholder}
+                    id="username"
+                    style={styles.inputs}
+                  />
                   <br />
                 </div>
                 <div>
                   <div style={styles.inputTitles}>
-                    <span>Password:</span>
+                    <span>{LOCALIZE.homePage.login.content.inputs.inputTwoTitle}</span>
                   </div>
                   <input
                     type="password"
-                    placeholder="Password"
+                    placeholder={LOCALIZE.homePage.login.content.inputs.inputTwoPlaceholder}
                     id="password"
                     style={styles.inputs}
                   />
                 </div>
                 {!this.state.validCredentials && (
-                  <div style={styles.validationError}>Invalid Credentials</div>
+                  <div style={styles.validationError}>
+                    {LOCALIZE.homePage.login.invalidCredentialsError}
+                  </div>
                 )}
                 {!this.state.validRequest && (
                   <div style={styles.validationError}>
-                    Please provide both username and password
+                    {LOCALIZE.homePage.login.badRequestError}
                   </div>
                 )}
                 <input
                   style={styles.loginBtn}
                   className="btn btn-primary"
                   type="submit"
-                  value="Login"
+                  value={LOCALIZE.homePage.login.button}
                   onClick={this.handleLogin}
                 />
               </form>
@@ -137,4 +143,4 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+export default LoginForm;

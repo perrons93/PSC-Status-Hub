@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TabNavigation from "../commons/TabNavigation";
-import LoginPage from "./LoginForm";
+import LoginForm from "./LoginForm";
+import LOCALIZE from "../../text_resources";
 
 const customStyles = {
   container: {
@@ -17,8 +18,8 @@ class LoginTabs extends Component {
     const TABS = [
       {
         id: 0,
-        tabName: "LOG IN",
-        body: <LoginPage />
+        tabName: LOCALIZE.homePage.login.title,
+        body: <LoginForm />
       },
       {
         id: 1,
