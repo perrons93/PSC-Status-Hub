@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import LOCALIZE from "../../text_resources";
 import TextareaAutosize from "react-textarea-autosize";
-import { BROWSER_STRING, IE_STRING, VALID_BROWSERS } from "../../Status";
 import "../../css/emib-tabs.css";
 
 const styles = {
