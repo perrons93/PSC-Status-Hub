@@ -1,8 +1,8 @@
 # Trying to trigger this.....
 build:
   docker:
-    frontend: frontend/Dockerfile
+    web: frontend/Dockerfile
 #    backend: backend/Dockerfile
 run:
-  frontend: "dir"
+  web: "dir"
 #  backend: entrypoint.sh
