@@ -4,5 +4,5 @@ build:
     web: frontend/Dockerfile
 #    backend: backend/Dockerfile
 run:
-  web: "dir"
+  web: "frontend/entrypoint.sh"
 #  backend: entrypoint.sh
