@@ -24,18 +24,29 @@ See [SETUP.md](../SETUP.md) for sets on installing Heroku
 
 Connect to github via heroku web ui
 
-check errors with 'heroku logs --tail' in command line
+#check errors with
+heroku logs --tail
 
+#Start a dyno/webservice: (I dont think you really need this one)
 heroku ps:scale (container_name)=1
 
+#This didn't really work, but a way to build and tag:
 docker build -t heroku_frontend frontend/
 docker build -t heroku_backend backend/
 docker run --rm -it -p 8080:8080 testing
 
+#Should be able to build/push images with:
 docker-compose up -d
 heroku container:push frontend
 
+# How to cancel a build
+
 heroku plugins:install heroku-builds
+
+## Specific id
+
 heroku builds:cancel <id> -a example-app
+
+## Cancel All
 
 heroku builds:cancel
