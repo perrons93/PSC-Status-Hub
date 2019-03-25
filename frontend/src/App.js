@@ -6,7 +6,6 @@ import Status from "./Status";
 import Home from "./Home";
 import Prototype from "./Prototype";
 import Emib from "./components/eMIB/Emib";
-import LoginPage from "./components/commons/LoginPage";
 import Translation, { LANGUAGES } from "./components/commons/Translation";
 import LOCALIZE from "./text_resources";
 import psc_header from "./images/psc_header.png";
@@ -15,8 +14,7 @@ const PATH = {
   home: "/",
   prototype: "/prototype",
   status: "/status",
-  emibSampleTest: "/emib-sample",
-  loginPage: "/login"
+  emibSampleTest: "/emib-sample"
 };
 
 const styles = {
@@ -146,7 +144,6 @@ class App extends Component {
           <Route path={PATH.prototype} component={Prototype} />
           <Route path={PATH.status} component={Status} />
           <Route path={PATH.emibSampleTest} component={Emib} />
-          <Route path={PATH.loginPage} component={LoginPage} />
         </div>
       </Router>
     );
