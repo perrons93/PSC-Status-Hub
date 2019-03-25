@@ -1,7 +1,7 @@
 # Trying to trigger this.....
 build:
   docker:
-    frontend: app/frontend/Dockerfile
+    frontend: frontend/Dockerfile
 #    backend: backend/Dockerfile
 run:
   frontend:
