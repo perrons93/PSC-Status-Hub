@@ -4,5 +4,5 @@ build:
     frontend: frontend/Dockerfile
 #    backend: backend/Dockerfile
 run:
-  frontend: "ls"
+  frontend: "dir"
 #  backend: entrypoint.sh
