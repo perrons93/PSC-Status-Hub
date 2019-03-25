@@ -6,6 +6,5 @@ build:
 run:
   frontend:
     command:
-    - ./frontend/entrypoint.sh
-      image: frontend
+      - ./frontend/entrypoint.sh
 #  backend: entrypoint.sh
