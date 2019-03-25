@@ -1,12 +1,8 @@
 # Trying to trigger this.....
-setup:
-  addons:
-    - plan: heroku-postgresql
-      as: db
 build:
   docker:
     frontend: frontend/Dockerfile
 #    backend: backend/Dockerfile
 run:
-  frontend: ./frontend/entrypoint.sh
+  frontend: "yarn start"
 #  backend: entrypoint.sh
