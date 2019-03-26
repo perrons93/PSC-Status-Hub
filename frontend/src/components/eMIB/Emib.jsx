@@ -49,6 +49,111 @@ export const getInstructionContent = () => {
   ];
 };
 
+export const getInboxContent = () => {
+  return [
+    {
+      id: 0,
+      text: (
+        <div>
+          <div>piiinnngggg</div>
+          <div>pooonnnngg</div>
+        </div>
+      ),
+      body: <div>Placeholder 0</div>
+    },
+    {
+      id: 1,
+      text: (
+        <div>
+          <div>piiinnngggg 1</div>
+          <div>pooonnnngg 1</div>
+        </div>
+      ),
+      body: <div>Placeholder 1</div>
+    },
+    {
+      id: 2,
+      text: (
+        <div>
+          <div>piiinnngggg 2</div>
+          <div>pooonnnngg 2</div>
+        </div>
+      ),
+      body: <div>Placeholder 2</div>
+    },
+    {
+      id: 3,
+      text: (
+        <div>
+          <div>piiinnngggg 3</div>
+          <div>pooonnnngg 3</div>
+        </div>
+      ),
+      body: <div>Placeholder 3</div>
+    },
+    {
+      id: 4,
+      text: (
+        <div>
+          <div>piiinnngggg 4</div>
+          <div>pooonnnngg 4</div>
+        </div>
+      ),
+      body: <div>Placeholder 4</div>
+    },
+    {
+      id: 5,
+      text: (
+        <div>
+          <div>piiinnngggg 5</div>
+          <div>pooonnnngg 5</div>
+        </div>
+      ),
+      body: <div>Placeholder 5</div>
+    },
+    {
+      id: 6,
+      text: (
+        <div>
+          <div>piiinnngggg 6</div>
+          <div>pooonnnngg 6</div>
+        </div>
+      ),
+      body: <div>Placeholder 6</div>
+    },
+    {
+      id: 7,
+      text: (
+        <div>
+          <div>piiinnngggg 7</div>
+          <div>pooonnnngg 7</div>
+        </div>
+      ),
+      body: <div>Placeholder 7</div>
+    },
+    {
+      id: 8,
+      text: (
+        <div>
+          <div>piiinnngggg 8</div>
+          <div>pooonnnngg 8</div>
+        </div>
+      ),
+      body: <div>Placeholder 8</div>
+    },
+    {
+      id: 9,
+      text: (
+        <div>
+          <div>piiinnngggg 9</div>
+          <div>pooonnnngg 9</div>
+        </div>
+      ),
+      body: <div>Placeholder 9</div>
+    }
+  ];
+};
+
 const quitConditions = () => {
   return [
     { text: LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne, checked: false },
@@ -110,7 +215,7 @@ class Emib extends Component {
   render() {
     const { quitConditions } = this.state;
     const allChecked = quitConditions.every(this.isChecked);
-    const SPECS = getInstructionContent();
+    const INSTRUCTION_SPECS = getInstructionContent();
 
     const submitButtonState = allChecked ? BUTTON_STATE.enabled : BUTTON_STATE.disabled;
     return (
@@ -120,7 +225,7 @@ class Emib extends Component {
           <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
             {this.state.curPage === PAGES.preTest && (
               <ProgressPane
-                progressSpecs={SPECS}
+                progressSpecs={INSTRUCTION_SPECS}
                 currentNode={0}
                 paneTitle={LOCALIZE.emibTest.homePage.testTitle}
                 exitButton={
