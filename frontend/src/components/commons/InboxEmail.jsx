@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 class InboxEmail extends Component {
   static propTypes = {
-    text: PropTypes.object.isRequired
+    email: PropTypes.object.isRequired
   };
 
   render() {
     return (
       <span>
-        <div>{this.props.text}</div>
+        <div>{this.props.email.body}</div>
       </span>
     );
   }

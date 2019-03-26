@@ -16,10 +16,10 @@ const styles = {
 
 class InboxButton extends Component {
   static propTypes = {
-    text: PropTypes.object.isRequired
+    email: PropTypes.object.isRequired
   };
   render() {
-    return <div style={styles.button}>{this.props.text}</div>;
+    return <div style={styles.button}>{this.props.email.text}</div>;
   }
 }
 

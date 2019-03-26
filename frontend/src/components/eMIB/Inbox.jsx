@@ -47,12 +47,12 @@ class Inbox extends Component {
               <div key={email.id}>
                 {email.id === this.state.currentNode && (
                   <li style={styles.li} aria-current="page" role="menuitem">
-                    <InboxButton text={email.text} />
+                    <InboxButton email={email} />
                   </li>
                 )}
                 {email.id !== this.state.currentNode && (
                   <li style={styles.li} role="menuitem">
-                    <InboxButton text={email.text} />
+                    <InboxButton email={email} />
                   </li>
                 )}
               </div>
@@ -64,7 +64,7 @@ class Inbox extends Component {
           style={styles.bodyContent}
           id="side-nav-grid-content-cell"
         >
-          <InboxEmail text={this.props.inboxSpecs[this.state.currentNode].body} />
+          <InboxEmail email={this.props.inboxSpecs[this.state.currentNode]} />
         </div>
       </div>
     );
