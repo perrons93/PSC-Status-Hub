@@ -50,4 +50,18 @@ frontend_1 | info Visit https://yarnpkg.com/en/docs/cli/run for documentation ab
 project-thundercat_frontend_1 exited with code 1
 ```
 
-Delete yarn.lock file and node_modules and try again.
+Delete yarn.lock file and node_modules and run
+
+```shell
+docker-compose up
+```
+
+again. This time it should build.
+
+If this results in changes to your yarn.lock file, simply run
+
+```shell
+git checkout frontend/yarn.lock
+```
+
+to checkout the old version.
