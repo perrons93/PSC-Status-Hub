@@ -11,8 +11,8 @@ const INBOX_SPECS = getInboxContent();
 
 it("renders Inbox Page", () => {
   const wrapper = mount(<Inbox inboxSpecs={INBOX_SPECS} />);
-  const emailButton = <InboxButton email={INBOX_SPECS[0]} clickFunction={function() {}} />;
-  expect(wrapper.contains(emailButton)).toEqual(true);
+  const emailButton = <InboxButton email={INBOX_SPECS[0]} clickFunction={function(id) {}} />;
+  expect(wrapper.contains(emailButton)).toEqual(true); //TODO this fails because of the function parameter
 });
 
 it("Shows only email 1", () => {
@@ -60,9 +60,9 @@ function testCore(selected) {
   wrapper.setState({ currentEmail: selected });
   for (let i = 0; i < 10; i++) {
     const currentEmail = INBOX_SPECS[i];
-    const emailButton = <InboxButton email={currentEmail} clickFunction={function() {}} />;
+    const emailButton = <InboxButton email={currentEmail} clickFunction={function(id) {}} />;
     const emailBody = <InboxEmail email={currentEmail} />;
-    expect(wrapper.contains(emailButton)).toEqual(true);
+    expect(wrapper.contains(emailButton)).toEqual(true); //TODO this fails because of the function parameter
     const checkBody = wrapper.contains(emailBody);
     if (i === selected) {
       // if the current one is selected
