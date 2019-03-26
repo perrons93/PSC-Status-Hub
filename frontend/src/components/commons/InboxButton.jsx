@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 class InboxButton extends Component {
   static propTypes = {
-    text: PropTypes.string.isRequired
+    text: PropTypes.object.isRequired
   };
 
   render() {
