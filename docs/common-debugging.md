@@ -56,12 +56,12 @@ Delete yarn.lock file and node_modules and run
 docker-compose up
 ```
 
-again. This time it should build.
+again.
 
-If this results in changes to your yarn.lock file, simply run
+This time it should build. If not, or if this results in changes to your yarn.lock file, simply run
 
 ```shell
 git checkout frontend/yarn.lock
 ```
 
-to checkout the old version.
+to checkout the old version and then it should work again.
