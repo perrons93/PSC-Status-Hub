@@ -11,7 +11,7 @@ const INBOX_SPECS = getInboxContent();
 
 it("renders Inbox Page", () => {
   const wrapper = mount(<Inbox inboxSpecs={INBOX_SPECS} />);
-  const emailButton = <InboxButton email={INBOX_SPECS[0]} />;
+  const emailButton = <InboxButton email={INBOX_SPECS[0]} clickFunction={function() {}} />;
   expect(wrapper.contains(emailButton)).toEqual(true);
 });
 
@@ -60,7 +60,7 @@ function testCore(selected) {
   wrapper.setState({ currentEmail: selected });
   for (let i = 0; i < 10; i++) {
     const currentEmail = INBOX_SPECS[i];
-    const emailButton = <InboxButton email={currentEmail} />;
+    const emailButton = <InboxButton email={currentEmail} clickFunction={function() {}} />;
     const emailBody = <InboxEmail email={currentEmail} />;
     expect(wrapper.contains(emailButton)).toEqual(true);
     const checkBody = wrapper.contains(emailBody);

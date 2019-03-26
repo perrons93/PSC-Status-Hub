@@ -16,11 +16,12 @@ const styles = {
 
 class InboxButton extends Component {
   static propTypes = {
-    email: PropTypes.object.isRequired
+    email: PropTypes.object.isRequired,
+    clickFunction: PropTypes.func.isRequired
   };
   render() {
     return (
-      <div style={styles.button}>
+      <div style={styles.button} onClick={() => this.props.clickFunction(this.props.email.id)}>
         <div>{this.props.email.subject}</div>
         <div>{this.props.email.from}</div>
       </div>

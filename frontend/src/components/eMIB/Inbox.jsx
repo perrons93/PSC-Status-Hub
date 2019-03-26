@@ -33,6 +33,10 @@ class Inbox extends Component {
     currentEmail: 0
   };
 
+  changeEmail = index => {
+    this.setState({ currentEmail: index - 1 });
+  };
+
   render() {
     return (
       <div className="side-nav-grid">
@@ -47,12 +51,12 @@ class Inbox extends Component {
               <div key={email.id}>
                 {email.id === this.state.currentEmail && (
                   <li style={styles.li} aria-current="page" role="menuitem">
-                    <InboxButton email={email} />
+                    <InboxButton email={email} clickFunction={this.changeEmail} />
                   </li>
                 )}
                 {email.id !== this.state.currentEmail && (
                   <li style={styles.li} role="menuitem">
-                    <InboxButton email={email} />
+                    <InboxButton email={email} clickFunction={this.changeEmail} />
                   </li>
                 )}
               </div>
