@@ -55,8 +55,8 @@ export const getInboxContent = () => {
       id: 0,
       text: (
         <div>
-          <div>piiinnngggg</div>
-          <div>pooonnnngg</div>
+          <div>piiinnngggg 0</div>
+          <div>pooonnnngg 0</div>
         </div>
       ),
       body: <div>Placeholder 0</div>
