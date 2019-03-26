@@ -19,15 +19,17 @@ const styles = {
   hideNotepadBtn: {
     float: "right",
     margin: "8px 12px 0 0",
-    padding: "0 6px 0 26px",
+    padding: "0 8px 0 8px",
     backgroundColor: "transparent",
     border: "none",
     cursor: "pointer"
   },
   hideNotepadBtnIcon: {
-    position: "absolute",
-    padding: "12px 0 0 82px",
+    paddingTop: 12,
     cursor: "pointer"
+  },
+  hideNotepadBtnZone: {
+    float: "right"
   },
   content: {
     backgroundColor: "white",
@@ -94,14 +96,16 @@ class Notepad extends Component {
       <div style={styles.windowPadding}>
         {!notepadHidden && (
           <div style={styles.content}>
-            <span
-              onClick={this.handleHide}
-              style={styles.hideNotepadBtnIcon}
-              className="fas fa-minus-circle"
-            />
-            <button onClick={this.handleHide} style={styles.hideNotepadBtn}>
-              {LOCALIZE.commons.notepad.hideButton}
-            </button>
+            <div style={styles.hideNotepadBtnZone}>
+              <span
+                onClick={this.handleHide}
+                style={styles.hideNotepadBtnIcon}
+                className="fas fa-minus-circle"
+              />
+              <button onClick={this.handleHide} style={styles.hideNotepadBtn}>
+                {LOCALIZE.commons.notepad.hideButton}
+              </button>
+            </div>
             <div>
               <h4 style={styles.h4}>{LOCALIZE.commons.notepad.title}</h4>
             </div>
