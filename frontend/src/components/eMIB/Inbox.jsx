@@ -11,9 +11,11 @@ const styles = {
     listStyleType: "none"
   },
   buttonList: {
+    overflow: "auto",
     width: 240,
     paddingRight: 25,
-    marginTop: 18
+    marginTop: 18,
+    height: "calc(100vh - 275px)"
   },
   bodyContent: {
     overflow: "auto",
