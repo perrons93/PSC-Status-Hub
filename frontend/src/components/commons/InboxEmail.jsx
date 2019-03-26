@@ -9,10 +9,13 @@ class InboxEmail extends Component {
   render() {
     return (
       <span>
+        <div>{this.props.email.subject}</div>
+        <div>{this.props.email.from}</div>
+        <div>{this.props.email.to}</div>
+        <div>{this.props.email.date}</div>
         <div>{this.props.email.body}</div>
       </span>
     );
   }
 }
-
 export default InboxEmail;

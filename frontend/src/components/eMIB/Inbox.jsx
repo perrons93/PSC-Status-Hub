@@ -30,7 +30,7 @@ class Inbox extends Component {
   };
 
   state = {
-    currentNode: 0
+    currentEmail: 0
   };
 
   render() {
@@ -45,12 +45,12 @@ class Inbox extends Component {
           <ul className="nav nav-tabs" style={styles.ul} role="menubar">
             {this.props.inboxSpecs.map(email => (
               <div key={email.id}>
-                {email.id === this.state.currentNode && (
+                {email.id === this.state.currentEmail && (
                   <li style={styles.li} aria-current="page" role="menuitem">
                     <InboxButton email={email} />
                   </li>
                 )}
-                {email.id !== this.state.currentNode && (
+                {email.id !== this.state.currentEmail && (
                   <li style={styles.li} role="menuitem">
                     <InboxButton email={email} />
                   </li>
@@ -64,7 +64,7 @@ class Inbox extends Component {
           style={styles.bodyContent}
           id="side-nav-grid-content-cell"
         >
-          <InboxEmail email={this.props.inboxSpecs[this.state.currentNode]} />
+          <InboxEmail email={this.props.inboxSpecs[this.state.currentEmail]} />
         </div>
       </div>
     );

@@ -19,7 +19,12 @@ class InboxButton extends Component {
     email: PropTypes.object.isRequired
   };
   render() {
-    return <div style={styles.button}>{this.props.email.text}</div>;
+    return (
+      <div style={styles.button}>
+        <div>{this.props.email.subject}</div>
+        <div>{this.props.email.from}</div>
+      </div>
+    );
   }
 }
 
