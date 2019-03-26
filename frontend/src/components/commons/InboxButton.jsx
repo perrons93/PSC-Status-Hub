@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const styles = {
   button: {
-    width: 200,
+    width: 180,
     marginBottom: 10,
     marginLeft: 20,
     marginRight: 20,
