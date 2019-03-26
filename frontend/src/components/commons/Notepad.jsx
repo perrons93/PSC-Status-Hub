@@ -19,9 +19,15 @@ const styles = {
   hideNotepadBtn: {
     float: "right",
     margin: "8px 12px 0 0",
-    padding: 0,
+    padding: "0 6px 0 26px",
     backgroundColor: "transparent",
-    border: "none"
+    border: "none",
+    cursor: "pointer"
+  },
+  hideNotepadBtnIcon: {
+    position: "absolute",
+    padding: "12px 0 0 82px",
+    cursor: "pointer"
   },
   content: {
     backgroundColor: "white",
@@ -47,13 +53,22 @@ const styles = {
     paddingTop: 40,
     width: 60,
     fontSize: "13px",
-    color: "white"
+    color: "white",
+    cursor: "pointer"
   },
   openNotepadBtn: {
     width: 60,
     border: "none",
     backgroundColor: "#00565e",
-    height: "calc(100vh - 238px)"
+    height: "calc(100vh - 238px)",
+    cursor: "pointer",
+    borderRadius: "0 5px 0 0"
+  },
+  openNotepadBtnIcon: {
+    position: "absolute",
+    padding: "16px 0 0 22px",
+    cursor: "pointer",
+    color: "white"
   },
   openNotepadBtnHeight: {
     height: "calc(100vh - 238px)"
@@ -79,6 +94,11 @@ class Notepad extends Component {
       <div style={styles.windowPadding}>
         {!notepadHidden && (
           <div style={styles.content}>
+            <span
+              onClick={this.handleHide}
+              style={styles.hideNotepadBtnIcon}
+              className="fas fa-minus-circle"
+            />
             <button onClick={this.handleHide} style={styles.hideNotepadBtn}>
               {LOCALIZE.commons.notepad.hideButton}
             </button>
@@ -107,10 +127,19 @@ class Notepad extends Component {
         )}
         {notepadHidden && (
           <div style={styles.openNotepadBtnHeight}>
+            <span
+              onClick={this.handleOpen}
+              style={styles.openNotepadBtnIcon}
+              className="fas fa-external-link-alt"
+            />
             <label onClick={this.handleOpen} style={styles.openNotepadBtnLabel}>
               {LOCALIZE.commons.notepad.openButton}
             </label>
-            <button onClick={this.handleOpen} style={styles.openNotepadBtn} />
+            <button
+              className="btn btn-primary"
+              onClick={this.handleOpen}
+              style={styles.openNotepadBtn}
+            />
           </div>
         )}
       </div>
