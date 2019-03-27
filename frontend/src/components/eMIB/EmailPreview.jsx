@@ -10,7 +10,7 @@ import tasks from "../../images/tasks.png";*/
 
 const styles = {
   button: {
-    width: 180,
+    width: 155,
     textAlign: "left",
     borderRadius: 4,
     padding: 6,
