@@ -45,15 +45,16 @@ class EmailPreview extends Component {
       img_alt = "read";
       div_id = "read-email-preview";
     }
+    const email = this.props.email;
     return (
       <li style={styles.li} aria-current={page_style} role="menuitem">
-        <div style={styles.button} onClick={() => this.props.clickFunction(this.props.email.id)}>
+        <div style={styles.button} onClick={() => this.props.clickFunction(email.id)}>
           <div id={div_id}>
             <img src={img_src} alt={img_alt} style={styles.image} /> email id#
-            {this.props.email.id}
+            {email.id}
           </div>
-          <div>{this.props.email.subject}</div>
-          <div>{this.props.email.from}</div>
+          <div>{email.subject}</div>
+          <div>{email.from}</div>
         </div>
       </li>
     );
