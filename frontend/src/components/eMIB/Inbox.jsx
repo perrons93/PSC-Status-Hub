@@ -24,17 +24,29 @@ const styles = {
   }
 };
 
+function initializeFalseArray(length) {
+  var arr = [];
+  for (var i = 0; i < length; i++) {
+    arr.push(false);
+  }
+  return arr;
+}
+
 class Inbox extends Component {
   static propTypes = {
     inboxSpecs: PropTypes.array.isRequired
   };
 
   state = {
-    currentEmail: 0
+    currentEmail: 0,
+    emailRead: initializeFalseArray(this.props.inboxSpecs.length),
+    emailReplies: initializeFalseArray(this.props.inboxSpecs.length)
   };
 
   changeEmail = index => {
-    this.setState({ currentEmail: index });
+    var array = this.state.emailRead;
+    array[index] = true;
+    this.setState({ currentEmail: index, emailRead: array });
   };
 
   render() {
@@ -51,12 +63,20 @@ class Inbox extends Component {
               <div key={email.id}>
                 {email.id === this.state.currentEmail && (
                   <li style={styles.li} aria-current="page" role="menuitem">
-                    <EmailPreview email={email} clickFunction={this.changeEmail} />
+                    <EmailPreview
+                      email={email}
+                      clickFunction={this.changeEmail}
+                      isRead={this.state.emailRead[email.id]}
+                    />
                   </li>
                 )}
                 {email.id !== this.state.currentEmail && (
                   <li style={styles.li} role="menuitem">
-                    <EmailPreview email={email} clickFunction={this.changeEmail} />
+                    <EmailPreview
+                      email={email}
+                      clickFunction={this.changeEmail}
+                      isRead={this.state.emailRead[email.id]}
+                    />
                   </li>
                 )}
               </div>

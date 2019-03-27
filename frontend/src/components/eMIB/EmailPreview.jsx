@@ -24,11 +24,15 @@ const styles = {
 class EmailPreview extends Component {
   static propTypes = {
     email: PropTypes.object.isRequired,
-    clickFunction: PropTypes.func.isRequired
+    clickFunction: PropTypes.func.isRequired,
+    isRead: PropTypes.bool.isRequired
   };
   render() {
+    console.log(this.props.isRead);
     return (
       <div style={styles.button} onClick={() => this.props.clickFunction(this.props.email.id)}>
+        {this.props.isRead === true && <div>R email id#{this.props.email.id}</div>}
+        {this.props.isRead === false && <div>U email id#{this.props.email.id}</div>}
         <div>{this.props.email.subject}</div>
         <div>{this.props.email.from}</div>
       </div>
