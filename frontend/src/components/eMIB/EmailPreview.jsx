@@ -21,6 +21,9 @@ const styles = {
   },
   image: {
     maxWidth: 16
+  },
+  li: {
+    listStyleType: "none"
   }
 };
 
@@ -28,27 +31,34 @@ class EmailPreview extends Component {
   static propTypes = {
     email: PropTypes.object.isRequired,
     clickFunction: PropTypes.func.isRequired,
-    isRead: PropTypes.bool.isRequired
+    isRead: PropTypes.bool.isRequired,
+    selected: PropTypes.bool.isRequired
   };
+
   render() {
-    console.log(this.props.isRead);
+    //defaults, or if unread
+    var page_style = "";
+    var img_src = email_unread;
+    var img_alt = "unread";
+    var div_id = "unread-email-preview";
+    if (this.props.isRead === true) {
+      //if it is read
+      page_style = "page";
+      img_src = email_read;
+      img_alt = "read";
+      div_id = "read-email-preview";
+    }
     return (
-      <div style={styles.button} onClick={() => this.props.clickFunction(this.props.email.id)}>
-        {this.props.isRead === true && (
-          <div>
-            <img src={email_read} alt={"bing"} style={styles.image} /> email id#
+      <li style={styles.li} aria-current={page_style} role="menuitem">
+        <div style={styles.button} onClick={() => this.props.clickFunction(this.props.email.id)}>
+          <div id={div_id}>
+            <img src={img_src} alt={img_alt} style={styles.image} /> email id#
             {this.props.email.id}
           </div>
-        )}
-        {this.props.isRead === false && (
-          <div>
-            <img src={email_unread} alt={"bing"} style={styles.image} /> email id#
-            {this.props.email.id}
-          </div>
-        )}
-        <div>{this.props.email.subject}</div>
-        <div>{this.props.email.from}</div>
-      </div>
+          <div>{this.props.email.subject}</div>
+          <div>{this.props.email.from}</div>
+        </div>
+      </li>
     );
   }
 }

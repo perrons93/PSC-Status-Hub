@@ -7,9 +7,6 @@ const styles = {
   ul: {
     borderBottom: "none"
   },
-  li: {
-    listStyleType: "none"
-  },
   buttonList: {
     overflow: "auto",
     width: 240,
@@ -61,24 +58,12 @@ class Inbox extends Component {
           <ul className="nav nav-tabs" style={styles.ul} role="menubar">
             {this.props.inboxSpecs.map(email => (
               <div key={email.id}>
-                {email.id === this.state.currentEmail && (
-                  <li style={styles.li} aria-current="page" role="menuitem">
-                    <EmailPreview
-                      email={email}
-                      clickFunction={this.changeEmail}
-                      isRead={this.state.emailRead[email.id]}
-                    />
-                  </li>
-                )}
-                {email.id !== this.state.currentEmail && (
-                  <li style={styles.li} role="menuitem">
-                    <EmailPreview
-                      email={email}
-                      clickFunction={this.changeEmail}
-                      isRead={this.state.emailRead[email.id]}
-                    />
-                  </li>
-                )}
+                <EmailPreview
+                  email={email}
+                  clickFunction={this.changeEmail}
+                  isRead={this.state.emailRead[email.id]}
+                  selected={email.id === this.state.currentEmail}
+                />
               </div>
             ))}
           </ul>
