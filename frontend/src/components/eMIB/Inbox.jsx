@@ -34,7 +34,7 @@ class Inbox extends Component {
   };
 
   changeEmail = index => {
-    this.setState({ currentEmail: index - 1 });
+    this.setState({ currentEmail: index });
   };
 
   render() {

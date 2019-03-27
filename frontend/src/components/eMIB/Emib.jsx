@@ -51,6 +51,7 @@ export const getInstructionContent = () => {
 
 export const getInboxContent = () => {
   return [
+    LOCALIZE.emibTest.emails.email0,
     LOCALIZE.emibTest.emails.email1,
     LOCALIZE.emibTest.emails.email2,
     LOCALIZE.emibTest.emails.email3,
@@ -59,8 +60,7 @@ export const getInboxContent = () => {
     LOCALIZE.emibTest.emails.email6,
     LOCALIZE.emibTest.emails.email7,
     LOCALIZE.emibTest.emails.email8,
-    LOCALIZE.emibTest.emails.email9,
-    LOCALIZE.emibTest.emails.email10
+    LOCALIZE.emibTest.emails.email9
   ];
 };
 
