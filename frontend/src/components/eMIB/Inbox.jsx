@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import InboxButton from "../commons/InboxButton";
-import InboxEmail from "../commons/InboxEmail";
+import EmailPreview from "./EmailPreview";
+import Email from "./Email";
 
 const styles = {
   ul: {
@@ -51,12 +51,12 @@ class Inbox extends Component {
               <div key={email.id}>
                 {email.id === this.state.currentEmail && (
                   <li style={styles.li} aria-current="page" role="menuitem">
-                    <InboxButton email={email} clickFunction={this.changeEmail} />
+                    <EmailPreview email={email} clickFunction={this.changeEmail} />
                   </li>
                 )}
                 {email.id !== this.state.currentEmail && (
                   <li style={styles.li} role="menuitem">
-                    <InboxButton email={email} clickFunction={this.changeEmail} />
+                    <EmailPreview email={email} clickFunction={this.changeEmail} />
                   </li>
                 )}
               </div>
@@ -68,7 +68,7 @@ class Inbox extends Component {
           style={styles.bodyContent}
           id="side-nav-grid-content-cell"
         >
-          <InboxEmail email={this.props.inboxSpecs[this.state.currentEmail]} />
+          <Email email={this.props.inboxSpecs[this.state.currentEmail]} />
         </div>
       </div>
     );

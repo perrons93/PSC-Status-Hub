@@ -14,7 +14,7 @@ const styles = {
   }
 };
 
-class InboxButton extends Component {
+class EmailPreview extends Component {
   static propTypes = {
     email: PropTypes.object.isRequired,
     clickFunction: PropTypes.func.isRequired
@@ -29,4 +29,4 @@ class InboxButton extends Component {
   }
 }
 
-export default InboxButton;
+export default EmailPreview;

@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 import Inbox from "../../../components/eMIB/Inbox";
-import InboxEmail from "../../../components/commons/InboxEmail";
+import Email from "../../../components/eMIB/Email";
 import { getInboxContent } from "../../../components/eMIB/Emib";
 
 const INBOX_SPECS = getInboxContent();
@@ -51,7 +51,7 @@ function testCore(selected) {
   wrapper.setState({ currentEmail: selected });
   for (let i = 0; i < 10; i++) {
     const currentEmail = INBOX_SPECS[i];
-    const emailBody = <InboxEmail email={currentEmail} />;
+    const emailBody = <Email email={currentEmail} />;
     const checkBody = wrapper.contains(emailBody);
     if (i === selected) {
       // if the current one is selected

@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import InboxButton from "../../../components/commons/InboxButton";
+import Email from "../../../components/eMIB/Email";
 
 const emailStub = {
   id: 1,
@@ -12,9 +12,15 @@ const emailStub = {
 };
 
 it("renders title, description, left button and right button titles", () => {
-  const wrapper = shallow(<InboxButton email={emailStub} clickFunction={() => {}} />);
+  const wrapper = shallow(<Email email={emailStub} />);
   const subject = <div>Subject 1</div>;
   const from = <div>From 1</div>;
+  const to = <div>To 1</div>;
+  const date = <div>Date 1</div>;
+  const body = <div>Body 1</div>;
   expect(wrapper.contains(subject)).toEqual(true);
   expect(wrapper.contains(from)).toEqual(true);
+  expect(wrapper.contains(to)).toEqual(true);
+  expect(wrapper.contains(date)).toEqual(true);
+  expect(wrapper.contains(body)).toEqual(true);
 });

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-class InboxEmail extends Component {
+class Email extends Component {
   static propTypes = {
     email: PropTypes.object.isRequired
   };
@@ -18,4 +18,4 @@ class InboxEmail extends Component {
     );
   }
 }
-export default InboxEmail;
+export default Email;
