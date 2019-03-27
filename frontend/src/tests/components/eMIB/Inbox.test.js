@@ -1,10 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 import Inbox from "../../../components/eMIB/Inbox";
-import InboxButton from "../../../components/commons/InboxButton";
 import InboxEmail from "../../../components/commons/InboxEmail";
-import { LANGUAGES } from "../../../components/commons/Translation";
-import LOCALIZE from "../../../text_resources";
 import { getInboxContent } from "../../../components/eMIB/Emib";
 
 const INBOX_SPECS = getInboxContent();

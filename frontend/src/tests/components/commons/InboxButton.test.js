@@ -11,10 +11,8 @@ const emailStub = {
   body: "Body 1"
 };
 
-const emptyFunc = function(arg) {};
-
 it("renders title, description, left button and right button titles", () => {
-  const wrapper = shallow(<InboxButton email={emailStub} clickFunction={emptyFunc} />);
+  const wrapper = shallow(<InboxButton email={emailStub} clickFunction={() => {}} />);
   const subject = <div>Subject 1</div>;
   const from = <div>From 1</div>;
   expect(wrapper.contains(subject)).toEqual(true);

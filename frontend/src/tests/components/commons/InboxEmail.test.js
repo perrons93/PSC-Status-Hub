@@ -11,8 +11,6 @@ const emailStub = {
   body: "Body 1"
 };
 
-const emptyFunc = function(arg) {};
-
 it("renders title, description, left button and right button titles", () => {
   const wrapper = shallow(<InboxEmail email={emailStub} />);
   const subject = <div>Subject 1</div>;
