@@ -782,6 +782,14 @@ let LOCALIZE = new LocalizedStrings({
         }
       },
       emails: {
+        email0: {
+          id: 0,
+          to: "FR To 0",
+          from: "FR From 0",
+          subject: "FR Subject 0",
+          date: "FR Date 0",
+          body: "FR Body 0"
+        },
         email1: {
           id: 1,
           to: "FR To 1",
@@ -853,14 +861,6 @@ let LOCALIZE = new LocalizedStrings({
           subject: "FR Subject 9",
           date: "FR Date 9",
           body: "FR Body 9"
-        },
-        email10: {
-          id: 10,
-          to: "FR To 10",
-          from: "FR From 10",
-          subject: "FR Subject 10",
-          date: "FR Date 10",
-          body: "FR Body 10"
         }
       }
     },
