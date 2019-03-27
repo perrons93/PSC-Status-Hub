@@ -44,6 +44,7 @@ class Inbox extends Component {
   changeEmail = index => {
     var array = this.state.emailRead;
     array[index] = true;
+    array[this.state.currentEmail] = true; // previous email is marked as opened
     this.setState({ currentEmail: index, emailRead: array });
   };
 
