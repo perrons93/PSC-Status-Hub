@@ -328,6 +328,88 @@ let LOCALIZE = new LocalizedStrings({
             "If you are certain that you want to quit this session, click the “Quit test” button. You will be exited out of this test session and provided instructions to complete your withdrawal.",
           descriptionPart3: "Are you sure you want to quit this test?"
         }
+      },
+      emails: {
+        email1: {
+          id: 1,
+          to: "To 1",
+          from: "From 1",
+          subject: "Subject 1",
+          date: "Date 1",
+          body: "Body 1"
+        },
+        email2: {
+          id: 2,
+          to: "To 2",
+          from: "From 2",
+          subject: "Subject 2",
+          date: "Date 2",
+          body: "Body 2"
+        },
+        email3: {
+          id: 3,
+          to: "To 3",
+          from: "From 3",
+          subject: "Subject 3",
+          date: "Date 3",
+          body: "Body 3"
+        },
+        email4: {
+          id: 4,
+          to: "To 4",
+          from: "From 4",
+          subject: "Subject 4",
+          date: "Date 4",
+          body: "Body 4"
+        },
+        email5: {
+          id: 5,
+          to: "To 5",
+          from: "From 5",
+          subject: "Subject 5",
+          date: "Date 5",
+          body: "Body 5"
+        },
+        email6: {
+          id: 6,
+          to: "To 6",
+          from: "From 6",
+          subject: "Subject 6",
+          date: "Date 6",
+          body: "Body 6"
+        },
+        email7: {
+          id: 7,
+          to: "To 7",
+          from: "From 7",
+          subject: "Subject 7",
+          date: "Date 7",
+          body: "Body 7"
+        },
+        email8: {
+          id: 8,
+          to: "To 8",
+          from: "From 8",
+          subject: "Subject 8",
+          date: "Date 8",
+          body: "Body 8"
+        },
+        email9: {
+          id: 9,
+          to: "To 9",
+          from: "From 9",
+          subject: "Subject 9",
+          date: "Date 9",
+          body: "Body 9"
+        },
+        email10: {
+          id: 10,
+          to: "To 10",
+          from: "From 10",
+          subject: "Subject 10",
+          date: "Date 10",
+          body: "Body 10"
+        }
       }
     },
 
@@ -697,6 +779,88 @@ let LOCALIZE = new LocalizedStrings({
           descriptionPart2:
             "Si vous êtes certain(e) de vouloir mettre fin à cette séance, cliquez sur le bouton « Quitter la séance test ». La séance de test sera fermée et vous recevrez des instructions sur la façon de vous retirer.",
           descriptionPart3: "Souhaitez-vous mettre fin à cette séance de test?"
+        }
+      },
+      emails: {
+        email1: {
+          id: 1,
+          to: "FR To 1",
+          from: "FR From 1",
+          subject: "FR Subject 1",
+          date: "FR Date 1",
+          body: "FR Body 1"
+        },
+        email2: {
+          id: 2,
+          to: "FR To 2",
+          from: "FR From 2",
+          subject: "FR Subject 2",
+          date: "FR Date 2",
+          body: "FR Body 2"
+        },
+        email3: {
+          id: 3,
+          to: "FR To 3",
+          from: "FR From 3",
+          subject: "FR Subject 3",
+          date: "FR Date 3",
+          body: "FR Body 3"
+        },
+        email4: {
+          id: 4,
+          to: "FR To 4",
+          from: "FR From 4",
+          subject: "FR Subject 4",
+          date: "FR Date 4",
+          body: "FR Body 4"
+        },
+        email5: {
+          id: 5,
+          to: "FR To 5",
+          from: "FR From 5",
+          subject: "FR Subject 5",
+          date: "FR Date 5",
+          body: "FR Body 5"
+        },
+        email6: {
+          id: 6,
+          to: "FR To 6",
+          from: "FR From 6",
+          subject: "FR Subject 6",
+          date: "FR Date 6",
+          body: "FR Body 6"
+        },
+        email7: {
+          id: 7,
+          to: "FR To 7",
+          from: "FR From 7",
+          subject: "FR Subject 7",
+          date: "FR Date 7",
+          body: "FR Body 7"
+        },
+        email8: {
+          id: 8,
+          to: "FR To 8",
+          from: "FR From 8",
+          subject: "FR Subject 8",
+          date: "FR Date 8",
+          body: "FR Body 8"
+        },
+        email9: {
+          id: 9,
+          to: "FR To 9",
+          from: "FR From 9",
+          subject: "FR Subject 9",
+          date: "FR Date 9",
+          body: "FR Body 9"
+        },
+        email10: {
+          id: 10,
+          to: "FR To 10",
+          from: "FR From 10",
+          subject: "FR Subject 10",
+          date: "FR Date 10",
+          body: "FR Body 10"
         }
       }
     },

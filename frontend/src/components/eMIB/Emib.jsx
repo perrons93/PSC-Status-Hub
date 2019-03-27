@@ -49,6 +49,21 @@ export const getInstructionContent = () => {
   ];
 };
 
+export const getInboxContent = () => {
+  return [
+    LOCALIZE.emibTest.emails.email1,
+    LOCALIZE.emibTest.emails.email2,
+    LOCALIZE.emibTest.emails.email3,
+    LOCALIZE.emibTest.emails.email4,
+    LOCALIZE.emibTest.emails.email5,
+    LOCALIZE.emibTest.emails.email6,
+    LOCALIZE.emibTest.emails.email7,
+    LOCALIZE.emibTest.emails.email8,
+    LOCALIZE.emibTest.emails.email9,
+    LOCALIZE.emibTest.emails.email10
+  ];
+};
+
 const quitConditions = () => {
   return [
     { text: LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne, checked: false },
@@ -110,7 +125,7 @@ class Emib extends Component {
   render() {
     const { quitConditions } = this.state;
     const allChecked = quitConditions.every(this.isChecked);
-    const SPECS = getInstructionContent();
+    const INSTRUCTION_SPECS = getInstructionContent();
 
     const submitButtonState = allChecked ? BUTTON_STATE.enabled : BUTTON_STATE.disabled;
     return (
@@ -120,7 +135,7 @@ class Emib extends Component {
           <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
             {this.state.curPage === PAGES.preTest && (
               <ProgressPane
-                progressSpecs={SPECS}
+                progressSpecs={INSTRUCTION_SPECS}
                 currentNode={0}
                 paneTitle={LOCALIZE.emibTest.homePage.testTitle}
                 exitButton={
