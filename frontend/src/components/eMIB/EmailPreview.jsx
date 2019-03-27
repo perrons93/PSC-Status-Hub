@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import email_read from "../../images/email_read.png";
-import email_unread from "../../images/email_unread.png";
-/*import forward from "../../images/forward.png";
-import reply_all from "../../images/reply_all.png";
-import reply_sent from "../../images/reply_sent.png";
-import reply from "../../images/reply.png";
-import tasks from "../../images/tasks.png";*/
+import email_read from "../../images/email_read.svg";
+import email_unread from "../../images/email_unread.svg";
+/*import forward from "../../images/forward.svg";
+import reply_all from "../../images/reply_all.svg";
+import reply_sent from "../../images/reply_sent.svg";
+import reply from "../../images/reply.svg";
+import tasks from "../../images/tasks.svg";*/
 
 const styles = {
   //buttons
