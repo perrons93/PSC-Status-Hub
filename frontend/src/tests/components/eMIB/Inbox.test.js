@@ -2,7 +2,7 @@ import React from "react";
 import { mount } from "enzyme";
 import Inbox from "../../../components/eMIB/Inbox";
 import Email from "../../../components/eMIB/Email";
-import { getInboxContent, getInboxLen } from "../../../components/eMIB/Emib";
+import { getInboxContent, getInboxLength } from "../../../components/eMIB/Emib";
 
 const INBOX_SPECS = getInboxContent();
 
@@ -47,7 +47,7 @@ it("Shows only email 10", () => {
 });
 
 function testCore(selected) {
-  const wrapper = mount(<Inbox inboxLength={getInboxLen()} />);
+  const wrapper = mount(<Inbox inboxLength={getInboxLength()} />);
   wrapper.setState({ currentEmail: selected });
   for (let i = 0; i < 10; i++) {
     const currentEmail = INBOX_SPECS[i];

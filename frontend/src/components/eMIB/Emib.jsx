@@ -66,7 +66,7 @@ export const getInboxContent = () => {
 
 //Passing Specs as a prop into Inbox causes a bug where the language does not toggle
 // However, inbox's state needs to know the length of the specs to be initialized.
-export const getInboxLen = () => {
+export const getInboxLength = () => {
   return getInboxContent().length;
 };
 
