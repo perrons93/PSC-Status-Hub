@@ -63,7 +63,6 @@ class EmailPreview extends Component {
     //READ/UNREAD CHECK
     //defaults, or if unread
     var button_background_color = styles.button_unread_background;
-    var page_style = "";
     var img_src = <i className="fas fa-envelope" />; //email_unread;
     var div_id = "unread-email-preview";
     var subject_is_read = styles.subject_unread;
@@ -71,17 +70,18 @@ class EmailPreview extends Component {
       //if it is read
       button_background_color = styles.button_read_background;
       subject_is_read = styles.subject_read;
-      page_style = "page";
       img_src = <i className="far fa-envelope-open" />; //email_read;
       div_id = "read-email-preview";
     }
 
     //SELECTED/UNSELECTED CHECK
     //defaults, or unselected
+    var page_style = "";
     var button_text_color = styles.button_unselected_text;
     var subject_is_selected = styles.subject_unselected;
     if (this.props.isSelected === true) {
       //it it is selected
+      page_style = "page";
       button_background_color = styles.button_selected_background;
       button_text_color = styles.button_selected_text;
       subject_is_selected = styles.subject_selected;
