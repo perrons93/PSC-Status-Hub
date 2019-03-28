@@ -83,28 +83,21 @@ class Notepad extends Component {
     notepadContent: ""
   };
 
-  handleCollapse = arg => {
-    switch (arg) {
-      //When Closing the Notepad
-      case "handleHide":
-        this.setState({ notepadHidden: true });
-        //Get current notepad content
-        let x = document.getElementById("notepad-content");
-        let txt = "";
-        for (let i = 1; i < x.length; i++) {
-          txt = txt + x.elements[i].value;
-        }
-        x.innerHTML = txt;
-        //Update NOTEPAD_CONTENT
-        this.setState({ notepadContent: txt });
-        break;
-      //When Opening the Notepad
-      case "handleOpen":
-        this.setState({ notepadHidden: false });
-        break;
-      default:
-        this.setState({ notepadHidden: false });
+  handleHide = () => {
+    this.setState({ notepadHidden: true });
+    //Get current notepad content
+    let x = document.getElementById("notepad-content");
+    let txt = "";
+    for (let i = 1; i < x.length; i++) {
+      txt = txt + x.elements[i].value;
     }
+    x.innerHTML = txt;
+    //Update NOTEPAD_CONTENT
+    this.setState({ notepadContent: txt });
+  };
+
+  handleOpen = () => {
+    this.setState({ notepadHidden: false });
   };
 
   render() {
@@ -115,14 +108,11 @@ class Notepad extends Component {
           <div style={styles.content}>
             <div style={styles.hideNotepadBtnZone}>
               <span
-                onClick={() => this.handleCollapse("handleHide")}
+                onClick={this.handleHide}
                 style={styles.hideNotepadBtnIcon}
                 className="fas fa-minus-circle"
               />
-              <button
-                onClick={() => this.handleCollapse("handleHide")}
-                style={styles.hideNotepadBtn}
-              >
+              <button onClick={this.handleHide} style={styles.hideNotepadBtn}>
                 {LOCALIZE.commons.notepad.hideButton}
               </button>
             </div>
@@ -153,19 +143,16 @@ class Notepad extends Component {
         {notepadHidden && (
           <div style={styles.openNotepadBtnHeight}>
             <span
-              onClick={() => this.handleCollapse("handleOpen")}
+              onClick={this.handleOpen}
               style={styles.openNotepadBtnIcon}
               className="fas fa-external-link-alt"
             />
-            <label
-              onClick={() => this.handleCollapse("handleOpen")}
-              style={styles.openNotepadBtnLabel}
-            >
+            <label onClick={this.handleOpen} style={styles.openNotepadBtnLabel}>
               {LOCALIZE.commons.notepad.openButton}
             </label>
             <button
               className="btn btn-primary"
-              onClick={() => this.handleCollapse("handleOpen")}
+              onClick={this.handleOpen}
               style={styles.openNotepadBtn}
             />
           </div>
