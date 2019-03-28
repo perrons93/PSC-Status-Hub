@@ -437,8 +437,10 @@ let LOCALIZE = new LocalizedStrings({
       disabled: "Disabled",
       backToTop: "Back to top",
       notepad: {
-        title: "Notepad",
-        placeholder: "Put your notes here..."
+        title: "notepad",
+        placeholder: "Put your notes here...",
+        hideButton: "hide",
+        openButton: "open notes"
       },
       cancel: "Cancel",
       close: "Close"
@@ -889,8 +891,10 @@ let LOCALIZE = new LocalizedStrings({
       disabled: "Désactivé",
       backToTop: "Haut de la page",
       notepad: {
-        title: "Bloc-notes",
-        placeholder: "Mettez vos notes ici..."
+        title: "bloc-notes",
+        placeholder: "Mettez vos notes ici...",
+        hideButton: "cacher",
+        openButton: "ouvrir notes"
       },
       cancel: "Annuler",
       close: "Fermer"

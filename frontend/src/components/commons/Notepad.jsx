@@ -1,102 +1,158 @@
 import React, { Component } from "react";
 import LOCALIZE from "../../text_resources";
 import TextareaAutosize from "react-textarea-autosize";
-import { BROWSER_STRING, IE_STRING, VALID_BROWSERS } from "../../Status";
 import "../../css/emib-tabs.css";
 
 const styles = {
   windowPadding: {
     paddingTop: 43,
-    paddingLeft: 20,
     order: 2
   },
   h4: {
-    color: "white"
+    textAlign: "left",
+    fontSize: "16px",
+    fontWeight: "bold",
+    color: "#00565e",
+    padding: "0 0 8px 12px",
+    borderBottom: "1.5px solid #88C800"
   },
-  title: {
-    paddingLeft: 12,
-    paddingTop: 0.1,
-    height: 55,
-    backgroundColor: "#00565e",
-    borderRadius: "5px 5px 0 0"
+  hideNotepadBtn: {
+    float: "right",
+    margin: "8px 12px 0 0",
+    padding: "0 8px 0 8px",
+    backgroundColor: "transparent",
+    border: "none",
+    cursor: "pointer"
+  },
+  hideNotepadBtnIcon: {
+    paddingTop: 12,
+    cursor: "pointer"
+  },
+  hideNotepadBtnZone: {
+    float: "right"
   },
   content: {
     backgroundColor: "white",
-    borderWidth: "1px 1px 0 1px",
+    borderWidth: "1px 1px 0 3px",
     borderStyle: "solid",
     borderColor: "#00565e",
-    borderRadius: "5px 5px 0 0",
-    width: 220,
-    height: "calc(100vh - 237px)"
+    borderRadius: "0 5px 0 0",
+    width: "100%",
+    height: "calc(100vh - 238px)"
   },
   notepadSection: {
     overflow: "auto",
-    height: "calc(100vh - 297px)"
+    height: "calc(100vh - 291px)"
   },
   textArea: {
+    padding: "0 12px 6px 12px",
+    width: "100%",
     resize: "none",
     border: "none"
   },
-  center: {
-    textAlign: "center"
+  openNotepadBtnLabel: {
+    position: "absolute",
+    paddingTop: 40,
+    width: 60,
+    fontSize: "13px",
+    color: "white",
+    cursor: "pointer"
+  },
+  openNotepadBtn: {
+    width: 60,
+    border: "none",
+    backgroundColor: "#00565e",
+    height: "calc(100vh - 238px)",
+    cursor: "pointer",
+    borderRadius: "0 5px 0 0"
+  },
+  openNotepadBtnIcon: {
+    position: "absolute",
+    padding: "16px 0 0 22px",
+    cursor: "pointer",
+    color: "white"
+  },
+  openNotepadBtnHeight: {
+    height: "calc(100vh - 238px)"
   }
 };
 
 class Notepad extends Component {
   state = {
-    columnWidth: 0
+    notepadHidden: false,
+    notepadContent: ""
   };
 
-  /*
-  Adjust the notepad text zone width depending on the browser
-  Each browser has its own interpretation of the notepad text zone width
-  */
-  detectBrowser = () => {
-    switch (BROWSER_STRING) {
-      case IE_STRING:
-        this.setState({ columnWidth: 20 });
-        break;
-      case VALID_BROWSERS[0]:
-        this.setState({ columnWidth: 22 });
-        break;
-      case VALID_BROWSERS[1]:
-        this.setState({ columnWidth: 18 });
-        break;
-      default:
-        this.setState({ columnWidth: 18 });
-    }
+  handleHide = () => {
+    this.setState({ notepadHidden: true });
   };
 
-  componentDidMount() {
-    this.detectBrowser();
-  }
+  handleOpen = () => {
+    this.setState({ notepadHidden: false });
+  };
+
+  handleNotepadContent = event => {
+    this.setState({ notepadContent: event.target.value });
+  };
 
   render() {
+    const { notepadHidden } = this.state;
     return (
       <div style={styles.windowPadding}>
-        <div style={styles.content}>
-          <div style={styles.title}>
-            <h4 style={styles.h4}>{LOCALIZE.commons.notepad.title}</h4>
+        {!notepadHidden && (
+          <div style={styles.content}>
+            <div style={styles.hideNotepadBtnZone}>
+              <span
+                onClick={this.handleHide}
+                style={styles.hideNotepadBtnIcon}
+                className="fas fa-minus-circle"
+              />
+              <button onClick={this.handleHide} style={styles.hideNotepadBtn}>
+                {LOCALIZE.commons.notepad.hideButton}
+              </button>
+            </div>
+            <div>
+              <h4 style={styles.h4}>{LOCALIZE.commons.notepad.title.toUpperCase()}</h4>
+            </div>
+            <div style={styles.notepadSection}>
+              <form>
+                <fieldset>
+                  <label htmlFor="text-area-zone" className="invisible position-absolute">
+                    {LOCALIZE.commons.notepad.title}
+                  </label>
+                  <TextareaAutosize
+                    id="text-area-zone"
+                    maxLength="3000"
+                    className="text-area"
+                    style={styles.textArea}
+                    cols="45"
+                    minRows={16}
+                    placeholder={LOCALIZE.commons.notepad.placeholder}
+                    value={this.state.notepadContent}
+                    onChange={this.handleNotepadContent}
+                  />
+                </fieldset>
+              </form>
+            </div>
           </div>
-          <div style={styles.notepadSection}>
-            <form>
-              <fieldset style={styles.center}>
-                <label htmlFor="text-area-zone" className="invisible position-absolute">
-                  {LOCALIZE.commons.notepad.title}
-                </label>
-                <TextareaAutosize
-                  id="text-area-zone"
-                  maxLength="3000"
-                  className="text-area"
-                  style={styles.textArea}
-                  cols={this.state.columnWidth}
-                  minRows={5}
-                  placeholder={LOCALIZE.commons.notepad.placeholder}
-                />
-              </fieldset>
-            </form>
+        )}
+        {notepadHidden && (
+          <div style={styles.openNotepadBtnHeight}>
+            <span
+              onClick={this.handleOpen}
+              style={styles.openNotepadBtnIcon}
+              className="fas fa-external-link-alt"
+            />
+            <label onClick={this.handleOpen} style={styles.openNotepadBtnLabel}>
+              {LOCALIZE.commons.notepad.openButton.toUpperCase()}
+            </label>
+            <button
+              className="btn btn-primary"
+              onClick={this.handleOpen}
+              style={styles.openNotepadBtn}
+            />
           </div>
-        </div>
+        )}
       </div>
     );
   }
