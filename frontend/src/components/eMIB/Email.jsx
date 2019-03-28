@@ -21,10 +21,12 @@ class Email extends Component {
           {LOCALIZE.emibTest.inboxPage.emailId}
           {email.id}
         </h5>
+        <hr />
         <div>{email.subject}</div>
         <div>{email.from}</div>
         <div>{email.to}</div>
         <div>{email.date}</div>
+        <hr />
         <div>{email.body}</div>
       </div>
     );
