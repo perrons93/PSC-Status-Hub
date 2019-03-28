@@ -27,10 +27,6 @@ const styles = {
   button_unselected_text: {
     color: "black"
   },
-  //images
-  image: {
-    maxWidth: 16
-  },
   //li
   li: {
     listStyleType: "none"
@@ -81,7 +77,7 @@ class EmailPreview extends Component {
     var button_text_color = styles.button_unselected_text;
     var subject_is_selected = styles.subject_unselected;
     if (this.props.isSelected === true) {
-      //it it is selected
+      //if it is selected
       unit_test_id = "unit-test-selected-email-preview";
       page_style = "page";
       button_background_color = styles.button_selected_background;
@@ -93,7 +89,7 @@ class EmailPreview extends Component {
     //defaults, or no reply
     var reply = <></>;
     if (this.props.isRepliedTo === true) {
-      //it it is replied to
+      //if it is replied to
       reply = <i className="fas fa-sign-out-alt" />;
     }
 
