@@ -70,4 +70,12 @@ function testCore(isRead, isRepliedTo, isSelected) {
   if (!isRepliedTo) {
     expect(wrapper.contains(reply)).toEqual(false);
   }
+  if (isSelected) {
+    expect(wrapper.find("#unit-test-selected-email-preview").exists()).toEqual(true);
+    expect(wrapper.find("#unit-test-unselected-email-preview").exists()).toEqual(false);
+  }
+  if (!isSelected) {
+    expect(wrapper.find("#unit-test-selected-email-preview").exists()).toEqual(false);
+    expect(wrapper.find("#unit-test-unselected-email-preview").exists()).toEqual(true);
+  }
 }

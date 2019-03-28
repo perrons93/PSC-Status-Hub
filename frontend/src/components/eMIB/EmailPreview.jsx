@@ -76,11 +76,13 @@ class EmailPreview extends Component {
 
     //SELECTED/UNSELECTED CHECK
     //defaults, or unselected
+    var unit_test_id = "unit-test-unselected-email-preview";
     var page_style = "";
     var button_text_color = styles.button_unselected_text;
     var subject_is_selected = styles.subject_unselected;
     if (this.props.isSelected === true) {
       //it it is selected
+      unit_test_id = "unit-test-selected-email-preview";
       page_style = "page";
       button_background_color = styles.button_selected_background;
       button_text_color = styles.button_selected_text;
@@ -99,7 +101,7 @@ class EmailPreview extends Component {
     var subject = { ...subject_is_read, ...subject_is_selected };
     const email = this.props.email;
     return (
-      <li style={styles.li} aria-current={page_style} role="menuitem">
+      <li id={unit_test_id} style={styles.li} aria-current={page_style} role="menuitem">
         <div style={button_style} onClick={() => this.props.clickFunction(email.id)}>
           <div id={div_id}>
             {img_src} email id#
