@@ -70,7 +70,7 @@ class EmailPreview extends Component {
     //defaults, or if unread
     var button_background_color = styles.button_unread_background;
     var page_style = "";
-    var img_src = email_unread;
+    var img_src = <i class="fas fa-envelope" />; //email_unread;
     var img_alt = "unread";
     var div_id = "unread-email-preview";
     var subject_is_read = styles.subject_unread;
@@ -79,7 +79,7 @@ class EmailPreview extends Component {
       button_background_color = styles.button_read_background;
       subject_is_read = styles.subject_read;
       page_style = "page";
-      img_src = email_read;
+      img_src = <i class="far fa-envelope-open" />; //email_read;
       img_alt = "read";
       div_id = "read-email-preview";
     }
@@ -101,7 +101,7 @@ class EmailPreview extends Component {
       <li style={styles.li} aria-current={page_style} role="menuitem">
         <div style={button_style} onClick={() => this.props.clickFunction(email.id)}>
           <div id={div_id}>
-            <img src={img_src} alt={img_alt} style={styles.image} /> email id#
+            {img_src} email id#
             {email.id}
           </div>
           <div style={subject}>{email.subject}</div>
