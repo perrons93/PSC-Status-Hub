@@ -13,8 +13,7 @@ const styles = {
     overflow: "auto",
     width: 174,
     paddingRight: 25,
-    marginTop: 18,
-    height: "calc(100vh - 275px)"
+    height: "calc(100vh - 241px)"
   },
   bodyContent: {
     overflow: "auto",
