@@ -64,7 +64,8 @@ class Inbox extends Component {
                   email={email}
                   clickFunction={this.changeEmail}
                   isRead={this.state.emailRead[email.id]}
-                  selected={email.id === this.state.currentEmail}
+                  isRepliedTo={this.state.emailReplies[email.id]}
+                  isSelected={email.id === this.state.currentEmail}
                 />
               </div>
             ))}

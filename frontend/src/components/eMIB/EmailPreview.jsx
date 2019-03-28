@@ -55,7 +55,8 @@ class EmailPreview extends Component {
     email: PropTypes.object.isRequired,
     clickFunction: PropTypes.func.isRequired,
     isRead: PropTypes.bool.isRequired,
-    selected: PropTypes.bool.isRequired
+    isRepliedTo: PropTypes.bool.isRequired,
+    isSelected: PropTypes.bool.isRequired
   };
 
   render() {
@@ -63,7 +64,7 @@ class EmailPreview extends Component {
     //defaults, or if unread
     var button_background_color = styles.button_unread_background;
     var page_style = "";
-    var img_src = <i class="fas fa-envelope" />; //email_unread;
+    var img_src = <i className="fas fa-envelope" />; //email_unread;
     var div_id = "unread-email-preview";
     var subject_is_read = styles.subject_unread;
     if (this.props.isRead === true) {
@@ -71,7 +72,7 @@ class EmailPreview extends Component {
       button_background_color = styles.button_read_background;
       subject_is_read = styles.subject_read;
       page_style = "page";
-      img_src = <i class="far fa-envelope-open" />; //email_read;
+      img_src = <i className="far fa-envelope-open" />; //email_read;
       div_id = "read-email-preview";
     }
 
@@ -79,12 +80,21 @@ class EmailPreview extends Component {
     //defaults, or unselected
     var button_text_color = styles.button_unselected_text;
     var subject_is_selected = styles.subject_unselected;
-    if (this.props.selected === true) {
+    if (this.props.isSelected === true) {
       //it it is selected
       button_background_color = styles.button_selected_background;
       button_text_color = styles.button_selected_text;
       subject_is_selected = styles.subject_selected;
     }
+
+    //REPLIED TO/NOT REPLIED TO CHECK
+    //defaults, or no reply
+    var reply = <></>;
+    if (this.props.isRepliedTo === true) {
+      //it it is replied to
+      reply = <i className="fas fa-sign-out-alt" />;
+    }
+
     var button_style = { ...styles.button, ...button_text_color, ...button_background_color };
     var subject = { ...subject_is_read, ...subject_is_selected };
     const email = this.props.email;
@@ -93,7 +103,8 @@ class EmailPreview extends Component {
         <div style={button_style} onClick={() => this.props.clickFunction(email.id)}>
           <div id={div_id}>
             {img_src} email id#
-            {email.id}
+            {email.id}&emsp;
+            {reply}
           </div>
           <div style={subject}>{email.subject}</div>
           <div>{email.from}</div>
