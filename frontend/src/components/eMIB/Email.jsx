@@ -22,6 +22,8 @@ class Email extends Component {
 
   render() {
     const email = this.props.email;
+    const REPLACE_ME_1 = "Add email Response";
+    const REPLACE_ME_2 = "Create a task";
     return (
       <div style={styles.email}>
         <h5>
@@ -31,6 +33,19 @@ class Email extends Component {
         <div style={styles.reply_status}>
           <i class="fas fa-sign-out-alt" style={styles.reply_icon} />
           Temp placeholder....
+        </div>
+        <div>
+          <button type="button" className="btn btn-primary">
+            <i class="fas fa-envelope" />
+            &emsp;
+            {REPLACE_ME_1}
+          </button>
+          &emsp;
+          <button type="button" className="btn btn-primary">
+            <i class="fas fa-tasks" />
+            &emsp;
+            {REPLACE_ME_2}
+          </button>
         </div>
         <hr />
         <div>{email.subject}</div>
