@@ -112,7 +112,7 @@ class Notepad extends Component {
               </button>
             </div>
             <div>
-              <h4 style={styles.h4}>{LOCALIZE.commons.notepad.title}</h4>
+              <h4 style={styles.h4}>{LOCALIZE.commons.notepad.title.toUpperCase()}</h4>
             </div>
             <div style={styles.notepadSection}>
               <form>
