@@ -278,13 +278,7 @@ let LOCALIZE = new LocalizedStrings({
 
       //Inbox Page
       inboxPage: {
-        title: "Inbox Coming Soon!",
-        taskList: "Tasks List",
-        notePad: "NotePad",
-        textTools: "Text Tools",
-        emailFeatures: "Email Features",
-        progressSaved: "Progress Saved",
-        timer: "Timer"
+        emailId: " email id# "
       },
 
       //Confirmation Page
@@ -729,13 +723,7 @@ let LOCALIZE = new LocalizedStrings({
 
       //Inbox Page
       inboxPage: {
-        title: "Boîte de réception",
-        taskList: "Liste des tâches",
-        notePad: "bloc-notes",
-        textTools: "Outils de texte",
-        emailFeatures: "Fonctions de messagerie",
-        progressSaved: "Progression enregistrée",
-        timer: "Minuteur"
+        emailId: " FR email id# "
       },
 
       //Confirmation Page

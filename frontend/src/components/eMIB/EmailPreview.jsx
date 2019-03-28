@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import LOCALIZE from "../../text_resources";
 
 const styles = {
   //buttons
@@ -100,7 +101,8 @@ class EmailPreview extends Component {
       <li id={unit_test_id} style={styles.li} aria-current={page_style} role="menuitem">
         <div style={button_style} onClick={() => this.props.clickFunction(email.id)}>
           <div id={div_id}>
-            {img_src} email id#
+            {img_src}
+            {LOCALIZE.emibTest.inboxPage.emailId}
             {email.id}&emsp;
             {reply}
           </div>
