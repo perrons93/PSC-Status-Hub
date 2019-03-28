@@ -153,7 +153,7 @@ class Notepad extends Component {
         {notepadHidden && (
           <div style={styles.openNotepadBtnHeight}>
             <span
-              onClick={this.handleOpen}
+              onClick={() => this.handleCollapse("handleOpen")}
               style={styles.openNotepadBtnIcon}
               className="fas fa-external-link-alt"
             />
