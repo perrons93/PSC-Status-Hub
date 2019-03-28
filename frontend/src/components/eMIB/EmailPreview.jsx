@@ -9,7 +9,8 @@ const styles = {
     textAlign: "left",
     borderRadius: 4,
     padding: 6,
-    border: "2px solid #00565E"
+    border: "2px solid #00565E",
+    cursor: "pointer"
   },
   // 3x background colors
   button_selected_background: {
