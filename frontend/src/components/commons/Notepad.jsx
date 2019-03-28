@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import TextareaAutosize from "react-textarea-autosize";
 import "../../css/emib-tabs.css";
@@ -79,10 +78,6 @@ const styles = {
 };
 
 class Notepad extends Component {
-  static propTypes = {
-    notepadContent: PropTypes.string
-  };
-
   state = {
     notepadHidden: false,
     notepadContent: ""
