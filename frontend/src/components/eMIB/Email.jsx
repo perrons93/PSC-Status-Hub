@@ -5,6 +5,13 @@ import LOCALIZE from "../../text_resources";
 const styles = {
   email: {
     textAlign: "left"
+  },
+  reply_status: {
+    fontSize: 16,
+    textAlign: "right"
+  },
+  reply_icon: {
+    color: "#00565E"
   }
 };
 
@@ -21,6 +28,10 @@ class Email extends Component {
           {LOCALIZE.emibTest.inboxPage.emailId}
           {email.id}
         </h5>
+        <div style={styles.reply_status}>
+          <i class="fas fa-sign-out-alt" style={styles.reply_icon} />
+          Temp placeholder....
+        </div>
         <hr />
         <div>{email.subject}</div>
         <div>{email.from}</div>
