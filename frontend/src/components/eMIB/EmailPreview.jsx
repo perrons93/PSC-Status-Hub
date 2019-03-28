@@ -64,7 +64,7 @@ class EmailPreview extends Component {
     var img_src = <i className="fas fa-envelope" />; //email_unread;
     var div_id = "unread-email-preview";
     var subject_is_read = styles.subject_unread;
-    if (this.props.isRead === true) {
+    if (this.props.isRead) {
       //if it is read
       button_background_color = styles.button_read_background;
       subject_is_read = styles.subject_read;
@@ -78,7 +78,7 @@ class EmailPreview extends Component {
     var page_style = "";
     var button_text_color = styles.button_unselected_text;
     var subject_is_selected = styles.subject_unselected;
-    if (this.props.isSelected === true) {
+    if (this.props.isSelected) {
       //if it is selected
       unit_test_id = "unit-test-selected-email-preview";
       page_style = "page";
@@ -90,7 +90,7 @@ class EmailPreview extends Component {
     //REPLIED TO/NOT REPLIED TO CHECK
     //defaults, or no reply
     var reply = <></>;
-    if (this.props.isRepliedTo === true) {
+    if (this.props.isRepliedTo) {
       //if it is replied to
       reply = <i className="fas fa-sign-out-alt" />;
     }
