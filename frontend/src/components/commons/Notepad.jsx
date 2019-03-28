@@ -144,7 +144,7 @@ class Notepad extends Component {
               className="fas fa-external-link-alt"
             />
             <label onClick={this.handleOpen} style={styles.openNotepadBtnLabel}>
-              {LOCALIZE.commons.notepad.openButton}
+              {LOCALIZE.commons.notepad.openButton.toUpperCase()}
             </label>
             <button
               className="btn btn-primary"
