@@ -1,12 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import email_read from "../../images/email_read.svg";
-import email_unread from "../../images/email_unread.svg";
-/*import forward from "../../images/forward.svg";
-import reply_all from "../../images/reply_all.svg";
-import reply_sent from "../../images/reply_sent.svg";
-import reply from "../../images/reply.svg";
-import tasks from "../../images/tasks.svg";*/
 
 const styles = {
   //buttons
@@ -71,7 +64,6 @@ class EmailPreview extends Component {
     var button_background_color = styles.button_unread_background;
     var page_style = "";
     var img_src = <i class="fas fa-envelope" />; //email_unread;
-    var img_alt = "unread";
     var div_id = "unread-email-preview";
     var subject_is_read = styles.subject_unread;
     if (this.props.isRead === true) {
@@ -80,7 +72,6 @@ class EmailPreview extends Component {
       subject_is_read = styles.subject_read;
       page_style = "page";
       img_src = <i class="far fa-envelope-open" />; //email_read;
-      img_alt = "read";
       div_id = "read-email-preview";
     }
 
