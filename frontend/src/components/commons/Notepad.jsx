@@ -85,19 +85,14 @@ class Notepad extends Component {
 
   handleHide = () => {
     this.setState({ notepadHidden: true });
-    //Get current notepad content
-    let x = document.getElementById("notepad-content");
-    let txt = "";
-    for (let i = 1; i < x.length; i++) {
-      txt = txt + x.elements[i].value;
-    }
-    x.innerHTML = txt;
-    //Update NOTEPAD_CONTENT
-    this.setState({ notepadContent: txt });
   };
 
   handleOpen = () => {
     this.setState({ notepadHidden: false });
+  };
+
+  handleNotepadContent = event => {
+    this.setState({ notepadContent: event.target.value });
   };
 
   render() {
@@ -120,7 +115,7 @@ class Notepad extends Component {
               <h4 style={styles.h4}>{LOCALIZE.commons.notepad.title}</h4>
             </div>
             <div style={styles.notepadSection}>
-              <form id="notepad-content">
+              <form>
                 <fieldset>
                   <label htmlFor="text-area-zone" className="invisible position-absolute">
                     {LOCALIZE.commons.notepad.title}
@@ -131,9 +126,10 @@ class Notepad extends Component {
                     className="text-area"
                     style={styles.textArea}
                     cols="45"
-                    minRows={5}
+                    minRows={16}
                     placeholder={LOCALIZE.commons.notepad.placeholder}
-                    defaultValue={this.state.notepadContent}
+                    value={this.state.notepadContent}
+                    onChange={this.handleNotepadContent}
                   />
                 </fieldset>
               </form>
