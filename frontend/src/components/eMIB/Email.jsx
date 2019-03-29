@@ -44,8 +44,7 @@ class Email extends Component {
 
   render() {
     const email = this.props.email;
-    const REPLACE_ME_1 = "Add email Response";
-    const REPLACE_ME_2 = "Create a task";
+
     return (
       <div style={styles.email}>
         <div>
@@ -56,7 +55,9 @@ class Email extends Component {
           {this.props.isRepliedTo && (
             <div style={styles.replyStatus}>
               <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
-              Temp placeholder....
+              {LOCALIZE.emibTest.inboxPage.replyTextPart1}0
+              {LOCALIZE.emibTest.inboxPage.replyTextPart2}0
+              {LOCALIZE.emibTest.inboxPage.replyTextPart3}
             </div>
           )}
         </div>
@@ -64,13 +65,13 @@ class Email extends Component {
           <button type="button" className="btn btn-primary" onClick={this.replyToEmail}>
             <i className="fas fa-envelope" />
             &emsp;
-            {REPLACE_ME_1}
+            {LOCALIZE.emibTest.inboxPage.addReply}
           </button>
           &emsp;
           <button type="button" className="btn btn-primary" onClick={this.addTaskToEmail}>
             <i className="fas fa-tasks" />
             &emsp;
-            {REPLACE_ME_2}
+            {LOCALIZE.emibTest.inboxPage.addTask}
           </button>
         </div>
         <hr style={styles.hr} />

@@ -281,7 +281,12 @@ let LOCALIZE = new LocalizedStrings({
         emailId: " email id# ",
         to: "To",
         from: "From",
-        date: "Date"
+        date: "Date",
+        addReply: "Add email Response",
+        addTask: "Create a task",
+        replyTextPart1: "You responded with ",
+        replyTextPart2: " emails and ",
+        replyTextPart3: " tasks"
       },
 
       //Confirmation Page
@@ -744,7 +749,12 @@ let LOCALIZE = new LocalizedStrings({
         emailId: " courriel # ",
         to: "À",
         from: "Expéditeur",
-        date: "Date"
+        date: "Date",
+        addReply: "FR Add email Response",
+        addTask: "FR Create a task",
+        replyTextPart1: "FR You responded with ",
+        replyTextPart2: " FR emails and ",
+        replyTextPart3: " FR tasks"
       },
 
       //Confirmation Page
