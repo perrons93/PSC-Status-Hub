@@ -31,18 +31,18 @@ class Email extends Component {
           {email.id}
         </h5>
         <div style={styles.reply_status}>
-          <i class="fas fa-sign-out-alt" style={styles.reply_icon} />
+          <i className="fas fa-sign-out-alt" style={styles.reply_icon} />
           Temp placeholder....
         </div>
         <div>
           <button type="button" className="btn btn-primary">
-            <i class="fas fa-envelope" />
+            <i className="fas fa-envelope" />
             &emsp;
             {REPLACE_ME_1}
           </button>
           &emsp;
           <button type="button" className="btn btn-primary">
-            <i class="fas fa-tasks" />
+            <i className="fas fa-tasks" />
             &emsp;
             {REPLACE_ME_2}
           </button>
