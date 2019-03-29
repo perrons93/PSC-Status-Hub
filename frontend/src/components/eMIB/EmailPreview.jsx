@@ -60,14 +60,12 @@ class EmailPreview extends Component {
     //defaults, or if unread
     let buttonBackgroundColor = styles.buttonUnreadBackground;
     let imgSrc = <i className="fas fa-envelope" />; //emailUnread;
-    let divId = "unread-email-preview";
     let subjectIsRead = styles.subjectUnread;
     if (this.props.isRead) {
       //if it is read
       buttonBackgroundColor = styles.buttonReadBackground;
       subjectIsRead = styles.subjectRead;
       imgSrc = <i className="far fa-envelope-open" />; //emailRead;
-      divId = "read-email-preview";
     }
 
     //SELECTED/UNSELECTED CHECK
@@ -85,25 +83,17 @@ class EmailPreview extends Component {
       subjectIsSelected = styles.subjectSelected;
     }
 
-    //REPLIED TO/NOT REPLIED TO CHECK
-    //defaults, or no reply
-    let reply = <></>;
-    if (this.props.isRepliedTo) {
-      //if it is replied to
-      reply = <i className="fas fa-sign-out-alt" />;
-    }
-
     let buttonStyle = { ...styles.button, ...buttonTextColor, ...buttonBackgroundColor };
-    var subject = { ...subjectIsRead, ...subjectIsSelected };
+    let subject = { ...subjectIsRead, ...subjectIsSelected };
     const email = this.props.email;
     return (
       <li id={unitTestId} style={styles.li} aria-current={pageStyle} role="menuitem">
         <div style={buttonStyle} onClick={() => this.props.selectEmail(email.id)}>
-          <div id={divId}>
+          <div id={this.props.isRead ? "read-email-preview" : "unread-email-preview"}>
             {imgSrc}
             {LOCALIZE.emibTest.inboxPage.emailId}
             {email.visibleID}&emsp;
-            {reply}
+            {this.props.isRepliedTo && <i className="fas fa-sign-out-alt" />}
           </div>
           <div style={subject}>{email.subject}</div>
           <div>{email.from}</div>
