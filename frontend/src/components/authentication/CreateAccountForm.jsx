@@ -47,49 +47,70 @@ let SUBMIT_BTN_DISABLED;
 class CreateAccountForm extends Component {
   state = {
     isFirstLoad: true,
+    firstNameContent: "",
     isValidFirstName: false,
+    lastNameContent: "",
     isValidLastName: false,
+    emailContent: "",
     isValidEmail: false,
+    passwordContent: "",
     isValidPassword: false,
+    passwordConfirmationContent: "",
     isFirstPasswordLoad: true,
     isValidPasswordConfirmation: false
   };
 
-  firstNameValidation = () => {
-    const firstName = document.getElementById("first-name").value;
-    const isValide = validateName(firstName);
-    this.setState({ isFirstLoad: false, isValidFirstName: isValide });
+  firstNameValidation = event => {
+    const updatedFirstNameValue = event.target.value;
+    const isValide = validateName(updatedFirstNameValue);
+    this.setState({
+      isFirstLoad: false,
+      firstNameContent: updatedFirstNameValue,
+      isValidFirstName: isValide
+    });
   };
 
-  lastNameValidation = () => {
-    const lastName = document.getElementById("last-name").value;
-    const isValide = validateName(lastName);
-    this.setState({ isFirstLoad: false, isValidLastName: isValide });
+  lastNameValidation = event => {
+    const updatedLastNameValue = event.target.value;
+    const isValide = validateName(updatedLastNameValue);
+    this.setState({
+      isFirstLoad: false,
+      lastNameContent: updatedLastNameValue,
+      isValidLastName: isValide
+    });
   };
 
-  emailValidation = () => {
-    const email = document.getElementById("email").value;
-    const isValide = validateEmail(email);
-    this.setState({ isFirstLoad: false, isValidEmail: isValide });
+  emailValidation = event => {
+    const updatedEmailValue = event.target.value;
+    const isValide = validateEmail(updatedEmailValue);
+    this.setState({ isFirstLoad: false, emailContent: updatedEmailValue, isValidEmail: isValide });
   };
 
-  passwordValidation = () => {
-    this.setState({ isFirstPasswordLoad: false, isFirstLoad: false });
-    const password = document.getElementById("password").value;
-    const isValide = validatePassword(password);
-    const passwordConfirmation = document.getElementById("password-confirmation").value;
-    //Password valid?
-    this.setState({ isFirstPasswordLoad: false, isValidPassword: isValide });
-    //Password confirmation is the same?
-    if (password === passwordConfirmation) {
-      this.setState({
-        isValidPasswordConfirmation: true
-      });
-    } else {
-      this.setState({
-        isValidPasswordConfirmation: false
-      });
-    }
+  passwordValidation = event => {
+    const updatedPasswordValue = event.target.value;
+    const passwordConfirmationValue = this.state.passwordConfirmationContent;
+    const isValide = validatePassword(updatedPasswordValue);
+    this.setState({
+      isFirstLoad: false,
+      isFirstPasswordLoad: false,
+      passwordContent: updatedPasswordValue,
+      isValidPassword: isValide
+    });
+    updatedPasswordValue === passwordConfirmationValue
+      ? this.setState({ isValidPasswordConfirmation: true })
+      : this.setState({ isValidPasswordConfirmation: false });
+  };
+
+  passwordConfirmationValidation = event => {
+    const updatedPasswordConfirmationValue = event.target.value;
+    const passwordValue = this.state.passwordContent;
+    this.setState({
+      isFirstLoad: false,
+      passwordConfirmationContent: updatedPasswordConfirmationValue
+    });
+    updatedPasswordConfirmationValue === passwordValue
+      ? this.setState({ isValidPasswordConfirmation: true })
+      : this.setState({ isValidPasswordConfirmation: false });
   };
 
   areAllFieldsValid = () => {
@@ -118,11 +139,16 @@ class CreateAccountForm extends Component {
   render() {
     const {
       isFirstLoad,
+      firstNameContent,
       isValidFirstName,
+      lastNameContent,
       isValidLastName,
+      emailContent,
       isValidEmail,
+      passwordContent,
       isValidPassword,
       isFirstPasswordLoad,
+      passwordConfirmationContent,
       isValidPasswordConfirmation
     } = this.state;
 
@@ -163,7 +189,7 @@ class CreateAccountForm extends Component {
                     placeholder={
                       LOCALIZE.authentication.createAccount.content.inputs.firstNamePlaceholder
                     }
-                    id="first-name"
+                    value={firstNameContent}
                     style={styles.inputForNames}
                     onChange={this.firstNameValidation}
                   />
@@ -184,7 +210,7 @@ class CreateAccountForm extends Component {
                     placeholder={
                       LOCALIZE.authentication.createAccount.content.inputs.lastNamePlaceholder
                     }
-                    id="last-name"
+                    value={lastNameContent}
                     style={styles.inputForNames}
                     onChange={this.lastNameValidation}
                   />
@@ -204,7 +230,7 @@ class CreateAccountForm extends Component {
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs.emailPlaceholder
                   }
-                  id="email"
+                  value={emailContent}
                   style={styles.inputs}
                   onChange={this.emailValidation}
                 />
@@ -223,7 +249,7 @@ class CreateAccountForm extends Component {
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs.passwordPlaceholder
                   }
-                  id="password"
+                  value={passwordContent}
                   style={styles.inputs}
                   onChange={this.passwordValidation}
                 />
@@ -283,11 +309,11 @@ class CreateAccountForm extends Component {
                     LOCALIZE.authentication.createAccount.content.inputs
                       .passwordConfirmationPlaceholder
                   }
-                  id="password-confirmation"
+                  value={passwordConfirmationContent}
                   style={styles.inputs}
-                  onChange={this.passwordValidation}
+                  onChange={this.passwordConfirmationValidation}
                 />
-                {!isValidPasswordConfirmation && !isFirstPasswordLoad && (
+                {!isValidPasswordConfirmation && !isFirstLoad && (
                   <p style={styles.validationError}>
                     {LOCALIZE.authentication.createAccount.content.inputs.passwordConfirmationError}
                   </p>
