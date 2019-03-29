@@ -6,7 +6,7 @@ const styles = {
   email: {
     textAlign: "left"
   },
-  reply_status: {
+  replyStatus: {
     fontSize: 16,
     textAlign: "right",
     fontWeight: "bold"
@@ -50,7 +50,7 @@ class Email extends Component {
           {email.visibleID}
         </h5>
         {this.props.isRepliedTo && (
-          <div style={styles.reply_status}>
+          <div style={styles.replyStatus}>
             <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
             Temp placeholder....
           </div>
