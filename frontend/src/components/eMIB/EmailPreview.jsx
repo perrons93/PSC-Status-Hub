@@ -12,7 +12,6 @@ const styles = {
     border: "2px solid #00565E",
     cursor: "pointer"
   },
-  // 3x background colors
   button_selected_background: {
     backgroundColor: "#00565E"
   },
@@ -22,7 +21,6 @@ const styles = {
   button_unread_background: {
     backgroundColor: "white"
   },
-  // 2x text colors
   button_selected_text: {
     color: "#D3FCFF"
   },
@@ -51,7 +49,7 @@ const styles = {
 class EmailPreview extends Component {
   static propTypes = {
     email: PropTypes.object.isRequired,
-    clickFunction: PropTypes.func.isRequired,
+    selectEmail: PropTypes.func.isRequired,
     isRead: PropTypes.bool.isRequired,
     isRepliedTo: PropTypes.bool.isRequired,
     isSelected: PropTypes.bool.isRequired
@@ -100,7 +98,7 @@ class EmailPreview extends Component {
     const email = this.props.email;
     return (
       <li id={unit_test_id} style={styles.li} aria-current={page_style} role="menuitem">
-        <div style={button_style} onClick={() => this.props.clickFunction(email.id)}>
+        <div style={button_style} onClick={() => this.props.selectEmail(email.id)}>
           <div id={div_id}>
             {img_src}
             {LOCALIZE.emibTest.inboxPage.emailId}

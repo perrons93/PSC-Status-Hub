@@ -64,7 +64,7 @@ class Inbox extends Component {
               <div key={email.id}>
                 <EmailPreview
                   email={email}
-                  clickFunction={this.changeEmail}
+                  selectEmail={this.changeEmail}
                   isRead={this.state.emailRead[email.id]}
                   isRepliedTo={this.state.emailReplies[email.id]}
                   isSelected={email.id === this.state.currentEmail}
