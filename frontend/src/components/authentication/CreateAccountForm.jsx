@@ -46,70 +46,67 @@ let SUBMIT_BTN_DISABLED;
 
 class CreateAccountForm extends Component {
   state = {
-    isFirstPasswordLoad: true,
+    isFirstLoad: true,
     isValidFirstName: false,
-    firstNameClassStyle: "valid-field",
     isValidLastName: false,
-    lastNameClassStyle: "valid-field",
     isValidEmail: false,
-    emailClassStyle: "valid-field",
     isValidPassword: false,
-    passwordClassStyle: "valid-field",
-    isValidPasswordConfirmation: false,
-    passwordConfirmationClassStyle: "valid-field"
+    isFirstPasswordLoad: true,
+    isValidPasswordConfirmation: false
   };
 
   firstNameValidation = () => {
     const firstName = document.getElementById("first-name").value;
     const isValide = validateName(firstName);
+    this.setState({ isFirstLoad: false });
     if (isValide) {
-      this.setState({ isValidFirstName: true, firstNameClassStyle: "valid-field" });
+      this.setState({ isValidFirstName: true });
     } else {
-      this.setState({ isValidFirstName: false, firstNameClassStyle: "invalid-field" });
+      this.setState({ isValidFirstName: false });
     }
   };
 
   lastNameValidation = () => {
     const lastName = document.getElementById("last-name").value;
     const isValide = validateName(lastName);
+    this.setState({ isFirstLoad: false });
     if (isValide) {
-      this.setState({ isValidLastName: true, lastNameClassStyle: "valid-field" });
+      this.setState({ isValidLastName: true });
     } else {
-      this.setState({ isValidLastName: false, lastNameClassStyle: "invalid-field" });
+      this.setState({ isValidLastName: false });
     }
   };
 
   emailValidation = () => {
     const email = document.getElementById("email").value;
     const isValide = validateEmail(email);
+    this.setState({ isFirstLoad: false });
     if (isValide) {
-      this.setState({ isValidEmail: true, emailClassStyle: "valid-field" });
+      this.setState({ isValidEmail: true });
     } else {
-      this.setState({ isValidEmail: false, emailClassStyle: "invalid-field" });
+      this.setState({ isValidEmail: false });
     }
   };
 
   passwordValidation = () => {
-    this.setState({ isFirstPasswordLoad: false });
+    this.setState({ isFirstPasswordLoad: false, isFirstLoad: false });
     const password = document.getElementById("password").value;
     const isValide = validatePassword(password);
     const passwordConfirmation = document.getElementById("password-confirmation").value;
     //Password valid?
     if (isValide) {
-      this.setState({ isValidPassword: true, passwordClassStyle: "valid-field" });
+      this.setState({ isValidPassword: true });
     } else {
-      this.setState({ isValidPassword: false, passwordClassStyle: "invalid-field" });
+      this.setState({ isValidPassword: false });
     }
     //Password confirmation is the same?
     if (password === passwordConfirmation) {
       this.setState({
-        isValidPasswordConfirmation: true,
-        passwordConfirmationClassStyle: "valid-field"
+        isValidPasswordConfirmation: true
       });
     } else {
       this.setState({
-        isValidPasswordConfirmation: false,
-        passwordConfirmationClassStyle: "invalid-field"
+        isValidPasswordConfirmation: false
       });
     }
   };
@@ -139,18 +136,24 @@ class CreateAccountForm extends Component {
 
   render() {
     const {
+      isFirstLoad,
       isValidFirstName,
       isValidLastName,
       isValidEmail,
       isValidPassword,
       isFirstPasswordLoad,
-      firstNameClassStyle,
-      lastNameClassStyle,
-      emailClassStyle,
-      passwordClassStyle,
-      isValidPasswordConfirmation,
-      passwordConfirmationClassStyle
+      isValidPasswordConfirmation
     } = this.state;
+
+    const validFieldClass = "valid-field";
+    let invalidFieldClass = "";
+
+    //if this is the first load of create account form, display all fields as 'valid-field'
+    if (isFirstLoad) {
+      invalidFieldClass = "valid-field";
+    } else {
+      invalidFieldClass = "invalid-field";
+    }
 
     //check if all fields are valid
     this.areAllFieldsValid();
@@ -174,7 +177,7 @@ class CreateAccountForm extends Component {
 
                   <input
                     aria-label={LOCALIZE.authentication.createAccount.content.inputs.firstNameTitle}
-                    className={firstNameClassStyle}
+                    className={isValidFirstName ? validFieldClass : invalidFieldClass}
                     type="text"
                     placeholder={
                       LOCALIZE.authentication.createAccount.content.inputs.firstNamePlaceholder
@@ -195,7 +198,7 @@ class CreateAccountForm extends Component {
                   )}
                   <input
                     aria-label={LOCALIZE.authentication.createAccount.content.inputs.lastNameTitle}
-                    className={lastNameClassStyle}
+                    className={isValidLastName ? validFieldClass : invalidFieldClass}
                     type="text"
                     placeholder={
                       LOCALIZE.authentication.createAccount.content.inputs.lastNamePlaceholder
@@ -215,7 +218,7 @@ class CreateAccountForm extends Component {
                 )}
                 <input
                   aria-label={LOCALIZE.authentication.createAccount.content.inputs.emailTitle}
-                  className={emailClassStyle}
+                  className={isValidEmail ? validFieldClass : invalidFieldClass}
                   type="text"
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs.emailPlaceholder
@@ -234,7 +237,7 @@ class CreateAccountForm extends Component {
                 )}
                 <input
                   aria-label={LOCALIZE.authentication.createAccount.content.inputs.passwordTitle}
-                  className={passwordClassStyle}
+                  className={isValidPassword ? validFieldClass : invalidFieldClass}
                   type="password"
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs.passwordPlaceholder
@@ -293,7 +296,7 @@ class CreateAccountForm extends Component {
                   aria-label={
                     LOCALIZE.authentication.createAccount.content.inputs.passwordConfirmationTitle
                   }
-                  className={passwordConfirmationClassStyle}
+                  className={isValidPasswordConfirmation ? validFieldClass : invalidFieldClass}
                   type="password"
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs
