@@ -9,7 +9,8 @@ const styles = {
   replyStatus: {
     fontSize: 16,
     textAlign: "right",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    float: "right"
   },
   replyAndUser: {
     color: "#00565E"
@@ -45,16 +46,18 @@ class Email extends Component {
     const REPLACE_ME_2 = "Create a task";
     return (
       <div style={styles.email}>
-        <h5 style={styles.capitalize}>
-          {LOCALIZE.emibTest.inboxPage.emailId}
-          {email.visibleID}
-        </h5>
-        {this.props.isRepliedTo && (
-          <div style={styles.replyStatus}>
-            <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
-            Temp placeholder....
-          </div>
-        )}
+        <div>
+          <h5 style={styles.capitalize}>
+            {LOCALIZE.emibTest.inboxPage.emailId}
+            {email.visibleID}
+          </h5>
+          {this.props.isRepliedTo && (
+            <div style={styles.replyStatus}>
+              <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
+              Temp placeholder....
+            </div>
+          )}
+        </div>
         <div>
           <button type="button" className="btn btn-primary" onClick={this.replyToEmail}>
             <i className="fas fa-envelope" />
