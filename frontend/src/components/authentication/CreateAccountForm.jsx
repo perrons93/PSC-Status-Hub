@@ -58,34 +58,19 @@ class CreateAccountForm extends Component {
   firstNameValidation = () => {
     const firstName = document.getElementById("first-name").value;
     const isValide = validateName(firstName);
-    this.setState({ isFirstLoad: false });
-    if (isValide) {
-      this.setState({ isValidFirstName: true });
-    } else {
-      this.setState({ isValidFirstName: false });
-    }
+    this.setState({ isFirstLoad: false, isValidFirstName: isValide });
   };
 
   lastNameValidation = () => {
     const lastName = document.getElementById("last-name").value;
     const isValide = validateName(lastName);
-    this.setState({ isFirstLoad: false });
-    if (isValide) {
-      this.setState({ isValidLastName: true });
-    } else {
-      this.setState({ isValidLastName: false });
-    }
+    this.setState({ isFirstLoad: false, isValidLastName: isValide });
   };
 
   emailValidation = () => {
     const email = document.getElementById("email").value;
     const isValide = validateEmail(email);
-    this.setState({ isFirstLoad: false });
-    if (isValide) {
-      this.setState({ isValidEmail: true });
-    } else {
-      this.setState({ isValidEmail: false });
-    }
+    this.setState({ isFirstLoad: false, isValidEmail: isValide });
   };
 
   passwordValidation = () => {
@@ -94,11 +79,7 @@ class CreateAccountForm extends Component {
     const isValide = validatePassword(password);
     const passwordConfirmation = document.getElementById("password-confirmation").value;
     //Password valid?
-    if (isValide) {
-      this.setState({ isValidPassword: true });
-    } else {
-      this.setState({ isValidPassword: false });
-    }
+    this.setState({ isFirstPasswordLoad: false, isValidPassword: isValide });
     //Password confirmation is the same?
     if (password === passwordConfirmation) {
       this.setState({
