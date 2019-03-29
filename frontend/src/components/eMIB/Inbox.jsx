@@ -38,7 +38,7 @@ class Inbox extends Component {
   state = {
     currentEmail: "0",
     emailRead: initializeFalseArray(this.props.inboxLength),
-    emailReplies: initializeFalseArray(this.props.inboxLength)
+    emailResponses: initializeFalseArray(this.props.inboxLength)
   };
 
   changeEmail = index => {
@@ -50,9 +50,9 @@ class Inbox extends Component {
   };
 
   respondToEmail = index => {
-    let emailsReplies = Array.from(this.state.emailReplies);
-    emailsReplies[index] = true;
-    this.setState({ emailReplies: emailsReplies });
+    let emailResponses = Array.from(this.state.emailResponses);
+    emailResponses[index] = true;
+    this.setState({ emailResponses: emailResponses });
   };
 
   render() {
@@ -72,7 +72,7 @@ class Inbox extends Component {
                   email={email}
                   selectEmail={this.changeEmail}
                   isRead={this.state.emailRead[email.id]}
-                  isRepliedTo={this.state.emailReplies[email.id]}
+                  isRepliedTo={this.state.emailResponses[email.id]}
                   isSelected={email.id === this.state.currentEmail}
                 />
               </div>
@@ -83,7 +83,7 @@ class Inbox extends Component {
           <Email
             email={inboxSpecs[this.state.currentEmail]}
             respondToEmail={this.respondToEmail}
-            isRepliedTo={this.state.emailReplies[this.state.currentEmail]}
+            isRepliedTo={this.state.emailResponses[this.state.currentEmail]}
           />
         </div>
       </div>

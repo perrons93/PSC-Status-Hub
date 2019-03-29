@@ -62,13 +62,23 @@ class Email extends Component {
           )}
         </div>
         <div>
-          <button type="button" className="btn btn-primary" onClick={this.replyToEmail}>
+          <button
+            id="unit-test-email-reply-button"
+            type="button"
+            className="btn btn-primary"
+            onClick={this.replyToEmail}
+          >
             <i className="fas fa-envelope" />
             &emsp;
             {LOCALIZE.emibTest.inboxPage.addReply}
           </button>
           &emsp;
-          <button type="button" className="btn btn-primary" onClick={this.addTaskToEmail}>
+          <button
+            id="unit-test-email-task-button"
+            type="button"
+            className="btn btn-primary"
+            onClick={this.addTaskToEmail}
+          >
             <i className="fas fa-tasks" />
             &emsp;
             {LOCALIZE.emibTest.inboxPage.addTask}
