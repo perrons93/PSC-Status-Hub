@@ -11,15 +11,22 @@ const emailStub = {
   body: "Body 1"
 };
 
-const hasAction = <i className="fas fa-sign-out-alt" />;
+const hasAction = <i className="fas fa-sign-out-alt" style={{ color: "#00565E" }} />;
 
-it("Default email renders with jubject as an h3", () => {
+it("default email renders with jubject as an h3", () => {
   const wrapper = shallow(
     <Email email={emailStub} respondToEmail={() => {}} isRepliedTo={false} />
   );
   const subject = <h3>Subject 1</h3>;
   expect(wrapper.contains(subject)).toEqual(true);
   expect(wrapper.contains(hasAction)).toEqual(false);
+});
+
+it("shows action when set to true in props", () => {
+  const wrapper = shallow(<Email email={emailStub} respondToEmail={() => {}} isRepliedTo={true} />);
+  const subject = <h3>Subject 1</h3>;
+  expect(wrapper.contains(subject)).toEqual(true);
+  expect(wrapper.contains(hasAction)).toEqual(true);
 });
 
 it("reply and task buttons trigger the function", () => {
