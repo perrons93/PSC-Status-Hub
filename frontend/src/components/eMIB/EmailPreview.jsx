@@ -102,7 +102,7 @@ class EmailPreview extends Component {
           <div id={divId}>
             {imgSrc}
             {LOCALIZE.emibTest.inboxPage.emailId}
-            {email.id}&emsp;
+            {email.visibleID}&emsp;
             {reply}
           </div>
           <div style={subject}>{email.subject}</div>
