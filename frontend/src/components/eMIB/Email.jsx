@@ -11,7 +11,7 @@ const styles = {
     textAlign: "right",
     fontWeight: "bold"
   },
-  reply_icon: {
+  replyAndUser: {
     color: "#00565E"
   },
   hr: {
@@ -51,7 +51,7 @@ class Email extends Component {
         </h5>
         {this.props.isRepliedTo && (
           <div style={styles.reply_status}>
-            <i className="fas fa-sign-out-alt" style={styles.reply_icon} />
+            <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
             Temp placeholder....
           </div>
         )}
@@ -70,8 +70,12 @@ class Email extends Component {
         </div>
         <hr style={styles.hr} />
         <div>{email.subject}</div>
-        <div>{email.from}</div>
-        <div>{email.to}</div>
+        <div>
+          <span style={styles.replyAndUser}>{email.from}</span>
+        </div>
+        <div>
+          <span style={styles.replyAndUser}>{email.to}</span>
+        </div>
         <div>{email.date}</div>
         <hr style={styles.hr} />
         <div>{email.body}</div>
