@@ -12,6 +12,11 @@ const styles = {
   },
   reply_icon: {
     color: "#00565E"
+  },
+  hr: {
+    width: "100%",
+    borderTop: "2px solid #00565E",
+    margin: "24px 0 24px 0"
   }
 };
 
@@ -47,12 +52,12 @@ class Email extends Component {
             {REPLACE_ME_2}
           </button>
         </div>
-        <hr />
+        <hr style={styles.hr} />
         <div>{email.subject}</div>
         <div>{email.from}</div>
         <div>{email.to}</div>
         <div>{email.date}</div>
-        <hr />
+        <hr style={styles.hr} />
         <div>{email.body}</div>
       </div>
     );
