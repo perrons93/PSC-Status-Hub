@@ -36,7 +36,7 @@ class Inbox extends Component {
   };
 
   state = {
-    currentEmail: 0,
+    currentEmail: "0",
     emailRead: initializeFalseArray(this.props.inboxLength),
     emailReplies: initializeFalseArray(this.props.inboxLength)
   };
