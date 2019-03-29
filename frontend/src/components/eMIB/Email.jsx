@@ -69,14 +69,16 @@ class Email extends Component {
           </button>
         </div>
         <hr style={styles.hr} />
-        <div>{email.subject}</div>
+        <h3>{email.subject}</h3>
         <div>
-          <span style={styles.replyAndUser}>{email.from}</span>
+          {LOCALIZE.emibTest.inboxPage.from}: <span style={styles.replyAndUser}>{email.from}</span>
         </div>
         <div>
-          <span style={styles.replyAndUser}>{email.to}</span>
+          {LOCALIZE.emibTest.inboxPage.to}: <span style={styles.replyAndUser}>{email.to}</span>
         </div>
-        <div>{email.date}</div>
+        <div>
+          {LOCALIZE.emibTest.inboxPage.date}: {email.date}
+        </div>
         <hr style={styles.hr} />
         <div>{email.body}</div>
       </div>
