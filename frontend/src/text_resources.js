@@ -278,13 +278,7 @@ let LOCALIZE = new LocalizedStrings({
 
       //Inbox Page
       inboxPage: {
-        title: "Inbox Coming Soon!",
-        taskList: "Tasks List",
-        notePad: "NotePad",
-        textTools: "Text Tools",
-        emailFeatures: "Email Features",
-        progressSaved: "Progress Saved",
-        timer: "Timer"
+        emailId: " email id# "
       },
 
       //Confirmation Page
@@ -331,7 +325,8 @@ let LOCALIZE = new LocalizedStrings({
       },
       emails: {
         email1: {
-          id: 1,
+          id: "0",
+          visibleID: "1",
           to: "To 1",
           from: "From 1",
           subject: "Subject 1",
@@ -339,7 +334,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "Body 1"
         },
         email2: {
-          id: 2,
+          id: "1",
+          visibleID: "2",
           to: "To 2",
           from: "From 2",
           subject: "Subject 2",
@@ -347,7 +343,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "Body 2"
         },
         email3: {
-          id: 3,
+          id: "2",
+          visibleID: "3",
           to: "To 3",
           from: "From 3",
           subject: "Subject 3",
@@ -355,7 +352,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "Body 3"
         },
         email4: {
-          id: 4,
+          id: "3",
+          visibleID: "4",
           to: "To 4",
           from: "From 4",
           subject: "Subject 4",
@@ -363,7 +361,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "Body 4"
         },
         email5: {
-          id: 5,
+          id: "4",
+          visibleID: "5",
           to: "To 5",
           from: "From 5",
           subject: "Subject 5",
@@ -371,7 +370,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "Body 5"
         },
         email6: {
-          id: 6,
+          id: "5",
+          visibleID: "6",
           to: "To 6",
           from: "From 6",
           subject: "Subject 6",
@@ -379,7 +379,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "Body 6"
         },
         email7: {
-          id: 7,
+          id: "6",
+          visibleID: "7",
           to: "To 7",
           from: "From 7",
           subject: "Subject 7",
@@ -387,7 +388,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "Body 7"
         },
         email8: {
-          id: 8,
+          id: "7",
+          visibleID: "8",
           to: "To 8",
           from: "From 8",
           subject: "Subject 8",
@@ -395,7 +397,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "Body 8"
         },
         email9: {
-          id: 9,
+          id: "8",
+          visibleID: "9",
           to: "To 9",
           from: "From 9",
           subject: "Subject 9",
@@ -403,7 +406,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "Body 9"
         },
         email10: {
-          id: 10,
+          id: "9",
+          visibleID: "10",
           to: "To 10",
           from: "From 10",
           subject: "Subject 10",
@@ -731,13 +735,7 @@ let LOCALIZE = new LocalizedStrings({
 
       //Inbox Page
       inboxPage: {
-        title: "Boîte de réception",
-        taskList: "Liste des tâches",
-        notePad: "bloc-notes",
-        textTools: "Outils de texte",
-        emailFeatures: "Fonctions de messagerie",
-        progressSaved: "Progression enregistrée",
-        timer: "Minuteur"
+        emailId: " FR email id# "
       },
 
       //Confirmation Page
@@ -785,7 +783,8 @@ let LOCALIZE = new LocalizedStrings({
       },
       emails: {
         email1: {
-          id: 1,
+          id: "0",
+          visibleID: "1",
           to: "FR To 1",
           from: "FR From 1",
           subject: "FR Subject 1",
@@ -793,7 +792,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "FR Body 1"
         },
         email2: {
-          id: 2,
+          id: "1",
+          visibleID: "2",
           to: "FR To 2",
           from: "FR From 2",
           subject: "FR Subject 2",
@@ -801,7 +801,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "FR Body 2"
         },
         email3: {
-          id: 3,
+          id: "2",
+          visibleID: "3",
           to: "FR To 3",
           from: "FR From 3",
           subject: "FR Subject 3",
@@ -809,7 +810,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "FR Body 3"
         },
         email4: {
-          id: 4,
+          id: "3",
+          visibleID: "4",
           to: "FR To 4",
           from: "FR From 4",
           subject: "FR Subject 4",
@@ -817,7 +819,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "FR Body 4"
         },
         email5: {
-          id: 5,
+          id: "4",
+          visibleID: "5",
           to: "FR To 5",
           from: "FR From 5",
           subject: "FR Subject 5",
@@ -825,7 +828,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "FR Body 5"
         },
         email6: {
-          id: 6,
+          id: "5",
+          visibleID: "6",
           to: "FR To 6",
           from: "FR From 6",
           subject: "FR Subject 6",
@@ -833,7 +837,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "FR Body 6"
         },
         email7: {
-          id: 7,
+          id: "6",
+          visibleID: "7",
           to: "FR To 7",
           from: "FR From 7",
           subject: "FR Subject 7",
@@ -841,7 +846,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "FR Body 7"
         },
         email8: {
-          id: 8,
+          id: "7",
+          visibleID: "8",
           to: "FR To 8",
           from: "FR From 8",
           subject: "FR Subject 8",
@@ -849,7 +855,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "FR Body 8"
         },
         email9: {
-          id: 9,
+          id: "8",
+          visibleID: "9",
           to: "FR To 9",
           from: "FR From 9",
           subject: "FR Subject 9",
@@ -857,7 +864,8 @@ let LOCALIZE = new LocalizedStrings({
           body: "FR Body 9"
         },
         email10: {
-          id: 10,
+          id: "9",
+          visibleID: "10",
           to: "FR To 10",
           from: "FR From 10",
           subject: "FR Subject 10",

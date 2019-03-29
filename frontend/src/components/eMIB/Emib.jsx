@@ -64,6 +64,12 @@ export const getInboxContent = () => {
   ];
 };
 
+//Passing Specs as a prop into Inbox causes a bug where the language does not toggle
+// However, inbox's state needs to know the length of the specs to be initialized.
+export const getInboxLength = () => {
+  return getInboxContent().length;
+};
+
 const quitConditions = () => {
   return [
     { text: LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne, checked: false },

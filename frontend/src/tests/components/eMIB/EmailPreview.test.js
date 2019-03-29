@@ -1,20 +1,81 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 import EmailPreview from "../../../components/eMIB/EmailPreview";
 
 const emailStub = {
-  id: 1,
-  to: "To 1",
-  from: "From 1",
-  subject: "Subject 1",
-  date: "Date 1",
-  body: "Body 1"
+  id: "1",
+  to: "To Stub",
+  from: "From Stub",
+  subject: "Subject Stub",
+  date: "Date Stub",
+  body: "Body Stub"
 };
 
-it("renders title, description, left button and right button titles", () => {
-  const wrapper = shallow(<EmailPreview email={emailStub} clickFunction={() => {}} />);
-  const subject = <div>Subject 1</div>;
-  const from = <div>From 1</div>;
-  expect(wrapper.contains(subject)).toEqual(true);
-  expect(wrapper.contains(from)).toEqual(true);
+it("Email preview for isRead=true; isRepliedTo=true, isSelected=true", () => {
+  testCore(true, true, true);
 });
+
+it("Email preview for isRead=true; isRepliedTo=true, isSelected=false", () => {
+  testCore(true, true, false);
+});
+
+it("Email preview for isRead=true; isRepliedTo=false, isSelected=true", () => {
+  testCore(true, false, true);
+});
+
+it("Email preview for isRead=true; isRepliedTo=false, isSelected=false", () => {
+  testCore(true, false, false);
+});
+
+it("Email preview for isRead=false; isRepliedTo=true, isSelected=true", () => {
+  testCore(false, true, true);
+});
+
+it("Email preview for isRead=false; isRepliedTo=true, isSelected=false", () => {
+  testCore(false, true, false);
+});
+
+it("Email preview for isRead=false; isRepliedTo=false, isSelected=true", () => {
+  testCore(false, false, true);
+});
+
+it("Email preview for isRead=false; isRepliedTo=false, isSelected=false", () => {
+  testCore(false, false, false);
+});
+
+function testCore(isRead, isRepliedTo, isSelected) {
+  const wrapper = mount(
+    <EmailPreview
+      email={emailStub}
+      selectEmail={() => {}}
+      isRead={isRead}
+      isRepliedTo={isRepliedTo}
+      isSelected={isSelected}
+    />
+  );
+  const unread = <i className="fas fa-envelope" />;
+  const read = <i className="far fa-envelope-open" />;
+  const reply = <i className="fas fa-sign-out-alt" />;
+  if (isRead) {
+    expect(wrapper.contains(read)).toEqual(true);
+    expect(wrapper.contains(unread)).toEqual(false);
+  }
+  if (!isRead) {
+    expect(wrapper.contains(read)).toEqual(false);
+    expect(wrapper.contains(unread)).toEqual(true);
+  }
+  if (isRepliedTo) {
+    expect(wrapper.contains(reply)).toEqual(true);
+  }
+  if (!isRepliedTo) {
+    expect(wrapper.contains(reply)).toEqual(false);
+  }
+  if (isSelected) {
+    expect(wrapper.find("#unit-test-selected-email-preview").exists()).toEqual(true);
+    expect(wrapper.find("#unit-test-unselected-email-preview").exists()).toEqual(false);
+  }
+  if (!isSelected) {
+    expect(wrapper.find("#unit-test-selected-email-preview").exists()).toEqual(false);
+    expect(wrapper.find("#unit-test-unselected-email-preview").exists()).toEqual(true);
+  }
+}
