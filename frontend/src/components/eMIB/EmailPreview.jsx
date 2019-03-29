@@ -59,25 +59,19 @@ class EmailPreview extends Component {
     //READ/UNREAD CHECK
     //defaults, or if unread
     let buttonBackgroundColor = styles.buttonUnreadBackground;
-    let imgSrc = <i className="fas fa-envelope" />; //emailUnread;
     let subjectIsRead = styles.subjectUnread;
     if (this.props.isRead) {
       //if it is read
       buttonBackgroundColor = styles.buttonReadBackground;
       subjectIsRead = styles.subjectRead;
-      imgSrc = <i className="far fa-envelope-open" />; //emailRead;
     }
 
     //SELECTED/UNSELECTED CHECK
     //defaults, or unselected
-    let unitTestId = "unit-test-unselected-email-preview";
-    let pageStyle = "";
     let buttonTextColor = styles.buttonUnselectedText;
     let subjectIsSelected = styles.subjectUnselected;
     if (this.props.isSelected) {
       //if it is selected
-      unitTestId = "unit-test-selected-email-preview";
-      pageStyle = "page";
       buttonBackgroundColor = styles.buttonSelectedBackground;
       buttonTextColor = styles.buttonSelectedText;
       subjectIsSelected = styles.subjectSelected;
@@ -87,10 +81,23 @@ class EmailPreview extends Component {
     let subject = { ...subjectIsRead, ...subjectIsSelected };
     const email = this.props.email;
     return (
-      <li id={unitTestId} style={styles.li} aria-current={pageStyle} role="menuitem">
+      <li
+        id={
+          this.props.isSelected
+            ? "unit-test-selected-email-preview"
+            : "unit-test-unselected-email-preview"
+        }
+        style={styles.li}
+        aria-current={this.props.isSelected ? "page" : ""}
+        role="menuitem"
+      >
         <div style={buttonStyle} onClick={() => this.props.selectEmail(email.id)}>
           <div id={this.props.isRead ? "read-email-preview" : "unread-email-preview"}>
-            {imgSrc}
+            {this.props.isRead ? (
+              <i className="far fa-envelope-open" />
+            ) : (
+              <i className="fas fa-envelope" />
+            )}
             {LOCALIZE.emibTest.inboxPage.emailId}
             {email.visibleID}&emsp;
             {this.props.isRepliedTo && <i className="fas fa-sign-out-alt" />}
