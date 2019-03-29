@@ -8,7 +8,8 @@ const styles = {
   },
   reply_status: {
     fontSize: 16,
-    textAlign: "right"
+    textAlign: "right",
+    fontWeight: "bold"
   },
   reply_icon: {
     color: "#00565E"
