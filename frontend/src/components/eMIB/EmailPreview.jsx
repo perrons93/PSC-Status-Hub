@@ -12,19 +12,19 @@ const styles = {
     border: "2px solid #00565E",
     cursor: "pointer"
   },
-  button_selected_background: {
+  buttonSelectedBackground: {
     backgroundColor: "#00565E"
   },
-  button_read_background: {
+  buttonReadBackground: {
     backgroundColor: "#F5F5F5"
   },
-  button_unread_background: {
+  buttonUnreadBackground: {
     backgroundColor: "white"
   },
-  button_selected_text: {
+  buttonSelectedText: {
     color: "#D3FCFF"
   },
-  button_unselected_text: {
+  buttonUnselectedText: {
     color: "black"
   },
   //li
@@ -32,16 +32,16 @@ const styles = {
     listStyleType: "none"
   },
   //subject line
-  subject_selected: {
+  subjectSelected: {
     color: "white"
   },
-  subject_unselected: {
+  subjectUnselected: {
     color: "#00565E"
   },
-  subject_read: {
+  subjectRead: {
     fontWeight: "normal"
   },
-  subject_unread: {
+  subjectUnread: {
     fontWeight: "bold"
   }
 };
@@ -58,49 +58,49 @@ class EmailPreview extends Component {
   render() {
     //READ/UNREAD CHECK
     //defaults, or if unread
-    var button_background_color = styles.button_unread_background;
-    var img_src = <i className="fas fa-envelope" />; //email_unread;
-    var div_id = "unread-email-preview";
-    var subject_is_read = styles.subject_unread;
+    let buttonBackgroundColor = styles.buttonUnreadBackground;
+    let imgSrc = <i className="fas fa-envelope" />; //emailUnread;
+    let divId = "unread-email-preview";
+    let subjectIsRead = styles.subjectUnread;
     if (this.props.isRead) {
       //if it is read
-      button_background_color = styles.button_read_background;
-      subject_is_read = styles.subject_read;
-      img_src = <i className="far fa-envelope-open" />; //email_read;
-      div_id = "read-email-preview";
+      buttonBackgroundColor = styles.buttonReadBackground;
+      subjectIsRead = styles.subjectRead;
+      imgSrc = <i className="far fa-envelope-open" />; //emailRead;
+      divId = "read-email-preview";
     }
 
     //SELECTED/UNSELECTED CHECK
     //defaults, or unselected
-    var unit_test_id = "unit-test-unselected-email-preview";
-    var page_style = "";
-    var button_text_color = styles.button_unselected_text;
-    var subject_is_selected = styles.subject_unselected;
+    let unitTestId = "unit-test-unselected-email-preview";
+    let pageStyle = "";
+    let buttonTextColor = styles.buttonUnselectedText;
+    let subjectIsSelected = styles.subjectUnselected;
     if (this.props.isSelected) {
       //if it is selected
-      unit_test_id = "unit-test-selected-email-preview";
-      page_style = "page";
-      button_background_color = styles.button_selected_background;
-      button_text_color = styles.button_selected_text;
-      subject_is_selected = styles.subject_selected;
+      unitTestId = "unit-test-selected-email-preview";
+      pageStyle = "page";
+      buttonBackgroundColor = styles.buttonSelectedBackground;
+      buttonTextColor = styles.buttonSelectedText;
+      subjectIsSelected = styles.subjectSelected;
     }
 
     //REPLIED TO/NOT REPLIED TO CHECK
     //defaults, or no reply
-    var reply = <></>;
+    let reply = <></>;
     if (this.props.isRepliedTo) {
       //if it is replied to
       reply = <i className="fas fa-sign-out-alt" />;
     }
 
-    var button_style = { ...styles.button, ...button_text_color, ...button_background_color };
-    var subject = { ...subject_is_read, ...subject_is_selected };
+    let buttonStyle = { ...styles.button, ...buttonTextColor, ...buttonBackgroundColor };
+    var subject = { ...subjectIsRead, ...subjectIsSelected };
     const email = this.props.email;
     return (
-      <li id={unit_test_id} style={styles.li} aria-current={page_style} role="menuitem">
-        <div style={button_style} onClick={() => this.props.selectEmail(email.id)}>
-          <div id={div_id}>
-            {img_src}
+      <li id={unitTestId} style={styles.li} aria-current={pageStyle} role="menuitem">
+        <div style={buttonStyle} onClick={() => this.props.selectEmail(email.id)}>
+          <div id={divId}>
+            {imgSrc}
             {LOCALIZE.emibTest.inboxPage.emailId}
             {email.id}&emsp;
             {reply}
