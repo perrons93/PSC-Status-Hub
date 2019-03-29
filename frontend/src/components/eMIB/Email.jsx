@@ -26,7 +26,17 @@ const styles = {
 
 class Email extends Component {
   static propTypes = {
-    email: PropTypes.object.isRequired
+    email: PropTypes.object.isRequired,
+    respondToEmail: PropTypes.func.isRequired,
+    isRepliedTo: PropTypes.bool.isRequired
+  };
+
+  replyToEmail = () => {
+    this.props.respondToEmail(this.props.email.id);
+  };
+
+  addTaskToEmail = () => {
+    this.props.respondToEmail(this.props.email.id);
   };
 
   render() {
@@ -37,20 +47,22 @@ class Email extends Component {
       <div style={styles.email}>
         <h5 style={styles.capitalize}>
           {LOCALIZE.emibTest.inboxPage.emailId}
-          {email.id}
+          {email.visibleID}
         </h5>
-        <div style={styles.reply_status}>
-          <i className="fas fa-sign-out-alt" style={styles.reply_icon} />
-          Temp placeholder....
-        </div>
+        {this.props.isRepliedTo && (
+          <div style={styles.reply_status}>
+            <i className="fas fa-sign-out-alt" style={styles.reply_icon} />
+            Temp placeholder....
+          </div>
+        )}
         <div>
-          <button type="button" className="btn btn-primary">
+          <button type="button" className="btn btn-primary" onClick={this.replyToEmail}>
             <i className="fas fa-envelope" />
             &emsp;
             {REPLACE_ME_1}
           </button>
           &emsp;
-          <button type="button" className="btn btn-primary">
+          <button type="button" className="btn btn-primary" onClick={this.addTaskToEmail}>
             <i className="fas fa-tasks" />
             &emsp;
             {REPLACE_ME_2}
