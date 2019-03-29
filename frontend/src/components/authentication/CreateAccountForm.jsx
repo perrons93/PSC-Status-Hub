@@ -16,9 +16,6 @@ const styles = {
     padding: "3px 6px 3px 6px",
     borderRadius: 4
   },
-  zoneForNames: {
-    display: "flow-root"
-  },
   inputForNames: {
     width: 190,
     padding: "3px 6px 3px 6px",
@@ -164,8 +161,8 @@ class CreateAccountForm extends Component {
             <h3>{LOCALIZE.authentication.createAccount.content.title}</h3>
             <span>{LOCALIZE.authentication.createAccount.content.description}</span>
             <form>
-              <div style={styles.zoneForNames}>
-                <div className="float-left">
+              <div className="names-grid">
+                <div className="names-grid-first-name">
                   <div style={styles.inputTitle}>
                     <span>
                       {LOCALIZE.authentication.createAccount.content.inputs.firstNameTitle}
@@ -187,7 +184,7 @@ class CreateAccountForm extends Component {
                     onChange={this.firstNameValidation}
                   />
                 </div>
-                <div className="float-right">
+                <div className="names-grid-last-name">
                   <div style={styles.inputTitle}>
                     <span style={styles.inputTitle}>
                       {LOCALIZE.authentication.createAccount.content.inputs.lastNameTitle}
