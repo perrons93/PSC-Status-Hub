@@ -23,8 +23,8 @@ const styles = {
 };
 
 function initializeFalseArray(length) {
-  var arr = [];
-  for (var i = 0; i < length; i++) {
+  let arr = [];
+  for (let i = 0; i < length; i++) {
     arr.push(false);
   }
   return arr;
@@ -42,14 +42,14 @@ class Inbox extends Component {
   };
 
   changeEmail = index => {
-    var array = this.state.emailRead;
+    let array = this.state.emailRead.slice(0);
     array[index] = true;
     array[this.state.currentEmail] = true; // previous email is marked as opened
     this.setState({ currentEmail: index, emailRead: array });
   };
 
   render() {
-    const INBOX_SPECS = getInboxContent();
+    const inboxSpecs = getInboxContent();
     return (
       <div className="inbox-grid">
         <nav
@@ -59,7 +59,7 @@ class Inbox extends Component {
           aria-label={"Inbox"}
         >
           <ul className="nav nav-tabs" style={styles.ul} role="menubar">
-            {INBOX_SPECS.map(email => (
+            {inboxSpecs.map(email => (
               <div key={email.id}>
                 <EmailPreview
                   email={email}
@@ -72,12 +72,8 @@ class Inbox extends Component {
             ))}
           </ul>
         </nav>
-        <div
-          className="inbox-grid-content-cell"
-          style={styles.bodyContent}
-          id="inbox-grid-content-cell"
-        >
-          <Email email={INBOX_SPECS[this.state.currentEmail]} />
+        <div className="inbox-grid-content-cell" style={styles.bodyContent}>
+          <Email email={inboxSpecs[this.state.currentEmail]} />
         </div>
       </div>
     );
