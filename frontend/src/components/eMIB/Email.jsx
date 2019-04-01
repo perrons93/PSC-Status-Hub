@@ -20,12 +20,12 @@ const styles = {
   hr1: {
     width: "100%",
     borderTop: "1px solid #00565E",
-    margin: "24px 0 12px 0"
+    margin: "16px 0 12px 0"
   },
   hr2: {
     width: "100%",
     borderTop: "1px solid #96a8b2",
-    margin: "16px 0 12px 0"
+    margin: "12px 0 12px 0"
   }
 };
 
