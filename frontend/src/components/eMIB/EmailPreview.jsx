@@ -10,7 +10,8 @@ const styles = {
     borderRadius: 4,
     padding: 6,
     border: "2px solid #00565E",
-    cursor: "pointer"
+    cursor: "pointer",
+    fontSize: 14
   },
   buttonSelectedBackground: {
     backgroundColor: "#00565E"
@@ -32,6 +33,9 @@ const styles = {
     listStyleType: "none"
   },
   //subject line
+  subjectGeneral: {
+    fontSize: 16
+  },
   subjectSelected: {
     color: "white"
   },
@@ -83,7 +87,12 @@ class EmailPreview extends Component {
     }
 
     let buttonStyle = { ...styles.button, ...buttonTextColor, ...buttonBackgroundColor };
-    let subject = { ...subjectIsRead, ...subjectIsSelected, ...styles.truncated };
+    let subject = {
+      ...styles.subjectGeneral,
+      ...subjectIsRead,
+      ...subjectIsSelected,
+      ...styles.truncated
+    };
     const email = this.props.email;
     return (
       <li
