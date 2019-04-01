@@ -6,6 +6,8 @@ styles that cannot be added inside a const
 .inbox-grid {
   display: -ms-grid;
   display: grid;
+  grid-template-columns: 174px auto;
+  -ms-grid-columns: 174px auto;
 }
 
 .inbox-grid-buttons-cell {
