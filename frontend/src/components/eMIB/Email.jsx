@@ -5,8 +5,8 @@ import LOCALIZE from "../../text_resources";
 const styles = {
   email: {
     textAlign: "left",
-    paddingLeft: 24,
-    paddingTop: 24
+    paddingLeft: 16,
+    paddingTop: 16
   },
   replyStatus: {
     fontSize: 16,
