@@ -5,7 +5,7 @@ import LOCALIZE from "../../text_resources";
 const styles = {
   //buttons
   button: {
-    width: 155,
+    width: 200,
     textAlign: "left",
     borderRadius: 4,
     padding: 6,

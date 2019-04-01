@@ -11,7 +11,7 @@ const styles = {
   },
   buttonList: {
     overflow: "auto",
-    width: 174,
+    width: 219,
     paddingRight: 25,
     height: "calc(100vh - 241px)"
   },
