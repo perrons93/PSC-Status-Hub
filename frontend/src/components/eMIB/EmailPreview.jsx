@@ -81,11 +81,13 @@ class EmailPreview extends Component {
     //defaults, or unselected
     let buttonTextColor = styles.buttonUnselectedText;
     let subjectIsSelected = styles.subjectUnselected;
+    let imageStyle = styles.buttonUnselectedSymbol;
     if (this.props.isSelected) {
       //if it is selected
       buttonBackgroundColor = styles.buttonSelectedBackground;
       buttonTextColor = styles.buttonSelectedText;
       subjectIsSelected = styles.subjectSelected;
+      imageStyle = styles.buttonSelectedText;
     }
 
     let buttonStyle = { ...styles.button, ...buttonTextColor, ...buttonBackgroundColor };
@@ -110,24 +112,16 @@ class EmailPreview extends Component {
         <div style={buttonStyle} onClick={() => this.props.selectEmail(email.id)}>
           <div id={this.props.isRead ? "read-email-preview" : "unread-email-preview"}>
             {this.props.isRead ? (
-              <i
-                className="far fa-envelope-open"
-                style={
-                  this.props.isSelected ? styles.buttonSelectedText : styles.buttonUnselectedSymbol
-                }
-              />
+              <i className="far fa-envelope-open" style={imageStyle} />
             ) : (
-              <i
-                className="fas fa-envelope"
-                style={
-                  this.props.isSelected ? styles.buttonSelectedText : styles.buttonUnselectedSymbol
-                }
-              />
+              <i className="fas fa-envelope" style={imageStyle} />
             )}
             &nbsp;
             {LOCALIZE.emibTest.inboxPage.emailId}
             {email.visibleID}&emsp;
-            {this.props.isRepliedTo && <i className="fas fa-sign-out-alt" />}
+            {this.props.isRepliedTo && (
+              <i className="fas fa-sign-out-alt" style={{ float: "right", ...imageStyle }} />
+            )}
           </div>
           <div style={subject}>{email.subject}</div>
           <div style={styles.truncated}>{email.from}</div>
