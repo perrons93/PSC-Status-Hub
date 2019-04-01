@@ -111,6 +111,7 @@ class EmailPreview extends Component {
             ) : (
               <i className="fas fa-envelope" />
             )}
+            &nbsp;
             {LOCALIZE.emibTest.inboxPage.emailId}
             {email.visibleID}&emsp;
             {this.props.isRepliedTo && <i className="fas fa-sign-out-alt" />}
