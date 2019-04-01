@@ -8,7 +8,8 @@ const styles = {
     marginBottom: 35
   },
   emailId: {
-    float: "left"
+    float: "left",
+    marginRight: 12
   },
   replyStatus: {
     float: "right"
