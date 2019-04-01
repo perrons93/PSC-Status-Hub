@@ -17,12 +17,12 @@ const styles = {
   replyAndUser: {
     color: "#00565E"
   },
-  hr1: {
+  titleEmailDivider: {
     width: "100%",
     borderTop: "1px solid #00565E",
     margin: "16px 0 12px 0"
   },
-  hr2: {
+  dataBodyDivider: {
     width: "100%",
     borderTop: "1px solid #96a8b2",
     margin: "12px 0 12px 0"
@@ -86,7 +86,7 @@ class Email extends Component {
             {LOCALIZE.emibTest.inboxPage.addTask}
           </button>
         </div>
-        <hr style={styles.hr1} />
+        <hr style={styles.titleEmailDivider} />
         <h3>{email.subject}</h3>
         <div>
           {LOCALIZE.emibTest.inboxPage.from}: <span style={styles.replyAndUser}>{email.from}</span>
@@ -97,7 +97,7 @@ class Email extends Component {
         <div>
           {LOCALIZE.emibTest.inboxPage.date}: {email.date}
         </div>
-        <hr style={styles.hr2} />
+        <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
       </div>
     );
