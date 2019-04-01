@@ -50,10 +50,10 @@ class Email extends Component {
     return (
       <div style={styles.email}>
         <div>
-          <h5>
+          <h6>
             {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
             {email.visibleID}
-          </h5>
+          </h6>
           {this.props.isRepliedTo && (
             <div style={styles.replyStatus}>
               <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
