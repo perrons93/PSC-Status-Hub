@@ -53,8 +53,13 @@ function testCore(isRead, isRepliedTo, isSelected) {
       isSelected={isSelected}
     />
   );
-  const unread = <i className="fas fa-envelope" />;
-  const read = <i className="far fa-envelope-open" />;
+  //Get the color of the envelop symbol based on if the it is selected or not
+  let symbolColor = "#00565E";
+  if (isSelected) {
+    symbolColor = "#D3FCFF";
+  }
+  const unread = <i className="fas fa-envelope" style={{ color: symbolColor }} />;
+  const read = <i className="far fa-envelope-open" style={{ color: symbolColor }} />;
   const reply = <i className="fas fa-sign-out-alt" />;
   if (isRead) {
     expect(wrapper.contains(read)).toEqual(true);
