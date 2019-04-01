@@ -1,0 +1,36 @@
+/*
+create-account-form.css is used for the CreateAccountForm.jsx styles that cannot be added inside a const
+*/
+
+.names-grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+.names-grid-first-name {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  margin-right: 14px;
+}
+
+.names-grid-last-name {
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.valid-field {
+  border: 1px solid #00565e;
+}
+
+.invalid-field {
+  border: 3px solid red;
+}
+
+/* this removes the 'clear field (X)' button in IE */
+.valid-field::-ms-clear {
+  display: none;
+}
+
+.invalid-field::-ms-clear {
+  display: none;
+}

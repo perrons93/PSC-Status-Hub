@@ -9,6 +9,55 @@ let LOCALIZE = new LocalizedStrings({
       statusTabTitle: "Status"
     },
 
+    //authentication
+    authentication: {
+      login: {
+        title: "LOG IN",
+        content: {
+          title: "Login",
+          description:
+            "An account is required to proceed further. To log in, enter your credentials below.",
+          inputs: {
+            emailTitle: "Email Address:",
+            emailPlaceholder: "john.smith@outlook.ca",
+            passwordTitle: "Password:",
+            passwordPlaceholder: "Password"
+          }
+        },
+        button: "Login"
+      },
+      createAccount: {
+        title: "CREATE AN ACCOUNT",
+        content: {
+          title: "Create an account",
+          description:
+            "An account is required to proceed further. To create an account, fill out the following.",
+          inputs: {
+            firstNameTitle: "First Name:",
+            firstNamePlaceholder: "John",
+            lastNameTitle: "Last Name:",
+            lastNamePlaceholder: "Smith",
+            emailTitle: "Email Address:",
+            emailPlaceholder: "john.smith@outlook.ca",
+            passwordTitle: "Password (must be between 5-15 characters):",
+            passwordPlaceholder: "Password",
+            passwordErrors: {
+              description: "Your password must satisfy the following:",
+              upperCase: "At least one upper case",
+              lowerCase: "At least one lower case",
+              digit: "At least one digit",
+              specialCharacter: "At least one special character",
+              length: "Minimum of 5 characters and maximum of 15"
+            },
+            passwordConfirmationTitle: "Confirm Password:",
+            passwordConfirmationPlaceholder: "Password",
+            passwordConfirmationError: "Must match the Password"
+          }
+        },
+        button: "Create account"
+      }
+    },
+
     //Home Page
     homePage: {
       title: "The Public Service Commission's Competency Assessment Tool",
@@ -434,7 +483,8 @@ let LOCALIZE = new LocalizedStrings({
       mainMenu: "Main Menu",
       tabMenu: "eMIB Tab Menu",
       instructionsMenu: "Instructions Menu",
-      languageToggleBtn: "language-toggle-button"
+      languageToggleBtn: "language-toggle-button",
+      authenticationMenu: "Authentication Menu"
     },
 
     //Commons
@@ -468,6 +518,55 @@ let LOCALIZE = new LocalizedStrings({
       homeTabTitle: "Accueil",
       prototypeTabTitle: "Prototype",
       statusTabTitle: "Statut"
+    },
+
+    //authentication
+    authentication: {
+      login: {
+        title: "SE CONNECTER",
+        content: {
+          title: "Connexion",
+          description:
+            "FR An account is required to proceed further. To log in, enter your credentials below.",
+          inputs: {
+            emailTitle: "Adresse courriel :",
+            emailPlaceholder: "john.smith@outlook.ca",
+            passwordTitle: "Mot de passe :",
+            passwordPlaceholder: "Mot de passe"
+          }
+        },
+        button: "Connexion"
+      },
+      createAccount: {
+        title: "CRÉER UN COMPTE",
+        content: {
+          title: "Créer un compte",
+          description:
+            "FR An account is required to proceed further. To create an account, fill out the following.",
+          inputs: {
+            firstNameTitle: "Prénom :",
+            firstNamePlaceholder: "John",
+            lastNameTitle: "Nom de famille :",
+            lastNamePlaceholder: "Smith",
+            emailTitle: "Adresse courriel :",
+            emailPlaceholder: "john.smith@outlook.ca",
+            passwordTitle: "Mot de passe (doit contenir entre 5-15 caractères) :",
+            passwordPlaceholder: "Mot de passe",
+            passwordErrors: {
+              description: "Votre mot de passe doit satisfaire les critères suivants :",
+              upperCase: "Au moins une majuscule",
+              lowerCase: "Au moins une minuscule",
+              digit: "Au moins un chiffre",
+              specialCharacter: "Au moins un caractère spécial",
+              length: "Au moins 5 caractères et maximum 15"
+            },
+            passwordConfirmationTitle: "Confirmer le mot de passe :",
+            passwordConfirmationPlaceholder: "Mot de passe",
+            passwordConfirmationError: "Doit correspondre au mot de passe"
+          }
+        },
+        button: "Créer compte"
+      }
     },
 
     //Home Page
@@ -906,7 +1005,8 @@ let LOCALIZE = new LocalizedStrings({
       mainMenu: "Menu Principal",
       tabMenu: "Menu des onglets de la BRG-e",
       instructionsMenu: "Menu des instructions",
-      languageToggleBtn: "bouton-de-langue-a-bascule"
+      languageToggleBtn: "bouton-de-langue-a-bascule",
+      authenticationMenu: "Menu d'authentification"
     },
 
     //Commons
