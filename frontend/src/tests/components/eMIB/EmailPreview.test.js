@@ -60,7 +60,9 @@ function testCore(isRead, isRepliedTo, isSelected) {
   }
   const unread = <i className="fas fa-envelope" style={{ color: symbolColor }} />;
   const read = <i className="far fa-envelope-open" style={{ color: symbolColor }} />;
-  const reply = <i className="fas fa-sign-out-alt" />;
+  const reply = (
+    <i className="fas fa-sign-out-alt" style={{ float: "right", color: symbolColor }} />
+  );
   if (isRead) {
     expect(wrapper.contains(read)).toEqual(true);
     expect(wrapper.contains(unread)).toEqual(false);
