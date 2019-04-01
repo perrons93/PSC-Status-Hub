@@ -60,7 +60,9 @@ class EmailPreview extends Component {
     isSelected: PropTypes.bool.isRequired
   };
 
-  // if there is a "(" in the From field, remove it and return
+  // if there is a "(" in the From field of the preview, remove it and return the remainder
+  // When there is a database, the () portion of the To/From may be populated by a seperate field
+  // but this will remove it until the design is finalized
   trimFromName(string) {
     let index = string.indexOf("(");
     if (index === -1) {
