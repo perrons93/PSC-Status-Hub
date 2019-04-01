@@ -69,7 +69,7 @@ class App extends Component {
 
   render() {
     //TODO replace putCheckHere with a prop or value form redux
-    const putCheckHere = true;
+    const hideNavBar = true;
     return (
       <Router>
         <div>
@@ -84,7 +84,7 @@ class App extends Component {
                 <img src={psc_header} alt={LOCALIZE.commons.psc} />
               </div>
               <div
-                style={putCheckHere ? { ...styles.tabs, ...{ display: "none" } } : styles.tabs}
+                style={hideNavBar ? { display: "none" } : styles.tabs}
                 className="fixed-top nav nav-tabs"
               >
                 <ul
