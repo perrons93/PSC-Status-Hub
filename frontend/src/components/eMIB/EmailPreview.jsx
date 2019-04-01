@@ -60,6 +60,15 @@ class EmailPreview extends Component {
     isSelected: PropTypes.bool.isRequired
   };
 
+  // if there is a "(" in the From field, remove it and return
+  trimFromName(string) {
+    let index = string.indexOf("(");
+    if (index === -1) {
+      return string;
+    }
+    return string.slice(0, index);
+  }
+
   render() {
     //READ/UNREAD CHECK
     //defaults, or if unread
@@ -108,7 +117,7 @@ class EmailPreview extends Component {
             {this.props.isRepliedTo && <i className="fas fa-sign-out-alt" />}
           </div>
           <div style={subject}>{email.subject}</div>
-          <div style={styles.truncated}>{email.from}</div>
+          <div style={styles.truncated}>{this.trimFromName(email.from)}</div>
         </div>
       </li>
     );
