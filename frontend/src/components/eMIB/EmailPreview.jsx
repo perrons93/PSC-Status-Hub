@@ -43,6 +43,11 @@ const styles = {
   },
   subjectUnread: {
     fontWeight: "bold"
+  },
+  truncated: {
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis"
   }
 };
 
@@ -78,7 +83,7 @@ class EmailPreview extends Component {
     }
 
     let buttonStyle = { ...styles.button, ...buttonTextColor, ...buttonBackgroundColor };
-    let subject = { ...subjectIsRead, ...subjectIsSelected };
+    let subject = { ...subjectIsRead, ...subjectIsSelected, ...styles.truncated };
     const email = this.props.email;
     return (
       <li
@@ -103,7 +108,7 @@ class EmailPreview extends Component {
             {this.props.isRepliedTo && <i className="fas fa-sign-out-alt" />}
           </div>
           <div style={subject}>{email.subject}</div>
-          <div>{email.from}</div>
+          <div style={styles.truncated}>{email.from}</div>
         </div>
       </li>
     );
