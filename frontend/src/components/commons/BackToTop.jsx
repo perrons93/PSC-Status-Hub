@@ -26,7 +26,6 @@ class BackToTop extends Component {
 
   // handle onScroll event
   handleOnScroll = () => {
-    console.log(window.document.body.offsetHeight);
     // If the total page is shorter than this size, do not show a back to top button
     if (window.document.body.offsetHeight < 1800) {
       this.setState({ buttonVisible: false });
