@@ -8,7 +8,8 @@ const styles = {
     width: 202,
     textAlign: "left",
     padding: 8,
-    border: "1px solid #00565E",
+    borderRight: "1px solid #00565E",
+    borderBottom: "1px solid #00565E",
     cursor: "pointer",
     fontSize: 14
   },
