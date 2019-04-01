@@ -38,7 +38,7 @@ class Inbox extends Component {
   state = {
     currentEmail: "0",
     emailRead: initializeFalseArray(this.props.inboxLength),
-    emailReplies: initializeFalseArray(this.props.inboxLength)
+    emailResponses: initializeFalseArray(this.props.inboxLength)
   };
 
   changeEmail = index => {
@@ -47,6 +47,12 @@ class Inbox extends Component {
     // The previous "current email" is marked as open.
     emailsRead[this.state.currentEmail] = true;
     this.setState({ currentEmail: index, emailRead: emailsRead });
+  };
+
+  respondToEmail = index => {
+    let emailResponses = Array.from(this.state.emailResponses);
+    emailResponses[index] = true;
+    this.setState({ emailResponses: emailResponses });
   };
 
   render() {
@@ -66,7 +72,7 @@ class Inbox extends Component {
                   email={email}
                   selectEmail={this.changeEmail}
                   isRead={this.state.emailRead[email.id]}
-                  isRepliedTo={this.state.emailReplies[email.id]}
+                  isRepliedTo={this.state.emailResponses[email.id]}
                   isSelected={email.id === this.state.currentEmail}
                 />
               </div>
@@ -74,7 +80,11 @@ class Inbox extends Component {
           </ul>
         </nav>
         <div className="inbox-grid-content-cell" style={styles.bodyContent}>
-          <Email email={inboxSpecs[this.state.currentEmail]} />
+          <Email
+            email={inboxSpecs[this.state.currentEmail]}
+            respondToEmail={this.respondToEmail}
+            isRepliedTo={this.state.emailResponses[this.state.currentEmail]}
+          />
         </div>
       </div>
     );

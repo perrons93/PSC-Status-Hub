@@ -51,8 +51,8 @@ function testCore(selected) {
   wrapper.setState({ currentEmail: selected });
   for (let i = 0; i < 10; i++) {
     const currentEmail = INBOX_SPECS[i];
-    const emailBody = <Email email={currentEmail} />;
-    const checkBody = wrapper.contains(emailBody);
+    const subjectHeader = <h3>{currentEmail.subject}</h3>;
+    const checkBody = wrapper.contains(subjectHeader);
     if (i === selected) {
       // if the current one is selected
       expect(checkBody).toEqual(true);

@@ -1,20 +1,100 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import LOCALIZE from "../../text_resources";
+
+const styles = {
+  email: {
+    textAlign: "left",
+    paddingLeft: 24,
+    paddingTop: 24
+  },
+  replyStatus: {
+    fontSize: 16,
+    textAlign: "right",
+    fontWeight: "bold",
+    float: "right"
+  },
+  replyAndUser: {
+    color: "#00565E"
+  },
+  hr: {
+    width: "100%",
+    borderTop: "2px solid #00565E",
+    margin: "24px 0 24px 0"
+  }
+};
 
 class Email extends Component {
   static propTypes = {
-    email: PropTypes.object.isRequired
+    email: PropTypes.object.isRequired,
+    respondToEmail: PropTypes.func.isRequired,
+    isRepliedTo: PropTypes.bool.isRequired
+  };
+
+  replyToEmail = () => {
+    this.props.respondToEmail(this.props.email.id);
+  };
+
+  addTaskToEmail = () => {
+    this.props.respondToEmail(this.props.email.id);
   };
 
   render() {
+    const email = this.props.email;
+
     return (
-      <span>
-        <div>{this.props.email.subject}</div>
-        <div>{this.props.email.from}</div>
-        <div>{this.props.email.to}</div>
-        <div>{this.props.email.date}</div>
-        <div>{this.props.email.body}</div>
-      </span>
+      <div style={styles.email}>
+        <div>
+          <h5>
+            {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
+            {email.visibleID}
+          </h5>
+          {this.props.isRepliedTo && (
+            <div style={styles.replyStatus}>
+              <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
+              {LOCALIZE.emibTest.inboxPage.replyTextPart1}0
+              {LOCALIZE.emibTest.inboxPage.replyTextPart2}0
+              {LOCALIZE.emibTest.inboxPage.replyTextPart3}
+            </div>
+          )}
+        </div>
+        <div>
+          <button
+            id="unit-test-email-reply-button"
+            type="button"
+            className="btn btn-primary"
+            onClick={this.replyToEmail}
+          >
+            <i className="fas fa-envelope" />
+            &emsp;
+            {LOCALIZE.emibTest.inboxPage.addReply}
+          </button>
+          &emsp;
+          <button
+            id="unit-test-email-task-button"
+            type="button"
+            className="btn btn-primary"
+            onClick={this.addTaskToEmail}
+          >
+            <i className="fas fa-tasks" />
+            &emsp;
+            {LOCALIZE.emibTest.inboxPage.addTask}
+          </button>
+        </div>
+        <hr style={styles.hr} />
+        <h3>{email.subject}</h3>
+        <div>
+          {LOCALIZE.emibTest.inboxPage.from}: <span style={styles.replyAndUser}>{email.from}</span>
+        </div>
+        <div>
+          {LOCALIZE.emibTest.inboxPage.to}: <span style={styles.replyAndUser}>{email.to}</span>
+        </div>
+        <div>
+          {LOCALIZE.emibTest.inboxPage.date}: {email.date}
+        </div>
+        <hr style={styles.hr} />
+        <div>{email.body}</div>
+      </div>
     );
   }
 }

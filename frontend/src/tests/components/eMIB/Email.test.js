@@ -11,16 +11,33 @@ const emailStub = {
   body: "Body 1"
 };
 
-it("renders title, description, left button and right button titles", () => {
-  const wrapper = shallow(<Email email={emailStub} />);
-  const subject = <div>Subject 1</div>;
-  const from = <div>From 1</div>;
-  const to = <div>To 1</div>;
-  const date = <div>Date 1</div>;
-  const body = <div>Body 1</div>;
+const hasAction = <i className="fas fa-sign-out-alt" style={{ color: "#00565E" }} />;
+
+it("default email renders with jubject as an h3", () => {
+  const wrapper = shallow(
+    <Email email={emailStub} respondToEmail={() => {}} isRepliedTo={false} />
+  );
+  const subject = <h3>Subject 1</h3>;
   expect(wrapper.contains(subject)).toEqual(true);
-  expect(wrapper.contains(from)).toEqual(true);
-  expect(wrapper.contains(to)).toEqual(true);
-  expect(wrapper.contains(date)).toEqual(true);
-  expect(wrapper.contains(body)).toEqual(true);
+  expect(wrapper.contains(hasAction)).toEqual(false);
+});
+
+it("shows action when set to true in props", () => {
+  const wrapper = shallow(<Email email={emailStub} respondToEmail={() => {}} isRepliedTo={true} />);
+  const subject = <h3>Subject 1</h3>;
+  expect(wrapper.contains(subject)).toEqual(true);
+  expect(wrapper.contains(hasAction)).toEqual(true);
+});
+
+it("reply and task buttons trigger the function", () => {
+  const submitMock = jest.fn();
+  const wrapper = shallow(
+    <Email email={emailStub} respondToEmail={submitMock} isRepliedTo={false} />
+  );
+  const subject = <h3>Subject 1</h3>;
+  expect(wrapper.contains(subject)).toEqual(true);
+  wrapper.find("#unit-test-email-reply-button").simulate("click");
+  expect(submitMock).toHaveBeenCalledTimes(1);
+  wrapper.find("#unit-test-email-task-button").simulate("click");
+  expect(submitMock).toHaveBeenCalledTimes(2);
 });
