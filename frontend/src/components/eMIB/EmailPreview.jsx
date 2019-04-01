@@ -7,7 +7,7 @@ const styles = {
   button: {
     width: 200,
     textAlign: "left",
-    padding: 6,
+    padding: 8,
     border: "1px solid #00565E",
     cursor: "pointer",
     fontSize: 14
