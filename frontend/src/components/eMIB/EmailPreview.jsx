@@ -27,6 +27,9 @@ const styles = {
   buttonUnselectedText: {
     color: "black"
   },
+  buttonUnselectedSymbol: {
+    color: "#00565E"
+  },
   //li
   li: {
     listStyleType: "none"
@@ -107,9 +110,19 @@ class EmailPreview extends Component {
         <div style={buttonStyle} onClick={() => this.props.selectEmail(email.id)}>
           <div id={this.props.isRead ? "read-email-preview" : "unread-email-preview"}>
             {this.props.isRead ? (
-              <i className="far fa-envelope-open" />
+              <i
+                className="far fa-envelope-open"
+                style={
+                  this.props.isSelected ? styles.buttonSelectedText : styles.buttonUnselectedSymbol
+                }
+              />
             ) : (
-              <i className="fas fa-envelope" />
+              <i
+                className="fas fa-envelope"
+                style={
+                  this.props.isSelected ? styles.buttonSelectedText : styles.buttonUnselectedSymbol
+                }
+              />
             )}
             &nbsp;
             {LOCALIZE.emibTest.inboxPage.emailId}
