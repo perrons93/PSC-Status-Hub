@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
+import "../../css/inbox.css";
 
 const styles = {
+  header: {
+    marginBottom: 35
+  },
+  emailId: {
+    float: "left",
+    marginRight: 12
+  },
+  replyStatus: {
+    float: "right"
+  },
   email: {
     textAlign: "left",
     paddingLeft: 16,
     paddingTop: 16
-  },
-  replyStatus: {
-    fontSize: 16,
-    textAlign: "right",
-    fontWeight: "bold",
-    float: "right"
   },
   replyAndUser: {
     color: "#00565E"
@@ -49,13 +54,13 @@ class Email extends Component {
 
     return (
       <div style={styles.email}>
-        <div>
-          <h6>
+        <div style={styles.header}>
+          <h6 style={styles.emailId}>
             {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
             {email.visibleID}
           </h6>
           {this.props.isRepliedTo && (
-            <div style={styles.replyStatus}>
+            <div className="font-weight-bold" style={styles.replyStatus}>
               <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
               {LOCALIZE.emibTest.inboxPage.replyTextPart1}0
               {LOCALIZE.emibTest.inboxPage.replyTextPart2}0
