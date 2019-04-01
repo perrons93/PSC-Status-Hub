@@ -21,9 +21,6 @@ const styles = {
     width: "100%",
     borderTop: "2px solid #00565E",
     margin: "24px 0 24px 0"
-  },
-  capitalize: {
-    textTransform: "uppercase"
   }
 };
 
@@ -48,8 +45,8 @@ class Email extends Component {
     return (
       <div style={styles.email}>
         <div>
-          <h5 style={styles.capitalize}>
-            {LOCALIZE.emibTest.inboxPage.emailId}
+          <h5>
+            {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
             {email.visibleID}
           </h5>
           {this.props.isRepliedTo && (
