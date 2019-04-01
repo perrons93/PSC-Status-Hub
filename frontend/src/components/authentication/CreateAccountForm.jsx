@@ -42,11 +42,11 @@ const styles = {
   }
 };
 
-let SUBMIT_BTN_DISABLED;
-
 class CreateAccountForm extends Component {
   state = {
+    // Ensures no errors are shown on page load
     isFirstLoad: true,
+    // Form content and validation
     firstNameContent: "",
     isValidFirstName: false,
     lastNameContent: "",
@@ -62,43 +62,41 @@ class CreateAccountForm extends Component {
 
   firstNameValidation = event => {
     const updatedFirstNameValue = event.target.value;
-    const isValide = validateName(updatedFirstNameValue);
+    const isValid = validateName(updatedFirstNameValue);
     this.setState({
       isFirstLoad: false,
       firstNameContent: updatedFirstNameValue,
-      isValidFirstName: isValide
+      isValidFirstName: isValid
     });
   };
 
   lastNameValidation = event => {
     const updatedLastNameValue = event.target.value;
-    const isValide = validateName(updatedLastNameValue);
+    const isValid = validateName(updatedLastNameValue);
     this.setState({
       isFirstLoad: false,
       lastNameContent: updatedLastNameValue,
-      isValidLastName: isValide
+      isValidLastName: isValid
     });
   };
 
   emailValidation = event => {
     const updatedEmailValue = event.target.value;
-    const isValide = validateEmail(updatedEmailValue);
-    this.setState({ isFirstLoad: false, emailContent: updatedEmailValue, isValidEmail: isValide });
+    const isValid = validateEmail(updatedEmailValue);
+    this.setState({ isFirstLoad: false, emailContent: updatedEmailValue, isValidEmail: isValid });
   };
 
   passwordValidation = event => {
     const updatedPasswordValue = event.target.value;
     const passwordConfirmationValue = this.state.passwordConfirmationContent;
-    const isValide = validatePassword(updatedPasswordValue);
+    const isValid = validatePassword(updatedPasswordValue);
     this.setState({
       isFirstLoad: false,
       isFirstPasswordLoad: false,
       passwordContent: updatedPasswordValue,
-      isValidPassword: isValide
+      isValidPassword: isValid,
+      isValidPasswordConfirmation: updatedPasswordValue === passwordConfirmationValue
     });
-    updatedPasswordValue === passwordConfirmationValue
-      ? this.setState({ isValidPasswordConfirmation: true })
-      : this.setState({ isValidPasswordConfirmation: false });
   };
 
   passwordConfirmationValidation = event => {
@@ -106,34 +104,9 @@ class CreateAccountForm extends Component {
     const passwordValue = this.state.passwordContent;
     this.setState({
       isFirstLoad: false,
-      passwordConfirmationContent: updatedPasswordConfirmationValue
+      passwordConfirmationContent: updatedPasswordConfirmationValue,
+      isValidPasswordConfirmation: updatedPasswordConfirmationValue === passwordValue
     });
-    updatedPasswordConfirmationValue === passwordValue
-      ? this.setState({ isValidPasswordConfirmation: true })
-      : this.setState({ isValidPasswordConfirmation: false });
-  };
-
-  areAllFieldsValid = () => {
-    const {
-      isValidFirstName,
-      isValidLastName,
-      isValidEmail,
-      isValidPassword,
-      isValidPasswordConfirmation
-    } = this.state;
-
-    if (
-      isValidFirstName &&
-      isValidLastName &&
-      isValidEmail &&
-      isValidPassword &&
-      isValidPasswordConfirmation
-    ) {
-      //did not use state because of maximum update depth exeeded error
-      SUBMIT_BTN_DISABLED = false;
-    } else {
-      SUBMIT_BTN_DISABLED = true;
-    }
   };
 
   render() {
@@ -153,17 +126,14 @@ class CreateAccountForm extends Component {
     } = this.state;
 
     const validFieldClass = "valid-field";
-    let invalidFieldClass = "";
+    const invalidFieldClass = "invalid-field";
 
-    //if this is the first load of create account form, display all fields as 'valid-field'
-    if (isFirstLoad) {
-      invalidFieldClass = "valid-field";
-    } else {
-      invalidFieldClass = "invalid-field";
-    }
-
-    //check if all fields are valid
-    this.areAllFieldsValid();
+    const submitButtonEnabled =
+      isValidFirstName &&
+      isValidLastName &&
+      isValidEmail &&
+      isValidPassword &&
+      isValidPasswordConfirmation;
     return (
       <div>
         <div>
@@ -184,7 +154,9 @@ class CreateAccountForm extends Component {
 
                   <input
                     aria-label={LOCALIZE.authentication.createAccount.content.inputs.firstNameTitle}
-                    className={isValidFirstName ? validFieldClass : invalidFieldClass}
+                    className={
+                      isValidFirstName || isFirstLoad ? validFieldClass : invalidFieldClass
+                    }
                     type="text"
                     placeholder={
                       LOCALIZE.authentication.createAccount.content.inputs.firstNamePlaceholder
@@ -205,7 +177,7 @@ class CreateAccountForm extends Component {
                   )}
                   <input
                     aria-label={LOCALIZE.authentication.createAccount.content.inputs.lastNameTitle}
-                    className={isValidLastName ? validFieldClass : invalidFieldClass}
+                    className={isValidLastName || isFirstLoad ? validFieldClass : invalidFieldClass}
                     type="text"
                     placeholder={
                       LOCALIZE.authentication.createAccount.content.inputs.lastNamePlaceholder
@@ -225,7 +197,7 @@ class CreateAccountForm extends Component {
                 )}
                 <input
                   aria-label={LOCALIZE.authentication.createAccount.content.inputs.emailTitle}
-                  className={isValidEmail ? validFieldClass : invalidFieldClass}
+                  className={isValidEmail || isFirstLoad ? validFieldClass : invalidFieldClass}
                   type="text"
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs.emailPlaceholder
@@ -244,7 +216,7 @@ class CreateAccountForm extends Component {
                 )}
                 <input
                   aria-label={LOCALIZE.authentication.createAccount.content.inputs.passwordTitle}
-                  className={isValidPassword ? validFieldClass : invalidFieldClass}
+                  className={isValidPassword || isFirstLoad ? validFieldClass : invalidFieldClass}
                   type="password"
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs.passwordPlaceholder
@@ -303,7 +275,9 @@ class CreateAccountForm extends Component {
                   aria-label={
                     LOCALIZE.authentication.createAccount.content.inputs.passwordConfirmationTitle
                   }
-                  className={isValidPasswordConfirmation ? validFieldClass : invalidFieldClass}
+                  className={
+                    isValidPasswordConfirmation || isFirstLoad ? validFieldClass : invalidFieldClass
+                  }
                   type="password"
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs
@@ -313,14 +287,14 @@ class CreateAccountForm extends Component {
                   style={styles.inputs}
                   onChange={this.passwordConfirmationValidation}
                 />
-                {!isValidPasswordConfirmation && !isFirstLoad && (
+                {!isValidPasswordConfirmation && !isFirstPasswordLoad && (
                   <p style={styles.validationError}>
                     {LOCALIZE.authentication.createAccount.content.inputs.passwordConfirmationError}
                   </p>
                 )}
               </div>
               <button
-                disabled={SUBMIT_BTN_DISABLED}
+                disabled={!submitButtonEnabled}
                 style={styles.loginBtn}
                 className="btn btn-primary"
                 type="submit"
