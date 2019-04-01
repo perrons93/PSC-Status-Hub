@@ -68,6 +68,8 @@ class App extends Component {
   };
 
   render() {
+    //TODO replace putCheckHere with a prop or value form redux
+    const putCheckHere = true;
     return (
       <Router>
         <div>
@@ -81,7 +83,10 @@ class App extends Component {
               <div style={styles.pscImage} id="psc-image">
                 <img src={psc_header} alt={LOCALIZE.commons.psc} />
               </div>
-              <div style={styles.tabs} className="fixed-top nav nav-tabs">
+              <div
+                style={putCheckHere ? { ...styles.tabs, ...{ display: "none" } } : styles.tabs}
+                className="fixed-top nav nav-tabs"
+              >
                 <ul
                   id="navigation-tabs"
                   className="mx-auto nav-site nav nav-tabs nav-item"
