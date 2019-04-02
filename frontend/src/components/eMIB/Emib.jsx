@@ -16,6 +16,7 @@ import ProgressPane from "../commons/ProgressPane";
 import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 import { activateTest, deactivateTest } from "../../modules/TestStatusRedux";
+import ConfirmStartTest from "../commons/ConfirmStartTest";
 
 const PAGES = {
   preTest: "preTest",
@@ -72,14 +73,15 @@ class Emib extends Component {
     curPage: PAGES.preTest,
     showSubmitPopup: false,
     showQuitPopup: false,
+    showConfirmStartTestPopup: false,
     quitConditions: quitConditions()
   };
 
   changePage = () => {
     switch (this.state.curPage) {
       case PAGES.preTest:
+        // Move from instructions to starting the test.
         this.setState({ curPage: PAGES.emibTabs });
-        // update redux to activate test
         this.props.activateTest();
         break;
       case PAGES.emibTabs:
@@ -91,6 +93,14 @@ class Emib extends Component {
         this.setState({ curPage: PAGES.preTest });
         break;
     }
+  };
+
+  showStartTestPopup = () => {
+    this.setState({ showConfirmStartTestPopup: true });
+  };
+
+  closeStartTestPopup = () => {
+    this.setState({ showConfirmStartTestPopup: false });
   };
 
   openSubmitPopup = () => {
@@ -141,7 +151,7 @@ class Emib extends Component {
                   <button
                     type="button"
                     className="btn btn-primary btn-wide"
-                    onClick={this.changePage}
+                    onClick={this.showStartTestPopup}
                   >
                     {LOCALIZE.commons.startTest}
                   </button>
@@ -155,6 +165,12 @@ class Emib extends Component {
         {this.state.curPage === PAGES.emibTabs && (
           <TestFooter submitTest={this.openSubmitPopup} quitTest={this.openQuitPopup} />
         )}
+
+        <ConfirmStartTest
+          showDialog={this.state.showConfirmStartTestPopup}
+          handleClose={this.closeStartTestPopup}
+          startTest={this.changePage}
+        />
 
         <PopupBox
           show={this.state.showSubmitPopup}
