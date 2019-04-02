@@ -259,6 +259,7 @@ class Emib extends Component {
   }
 }
 export { PAGES };
+export { Emib as UnconnectedEmib };
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
