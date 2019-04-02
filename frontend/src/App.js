@@ -123,12 +123,9 @@ class App extends Component {
                     </NavLink>
                   </li>
                 </ul>
-                <div
-                  aria-label={LOCALIZE.ariaLabel.languageToggleBtn}
-                  style={styles.languageButton}
-                >
-                  <Translation />
-                </div>
+              </div>
+              <div aria-label={LOCALIZE.ariaLabel.languageToggleBtn} style={styles.languageButton}>
+                <Translation />
               </div>
             </nav>
           </header>
