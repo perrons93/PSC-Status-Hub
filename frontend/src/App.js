@@ -67,12 +67,12 @@ const isStatusActive = (match, location) => {
 class App extends Component {
   static propTypes = {
     // Props from Redux
-    currentLanguage: PropTypes.string
+    currentLanguage: PropTypes.string,
+    isTestActive: PropTypes.bool.isRequired
   };
 
   render() {
-    //TODO replace putCheckHere with a prop or value form redux
-    const hideNavBar = true;
+    const hideNavBar = this.props.isTestActive;
     return (
       <Router>
         <div>
@@ -144,7 +144,8 @@ export { PATH };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentLanguage: state.localize.language
+    currentLanguage: state.localize.language,
+    isTestActive: state.testStatus.isTestActive
   };
 };
 
