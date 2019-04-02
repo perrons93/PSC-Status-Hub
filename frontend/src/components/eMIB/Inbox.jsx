@@ -4,6 +4,9 @@ import EmailPreview from "./EmailPreview";
 import Email from "./Email";
 import "../../css/inbox.css";
 import { getInboxContent } from "./Emib";
+import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../commons/Constants";
+
+const INBOX_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`;
 
 const styles = {
   ul: {
@@ -13,12 +16,12 @@ const styles = {
     overflow: "auto",
     width: 174,
     paddingRight: 25,
-    height: "calc(100vh - 241px)"
+    height: INBOX_HEIGHT
   },
   bodyContent: {
     overflow: "auto",
     paddingRight: 20,
-    height: "calc(100vh - 241px)"
+    height: INBOX_HEIGHT
   }
 };
 
