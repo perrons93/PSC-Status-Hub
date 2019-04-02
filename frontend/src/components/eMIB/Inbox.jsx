@@ -14,13 +14,12 @@ const styles = {
   },
   buttonList: {
     overflow: "auto",
-    width: 174,
+    width: 219,
     paddingRight: 25,
     height: INBOX_HEIGHT
   },
   bodyContent: {
     overflow: "auto",
-    paddingRight: 20,
     height: INBOX_HEIGHT
   }
 };

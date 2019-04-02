@@ -1,26 +1,36 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
+import "../../css/inbox.css";
 
 const styles = {
-  email: {
-    textAlign: "left",
-    paddingLeft: 24,
-    paddingTop: 24
+  header: {
+    marginBottom: 35
+  },
+  emailId: {
+    float: "left",
+    marginRight: 12
   },
   replyStatus: {
-    fontSize: 16,
-    textAlign: "right",
-    fontWeight: "bold",
     float: "right"
+  },
+  email: {
+    textAlign: "left",
+    paddingLeft: 16,
+    paddingTop: 16
   },
   replyAndUser: {
     color: "#00565E"
   },
-  hr: {
+  titleEmailDivider: {
     width: "100%",
-    borderTop: "2px solid #00565E",
-    margin: "24px 0 24px 0"
+    borderTop: "1px solid #00565E",
+    margin: "16px 0 12px 0"
+  },
+  dataBodyDivider: {
+    width: "100%",
+    borderTop: "1px solid #96a8b2",
+    margin: "12px 0 12px 0"
   }
 };
 
@@ -44,13 +54,13 @@ class Email extends Component {
 
     return (
       <div style={styles.email}>
-        <div>
-          <h5>
+        <div style={styles.header}>
+          <h6 style={styles.emailId}>
             {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
             {email.visibleID}
-          </h5>
+          </h6>
           {this.props.isRepliedTo && (
-            <div style={styles.replyStatus}>
+            <div className="font-weight-bold" style={styles.replyStatus}>
               <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
               {LOCALIZE.emibTest.inboxPage.replyTextPart1}0
               {LOCALIZE.emibTest.inboxPage.replyTextPart2}0
@@ -81,7 +91,7 @@ class Email extends Component {
             {LOCALIZE.emibTest.inboxPage.addTask}
           </button>
         </div>
-        <hr style={styles.hr} />
+        <hr style={styles.titleEmailDivider} />
         <h3>{email.subject}</h3>
         <div>
           {LOCALIZE.emibTest.inboxPage.from}: <span style={styles.replyAndUser}>{email.from}</span>
@@ -92,7 +102,7 @@ class Email extends Component {
         <div>
           {LOCALIZE.emibTest.inboxPage.date}: {email.date}
         </div>
-        <hr style={styles.hr} />
+        <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
       </div>
     );
