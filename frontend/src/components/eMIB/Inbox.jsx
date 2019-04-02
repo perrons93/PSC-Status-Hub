@@ -91,6 +91,7 @@ class Inbox extends Component {
   }
 }
 
+export { Inbox as UnconnectedInbox };
 const mapStateToProps = (state, ownProps) => {
   return {
     emails: state.emibInbox.emails
