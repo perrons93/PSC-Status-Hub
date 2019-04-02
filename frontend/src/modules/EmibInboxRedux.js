@@ -21,4 +21,4 @@ const emibInbox = (state = initialState, action) => {
 };
 
 export default emibInbox;
-export { addEmail, initialState };
+export { initialState };

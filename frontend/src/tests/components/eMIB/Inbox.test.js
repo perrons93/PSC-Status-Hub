@@ -1,10 +1,9 @@
 import React from "react";
 import { mount } from "enzyme";
 import Inbox from "../../../components/eMIB/Inbox";
-import Email from "../../../components/eMIB/Email";
-import { getInboxContent, getInboxLength } from "../../../components/eMIB/Emib";
+import { emailsJson } from "../../../modules/sampleEmibJson";
 
-const INBOX_SPECS = getInboxContent();
+const INBOX_SPECS = emailsJson.emailsEN;
 
 it("Shows only email 1", () => {
   testCore(0);
@@ -18,36 +17,8 @@ it("Shows only email 3", () => {
   testCore(2);
 });
 
-it("Shows only email 4", () => {
-  testCore(3);
-});
-
-it("Shows only email 5", () => {
-  testCore(4);
-});
-
-it("Shows only email 6", () => {
-  testCore(5);
-});
-
-it("Shows only email 7", () => {
-  testCore(6);
-});
-
-it("Shows only email 8", () => {
-  testCore(7);
-});
-
-it("Shows only email 9", () => {
-  testCore(8);
-});
-
-it("Shows only email 10", () => {
-  testCore(9);
-});
-
 function testCore(selected) {
-  const wrapper = mount(<Inbox inboxLength={getInboxLength()} />);
+  const wrapper = mount(<Inbox inboxLength={3} />);
   wrapper.setState({ currentEmail: selected });
   for (let i = 0; i < 10; i++) {
     const currentEmail = INBOX_SPECS[i];
