@@ -20,8 +20,11 @@ const PATH = {
 };
 
 const styles = {
-  navBar: {
+  navBarFull: {
     paddingBottom: 105
+  },
+  navBarHidden: {
+    paddingBottom: 50
   },
   tabs: {
     paddingTop: 68
@@ -76,7 +79,7 @@ class App extends Component {
           <header role="heading" aria-level="1">
             <nav
               aria-label={LOCALIZE.ariaLabel.mainMenu}
-              style={styles.navBar}
+              style={hideNavBar ? styles.navBarHidden : styles.navBarFull}
               className="fixed-top bg-white navbar navbar-expand"
               role="dialog"
             >
