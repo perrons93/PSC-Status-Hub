@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LOCALIZE from "../../text_resources";
 import TextareaAutosize from "react-textarea-autosize";
 import "../../css/emib-tabs.css";
-import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../commons/Constants";
+import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../eMIB/constants";
 
 const NOTEPAD_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`;
 const SECTION_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT + 53}px)`;

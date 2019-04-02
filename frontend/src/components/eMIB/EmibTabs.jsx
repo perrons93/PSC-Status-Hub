@@ -6,7 +6,7 @@ import TabNavigation from "../commons/TabNavigation";
 import InTestInstructions from "./InTestInstructions";
 import Notepad from "../commons/Notepad";
 import "../../css/emib-tabs.css";
-import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../commons/Constants";
+import { HEADER_HEIGHT, FOOTER_HEIGHT } from "./constants";
 
 const TAB_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`;
 

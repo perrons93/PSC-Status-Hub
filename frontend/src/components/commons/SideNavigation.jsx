@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../../css/side-nav.css";
-import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../commons/Constants";
+import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../eMIB/constants";
 
 const BODY_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`;
 
