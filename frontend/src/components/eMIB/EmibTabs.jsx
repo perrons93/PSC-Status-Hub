@@ -6,6 +6,9 @@ import TabNavigation from "../commons/TabNavigation";
 import InTestInstructions from "./InTestInstructions";
 import Notepad from "../commons/Notepad";
 import "../../css/emib-tabs.css";
+import { HEADER_HEIGHT, FOOTER_HEIGHT } from "./constants";
+
+const TAB_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`;
 
 const styles = {
   container: {
@@ -18,7 +21,7 @@ const styles = {
     paddingLeft: 20
   },
   tabNavigation: {
-    height: "calc(100vh - 241px)",
+    height: TAB_HEIGHT,
     backgroundColor: "white",
     borderWidth: "1px 1px 0 1px",
     borderStyle: "solid",

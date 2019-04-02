@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import Confirmation from "./Confirmation";
 import EmibTabs from "./EmibTabs";
 import TestFooter from "../commons/TestFooter";
@@ -12,6 +15,7 @@ import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
 import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
+import { activateTest, deactivateTest } from "../../modules/TestStatusRedux";
 
 const PAGES = {
   preTest: "preTest",
@@ -58,6 +62,12 @@ const quitConditions = () => {
 };
 
 class Emib extends Component {
+  static propTypes = {
+    // Provided by Redux
+    activateTest: PropTypes.func.isRequired,
+    deactivateTest: PropTypes.func.isRequired
+  };
+
   state = {
     curPage: PAGES.preTest,
     showSubmitPopup: false,
@@ -69,9 +79,13 @@ class Emib extends Component {
     switch (this.state.curPage) {
       case PAGES.preTest:
         this.setState({ curPage: PAGES.emibTabs });
+        // update redux to activate test
+        this.props.activateTest();
         break;
       case PAGES.emibTabs:
         this.setState({ curPage: PAGES.confirm });
+        // update redux to de-activate test
+        this.props.deactivateTest();
         break;
       default:
         this.setState({ curPage: PAGES.preTest });
@@ -223,6 +237,19 @@ class Emib extends Component {
     );
   }
 }
-
-export default Emib;
 export { PAGES };
+export { Emib as UnconnectedEmib };
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      activateTest,
+      deactivateTest
+    },
+    dispatch
+  );
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Emib);
