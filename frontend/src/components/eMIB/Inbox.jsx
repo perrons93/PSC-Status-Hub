@@ -21,6 +21,14 @@ const styles = {
   }
 };
 
+function initializeFalseArray(length) {
+  let arr = [];
+  for (let i = 0; i < length; i++) {
+    arr.push(false);
+  }
+  return arr;
+}
+
 class Inbox extends Component {
   static propTypes = {
     // Provided by redux
@@ -29,8 +37,8 @@ class Inbox extends Component {
 
   state = {
     currentEmail: 0,
-    emailRead: [false, false, false],
-    emailResponses: [false, false, false]
+    emailRead: initializeFalseArray(this.props.emails.length),
+    emailResponses: initializeFalseArray(this.props.emails.length)
   };
 
   changeEmail = index => {

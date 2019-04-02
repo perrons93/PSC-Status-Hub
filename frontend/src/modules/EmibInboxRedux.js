@@ -1,12 +1,6 @@
 import { emailsJson } from "./sampleEmibJson";
 import { SET_LANGUAGE } from "./LocalizeRedux";
 
-// Action Types
-const ADD_EMAIL = "emibInbox/ADD_EMAIL";
-
-// Action Creators
-const addEmail = email => ({ type: ADD_EMAIL, email });
-
 // Initial State
 const initialState = {
   emails: emailsJson.emailsEN
