@@ -6,7 +6,6 @@ import TabNavigation from "../commons/TabNavigation";
 import InTestInstructions from "./InTestInstructions";
 import Notepad from "../commons/Notepad";
 import "../../css/emib-tabs.css";
-import { getInboxLength } from "./Emib";
 
 const styles = {
   container: {
@@ -44,7 +43,7 @@ class EmibTabs extends Component {
       {
         id: 2,
         tabName: LOCALIZE.emibTest.tabs.inboxTabTitle,
-        body: <Inbox inboxLength={getInboxLength()} />
+        body: <Inbox />
       }
     ];
     return (
