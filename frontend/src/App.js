@@ -79,7 +79,7 @@ class App extends Component {
               role="dialog"
             >
               <div style={styles.pscImage} id="psc-image">
-                <img src={psc_header} alt={LOCALIZE.commons.psc} />
+                <img style={{ width: 390 }} src={psc_header} alt={LOCALIZE.commons.psc} />
               </div>
               <div style={styles.tabs} className="fixed-top nav nav-tabs">
                 <ul
