@@ -86,47 +86,46 @@ class App extends Component {
               <div style={styles.pscImage} id="psc-image">
                 <img src={psc_header} alt={LOCALIZE.commons.psc} />
               </div>
-              <div
-                style={hideNavBar ? { display: "none" } : styles.tabs}
-                className="fixed-top nav nav-tabs"
-              >
-                <ul
-                  id="navigation-tabs"
-                  className="mx-auto nav-site nav nav-tabs nav-item"
-                  role="menubar"
-                >
-                  <li className="bg-white" role="menuitem">
-                    <NavLink
-                      aria-current="page"
-                      isActive={isHomeActive}
-                      className="nav-link"
-                      to={PATH.home}
-                    >
-                      {LOCALIZE.mainTabs.homeTabTitle}
-                    </NavLink>
-                  </li>
-                  <li className="bg-white" role="menuitem">
-                    <NavLink
-                      aria-current="page"
-                      isActive={isPrototypeActive}
-                      className="nav-link"
-                      to={PATH.prototype}
-                    >
-                      {LOCALIZE.mainTabs.prototypeTabTitle}
-                    </NavLink>
-                  </li>
-                  <li className="bg-white" role="menuitem">
-                    <NavLink
-                      aria-current="page"
-                      isActive={isStatusActive}
-                      className="nav-link"
-                      to={PATH.status}
-                    >
-                      {LOCALIZE.mainTabs.statusTabTitle}
-                    </NavLink>
-                  </li>
-                </ul>
-              </div>
+              {!hideNavBar && (
+                <div style={styles.tabs} className="fixed-top nav nav-tabs">
+                  <ul
+                    id="navigation-tabs"
+                    className="mx-auto nav-site nav nav-tabs nav-item"
+                    role="menubar"
+                  >
+                    <li className="bg-white" role="menuitem">
+                      <NavLink
+                        aria-current="page"
+                        isActive={isHomeActive}
+                        className="nav-link"
+                        to={PATH.home}
+                      >
+                        {LOCALIZE.mainTabs.homeTabTitle}
+                      </NavLink>
+                    </li>
+                    <li className="bg-white" role="menuitem">
+                      <NavLink
+                        aria-current="page"
+                        isActive={isPrototypeActive}
+                        className="nav-link"
+                        to={PATH.prototype}
+                      >
+                        {LOCALIZE.mainTabs.prototypeTabTitle}
+                      </NavLink>
+                    </li>
+                    <li className="bg-white" role="menuitem">
+                      <NavLink
+                        aria-current="page"
+                        isActive={isStatusActive}
+                        className="nav-link"
+                        to={PATH.status}
+                      >
+                        {LOCALIZE.mainTabs.statusTabTitle}
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+              )}
               <div aria-label={LOCALIZE.ariaLabel.languageToggleBtn} style={styles.languageButton}>
                 <Translation />
               </div>
