@@ -1,8 +1,10 @@
 // Action Types
 const ACTIVATE_TEST = "testStatus/ACTIVATE_TEST";
+const DEACTIVATE_TEST = "testStatus/DEACTIVATE_TEST";
 
 // Action Creators
 const activateTest = () => ({ type: ACTIVATE_TEST });
+const deactivateTest = () => ({ type: DEACTIVATE_TEST });
 
 // Initial State
 const initialState = {
@@ -17,6 +19,11 @@ const testStatus = (state = initialState, action) => {
         ...state,
         isTestActive: true
       };
+    case DEACTIVATE_TEST:
+      return {
+        ...state,
+        isTestActive: false
+      };
 
     default:
       return state;
@@ -24,4 +31,4 @@ const testStatus = (state = initialState, action) => {
 };
 
 export default testStatus;
-export { activateTest, initialState };
+export { activateTest, initialState, deactivateTest };

@@ -15,7 +15,7 @@ import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
 import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
-import { activateTest } from "../../modules/TestStatusRedux";
+import { activateTest, deactivateTest } from "../../modules/TestStatusRedux";
 
 const PAGES = {
   preTest: "preTest",
@@ -85,7 +85,8 @@ const quitConditions = () => {
 class Emib extends Component {
   static propTypes = {
     // Provided by Redux
-    activateTest: PropTypes.func.isRequired
+    activateTest: PropTypes.func.isRequired,
+    deactivateTest: PropTypes.func.isRequired
   };
 
   state = {
@@ -105,6 +106,7 @@ class Emib extends Component {
       case PAGES.emibTabs:
         this.setState({ curPage: PAGES.confirm });
         // update redux to de-activate test
+        this.props.deactivateTest();
         break;
       default:
         this.setState({ curPage: PAGES.preTest });
@@ -261,7 +263,8 @@ export { PAGES };
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      activateTest
+      activateTest,
+      deactivateTest
     },
     dispatch
   );
