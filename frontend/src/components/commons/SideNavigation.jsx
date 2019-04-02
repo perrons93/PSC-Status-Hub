@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../../css/side-nav.css";
-import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../eMIB/constants";
-
-const BODY_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`;
 
 const styles = {
   ul: {
@@ -29,7 +26,7 @@ const styles = {
   bodyContent: {
     overflow: "auto",
     paddingRight: 20,
-    height: BODY_HEIGHT
+    height: "calc(100vh - 242px)"
   },
   secondaryButton: {
     border: "none"
