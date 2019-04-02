@@ -57,7 +57,7 @@ class Email extends Component {
         <div style={styles.header}>
           <h6 style={styles.emailId}>
             {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
-            {email.visibleID}
+            {email.id + 1}
           </h6>
           {this.props.isRepliedTo && (
             <div className="font-weight-bold" style={styles.replyStatus}>

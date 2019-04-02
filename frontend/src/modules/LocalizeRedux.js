@@ -1,5 +1,5 @@
 // Action Types
-const SET_LANGUAGE = "localize/SET_LANGUAGE";
+export const SET_LANGUAGE = "localize/SET_LANGUAGE";
 
 // Action Creators
 const setLanguage = language => ({ type: SET_LANGUAGE, language });

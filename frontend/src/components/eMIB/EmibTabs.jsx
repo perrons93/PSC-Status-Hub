@@ -6,7 +6,6 @@ import TabNavigation from "../commons/TabNavigation";
 import InTestInstructions from "./InTestInstructions";
 import Notepad from "../commons/Notepad";
 import "../../css/emib-tabs.css";
-import { getInboxLength } from "./Emib";
 import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../commons/Constants";
 
 const TAB_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`;
@@ -47,7 +46,7 @@ class EmibTabs extends Component {
       {
         id: 2,
         tabName: LOCALIZE.emibTest.tabs.inboxTabTitle,
-        body: <Inbox inboxLength={getInboxLength()} />
+        body: <Inbox />
       }
     ];
     return (
