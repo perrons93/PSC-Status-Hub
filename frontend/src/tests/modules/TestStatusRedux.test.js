@@ -2,10 +2,10 @@ import testStatus, {
   activateTest,
   initialState,
   deactivateTest
-} from "../../modules/testStatusRedux";
+} from "../../modules/TestStatusRedux";
 
 describe("setLanguage action", () => {
-  it("should update emails to french or english", () => {
+  it("should update test status to active or inactive", () => {
     expect(initialState).toEqual({ isTestActive: false });
     const action1 = activateTest();
     expect(testStatus(initialState, action1)).toEqual({ isTestActive: true });
