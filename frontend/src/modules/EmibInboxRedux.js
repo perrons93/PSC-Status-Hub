@@ -2,7 +2,9 @@ import { emailsJson } from "./sampleEmibJson";
 import { SET_LANGUAGE } from "./LocalizeRedux";
 
 // Initial State
+// emails - represents an array of emails in the currently selected language.
 const initialState = {
+  // Loads emails from a static JSON file until an API exists.
   emails: emailsJson.emailsEN
 };
 
