@@ -4,7 +4,6 @@ import LOCALIZE from "../../text_resources";
 import ModifyEmailBody from "./ModifyEmailBody";
 import ModifyTaskBody from "./ModifyTaskBody";
 import { Modal } from "react-bootstrap";
-import LOCALIZE from "../../text_resources";
 
 export const RESPONSE_TYPE = {
   email: "email",
@@ -50,8 +49,8 @@ class ModifyEmailResponse extends Component {
 
     return (
       <div>
-        <Modal show={showDialog} onHide={handleClose} style={styles.modal}>
-          <div style={styles.boxContent}>
+        <Modal show={showDialog} onHide={handleClose}>
+          <div>
             <Modal.Header closeButton style={styles.modalHeader}>
               {
                 <span style={styles.title}>
@@ -62,11 +61,11 @@ class ModifyEmailResponse extends Component {
                   )}
                   &emsp;
                   {modificationType === MODIFICATION_TYPE.add
-                    ? LOCALIZE.emibTest.inboxPage.ModifyEmailResponse.add
-                    : LOCALIZE.emibTest.inboxPage.ModifyEmailResponse.modify}{" "}
+                    ? LOCALIZE.emibTest.inboxPage.modifyEmailResponse.add
+                    : LOCALIZE.emibTest.inboxPage.modifyEmailResponse.modify}{" "}
                   {responseType === RESPONSE_TYPE.email
-                    ? LOCALIZE.emibTest.inboxPage.ModifyEmailResponse.email
-                    : LOCALIZE.emibTest.inboxPage.ModifyEmailResponse.task}{" "}
+                    ? LOCALIZE.emibTest.inboxPage.modifyEmailResponse.email
+                    : LOCALIZE.emibTest.inboxPage.modifyEmailResponse.task}{" "}
                   response
                 </span>
               }
