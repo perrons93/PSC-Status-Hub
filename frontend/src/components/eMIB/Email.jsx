@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
+import ModifyEmailResponse from "./ModifyEmailResponse";
 
 const styles = {
   header: {
@@ -41,7 +42,21 @@ class Email extends Component {
     isRepliedTo: PropTypes.bool.isRequired
   };
 
+  state = {
+    showAddEmailDialog: false
+  };
+
+  showAddEmailDialog = () => {
+    this.setState({ showAddEmailDialog: true });
+  };
+
+  closedEmailDialog = () => {
+    this.setState({ showAddEmailDialog: false });
+  };
+
   replyToEmail = () => {
+    console.log("trial by meh");
+    //TODO mcherry: replace the following with change to redux state
     this.props.respondToEmail(this.props.email.id);
   };
 
@@ -73,7 +88,7 @@ class Email extends Component {
             id="unit-test-email-reply-button"
             type="button"
             className="btn btn-primary"
-            onClick={this.replyToEmail}
+            onClick={this.showAddEmailDialog}
           >
             <i className="fas fa-envelope" />
             &emsp;
@@ -104,6 +119,11 @@ class Email extends Component {
         </div>
         <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
+        <ModifyEmailResponse
+          showDialog={this.state.showAddEmailDialog}
+          handleClose={this.closedEmailDialog}
+          saveEmail={this.replyToEmail}
+        />
       </div>
     );
   }
