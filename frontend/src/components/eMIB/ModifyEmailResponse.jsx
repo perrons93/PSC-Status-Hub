@@ -54,6 +54,7 @@ class ModifyEmailResponse extends Component {
             <Modal.Header closeButton style={styles.modalHeader}>
               {
                 <span style={styles.title}>
+                  &emsp;
                   {responseType === RESPONSE_TYPE.email ? (
                     <i className="fas fa-envelope" />
                   ) : (
