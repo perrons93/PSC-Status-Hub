@@ -38,7 +38,7 @@ const styles = {
     position: "fixed",
     right: 15,
     top: 15,
-    zIndex: 998
+    left: "auto"
   }
 };
 
@@ -127,7 +127,11 @@ class App extends Component {
                   </ul>
                 </div>
               )}
-              <div aria-label={LOCALIZE.ariaLabel.languageToggleBtn} style={styles.languageButton}>
+              <div
+                aria-label={LOCALIZE.ariaLabel.languageToggleBtn}
+                className="fixed-top"
+                style={styles.languageButton}
+              >
                 <Translation />
               </div>
             </nav>
