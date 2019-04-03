@@ -9,7 +9,15 @@ const styles = {
   },
   emailId: {
     float: "left",
-    marginRight: 12
+    marginRight: 12,
+    fontSize: 16,
+    fontWeight: 700,
+    fontFamily: '"Nunito Sans", sans-serif',
+    color: "black",
+    marginBottom: 8,
+    marginTop: 0,
+    WebkitMarginAfter: 8,
+    WebkitMarginBefore: 0
   },
   replyStatus: {
     float: "right"
