@@ -13,6 +13,15 @@ export const MODIFICATION_TYPE = {
   modify: "modify"
 };
 
+const styles = {
+  title: {
+    top: 0,
+    right: 0,
+    backgroundColor: "#00565E",
+    color: "white"
+  }
+};
+
 class ModifyEmailResponse extends Component {
   static propTypes = {
     showDialog: PropTypes.bool.isRequired,
@@ -31,7 +40,7 @@ class ModifyEmailResponse extends Component {
           show={showDialog}
           handleClose={handleClose}
           title={
-            <div>
+            <div style={styles.title}>
               {responseType === RESPONSE_TYPE.email ? (
                 <i className="fas fa-envelope" />
               ) : (
