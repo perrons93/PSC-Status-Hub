@@ -37,7 +37,8 @@ const styles = {
   languageButton: {
     position: "fixed",
     right: 15,
-    top: 15
+    top: 15,
+    zIndex: 998
   }
 };
 
