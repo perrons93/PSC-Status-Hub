@@ -41,22 +41,6 @@ it("renders the right icon types (email, task)", () => {
 });
 
 it("renders the right arrow (up, down) icons when closed or expanded", () => {
-  const simulateExpanded = () => {
-    wrapper.setState({
-      buttonClass: "btn btn-primary expanded-button-style",
-      iconClass: "fas fa-angle-up white-expand-icon",
-      containerClass: "expanded-container-style"
-    });
-  };
-
-  const simulateClosed = () => {
-    wrapper.setState({
-      buttonClass: "btn btn-secondary",
-      iconClass: "fas fa-angle-down blue-expand-icon",
-      containerClass: ""
-    });
-  };
-
   const wrapper = shallow(
     <CollapsingItemContainer iconType={ICON_TYPE.email} title={"title"} body={body} />
   );
@@ -81,15 +65,13 @@ it("renders the right arrow (up, down) icons when closed or expanded", () => {
     </div>
   );
 
-  //arrow 'down' icon displayed
+  //arrow 'down' icon displayed (when closed)
   wrapper.setState({ isCollapsed: true });
-  simulateClosed();
   expect(wrapper.containsMatchingElement(arrowDownIconDisplayed)).toEqual(true);
   expect(wrapper.containsMatchingElement(arrowUpIconDisplayed)).toEqual(false);
 
-  //arrow 'up' icon displayed
+  //arrow 'up' icon displayed (when expanded)
   wrapper.setState({ isCollapsed: false });
-  simulateExpanded();
   expect(wrapper.containsMatchingElement(arrowDownIconDisplayed)).toEqual(false);
   expect(wrapper.containsMatchingElement(arrowUpIconDisplayed)).toEqual(true);
 });

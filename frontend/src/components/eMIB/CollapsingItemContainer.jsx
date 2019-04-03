@@ -46,25 +46,27 @@ class CollapsingItemContainer extends Component {
 
   expandItem = () => {
     if (this.state.isCollapsed) {
-      this.setState({
-        isCollapsed: false,
-        buttonClass: "btn btn-primary expanded-button-style",
-        iconClass: "fas fa-angle-up white-expand-icon",
-        containerClass: "expanded-container-style"
-      });
+      this.setState({ isCollapsed: false });
     } else {
-      this.setState({
-        isCollapsed: true,
-        buttonClass: "btn btn-secondary",
-        iconClass: "fas fa-angle-down blue-expand-icon",
-        containerClass: ""
-      });
+      this.setState({ isCollapsed: true });
     }
   };
 
   render() {
     const { iconType, title, body } = this.props;
-    const { isCollapsed, buttonClass, iconClass, containerClass } = this.state;
+    const { isCollapsed } = this.state;
+    let { buttonClass, iconClass, containerClass } = "";
+
+    if (isCollapsed) {
+      buttonClass = "btn btn-secondary";
+      iconClass = "fas fa-angle-down blue-expand-icon";
+      containerClass = "";
+    } else if (!isCollapsed) {
+      buttonClass = "btn btn-primary expanded-button-style";
+      iconClass = "fas fa-angle-up white-expand-icon";
+      containerClass = "expanded-container-style";
+    }
+
     return (
       <div className={`${containerClass} collapsing-item-container`} style={styles.container}>
         <button className={buttonClass} style={styles.button} onClick={this.expandItem}>
