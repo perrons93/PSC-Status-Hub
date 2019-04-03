@@ -20,7 +20,9 @@ const styles = {
     top: 0,
     right: 0,
     backgroundColor: "#00565E",
-    color: "white"
+    color: "white",
+    fontSize: 16,
+    width: "100%"
   }
 };
 
@@ -42,7 +44,7 @@ class ModifyEmailResponse extends Component {
           show={showDialog}
           handleClose={handleClose}
           title={
-            <div style={styles.title}>
+            <span style={styles.title}>
               {responseType === RESPONSE_TYPE.email ? (
                 <i className="fas fa-envelope" />
               ) : (
@@ -50,7 +52,7 @@ class ModifyEmailResponse extends Component {
               )}
               &emsp;{modificationType === MODIFICATION_TYPE.add ? "TODO Add" : "TODO Modify"}{" "}
               {responseType === RESPONSE_TYPE.email ? "TODO email" : "TODO task"} response
-            </div>
+            </span>
           }
           description={
             <div>
