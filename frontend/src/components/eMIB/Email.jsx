@@ -63,7 +63,7 @@ class Email extends Component {
     return (
       <div style={styles.email}>
         <div style={styles.header}>
-          <h2 style={styles.emailId} className="emailId">
+          <h2 style={styles.emailId}>
             {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
             {email.id + 1}
           </h2>
