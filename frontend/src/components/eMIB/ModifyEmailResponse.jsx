@@ -3,11 +3,23 @@ import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 
+export const RESPONSE_TYPE = {
+  email: "email",
+  task: "task"
+};
+
+export const MODIFICATION_TYPE = {
+  add: "add",
+  modify: "modify"
+};
+
 class ModifyEmailResponse extends Component {
   static propTypes = {
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
-    saveEmail: PropTypes.func.isRequired
+    saveEmail: PropTypes.func.isRequired,
+    responseType: PropTypes.string.isRequired,
+    modificationType: PropTypes.string.isRequired
   };
 
   render() {

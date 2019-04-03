@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
-import ModifyEmailResponse from "./ModifyEmailResponse";
+import ModifyEmailResponse, { RESPONSE_TYPE, MODIFICATION_TYPE } from "./ModifyEmailResponse";
 
 const styles = {
   header: {
@@ -123,6 +123,8 @@ class Email extends Component {
           showDialog={this.state.showAddEmailDialog}
           handleClose={this.closedEmailDialog}
           saveEmail={this.replyToEmail}
+          responseType={RESPONSE_TYPE.email}
+          modificationType={MODIFICATION_TYPE.add}
         />
       </div>
     );
