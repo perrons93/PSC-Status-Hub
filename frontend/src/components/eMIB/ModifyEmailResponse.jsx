@@ -18,29 +18,17 @@ export const MODIFICATION_TYPE = {
 
 const styles = {
   title: {
-    backgroundColor: "#00565E",
-    color: "white",
-    fontSize: 16,
-    width: "100%"
-  } /*,
-  boxshape: {
-    borderWidth: "1px 1px 0 1px",
-    borderStyle: "solid",
-    borderColor: "#00565e",
-    borderRadius: "0px 0px 0px 0px"
+    fontSize: 16
   },
-  boxContent: {
-    paddingLeft: 20,
-    paddingRight: 20
-  }*/,
   modalHeader: {
     display: "table",
-    width: "100%"
-  } /*,
-  modelTitle: {
-    position: "absolute",
-    fontSize: "28px"
-  }*/
+    top: 0,
+    right: 0,
+    width: "100%",
+    padding: "0 0 0 0",
+    backgroundColor: "#00565E",
+    color: "white"
+  }
 };
 
 class ModifyEmailResponse extends Component {
@@ -65,19 +53,17 @@ class ModifyEmailResponse extends Component {
         <Modal show={showDialog} onHide={handleClose} style={styles.modal}>
           <div style={styles.boxContent}>
             <Modal.Header closeButton style={styles.modalHeader}>
-              <Modal.Title>
-                {
-                  <span style={styles.title}>
-                    {responseType === RESPONSE_TYPE.email ? (
-                      <i className="fas fa-envelope" />
-                    ) : (
-                      <i className="fas fa-tasks" />
-                    )}
-                    &emsp;{modificationType === MODIFICATION_TYPE.add ? "TODO Add" : "TODO Modify"}{" "}
-                    {responseType === RESPONSE_TYPE.email ? "TODO email" : "TODO task"} response
-                  </span>
-                }
-              </Modal.Title>
+              {
+                <span style={styles.title}>
+                  {responseType === RESPONSE_TYPE.email ? (
+                    <i className="fas fa-envelope" />
+                  ) : (
+                    <i className="fas fa-tasks" />
+                  )}
+                  &emsp;{modificationType === MODIFICATION_TYPE.add ? "TODO Add" : "TODO Modify"}{" "}
+                  {responseType === RESPONSE_TYPE.email ? "TODO email" : "TODO task"} response
+                </span>
+              }
             </Modal.Header>
             <Modal.Body>
               {responseType === RESPONSE_TYPE.email ? <ModifyEmailBody /> : <ModifyTaskBody />}
