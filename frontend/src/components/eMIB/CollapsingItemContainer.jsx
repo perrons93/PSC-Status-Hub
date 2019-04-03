@@ -38,10 +38,7 @@ class CollapsingItemContainer extends Component {
   };
 
   state = {
-    isCollapsed: true,
-    buttonClass: "btn btn-secondary",
-    iconClass: "fas fa-angle-down blue-expand-icon",
-    containerClass: ""
+    isCollapsed: true
   };
 
   expandItem = () => {
