@@ -62,6 +62,7 @@ class ModifyEmailResponse extends Component {
           rightButtonType={BUTTON_TYPE.primary}
           rightButtonTitle={LOCALIZE.commons.startTest}
           rightButtonAction={saveEmail}
+          noEdge={true}
         />
       </div>
     );
