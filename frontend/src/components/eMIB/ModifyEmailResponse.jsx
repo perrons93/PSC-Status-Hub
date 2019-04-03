@@ -23,12 +23,24 @@ class ModifyEmailResponse extends Component {
   };
 
   render() {
+    const { showDialog, handleClose, saveEmail, responseType, modificationType } = this.props;
+
     return (
       <div>
         <PopupBox
-          show={this.props.showDialog}
-          handleClose={this.props.handleClose}
-          title={LOCALIZE.commons.confirmStartTest.aboutToStart}
+          show={showDialog}
+          handleClose={handleClose}
+          title={
+            <div>
+              {responseType === RESPONSE_TYPE.email ? (
+                <i className="fas fa-envelope" />
+              ) : (
+                <i className="fas fa-tasks" />
+              )}
+              &emsp;{modificationType === MODIFICATION_TYPE.add ? "TODO Add" : "TODO Modify"}{" "}
+              {responseType === RESPONSE_TYPE.email ? "TODO email" : "TODO task"} response
+            </div>
+          }
           description={
             <div>
               <p>{LOCALIZE.commons.confirmStartTest.instructionsAccess}</p>
@@ -36,7 +48,7 @@ class ModifyEmailResponse extends Component {
           }
           rightButtonType={BUTTON_TYPE.primary}
           rightButtonTitle={LOCALIZE.commons.startTest}
-          rightButtonAction={this.props.saveEmail}
+          rightButtonAction={saveEmail}
         />
       </div>
     );
