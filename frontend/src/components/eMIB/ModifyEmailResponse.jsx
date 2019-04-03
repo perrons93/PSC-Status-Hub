@@ -81,7 +81,7 @@ class ModifyEmailResponse extends Component {
                     className="btn btn-primary"
                     onClick={this.buttonCloseAndAction}
                   >
-                    {LOCALIZE.commons.startTest}
+                    {LOCALIZE.emibTest.inboxPage.modifyEmailResponse.save}
                   </button>
                 </div>
               </div>
