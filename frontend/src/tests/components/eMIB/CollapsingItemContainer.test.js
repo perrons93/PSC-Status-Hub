@@ -44,7 +44,7 @@ it("renders the right arrow (up, down) icons when closed or expanded", () => {
   const simulateExpanded = () => {
     wrapper.setState({
       buttonClass: "btn btn-primary expanded-button-style",
-      iconClass: "fas fa-angle-up expand-icon-style",
+      iconClass: "fas fa-angle-up white-expand-icon",
       containerClass: "expanded-container-style"
     });
   };
@@ -52,7 +52,7 @@ it("renders the right arrow (up, down) icons when closed or expanded", () => {
   const simulateClosed = () => {
     wrapper.setState({
       buttonClass: "btn btn-secondary",
-      iconClass: "fas fa-angle-down",
+      iconClass: "fas fa-angle-down blue-expand-icon",
       containerClass: ""
     });
   };
@@ -67,7 +67,7 @@ it("renders the right arrow (up, down) icons when closed or expanded", () => {
         <span className={ICON_TYPE.email} />
         title
       </button>
-      <span className="fas fa-angle-down expand-icon" />
+      <span className="fas fa-angle-down blue-expand-icon" />
     </div>
   );
   const arrowUpIconDisplayed = (
@@ -76,7 +76,7 @@ it("renders the right arrow (up, down) icons when closed or expanded", () => {
         <span className={ICON_TYPE.email} />
         title
       </button>
-      <span className="fas fa-angle-up expand-icon-style expand-icon" />
+      <span className="fas fa-angle-up white-expand-icon" />
       <div>{body}</div>
     </div>
   );

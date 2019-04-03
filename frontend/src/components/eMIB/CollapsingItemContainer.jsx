@@ -13,12 +13,11 @@ const styles = {
   envelopeIcon: {
     marginRight: 6
   },
-  collapsingIcon: {
+  expandIcon: {
     position: "absolute",
     top: 0,
     right: 0,
     margin: "11px 24px 0 0",
-    color: "#00565E",
     pointerEvents: "none"
   },
   contentContainer: {
@@ -41,7 +40,7 @@ class CollapsingItemContainer extends Component {
   state = {
     isCollapsed: true,
     buttonClass: "btn btn-secondary",
-    iconClass: "fas fa-angle-down",
+    iconClass: "fas fa-angle-down blue-expand-icon",
     containerClass: ""
   };
 
@@ -50,14 +49,14 @@ class CollapsingItemContainer extends Component {
       this.setState({
         isCollapsed: false,
         buttonClass: "btn btn-primary expanded-button-style",
-        iconClass: "fas fa-angle-up expand-icon-style",
+        iconClass: "fas fa-angle-up white-expand-icon",
         containerClass: "expanded-container-style"
       });
     } else {
       this.setState({
         isCollapsed: true,
         buttonClass: "btn btn-secondary",
-        iconClass: "fas fa-angle-down",
+        iconClass: "fas fa-angle-down blue-expand-icon",
         containerClass: ""
       });
     }
@@ -72,7 +71,7 @@ class CollapsingItemContainer extends Component {
           <span className={iconType} style={styles.envelopeIcon} />
           {title}
         </button>
-        <span className={`${iconClass} expand-icon`} style={styles.collapsingIcon} />
+        <span id="white-expand-icon-on-hover" className={iconClass} style={styles.expandIcon} />
         {!isCollapsed && <div style={styles.contentContainer}>{body}</div>}
       </div>
     );
