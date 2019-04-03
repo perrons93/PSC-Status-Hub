@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
-import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 import ModifyEmailBody from "./ModifyEmailBody";
 import ModifyTaskBody from "./ModifyTaskBody";
 import { Modal } from "react-bootstrap";
+import LOCALIZE from "../../text_resources";
 
 export const RESPONSE_TYPE = {
   email: "email",
@@ -60,8 +60,14 @@ class ModifyEmailResponse extends Component {
                   ) : (
                     <i className="fas fa-tasks" />
                   )}
-                  &emsp;{modificationType === MODIFICATION_TYPE.add ? "TODO Add" : "TODO Modify"}{" "}
-                  {responseType === RESPONSE_TYPE.email ? "TODO email" : "TODO task"} response
+                  &emsp;
+                  {modificationType === MODIFICATION_TYPE.add
+                    ? LOCALIZE.emibTest.inboxPage.ModifyEmailResponse.add
+                    : LOCALIZE.emibTest.inboxPage.ModifyEmailResponse.modify}{" "}
+                  {responseType === RESPONSE_TYPE.email
+                    ? LOCALIZE.emibTest.inboxPage.ModifyEmailResponse.email
+                    : LOCALIZE.emibTest.inboxPage.ModifyEmailResponse.task}{" "}
+                  response
                 </span>
               }
             </Modal.Header>

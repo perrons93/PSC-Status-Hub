@@ -335,7 +335,13 @@ let LOCALIZE = new LocalizedStrings({
         addTask: "Create a task",
         replyTextPart1: "You responded with ",
         replyTextPart2: " emails and ",
-        replyTextPart3: " tasks"
+        replyTextPart3: " tasks",
+        modifyEmailResponse: {
+          add: "Add",
+          modify: "Modify",
+          email: "email",
+          task: "task"
+        }
       },
 
       //Confirmation Page
@@ -766,7 +772,13 @@ let LOCALIZE = new LocalizedStrings({
         addTask: "FR Create a task",
         replyTextPart1: "FR You responded with ",
         replyTextPart2: " FR emails and ",
-        replyTextPart3: " FR tasks"
+        replyTextPart3: " FR tasks",
+        modifyEmailResponse: {
+          add: "FR Add",
+          modify: "FR Modify",
+          email: "FR email",
+          task: "FR task"
+        }
       },
 
       //Confirmation Page
