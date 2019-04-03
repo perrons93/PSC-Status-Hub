@@ -43,24 +43,33 @@ class Email extends Component {
   };
 
   state = {
-    showAddEmailDialog: false
+    showAddEmailDialog: false,
+    showAddTaskDialog: false
   };
 
   showAddEmailDialog = () => {
     this.setState({ showAddEmailDialog: true });
   };
 
-  closedEmailDialog = () => {
+  closeEmailDialog = () => {
     this.setState({ showAddEmailDialog: false });
   };
 
+  showAddTaskDialog = () => {
+    this.setState({ showAddTaskDialog: true });
+  };
+
+  closeTaskDialog = () => {
+    this.setState({ showAddTaskDialog: false });
+  };
+
   replyToEmail = () => {
-    console.log("trial by meh");
     //TODO mcherry: replace the following with change to redux state
     this.props.respondToEmail(this.props.email.id);
   };
 
   addTaskToEmail = () => {
+    //TODO mcherry: replace the following with change to redux state
     this.props.respondToEmail(this.props.email.id);
   };
 
@@ -99,7 +108,7 @@ class Email extends Component {
             id="unit-test-email-task-button"
             type="button"
             className="btn btn-primary"
-            onClick={this.addTaskToEmail}
+            onClick={this.showAddTaskDialog}
           >
             <i className="fas fa-tasks" />
             &emsp;
@@ -121,9 +130,16 @@ class Email extends Component {
         <div>{email.body}</div>
         <ModifyEmailResponse
           showDialog={this.state.showAddEmailDialog}
-          handleClose={this.closedEmailDialog}
+          handleClose={this.closeEmailDialog}
           saveEmail={this.replyToEmail}
           responseType={RESPONSE_TYPE.email}
+          modificationType={MODIFICATION_TYPE.add}
+        />
+        <ModifyEmailResponse
+          showDialog={this.state.showAddTaskDialog}
+          handleClose={this.closeTaskDialog}
+          saveEmail={this.addTaskToEmail}
+          responseType={RESPONSE_TYPE.task}
           modificationType={MODIFICATION_TYPE.add}
         />
       </div>
