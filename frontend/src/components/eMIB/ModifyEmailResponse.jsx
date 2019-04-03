@@ -45,7 +45,7 @@ class ModifyEmailResponse extends Component {
   };
 
   render() {
-    const { showDialog, handleClose, saveEmail, responseType, modificationType } = this.props;
+    const { showDialog, handleClose, responseType, modificationType } = this.props;
 
     return (
       <div>
