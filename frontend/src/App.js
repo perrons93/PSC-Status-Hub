@@ -20,8 +20,11 @@ const PATH = {
 };
 
 const styles = {
-  navBar: {
+  navBarFull: {
     paddingBottom: 105
+  },
+  navBarHidden: {
+    paddingBottom: 50
   },
   tabs: {
     paddingTop: 68
@@ -34,7 +37,8 @@ const styles = {
   languageButton: {
     position: "fixed",
     right: 15,
-    top: 15
+    top: 15,
+    left: "auto"
   }
 };
 
@@ -64,66 +68,71 @@ const isStatusActive = (match, location) => {
 class App extends Component {
   static propTypes = {
     // Props from Redux
-    currentLanguage: PropTypes.string
+    currentLanguage: PropTypes.string,
+    isTestActive: PropTypes.bool.isRequired
   };
 
   render() {
+    const hideNavBar = this.props.isTestActive;
     return (
       <Router>
         <div>
           <header role="heading" aria-level="1">
             <nav
               aria-label={LOCALIZE.ariaLabel.mainMenu}
-              style={styles.navBar}
+              style={hideNavBar ? styles.navBarHidden : styles.navBarFull}
               className="fixed-top bg-white navbar navbar-expand"
               role="dialog"
             >
               <div style={styles.pscImage} id="psc-image">
                 <img style={{ width: 390 }} src={psc_header} alt={LOCALIZE.commons.psc} />
               </div>
-              <div style={styles.tabs} className="fixed-top nav nav-tabs">
-                <ul
-                  id="navigation-tabs"
-                  className="mx-auto nav-site nav nav-tabs nav-item"
-                  role="menubar"
-                >
-                  <li className="bg-white" role="menuitem">
-                    <NavLink
-                      aria-current="page"
-                      isActive={isHomeActive}
-                      className="nav-link"
-                      to={PATH.home}
-                    >
-                      {LOCALIZE.mainTabs.homeTabTitle}
-                    </NavLink>
-                  </li>
-                  <li className="bg-white" role="menuitem">
-                    <NavLink
-                      aria-current="page"
-                      isActive={isPrototypeActive}
-                      className="nav-link"
-                      to={PATH.prototype}
-                    >
-                      {LOCALIZE.mainTabs.prototypeTabTitle}
-                    </NavLink>
-                  </li>
-                  <li className="bg-white" role="menuitem">
-                    <NavLink
-                      aria-current="page"
-                      isActive={isStatusActive}
-                      className="nav-link"
-                      to={PATH.status}
-                    >
-                      {LOCALIZE.mainTabs.statusTabTitle}
-                    </NavLink>
-                  </li>
-                </ul>
-                <div
-                  aria-label={LOCALIZE.ariaLabel.languageToggleBtn}
-                  style={styles.languageButton}
-                >
-                  <Translation />
+              {!hideNavBar && (
+                <div style={styles.tabs} className="fixed-top nav nav-tabs">
+                  <ul
+                    id="navigation-tabs"
+                    className="mx-auto nav-site nav nav-tabs nav-item"
+                    role="menubar"
+                  >
+                    <li className="bg-white" role="menuitem">
+                      <NavLink
+                        aria-current="page"
+                        isActive={isHomeActive}
+                        className="nav-link"
+                        to={PATH.home}
+                      >
+                        {LOCALIZE.mainTabs.homeTabTitle}
+                      </NavLink>
+                    </li>
+                    <li className="bg-white" role="menuitem">
+                      <NavLink
+                        aria-current="page"
+                        isActive={isPrototypeActive}
+                        className="nav-link"
+                        to={PATH.prototype}
+                      >
+                        {LOCALIZE.mainTabs.prototypeTabTitle}
+                      </NavLink>
+                    </li>
+                    <li className="bg-white" role="menuitem">
+                      <NavLink
+                        aria-current="page"
+                        isActive={isStatusActive}
+                        className="nav-link"
+                        to={PATH.status}
+                      >
+                        {LOCALIZE.mainTabs.statusTabTitle}
+                      </NavLink>
+                    </li>
+                  </ul>
                 </div>
+              )}
+              <div
+                aria-label={LOCALIZE.ariaLabel.languageToggleBtn}
+                className="fixed-top"
+                style={styles.languageButton}
+              >
+                <Translation />
               </div>
             </nav>
           </header>
@@ -140,7 +149,8 @@ export { PATH };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentLanguage: state.localize.language
+    currentLanguage: state.localize.language,
+    isTestActive: state.testStatus.isTestActive
   };
 };
 
