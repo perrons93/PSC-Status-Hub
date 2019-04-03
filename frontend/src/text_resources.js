@@ -398,6 +398,14 @@ let LOCALIZE = new LocalizedStrings({
       nextButton: "Next",
       backButton: "Back",
       startTest: "Start test",
+      confirmStartTest: {
+        aboutToStart: "You are about to start the test.",
+        timedTest: "This is a timed test.",
+        timerWarning:
+          "Once you start the timer will begin, and you can only leave the test by submitting or quitting.",
+        instructionsAccess:
+          "You will have access to the instructions from within the test. Good luck!"
+      },
       submitTestButton: "Submit test",
       quitTest: "Quit Test",
       returnToTest: "Return to Test",
@@ -822,6 +830,14 @@ let LOCALIZE = new LocalizedStrings({
       nextButton: "Suivant",
       backButton: "Retour",
       startTest: "Commencer le test",
+      confirmStartTest: {
+        aboutToStart: "FR You are about to start the test.",
+        timedTest: "FR This is a timed test.",
+        timerWarning:
+          "FR Once you start the timer will begin, and you can only leave the test by submitting or quitting.",
+        instructionsAccess:
+          "FR You will have access to the instructions from within the test. Good luck!"
+      },
       submitTestButton: "Envoyer le test",
       quitTest: "Quitter la séance de test",
       returnToTest: "Retourner à la séance",
