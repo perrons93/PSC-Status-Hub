@@ -24,10 +24,6 @@ const styles = {
     paddingLeft: 20,
     paddingRight: 20
   },
-  boxContentNoEdge: {
-    paddingLeft: 0,
-    paddingRight: 0
-  },
   modalHeader: {
     display: "table",
     width: "100%"
@@ -74,8 +70,7 @@ class PopupBox extends Component {
       rightButtonType: PropTypes.string,
       rightButtonTitle: PropTypes.string,
       rightButtonAction: PropTypes.func,
-      rightButtonState: PropTypes.string,
-      noEdge: PropTypes.bool
+      rightButtonState: PropTypes.string
     };
   }
 
@@ -104,14 +99,13 @@ class PopupBox extends Component {
       leftButtonState,
       rightButtonType,
       rightButtonTitle,
-      rightButtonState,
-      noEdge
+      rightButtonState
     } = this.props;
 
     return (
       <div>
         <Modal show={show} onHide={handleClose}>
-          <div style={noEdge ? styles.boxContentNoEdge : styles.boxContent}>
+          <div style={styles.boxContent}>
             <Modal.Header closeButton style={styles.modalHeader}>
               <Modal.Title id="unit-test-popup-box-title" style={styles.modelTitle}>
                 {title}
