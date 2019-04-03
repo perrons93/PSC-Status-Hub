@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import LOCALIZE from "../../text_resources";
 import TextareaAutosize from "react-textarea-autosize";
 import "../../css/emib-tabs.css";
-import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../eMIB/constants";
-
-const NOTEPAD_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`;
-const SECTION_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT + 53}px)`;
 
 const styles = {
   windowPadding: {
@@ -42,11 +38,11 @@ const styles = {
     borderColor: "#00565e",
     borderRadius: "0 5px 0 0",
     width: "100%",
-    height: NOTEPAD_HEIGHT
+    height: "calc(100vh - 238px)"
   },
   notepadSection: {
     overflow: "auto",
-    height: SECTION_HEIGHT
+    height: "calc(100vh - 291px)"
   },
   textArea: {
     padding: "0 12px 6px 12px",
@@ -66,7 +62,7 @@ const styles = {
     width: 60,
     border: "none",
     backgroundColor: "#00565e",
-    height: NOTEPAD_HEIGHT,
+    height: "calc(100vh - 238px)",
     cursor: "pointer",
     borderRadius: "0 5px 0 0"
   },
@@ -77,7 +73,7 @@ const styles = {
     color: "white"
   },
   openNotepadBtnHeight: {
-    height: NOTEPAD_HEIGHT
+    height: "calc(100vh - 238px)"
   }
 };
 

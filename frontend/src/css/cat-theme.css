@@ -3,10 +3,6 @@ cat-theme.css is used for overrides of existing Aurora CSS class names, or tags.
 All component specific CSS lives in the React file with the component. 
 */
 
-body {
-  padding-top: 50px;
-}
-
 .app {
   text-align: center;
 }
