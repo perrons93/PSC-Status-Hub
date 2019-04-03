@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
+import ModifyEmailBody from "./ModifyEmailBody";
+import ModifyTaskBody from "./ModifyTaskBody";
 
 export const RESPONSE_TYPE = {
   email: "email",
@@ -52,7 +54,7 @@ class ModifyEmailResponse extends Component {
           }
           description={
             <div>
-              <p>{LOCALIZE.commons.confirmStartTest.instructionsAccess}</p>
+              {responseType === RESPONSE_TYPE.email ? <ModifyEmailBody /> : <ModifyTaskBody />}
             </div>
           }
           rightButtonType={BUTTON_TYPE.primary}
