@@ -82,19 +82,19 @@ it("renders the right arrow (up, down) icons when closed or expanded", () => {
   );
 
   //arrow 'down' icon displayed
-  wrapper.setState({ isHidden: true });
+  wrapper.setState({ isCollapsed: true });
   simulateClosed();
   expect(wrapper.containsMatchingElement(arrowDownIconDisplayed)).toEqual(true);
   expect(wrapper.containsMatchingElement(arrowUpIconDisplayed)).toEqual(false);
 
   //arrow 'up' icon displayed
-  wrapper.setState({ isHidden: false });
+  wrapper.setState({ isCollapsed: false });
   simulateExpanded();
   expect(wrapper.containsMatchingElement(arrowDownIconDisplayed)).toEqual(false);
   expect(wrapper.containsMatchingElement(arrowUpIconDisplayed)).toEqual(true);
 });
 
-it("renders title and/or body depending on the 'isHidden' state", () => {
+it("renders title and/or body depending on the 'isCollapsed ' state", () => {
   const wrapper = shallow(
     <CollapsingItemContainer iconType={ICON_TYPE.email} title={"title"} body={body} />
   );
@@ -123,10 +123,10 @@ it("renders title and/or body depending on the 'isHidden' state", () => {
   );
 
   //collapsing item is closed
-  wrapper.setState({ isHidden: true });
+  wrapper.setState({ isCollapsed: true });
   expect(wrapper.containsMatchingElement(contentWhenClosed)).toEqual(true);
 
   //collapsing item is expanded
-  wrapper.setState({ isHidden: false });
+  wrapper.setState({ isCollapsed: false });
   expect(wrapper.containsMatchingElement(contentWhenExpanded)).toEqual(true);
 });

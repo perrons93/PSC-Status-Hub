@@ -39,23 +39,23 @@ class CollapsingItemContainer extends Component {
   };
 
   state = {
-    isHidden: true,
+    isCollapsed: true,
     buttonClass: "btn btn-secondary",
     iconClass: "fas fa-angle-down",
     containerClass: ""
   };
 
   expandItem = () => {
-    if (this.state.isHidden) {
+    if (this.state.isCollapsed) {
       this.setState({
-        isHidden: false,
+        isCollapsed: false,
         buttonClass: "btn btn-primary expanded-button-style",
         iconClass: "fas fa-angle-up expand-icon-style",
         containerClass: "expanded-container-style"
       });
     } else {
       this.setState({
-        isHidden: true,
+        isCollapsed: true,
         buttonClass: "btn btn-secondary",
         iconClass: "fas fa-angle-down",
         containerClass: ""
@@ -65,7 +65,7 @@ class CollapsingItemContainer extends Component {
 
   render() {
     const { iconType, title, body } = this.props;
-    const { isHidden, buttonClass, iconClass, containerClass } = this.state;
+    const { isCollapsed, buttonClass, iconClass, containerClass } = this.state;
     return (
       <div className={`${containerClass} collapsing-item-container`} style={styles.container}>
         <button className={buttonClass} style={styles.button} onClick={this.expandItem}>
@@ -73,7 +73,7 @@ class CollapsingItemContainer extends Component {
           {title}
         </button>
         <span className={`${iconClass} expand-icon`} style={styles.collapsingIcon} />
-        {!isHidden && <div style={styles.contentContainer}>{body}</div>}
+        {!isCollapsed && <div style={styles.contentContainer}>{body}</div>}
       </div>
     );
   }
