@@ -80,6 +80,7 @@ class ModifyEmailResponse extends Component {
               <div>
                 <div>
                   <button
+                    id="unit-test-email-response-button"
                     type="button"
                     className="btn btn-primary"
                     onClick={this.buttonCloseAndAction}
