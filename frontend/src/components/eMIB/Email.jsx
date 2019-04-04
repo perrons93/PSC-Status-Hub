@@ -48,7 +48,8 @@ class Email extends Component {
     email: PropTypes.object.isRequired,
     addEmail: PropTypes.func.isRequired,
     addTask: PropTypes.func.isRequired,
-    isRepliedTo: PropTypes.bool.isRequired
+    emailCount: PropTypes.number,
+    taskCount: PropTypes.number
   };
 
   state = {
@@ -81,7 +82,7 @@ class Email extends Component {
   };
 
   render() {
-    const email = this.props.email;
+    const { email, emailCount, taskCount } = this.props;
 
     return (
       <div style={styles.email}>
@@ -90,12 +91,14 @@ class Email extends Component {
             {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
             {email.id + 1}
           </h2>
-          {this.props.isRepliedTo && (
+          {true && (
             <div className="font-weight-bold" style={styles.replyStatus}>
               <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
-              {LOCALIZE.emibTest.inboxPage.replyTextPart1}0
-              {LOCALIZE.emibTest.inboxPage.replyTextPart2}0
-              {LOCALIZE.emibTest.inboxPage.replyTextPart3}
+              {LOCALIZE.formatString(
+                LOCALIZE.emibTest.inboxPage.yourActions,
+                emailCount,
+                taskCount
+              )}
             </div>
           )}
         </div>

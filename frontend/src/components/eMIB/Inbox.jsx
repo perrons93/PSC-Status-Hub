@@ -72,11 +72,8 @@ class Inbox extends Component {
         <div className="inbox-grid-content-cell" style={styles.bodyContent}>
           <Email
             email={emails[this.state.currentEmail]}
-            isRepliedTo={
-              emailSummaries[this.state.currentEmail].emailCount +
-                emailSummaries[this.state.currentEmail].taskCount >
-              0
-            }
+            emailCount={emailSummaries[this.state.currentEmail].emailCount}
+            taskCount={emailSummaries[this.state.currentEmail].taskCount}
           />
         </div>
       </div>
