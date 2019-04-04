@@ -336,7 +336,7 @@ let LOCALIZE = new LocalizedStrings({
         replyTextPart1: "You responded with ",
         replyTextPart2: " emails and ",
         replyTextPart3: " tasks",
-        modifyEmailResponse: {
+        editEmailActionDialog: {
           add: "Add",
           modify: "Modify",
           email: "email",
@@ -775,7 +775,7 @@ let LOCALIZE = new LocalizedStrings({
         replyTextPart1: "FR You responded with ",
         replyTextPart2: " FR emails and ",
         replyTextPart3: " FR tasks",
-        modifyEmailResponse: {
+        editEmailActionDialog: {
           add: "FR Add",
           modify: "FR Modify",
           email: "FR email",

@@ -6,14 +6,14 @@ import ModifyTaskBody from "./ModifyTaskBody";
 import { Modal } from "react-bootstrap";
 import "../../css/modify-email-response.css";
 
-export const RESPONSE_TYPE = {
+export const ACTION_TYPE = {
   email: "email",
   task: "task"
 };
 
-export const MODIFICATION_TYPE = {
-  add: "add",
-  modify: "modify"
+export const EDIT_MODE = {
+  create: "create",
+  update: "update"
 };
 
 const styles = {
@@ -32,7 +32,7 @@ const styles = {
   }
 };
 
-class ModifyEmailResponse extends Component {
+class EditEmailActionDialog extends Component {
   static propTypes = {
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
@@ -59,26 +59,26 @@ class ModifyEmailResponse extends Component {
               {
                 <span style={styles.title}>
                   &emsp;
-                  {responseType === RESPONSE_TYPE.email ? (
+                  {responseType === ACTION_TYPE.email ? (
                     <i className="fas fa-envelope" />
                   ) : (
                     <i className="fas fa-tasks" />
                   )}
                   &emsp;
                   <span>
-                    {modificationType === MODIFICATION_TYPE.add
-                      ? LOCALIZE.emibTest.inboxPage.modifyEmailResponse.add
-                      : LOCALIZE.emibTest.inboxPage.modifyEmailResponse.modify}
+                    {modificationType === EDIT_MODE.create
+                      ? LOCALIZE.emibTest.inboxPage.editEmailActionDialog.add
+                      : LOCALIZE.emibTest.inboxPage.editEmailActionDialog.modify}
                   </span>{" "}
-                  {responseType === RESPONSE_TYPE.email
-                    ? LOCALIZE.emibTest.inboxPage.modifyEmailResponse.email
-                    : LOCALIZE.emibTest.inboxPage.modifyEmailResponse.task}{" "}
-                  {LOCALIZE.emibTest.inboxPage.modifyEmailResponse.response}
+                  {responseType === ACTION_TYPE.email
+                    ? LOCALIZE.emibTest.inboxPage.editEmailActionDialog.email
+                    : LOCALIZE.emibTest.inboxPage.editEmailActionDialog.task}{" "}
+                  {LOCALIZE.emibTest.inboxPage.editEmailActionDialog.response}
                 </span>
               }
             </Modal.Header>
             <Modal.Body>
-              {responseType === RESPONSE_TYPE.email ? <ModifyEmailBody /> : <ModifyTaskBody />}
+              {responseType === ACTION_TYPE.email ? <ModifyEmailBody /> : <ModifyTaskBody />}
             </Modal.Body>
             <Modal.Footer>
               <div>
@@ -89,7 +89,7 @@ class ModifyEmailResponse extends Component {
                     className="btn btn-primary"
                     onClick={this.buttonCloseAndAction}
                   >
-                    {LOCALIZE.emibTest.inboxPage.modifyEmailResponse.save}
+                    {LOCALIZE.emibTest.inboxPage.editEmailActionDialog.save}
                   </button>
                 </div>
               </div>
@@ -100,4 +100,4 @@ class ModifyEmailResponse extends Component {
     );
   }
 }
-export default ModifyEmailResponse;
+export default EditEmailActionDialog;

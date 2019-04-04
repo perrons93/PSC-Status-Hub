@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
-import ModifyEmailResponse, { RESPONSE_TYPE, MODIFICATION_TYPE } from "./ModifyEmailResponse";
+import EditEmailActionDialog, { ACTION_TYPE, EDIT_MODE } from "./EditEmailActionDialog";
 
 const styles = {
   header: {
@@ -133,19 +133,19 @@ class Email extends Component {
         </div>
         <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
-        <ModifyEmailResponse
+        <EditEmailActionDialog
           showDialog={this.state.showAddEmailDialog}
           handleClose={this.closeEmailDialog}
           saveEmail={this.replyToEmail}
-          responseType={RESPONSE_TYPE.email}
-          modificationType={MODIFICATION_TYPE.add}
+          responseType={ACTION_TYPE.email}
+          modificationType={EDIT_MODE.create}
         />
-        <ModifyEmailResponse
+        <EditEmailActionDialog
           showDialog={this.state.showAddTaskDialog}
           handleClose={this.closeTaskDialog}
           saveEmail={this.addTaskToEmail}
-          responseType={RESPONSE_TYPE.task}
-          modificationType={MODIFICATION_TYPE.add}
+          responseType={ACTION_TYPE.task}
+          modificationType={EDIT_MODE.create}
         />
       </div>
     );
