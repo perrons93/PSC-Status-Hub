@@ -42,11 +42,7 @@ class CollapsingItemContainer extends Component {
   };
 
   expandItem = () => {
-    if (this.state.isCollapsed) {
-      this.setState({ isCollapsed: false });
-    } else {
-      this.setState({ isCollapsed: true });
-    }
+    this.setState({ isCollapsed: !this.state.isCollapsed });
   };
 
   render() {
