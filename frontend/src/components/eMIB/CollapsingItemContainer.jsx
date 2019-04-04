@@ -4,14 +4,19 @@ import "../../css/collapsing-item.css";
 
 const styles = {
   container: {
-    position: "relative"
+    position: "relative",
+    margin: "16px 0 16px 0"
   },
   button: {
     width: "100%",
     textAlign: "left"
   },
+  title: {
+    fontSize: 18
+  },
   envelopeIcon: {
-    marginRight: 6
+    marginRight: 8,
+    fontSize: 18
   },
   collapsingIcon: {
     position: "absolute",
@@ -19,7 +24,8 @@ const styles = {
     right: 0,
     margin: "11px 24px 0 0",
     color: "#00565E",
-    pointerEvents: "none"
+    pointerEvents: "none",
+    fontSize: 18
   },
   contentContainer: {
     margin: 12
@@ -70,7 +76,7 @@ class CollapsingItemContainer extends Component {
       <div className={`${containerClass} collapsing-item-container`} style={styles.container}>
         <button className={buttonClass} style={styles.button} onClick={this.expandItem}>
           <span className={iconType} style={styles.envelopeIcon} />
-          {title}
+          <span style={styles.title}>{title}</span>
         </button>
         <span className={`${iconClass} expand-icon`} style={styles.collapsingIcon} />
         {!isHidden && <div style={styles.contentContainer}>{body}</div>}
