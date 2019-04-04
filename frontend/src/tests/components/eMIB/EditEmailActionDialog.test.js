@@ -5,20 +5,24 @@ import EditEmailActionDialog, {
   ACTION_TYPE
 } from "../../../components/eMIB/EditEmailActionDialog";
 
-it("renders Add Email dialog", () => {
-  testCore(ACTION_TYPE.email, EDIT_MODE.create);
+describe("email action type", () => {
+  it("renders Add Email dialog", () => {
+    testCore(ACTION_TYPE.email, EDIT_MODE.create);
+  });
+
+  it("renders Modify Email dialog", () => {
+    testCore(ACTION_TYPE.email, EDIT_MODE.update);
+  });
 });
 
-it("renders Modify Email dialog", () => {
-  testCore(ACTION_TYPE.email, EDIT_MODE.update);
-});
+describe("task action type", () => {
+  it("renders Add Task dialog", () => {
+    testCore(ACTION_TYPE.task, EDIT_MODE.create);
+  });
 
-it("renders Add Task dialog", () => {
-  testCore(ACTION_TYPE.task, EDIT_MODE.create);
-});
-
-it("renders Modify Task dialog", () => {
-  testCore(ACTION_TYPE.task, EDIT_MODE.update);
+  it("renders Modify Task dialog", () => {
+    testCore(ACTION_TYPE.task, EDIT_MODE.update);
+  });
 });
 
 function testCore(actionType, editMode) {
