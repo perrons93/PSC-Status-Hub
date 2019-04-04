@@ -63,10 +63,10 @@ class CollapsingItemContainer extends Component {
     return (
       <div className={`${containerClass} collapsing-item-container`} style={styles.container}>
         <button className={buttonClass} style={styles.button} onClick={this.expandItem}>
-          <span className={iconType} style={styles.envelopeIcon} />
+          <i className={iconType} style={styles.envelopeIcon} />
           {title}
         </button>
-        <span id="white-expand-icon-on-hover" className={iconClass} style={styles.expandIcon} />
+        <i id="white-expand-icon-on-hover" className={iconClass} style={styles.expandIcon} />
         {!isCollapsed && <div style={styles.contentContainer}>{body}</div>}
       </div>
     );
