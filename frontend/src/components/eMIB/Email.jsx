@@ -22,6 +22,7 @@ const styles = {
   email: {
     textAlign: "left",
     paddingLeft: 16,
+    paddingRight: 16,
     paddingTop: 16
   },
   replyAndUser: {
