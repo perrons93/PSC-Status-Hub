@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class ModifyTaskBody extends Component {
+class EditTask extends Component {
   render() {
     return (
       <div>
@@ -9,4 +9,4 @@ class ModifyTaskBody extends Component {
     );
   }
 }
-export default ModifyTaskBody;
+export default EditTask;

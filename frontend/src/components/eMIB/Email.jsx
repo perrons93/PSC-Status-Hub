@@ -137,15 +137,15 @@ class Email extends Component {
           showDialog={this.state.showAddEmailDialog}
           handleClose={this.closeEmailDialog}
           saveEmail={this.replyToEmail}
-          responseType={ACTION_TYPE.email}
-          modificationType={EDIT_MODE.create}
+          actionType={ACTION_TYPE.email}
+          editMode={EDIT_MODE.create}
         />
         <EditEmailActionDialog
           showDialog={this.state.showAddTaskDialog}
           handleClose={this.closeTaskDialog}
           saveEmail={this.addTaskToEmail}
-          responseType={ACTION_TYPE.task}
-          modificationType={EDIT_MODE.create}
+          actionType={ACTION_TYPE.task}
+          editMode={EDIT_MODE.create}
         />
       </div>
     );

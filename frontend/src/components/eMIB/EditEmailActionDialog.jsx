@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
-import ModifyEmailBody from "./ModifyEmailBody";
-import ModifyTaskBody from "./ModifyTaskBody";
+import EditEmail from "./EditEmail";
+import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
 import "../../css/modify-email-response.css";
 
@@ -37,8 +37,8 @@ class EditEmailActionDialog extends Component {
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
     saveEmail: PropTypes.func.isRequired,
-    responseType: PropTypes.string.isRequired,
-    modificationType: PropTypes.string.isRequired
+    actionType: PropTypes.string.isRequired,
+    editMode: PropTypes.string.isRequired
   };
 
   buttonCloseAndAction = () => {
@@ -47,7 +47,7 @@ class EditEmailActionDialog extends Component {
   };
 
   render() {
-    const { showDialog, handleClose, responseType, modificationType } = this.props;
+    const { showDialog, handleClose, actionType, editMode } = this.props;
 
     // Note the header has a span within a span: this is to make testing easier:
     // Rather than checking all the possible titles, just check that the span is present
@@ -58,19 +58,15 @@ class EditEmailActionDialog extends Component {
             <Modal.Header closeButton style={styles.modalHeader}>
               {
                 <span style={styles.title}>
-                  &emsp;
-                  {responseType === ACTION_TYPE.email ? (
-                    <i className="fas fa-envelope" />
-                  ) : (
-                    <i className="fas fa-tasks" />
-                  )}
-                  &emsp;
+                  {actionType === ACTION_TYPE.email && <i className="fas fa-envelope" />}
+                  {actionType === ACTION_TYPE.task && <i className="fas fa-tasks" />}
                   <span>
-                    {modificationType === EDIT_MODE.create
-                      ? LOCALIZE.emibTest.inboxPage.editEmailActionDialog.add
-                      : LOCALIZE.emibTest.inboxPage.editEmailActionDialog.modify}
-                  </span>{" "}
-                  {responseType === ACTION_TYPE.email
+                    {editMode === EDIT_MODE.create &&
+                      LOCALIZE.emibTest.inboxPage.editEmailActionDialog.add}
+                    {editMode === EDIT_MODE.add &&
+                      LOCALIZE.emibTest.inboxPage.editEmailActionDialog.modify}
+                  </span>
+                  {actionType === ACTION_TYPE.email
                     ? LOCALIZE.emibTest.inboxPage.editEmailActionDialog.email
                     : LOCALIZE.emibTest.inboxPage.editEmailActionDialog.task}{" "}
                   {LOCALIZE.emibTest.inboxPage.editEmailActionDialog.response}
@@ -78,7 +74,8 @@ class EditEmailActionDialog extends Component {
               }
             </Modal.Header>
             <Modal.Body>
-              {responseType === ACTION_TYPE.email ? <ModifyEmailBody /> : <ModifyTaskBody />}
+              {actionType === ACTION_TYPE.email && <EditEmail />}
+              {actionType === ACTION_TYPE.task && <EditTask />}
             </Modal.Body>
             <Modal.Footer>
               <div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class ModifyEmailBody extends Component {
+class EditEmail extends Component {
   render() {
     return (
       <div>
@@ -9,4 +9,4 @@ class ModifyEmailBody extends Component {
     );
   }
 }
-export default ModifyEmailBody;
+export default EditEmail;
