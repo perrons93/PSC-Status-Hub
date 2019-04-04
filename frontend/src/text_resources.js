@@ -336,6 +336,13 @@ let LOCALIZE = new LocalizedStrings({
         replyTextPart1: "You responded with ",
         replyTextPart2: " emails and ",
         replyTextPart3: " tasks",
+        editEmailActionDialog: {
+          addEmail: "Add email response",
+          editEmail: "Edit email response",
+          addTask: "Add task",
+          editTask: "Edit task",
+          save: "Save response"
+        },
         emailResponse: {
           responseType: {
             reply: "reply",
@@ -785,6 +792,13 @@ let LOCALIZE = new LocalizedStrings({
         replyTextPart1: "FR You responded with ",
         replyTextPart2: " FR emails and ",
         replyTextPart3: " FR tasks",
+        editEmailActionDialog: {
+          addEmail: "FR Add email response",
+          editEmail: "FR Edit email response",
+          addTask: "FR Add task",
+          editTask: "FR Edit task",
+          save: "FR Save response"
+        },
         emailResponse: {
           responseType: {
             reply: "répondre",

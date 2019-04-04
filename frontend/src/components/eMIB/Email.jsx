@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
+import EditEmailActionDialog, { ACTION_TYPE, EDIT_MODE } from "./EditEmailActionDialog";
 
 const styles = {
   header: {
@@ -46,11 +47,34 @@ class Email extends Component {
     isRepliedTo: PropTypes.bool.isRequired
   };
 
+  state = {
+    showAddEmailDialog: false,
+    showAddTaskDialog: false
+  };
+
+  showAddEmailDialog = () => {
+    this.setState({ showAddEmailDialog: true });
+  };
+
+  closeEmailDialog = () => {
+    this.setState({ showAddEmailDialog: false });
+  };
+
+  showAddTaskDialog = () => {
+    this.setState({ showAddTaskDialog: true });
+  };
+
+  closeTaskDialog = () => {
+    this.setState({ showAddTaskDialog: false });
+  };
+
   replyToEmail = () => {
+    //TODO mcherry: replace the following with change to redux state
     this.props.respondToEmail(this.props.email.id);
   };
 
   addTaskToEmail = () => {
+    //TODO mcherry: replace the following with change to redux state
     this.props.respondToEmail(this.props.email.id);
   };
 
@@ -78,7 +102,7 @@ class Email extends Component {
             id="unit-test-email-reply-button"
             type="button"
             className="btn btn-primary"
-            onClick={this.replyToEmail}
+            onClick={this.showAddEmailDialog}
           >
             <i className="fas fa-envelope" />
             &emsp;
@@ -89,7 +113,7 @@ class Email extends Component {
             id="unit-test-email-task-button"
             type="button"
             className="btn btn-primary"
-            onClick={this.addTaskToEmail}
+            onClick={this.showAddTaskDialog}
           >
             <i className="fas fa-tasks" />
             &emsp;
@@ -109,6 +133,20 @@ class Email extends Component {
         </div>
         <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
+        <EditEmailActionDialog
+          showDialog={this.state.showAddEmailDialog}
+          handleClose={this.closeEmailDialog}
+          saveEmail={this.replyToEmail}
+          actionType={ACTION_TYPE.email}
+          editMode={EDIT_MODE.create}
+        />
+        <EditEmailActionDialog
+          showDialog={this.state.showAddTaskDialog}
+          handleClose={this.closeTaskDialog}
+          saveEmail={this.addTaskToEmail}
+          actionType={ACTION_TYPE.task}
+          editMode={EDIT_MODE.create}
+        />
       </div>
     );
   }
