@@ -10,7 +10,12 @@ const styles = {
   },
   emailId: {
     float: "left",
-    marginRight: 12
+    marginRight: 12,
+    fontSize: 16,
+    fontWeight: 700,
+    color: "#252525",
+    marginBottom: 8,
+    marginTop: 0
   },
   replyStatus: {
     float: "right"
@@ -79,10 +84,10 @@ class Email extends Component {
     return (
       <div style={styles.email}>
         <div style={styles.header}>
-          <h6 style={styles.emailId}>
+          <h2 style={styles.emailId}>
             {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
             {email.id + 1}
-          </h6>
+          </h2>
           {this.props.isRepliedTo && (
             <div className="font-weight-bold" style={styles.replyStatus}>
               <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
