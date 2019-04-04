@@ -17,18 +17,15 @@ export const EDIT_MODE = {
 };
 
 const styles = {
-  title: {
-    fontSize: 16,
-    fontWeight: 600
+  icon: {
+    float: "left",
+    marginTop: 12
   },
   modalHeader: {
-    display: "table",
-    top: 0,
-    right: 0,
-    width: "100%",
-    padding: "0 0 0 0",
     backgroundColor: "#00565E",
-    color: "white"
+    color: "white",
+    fontSize: 16,
+    fontWeight: 600
   }
 };
 
@@ -48,29 +45,36 @@ class EditEmailActionDialog extends Component {
 
   render() {
     const { showDialog, handleClose, actionType, editMode } = this.props;
-
-    // Note the header has a span within a span: this is to make testing easier:
-    // Rather than checking all the possible titles, just check that the span is present
     return (
       <div>
         <Modal id="email-response" show={showDialog} onHide={handleClose}>
           <div>
-            <Modal.Header closeButton style={styles.modalHeader}>
+            <Modal.Header style={styles.modalHeader}>
               {
-                <span style={styles.title}>
-                  {actionType === ACTION_TYPE.email && <i className="fas fa-envelope" />}
-                  {actionType === ACTION_TYPE.task && <i className="fas fa-tasks" />}
-                  <span>
-                    {editMode === EDIT_MODE.create &&
-                      LOCALIZE.emibTest.inboxPage.editEmailActionDialog.add}
-                    {editMode === EDIT_MODE.add &&
-                      LOCALIZE.emibTest.inboxPage.editEmailActionDialog.modify}
-                  </span>
-                  {actionType === ACTION_TYPE.email
-                    ? LOCALIZE.emibTest.inboxPage.editEmailActionDialog.email
-                    : LOCALIZE.emibTest.inboxPage.editEmailActionDialog.task}{" "}
-                  {LOCALIZE.emibTest.inboxPage.editEmailActionDialog.response}
-                </span>
+                <div style={styles.title}>
+                  {actionType === ACTION_TYPE.email && (
+                    <div>
+                      <i styles={styles.icon} className="fas fa-envelope" />
+                      {editMode === EDIT_MODE.create && (
+                        <h3>{LOCALIZE.emibTest.inboxPage.editEmailActionDialog.addEmail}</h3>
+                      )}
+                      {editMode === EDIT_MODE.update && (
+                        <h3>{LOCALIZE.emibTest.inboxPage.editEmailActionDialog.editEmail}</h3>
+                      )}
+                    </div>
+                  )}
+                  {actionType === ACTION_TYPE.task && (
+                    <div>
+                      <i styles={styles.icon} className="fas fa-tasks" />
+                      {editMode === EDIT_MODE.create && (
+                        <h3>{LOCALIZE.emibTest.inboxPage.editEmailActionDialog.addTask}</h3>
+                      )}
+                      {editMode === EDIT_MODE.update && (
+                        <h3>{LOCALIZE.emibTest.inboxPage.editEmailActionDialog.editTask}</h3>
+                      )}
+                    </div>
+                  )}
+                </div>
               }
             </Modal.Header>
             <Modal.Body>
