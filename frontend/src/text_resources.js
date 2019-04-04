@@ -335,7 +335,21 @@ let LOCALIZE = new LocalizedStrings({
         addTask: "Create a task",
         replyTextPart1: "You responded with ",
         replyTextPart2: " emails and ",
-        replyTextPart3: " tasks"
+        replyTextPart3: " tasks",
+        emailResponse: {
+          responseType: {
+            reply: "reply",
+            replyAll: "reply all",
+            forward: "forward"
+          },
+          description: "For this response, you've chosen to:",
+          to: "To:",
+          cc: "Cc:",
+          response: "Your response:",
+          reasonsForAction: "Your reasons for action:",
+          editButton: "Edit response",
+          deleteButton: "Delete response"
+        }
       },
 
       //Confirmation Page
@@ -389,7 +403,11 @@ let LOCALIZE = new LocalizedStrings({
       tabMenu: "eMIB Tab Menu",
       instructionsMenu: "Instructions Menu",
       languageToggleBtn: "language-toggle-button",
-      authenticationMenu: "Authentication Menu"
+      authenticationMenu: "Authentication Menu",
+      emailHeader: "email header",
+      responseDetails: "response details",
+      reasonsForActionDetails: "reasons for action details",
+      emailOptions: "email options"
     },
 
     //Commons
@@ -766,7 +784,21 @@ let LOCALIZE = new LocalizedStrings({
         addTask: "FR Create a task",
         replyTextPart1: "FR You responded with ",
         replyTextPart2: " FR emails and ",
-        replyTextPart3: " FR tasks"
+        replyTextPart3: " FR tasks",
+        emailResponse: {
+          responseType: {
+            reply: "répondre",
+            replyAll: "répondre à tous",
+            forward: "transmettre"
+          },
+          description: "FR For this response, you've chosen to:",
+          to: "À :",
+          cc: "Cc :",
+          response: "FR Your response:",
+          reasonsForAction: "FR Your reasons for action:",
+          editButton: "Modifier réponse",
+          deleteButton: "Supprimer résponse"
+        }
       },
 
       //Confirmation Page
@@ -821,7 +853,11 @@ let LOCALIZE = new LocalizedStrings({
       tabMenu: "Menu des onglets de la BRG-e",
       instructionsMenu: "Menu des instructions",
       languageToggleBtn: "bouton-de-langue-a-bascule",
-      authenticationMenu: "Menu d'authentification"
+      authenticationMenu: "Menu d'authentification",
+      emailHeader: "en-tête du courriel",
+      responseDetails: "détails de la réponse",
+      reasonsForActionDetails: "motifs de l'action",
+      emailOptions: "options de messagerie"
     },
 
     //Commons
