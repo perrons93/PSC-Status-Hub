@@ -4,7 +4,6 @@ import LOCALIZE from "../../text_resources";
 import EditEmail from "./EditEmail";
 import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
-import "../../css/modify-email-response.css";
 
 export const ACTION_TYPE = {
   email: "email",
@@ -54,7 +53,7 @@ class EditEmailActionDialog extends Component {
     const { showDialog, handleClose, actionType, editMode } = this.props;
     return (
       <div>
-        <Modal id="email-response" show={showDialog} onHide={handleClose}>
+        <Modal show={showDialog} onHide={handleClose}>
           <div>
             <Modal.Header style={styles.modalHeader}>
               {
