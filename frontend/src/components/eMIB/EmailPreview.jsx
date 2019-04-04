@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { readEmail } from "../../modules/EmibInboxRedux";
 
 const styles = {
   //buttons
@@ -67,9 +64,7 @@ class EmailPreview extends Component {
     selectEmail: PropTypes.func.isRequired,
     isRead: PropTypes.bool.isRequired,
     isRepliedTo: PropTypes.bool.isRequired,
-    isSelected: PropTypes.bool.isRequired,
-    // Provided by Redux
-    readEmail: PropTypes.func.isRequired
+    isSelected: PropTypes.bool.isRequired
   };
 
   render() {
@@ -81,8 +76,6 @@ class EmailPreview extends Component {
       //if it is read
       buttonBackgroundColor = styles.buttonReadBackground;
       subjectIsRead = styles.subjectRead;
-      // update redux to mark email as read
-      // this.props.readEmail();
     }
 
     //SELECTED/UNSELECTED CHECK
@@ -139,17 +132,4 @@ class EmailPreview extends Component {
   }
 }
 
-export { EmailPreview as UnconnectedEmailPreview };
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      readEmail
-    },
-    dispatch
-  );
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(EmailPreview);
+export default EmailPreview;

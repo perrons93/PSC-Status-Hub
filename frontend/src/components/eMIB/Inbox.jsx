@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import EmailPreview from "./EmailPreview";
 import Email from "./Email";
 import "../../css/inbox.css";
 import { HEADER_HEIGHT, FOOTER_HEIGHT } from "./constants";
+import { readEmail } from "../../modules/EmibInboxRedux";
 
 const INBOX_HEIGHT = `calc(100vh - ${HEADER_HEIGHT + FOOTER_HEIGHT}px)`;
 
@@ -36,21 +38,18 @@ class Inbox extends Component {
   static propTypes = {
     // Provided by redux
     emails: PropTypes.array,
-    emailSummaries: PropTypes.array.isRequired
+    emailSummaries: PropTypes.array.isRequired,
+    readEmail: PropTypes.func.isRequired
   };
 
   state = {
     currentEmail: 0,
-    emailRead: initializeFalseArray(this.props.emails.length),
     emailResponses: initializeFalseArray(this.props.emails.length)
   };
 
   changeEmail = index => {
-    let emailsRead = Array.from(this.state.emailRead);
-    emailsRead[index] = true;
-    // The previous "current email" is marked as open.
-    emailsRead[this.state.currentEmail] = true;
-    this.setState({ currentEmail: index, emailRead: emailsRead });
+    this.props.readEmail(this.state.currentEmail);
+    this.setState({ currentEmail: index });
   };
 
   respondToEmail = index => {
@@ -75,7 +74,7 @@ class Inbox extends Component {
                 <EmailPreview
                   email={email}
                   selectEmail={this.changeEmail}
-                  isRead={this.state.emailRead[index]}
+                  isRead={this.props.emailSummaries[index].isRead}
                   isRepliedTo={this.state.emailResponses[index]}
                   isSelected={index === this.state.currentEmail}
                 />
@@ -103,7 +102,15 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      readEmail
+    },
+    dispatch
+  );
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Inbox);
