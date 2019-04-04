@@ -9,6 +9,8 @@ https://github.com/react-bootstrap/react-bootstrap/issues/2285
 
 These are set as !important elsewhere, so we need to use !important to override
 The id prevents it from overriding other modals
+
+Modal will auto resize height as needed
 */
 #email-response .modal-dialog {
   /* TODO mcherry determine what the actual width needs to be*/
