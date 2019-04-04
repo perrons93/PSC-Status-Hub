@@ -35,7 +35,8 @@ function initializeFalseArray(length) {
 class Inbox extends Component {
   static propTypes = {
     // Provided by redux
-    emails: PropTypes.array
+    emails: PropTypes.array,
+    isReadEmail: PropTypes.bool.isRequired
   };
 
   state = {
@@ -97,7 +98,8 @@ class Inbox extends Component {
 export { Inbox as UnconnectedInbox };
 const mapStateToProps = (state, ownProps) => {
   return {
-    emails: state.emibInbox.emails
+    emails: state.emibInbox.emails,
+    isReadEmail: state.emailReadStatus.isReadEmail
   };
 };
 
