@@ -30,7 +30,11 @@ export const RESPONSE_TYPE = {
 
 class ResponseItem extends Component {
   static propTypes = {
-    responseType: PropTypes.string.isRequired,
+    responseType: PropTypes.oneOf([
+      RESPONSE_TYPE.reply,
+      RESPONSE_TYPE.replyAll,
+      RESPONSE_TYPE.forward
+    ]).isRequired,
     to: PropTypes.string.isRequired,
     cc: PropTypes.string,
     response: PropTypes.string.isRequired,
