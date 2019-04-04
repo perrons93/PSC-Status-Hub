@@ -18,7 +18,8 @@ export const MODIFICATION_TYPE = {
 
 const styles = {
   title: {
-    fontSize: 16
+    fontSize: 16,
+    fontWeight: 600
   },
   modalHeader: {
     display: "table",
@@ -50,7 +51,7 @@ class ModifyEmailResponse extends Component {
 
     return (
       <div>
-        <Modal show={showDialog} onHide={handleClose}>
+        <Modal id="email-response" show={showDialog} onHide={handleClose}>
           <div>
             <Modal.Header closeButton style={styles.modalHeader}>
               {

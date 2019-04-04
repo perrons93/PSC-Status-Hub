@@ -2,3 +2,15 @@
   color: white;
   opacity: 1;
 }
+
+/*
+modal widths cannot be passed by style to modal; needs to be set in css file:
+https://github.com/react-bootstrap/react-bootstrap/issues/2285
+
+These are set as !important elsewhere, so we need to use !important to override
+The id prevents it from overriding other modals
+*/
+#email-response .modal-dialog {
+  /* TODO mcherry determine what the actual width needs to be*/
+  width: 1000px !important;
+}
