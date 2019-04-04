@@ -18,7 +18,13 @@ it("Shows only email 3", () => {
 });
 
 function testCore(selected) {
-  const wrapper = mount(<Inbox emails={INBOX_SPECS} />);
+  const wrapper = mount(
+    <Inbox
+      emails={INBOX_SPECS}
+      emailSummaries={[{ isRead: false }, { isRead: false }, { isRead: false }]}
+      readEmail={() => {}}
+    />
+  );
   wrapper.setState({ currentEmail: selected });
   for (let i = 0; i < 3; i++) {
     const currentEmail = INBOX_SPECS[i];
