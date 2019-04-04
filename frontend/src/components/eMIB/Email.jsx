@@ -9,22 +9,33 @@ const styles = {
   },
   emailId: {
     float: "left",
-    marginRight: 12
+    marginRight: 12,
+    fontSize: 16,
+    fontWeight: 700,
+    color: "#252525",
+    marginBottom: 8,
+    marginTop: 0
   },
   replyStatus: {
     float: "right"
   },
   email: {
     textAlign: "left",
-    padding: 24
+    paddingLeft: 16,
+    paddingTop: 16
   },
   replyAndUser: {
     color: "#00565E"
   },
-  hr: {
+  titleEmailDivider: {
     width: "100%",
-    borderTop: "2px solid #00565E",
-    margin: "24px 0 24px 0"
+    borderTop: "1px solid #00565E",
+    margin: "16px 0 12px 0"
+  },
+  dataBodyDivider: {
+    width: "100%",
+    borderTop: "1px solid #96a8b2",
+    margin: "12px 0 12px 0"
   }
 };
 
@@ -49,10 +60,10 @@ class Email extends Component {
     return (
       <div style={styles.email}>
         <div style={styles.header}>
-          <h5 style={styles.emailId}>
+          <h2 style={styles.emailId}>
             {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
-            {email.visibleID}
-          </h5>
+            {email.id + 1}
+          </h2>
           {this.props.isRepliedTo && (
             <div className="font-weight-bold" style={styles.replyStatus}>
               <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
@@ -85,7 +96,7 @@ class Email extends Component {
             {LOCALIZE.emibTest.inboxPage.addTask}
           </button>
         </div>
-        <hr style={styles.hr} />
+        <hr style={styles.titleEmailDivider} />
         <h3>{email.subject}</h3>
         <div>
           {LOCALIZE.emibTest.inboxPage.from}: <span style={styles.replyAndUser}>{email.from}</span>
@@ -96,7 +107,7 @@ class Email extends Component {
         <div>
           {LOCALIZE.emibTest.inboxPage.date}: {email.date}
         </div>
-        <hr style={styles.hr} />
+        <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
       </div>
     );

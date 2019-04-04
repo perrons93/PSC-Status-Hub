@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import Confirmation from "./Confirmation";
 import EmibTabs from "./EmibTabs";
 import TestFooter from "../commons/TestFooter";
@@ -12,6 +15,8 @@ import Evaluation from "./Evaluation";
 import ProgressPane from "../commons/ProgressPane";
 import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
+import { activateTest, deactivateTest } from "../../modules/TestStatusRedux";
+import ConfirmStartTest from "../commons/ConfirmStartTest";
 
 const PAGES = {
   preTest: "preTest",
@@ -49,27 +54,6 @@ export const getInstructionContent = () => {
   ];
 };
 
-export const getInboxContent = () => {
-  return [
-    LOCALIZE.emibTest.emails.email1,
-    LOCALIZE.emibTest.emails.email2,
-    LOCALIZE.emibTest.emails.email3,
-    LOCALIZE.emibTest.emails.email4,
-    LOCALIZE.emibTest.emails.email5,
-    LOCALIZE.emibTest.emails.email6,
-    LOCALIZE.emibTest.emails.email7,
-    LOCALIZE.emibTest.emails.email8,
-    LOCALIZE.emibTest.emails.email9,
-    LOCALIZE.emibTest.emails.email10
-  ];
-};
-
-//Passing Specs as a prop into Inbox causes a bug where the language does not toggle
-// However, inbox's state needs to know the length of the specs to be initialized.
-export const getInboxLength = () => {
-  return getInboxContent().length;
-};
-
 const quitConditions = () => {
   return [
     { text: LOCALIZE.emibTest.testFooter.quitTestPopupBox.checkboxOne, checked: false },
@@ -79,25 +63,45 @@ const quitConditions = () => {
 };
 
 class Emib extends Component {
+  static propTypes = {
+    // Provided by Redux
+    activateTest: PropTypes.func.isRequired,
+    deactivateTest: PropTypes.func.isRequired
+  };
+
   state = {
     curPage: PAGES.preTest,
     showSubmitPopup: false,
     showQuitPopup: false,
+    showConfirmStartTestPopup: false,
     quitConditions: quitConditions()
   };
 
   changePage = () => {
     switch (this.state.curPage) {
       case PAGES.preTest:
+        // Move from instructions to starting the test.
         this.setState({ curPage: PAGES.emibTabs });
+        // update redux to activate test
+        this.props.activateTest();
         break;
       case PAGES.emibTabs:
         this.setState({ curPage: PAGES.confirm });
+        // update redux to de-activate test
+        this.props.deactivateTest();
         break;
       default:
         this.setState({ curPage: PAGES.preTest });
         break;
     }
+  };
+
+  showStartTestPopup = () => {
+    this.setState({ showConfirmStartTestPopup: true });
+  };
+
+  closeStartTestPopup = () => {
+    this.setState({ showConfirmStartTestPopup: false });
   };
 
   openSubmitPopup = () => {
@@ -148,7 +152,7 @@ class Emib extends Component {
                   <button
                     type="button"
                     className="btn btn-primary btn-wide"
-                    onClick={this.changePage}
+                    onClick={this.showStartTestPopup}
                   >
                     {LOCALIZE.commons.startTest}
                   </button>
@@ -162,6 +166,12 @@ class Emib extends Component {
         {this.state.curPage === PAGES.emibTabs && (
           <TestFooter submitTest={this.openSubmitPopup} quitTest={this.openQuitPopup} />
         )}
+
+        <ConfirmStartTest
+          showDialog={this.state.showConfirmStartTestPopup}
+          handleClose={this.closeStartTestPopup}
+          startTest={this.changePage}
+        />
 
         <PopupBox
           show={this.state.showSubmitPopup}
@@ -244,6 +254,19 @@ class Emib extends Component {
     );
   }
 }
-
-export default Emib;
 export { PAGES };
+export { Emib as UnconnectedEmib };
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      activateTest,
+      deactivateTest
+    },
+    dispatch
+  );
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Emib);

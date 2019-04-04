@@ -18,7 +18,7 @@ const styles = {
     marginRight: 8,
     fontSize: 18
   },
-  collapsingIcon: {
+  expandIcon: {
     position: "absolute",
     top: 0,
     right: 0,
@@ -45,41 +45,36 @@ class CollapsingItemContainer extends Component {
   };
 
   state = {
-    isHidden: true,
-    buttonClass: "btn btn-secondary",
-    iconClass: "fas fa-angle-down",
-    containerClass: ""
+    isCollapsed: true
   };
 
   expandItem = () => {
-    if (this.state.isHidden) {
-      this.setState({
-        isHidden: false,
-        buttonClass: "btn btn-primary expanded-button-style",
-        iconClass: "fas fa-angle-up expand-icon-style",
-        containerClass: "expanded-container-style"
-      });
-    } else {
-      this.setState({
-        isHidden: true,
-        buttonClass: "btn btn-secondary",
-        iconClass: "fas fa-angle-down",
-        containerClass: ""
-      });
-    }
+    this.setState({ isCollapsed: !this.state.isCollapsed });
   };
 
   render() {
     const { iconType, title, body } = this.props;
-    const { isHidden, buttonClass, iconClass, containerClass } = this.state;
+    const { isCollapsed } = this.state;
+    let { buttonClass, iconClass, containerClass } = "";
+
+    if (isCollapsed) {
+      buttonClass = "btn btn-secondary";
+      iconClass = "fas fa-angle-down blue-expand-icon";
+      containerClass = "";
+    } else if (!isCollapsed) {
+      buttonClass = "btn btn-primary expanded-button-style";
+      iconClass = "fas fa-angle-up white-expand-icon";
+      containerClass = "expanded-container-style";
+    }
+
     return (
       <div className={`${containerClass} collapsing-item-container`} style={styles.container}>
         <button className={buttonClass} style={styles.button} onClick={this.expandItem}>
-          <span className={iconType} style={styles.envelopeIcon} />
+          <i className={iconType} style={styles.envelopeIcon} />
           <span style={styles.title}>{title}</span>
         </button>
-        <span className={`${iconClass} expand-icon`} style={styles.collapsingIcon} />
-        {!isHidden && <div style={styles.contentContainer}>{body}</div>}
+        <i id="white-expand-icon-on-hover" className={iconClass} style={styles.expandIcon} />
+        {!isCollapsed && <div style={styles.contentContainer}>{body}</div>}
       </div>
     );
   }

@@ -5,12 +5,13 @@ import LOCALIZE from "../../text_resources";
 const styles = {
   //buttons
   button: {
-    width: 155,
+    width: 202,
     textAlign: "left",
-    borderRadius: 4,
-    padding: 6,
-    border: "2px solid #00565E",
-    cursor: "pointer"
+    padding: 8,
+    borderRight: "1px solid #00565E",
+    borderBottom: "1px solid #00565E",
+    cursor: "pointer",
+    fontSize: 14
   },
   buttonSelectedBackground: {
     backgroundColor: "#00565E"
@@ -27,11 +28,17 @@ const styles = {
   buttonUnselectedText: {
     color: "black"
   },
+  buttonUnselectedSymbol: {
+    color: "#00565E"
+  },
   //li
   li: {
     listStyleType: "none"
   },
   //subject line
+  subjectGeneral: {
+    fontSize: 16
+  },
   subjectSelected: {
     color: "white"
   },
@@ -60,17 +67,6 @@ class EmailPreview extends Component {
     isSelected: PropTypes.bool.isRequired
   };
 
-  // if there is a "(" in the From field of the preview, remove it and return the remainder
-  // When there is a database, the () portion of the To/From may be populated by a seperate field
-  // but this will remove it until the design is finalized
-  trimFromName(string) {
-    let index = string.indexOf("(");
-    if (index === -1) {
-      return string;
-    }
-    return string.slice(0, index);
-  }
-
   render() {
     //READ/UNREAD CHECK
     //defaults, or if unread
@@ -86,15 +82,22 @@ class EmailPreview extends Component {
     //defaults, or unselected
     let buttonTextColor = styles.buttonUnselectedText;
     let subjectIsSelected = styles.subjectUnselected;
+    let imageStyle = styles.buttonUnselectedSymbol;
     if (this.props.isSelected) {
       //if it is selected
       buttonBackgroundColor = styles.buttonSelectedBackground;
       buttonTextColor = styles.buttonSelectedText;
       subjectIsSelected = styles.subjectSelected;
+      imageStyle = styles.buttonSelectedText;
     }
 
     let buttonStyle = { ...styles.button, ...buttonTextColor, ...buttonBackgroundColor };
-    let subject = { ...subjectIsRead, ...subjectIsSelected, ...styles.truncated };
+    let subject = {
+      ...styles.subjectGeneral,
+      ...subjectIsRead,
+      ...subjectIsSelected,
+      ...styles.truncated
+    };
     const email = this.props.email;
     return (
       <li
@@ -110,16 +113,19 @@ class EmailPreview extends Component {
         <div style={buttonStyle} onClick={() => this.props.selectEmail(email.id)}>
           <div id={this.props.isRead ? "read-email-preview" : "unread-email-preview"}>
             {this.props.isRead ? (
-              <i className="far fa-envelope-open" />
+              <i className="far fa-envelope-open" style={imageStyle} />
             ) : (
-              <i className="fas fa-envelope" />
+              <i className="fas fa-envelope" style={imageStyle} />
             )}
+            &nbsp;
             {LOCALIZE.emibTest.inboxPage.emailId}
-            {email.visibleID}&emsp;
-            {this.props.isRepliedTo && <i className="fas fa-sign-out-alt" />}
+            {email.id + 1}
+            {this.props.isRepliedTo && (
+              <i className="fas fa-sign-out-alt" style={{ float: "right", ...imageStyle }} />
+            )}
           </div>
           <div style={subject}>{email.subject}</div>
-          <div style={styles.truncated}>{this.trimFromName(email.from)}</div>
+          <div style={styles.truncated}>{email.from}</div>
         </div>
       </li>
     );
