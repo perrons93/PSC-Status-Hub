@@ -30,7 +30,9 @@ const styles = {
   },
   modalHeader: {
     backgroundColor: "#00565E",
-    color: "white"
+    color: "white",
+    fontSize: 16,
+    fontWeight: 600
   }
 };
 
