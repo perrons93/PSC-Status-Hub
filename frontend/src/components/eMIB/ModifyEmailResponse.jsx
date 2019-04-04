@@ -69,7 +69,7 @@ class ModifyEmailResponse extends Component {
                   {responseType === RESPONSE_TYPE.email
                     ? LOCALIZE.emibTest.inboxPage.modifyEmailResponse.email
                     : LOCALIZE.emibTest.inboxPage.modifyEmailResponse.task}{" "}
-                  response
+                  {LOCALIZE.emibTest.inboxPage.modifyEmailResponse.response}
                 </span>
               }
             </Modal.Header>

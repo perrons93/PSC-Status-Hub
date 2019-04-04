@@ -341,7 +341,8 @@ let LOCALIZE = new LocalizedStrings({
           modify: "Modify",
           email: "email",
           task: "task",
-          save: "Save response"
+          save: "Save response",
+          response: "response"
         }
       },
 
@@ -779,7 +780,8 @@ let LOCALIZE = new LocalizedStrings({
           modify: "FR Modify",
           email: "FR email",
           task: "FR task",
-          save: "FR Save response"
+          save: "FR Save response",
+          response: "FR response"
         }
       },
 
