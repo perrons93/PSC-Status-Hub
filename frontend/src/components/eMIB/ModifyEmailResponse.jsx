@@ -4,6 +4,7 @@ import LOCALIZE from "../../text_resources";
 import ModifyEmailBody from "./ModifyEmailBody";
 import ModifyTaskBody from "./ModifyTaskBody";
 import { Modal } from "react-bootstrap";
+import "../../css/modify-email-response.css";
 
 export const RESPONSE_TYPE = {
   email: "email",
