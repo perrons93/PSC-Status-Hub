@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import Email from "../../../components/eMIB/Email";
 
 const emailStub = {
@@ -31,13 +31,23 @@ it("shows action when set to true in props", () => {
 
 it("reply and task buttons trigger the function", () => {
   const submitMock = jest.fn();
-  const wrapper = shallow(
+  const wrapper = mount(
     <Email email={emailStub} respondToEmail={submitMock} isRepliedTo={false} />
   );
   const subject = <h3>Subject 1</h3>;
   expect(wrapper.contains(subject)).toEqual(true);
   wrapper.find("#unit-test-email-reply-button").simulate("click");
+  //Test also needs to triger the save response button in the modal to "save" the response
+  wrapper
+    .find("#unit-test-email-response-button")
+    .first()
+    .simulate("click");
   expect(submitMock).toHaveBeenCalledTimes(1);
   wrapper.find("#unit-test-email-task-button").simulate("click");
+  //Test also needs to triger the save response button in the modal to "save" the response
+  wrapper
+    .find("#unit-test-email-response-button")
+    .first()
+    .simulate("click");
   expect(submitMock).toHaveBeenCalledTimes(2);
 });
