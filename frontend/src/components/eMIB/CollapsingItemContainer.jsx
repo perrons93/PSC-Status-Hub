@@ -23,7 +23,6 @@ const styles = {
     top: 0,
     right: 0,
     margin: "11px 24px 0 0",
-    color: "#00565E",
     pointerEvents: "none",
     fontSize: 18
   },
