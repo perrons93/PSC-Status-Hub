@@ -12,11 +12,9 @@ const styles = {
     marginRight: 12,
     fontSize: 16,
     fontWeight: 700,
-    color: "black",
+    color: "#252525",
     marginBottom: 8,
-    marginTop: 0,
-    WebkitMarginAfter: 8,
-    WebkitMarginBefore: 0
+    marginTop: 0
   },
   replyStatus: {
     float: "right"
