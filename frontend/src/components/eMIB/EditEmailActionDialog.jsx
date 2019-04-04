@@ -19,13 +19,18 @@ export const EDIT_MODE = {
 const styles = {
   icon: {
     float: "left",
-    marginTop: 12
+    marginTop: 14,
+    marginRight: 8
+  },
+  dialogHeaderText: {
+    float: "left",
+    fontSize: 20,
+    marginTop: 10,
+    marginBottom: 10
   },
   modalHeader: {
     backgroundColor: "#00565E",
-    color: "white",
-    fontSize: 16,
-    fontWeight: 600
+    color: "white"
   }
 };
 
@@ -54,8 +59,8 @@ class EditEmailActionDialog extends Component {
                 <div style={styles.title}>
                   {actionType === ACTION_TYPE.email && (
                     <div>
-                      <i styles={styles.icon} className="fas fa-envelope" />
-                      <h3>
+                      <i style={styles.icon} className="fas fa-envelope" />
+                      <h3 style={styles.dialogHeaderText}>
                         {editMode === EDIT_MODE.create &&
                           LOCALIZE.emibTest.inboxPage.editEmailActionDialog.addEmail}
                         {editMode === EDIT_MODE.update &&
@@ -65,8 +70,8 @@ class EditEmailActionDialog extends Component {
                   )}
                   {actionType === ACTION_TYPE.task && (
                     <div>
-                      <i styles={styles.icon} className="fas fa-tasks" />
-                      <h3>
+                      <i style={styles.icon} className="fas fa-tasks" />
+                      <h3 style={styles.dialogHeaderText}>
                         {editMode === EDIT_MODE.create &&
                           LOCALIZE.emibTest.inboxPage.editEmailActionDialog.addTask}
                         {editMode === EDIT_MODE.update &&
