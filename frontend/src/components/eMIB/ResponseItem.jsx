@@ -55,7 +55,7 @@ class ResponseItem extends Component {
               {LOCALIZE.emibTest.inboxPage.emailResponse.description}
               {responseType === RESPONSE_TYPE.reply && (
                 <>
-                  <span className="fas fa-reply" style={styles.responseTypeIcon} />
+                  <i className="fas fa-reply" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
                     {LOCALIZE.emibTest.inboxPage.emailResponse.responseType.reply}
                   </span>
@@ -63,7 +63,7 @@ class ResponseItem extends Component {
               )}
               {responseType === RESPONSE_TYPE.replyAll && (
                 <>
-                  <span className="fas fa-reply-all" style={styles.responseTypeIcon} />
+                  <i className="fas fa-reply-all" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
                     {LOCALIZE.emibTest.inboxPage.emailResponse.responseType.replyAll}
                   </span>
@@ -71,7 +71,7 @@ class ResponseItem extends Component {
               )}
               {responseType === RESPONSE_TYPE.forward && (
                 <>
-                  <span className="fas fa-share-square" style={styles.responseTypeIcon} />
+                  <i className="fas fa-share-square" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
                     {LOCALIZE.emibTest.inboxPage.emailResponse.responseType.forward}
                   </span>
