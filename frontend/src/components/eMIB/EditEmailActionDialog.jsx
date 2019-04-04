@@ -40,11 +40,11 @@ class EditEmailActionDialog extends Component {
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
     saveEmail: PropTypes.func.isRequired,
-    actionType: PropTypes.string.isRequired,
-    editMode: PropTypes.string.isRequired
+    actionType: PropTypes.oneOf([ACTION_TYPE.email, ACTION_TYPE.task]).isRequired,
+    editMode: PropTypes.oneOf([EDIT_MODE.create, EDIT_MODE.update]).isRequired
   };
 
-  buttonCloseAndAction = () => {
+  handleSave = () => {
     this.props.saveEmail();
     this.props.handleClose();
   };
@@ -94,7 +94,7 @@ class EditEmailActionDialog extends Component {
                     id="unit-test-email-response-button"
                     type="button"
                     className="btn btn-primary"
-                    onClick={this.buttonCloseAndAction}
+                    onClick={this.handleSave}
                   >
                     {LOCALIZE.emibTest.inboxPage.editEmailActionDialog.save}
                   </button>
