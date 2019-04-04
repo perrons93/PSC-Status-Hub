@@ -1,7 +1,7 @@
 import { emailsJson } from "./sampleEmibJson";
 import { SET_LANGUAGE } from "./LocalizeRedux";
 
-const initializeEmailSummaries = length => {
+export const initializeEmailSummaries = length => {
   let emailSummaries = [];
   for (let i = 0; i < length; i++) {
     emailSummaries.push({ isRead: false });
@@ -17,6 +17,7 @@ const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
 
 // Initial State
 // emails - represents an array of emails in the currently selected language.
+// emailSummaries - represents an array of objects indicating read state of each email.
 const initialState = {
   // Loads emails from a static JSON file until an API exists.
   emails: emailsJson.emailsEN,
