@@ -49,6 +49,8 @@ class ModifyEmailResponse extends Component {
   render() {
     const { showDialog, handleClose, responseType, modificationType } = this.props;
 
+    // Note the header has a span within a span: this is to make testing easier:
+    // Rather than checking all the possible titles, just check that the span is present
     return (
       <div>
         <Modal id="email-response" show={showDialog} onHide={handleClose}>
