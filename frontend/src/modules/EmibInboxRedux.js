@@ -1,11 +1,26 @@
 import { emailsJson } from "./sampleEmibJson";
 import { SET_LANGUAGE } from "./LocalizeRedux";
 
+const initializeEmailSummaries = length => {
+  let emailSummaries = [];
+  for (let i = 0; i < length; i++) {
+    emailSummaries.push({ isRead: false });
+  }
+  return emailSummaries;
+};
+
+// Action Types
+const READ_EMAIL = "emibInbox/READ_EMAIL";
+
+// Action Creators
+const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
+
 // Initial State
 // emails - represents an array of emails in the currently selected language.
 const initialState = {
   // Loads emails from a static JSON file until an API exists.
-  emails: emailsJson.emailsEN
+  emails: emailsJson.emailsEN,
+  emailSummaries: initializeEmailSummaries(emailsJson.emailsEN.length)
 };
 
 // Reducer
@@ -16,6 +31,13 @@ const emibInbox = (state = initialState, action) => {
         ...state,
         emails: action.language === "fr" ? emailsJson.emailsFR : emailsJson.emailsEN
       };
+    case READ_EMAIL:
+      let updatedEmailSummaries = Array.from(state.emailSummaries);
+      updatedEmailSummaries[action.emailIndex].isRead = true;
+      return {
+        ...state,
+        emailSummaries: updatedEmailSummaries
+      };
 
     default:
       return state;
@@ -23,4 +45,4 @@ const emibInbox = (state = initialState, action) => {
 };
 
 export default emibInbox;
-export { initialState };
+export { initialState, readEmail };

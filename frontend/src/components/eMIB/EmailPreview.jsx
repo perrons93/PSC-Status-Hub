@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { readEmail } from "../../modules/ReadEmailRedux";
+import { readEmail } from "../../modules/EmibInboxRedux";
 
 const styles = {
   //buttons
@@ -82,7 +82,7 @@ class EmailPreview extends Component {
       buttonBackgroundColor = styles.buttonReadBackground;
       subjectIsRead = styles.subjectRead;
       // update redux to mark email as read
-      this.props.readEmail();
+      // this.props.readEmail();
     }
 
     //SELECTED/UNSELECTED CHECK

@@ -36,7 +36,7 @@ class Inbox extends Component {
   static propTypes = {
     // Provided by redux
     emails: PropTypes.array,
-    isReadEmail: PropTypes.bool.isRequired
+    emailSummaries: PropTypes.array.isRequired
   };
 
   state = {
@@ -99,7 +99,7 @@ export { Inbox as UnconnectedInbox };
 const mapStateToProps = (state, ownProps) => {
   return {
     emails: state.emibInbox.emails,
-    isReadEmail: state.emailReadStatus.isReadEmail
+    emailSummaries: state.emibInbox.emailSummaries
   };
 };
 
