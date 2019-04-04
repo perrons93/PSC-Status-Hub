@@ -1,0 +1,28 @@
+/*
+collapsing-item.css is used for the CollapsingItemContainer.jsx styles that cannot be added inside a const
+*/
+
+.collapsing-item-container:hover #white-expand-icon-on-hover {
+  color: white;
+}
+
+.expanded-button-style {
+  border-radius: 5px 5px 0 0;
+}
+
+.white-expand-icon {
+  color: white;
+}
+
+.blue-expand-icon {
+  color: #00565e;
+}
+
+.expanded-container-style {
+  width: "100%";
+  min-height: 200px;
+  border-style: solid;
+  border-color: #00565e;
+  border-width: 0 1px 1px 1px;
+  border-radius: 5px;
+}
