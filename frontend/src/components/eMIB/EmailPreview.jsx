@@ -119,7 +119,7 @@ class EmailPreview extends Component {
             )}
             &nbsp;
             {LOCALIZE.emibTest.inboxPage.emailId}
-            {email.id + 1}&emsp;
+            {email.id + 1}
             {this.props.isRepliedTo && (
               <i className="fas fa-sign-out-alt" style={{ float: "right", ...imageStyle }} />
             )}
