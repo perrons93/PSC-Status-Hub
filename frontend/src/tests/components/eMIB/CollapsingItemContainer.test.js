@@ -50,12 +50,7 @@ it("renders title and/or body depending on the 'isCollapsed ' state", () => {
   const wrapper = shallow(
     <CollapsingItemContainer iconType={ICON_TYPE.email} title={"title"} body={<div>body</div>} />
   );
-  const titleComponent = (
-    <button>
-      <i />
-      title
-    </button>
-  );
+  const titleComponent = <span>title</span>;
   const bodyComponent = <div>body</div>;
 
   //collapsing item is closed

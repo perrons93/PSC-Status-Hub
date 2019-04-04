@@ -8,17 +8,19 @@ const styles = {
     color: "white",
     margin: "0 8px",
     padding: 3,
-    backgroundColor: "#00565E"
+    backgroundColor: "#00565E",
+    border: "3px solid #009FAE",
+    borderRadius: 4
   },
   responseType: {
     color: "#00565E",
     textDecoration: "underline"
   },
-  deleteButton: {
-    float: "right"
+  hr: {
+    margin: "16px 0 16px 0"
   },
   editButton: {
-    float: "left"
+    float: "right"
   }
 };
 
@@ -92,7 +94,7 @@ class ResponseItem extends Component {
             </p>
           </div>
         </div>
-        <hr />
+        <hr style={styles.hr} />
         <div
           aria-label={LOCALIZE.ariaLabel.responseDetails}
           tabIndex="0"
@@ -103,7 +105,7 @@ class ResponseItem extends Component {
             <p>{response}</p>
           </div>
         </div>
-        <hr />
+        <hr style={styles.hr} />
         <div
           aria-label={LOCALIZE.ariaLabel.reasonsForActionDetails}
           tabIndex="0"
@@ -116,12 +118,12 @@ class ResponseItem extends Component {
             <p>{reasonsForAction}</p>
           </div>
         </div>
-        <hr />
+        <hr style={styles.hr} />
         <div aria-label={LOCALIZE.ariaLabel.emailOptions}>
-          <button className="btn btn-primary" style={styles.de}>
+          <button className="btn btn-primary" style={styles.editButton}>
             {LOCALIZE.emibTest.inboxPage.emailResponse.editButton}
           </button>
-          <button className="btn btn-danger" style={styles.deleteButton}>
+          <button className="btn btn-danger">
             {LOCALIZE.emibTest.inboxPage.emailResponse.deleteButton}
           </button>
         </div>
