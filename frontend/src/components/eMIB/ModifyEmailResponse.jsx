@@ -63,9 +63,11 @@ class ModifyEmailResponse extends Component {
                     <i className="fas fa-tasks" />
                   )}
                   &emsp;
-                  {modificationType === MODIFICATION_TYPE.add
-                    ? LOCALIZE.emibTest.inboxPage.modifyEmailResponse.add
-                    : LOCALIZE.emibTest.inboxPage.modifyEmailResponse.modify}{" "}
+                  <span>
+                    {modificationType === MODIFICATION_TYPE.add
+                      ? LOCALIZE.emibTest.inboxPage.modifyEmailResponse.add
+                      : LOCALIZE.emibTest.inboxPage.modifyEmailResponse.modify}
+                  </span>{" "}
                   {responseType === RESPONSE_TYPE.email
                     ? LOCALIZE.emibTest.inboxPage.modifyEmailResponse.email
                     : LOCALIZE.emibTest.inboxPage.modifyEmailResponse.task}{" "}
