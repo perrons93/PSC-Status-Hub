@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
-import { RESPONSE_TYPE } from "./ResponseItem";
+import { EMAIL_TYPE } from "./ActionViewEmail";
 
 const styles = {
   container: {
@@ -81,7 +81,7 @@ class EditEmail extends Component {
   };
 
   state = {
-    emailType: RESPONSE_TYPE.reply,
+    emailType: EMAIL_TYPE.reply,
     toValue: "",
     ccValue: "",
     responseValue: "",
@@ -136,8 +136,8 @@ class EditEmail extends Component {
                   name="responseTypeRadio"
                   style={styles.header.radioPadding}
                   onChange={this.onEmailTypeChange}
-                  value={RESPONSE_TYPE.reply}
-                  checked={emailType === RESPONSE_TYPE.reply}
+                  value={EMAIL_TYPE.reply}
+                  checked={emailType === EMAIL_TYPE.reply}
                 />
                 <label htmlFor="reply-radio" style={styles.header.radioText}>
                   <i className="fas fa-reply" style={styles.header.responseTypeIcons} />
@@ -152,8 +152,8 @@ class EditEmail extends Component {
                   name="responseTypeRadio"
                   style={styles.header.radioPadding}
                   onChange={this.onEmailTypeChange}
-                  value={RESPONSE_TYPE.replyAll}
-                  checked={emailType === RESPONSE_TYPE.replyAll}
+                  value={EMAIL_TYPE.replyAll}
+                  checked={emailType === EMAIL_TYPE.replyAll}
                 />
                 <label htmlFor="reply-all-radio" style={styles.header.radioText}>
                   <i className="fas fa-reply-all" style={styles.header.responseTypeIcons} />
@@ -168,8 +168,8 @@ class EditEmail extends Component {
                   name="responseTypeRadio"
                   style={styles.header.radioPadding}
                   onChange={this.onEmailTypeChange}
-                  value={RESPONSE_TYPE.forward}
-                  checked={emailType === RESPONSE_TYPE.forward}
+                  value={EMAIL_TYPE.forward}
+                  checked={emailType === EMAIL_TYPE.forward}
                 />
                 <label htmlFor="forward-radio" style={styles.header.radioText}>
                   <i className="fas fa-share-square" style={styles.header.responseTypeIcons} />
