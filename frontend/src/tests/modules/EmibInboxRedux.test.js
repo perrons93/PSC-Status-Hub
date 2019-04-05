@@ -4,6 +4,7 @@ import emibInbox, {
   addEmail,
   addTask
 } from "../../modules/EmibInboxRedux";
+import { EMAIL_TYPE, ACTION_TYPE } from "../../components/eMIB/constants";
 import { setLanguage } from "../../modules/LocalizeRedux";
 import { emailsJson } from "../../modules/sampleEmibJson";
 
@@ -53,6 +54,19 @@ describe("EmibInboxRedux", () => {
       expect(newState.emailSummaries[0].emailCount).toEqual(1);
       expect(newState.emailSummaries[0].taskCount).toEqual(0);
       expect(newState.emailSummaries[1].emailCount).toEqual(0);
+    });
+
+    it("should add an email action to the action list", () => {
+      const emailAction = {
+        emailType: EMAIL_TYPE.reply,
+        emailTo: "Sara",
+        emailCc: "Luke",
+        emailBody: "Hi Sarah!",
+        reasonsForAction: "I wanted to say hi."
+      };
+      const addAction = addEmail(0, emailAction);
+      const newState = emibInbox(stubbedInitialState, addAction);
+      expect(newState.emailActions[0]).toEqual([{ ...emailAction, actionType: ACTION_TYPE.email }]);
     });
   });
 
