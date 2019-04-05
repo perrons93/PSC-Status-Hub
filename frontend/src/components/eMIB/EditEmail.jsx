@@ -15,6 +15,9 @@ const styles = {
       borderRadius: 4,
       cursor: "pointer"
     },
+    radioButtonZone: {
+      marginBottom: 12
+    },
     responseTypeRadio: {
       all: "unset",
       color: "#00565E",
@@ -76,56 +79,80 @@ class EditEmail extends Component {
             <p className="font-weight-bold" style={styles.header.title}>
               {LOCALIZE.emibTest.inboxPage.addEmailResponse.selectResponseType}
             </p>
-            <div style={styles.header.responseTypeRadio}>
-              <input type="radio" name="responseTypeRadio" style={styles.header.radioPadding} />
-              <i className="fas fa-reply" style={styles.header.responseTypeIcons} />
-              <span style={styles.header.radioText}>
-                {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
-              </span>
-            </div>
-            <br />
-            <div style={styles.header.responseTypeRadio}>
-              <input type="radio" name="responseTypeRadio" style={styles.header.radioPadding} />
-              <i className="fas fa-reply-all" style={styles.header.responseTypeIcons} />
-              <span style={styles.header.radioText}>
-                {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
-              </span>
-            </div>
-            <br />
-            <div style={styles.header.responseTypeRadio}>
-              <input type="radio" name="responseTypeRadio" style={styles.header.radioPadding} />
-              <i className="fas fa-share-square" style={styles.header.responseTypeIcons} />
-              <span style={styles.header.radioText}>
-                {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
-              </span>
+            <div style={styles.header.radioButtonZone}>
+              <div style={styles.header.responseTypeRadio}>
+                <input
+                  id="reply-radio"
+                  type="radio"
+                  name="responseTypeRadio"
+                  style={styles.header.radioPadding}
+                />
+                <label htmlFor="reply-radio" style={styles.header.radioText}>
+                  <i className="fas fa-reply" style={styles.header.responseTypeIcons} />
+                  {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
+                </label>
+              </div>
+              <br />
+              <div style={styles.header.responseTypeRadio}>
+                <input
+                  id="reply-all-radio"
+                  type="radio"
+                  name="responseTypeRadio"
+                  style={styles.header.radioPadding}
+                />
+                <label htmlFor="reply-all-radio" style={styles.header.radioText}>
+                  <i className="fas fa-reply-all" style={styles.header.responseTypeIcons} />
+                  {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
+                </label>
+              </div>
+              <br />
+              <div style={styles.header.responseTypeRadio}>
+                <input
+                  id="forward-radio"
+                  type="radio"
+                  name="responseTypeRadio"
+                  style={styles.header.radioPadding}
+                />
+                <label htmlFor="forward-radio" style={styles.header.radioText}>
+                  <i className="fas fa-share-square" style={styles.header.responseTypeIcons} />
+                  {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
+                </label>
+              </div>
             </div>
           </div>
           <div>
-            <p className="font-weight-bold">
-              <span style={styles.header.titleStyle}>
+            <div className="font-weight-bold form-group">
+              <label htmlFor="to-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.to}
-              </span>
+              </label>
               <span style={styles.header.textFieldBoxPadding}>
-                <input type="text" placeholder="John Smith" style={styles.header.textField} />
+                <input
+                  id="to-field"
+                  type="text"
+                  placeholder="John Smith"
+                  style={styles.header.textField}
+                />
               </span>
-            </p>
+            </div>
           </div>
           <div>
-            <p className="font-weight-bold">
-              <span style={styles.header.titleStyle}>
+            <div className="font-weight-bold form-group">
+              <label htmlFor="cc-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.cc}
-              </span>
+              </label>
               <span style={styles.header.textFieldBoxPadding}>
-                <input type="text" placeholder="John Smith" style={styles.header.textField} />
+                <input
+                  id="cc-field"
+                  type="text"
+                  placeholder="John Smith"
+                  style={styles.header.textField}
+                />
               </span>
-            </p>
+            </div>
           </div>
           <div>
-            <p className="font-weight-bold">
-              {LOCALIZE.emibTest.inboxPage.addEmailResponse.response}
-            </p>
-            <fieldset>
-              <label htmlFor="your-response-text-area" className="invisible position-absolute">
+            <div className="font-weight-bold form-group">
+              <label htmlFor="your-response-text-area">
                 {LOCALIZE.emibTest.inboxPage.addEmailResponse.response}
               </label>
               <textarea
@@ -133,15 +160,12 @@ class EditEmail extends Component {
                 maxLength="500"
                 style={styles.response.textArea}
               />
-            </fieldset>
+            </div>
           </div>
           <hr style={styles.hr} />
           <div>
-            <p className="font-weight-bold">
-              {LOCALIZE.emibTest.inboxPage.addEmailResponse.reasonsForAction}
-            </p>
-            <fieldset>
-              <label htmlFor="reasons-for-action-text-area" className="invisible position-absolute">
+            <div className="font-weight-bold form-group">
+              <label htmlFor="reasons-for-action-text-area">
                 {LOCALIZE.emibTest.inboxPage.addEmailResponse.reasonsForAction}
               </label>
               <textarea
@@ -149,7 +173,7 @@ class EditEmail extends Component {
                 maxLength="100"
                 style={styles.reasonsForAction.textArea}
               />
-            </fieldset>
+            </div>
           </div>
         </form>
       </div>
