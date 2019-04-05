@@ -8,10 +8,18 @@ const styles = {
       margin: "0 8px",
       padding: 3,
       border: "1px solid #00565E",
-      borderRadius: 4
+      borderRadius: 4,
+      cursor: "pointer"
     },
-    responseType: {
+    responseTypeRadio: {
+      all: "unset",
       color: "#00565E",
+      cursor: "pointer"
+    },
+    radioPadding: {
+      marginBottom: 16
+    },
+    radioText: {
       textDecoration: "underline"
     },
     textFieldBoxPadding: {
@@ -61,27 +69,32 @@ class EditEmail extends Component {
       <div>
         <form>
           <div>
-            <p className="font-weight-bold">
-              {LOCALIZE.emibTest.inboxPage.addEmailResponse.selectResponseType}{" "}
-              <>
-                <i className="fas fa-reply" style={styles.header.responseTypeIcons} />
-                <span style={styles.header.responseType}>
-                  {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
-                </span>
-              </>
-              <>
-                <i className="fas fa-reply-all" style={styles.header.responseTypeIcons} />
-                <span style={styles.header.responseType}>
-                  {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
-                </span>
-              </>
-              <>
-                <i className="fas fa-share-square" style={styles.header.responseTypeIcons} />
-                <span style={styles.header.responseType}>
-                  {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
-                </span>
-              </>
+            <p className="font-weight-bold" style={styles.header.title}>
+              {LOCALIZE.emibTest.inboxPage.addEmailResponse.selectResponseType}
             </p>
+            <div style={styles.header.responseTypeRadio}>
+              <input type="radio" name="responseTypeRadio" style={styles.header.radioPadding} />
+              <i className="fas fa-reply" style={styles.header.responseTypeIcons} />
+              <span style={styles.header.radioText}>
+                {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
+              </span>
+            </div>
+            <br />
+            <div style={styles.header.responseTypeRadio}>
+              <input type="radio" name="responseTypeRadio" style={styles.header.radioPadding} />
+              <i className="fas fa-reply-all" style={styles.header.responseTypeIcons} />
+              <span style={styles.header.radioText}>
+                {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
+              </span>
+            </div>
+            <br />
+            <div style={styles.header.responseTypeRadio}>
+              <input type="radio" name="responseTypeRadio" style={styles.header.radioPadding} />
+              <i className="fas fa-share-square" style={styles.header.responseTypeIcons} />
+              <span style={styles.header.radioText}>
+                {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
+              </span>
+            </div>
           </div>
           <div>
             <p className="font-weight-bold">
