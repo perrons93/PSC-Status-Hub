@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
-import EditEmailActionDialog, { ACTION_TYPE, EDIT_MODE } from "./EditEmailActionDialog";
+import EditActionDialog, { ACTION_TYPE, EDIT_MODE } from "./EditActionDialog";
 import { addEmail, addTask } from "../../modules/EmibInboxRedux";
 
 const styles = {
@@ -139,17 +139,17 @@ class Email extends Component {
         </div>
         <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
-        <EditEmailActionDialog
+        <EditActionDialog
           showDialog={this.state.showAddEmailDialog}
           handleClose={this.closeEmailDialog}
-          saveEmail={this.replyToEmail}
+          saveAction={this.replyToEmail}
           actionType={ACTION_TYPE.email}
           editMode={EDIT_MODE.create}
         />
-        <EditEmailActionDialog
+        <EditActionDialog
           showDialog={this.state.showAddTaskDialog}
           handleClose={this.closeTaskDialog}
-          saveEmail={this.addTaskToEmail}
+          saveAction={this.addTaskToEmail}
           actionType={ACTION_TYPE.task}
           editMode={EDIT_MODE.create}
         />

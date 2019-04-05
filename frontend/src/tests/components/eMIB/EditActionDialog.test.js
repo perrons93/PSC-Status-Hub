@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow } from "enzyme";
-import EditEmailActionDialog, {
+import EditActionDialog, {
   EDIT_MODE,
   ACTION_TYPE
-} from "../../../components/eMIB/EditEmailActionDialog";
+} from "../../../components/eMIB/EditActionDialog";
 
 describe("email action type", () => {
   it("renders Add Email dialog", () => {
@@ -31,10 +31,10 @@ function testCore(actionType, editMode) {
 
   //shallow wrapper of the dialog
   const wrapper = shallow(
-    <EditEmailActionDialog
+    <EditActionDialog
       showDialog={true}
       handleClose={() => {}}
-      saveEmail={saveMock}
+      saveAction={saveMock}
       actionType={actionType}
       editMode={editMode}
     />

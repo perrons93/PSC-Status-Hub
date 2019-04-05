@@ -36,17 +36,17 @@ const styles = {
   }
 };
 
-class EditEmailActionDialog extends Component {
+class EditActionDialog extends Component {
   static propTypes = {
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
-    saveEmail: PropTypes.func.isRequired,
+    saveAction: PropTypes.func.isRequired,
     actionType: PropTypes.oneOf([ACTION_TYPE.email, ACTION_TYPE.task]).isRequired,
     editMode: PropTypes.oneOf([EDIT_MODE.create, EDIT_MODE.update]).isRequired
   };
 
   handleSave = () => {
-    this.props.saveEmail();
+    this.props.saveAction();
     this.props.handleClose();
   };
 
@@ -64,9 +64,9 @@ class EditEmailActionDialog extends Component {
                       <i style={styles.icon} className="fas fa-envelope" />
                       <h3 style={styles.dialogHeaderText}>
                         {editMode === EDIT_MODE.create &&
-                          LOCALIZE.emibTest.inboxPage.editEmailActionDialog.addEmail}
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.addEmail}
                         {editMode === EDIT_MODE.update &&
-                          LOCALIZE.emibTest.inboxPage.editEmailActionDialog.editEmail}
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
                       </h3>
                     </div>
                   )}
@@ -75,9 +75,9 @@ class EditEmailActionDialog extends Component {
                       <i style={styles.icon} className="fas fa-tasks" />
                       <h3 style={styles.dialogHeaderText}>
                         {editMode === EDIT_MODE.create &&
-                          LOCALIZE.emibTest.inboxPage.editEmailActionDialog.addTask}
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.addTask}
                         {editMode === EDIT_MODE.update &&
-                          LOCALIZE.emibTest.inboxPage.editEmailActionDialog.editTask}
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
                       </h3>
                     </div>
                   )}
@@ -97,7 +97,7 @@ class EditEmailActionDialog extends Component {
                     className="btn btn-primary"
                     onClick={this.handleSave}
                   >
-                    {LOCALIZE.emibTest.inboxPage.editEmailActionDialog.save}
+                    {LOCALIZE.emibTest.inboxPage.editActionDialog.save}
                   </button>
                 </div>
               </div>
@@ -108,4 +108,4 @@ class EditEmailActionDialog extends Component {
     );
   }
 }
-export default EditEmailActionDialog;
+export default EditActionDialog;
