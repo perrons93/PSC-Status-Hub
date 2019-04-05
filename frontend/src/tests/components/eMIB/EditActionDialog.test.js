@@ -30,6 +30,7 @@ function testCore(actionType, editMode) {
   //shallow wrapper of the dialog
   const wrapper = shallow(
     <EditActionDialog
+      emailId={1}
       showDialog={true}
       handleClose={() => {}}
       saveAction={saveMock}

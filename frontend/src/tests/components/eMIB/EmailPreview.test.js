@@ -3,7 +3,7 @@ import { mount } from "enzyme";
 import EmailPreview from "../../../components/eMIB/EmailPreview";
 
 const emailStub = {
-  id: "1",
+  id: 1,
   to: "To Stub",
   from: "From Stub",
   subject: "Subject Stub",
