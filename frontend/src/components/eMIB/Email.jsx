@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
 import EditEmailActionDialog, { ACTION_TYPE, EDIT_MODE } from "./EditEmailActionDialog";
+import { addEmail, addTask } from "../../modules/EmibInboxRedux";
 
 const styles = {
   header: {
@@ -42,8 +45,11 @@ const styles = {
 class Email extends Component {
   static propTypes = {
     email: PropTypes.object.isRequired,
-    respondToEmail: PropTypes.func.isRequired,
-    isRepliedTo: PropTypes.bool.isRequired
+    emailCount: PropTypes.number,
+    taskCount: PropTypes.number,
+    // Provided by Redux.
+    addEmail: PropTypes.func.isRequired,
+    addTask: PropTypes.func.isRequired
   };
 
   state = {
@@ -68,17 +74,16 @@ class Email extends Component {
   };
 
   replyToEmail = () => {
-    //TODO mcherry: replace the following with change to redux state
-    this.props.respondToEmail(this.props.email.id);
+    this.props.addEmail(this.props.email.id);
   };
 
   addTaskToEmail = () => {
-    //TODO mcherry: replace the following with change to redux state
-    this.props.respondToEmail(this.props.email.id);
+    this.props.addTask(this.props.email.id);
   };
 
   render() {
-    const email = this.props.email;
+    const { email, emailCount, taskCount } = this.props;
+    const hasTakenAction = emailCount + taskCount > 0;
 
     return (
       <div style={styles.email}>
@@ -87,12 +92,14 @@ class Email extends Component {
             {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
             {email.id + 1}
           </h2>
-          {this.props.isRepliedTo && (
+          {hasTakenAction && (
             <div className="font-weight-bold" style={styles.replyStatus}>
               <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
-              {LOCALIZE.emibTest.inboxPage.replyTextPart1}0
-              {LOCALIZE.emibTest.inboxPage.replyTextPart2}0
-              {LOCALIZE.emibTest.inboxPage.replyTextPart3}
+              {LOCALIZE.formatString(
+                LOCALIZE.emibTest.inboxPage.yourActions,
+                emailCount,
+                taskCount
+              )}
             </div>
           )}
         </div>
@@ -150,4 +157,19 @@ class Email extends Component {
     );
   }
 }
-export default Email;
+
+export { Email as UnconnectedEmail };
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      addEmail,
+      addTask
+    },
+    dispatch
+  );
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Email);

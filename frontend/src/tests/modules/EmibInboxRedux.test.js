@@ -1,4 +1,9 @@
-import emibInbox, { initializeEmailSummaries, readEmail } from "../../modules/EmibInboxRedux";
+import emibInbox, {
+  initializeEmailSummaries,
+  readEmail,
+  addEmail,
+  addTask
+} from "../../modules/EmibInboxRedux";
 import { setLanguage } from "../../modules/LocalizeRedux";
 import { emailsJson } from "../../modules/sampleEmibJson";
 
@@ -27,22 +32,36 @@ describe("EmibInboxRedux", () => {
   describe("read email action", () => {
     it("should update email 0 read state to true", () => {
       const readAction = readEmail(0);
-      expect(emibInbox(stubbedInitialState, readAction).emailSummaries[0]).toEqual({
-        isRead: true
-      });
-      expect(emibInbox(stubbedInitialState, readAction).emailSummaries[1]).toEqual({
-        isRead: false
-      });
+      const newState = emibInbox(stubbedInitialState, readAction);
+      expect(newState.emailSummaries[0].isRead).toEqual(true);
+      expect(newState.emailSummaries[1].isRead).toEqual(false);
     });
 
     it("should update email 1 read state to true", () => {
       const readAction = readEmail(1);
-      expect(emibInbox(stubbedInitialState, readAction).emailSummaries[0]).toEqual({
-        isRead: false
-      });
-      expect(emibInbox(stubbedInitialState, readAction).emailSummaries[1]).toEqual({
-        isRead: true
-      });
+      const newState = emibInbox(stubbedInitialState, readAction);
+      expect(newState.emailSummaries[0].isRead).toEqual(false);
+      expect(newState.emailSummaries[1].isRead).toEqual(true);
+    });
+  });
+
+  describe("add email action", () => {
+    it("should update email 0 count state", () => {
+      const addAction = addEmail(0);
+      const newState = emibInbox(stubbedInitialState, addAction);
+      expect(newState.emailSummaries[0].emailCount).toEqual(1);
+      expect(newState.emailSummaries[0].taskCount).toEqual(0);
+      expect(newState.emailSummaries[1].emailCount).toEqual(0);
+    });
+  });
+
+  describe("add task action", () => {
+    it("should update email 0 count state", () => {
+      const addAction = addTask(0);
+      const newState = emibInbox(stubbedInitialState, addAction);
+      expect(newState.emailSummaries[0].taskCount).toEqual(1);
+      expect(newState.emailSummaries[0].emailCount).toEqual(0);
+      expect(newState.emailSummaries[1].taskCount).toEqual(0);
     });
   });
 });

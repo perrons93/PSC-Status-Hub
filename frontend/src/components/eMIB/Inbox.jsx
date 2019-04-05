@@ -26,14 +26,6 @@ const styles = {
   }
 };
 
-function initializeFalseArray(length) {
-  let arr = [];
-  for (let i = 0; i < length; i++) {
-    arr.push(false);
-  }
-  return arr;
-}
-
 class Inbox extends Component {
   static propTypes = {
     // Provided by redux
@@ -43,8 +35,7 @@ class Inbox extends Component {
   };
 
   state = {
-    currentEmail: 0,
-    emailResponses: initializeFalseArray(this.props.emails.length)
+    currentEmail: 0
   };
 
   changeEmail = index => {
@@ -52,14 +43,8 @@ class Inbox extends Component {
     this.setState({ currentEmail: index });
   };
 
-  respondToEmail = index => {
-    let emailResponses = Array.from(this.state.emailResponses);
-    emailResponses[index] = true;
-    this.setState({ emailResponses: emailResponses });
-  };
-
   render() {
-    const { emails } = this.props;
+    const { emails, emailSummaries } = this.props;
     return (
       <div className="inbox-grid">
         <nav
@@ -75,7 +60,9 @@ class Inbox extends Component {
                   email={email}
                   selectEmail={this.changeEmail}
                   isRead={this.props.emailSummaries[index].isRead}
-                  isRepliedTo={this.state.emailResponses[index]}
+                  isRepliedTo={
+                    emailSummaries[index].emailCount + emailSummaries[index].taskCount > 0
+                  }
                   isSelected={index === this.state.currentEmail}
                 />
               </div>
@@ -85,8 +72,8 @@ class Inbox extends Component {
         <div className="inbox-grid-content-cell" style={styles.bodyContent}>
           <Email
             email={emails[this.state.currentEmail]}
-            respondToEmail={this.respondToEmail}
-            isRepliedTo={this.state.emailResponses[this.state.currentEmail]}
+            emailCount={emailSummaries[this.state.currentEmail].emailCount}
+            taskCount={emailSummaries[this.state.currentEmail].taskCount}
           />
         </div>
       </div>
