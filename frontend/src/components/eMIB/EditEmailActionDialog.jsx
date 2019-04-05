@@ -31,7 +31,8 @@ const styles = {
     backgroundColor: "#00565E",
     color: "white",
     fontSize: 16,
-    fontWeight: 600
+    fontWeight: 600,
+    borderRadius: "10px 10px 0px 0px"
   }
 };
 

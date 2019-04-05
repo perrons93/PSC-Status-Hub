@@ -341,15 +341,21 @@ let LOCALIZE = new LocalizedStrings({
           editTask: "Edit task",
           save: "Save response"
         },
-        emailResponse: {
-          responseType: {
-            reply: "reply",
-            replyAll: "reply all",
-            forward: "forward"
-          },
-          description: "For this response, you've chosen to:",
+        emailCommons: {
           to: "To:",
           cc: "Cc:",
+          reply: "reply",
+          replyAll: "reply all",
+          forward: "forward"
+        },
+        addEmailResponse: {
+          selectResponseType: "Please select how you would like to respond to the original email:",
+          headerFieldPlaceholder: "JohnSmith",
+          response: "Your response:",
+          reasonsForAction: "Add reasons for actions here (optional)"
+        },
+        emailResponse: {
+          description: "For this response, you've chosen to:",
           response: "Your response:",
           reasonsForAction: "Your reasons for action:",
           editButton: "Edit response",
@@ -795,15 +801,22 @@ let LOCALIZE = new LocalizedStrings({
           editTask: "FR Edit task",
           save: "FR Save response"
         },
-        emailResponse: {
-          responseType: {
-            reply: "répondre",
-            replyAll: "répondre à tous",
-            forward: "transmettre"
-          },
-          description: "FR For this response, you've chosen to:",
+        emailCommons: {
           to: "À :",
           cc: "Cc :",
+          reply: "répondre",
+          replyAll: "répondre à tous",
+          forward: "transmettre"
+        },
+        addEmailResponse: {
+          selectResponseType:
+            "FR Please select how you would like to respond to the original email:",
+          headerFieldPlaceholder: "JohnSmith",
+          response: "FR Your response:",
+          reasonsForAction: "FR Add reasons for actions here (optional)"
+        },
+        emailResponse: {
+          description: "FR For this response, you've chosen to:",
           response: "FR Your response:",
           reasonsForAction: "FR Your reasons for action:",
           editButton: "Modifier réponse",
