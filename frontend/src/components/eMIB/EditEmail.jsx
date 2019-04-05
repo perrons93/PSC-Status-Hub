@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LOCALIZE from "../../text_resources";
+import { RESPONSE_TYPE } from "./ResponseItem";
 
 const styles = {
   container: {
@@ -74,6 +75,18 @@ const styles = {
 };
 
 class EditEmail extends Component {
+  state = {
+    emailType: RESPONSE_TYPE.reply,
+    toValue: "",
+    ccValue: "",
+    responseValue: "",
+    reasonsForActionValue: ""
+  };
+
+  onToValueChange = event => {
+    this.setState({ toValue: event.target.value });
+  };
+
   render() {
     return (
       <div style={styles.container}>
