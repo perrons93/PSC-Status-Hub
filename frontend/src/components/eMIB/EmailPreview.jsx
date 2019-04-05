@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
+import { emailShape } from "./constants";
 
 const styles = {
   //buttons
@@ -60,7 +61,7 @@ const styles = {
 
 class EmailPreview extends Component {
   static propTypes = {
-    email: PropTypes.object.isRequired,
+    email: emailShape,
     selectEmail: PropTypes.func.isRequired,
     isRead: PropTypes.bool.isRequired,
     isRepliedTo: PropTypes.bool.isRequired,

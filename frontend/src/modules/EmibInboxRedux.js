@@ -32,7 +32,7 @@ const addEmail = (emailIndex, emailAction) => ({ type: ADD_EMAIL, emailIndex, em
 const addTask = (emailIndex, taskAction) => ({ type: ADD_TASK, emailIndex, taskAction });
 
 // Initial State
-// emails - represents an array of emails in the currently selected language.
+// emails - represents an array of emailShape objects in the currently selected language.
 // emailSummaries - represents an array of objects indicating read state of each email.
 // emailActions - represents an array of arrays, each array contains action objects, representing an ACTION_TYPE.
 const initialState = {

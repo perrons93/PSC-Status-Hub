@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
 import EditActionDialog from "./EditActionDialog";
-import { ACTION_TYPE, EDIT_MODE } from "./constants";
+import { ACTION_TYPE, EDIT_MODE, emailShape } from "./constants";
 import { addEmail, addTask } from "../../modules/EmibInboxRedux";
 
 const styles = {
@@ -45,7 +45,7 @@ const styles = {
 
 class Email extends Component {
   static propTypes = {
-    email: PropTypes.object.isRequired,
+    email: emailShape,
     emailCount: PropTypes.number,
     taskCount: PropTypes.number,
     // Provided by Redux.
