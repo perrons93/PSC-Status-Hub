@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import LOCALIZE from "../../text_resources";
 
 const styles = {
+  container: {
+    maxHeight: "calc(100vh - 300px)",
+    overflow: "auto"
+  },
   header: {
     responseTypeIcons: {
       color: "#00565E",
@@ -66,7 +70,7 @@ const styles = {
 class EditEmail extends Component {
   render() {
     return (
-      <div>
+      <div style={styles.container}>
         <form>
           <div>
             <p className="font-weight-bold" style={styles.header.title}>
