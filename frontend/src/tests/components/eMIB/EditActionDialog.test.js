@@ -1,9 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
-import EditActionDialog, {
-  EDIT_MODE,
-  ACTION_TYPE
-} from "../../../components/eMIB/EditActionDialog";
+import EditActionDialog from "../../../components/eMIB/EditActionDialog";
+import { ACTION_TYPE, EDIT_MODE } from "../../../components/eMIB/constants";
 
 describe("email action type", () => {
   it("renders Add Email dialog", () => {

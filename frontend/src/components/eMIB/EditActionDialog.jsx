@@ -4,16 +4,7 @@ import LOCALIZE from "../../text_resources";
 import EditEmail from "./EditEmail";
 import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
-
-export const ACTION_TYPE = {
-  email: "email",
-  task: "task"
-};
-
-export const EDIT_MODE = {
-  create: "create",
-  update: "update"
-};
+import { ACTION_TYPE, EDIT_MODE } from "./constants";
 
 const styles = {
   icon: {

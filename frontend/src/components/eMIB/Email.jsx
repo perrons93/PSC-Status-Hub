@@ -4,7 +4,8 @@ import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
-import EditActionDialog, { ACTION_TYPE, EDIT_MODE } from "./EditActionDialog";
+import EditActionDialog from "./EditActionDialog";
+import { ACTION_TYPE, EDIT_MODE } from "./constants";
 import { addEmail, addTask } from "../../modules/EmibInboxRedux";
 
 const styles = {

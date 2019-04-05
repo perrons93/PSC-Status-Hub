@@ -1,5 +1,6 @@
 import { emailsJson } from "./sampleEmibJson";
 import { SET_LANGUAGE } from "./LocalizeRedux";
+import { ACTION_TYPE } from "../components/eMIB/constants";
 
 // Initializers
 export const initializeEmailSummaries = length => {
@@ -33,7 +34,7 @@ const addTask = (emailIndex, taskAction) => ({ type: ADD_TASK, emailIndex, taskA
 // Initial State
 // emails - represents an array of emails in the currently selected language.
 // emailSummaries - represents an array of objects indicating read state of each email.
-// emailActions - represents an array of arrays, each array contains action objects.
+// emailActions - represents an array of arrays, each array contains action objects, representing an ACTION_TYPE.
 const initialState = {
   // Loads emails from a static JSON file until an API exists.
   emails: emailsJson.emailsEN,
@@ -43,9 +44,6 @@ const initialState = {
 
 // Reducer
 const emibInbox = (state = initialState, action) => {
-  console.log("emib inbox");
-  console.log(action);
-  console.log(state);
   switch (action.type) {
     case SET_LANGUAGE:
       return {
@@ -64,7 +62,10 @@ const emibInbox = (state = initialState, action) => {
       modifiedEmailSummaries[action.emailIndex].emailCount++;
 
       let modifiedEmailActions = Array.from(state.emailActions);
-      modifiedEmailActions[action.emailIndex].push({ ...action.emailAction, type: "email" });
+      modifiedEmailActions[action.emailIndex].push({
+        ...action.emailAction,
+        type: ACTION_TYPE.email
+      });
       return {
         ...state,
         emailSummaries: modifiedEmailSummaries,
