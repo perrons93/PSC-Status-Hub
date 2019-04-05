@@ -1,5 +1,5 @@
 import React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 import { UnconnectedInbox as Inbox } from "../../../components/eMIB/Inbox";
 import { emailsJson } from "../../../modules/sampleEmibJson";
 
@@ -18,10 +18,14 @@ it("Shows only email 3", () => {
 });
 
 function testCore(selected) {
-  const wrapper = mount(
+  const wrapper = shallow(
     <Inbox
       emails={INBOX_SPECS}
-      emailSummaries={[{ isRead: false }, { isRead: false }, { isRead: false }]}
+      emailSummaries={[
+        { isRead: false, taskCount: 0, emailCount: 0 },
+        { isRead: false, taskCount: 0, emailCount: 0 },
+        { isRead: false, taskCount: 0, emailCount: 0 }
+      ]}
       readEmail={() => {}}
     />
   );

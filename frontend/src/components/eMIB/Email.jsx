@@ -84,6 +84,7 @@ class Email extends Component {
 
   render() {
     const { email, emailCount, taskCount } = this.props;
+    const hasTakenAction = emailCount + taskCount > 0;
 
     return (
       <div style={styles.email}>
@@ -92,7 +93,7 @@ class Email extends Component {
             {LOCALIZE.emibTest.inboxPage.emailId.toUpperCase()}
             {email.id + 1}
           </h2>
-          {true && (
+          {hasTakenAction && (
             <div className="font-weight-bold" style={styles.replyStatus}>
               <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
               {LOCALIZE.formatString(
