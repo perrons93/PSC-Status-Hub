@@ -352,6 +352,7 @@ let LOCALIZE = new LocalizedStrings({
         },
         addEmailResponse: {
           selectResponseType: "Please select how you would like to respond to the original email:",
+          headerFieldPlaceholder: "JohnSmith",
           response: "Your response:",
           reasonsForAction: "Add reasons for actions here (optional)"
         },
@@ -814,6 +815,7 @@ let LOCALIZE = new LocalizedStrings({
         addEmailResponse: {
           selectResponseType:
             "FR Please select how you would like to respond to the original email:",
+          headerFieldPlaceholder: "JohnSmith",
           response: "FR Your response:",
           reasonsForAction: "FR Add reasons for actions here (optional)"
         },

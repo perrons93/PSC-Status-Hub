@@ -130,7 +130,7 @@ class EditEmail extends Component {
                 <input
                   id="to-field"
                   type="text"
-                  placeholder="John Smith"
+                  placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
                 />
               </span>
@@ -145,7 +145,7 @@ class EditEmail extends Component {
                 <input
                   id="cc-field"
                   type="text"
-                  placeholder="John Smith"
+                  placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
                 />
               </span>
