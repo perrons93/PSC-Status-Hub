@@ -4,23 +4,31 @@ import PropTypes from "prop-types";
 export const HEADER_HEIGHT = 130;
 export const FOOTER_HEIGHT = 72;
 
-// Data structure
+// Data structures
+
+// Candidates can take action on an email by creating another
+// email or creating a task.
 export const ACTION_TYPE = {
   email: "email",
   task: "task"
 };
 
+// Actions can be created or edited.
 export const EDIT_MODE = {
   create: "create",
   update: "update"
 };
 
+// Possible types of emails candidates can create.
 export const EMAIL_TYPE = {
   reply: "reply",
   replyAll: "reply all",
   forward: "forward"
 };
 
+// PropType Shape Definitions
+
+// Email test content. Won't be edited by a candidate.
 export const emailShape = PropTypes.shape({
   id: PropTypes.number.isRequired,
   to: PropTypes.string,
@@ -30,6 +38,7 @@ export const emailShape = PropTypes.shape({
   body: PropTypes.string
 });
 
+// Actions a candidate can take in response to an email.
 export const actionShape = PropTypes.shape({
   actionType: PropTypes.oneOf(Object.values(ACTION_TYPE)).isRequired,
   reasonForAction: PropTypes.string,
