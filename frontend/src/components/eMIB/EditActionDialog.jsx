@@ -38,6 +38,7 @@ const styles = {
 
 class EditActionDialog extends Component {
   static propTypes = {
+    emailId: PropTypes.number.isRequired,
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
     saveAction: PropTypes.func.isRequired,
@@ -45,9 +46,17 @@ class EditActionDialog extends Component {
     editMode: PropTypes.oneOf([EDIT_MODE.create, EDIT_MODE.update]).isRequired
   };
 
+  state = {
+    action: {}
+  };
+
   handleSave = () => {
-    this.props.saveAction();
+    this.props.saveAction(this.props.emailId, this.state.action);
     this.props.handleClose();
+  };
+
+  editAction = updatedAction => {
+    this.setState({ action: updatedAction });
   };
 
   render() {
@@ -85,7 +94,7 @@ class EditActionDialog extends Component {
               }
             </Modal.Header>
             <Modal.Body>
-              {actionType === ACTION_TYPE.email && <EditEmail />}
+              {actionType === ACTION_TYPE.email && <EditEmail onChange={this.editAction} />}
               {actionType === ACTION_TYPE.task && <EditTask />}
             </Modal.Body>
             <Modal.Footer>

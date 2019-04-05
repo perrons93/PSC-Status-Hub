@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { RESPONSE_TYPE } from "./ResponseItem";
 
@@ -75,6 +76,10 @@ const styles = {
 };
 
 class EditEmail extends Component {
+  static propTypes = {
+    onChange: PropTypes.func.isRequired
+  };
+
   state = {
     emailType: RESPONSE_TYPE.reply,
     toValue: "",
@@ -84,23 +89,33 @@ class EditEmail extends Component {
   };
 
   onEmailTypeChange = event => {
-    this.setState({ emailType: event.target.value });
+    const newEmailType = event.target.value;
+    this.setState({ emailType: newEmailType });
+    this.props.onChange({ ...this.state, emailType: newEmailType });
   };
 
   onToValueChange = event => {
-    this.setState({ toValue: event.target.value });
+    const newToValue = event.target.value;
+    this.setState({ toValue: newToValue });
+    this.props.onChange({ ...this.state, toValue: newToValue });
   };
 
   onCcValueChange = event => {
-    this.setState({ ccValue: event.target.value });
+    const newCcValue = event.target.value;
+    this.setState({ ccValue: newCcValue });
+    this.props.onChange({ ...this.state, ccValue: newCcValue });
   };
 
   onResponseValueChange = event => {
-    this.setState({ responseValue: event.target.value });
+    const newResponseValue = event.target.value;
+    this.setState({ responseValue: newResponseValue });
+    this.props.onChange({ ...this.state, responseValue: newResponseValue });
   };
 
   onReasonsForActionValueChange = event => {
-    this.setState({ reasonsForActionValue: event.target.value });
+    const newReasonsForActionValue = event.target.value;
+    this.setState({ reasonsForActionValue: newReasonsForActionValue });
+    this.props.onChange({ ...this.state, reasonsForAction: newReasonsForActionValue });
   };
 
   render() {

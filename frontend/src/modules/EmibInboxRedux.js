@@ -25,9 +25,9 @@ const ADD_TASK = "emibInbox/ADD_TASK";
 // Action Creators
 const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
 // emailIndex refers to the index of the original parent email.
-const addEmail = emailIndex => ({ type: ADD_EMAIL, emailIndex });
+const addEmail = (emailIndex, emailAction) => ({ type: ADD_EMAIL, emailIndex, emailAction });
 // emailIndex refers to the index of the original parent email.
-const addTask = emailIndex => ({ type: ADD_TASK, emailIndex });
+const addTask = (emailIndex, taskAction) => ({ type: ADD_TASK, emailIndex, taskAction });
 
 // Initial State
 // emails - represents an array of emails in the currently selected language.
@@ -42,6 +42,9 @@ const initialState = {
 
 // Reducer
 const emibInbox = (state = initialState, action) => {
+  console.log("emib inbox");
+  console.log(action);
+  console.log(state);
   switch (action.type) {
     case SET_LANGUAGE:
       return {
@@ -58,9 +61,13 @@ const emibInbox = (state = initialState, action) => {
     case ADD_EMAIL:
       let modifiedEmailSummaries = Array.from(state.emailSummaries);
       modifiedEmailSummaries[action.emailIndex].emailCount++;
+
+      let modifiedEmailActions = Array.from(state.emailActions);
+      modifiedEmailActions[action.emailIndex].push({ ...action.emailAction, type: "email" });
       return {
         ...state,
-        emailSummaries: modifiedEmailSummaries
+        emailSummaries: modifiedEmailSummaries,
+        emailActions: modifiedEmailActions
       };
     case ADD_TASK:
       let duplicatedEmailSummaries = Array.from(state.emailSummaries);

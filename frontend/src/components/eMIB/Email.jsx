@@ -73,14 +73,6 @@ class Email extends Component {
     this.setState({ showAddTaskDialog: false });
   };
 
-  replyToEmail = () => {
-    this.props.addEmail(this.props.email.id);
-  };
-
-  addTaskToEmail = () => {
-    this.props.addTask(this.props.email.id);
-  };
-
   render() {
     const { email, emailCount, taskCount } = this.props;
     const hasTakenAction = emailCount + taskCount > 0;
@@ -140,16 +132,18 @@ class Email extends Component {
         <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
         <EditActionDialog
+          emailId={email.id}
           showDialog={this.state.showAddEmailDialog}
           handleClose={this.closeEmailDialog}
-          saveAction={this.replyToEmail}
+          saveAction={this.props.addEmail}
           actionType={ACTION_TYPE.email}
           editMode={EDIT_MODE.create}
         />
         <EditActionDialog
+          emailId={email.id}
           showDialog={this.state.showAddTaskDialog}
           handleClose={this.closeTaskDialog}
-          saveAction={this.addTaskToEmail}
+          saveAction={this.props.addTask}
           actionType={ACTION_TYPE.task}
           editMode={EDIT_MODE.create}
         />
