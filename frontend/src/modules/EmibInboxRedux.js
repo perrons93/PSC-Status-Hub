@@ -83,5 +83,10 @@ const emibInbox = (state = initialState, action) => {
   }
 };
 
+// Selector functions
+const selectEmailActions = (actionState, emailId) => {
+  return actionState[emailId];
+};
+
 export default emibInbox;
-export { initialState, readEmail, addEmail, addTask };
+export { initialState, readEmail, addEmail, addTask, selectEmailActions };

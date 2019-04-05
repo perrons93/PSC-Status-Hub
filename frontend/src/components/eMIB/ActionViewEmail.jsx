@@ -31,7 +31,7 @@ class ActionViewEmail extends Component {
     to: PropTypes.string.isRequired,
     cc: PropTypes.string,
     response: PropTypes.string.isRequired,
-    reasonsForAction: PropTypes.string.isRequired
+    reasonsForAction: PropTypes.string
   };
 
   render() {

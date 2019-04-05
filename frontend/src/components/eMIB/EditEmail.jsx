@@ -85,7 +85,7 @@ class EditEmail extends Component {
     emailTo: "",
     emailCc: "",
     emailBody: "",
-    reasonsForAction: ""
+    reasonForAction: ""
   };
 
   onEmailTypeChange = event => {
@@ -113,9 +113,9 @@ class EditEmail extends Component {
   };
 
   onreasonsForActionChange = event => {
-    const newreasonsForAction = event.target.value;
-    this.setState({ reasonsForAction: newreasonsForAction });
-    this.props.onChange({ ...this.state, reasonsForAction: newreasonsForAction });
+    const newReasonForAction = event.target.value;
+    this.setState({ reasonForAction: newReasonForAction });
+    this.props.onChange({ ...this.state, reasonForAction: newReasonForAction });
   };
 
   render() {
