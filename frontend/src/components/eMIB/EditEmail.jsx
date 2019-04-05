@@ -4,7 +4,8 @@ import LOCALIZE from "../../text_resources";
 const styles = {
   container: {
     maxHeight: "calc(100vh - 300px)",
-    overflow: "auto"
+    overflow: "auto",
+    width: 700
   },
   header: {
     responseTypeIcons: {
