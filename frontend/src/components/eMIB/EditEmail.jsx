@@ -83,6 +83,10 @@ class EditEmail extends Component {
     reasonsForActionValue: ""
   };
 
+  onEmailTypeChange = event => {
+    this.setState({ emailType: event.target.value });
+  };
+
   onToValueChange = event => {
     this.setState({ toValue: event.target.value });
   };
@@ -100,15 +104,8 @@ class EditEmail extends Component {
   };
 
   render() {
-    const { toValue, ccValue, responseValue, reasonsForActionValue } = this.state;
+    const { emailType, toValue, ccValue, responseValue, reasonsForActionValue } = this.state;
 
-    // TODO: remove when done debugging
-    //=======================================================================
-    console.log("To: ", toValue);
-    console.log("Cc: ", ccValue);
-    console.log("Response: ", responseValue);
-    console.log("Reasons for action: ", reasonsForActionValue);
-    //=======================================================================
     return (
       <div style={styles.container}>
         <form>
@@ -123,6 +120,9 @@ class EditEmail extends Component {
                   type="radio"
                   name="responseTypeRadio"
                   style={styles.header.radioPadding}
+                  onChange={this.onEmailTypeChange}
+                  value={RESPONSE_TYPE.reply}
+                  checked={emailType === RESPONSE_TYPE.reply}
                 />
                 <label htmlFor="reply-radio" style={styles.header.radioText}>
                   <i className="fas fa-reply" style={styles.header.responseTypeIcons} />
@@ -136,6 +136,9 @@ class EditEmail extends Component {
                   type="radio"
                   name="responseTypeRadio"
                   style={styles.header.radioPadding}
+                  onChange={this.onEmailTypeChange}
+                  value={RESPONSE_TYPE.replyAll}
+                  checked={emailType === RESPONSE_TYPE.replyAll}
                 />
                 <label htmlFor="reply-all-radio" style={styles.header.radioText}>
                   <i className="fas fa-reply-all" style={styles.header.responseTypeIcons} />
@@ -149,6 +152,9 @@ class EditEmail extends Component {
                   type="radio"
                   name="responseTypeRadio"
                   style={styles.header.radioPadding}
+                  onChange={this.onEmailTypeChange}
+                  value={RESPONSE_TYPE.forward}
+                  checked={emailType === RESPONSE_TYPE.forward}
                 />
                 <label htmlFor="forward-radio" style={styles.header.radioText}>
                   <i className="fas fa-share-square" style={styles.header.responseTypeIcons} />
