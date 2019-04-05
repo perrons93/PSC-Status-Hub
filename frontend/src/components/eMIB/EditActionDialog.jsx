@@ -46,6 +46,7 @@ class EditActionDialog extends Component {
     this.props.handleClose();
   };
 
+  // updatedAction is of shape actionShape
   editAction = updatedAction => {
     this.setState({ action: updatedAction });
   };

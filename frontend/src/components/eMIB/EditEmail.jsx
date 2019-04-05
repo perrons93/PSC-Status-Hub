@@ -82,10 +82,10 @@ class EditEmail extends Component {
 
   state = {
     emailType: EMAIL_TYPE.reply,
-    toValue: "",
-    ccValue: "",
-    responseValue: "",
-    reasonsForActionValue: ""
+    emailTo: "",
+    emailCc: "",
+    emailBody: "",
+    reasonsForAction: ""
   };
 
   onEmailTypeChange = event => {
@@ -94,32 +94,32 @@ class EditEmail extends Component {
     this.props.onChange({ ...this.state, emailType: newEmailType });
   };
 
-  onToValueChange = event => {
-    const newToValue = event.target.value;
-    this.setState({ toValue: newToValue });
-    this.props.onChange({ ...this.state, toValue: newToValue });
+  onemailToChange = event => {
+    const newemailTo = event.target.value;
+    this.setState({ emailTo: newemailTo });
+    this.props.onChange({ ...this.state, emailTo: newemailTo });
   };
 
-  onCcValueChange = event => {
-    const newCcValue = event.target.value;
-    this.setState({ ccValue: newCcValue });
-    this.props.onChange({ ...this.state, ccValue: newCcValue });
+  onemailCcChange = event => {
+    const newemailCc = event.target.value;
+    this.setState({ emailCc: newemailCc });
+    this.props.onChange({ ...this.state, emailCc: newemailCc });
   };
 
-  onResponseValueChange = event => {
-    const newResponseValue = event.target.value;
-    this.setState({ responseValue: newResponseValue });
-    this.props.onChange({ ...this.state, responseValue: newResponseValue });
+  onemailBodyChange = event => {
+    const newemailBody = event.target.value;
+    this.setState({ emailBody: newemailBody });
+    this.props.onChange({ ...this.state, emailBody: newemailBody });
   };
 
-  onReasonsForActionValueChange = event => {
-    const newReasonsForActionValue = event.target.value;
-    this.setState({ reasonsForActionValue: newReasonsForActionValue });
-    this.props.onChange({ ...this.state, reasonsForAction: newReasonsForActionValue });
+  onreasonsForActionChange = event => {
+    const newreasonsForAction = event.target.value;
+    this.setState({ reasonsForAction: newreasonsForAction });
+    this.props.onChange({ ...this.state, reasonsForAction: newreasonsForAction });
   };
 
   render() {
-    const { emailType, toValue, ccValue, responseValue, reasonsForActionValue } = this.state;
+    const { emailType, emailTo, emailCc, emailBody, reasonsForAction } = this.state;
 
     return (
       <div style={styles.container}>
@@ -189,8 +189,8 @@ class EditEmail extends Component {
                   type="text"
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
-                  value={toValue}
-                  onChange={this.onToValueChange}
+                  value={emailTo}
+                  onChange={this.onemailToChange}
                 />
               </span>
             </div>
@@ -206,8 +206,8 @@ class EditEmail extends Component {
                   type="text"
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
-                  value={ccValue}
-                  onChange={this.onCcValueChange}
+                  value={emailCc}
+                  onChange={this.onemailCcChange}
                 />
               </span>
             </div>
@@ -221,8 +221,8 @@ class EditEmail extends Component {
                 id="your-response-text-area"
                 maxLength="500"
                 style={styles.response.textArea}
-                value={responseValue}
-                onChange={this.onResponseValueChange}
+                value={emailBody}
+                onChange={this.onemailBodyChange}
               />
             </div>
           </div>
@@ -236,8 +236,8 @@ class EditEmail extends Component {
                 id="reasons-for-action-text-area"
                 maxLength="100"
                 style={styles.reasonsForAction.textArea}
-                value={reasonsForActionValue}
-                onChange={this.onReasonsForActionValueChange}
+                value={reasonsForAction}
+                onChange={this.onreasonsForActionChange}
               />
             </div>
           </div>

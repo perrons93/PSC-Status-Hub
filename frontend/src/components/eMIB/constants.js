@@ -29,3 +29,13 @@ export const emailShape = PropTypes.shape({
   date: PropTypes.string,
   body: PropTypes.string
 });
+
+export const actionShape = PropTypes.shape({
+  actionType: PropTypes.oneOf(Object.values(ACTION_TYPE)).isRequired,
+  reasonForAction: PropTypes.string,
+  task: PropTypes.string,
+  emailType: PropTypes.oneOf(Object.values(EMAIL_TYPE)),
+  emailTo: PropTypes.string,
+  emailCc: PropTypes.string,
+  emailBody: PropTypes.string
+});

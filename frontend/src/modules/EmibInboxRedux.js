@@ -26,15 +26,15 @@ const ADD_TASK = "emibInbox/ADD_TASK";
 
 // Action Creators
 const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
-// emailIndex refers to the index of the original parent email.
+// emailIndex refers to the index of the original parent email and emailAction is an actionShape
 const addEmail = (emailIndex, emailAction) => ({ type: ADD_EMAIL, emailIndex, emailAction });
-// emailIndex refers to the index of the original parent email.
+// emailIndex refers to the index of the original parent email and taskAction is an actionShape
 const addTask = (emailIndex, taskAction) => ({ type: ADD_TASK, emailIndex, taskAction });
 
 // Initial State
 // emails - represents an array of emailShape objects in the currently selected language.
 // emailSummaries - represents an array of objects indicating read state of each email.
-// emailActions - represents an array of arrays, each array contains action objects, representing an ACTION_TYPE.
+// emailActions - represents an array of arrays, each array contains actionShape objects, representing an ACTION_TYPE.
 const initialState = {
   // Loads emails from a static JSON file until an API exists.
   emails: emailsJson.emailsEN,
@@ -64,7 +64,7 @@ const emibInbox = (state = initialState, action) => {
       let modifiedEmailActions = Array.from(state.emailActions);
       modifiedEmailActions[action.emailIndex].push({
         ...action.emailAction,
-        type: ACTION_TYPE.email
+        actionType: ACTION_TYPE.email
       });
       return {
         ...state,
