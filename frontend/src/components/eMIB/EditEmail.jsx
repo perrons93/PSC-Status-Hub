@@ -87,7 +87,28 @@ class EditEmail extends Component {
     this.setState({ toValue: event.target.value });
   };
 
+  onCcValueChange = event => {
+    this.setState({ ccValue: event.target.value });
+  };
+
+  onResponseValueChange = event => {
+    this.setState({ responseValue: event.target.value });
+  };
+
+  onReasonsForActionValueChange = event => {
+    this.setState({ reasonsForActionValue: event.target.value });
+  };
+
   render() {
+    const { toValue, ccValue, responseValue, reasonsForActionValue } = this.state;
+
+    // TODO: remove when done debugging
+    //=======================================================================
+    console.log("To: ", toValue);
+    console.log("Cc: ", ccValue);
+    console.log("Response: ", responseValue);
+    console.log("Reasons for action: ", reasonsForActionValue);
+    //=======================================================================
     return (
       <div style={styles.container}>
         <form>
@@ -147,6 +168,8 @@ class EditEmail extends Component {
                   type="text"
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
+                  value={toValue}
+                  onChange={this.onToValueChange}
                 />
               </span>
             </div>
@@ -162,6 +185,8 @@ class EditEmail extends Component {
                   type="text"
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
+                  value={ccValue}
+                  onChange={this.onCcValueChange}
                 />
               </span>
             </div>
@@ -175,6 +200,8 @@ class EditEmail extends Component {
                 id="your-response-text-area"
                 maxLength="500"
                 style={styles.response.textArea}
+                value={responseValue}
+                onChange={this.onResponseValueChange}
               />
             </div>
           </div>
@@ -188,6 +215,8 @@ class EditEmail extends Component {
                 id="reasons-for-action-text-area"
                 maxLength="100"
                 style={styles.reasonsForAction.textArea}
+                value={reasonsForActionValue}
+                onChange={this.onReasonsForActionValueChange}
               />
             </div>
           </div>
