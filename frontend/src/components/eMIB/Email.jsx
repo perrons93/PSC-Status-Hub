@@ -158,9 +158,6 @@ class Email extends Component {
 }
 
 export { Email as UnconnectedEmail };
-const mapStateToProps = (state, ownProps) => {
-  return {};
-};
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
