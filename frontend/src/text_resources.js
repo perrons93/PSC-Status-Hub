@@ -806,7 +806,10 @@ let LOCALIZE = new LocalizedStrings({
         },
         emailCommons: {
           to: "À :",
-          cc: "Cc :"
+          cc: "Cc :",
+          reply: "répondre",
+          replyAll: "répondre à tous",
+          forward: "transmettre"
         },
         addEmailResponse: {
           selectResponseType:
@@ -815,11 +818,6 @@ let LOCALIZE = new LocalizedStrings({
           reasonsForAction: "FR Add reasons for actions here (optional)"
         },
         emailResponse: {
-          responseType: {
-            reply: "répondre",
-            replyAll: "répondre à tous",
-            forward: "transmettre"
-          },
           description: "FR For this response, you've chosen to:",
           response: "FR Your response:",
           reasonsForAction: "FR Your reasons for action:",
