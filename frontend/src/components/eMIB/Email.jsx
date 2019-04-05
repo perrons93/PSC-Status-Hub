@@ -46,10 +46,11 @@ const styles = {
 class Email extends Component {
   static propTypes = {
     email: PropTypes.object.isRequired,
-    addEmail: PropTypes.func.isRequired,
-    addTask: PropTypes.func.isRequired,
     emailCount: PropTypes.number,
-    taskCount: PropTypes.number
+    taskCount: PropTypes.number,
+    // Provided by Redux.
+    addEmail: PropTypes.func.isRequired,
+    addTask: PropTypes.func.isRequired
   };
 
   state = {
