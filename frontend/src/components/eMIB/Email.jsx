@@ -22,8 +22,7 @@ const styles = {
   },
   email: {
     textAlign: "left",
-    paddingLeft: 16,
-    paddingTop: 16
+    padding: 16
   },
   replyAndUser: {
     color: "#00565E"
