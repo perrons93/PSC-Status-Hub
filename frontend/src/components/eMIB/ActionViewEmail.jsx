@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
+import { EMAIL_TYPE } from "./constants";
 
 const styles = {
   responseTypeIcon: {
@@ -24,16 +25,9 @@ const styles = {
   }
 };
 
-export const EMAIL_TYPE = {
-  reply: "reply",
-  replyAll: "reply all",
-  forward: "forward"
-};
-
 class ActionViewEmail extends Component {
   static propTypes = {
-    responseType: PropTypes.oneOf([EMAIL_TYPE.reply, EMAIL_TYPE.replyAll, EMAIL_TYPE.forward])
-      .isRequired,
+    responseType: PropTypes.oneOf(Object.values(EMAIL_TYPE)).isRequired,
     to: PropTypes.string.isRequired,
     cc: PropTypes.string,
     response: PropTypes.string.isRequired,

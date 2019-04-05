@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
-import { EMAIL_TYPE } from "./ActionViewEmail";
+import { EMAIL_TYPE } from "./constants";
 
 const styles = {
   container: {

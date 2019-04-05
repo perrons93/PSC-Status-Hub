@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ActionViewEmail, { EMAIL_TYPE } from "../../../components/eMIB/ActionViewEmail";
+import ActionViewEmail from "../../../components/eMIB/ActionViewEmail";
+import { EMAIL_TYPE } from "../../../components/eMIB/constants";
 
 describe("Response types", () => {
   const reply = <i className="fas fa-reply" />;

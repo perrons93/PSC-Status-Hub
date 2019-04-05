@@ -1,6 +1,7 @@
 import { emailsJson } from "./sampleEmibJson";
 import { SET_LANGUAGE } from "./LocalizeRedux";
 
+// Initializers
 export const initializeEmailSummaries = length => {
   let emailSummaries = [];
   for (let i = 0; i < length; i++) {
