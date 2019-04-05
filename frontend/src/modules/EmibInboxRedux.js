@@ -9,6 +9,14 @@ export const initializeEmailSummaries = length => {
   return emailSummaries;
 };
 
+const initializeEmailActions = length => {
+  let emailActions = [];
+  for (let i = 0; i < length; i++) {
+    emailActions.push([]);
+  }
+  return emailActions;
+};
+
 // Action Types
 const READ_EMAIL = "emibInbox/READ_EMAIL";
 const ADD_EMAIL = "emibInbox/ADD_EMAIL";
@@ -24,10 +32,12 @@ const addTask = emailIndex => ({ type: ADD_TASK, emailIndex });
 // Initial State
 // emails - represents an array of emails in the currently selected language.
 // emailSummaries - represents an array of objects indicating read state of each email.
+// emailActions - represents an array of arrays, each array contains action objects.
 const initialState = {
   // Loads emails from a static JSON file until an API exists.
   emails: emailsJson.emailsEN,
-  emailSummaries: initializeEmailSummaries(emailsJson.emailsEN.length)
+  emailSummaries: initializeEmailSummaries(emailsJson.emailsEN.length),
+  emailActions: initializeEmailActions(emailsJson.emailsEN.length)
 };
 
 // Reducer
