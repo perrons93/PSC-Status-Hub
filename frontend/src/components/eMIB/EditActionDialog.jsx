@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import LOCALIZE from "../../text_resources";
 import EditEmail from "./EditEmail";
 import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
 import { ACTION_TYPE, EDIT_MODE } from "./constants";
+import { addEmail, addTask } from "../../modules/EmibInboxRedux";
 
 const styles = {
   icon: {
@@ -32,9 +35,11 @@ class EditActionDialog extends Component {
     emailId: PropTypes.number.isRequired,
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
-    saveAction: PropTypes.func.isRequired,
-    actionType: PropTypes.oneOf([ACTION_TYPE.email, ACTION_TYPE.task]).isRequired,
-    editMode: PropTypes.oneOf([EDIT_MODE.create, EDIT_MODE.update]).isRequired
+    actionType: PropTypes.oneOf(Object.values(ACTION_TYPE)).isRequired,
+    editMode: PropTypes.oneOf(Object.values(EDIT_MODE)).isRequired,
+    // Provided from Redux.
+    addEmail: PropTypes.func.isRequired,
+    addTask: PropTypes.func.isRequired
   };
 
   state = {
@@ -42,7 +47,11 @@ class EditActionDialog extends Component {
   };
 
   handleSave = () => {
-    this.props.saveAction(this.props.emailId, this.state.action);
+    if (this.props.actionType === ACTION_TYPE.email) {
+      this.props.addEmail(this.props.emailId, this.state.action);
+    } else if (this.props.actionType === ACTION_TYPE.task) {
+      this.props.addTask(this.props.emailId, this.state.action);
+    }
     this.props.handleClose();
   };
 
@@ -109,4 +118,19 @@ class EditActionDialog extends Component {
     );
   }
 }
-export default EditActionDialog;
+
+export { EditActionDialog as UnconnectedEditActionDialog };
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      addEmail,
+      addTask
+    },
+    dispatch
+  );
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(EditActionDialog);

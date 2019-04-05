@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
 import EditActionDialog from "./EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, emailShape } from "./constants";
-import { addEmail, addTask } from "../../modules/EmibInboxRedux";
 
 const styles = {
   header: {
@@ -47,10 +44,7 @@ class Email extends Component {
   static propTypes = {
     email: emailShape,
     emailCount: PropTypes.number,
-    taskCount: PropTypes.number,
-    // Provided by Redux.
-    addEmail: PropTypes.func.isRequired,
-    addTask: PropTypes.func.isRequired
+    taskCount: PropTypes.number
   };
 
   state = {
@@ -136,7 +130,6 @@ class Email extends Component {
           emailId={email.id}
           showDialog={this.state.showAddEmailDialog}
           handleClose={this.closeEmailDialog}
-          saveAction={this.props.addEmail}
           actionType={ACTION_TYPE.email}
           editMode={EDIT_MODE.create}
         />
@@ -144,7 +137,6 @@ class Email extends Component {
           emailId={email.id}
           showDialog={this.state.showAddTaskDialog}
           handleClose={this.closeTaskDialog}
-          saveAction={this.props.addTask}
           actionType={ACTION_TYPE.task}
           editMode={EDIT_MODE.create}
         />
@@ -153,18 +145,4 @@ class Email extends Component {
   }
 }
 
-export { Email as UnconnectedEmail };
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      addEmail,
-      addTask
-    },
-    dispatch
-  );
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Email);
+export default Email;

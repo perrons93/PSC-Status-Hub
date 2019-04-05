@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import EditActionDialog from "../../../components/eMIB/EditActionDialog";
+import { UnconnectedEditActionDialog as EditActionDialog } from "../../../components/eMIB/EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE } from "../../../components/eMIB/constants";
 
 describe("email action type", () => {
@@ -25,7 +25,8 @@ describe("task action type", () => {
 
 function testCore(actionType, editMode) {
   //Simulation of the save function
-  const saveMock = jest.fn();
+  const addEmail = jest.fn();
+  const addTask = jest.fn();
 
   //shallow wrapper of the dialog
   const wrapper = shallow(
@@ -33,7 +34,8 @@ function testCore(actionType, editMode) {
       emailId={1}
       showDialog={true}
       handleClose={() => {}}
-      saveAction={saveMock}
+      addEmail={addEmail}
+      addTask={addTask}
       actionType={actionType}
       editMode={editMode}
     />
@@ -55,5 +57,11 @@ function testCore(actionType, editMode) {
 
   //Check that the button click triggers the function
   wrapper.find("#unit-test-email-response-button").simulate("click");
-  expect(saveMock).toHaveBeenCalledTimes(1);
+  if (actionType === ACTION_TYPE.email) {
+    expect(addTask).toHaveBeenCalledTimes(0);
+    expect(addEmail).toHaveBeenCalledTimes(1);
+  } else if (actionType === ACTION_TYPE.task) {
+    expect(addTask).toHaveBeenCalledTimes(1);
+    expect(addEmail).toHaveBeenCalledTimes(0);
+  }
 }
