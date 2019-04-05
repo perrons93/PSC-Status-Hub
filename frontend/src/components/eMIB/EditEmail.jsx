@@ -37,11 +37,11 @@ const styles = {
       padding: "4px 12px",
       border: "1px solid #00565E",
       borderRadius: 4,
-      width: "calc(100% - 36px)"
+      width: "calc(100% - 40px)"
     },
     titleStyle: {
       float: "left",
-      width: 24,
+      width: 28,
       height: 32,
       lineHeight: "2.1em"
     }
@@ -49,9 +49,10 @@ const styles = {
   response: {
     textArea: {
       padding: "6px 12px",
+      margin: "0 6px",
       border: "1px solid #00565E",
       borderRadius: 4,
-      width: "99.3%",
+      width: "calc(100% - 12px)",
       height: 225,
       resize: "none"
     }
@@ -62,9 +63,10 @@ const styles = {
   reasonsForAction: {
     textArea: {
       padding: "6px 12px",
+      margin: "0 6px",
       border: "1px solid #00565E",
       borderRadius: 4,
-      width: "99.3%",
+      width: "calc(100% - 12px)",
       height: 150,
       resize: "none"
     }
