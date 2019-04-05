@@ -59,7 +59,7 @@ class ResponseItem extends Component {
                 <>
                   <i className="fas fa-reply" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
-                    {LOCALIZE.emibTest.inboxPage.emailResponse.responseType.reply}
+                    {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
                   </span>
                 </>
               )}
@@ -67,7 +67,7 @@ class ResponseItem extends Component {
                 <>
                   <i className="fas fa-reply-all" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
-                    {LOCALIZE.emibTest.inboxPage.emailResponse.responseType.replyAll}
+                    {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
                   </span>
                 </>
               )}
@@ -75,20 +75,20 @@ class ResponseItem extends Component {
                 <>
                   <i className="fas fa-share-square" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
-                    {LOCALIZE.emibTest.inboxPage.emailResponse.responseType.forward}
+                    {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
                   </span>
                 </>
               )}
             </p>
             <p>
               <span className="font-weight-bold">
-                {LOCALIZE.emibTest.inboxPage.emailResponse.to}&nbsp;
+                {LOCALIZE.emibTest.inboxPage.emailCommons.to}&nbsp;
               </span>
               <span>{to}</span>
             </p>
             <p>
               <span className="font-weight-bold">
-                {LOCALIZE.emibTest.inboxPage.emailResponse.cc}&nbsp;
+                {LOCALIZE.emibTest.inboxPage.emailCommons.cc}&nbsp;
               </span>
               <span>{cc}</span>
             </p>
