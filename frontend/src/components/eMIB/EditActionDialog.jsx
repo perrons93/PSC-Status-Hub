@@ -56,7 +56,7 @@ class EditActionDialog extends Component {
     this.props.handleClose();
   };
 
-  // updatedAction is of shape actionShape
+  // updatedAction is the PropType shape actionShape and represents a single action a candidate takes on an email
   editAction = updatedAction => {
     this.setState({ action: updatedAction });
   };

@@ -94,25 +94,25 @@ class EditEmail extends Component {
     this.props.onChange({ ...this.state, emailType: newEmailType });
   };
 
-  onemailToChange = event => {
-    const newemailTo = event.target.value;
-    this.setState({ emailTo: newemailTo });
-    this.props.onChange({ ...this.state, emailTo: newemailTo });
+  onEmailToChange = event => {
+    const newEmailTo = event.target.value;
+    this.setState({ emailTo: newEmailTo });
+    this.props.onChange({ ...this.state, emailTo: newEmailTo });
   };
 
-  onemailCcChange = event => {
-    const newemailCc = event.target.value;
-    this.setState({ emailCc: newemailCc });
-    this.props.onChange({ ...this.state, emailCc: newemailCc });
+  onEmailCcChange = event => {
+    const newEmailCc = event.target.value;
+    this.setState({ emailCc: newEmailCc });
+    this.props.onChange({ ...this.state, emailCc: newEmailCc });
   };
 
-  onemailBodyChange = event => {
-    const newemailBody = event.target.value;
-    this.setState({ emailBody: newemailBody });
-    this.props.onChange({ ...this.state, emailBody: newemailBody });
+  onEmailBodyChange = event => {
+    const newEmailBody = event.target.value;
+    this.setState({ emailBody: newEmailBody });
+    this.props.onChange({ ...this.state, emailBody: newEmailBody });
   };
 
-  onreasonsForActionChange = event => {
+  onReasonsForActionChange = event => {
     const newReasonForAction = event.target.value;
     this.setState({ reasonForAction: newReasonForAction });
     this.props.onChange({ ...this.state, reasonForAction: newReasonForAction });
@@ -190,7 +190,7 @@ class EditEmail extends Component {
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
                   value={emailTo}
-                  onChange={this.onemailToChange}
+                  onChange={this.onEmailToChange}
                 />
               </span>
             </div>
@@ -207,7 +207,7 @@ class EditEmail extends Component {
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
                   value={emailCc}
-                  onChange={this.onemailCcChange}
+                  onChange={this.onEmailCcChange}
                 />
               </span>
             </div>
@@ -222,7 +222,7 @@ class EditEmail extends Component {
                 maxLength="500"
                 style={styles.response.textArea}
                 value={emailBody}
-                onChange={this.onemailBodyChange}
+                onChange={this.onEmailBodyChange}
               />
             </div>
           </div>
@@ -237,7 +237,7 @@ class EditEmail extends Component {
                 maxLength="100"
                 style={styles.reasonsForAction.textArea}
                 value={reasonsForAction}
-                onChange={this.onreasonsForActionChange}
+                onChange={this.onReasonsForActionChange}
               />
             </div>
           </div>
