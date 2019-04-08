@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import { UnconnectedEmail as Email } from "../../../components/eMIB/Email";
 import CollapsingItemContainer from "../../../components/eMIB/CollapsingItemContainer";
+import { EMAIL_TYPE } from "../../../components/eMIB/constants";
 
 const emailStub = {
   id: 1,
@@ -41,14 +42,31 @@ it("shows action when task count is non zero", () => {
   expect(wrapper.contains(hasAction)).toEqual(true);
 });
 
-it("shows as many CollapsingItemContainer as there are actions", () => {
-  const wrapper = shallow(
-    <Email
-      email={emailStub}
-      emailCount={0}
-      taskCount={2}
-      emailActions={[{ emailType: "reply", emailTo: "you", emailBody: "hi" }]}
-    />
-  );
-  expect(wrapper.find(CollapsingItemContainer).length).toEqual(1);
+describe("shows as many 'CollapsingItemContainer' as there are actions", () => {
+  it("shows 1 'CollapsingItemContainer'", () => {
+    const wrapper = shallow(
+      <Email
+        email={emailStub}
+        emailCount={0}
+        taskCount={2}
+        emailActions={[{ emailType: EMAIL_TYPE.reply, emailTo: "you", emailBody: "hi" }]}
+      />
+    );
+    expect(wrapper.find(CollapsingItemContainer).length).toEqual(1);
+  });
+  it("shows 3 'CollapsingItemContainer'", () => {
+    const wrapper = shallow(
+      <Email
+        email={emailStub}
+        emailCount={2}
+        taskCount={2}
+        emailActions={[
+          { emailType: EMAIL_TYPE.reply, emailTo: "you1", emailBody: "hi1" },
+          { emailType: EMAIL_TYPE.replyAll, emailTo: "you2", emailBody: "hi2" },
+          { emailType: EMAIL_TYPE.forward, emailTo: "you3", emailBody: "hi3" }
+        ]}
+      />
+    );
+    expect(wrapper.find(CollapsingItemContainer).length).toEqual(3);
+  });
 });
