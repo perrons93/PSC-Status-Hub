@@ -13,7 +13,7 @@ export let CLASS_NAME = {
 
 export const styles = {
   boxPadding: {
-    paddingTop: 18
+    paddingTop: 0
   },
   logoZone: {
     minWidth: 75

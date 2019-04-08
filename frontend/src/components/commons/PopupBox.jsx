@@ -29,8 +29,8 @@ const styles = {
     width: "100%"
   },
   modelTitle: {
-    position: "absolute",
-    fontSize: "28px"
+    fontSize: "28px",
+    margin: "12px 0 0 0"
   },
   buttonsZone: {
     width: "100%",
