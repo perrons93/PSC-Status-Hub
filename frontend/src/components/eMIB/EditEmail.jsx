@@ -95,27 +95,27 @@ class EditEmail extends Component {
   };
 
   onEmailToChange = event => {
-    const newemailTo = event.target.value;
-    this.setState({ emailTo: newemailTo });
-    this.props.onChange({ ...this.state, emailTo: newemailTo });
+    const newEmailTo = event.target.value;
+    this.setState({ emailTo: newEmailTo });
+    this.props.onChange({ ...this.state, emailTo: newEmailTo });
   };
 
   onEmailCcChange = event => {
-    const newemailCc = event.target.value;
-    this.setState({ emailCc: newemailCc });
-    this.props.onChange({ ...this.state, emailCc: newemailCc });
+    const newEmailCc = event.target.value;
+    this.setState({ emailCc: newEmailCc });
+    this.props.onChange({ ...this.state, emailCc: newEmailCc });
   };
 
   onEmailBodyChange = event => {
-    const newemailBody = event.target.value;
-    this.setState({ emailBody: newemailBody });
-    this.props.onChange({ ...this.state, emailBody: newemailBody });
+    const newEmailBody = event.target.value;
+    this.setState({ emailBody: newEmailBody });
+    this.props.onChange({ ...this.state, emailBody: newEmailBody });
   };
 
   onReasonsForActionChange = event => {
-    const newreasonsForAction = event.target.value;
-    this.setState({ reasonsForAction: newreasonsForAction });
-    this.props.onChange({ ...this.state, reasonsForAction: newreasonsForAction });
+    const newReasonsForAction = event.target.value;
+    this.setState({ reasonsForAction: newReasonsForAction });
+    this.props.onChange({ ...this.state, reasonsForAction: newReasonsForAction });
   };
 
   render() {
