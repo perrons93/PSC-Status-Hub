@@ -1,6 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Email from "../../../components/eMIB/Email";
+import { UnconnectedEmail as Email } from "../../../components/eMIB/Email";
+import CollapsingItemContainer from "../../../components/eMIB/CollapsingItemContainer";
+import { EMAIL_TYPE } from "../../../components/eMIB/constants";
 
 const emailStub = {
   id: 1,
@@ -14,22 +16,57 @@ const emailStub = {
 const hasAction = <i className="fas fa-sign-out-alt" style={{ color: "#00565E" }} />;
 
 it("default email renders with subject as an h3", () => {
-  const wrapper = shallow(<Email email={emailStub} emailCount={0} taskCount={0} />);
+  const wrapper = shallow(
+    <Email email={emailStub} emailCount={0} taskCount={0} emailActions={[]} />
+  );
   const subject = <h3>Subject 1</h3>;
   expect(wrapper.contains(subject)).toEqual(true);
   expect(wrapper.contains(hasAction)).toEqual(false);
 });
 
 it("shows action when email count is non zero", () => {
-  const wrapper = shallow(<Email email={emailStub} emailCount={1} taskCount={0} />);
+  const wrapper = shallow(
+    <Email email={emailStub} emailCount={1} taskCount={0} emailActions={[]} />
+  );
   const subject = <h3>Subject 1</h3>;
   expect(wrapper.contains(subject)).toEqual(true);
   expect(wrapper.contains(hasAction)).toEqual(true);
 });
 
 it("shows action when task count is non zero", () => {
-  const wrapper = shallow(<Email email={emailStub} emailCount={0} taskCount={2} />);
+  const wrapper = shallow(
+    <Email email={emailStub} emailCount={0} taskCount={2} emailActions={[]} />
+  );
   const subject = <h3>Subject 1</h3>;
   expect(wrapper.contains(subject)).toEqual(true);
   expect(wrapper.contains(hasAction)).toEqual(true);
+});
+
+describe("shows as many 'CollapsingItemContainer' as there are actions", () => {
+  it("shows 1 'CollapsingItemContainer'", () => {
+    const wrapper = shallow(
+      <Email
+        email={emailStub}
+        emailCount={0}
+        taskCount={2}
+        emailActions={[{ emailType: EMAIL_TYPE.reply, emailTo: "you", emailBody: "hi" }]}
+      />
+    );
+    expect(wrapper.find(CollapsingItemContainer).length).toEqual(1);
+  });
+  it("shows 3 'CollapsingItemContainer'", () => {
+    const wrapper = shallow(
+      <Email
+        email={emailStub}
+        emailCount={2}
+        taskCount={2}
+        emailActions={[
+          { emailType: EMAIL_TYPE.reply, emailTo: "you1", emailBody: "hi1" },
+          { emailType: EMAIL_TYPE.replyAll, emailTo: "you2", emailBody: "hi2" },
+          { emailType: EMAIL_TYPE.forward, emailTo: "you3", emailBody: "hi3" }
+        ]}
+      />
+    );
+    expect(wrapper.find(CollapsingItemContainer).length).toEqual(3);
+  });
 });

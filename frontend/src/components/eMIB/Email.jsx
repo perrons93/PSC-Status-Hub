@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
 import EditActionDialog from "./EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, emailShape } from "./constants";
+import { selectEmailActions } from "../../modules/EmibInboxRedux";
+import ActionViewEmail from "./ActionViewEmail";
+import CollapsingItemContainer, { ICON_TYPE } from "./CollapsingItemContainer";
 
 const styles = {
   header: {
@@ -44,7 +48,9 @@ class Email extends Component {
   static propTypes = {
     email: emailShape,
     emailCount: PropTypes.number,
-    taskCount: PropTypes.number
+    taskCount: PropTypes.number,
+    // Provided by Redux
+    emailActions: PropTypes.array
   };
 
   state = {
@@ -69,7 +75,7 @@ class Email extends Component {
   };
 
   render() {
-    const { email, emailCount, taskCount } = this.props;
+    const { email, emailCount, taskCount, emailActions } = this.props;
     const hasTakenAction = emailCount + taskCount > 0;
 
     return (
@@ -126,6 +132,27 @@ class Email extends Component {
         </div>
         <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
+        <div>
+          {emailActions.map((email, id) => {
+            return (
+              <CollapsingItemContainer
+                key={id}
+                icon={ICON_TYPE.email}
+                // TODO: we need to put a dynamic title generator here instead of hard coding this title
+                title={"Email response"}
+                body={
+                  <ActionViewEmail
+                    responseType={email.emailType}
+                    to={email.emailTo}
+                    cc={email.emailCc}
+                    response={email.emailBody}
+                    reasonsForAction={email.reasonForAction}
+                  />
+                }
+              />
+            );
+          })}
+        </div>
         <EditActionDialog
           emailId={email.id}
           showDialog={this.state.showAddEmailDialog}
@@ -145,4 +172,15 @@ class Email extends Component {
   }
 }
 
-export default Email;
+export { Email as UnconnectedEmail };
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    emailActions: selectEmailActions(state.emibInbox.emailActions, ownProps.email.id)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(Email);

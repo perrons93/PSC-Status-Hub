@@ -52,6 +52,7 @@ class EditActionDialog extends Component {
     } else if (this.props.actionType === ACTION_TYPE.task) {
       this.props.addTask(this.props.emailId, this.state.action);
     }
+    this.setState({ action: {} });
     this.props.handleClose();
   };
 
