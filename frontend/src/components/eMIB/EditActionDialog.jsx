@@ -35,8 +35,8 @@ class EditActionDialog extends Component {
     emailId: PropTypes.number.isRequired,
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
-    actionType: PropTypes.oneOf(Object.values(ACTION_TYPE)).isRequired,
-    editMode: PropTypes.oneOf(Object.values(EDIT_MODE)).isRequired,
+    actionType: PropTypes.oneOf(Object.keys(ACTION_TYPE)).isRequired,
+    editMode: PropTypes.oneOf(Object.keys(EDIT_MODE)).isRequired,
     // Provided from Redux.
     addEmail: PropTypes.func.isRequired,
     addTask: PropTypes.func.isRequired
