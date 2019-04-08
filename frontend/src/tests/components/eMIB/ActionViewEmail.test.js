@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ResponseItem, { RESPONSE_TYPE } from "../../../components/eMIB/ResponseItem";
+import ActionViewEmail from "../../../components/eMIB/ActionViewEmail";
+import { EMAIL_TYPE } from "../../../components/eMIB/constants";
 
 describe("Response types", () => {
   const reply = <i className="fas fa-reply" />;
@@ -9,8 +10,8 @@ describe("Response types", () => {
 
   it("renders reply response", () => {
     const wrapper = shallow(
-      <ResponseItem
-        responseType={RESPONSE_TYPE.reply}
+      <ActionViewEmail
+        responseType={EMAIL_TYPE.reply}
         to={"to"}
         cc={"cc"}
         response={"response"}
@@ -25,8 +26,8 @@ describe("Response types", () => {
 
   it("renders reply all response", () => {
     const wrapper = shallow(
-      <ResponseItem
-        responseType={RESPONSE_TYPE.replyAll}
+      <ActionViewEmail
+        responseType={EMAIL_TYPE.replyAll}
         to={"to"}
         cc={"cc"}
         response={"response"}
@@ -41,8 +42,8 @@ describe("Response types", () => {
 
   it("renders forward response", () => {
     const wrapper = shallow(
-      <ResponseItem
-        responseType={RESPONSE_TYPE.forward}
+      <ActionViewEmail
+        responseType={EMAIL_TYPE.forward}
         to={"to"}
         cc={"cc"}
         response={"response"}
@@ -61,8 +62,8 @@ describe("Email header", () => {
 
   it("renders email's header with cc)", () => {
     const wrapper = shallow(
-      <ResponseItem
-        responseType={RESPONSE_TYPE.reply}
+      <ActionViewEmail
+        responseType={EMAIL_TYPE.reply}
         to={"to"}
         cc={"cc"}
         response={"response"}
@@ -75,8 +76,8 @@ describe("Email header", () => {
 
   it("renders email's header without cc)", () => {
     const wrapper = shallow(
-      <ResponseItem
-        responseType={RESPONSE_TYPE.reply}
+      <ActionViewEmail
+        responseType={EMAIL_TYPE.reply}
         to={"to"}
         response={"response"}
         reasonsForAction={"reasons"}

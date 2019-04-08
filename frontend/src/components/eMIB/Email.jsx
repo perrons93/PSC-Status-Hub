@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
-import EditEmailActionDialog, { ACTION_TYPE, EDIT_MODE } from "./EditEmailActionDialog";
-import { addEmail, addTask } from "../../modules/EmibInboxRedux";
+import EditActionDialog from "./EditActionDialog";
+import { ACTION_TYPE, EDIT_MODE, emailShape } from "./constants";
 
 const styles = {
   header: {
@@ -44,12 +42,9 @@ const styles = {
 
 class Email extends Component {
   static propTypes = {
-    email: PropTypes.object.isRequired,
+    email: emailShape,
     emailCount: PropTypes.number,
-    taskCount: PropTypes.number,
-    // Provided by Redux.
-    addEmail: PropTypes.func.isRequired,
-    addTask: PropTypes.func.isRequired
+    taskCount: PropTypes.number
   };
 
   state = {
@@ -71,14 +66,6 @@ class Email extends Component {
 
   closeTaskDialog = () => {
     this.setState({ showAddTaskDialog: false });
-  };
-
-  replyToEmail = () => {
-    this.props.addEmail(this.props.email.id);
-  };
-
-  addTaskToEmail = () => {
-    this.props.addTask(this.props.email.id);
   };
 
   render() {
@@ -139,17 +126,17 @@ class Email extends Component {
         </div>
         <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
-        <EditEmailActionDialog
+        <EditActionDialog
+          emailId={email.id}
           showDialog={this.state.showAddEmailDialog}
           handleClose={this.closeEmailDialog}
-          saveEmail={this.replyToEmail}
           actionType={ACTION_TYPE.email}
           editMode={EDIT_MODE.create}
         />
-        <EditEmailActionDialog
+        <EditActionDialog
+          emailId={email.id}
           showDialog={this.state.showAddTaskDialog}
           handleClose={this.closeTaskDialog}
-          saveEmail={this.addTaskToEmail}
           actionType={ACTION_TYPE.task}
           editMode={EDIT_MODE.create}
         />
@@ -158,18 +145,4 @@ class Email extends Component {
   }
 }
 
-export { Email as UnconnectedEmail };
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      addEmail,
-      addTask
-    },
-    dispatch
-  );
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Email);
+export default Email;

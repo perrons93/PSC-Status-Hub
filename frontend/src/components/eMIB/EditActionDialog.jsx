@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import LOCALIZE from "../../text_resources";
 import EditEmail from "./EditEmail";
 import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
-
-export const ACTION_TYPE = {
-  email: "email",
-  task: "task"
-};
-
-export const EDIT_MODE = {
-  create: "create",
-  update: "update"
-};
+import { ACTION_TYPE, EDIT_MODE } from "./constants";
+import { addEmail, addTask } from "../../modules/EmibInboxRedux";
 
 const styles = {
   icon: {
@@ -36,18 +30,34 @@ const styles = {
   }
 };
 
-class EditEmailActionDialog extends Component {
+class EditActionDialog extends Component {
   static propTypes = {
+    emailId: PropTypes.number.isRequired,
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
-    saveEmail: PropTypes.func.isRequired,
-    actionType: PropTypes.oneOf([ACTION_TYPE.email, ACTION_TYPE.task]).isRequired,
-    editMode: PropTypes.oneOf([EDIT_MODE.create, EDIT_MODE.update]).isRequired
+    actionType: PropTypes.oneOf(Object.values(ACTION_TYPE)).isRequired,
+    editMode: PropTypes.oneOf(Object.values(EDIT_MODE)).isRequired,
+    // Provided from Redux.
+    addEmail: PropTypes.func.isRequired,
+    addTask: PropTypes.func.isRequired
+  };
+
+  state = {
+    action: {}
   };
 
   handleSave = () => {
-    this.props.saveEmail();
+    if (this.props.actionType === ACTION_TYPE.email) {
+      this.props.addEmail(this.props.emailId, this.state.action);
+    } else if (this.props.actionType === ACTION_TYPE.task) {
+      this.props.addTask(this.props.emailId, this.state.action);
+    }
     this.props.handleClose();
+  };
+
+  // updatedAction is the PropType shape actionShape and represents a single action a candidate takes on an email
+  editAction = updatedAction => {
+    this.setState({ action: updatedAction });
   };
 
   render() {
@@ -64,9 +74,9 @@ class EditEmailActionDialog extends Component {
                       <i style={styles.icon} className="fas fa-envelope" />
                       <h3 style={styles.dialogHeaderText}>
                         {editMode === EDIT_MODE.create &&
-                          LOCALIZE.emibTest.inboxPage.editEmailActionDialog.addEmail}
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.addEmail}
                         {editMode === EDIT_MODE.update &&
-                          LOCALIZE.emibTest.inboxPage.editEmailActionDialog.editEmail}
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
                       </h3>
                     </div>
                   )}
@@ -75,9 +85,9 @@ class EditEmailActionDialog extends Component {
                       <i style={styles.icon} className="fas fa-tasks" />
                       <h3 style={styles.dialogHeaderText}>
                         {editMode === EDIT_MODE.create &&
-                          LOCALIZE.emibTest.inboxPage.editEmailActionDialog.addTask}
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.addTask}
                         {editMode === EDIT_MODE.update &&
-                          LOCALIZE.emibTest.inboxPage.editEmailActionDialog.editTask}
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
                       </h3>
                     </div>
                   )}
@@ -85,7 +95,7 @@ class EditEmailActionDialog extends Component {
               }
             </Modal.Header>
             <Modal.Body>
-              {actionType === ACTION_TYPE.email && <EditEmail />}
+              {actionType === ACTION_TYPE.email && <EditEmail onChange={this.editAction} />}
               {actionType === ACTION_TYPE.task && <EditTask />}
             </Modal.Body>
             <Modal.Footer>
@@ -97,7 +107,7 @@ class EditEmailActionDialog extends Component {
                     className="btn btn-primary"
                     onClick={this.handleSave}
                   >
-                    {LOCALIZE.emibTest.inboxPage.editEmailActionDialog.save}
+                    {LOCALIZE.emibTest.inboxPage.editActionDialog.save}
                   </button>
                 </div>
               </div>
@@ -108,4 +118,19 @@ class EditEmailActionDialog extends Component {
     );
   }
 }
-export default EditEmailActionDialog;
+
+export { EditActionDialog as UnconnectedEditActionDialog };
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      addEmail,
+      addTask
+    },
+    dispatch
+  );
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(EditActionDialog);

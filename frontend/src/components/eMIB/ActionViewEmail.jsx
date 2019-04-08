@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
+import { EMAIL_TYPE } from "./constants";
 
 const styles = {
   responseTypeIcon: {
@@ -24,19 +25,9 @@ const styles = {
   }
 };
 
-export const RESPONSE_TYPE = {
-  reply: "reply",
-  replyAll: "reply all",
-  forward: "forward"
-};
-
-class ResponseItem extends Component {
+class ActionViewEmail extends Component {
   static propTypes = {
-    responseType: PropTypes.oneOf([
-      RESPONSE_TYPE.reply,
-      RESPONSE_TYPE.replyAll,
-      RESPONSE_TYPE.forward
-    ]).isRequired,
+    responseType: PropTypes.oneOf(Object.values(EMAIL_TYPE)).isRequired,
     to: PropTypes.string.isRequired,
     cc: PropTypes.string,
     response: PropTypes.string.isRequired,
@@ -55,7 +46,7 @@ class ResponseItem extends Component {
           <div id="email-header-desc" role="dialog">
             <p className="font-weight-bold">
               {LOCALIZE.emibTest.inboxPage.emailResponse.description}
-              {responseType === RESPONSE_TYPE.reply && (
+              {responseType === EMAIL_TYPE.reply && (
                 <>
                   <i className="fas fa-reply" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
@@ -63,7 +54,7 @@ class ResponseItem extends Component {
                   </span>
                 </>
               )}
-              {responseType === RESPONSE_TYPE.replyAll && (
+              {responseType === EMAIL_TYPE.replyAll && (
                 <>
                   <i className="fas fa-reply-all" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
@@ -71,7 +62,7 @@ class ResponseItem extends Component {
                   </span>
                 </>
               )}
-              {responseType === RESPONSE_TYPE.forward && (
+              {responseType === EMAIL_TYPE.forward && (
                 <>
                   <i className="fas fa-share-square" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
@@ -131,4 +122,4 @@ class ResponseItem extends Component {
     );
   }
 }
-export default ResponseItem;
+export default ActionViewEmail;

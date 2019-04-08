@@ -334,7 +334,7 @@ let LOCALIZE = new LocalizedStrings({
         addReply: "Add email Response",
         addTask: "Create a task",
         yourActions: `You responded with {0} emails and {1} tasks`,
-        editEmailActionDialog: {
+        editActionDialog: {
           addEmail: "Add email response",
           editEmail: "Edit email response",
           addTask: "Add task",
@@ -794,7 +794,7 @@ let LOCALIZE = new LocalizedStrings({
         addReply: "FR Add email Response",
         addTask: "FR Create a task",
         yourActions: `FR You responded with {0} emails and {1} tasks`,
-        editEmailActionDialog: {
+        editActionDialog: {
           addEmail: "FR Add email response",
           editEmail: "FR Edit email response",
           addTask: "FR Add task",

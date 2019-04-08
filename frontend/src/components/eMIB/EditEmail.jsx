@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
+import { EMAIL_TYPE } from "./constants";
 
 const styles = {
   container: {
@@ -74,7 +76,51 @@ const styles = {
 };
 
 class EditEmail extends Component {
+  static propTypes = {
+    onChange: PropTypes.func.isRequired
+  };
+
+  state = {
+    emailType: EMAIL_TYPE.reply,
+    emailTo: "",
+    emailCc: "",
+    emailBody: "",
+    reasonsForAction: ""
+  };
+
+  onEmailTypeChange = event => {
+    const newEmailType = event.target.value;
+    this.setState({ emailType: newEmailType });
+    this.props.onChange({ ...this.state, emailType: newEmailType });
+  };
+
+  onEmailToChange = event => {
+    const newEmailTo = event.target.value;
+    this.setState({ emailTo: newEmailTo });
+    this.props.onChange({ ...this.state, emailTo: newEmailTo });
+  };
+
+  onEmailCcChange = event => {
+    const newEmailCc = event.target.value;
+    this.setState({ emailCc: newEmailCc });
+    this.props.onChange({ ...this.state, emailCc: newEmailCc });
+  };
+
+  onEmailBodyChange = event => {
+    const newEmailBody = event.target.value;
+    this.setState({ emailBody: newEmailBody });
+    this.props.onChange({ ...this.state, emailBody: newEmailBody });
+  };
+
+  onReasonsForActionChange = event => {
+    const newReasonsForAction = event.target.value;
+    this.setState({ reasonsForAction: newReasonsForAction });
+    this.props.onChange({ ...this.state, reasonsForAction: newReasonsForAction });
+  };
+
   render() {
+    const { emailType, emailTo, emailCc, emailBody, reasonsForAction } = this.state;
+
     return (
       <div style={styles.container}>
         <form>
@@ -89,6 +135,9 @@ class EditEmail extends Component {
                   type="radio"
                   name="responseTypeRadio"
                   style={styles.header.radioPadding}
+                  onChange={this.onEmailTypeChange}
+                  value={EMAIL_TYPE.reply}
+                  checked={emailType === EMAIL_TYPE.reply}
                 />
                 <label htmlFor="reply-radio" style={styles.header.radioText}>
                   <i className="fas fa-reply" style={styles.header.responseTypeIcons} />
@@ -102,6 +151,9 @@ class EditEmail extends Component {
                   type="radio"
                   name="responseTypeRadio"
                   style={styles.header.radioPadding}
+                  onChange={this.onEmailTypeChange}
+                  value={EMAIL_TYPE.replyAll}
+                  checked={emailType === EMAIL_TYPE.replyAll}
                 />
                 <label htmlFor="reply-all-radio" style={styles.header.radioText}>
                   <i className="fas fa-reply-all" style={styles.header.responseTypeIcons} />
@@ -115,6 +167,9 @@ class EditEmail extends Component {
                   type="radio"
                   name="responseTypeRadio"
                   style={styles.header.radioPadding}
+                  onChange={this.onEmailTypeChange}
+                  value={EMAIL_TYPE.forward}
+                  checked={emailType === EMAIL_TYPE.forward}
                 />
                 <label htmlFor="forward-radio" style={styles.header.radioText}>
                   <i className="fas fa-share-square" style={styles.header.responseTypeIcons} />
@@ -134,6 +189,8 @@ class EditEmail extends Component {
                   type="text"
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
+                  value={emailTo}
+                  onChange={this.onEmailToChange}
                 />
               </span>
             </div>
@@ -149,6 +206,8 @@ class EditEmail extends Component {
                   type="text"
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
+                  value={emailCc}
+                  onChange={this.onEmailCcChange}
                 />
               </span>
             </div>
@@ -162,6 +221,8 @@ class EditEmail extends Component {
                 id="your-response-text-area"
                 maxLength="500"
                 style={styles.response.textArea}
+                value={emailBody}
+                onChange={this.onEmailBodyChange}
               />
             </div>
           </div>
@@ -175,6 +236,8 @@ class EditEmail extends Component {
                 id="reasons-for-action-text-area"
                 maxLength="100"
                 style={styles.reasonsForAction.textArea}
+                value={reasonsForAction}
+                onChange={this.onReasonsForActionChange}
               />
             </div>
           </div>
