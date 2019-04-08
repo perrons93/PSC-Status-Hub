@@ -15,6 +15,21 @@ const styles = {
     borderColor: "#00565E"
   },
   tasks: {
+    title: {
+      float: "left",
+      marginRight: 6
+    },
+    icon: {
+      color: "#00565E",
+      marginTop: "4px"
+    },
+    tooltip: {
+      float: "right",
+      border: "1px solid #00565E",
+      color: "#00565E",
+      width: "75%",
+      margin: "6px 6px 12px 0"
+    },
     textArea: {
       padding: "6px 12px",
       border: "1px solid #00565E",
@@ -25,6 +40,14 @@ const styles = {
     }
   },
   reasonsForAction: {
+    title: {
+      float: "left",
+      marginRight: 6
+    },
+    icon: {
+      color: "#00565E",
+      marginTop: "4px"
+    },
     textArea: {
       padding: "6px 12px",
       border: "1px solid #00565E",
@@ -35,6 +58,8 @@ const styles = {
     }
   }
 };
+
+//TODO: Add tooltip functionality for both task and reasons for action icons
 
 class EditTask extends Component {
   render() {
@@ -54,17 +79,19 @@ class EditTask extends Component {
           <hr style={styles.hr} />
           <div>
             <div className="font-weight-bold form-group">
-              <label htmlFor="your-tasks-text-area">
+              <label htmlFor="your-tasks-text-area" style={styles.tasks.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.task}
               </label>
+              <i className="fas fa-question-circle" style={styles.tasks.icon} />
               <textarea id="your-tasks-text-area" maxLength="100" style={styles.tasks.textArea} />
             </div>
           </div>
           <div>
             <div className="font-weight-bold form-group">
-              <label htmlFor="your-tasks-text-area">
+              <label htmlFor="your-tasks-text-area" style={styles.reasonsForAction.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.reasonsForAction}
               </label>
+              <i className="fas fa-question-circle" style={styles.reasonsForAction.icon} />
               <textarea
                 id="your-tasks-text-area"
                 maxLength="100"
