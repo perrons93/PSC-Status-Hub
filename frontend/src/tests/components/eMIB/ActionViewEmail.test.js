@@ -59,7 +59,5 @@ function genWrapper(responseType, cc) {
     emailBody: "reasons"
   };
 
-  const wrapper = shallow(<ActionViewEmail action={actionStub} emailId={1} />);
-
-  return wrapper;
+  return shallow(<ActionViewEmail action={actionStub} emailId={1} />);
 }
