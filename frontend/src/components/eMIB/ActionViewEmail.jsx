@@ -4,7 +4,7 @@ import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import { EMAIL_TYPE } from "./constants";
 import EditActionDialog from "./EditActionDialog";
-import { ACTION_TYPE, EDIT_MODE } from "./constants";
+import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
 
 const styles = {
   responseTypeIcon: {
@@ -29,11 +29,7 @@ const styles = {
 
 class ActionViewEmail extends Component {
   static propTypes = {
-    responseType: PropTypes.oneOf(Object.values(EMAIL_TYPE)).isRequired,
-    to: PropTypes.string.isRequired,
-    cc: PropTypes.string,
-    response: PropTypes.string.isRequired,
-    reasonsForAction: PropTypes.string,
+    action: actionShape,
     emailId: PropTypes.number.isRequired
   };
 
@@ -50,7 +46,7 @@ class ActionViewEmail extends Component {
   };
 
   render() {
-    const { responseType, to, cc, response, reasonsForAction } = this.props;
+    const action = this.props.action;
     return (
       <div>
         <div
@@ -61,7 +57,7 @@ class ActionViewEmail extends Component {
           <div id="email-header-desc" role="dialog">
             <p className="font-weight-bold">
               {LOCALIZE.emibTest.inboxPage.emailResponse.description}
-              {responseType === EMAIL_TYPE.reply && (
+              {action.emailType === EMAIL_TYPE.reply && (
                 <>
                   <i className="fas fa-reply" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
@@ -69,7 +65,7 @@ class ActionViewEmail extends Component {
                   </span>
                 </>
               )}
-              {responseType === EMAIL_TYPE.replyAll && (
+              {action.emailType === EMAIL_TYPE.replyAll && (
                 <>
                   <i className="fas fa-reply-all" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
@@ -77,7 +73,7 @@ class ActionViewEmail extends Component {
                   </span>
                 </>
               )}
-              {responseType === EMAIL_TYPE.forward && (
+              {action.emailType === EMAIL_TYPE.forward && (
                 <>
                   <i className="fas fa-share-square" style={styles.responseTypeIcon} />
                   <span style={styles.responseType}>
@@ -90,13 +86,13 @@ class ActionViewEmail extends Component {
               <span className="font-weight-bold">
                 {LOCALIZE.emibTest.inboxPage.emailCommons.to}&nbsp;
               </span>
-              <span>{to}</span>
+              <span>{action.emailTo}</span>
             </p>
             <p>
               <span className="font-weight-bold">
-                {LOCALIZE.emibTest.inboxPage.emailCommons.cc}&nbsp;
+                {LOCALIZE.emibTest.inboxPage.emailCommons.emailCc}&nbsp;
               </span>
-              <span>{cc}</span>
+              <span>{action.emailCc}</span>
             </p>
           </div>
         </div>
@@ -108,7 +104,7 @@ class ActionViewEmail extends Component {
         >
           <div id="email-response" role="dialog">
             <p className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.emailResponse.response}</p>
-            <p>{response}</p>
+            <p>{action.emailBody}</p>
           </div>
         </div>
         <hr style={styles.hr} />
@@ -121,7 +117,7 @@ class ActionViewEmail extends Component {
             <p className="font-weight-bold">
               {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
             </p>
-            <p>{reasonsForAction}</p>
+            <p>{action.reasonForAction}</p>
           </div>
         </div>
         <hr style={styles.hr} />
