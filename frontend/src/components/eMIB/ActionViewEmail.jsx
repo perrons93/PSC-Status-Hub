@@ -32,18 +32,6 @@ class ActionViewEmail extends Component {
     emailId: PropTypes.number.isRequired
   };
 
-  state = {
-    showEmailDialog: false
-  };
-
-  showEmailDialog = () => {
-    this.setState({ showEmailDialog: true });
-  };
-
-  closeEmailDialog = () => {
-    this.setState({ showEmailDialog: false });
-  };
-
   render() {
     const action = this.props.action;
     return (
