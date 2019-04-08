@@ -133,7 +133,7 @@ class Email extends Component {
         <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
         <div>
-          {emailActions.map((email, id) => {
+          {emailActions.map((action, id) => {
             return (
               <CollapsingItemContainer
                 key={id}
@@ -142,11 +142,11 @@ class Email extends Component {
                 title={"Email response"}
                 body={
                   <ActionViewEmail
-                    responseType={email.emailType}
-                    to={email.emailTo}
-                    cc={email.emailCc}
-                    response={email.emailBody}
-                    reasonsForAction={email.reasonForAction}
+                    responseType={action.emailType}
+                    to={action.emailTo}
+                    cc={action.emailCc}
+                    response={action.emailBody}
+                    reasonsForAction={action.reasonForAction}
                     emailId={this.props.email.id}
                   />
                 }
