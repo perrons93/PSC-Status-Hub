@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import ActionViewEmail from "../../../components/eMIB/ActionViewEmail";
-import { EMAIL_TYPE } from "../../../components/eMIB/constants";
+import { EMAIL_TYPE, ACTION_TYPE } from "../../../components/eMIB/constants";
 
 describe("Response types", () => {
   const reply = <i className="fas fa-reply" />;
@@ -9,15 +9,7 @@ describe("Response types", () => {
   const forward = <i className="fas fa-share-square" />;
 
   it("renders reply response", () => {
-    const wrapper = shallow(
-      <ActionViewEmail
-        responseType={EMAIL_TYPE.reply}
-        to={"to"}
-        cc={"cc"}
-        response={"response"}
-        reasonsForAction={"reasons"}
-      />
-    );
+    const wrapper = genWrapper(EMAIL_TYPE.reply, "cc");
 
     expect(wrapper.containsMatchingElement(reply)).toEqual(true);
     expect(wrapper.containsMatchingElement(replyAll)).toEqual(false);
@@ -25,15 +17,7 @@ describe("Response types", () => {
   });
 
   it("renders reply all response", () => {
-    const wrapper = shallow(
-      <ActionViewEmail
-        responseType={EMAIL_TYPE.replyAll}
-        to={"to"}
-        cc={"cc"}
-        response={"response"}
-        reasonsForAction={"reasons"}
-      />
-    );
+    const wrapper = genWrapper(EMAIL_TYPE.replyAll, "cc");
 
     expect(wrapper.containsMatchingElement(reply)).toEqual(false);
     expect(wrapper.containsMatchingElement(replyAll)).toEqual(true);
@@ -41,15 +25,7 @@ describe("Response types", () => {
   });
 
   it("renders forward response", () => {
-    const wrapper = shallow(
-      <ActionViewEmail
-        responseType={EMAIL_TYPE.forward}
-        to={"to"}
-        cc={"cc"}
-        response={"response"}
-        reasonsForAction={"reasons"}
-      />
-    );
+    const wrapper = genWrapper(EMAIL_TYPE.forward, "cc");
 
     expect(wrapper.containsMatchingElement(reply)).toEqual(false);
     expect(wrapper.containsMatchingElement(replyAll)).toEqual(false);
@@ -61,29 +37,27 @@ describe("Email header", () => {
   const headerWithCc = <span>cc</span>;
 
   it("renders email's header with cc)", () => {
-    const wrapper = shallow(
-      <ActionViewEmail
-        responseType={EMAIL_TYPE.reply}
-        to={"to"}
-        cc={"cc"}
-        response={"response"}
-        reasonsForAction={"reasons"}
-      />
-    );
+    const wrapper = genWrapper(EMAIL_TYPE.reply, "cc");
 
     expect(wrapper.containsMatchingElement(headerWithCc)).toEqual(true);
   });
 
   it("renders email's header without cc)", () => {
-    const wrapper = shallow(
-      <ActionViewEmail
-        responseType={EMAIL_TYPE.reply}
-        to={"to"}
-        response={"response"}
-        reasonsForAction={"reasons"}
-      />
-    );
+    const wrapper = genWrapper(EMAIL_TYPE.reply, null);
 
     expect(wrapper.containsMatchingElement(headerWithCc)).toEqual(false);
   });
 });
+
+function genWrapper(responseType, cc) {
+  const actionStub = {
+    actionType: ACTION_TYPE.email,
+    reasonForAction: "reasons",
+    emailType: responseType,
+    emailTo: "to",
+    emailCc: cc,
+    emailBody: "reasons"
+  };
+
+  return shallow(<ActionViewEmail action={actionStub} emailId={1} />);
+}

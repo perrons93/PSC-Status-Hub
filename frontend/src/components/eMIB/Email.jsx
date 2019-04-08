@@ -133,22 +133,14 @@ class Email extends Component {
         <hr style={styles.dataBodyDivider} />
         <div>{email.body}</div>
         <div>
-          {emailActions.map((email, id) => {
+          {emailActions.map((action, id) => {
             return (
               <CollapsingItemContainer
                 key={id}
                 icon={ICON_TYPE.email}
                 // TODO: we need to put a dynamic title generator here instead of hard coding this title
                 title={"Email response"}
-                body={
-                  <ActionViewEmail
-                    responseType={email.emailType}
-                    to={email.emailTo}
-                    cc={email.emailCc}
-                    response={email.emailBody}
-                    reasonsForAction={email.reasonForAction}
-                  />
-                }
+                body={<ActionViewEmail action={action} emailId={this.props.email.id} />}
               />
             );
           })}
