@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import { EMAIL_TYPE } from "./constants";
+import EditActionDialog from "./EditActionDialog";
+import { ACTION_TYPE, EDIT_MODE } from "./constants";
 
 const styles = {
   responseTypeIcon: {
@@ -31,7 +33,20 @@ class ActionViewEmail extends Component {
     to: PropTypes.string.isRequired,
     cc: PropTypes.string,
     response: PropTypes.string.isRequired,
-    reasonsForAction: PropTypes.string
+    reasonsForAction: PropTypes.string,
+    emailId: PropTypes.number.isRequired
+  };
+
+  state = {
+    showEmailDialog: false
+  };
+
+  showEmailDialog = () => {
+    this.setState({ showEmailDialog: true });
+  };
+
+  closeEmailDialog = () => {
+    this.setState({ showEmailDialog: false });
   };
 
   render() {
@@ -111,13 +126,24 @@ class ActionViewEmail extends Component {
         </div>
         <hr style={styles.hr} />
         <div aria-label={LOCALIZE.ariaLabel.emailOptions}>
-          <button className="btn btn-primary" style={styles.editButton}>
+          <button
+            className="btn btn-primary"
+            style={styles.editButton}
+            onClick={this.showEmailDialog}
+          >
             {LOCALIZE.emibTest.inboxPage.emailResponse.editButton}
           </button>
           <button className="btn btn-danger">
             {LOCALIZE.emibTest.inboxPage.emailResponse.deleteButton}
           </button>
         </div>
+        <EditActionDialog
+          emailId={this.props.emailId}
+          showDialog={this.state.showEmailDialog}
+          handleClose={this.closeEmailDialog}
+          actionType={ACTION_TYPE.email}
+          editMode={EDIT_MODE.update}
+        />
       </div>
     );
   }

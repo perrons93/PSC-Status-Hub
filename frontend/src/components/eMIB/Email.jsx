@@ -147,6 +147,7 @@ class Email extends Component {
                     cc={email.emailCc}
                     response={email.emailBody}
                     reasonsForAction={email.reasonForAction}
+                    emailId={this.props.email.id}
                   />
                 }
               />
