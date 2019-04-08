@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import { EMAIL_TYPE } from "./constants";
-import EditActionDialog from "./EditActionDialog";
-import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
+import { actionShape } from "./constants";
 
 const styles = {
   responseTypeIcon: {
@@ -133,13 +132,6 @@ class ActionViewEmail extends Component {
             {LOCALIZE.emibTest.inboxPage.emailResponse.deleteButton}
           </button>
         </div>
-        <EditActionDialog
-          emailId={this.props.emailId}
-          showDialog={this.state.showEmailDialog}
-          handleClose={this.closeEmailDialog}
-          actionType={ACTION_TYPE.email}
-          editMode={EDIT_MODE.update}
-        />
       </div>
     );
   }
