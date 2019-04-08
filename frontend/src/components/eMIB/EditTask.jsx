@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 
 const styles = {
@@ -62,7 +63,14 @@ const styles = {
 //TODO: Add tooltip functionality for both task and reasons for action icons
 
 class EditTask extends Component {
+  static propTypes = {
+    emailId: PropTypes.number.isRequired,
+    emailSubject: PropTypes.string.isRequired
+  };
+
   render() {
+    const { emailId, emailSubject } = this.props;
+
     return (
       <div style={styles.container}>
         <form>
@@ -70,9 +78,8 @@ class EditTask extends Component {
             <label style={styles.header}>
               {LOCALIZE.formatString(
                 LOCALIZE.emibTest.inboxPage.addEmailTask.header,
-                //TODO: Add the right variables here
-                "XX",
-                "EMAIL TITLE"
+                emailId,
+                emailSubject
               )}
             </label>
           </div>

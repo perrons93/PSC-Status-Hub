@@ -162,6 +162,7 @@ class Email extends Component {
         />
         <EditActionDialog
           emailId={email.id}
+          emailSubject={email.subject}
           showDialog={this.state.showAddTaskDialog}
           handleClose={this.closeTaskDialog}
           actionType={ACTION_TYPE.task}
