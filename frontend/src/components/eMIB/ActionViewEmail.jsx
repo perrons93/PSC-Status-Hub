@@ -77,7 +77,7 @@ class ActionViewEmail extends Component {
             </p>
             <p>
               <span className="font-weight-bold">
-                {LOCALIZE.emibTest.inboxPage.emailCommons.emailCc}&nbsp;
+                {LOCALIZE.emibTest.inboxPage.emailCommons.cc}&nbsp;
               </span>
               <span>{action.emailCc}</span>
             </p>
@@ -109,11 +109,7 @@ class ActionViewEmail extends Component {
         </div>
         <hr style={styles.hr} />
         <div aria-label={LOCALIZE.ariaLabel.emailOptions}>
-          <button
-            className="btn btn-primary"
-            style={styles.editButton}
-            onClick={this.showEmailDialog}
-          >
+          <button className="btn btn-primary" style={styles.editButton}>
             {LOCALIZE.emibTest.inboxPage.emailResponse.editButton}
           </button>
           <button className="btn btn-danger">
