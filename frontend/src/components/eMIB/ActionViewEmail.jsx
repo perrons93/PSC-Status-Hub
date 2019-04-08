@@ -112,10 +112,10 @@ class ActionViewEmail extends Component {
         <hr style={styles.hr} />
         <div aria-label={LOCALIZE.ariaLabel.emailOptions}>
           <button className="btn btn-primary" style={styles.editButton}>
-            {LOCALIZE.emibTest.inboxPage.emailResponse.editButton}
+            {LOCALIZE.emibTest.inboxPage.emailCommons.editButton}
           </button>
           <button className="btn btn-danger">
-            {LOCALIZE.emibTest.inboxPage.emailResponse.deleteButton}
+            {LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
           </button>
         </div>
       </div>
