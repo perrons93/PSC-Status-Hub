@@ -63,13 +63,29 @@ const styles = {
 //TODO: Add tooltip functionality for both task and reasons for action icons
 
 class EditTask extends Component {
+  state = {
+    taskContent: "",
+    reasonForAction: ""
+  };
+
   static propTypes = {
     emailId: PropTypes.number.isRequired,
     emailSubject: PropTypes.string.isRequired
   };
 
+  onTaskContentChange = event => {
+    const newTaskContent = event.target.value;
+    this.setState({ taskContent: newTaskContent });
+  };
+
+  onReasonsForActionChange = event => {
+    const newReasonForAction = event.target.value;
+    this.setState({ reasonForAction: newReasonForAction });
+  };
+
   render() {
     const { emailId, emailSubject } = this.props;
+    const { taskContent, reasonForAction } = this.state;
 
     return (
       <div style={styles.container}>
@@ -90,7 +106,13 @@ class EditTask extends Component {
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.task}
               </label>
               <i className="fas fa-question-circle" style={styles.tasks.icon} />
-              <textarea id="your-tasks-text-area" maxLength="100" style={styles.tasks.textArea} />
+              <textarea
+                id="your-tasks-text-area"
+                maxLength="100"
+                style={styles.tasks.textArea}
+                value={taskContent}
+                onChange={this.onTaskContentChange}
+              />
             </div>
           </div>
           <div>
@@ -103,6 +125,8 @@ class EditTask extends Component {
                 id="your-tasks-text-area"
                 maxLength="100"
                 style={styles.reasonsForAction.textArea}
+                value={reasonForAction}
+                onChange={this.onReasonsForActionChange}
               />
             </div>
           </div>
