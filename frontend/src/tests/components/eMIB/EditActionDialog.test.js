@@ -66,5 +66,3 @@ function testCore(actionType, editMode) {
     expect(addEmail).toHaveBeenCalledTimes(0);
   }
 }
-
-//TODO jcherry: add test to see if action is correclty rendered when passed in as a parameter

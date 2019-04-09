@@ -231,7 +231,7 @@ class EditEmail extends Component {
           <div>
             <div className="font-weight-bold form-group">
               <label htmlFor="reasons-for-action-text-area">
-                {LOCALIZE.emibTest.inboxPage.addEmailResponse.reasonForAction}
+                {LOCALIZE.emibTest.inboxPage.addEmailResponse.reasonsForAction}
               </label>
               <textarea
                 id="reasons-for-action-text-area"
