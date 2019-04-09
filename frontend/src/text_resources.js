@@ -428,7 +428,8 @@ let LOCALIZE = new LocalizedStrings({
       responseDetails: "response details",
       reasonsForActionDetails: "reasons for action details",
       taskDetails: "task details",
-      emailOptions: "email options"
+      emailOptions: "email options",
+      taskOptions: "task options"
     },
 
     //Commons
@@ -900,7 +901,8 @@ let LOCALIZE = new LocalizedStrings({
       responseDetails: "détails de la réponse",
       reasonsForActionDetails: "motifs de l'action",
       taskDetails: "détails sur la ou les tâches",
-      emailOptions: "options de messagerie"
+      emailOptions: "options de messagerie",
+      taskOptions: "options de tâche"
     },
 
     //Commons

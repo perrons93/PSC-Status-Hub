@@ -33,32 +33,20 @@ class ActionViewTask extends Component {
   render() {
     const { action } = this.props;
     return (
-      <div>
-        <div
-          aria-label={LOCALIZE.ariaLabel.taskDetails}
-          tabIndex="0"
-          aria-describedby="task-content"
-        >
-          <div id="task-content" role="dialog">
-            <p className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.taskContent.task}</p>
-            <p>{action.task}</p>
-          </div>
+      <div aria-label={LOCALIZE.ariaLabel.taskDetails}>
+        <div tabIndex="0">
+          <p className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.taskContent.task}</p>
+          <p>{action.task}</p>
         </div>
         <hr style={styles.hr} />
-        <div
-          aria-label={LOCALIZE.ariaLabel.reasonsForActionDetails}
-          tabIndex="0"
-          aria-describedby="task-reasons-for-action"
-        >
-          <div id="task-reasons-for-action" role="dialog">
-            <p className="font-weight-bold">
-              {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
-            </p>
-            <p>{action.reasonForAction}</p>
-          </div>
+        <div tabIndex="0">
+          <p className="font-weight-bold">
+            {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
+          </p>
+          <p>{action.reasonForAction}</p>
         </div>
         <hr style={styles.hr} />
-        <div aria-label={LOCALIZE.ariaLabel.emailOptions}>
+        <div aria-label={LOCALIZE.ariaLabel.taskOptions}>
           <button className="btn btn-primary" style={styles.editButton}>
             {LOCALIZE.emibTest.inboxPage.emailCommons.editButton}
           </button>
