@@ -80,3 +80,5 @@ describe("EmibInboxRedux", () => {
     });
   });
 });
+
+//TODO jcherry add tests for UPDATE_EMAIL and UPDATE_TASK

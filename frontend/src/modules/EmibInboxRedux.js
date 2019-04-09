@@ -23,6 +23,7 @@ const initializeEmailActions = length => {
 const READ_EMAIL = "emibInbox/READ_EMAIL";
 const ADD_EMAIL = "emibInbox/ADD_EMAIL";
 const ADD_TASK = "emibInbox/ADD_TASK";
+//TODO jcherry add UPDATE_EMAIL and UPDATE_TASK
 
 // Action Creators
 const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
@@ -30,6 +31,7 @@ const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
 const addEmail = (emailIndex, emailAction) => ({ type: ADD_EMAIL, emailIndex, emailAction });
 // emailIndex refers to the index of the original parent email and taskAction is an actionShape
 const addTask = (emailIndex, taskAction) => ({ type: ADD_TASK, emailIndex, taskAction });
+//TODO jcherry add calls to UPDATE_EMAIL and UPDATE_TASK
 
 // Initial State
 // emails - represents an array of emailShape objects in the currently selected language.
@@ -78,6 +80,7 @@ const emibInbox = (state = initialState, action) => {
         ...state,
         emailSummaries: duplicatedEmailSummaries
       };
+    //TODO jcherry handle calls to UPDATE_EMAIL and UPDATE_TASK
     default:
       return state;
   }
@@ -90,3 +93,4 @@ const selectEmailActions = (actionState, emailId) => {
 
 export default emibInbox;
 export { initialState, readEmail, addEmail, addTask, selectEmailActions };
+//TODO jcherry export calls to UPDATE_EMAIL and UPDATE_TASK

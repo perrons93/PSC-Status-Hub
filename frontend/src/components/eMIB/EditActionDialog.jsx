@@ -8,6 +8,7 @@ import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
 import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
 import { addEmail, addTask } from "../../modules/EmibInboxRedux";
+//TODO jcherry import calls to UPDATE_EMAIL and UPDATE_TASK
 
 const styles = {
   icon: {
@@ -49,11 +50,13 @@ class EditActionDialog extends Component {
   };
 
   handleSave = () => {
+    //TODO jcherry add logic to check if add
     if (this.props.actionType === ACTION_TYPE.email) {
       this.props.addEmail(this.props.emailId, this.state.action);
     } else if (this.props.actionType === ACTION_TYPE.task) {
       this.props.addTask(this.props.emailId, this.state.action);
     }
+    //TODO jcherry add calls to UPDATE_EMAIL and UPDATE_TASK
     this.setState({ action: {} });
     this.props.handleClose();
   };
