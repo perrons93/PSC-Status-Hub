@@ -22,7 +22,7 @@ export const EDIT_MODE = {
 // Possible types of emails candidates can create.
 export const EMAIL_TYPE = {
   reply: "reply",
-  replyAll: "reply all",
+  replyAll: "replyAll",
   forward: "forward"
 };
 

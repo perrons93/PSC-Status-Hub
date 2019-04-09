@@ -32,6 +32,7 @@ function testCore(actionType, editMode) {
   const wrapper = shallow(
     <EditActionDialog
       emailId={1}
+      emailSubject={"hello team"}
       showDialog={true}
       handleClose={() => {}}
       addEmail={addEmail}
