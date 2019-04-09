@@ -27,6 +27,7 @@ function testCore(actionType, editMode) {
   //Simulation of the save function
   const addEmail = jest.fn();
   const addTask = jest.fn();
+  const updateEmail = jest.fn();
 
   //shallow wrapper of the dialog
   const wrapper = shallow(
@@ -37,6 +38,7 @@ function testCore(actionType, editMode) {
       handleClose={() => {}}
       addEmail={addEmail}
       addTask={addTask}
+      updateEmail={updateEmail}
       actionType={actionType}
       editMode={editMode}
     />
@@ -47,7 +49,7 @@ function testCore(actionType, editMode) {
   const taskIcon = "fas fa-tasks";
 
   // Check if it is an email or a task
-  if (actionType === ACTION_TYPE.email) {
+  if (actionType === ACTION_TYPE.email && editMode) {
     expect(wrapper.find("i").hasClass(emailIcon)).toEqual(true);
     expect(wrapper.find("i").hasClass(taskIcon)).toEqual(false);
   }
@@ -58,12 +60,18 @@ function testCore(actionType, editMode) {
 
   //Check that the button click triggers the function
   wrapper.find("#unit-test-email-response-button").simulate("click");
-  if (actionType === ACTION_TYPE.email) {
+  if (actionType === ACTION_TYPE.email && editMode === EDIT_MODE.create) {
     expect(addTask).toHaveBeenCalledTimes(0);
     expect(addEmail).toHaveBeenCalledTimes(1);
+    expect(updateEmail).toHaveBeenCalledTimes(0);
+  } else if (actionType === ACTION_TYPE.email && editMode === EDIT_MODE.update) {
+    expect(addTask).toHaveBeenCalledTimes(0);
+    expect(addEmail).toHaveBeenCalledTimes(0);
+    expect(updateEmail).toHaveBeenCalledTimes(1);
   } else if (actionType === ACTION_TYPE.task) {
     expect(addTask).toHaveBeenCalledTimes(1);
     expect(addEmail).toHaveBeenCalledTimes(0);
+    expect(updateEmail).toHaveBeenCalledTimes(0);
   }
 }
 
