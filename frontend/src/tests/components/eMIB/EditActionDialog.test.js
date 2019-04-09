@@ -1,7 +1,7 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { UnconnectedEditActionDialog as EditActionDialog } from "../../../components/eMIB/EditActionDialog";
-import { ACTION_TYPE, EDIT_MODE } from "../../../components/eMIB/constants";
+import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE } from "../../../components/eMIB/constants";
 
 describe("email action type", () => {
   it("renders Add Email dialog", () => {
@@ -64,5 +64,69 @@ function testCore(actionType, editMode) {
   } else if (actionType === ACTION_TYPE.task) {
     expect(addTask).toHaveBeenCalledTimes(1);
     expect(addEmail).toHaveBeenCalledTimes(0);
+  }
+}
+
+describe("email action type", () => {
+  it("renders Add Email dialog without filled fields", () => {
+    testMode(ACTION_TYPE.email, EDIT_MODE.create);
+  });
+
+  it("renders Modify Email dialog with filled fields", () => {
+    testMode(ACTION_TYPE.email, EDIT_MODE.update);
+  });
+});
+
+function testMode(actionType, editMode) {
+  //Simulation of the save function
+  const addEmail = jest.fn();
+  const addTask = jest.fn();
+  const reasonForAction = "reasons";
+  const emailTo = "to";
+  const emailCc = "cc";
+  const emailBody = "body of email";
+  const task = "task";
+  const emailType = EMAIL_TYPE.forward;
+
+  const actionStub = {
+    actionType: actionType,
+    reasonForAction: reasonForAction,
+    emailTo: emailTo,
+    emailCc: emailCc,
+    emailBody: emailBody,
+    task: task,
+    emailType: emailType
+  };
+
+  //shallow wrapper of the dialog
+  const wrapper = mount(
+    <EditActionDialog
+      emailId={1}
+      emailSubject={"hello team"}
+      showDialog={true}
+      handleClose={() => {}}
+      addEmail={addEmail}
+      addTask={addTask}
+      actionType={actionType}
+      editMode={editMode}
+      action={actionStub}
+    />
+  );
+
+  if (actionType === ACTION_TYPE.email) {
+    //const inputEmailType = wrapper.find("#unit-test-popup-box-title");
+    const inputEmailTo = wrapper.find("#to-field");
+    const inputEmailCc = wrapper.find("#cc-field");
+    const inputEmailBody = wrapper.find("#your-response-text-area");
+    const inputReasonForAction = wrapper.find("#reasons-for-action-text-area");
+
+    //expect(inputEmailType.value).toEqual(emailType);
+    expect(inputEmailTo.props().value).toEqual(emailTo);
+    expect(inputEmailCc.props().value).toEqual(emailCc);
+    expect(inputEmailBody.props().value).toEqual(emailBody);
+    expect(inputReasonForAction.props().value).toEqual(reasonForAction);
+    //TODO jcherry: this should fail if the trype is not update
+  } else if (actionType === ACTION_TYPE.task) {
+    //TODO jcherry populate this when task editing has been added
   }
 }
