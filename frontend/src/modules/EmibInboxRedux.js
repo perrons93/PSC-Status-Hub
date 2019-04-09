@@ -32,7 +32,20 @@ const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
 const addEmail = (emailIndex, emailAction) => ({ type: ADD_EMAIL, emailIndex, emailAction });
 // emailIndex refers to the index of the original parent email and taskAction is an actionShape
 const addTask = (emailIndex, taskAction) => ({ type: ADD_TASK, emailIndex, taskAction });
-//TODO jcherry add calls to UPDATE_EMAIL and UPDATE_TASK
+// emailIndex refers to the index of the original parent email, emailAction is an actionShape, and responseId is the id of the response that is being edited
+const updateEmail = (emailIndex, emailAction) => ({
+  type: UPDATE_EMAIL,
+  emailIndex,
+  emailAction,
+  responseId
+});
+// emailIndex refers to the index of the original parent email taskAction is an actionShape, and responseId is the id of the response that is being edited
+const updateTask = (emailIndex, taskAction) => ({
+  type: UPDATE_TASK,
+  emailIndex,
+  taskAction,
+  responseId
+});
 
 // Initial State
 // emails - represents an array of emailShape objects in the currently selected language.
