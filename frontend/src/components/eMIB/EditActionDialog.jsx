@@ -32,7 +32,9 @@ const styles = {
   },
   closeButton: {
     backgroundColor: "transparent",
-    float: "right"
+    float: "right",
+    color: "white",
+    border: 0
   },
   modalBody: {
     paddingTop: 0,
