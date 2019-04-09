@@ -33,6 +33,10 @@ const styles = {
   closeButton: {
     backgroundColor: "transparent",
     float: "right"
+  },
+  modalBody: {
+    paddingTop: 0,
+    paddingBottom: 0
   }
 };
 
@@ -109,7 +113,7 @@ class EditActionDialog extends Component {
                 </div>
               }
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body style={styles.modalBody}>
               {actionType === ACTION_TYPE.email && <EditEmail onChange={this.editAction} />}
               {actionType === ACTION_TYPE.task && (
                 <EditTask emailId={this.props.emailId + 1} emailSubject={this.props.emailSubject} />
