@@ -6,7 +6,7 @@ import LOCALIZE from "../../text_resources";
 import EditEmail from "./EditEmail";
 import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
-import { ACTION_TYPE, EDIT_MODE } from "./constants";
+import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
 import { addEmail, addTask } from "../../modules/EmibInboxRedux";
 
 const styles = {
@@ -40,7 +40,8 @@ class EditActionDialog extends Component {
     editMode: PropTypes.oneOf(Object.keys(EDIT_MODE)).isRequired,
     // Provided from Redux.
     addEmail: PropTypes.func.isRequired,
-    addTask: PropTypes.func.isRequired
+    addTask: PropTypes.func.isRequired,
+    action: actionShape
   };
 
   state = {

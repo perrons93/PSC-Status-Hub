@@ -138,6 +138,7 @@ class ActionViewEmail extends Component {
           handleClose={this.closeEmailDialog}
           actionType={ACTION_TYPE.email}
           editMode={EDIT_MODE.update}
+          action={action}
         />
       </div>
     );
