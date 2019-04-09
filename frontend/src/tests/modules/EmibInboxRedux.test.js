@@ -81,43 +81,46 @@ describe("EmibInboxRedux", () => {
       expect(newState.emailSummaries[1].taskCount).toEqual(0);
     });
   });
-});
+  //TODO jcherry add tests for UPDATE_EMAIL and UPDATE_TASK
 
-//TODO jcherry add tests for UPDATE_EMAIL and UPDATE_TASK
-
-describe("update email action", () => {
-  it("should update an email action in the action list", () => {
-    const emailAction = {
-      emailType: EMAIL_TYPE.reply,
-      emailTo: "Sara",
-      emailCc: "Luke",
-      emailBody: "Hi Sarah!",
-      reasonsForAction: "I wanted to say hi."
-    };
-    const emailActionUpdate = {
-      emailType: EMAIL_TYPE.replyAll,
-      emailTo: "Sara 2",
-      emailCc: "Luke 2",
-      emailBody: "Hi Sarah! 2",
-      reasonsForAction: "I wanted to say hi. 2"
-    };
-    const addAction = addEmail(0, emailAction);
-    const newState1 = emibInbox(stubbedInitialState, addAction);
-    expect(newState.emailActions[0]).toEqual([{ ...emailAction, actionType: ACTION_TYPE.email }]);
-    const addAction = updateEmail(0, 0, emailAction);
-    const newState2 = emibInbox(newState1, emailActionUpdate);
-    expect(newState2.emailActions[0]).toEqual([
-      { ...emailActionUpdate, actionType: ACTION_TYPE.email }
-    ]);
+  describe("update email action", () => {
+    it("should update an email action in the action list", () => {
+      const emailAction = {
+        emailType: EMAIL_TYPE.reply,
+        emailTo: "Sara",
+        emailCc: "Luke",
+        emailBody: "Hi Sarah!",
+        reasonsForAction: "I wanted to say hi."
+      };
+      const emailActionUpdate = {
+        emailType: EMAIL_TYPE.replyAll,
+        emailTo: "Sara 2",
+        emailCc: "Luke 2",
+        emailBody: "Hi Sarah! 2",
+        reasonsForAction: "I wanted to say hi. 2"
+      };
+      const addAction = addEmail(0, emailAction);
+      const newState1 = emibInbox(stubbedInitialState, addAction);
+      expect(newState1.emailActions[0]).toEqual([
+        { ...emailAction, actionType: ACTION_TYPE.email }
+      ]);
+      const updateAction = updateEmail(0, 0, emailActionUpdate);
+      const newState2 = emibInbox(newState1, updateAction);
+      expect(newState2.emailActions[0]).toEqual([
+        { ...emailActionUpdate, actionType: ACTION_TYPE.email }
+      ]);
+    });
   });
-});
 
-describe("add task action", () => {
-  it("should update email 0 count state", () => {
-    const addAction = addTask(0);
-    const newState = emibInbox(stubbedInitialState, addAction);
-    expect(newState.emailSummaries[0].taskCount).toEqual(1);
-    expect(newState.emailSummaries[0].emailCount).toEqual(0);
-    expect(newState.emailSummaries[1].taskCount).toEqual(0);
+  //TODO jcherry add tests for multiple add and a single update to ensure that only one is changed
+
+  describe("add task action", () => {
+    it("should update email 0 count state", () => {
+      const addAction = addTask(0);
+      const newState = emibInbox(stubbedInitialState, addAction);
+      expect(newState.emailSummaries[0].taskCount).toEqual(1);
+      expect(newState.emailSummaries[0].emailCount).toEqual(0);
+      expect(newState.emailSummaries[1].taskCount).toEqual(0);
+    });
   });
 });

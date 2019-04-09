@@ -94,6 +94,16 @@ const emibInbox = (state = initialState, action) => {
         ...state,
         emailSummaries: duplicatedEmailSummaries
       };
+    case UPDATE_EMAIL:
+      let updatedEmailActions = Array.from(state.emailActions);
+      updatedEmailActions[action.emailIndex][action.responseId] = {
+        ...action.emailAction,
+        actionType: ACTION_TYPE.email
+      };
+      return {
+        ...state,
+        emailActions: updatedEmailActions
+      };
     //TODO jcherry handle calls to UPDATE_EMAIL and UPDATE_TASK
     default:
       return state;
