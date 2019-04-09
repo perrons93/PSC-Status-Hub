@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
-import { EMAIL_TYPE } from "./constants";
+import { EMAIL_TYPE, actionShape } from "./constants";
 
 const styles = {
   container: {
@@ -62,7 +62,7 @@ const styles = {
   hr: {
     margin: "12px 0 6px 0"
   },
-  reasonsForAction: {
+  reasonForAction: {
     textArea: {
       padding: "6px 12px",
       margin: "0 6px",
@@ -77,15 +77,16 @@ const styles = {
 
 class EditEmail extends Component {
   static propTypes = {
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    action: actionShape
   };
 
   state = {
-    emailType: EMAIL_TYPE.reply,
-    emailTo: "",
-    emailCc: "",
-    emailBody: "",
-    reasonForAction: ""
+    emailType: this.props.action == null ? EMAIL_TYPE.reply : this.props.action.emailType,
+    emailTo: this.props.action == null ? "" : this.props.action.emailTo,
+    emailCc: this.props.action == null ? "" : this.props.action.emailCc,
+    emailBody: this.props.action == null ? "" : this.props.action.emailBody,
+    reasonForAction: this.props.action == null ? "" : this.props.action.reasonForAction
   };
 
   onEmailTypeChange = event => {
@@ -119,7 +120,7 @@ class EditEmail extends Component {
   };
 
   render() {
-    const { emailType, emailTo, emailCc, emailBody, reasonsForAction } = this.state;
+    const { emailType, emailTo, emailCc, emailBody, reasonForAction } = this.state;
 
     return (
       <div style={styles.container}>
@@ -230,13 +231,13 @@ class EditEmail extends Component {
           <div>
             <div className="font-weight-bold form-group">
               <label htmlFor="reasons-for-action-text-area">
-                {LOCALIZE.emibTest.inboxPage.addEmailResponse.reasonsForAction}
+                {LOCALIZE.emibTest.inboxPage.addEmailResponse.reasonForAction}
               </label>
               <textarea
                 id="reasons-for-action-text-area"
                 maxLength="100"
-                style={styles.reasonsForAction.textArea}
-                value={reasonsForAction}
+                style={styles.reasonForAction.textArea}
+                value={reasonForAction}
                 onChange={this.onReasonsForActionChange}
               />
             </div>
