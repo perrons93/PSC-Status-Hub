@@ -117,12 +117,12 @@ class EditTask extends Component {
           </div>
           <div>
             <div className="font-weight-bold form-group">
-              <label htmlFor="your-tasks-text-area" style={styles.reasonsForAction.title}>
+              <label htmlFor="reasons-for-action-text-area" style={styles.reasonsForAction.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.reasonsForAction}
               </label>
               <i className="fas fa-question-circle" style={styles.reasonsForAction.icon} />
               <textarea
-                id="your-tasks-text-area"
+                id="reasons-for-action-text-area"
                 maxLength="100"
                 style={styles.reasonsForAction.textArea}
                 value={reasonForAction}
