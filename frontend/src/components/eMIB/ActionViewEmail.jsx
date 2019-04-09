@@ -92,14 +92,12 @@ class ActionViewEmail extends Component {
         </div>
         <hr style={styles.hr} />
         <div tabIndex="0">
-          <h6 className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.emailResponse.response}</h6>
+          <h6>{LOCALIZE.emibTest.inboxPage.emailResponse.response}</h6>
           <p>{action.emailBody}</p>
         </div>
         <hr style={styles.hr} />
         <div tabIndex="0">
-          <h6 className="font-weight-bold">
-            {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
-          </h6>
+          <h6>{LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}</h6>
           <p>{action.reasonForAction}</p>
         </div>
         <hr style={styles.hr} />
