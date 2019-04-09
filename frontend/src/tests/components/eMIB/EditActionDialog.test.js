@@ -67,18 +67,18 @@ function testCore(actionType, editMode) {
   }
 }
 
-describe("email action type", () => {
-  it("renders Add Email dialog without filled fields", () => {
+describe("check status of inputs in dialog", () => {
+  it("renders Add Email dialog without filled inputs", () => {
     testMode(ACTION_TYPE.email, EDIT_MODE.create);
   });
 
-  it("renders Modify Email dialog with filled fields", () => {
+  it("renders Modify Email dialog with filled inputs", () => {
     testMode(ACTION_TYPE.email, EDIT_MODE.update);
   });
 });
 
 function testMode(actionType, editMode) {
-  // constants used to create the actionStub and to check that the values are present
+  // constants used to create the Dialog and to check that the values are present in the inputs later
   const reasonForAction = "reasons";
   const emailTo = "to";
   const emailCc = "cc";
@@ -86,17 +86,7 @@ function testMode(actionType, editMode) {
   const task = "task";
   const emailType = EMAIL_TYPE.forward;
 
-  const actionStub = {
-    actionType: actionType,
-    reasonForAction: reasonForAction,
-    emailTo: emailTo,
-    emailCc: emailCc,
-    emailBody: emailBody,
-    task: task,
-    emailType: emailType
-  };
-
-  //shallow wrapper of the dialog
+  //mount wrapper of the dialog
   const wrapper = mount(
     <EditActionDialog
       emailId={1}
@@ -107,35 +97,45 @@ function testMode(actionType, editMode) {
       addTask={() => {}}
       actionType={actionType}
       editMode={editMode}
-      action={actionStub}
+      action={{
+        actionType: actionType,
+        reasonForAction: reasonForAction,
+        emailTo: emailTo,
+        emailCc: emailCc,
+        emailBody: emailBody,
+        task: task,
+        emailType: emailType
+      }}
     />
   );
 
   if (actionType === ACTION_TYPE.email) {
-    //const inputEmailType = wrapper.find("#unit-test-popup-box-title");
-    const inputEmailTo = wrapper.find("#to-field");
-    const inputEmailCc = wrapper.find("#cc-field");
-    const inputEmailBody = wrapper.find("#your-response-text-area");
-    const inputReasonForAction = wrapper.find("#reasons-for-action-text-area");
-
-    //set default values; when in "create" mode
+    //set default values when in "create" mode
     let valEmailTo = "";
     let valEmailCc = "";
     let valEmailBody = "";
     let valReasonForAction = "";
+    let isReplyChecked = true;
+    let isReplyAllChecked = false;
+    let isForwardChecked = false;
     if (editMode == EDIT_MODE.update) {
+      // change defaults when in 'update' mode
       valEmailTo = emailTo;
       valEmailCc = emailCc;
       valEmailBody = emailBody;
       valReasonForAction = reasonForAction;
+      isReplyChecked = false;
+      isReplyAllChecked = false;
+      isForwardChecked = true;
     }
 
-    //expect(inputEmailType.value).toEqual(emailType);
-    expect(inputEmailTo.props().value).toEqual(valEmailTo);
-    expect(inputEmailCc.props().value).toEqual(valEmailCc);
-    expect(inputEmailBody.props().value).toEqual(valEmailBody);
-    expect(inputReasonForAction.props().value).toEqual(valReasonForAction);
-    //TODO jcherry: this should fail if the trype is not update
+    expect(wrapper.find("#to-field").props().value).toEqual(valEmailTo);
+    expect(wrapper.find("#cc-field").props().value).toEqual(valEmailCc);
+    expect(wrapper.find("#your-response-text-area").props().value).toEqual(valEmailBody);
+    expect(wrapper.find("#reasons-for-action-text-area").props().value).toEqual(valReasonForAction);
+    expect(wrapper.find("#reply-radio").props().checked).toEqual(isReplyChecked);
+    expect(wrapper.find("#reply-all-radio").props().checked).toEqual(isReplyAllChecked);
+    expect(wrapper.find("#forward-radio").props().checked).toEqual(isForwardChecked);
   } else if (actionType === ACTION_TYPE.task) {
     //TODO jcherry populate this when task editing has been added
   }
