@@ -6,17 +6,33 @@ import { EMAIL_TYPE } from "./constants";
 import { actionShape } from "./constants";
 
 const styles = {
-  responseTypeIcon: {
-    color: "white",
-    margin: "0 8px",
-    padding: 3,
-    backgroundColor: "#00565E",
-    border: "3px solid #009FAE",
-    borderRadius: 4
-  },
   responseType: {
-    color: "#00565E",
-    textDecoration: "underline"
+    description: {
+      float: "left",
+      margin: "4px 0 0 0"
+    },
+    icon: {
+      color: "white",
+      margin: "0 8px",
+      padding: 3,
+      backgroundColor: "#00565E",
+      border: "3px solid #009FAE",
+      borderRadius: 4
+    },
+    attribute: {
+      color: "#00565E",
+      textDecoration: "underline"
+    }
+  },
+  toAndCcStyle: {
+    float: "left",
+    width: 32,
+    height: 32,
+    lineHeight: "22px",
+    margin: 0
+  },
+  headerMargin: {
+    margin: "9px 0 12px 0"
   },
   hr: {
     margin: "16px 0 16px 0"
@@ -37,56 +53,54 @@ class ActionViewEmail extends Component {
     return (
       <div aria-label={LOCALIZE.ariaLabel.responseDetails}>
         <div tabIndex="0">
-          <p className="font-weight-bold">
-            {LOCALIZE.emibTest.inboxPage.emailResponse.description}
+          <div>
+            <h6 style={styles.responseType.description}>
+              {LOCALIZE.emibTest.inboxPage.emailResponse.description}
+            </h6>
             {action.emailType === EMAIL_TYPE.reply && (
               <>
-                <i className="fas fa-reply" style={styles.responseTypeIcon} />
-                <span style={styles.responseType}>
+                <i className="fas fa-reply" style={styles.responseType.icon} />
+                <span style={styles.responseType.attribute}>
                   {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
                 </span>
               </>
             )}
             {action.emailType === EMAIL_TYPE.replyAll && (
               <>
-                <i className="fas fa-reply-all" style={styles.responseTypeIcon} />
-                <span style={styles.responseType}>
+                <i className="fas fa-reply-all" style={styles.icon} />
+                <span style={styles.responseType.attribute}>
                   {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
                 </span>
               </>
             )}
             {action.emailType === EMAIL_TYPE.forward && (
               <>
-                <i className="fas fa-share-square" style={styles.responseTypeIcon} />
-                <span style={styles.responseType}>
+                <i className="fas fa-share-square" style={styles.icon} />
+                <span style={styles.responseType.attribute}>
                   {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
                 </span>
               </>
             )}
-          </p>
-          <p>
-            <span className="font-weight-bold">
-              {LOCALIZE.emibTest.inboxPage.emailCommons.to}&nbsp;
-            </span>
+          </div>
+          <div style={styles.headerMargin}>
+            <h6 style={styles.toAndCcStyle}>{LOCALIZE.emibTest.inboxPage.emailCommons.to}</h6>
             <span>{action.emailTo}</span>
-          </p>
-          <p>
-            <span className="font-weight-bold">
-              {LOCALIZE.emibTest.inboxPage.emailCommons.cc}&nbsp;
-            </span>
+          </div>
+          <div>
+            <h6 style={styles.toAndCcStyle}>{LOCALIZE.emibTest.inboxPage.emailCommons.cc}</h6>
             <span>{action.emailCc}</span>
-          </p>
+          </div>
         </div>
         <hr style={styles.hr} />
         <div tabIndex="0">
-          <p className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.emailResponse.response}</p>
+          <h6 className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.emailResponse.response}</h6>
           <p>{action.emailBody}</p>
         </div>
         <hr style={styles.hr} />
         <div tabIndex="0">
-          <p className="font-weight-bold">
+          <h6 className="font-weight-bold">
             {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
-          </p>
+          </h6>
           <p>{action.reasonForAction}</p>
         </div>
         <hr style={styles.hr} />
