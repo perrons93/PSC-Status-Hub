@@ -360,6 +360,11 @@ let LOCALIZE = new LocalizedStrings({
           reasonsForAction: "Your reasons for action:",
           editButton: "Edit response",
           deleteButton: "Delete response"
+        },
+        addEmailTask: {
+          header: "Email ID #{0}: {1}",
+          task: "Your task(s):",
+          reasonsForAction: "Add reasons for actions here (optional)"
         }
       },
 
@@ -821,6 +826,11 @@ let LOCALIZE = new LocalizedStrings({
           reasonsForAction: "FR Your reasons for action:",
           editButton: "Modifier réponse",
           deleteButton: "Supprimer résponse"
+        },
+        addEmailTask: {
+          header: "FR Email ID #{0}: {1}",
+          task: "FR Your task(s):",
+          reasonsForAction: "FR Add reasons for actions here (optional)"
         }
       },
 

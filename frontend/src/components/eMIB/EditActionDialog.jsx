@@ -33,6 +33,7 @@ const styles = {
 class EditActionDialog extends Component {
   static propTypes = {
     emailId: PropTypes.number.isRequired,
+    emailSubject: PropTypes.string,
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
     actionType: PropTypes.oneOf(Object.values(ACTION_TYPE)).isRequired,
@@ -97,7 +98,9 @@ class EditActionDialog extends Component {
             </Modal.Header>
             <Modal.Body>
               {actionType === ACTION_TYPE.email && <EditEmail onChange={this.editAction} />}
-              {actionType === ACTION_TYPE.task && <EditTask />}
+              {actionType === ACTION_TYPE.task && (
+                <EditTask emailId={this.props.emailId + 1} emailSubject={this.props.emailSubject} />
+              )}
             </Modal.Body>
             <Modal.Footer>
               <div>
