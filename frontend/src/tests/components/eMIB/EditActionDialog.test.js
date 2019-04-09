@@ -51,13 +51,13 @@ function testCore(actionType, editMode) {
     expect(
       wrapper
         .find("i")
-        .last()
+        .first()
         .hasClass(emailIcon)
     ).toEqual(true);
     expect(
       wrapper
         .find("i")
-        .last()
+        .first()
         .hasClass(taskIcon)
     ).toEqual(false);
   }
@@ -65,13 +65,13 @@ function testCore(actionType, editMode) {
     expect(
       wrapper
         .find("i")
-        .last()
+        .first()
         .hasClass(emailIcon)
     ).toEqual(false);
     expect(
       wrapper
         .find("i")
-        .last()
+        .first()
         .hasClass(taskIcon)
     ).toEqual(true);
   }
