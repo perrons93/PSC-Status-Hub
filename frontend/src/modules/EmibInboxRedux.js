@@ -32,19 +32,19 @@ const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
 const addEmail = (emailIndex, emailAction) => ({ type: ADD_EMAIL, emailIndex, emailAction });
 // emailIndex refers to the index of the original parent email and taskAction is an actionShape
 const addTask = (emailIndex, taskAction) => ({ type: ADD_TASK, emailIndex, taskAction });
-// emailIndex refers to the index of the original parent email, emailAction is an actionShape, and responseId is the id of the response that is being edited
-const updateEmail = (emailIndex, emailAction) => ({
+// emailIndex refers to the index of the original parent email, responseId is the id of the response that is being edited and emailAction is an actionShape
+const updateEmail = (emailIndex, responseId, emailAction) => ({
   type: UPDATE_EMAIL,
   emailIndex,
-  emailAction,
-  responseId
+  responseId,
+  emailAction
 });
-// emailIndex refers to the index of the original parent email taskAction is an actionShape, and responseId is the id of the response that is being edited
-const updateTask = (emailIndex, taskAction) => ({
+// emailIndex refers to the index of the original parent email, responseId is the id of the response that is being edited, and taskAction is an actionShape
+const updateTask = (emailIndex, responseId, taskAction) => ({
   type: UPDATE_TASK,
   emailIndex,
-  taskAction,
-  responseId
+  responseId,
+  taskAction
 });
 
 // Initial State

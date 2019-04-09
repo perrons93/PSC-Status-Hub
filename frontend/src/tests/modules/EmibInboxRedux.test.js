@@ -102,10 +102,10 @@ describe("update email action", () => {
       reasonsForAction: "I wanted to say hi. 2"
     };
     const addAction = addEmail(0, emailAction);
-    const newState = emibInbox(stubbedInitialState, addAction);
+    const newState1 = emibInbox(stubbedInitialState, addAction);
     expect(newState.emailActions[0]).toEqual([{ ...emailAction, actionType: ACTION_TYPE.email }]);
-    const addAction = updateEmail(0, emailAction, 0);
-    const newState2 = emibInbox(newState, emailActionUpdate);
+    const addAction = updateEmail(0, 0, emailAction);
+    const newState2 = emibInbox(newState1, emailActionUpdate);
     expect(newState2.emailActions[0]).toEqual([
       { ...emailActionUpdate, actionType: ACTION_TYPE.email }
     ]);
