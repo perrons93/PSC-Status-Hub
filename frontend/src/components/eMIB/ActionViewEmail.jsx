@@ -28,8 +28,7 @@ const styles = {
     float: "left",
     width: 32,
     height: 32,
-    lineHeight: "22px",
-    margin: 0
+    margin: "2px 0 0 0"
   },
   headerMargin: {
     margin: "9px 0 12px 0"
@@ -67,7 +66,7 @@ class ActionViewEmail extends Component {
             )}
             {action.emailType === EMAIL_TYPE.replyAll && (
               <>
-                <i className="fas fa-reply-all" style={styles.icon} />
+                <i className="fas fa-reply-all" style={styles.responseType.icon} />
                 <span style={styles.responseType.attribute}>
                   {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
                 </span>
@@ -75,7 +74,7 @@ class ActionViewEmail extends Component {
             )}
             {action.emailType === EMAIL_TYPE.forward && (
               <>
-                <i className="fas fa-share-square" style={styles.icon} />
+                <i className="fas fa-share-square" style={styles.responseType.icon} />
                 <span style={styles.responseType.attribute}>
                   {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
                 </span>
