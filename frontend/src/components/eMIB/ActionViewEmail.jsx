@@ -116,7 +116,7 @@ class ActionViewEmail extends Component {
             <p className="font-weight-bold">
               {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
             </p>
-            <p>{action.reasonForAction}</p>
+            <p>{action.reasonsForAction}</p>
           </div>
         </div>
         <hr style={styles.hr} />
@@ -126,10 +126,10 @@ class ActionViewEmail extends Component {
             style={styles.editButton}
             onClick={this.showEmailDialog}
           >
-            {LOCALIZE.emibTest.inboxPage.emailResponse.editButton}
+            {LOCALIZE.emibTest.inboxPage.emailCommons.editButton}
           </button>
           <button className="btn btn-danger">
-            {LOCALIZE.emibTest.inboxPage.emailResponse.deleteButton}
+            {LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
           </button>
         </div>
         <EditActionDialog

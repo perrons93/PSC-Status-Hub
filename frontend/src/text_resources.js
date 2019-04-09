@@ -346,7 +346,9 @@ let LOCALIZE = new LocalizedStrings({
           cc: "Cc:",
           reply: "reply",
           replyAll: "reply all",
-          forward: "forward"
+          forward: "forward",
+          editButton: "Edit response",
+          deleteButton: "Delete response"
         },
         addEmailResponse: {
           selectResponseType: "Please select how you would like to respond to the original email:",
@@ -357,14 +359,16 @@ let LOCALIZE = new LocalizedStrings({
         emailResponse: {
           description: "For this response, you've chosen to:",
           response: "Your response:",
-          reasonsForAction: "Your reasons for action:",
-          editButton: "Edit response",
-          deleteButton: "Delete response"
+          reasonsForAction: "Your reasons for action:"
         },
         addEmailTask: {
           header: "Email ID #{0}: {1}",
           task: "Your task(s):",
           reasonsForAction: "Add reasons for actions here (optional)"
+        },
+        taskContent: {
+          task: "Your task(s):",
+          reasonsForAction: "Your reasons for action:"
         }
       },
 
@@ -423,7 +427,9 @@ let LOCALIZE = new LocalizedStrings({
       emailHeader: "email header",
       responseDetails: "response details",
       reasonsForActionDetails: "reasons for action details",
-      emailOptions: "email options"
+      taskDetails: "task details",
+      emailOptions: "email options",
+      taskOptions: "task options"
     },
 
     //Commons
@@ -811,7 +817,9 @@ let LOCALIZE = new LocalizedStrings({
           cc: "Cc :",
           reply: "répondre",
           replyAll: "répondre à tous",
-          forward: "transmettre"
+          forward: "transmettre",
+          editButton: "Modifier réponse",
+          deleteButton: "Supprimer résponse"
         },
         addEmailResponse: {
           selectResponseType:
@@ -823,14 +831,16 @@ let LOCALIZE = new LocalizedStrings({
         emailResponse: {
           description: "FR For this response, you've chosen to:",
           response: "FR Your response:",
-          reasonsForAction: "FR Your reasons for action:",
-          editButton: "Modifier réponse",
-          deleteButton: "Supprimer résponse"
+          reasonsForAction: "FR Your reasons for action:"
         },
         addEmailTask: {
           header: "FR Email ID #{0}: {1}",
           task: "FR Your task(s):",
           reasonsForAction: "FR Add reasons for actions here (optional)"
+        },
+        taskContent: {
+          task: "FR Your task(s):",
+          reasonsForAction: "FR Your reasons for action:"
         }
       },
 
@@ -890,7 +900,9 @@ let LOCALIZE = new LocalizedStrings({
       emailHeader: "en-tête du courriel",
       responseDetails: "détails de la réponse",
       reasonsForActionDetails: "motifs de l'action",
-      emailOptions: "options de messagerie"
+      taskDetails: "détails sur la ou les tâches",
+      emailOptions: "options de messagerie",
+      taskOptions: "options de tâche"
     },
 
     //Commons

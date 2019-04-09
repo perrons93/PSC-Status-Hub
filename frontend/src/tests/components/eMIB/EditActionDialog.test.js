@@ -89,7 +89,7 @@ describe("check status of inputs in task dialog", () => {
 
 function testMode(actionType, editMode) {
   // constants used to create the Dialog and to check that the values are present in the inputs later
-  const reasonForAction = "reasons";
+  const reasonsForAction = "reasons";
   const emailTo = "to";
   const emailCc = "cc";
   const emailBody = "body of email";
@@ -109,7 +109,7 @@ function testMode(actionType, editMode) {
       editMode={editMode}
       action={{
         actionType: actionType,
-        reasonForAction: reasonForAction,
+        reasonsForAction: reasonsForAction,
         emailTo: emailTo,
         emailCc: emailCc,
         emailBody: emailBody,
@@ -124,7 +124,7 @@ function testMode(actionType, editMode) {
     let valEmailTo = "";
     let valEmailCc = "";
     let valEmailBody = "";
-    let valReasonForAction = "";
+    let valReasonsForAction = "";
     let isReplyChecked = true;
     let isReplyAllChecked = false;
     let isForwardChecked = false;
@@ -133,7 +133,7 @@ function testMode(actionType, editMode) {
       valEmailTo = emailTo;
       valEmailCc = emailCc;
       valEmailBody = emailBody;
-      valReasonForAction = reasonForAction;
+      valReasonsForAction = reasonsForAction;
       isReplyChecked = false;
       isReplyAllChecked = false;
       isForwardChecked = true;
@@ -142,7 +142,9 @@ function testMode(actionType, editMode) {
     expect(wrapper.find("#to-field").props().value).toEqual(valEmailTo);
     expect(wrapper.find("#cc-field").props().value).toEqual(valEmailCc);
     expect(wrapper.find("#your-response-text-area").props().value).toEqual(valEmailBody);
-    expect(wrapper.find("#reasons-for-action-text-area").props().value).toEqual(valReasonForAction);
+    expect(wrapper.find("#reasons-for-action-text-area").props().value).toEqual(
+      valReasonsForAction
+    );
     expect(wrapper.find("#reply-radio").props().checked).toEqual(isReplyChecked);
     expect(wrapper.find("#reply-all-radio").props().checked).toEqual(isReplyAllChecked);
     expect(wrapper.find("#forward-radio").props().checked).toEqual(isForwardChecked);

@@ -62,7 +62,7 @@ const styles = {
   hr: {
     margin: "12px 0 6px 0"
   },
-  reasonForAction: {
+  reasonsForAction: {
     textArea: {
       padding: "6px 12px",
       margin: "0 6px",
@@ -86,7 +86,7 @@ class EditEmail extends Component {
     emailTo: this.props.action == null ? "" : this.props.action.emailTo,
     emailCc: this.props.action == null ? "" : this.props.action.emailCc,
     emailBody: this.props.action == null ? "" : this.props.action.emailBody,
-    reasonForAction: this.props.action == null ? "" : this.props.action.reasonForAction
+    reasonsForAction: this.props.action == null ? "" : this.props.action.reasonsForAction
   };
 
   onEmailTypeChange = event => {
@@ -114,13 +114,13 @@ class EditEmail extends Component {
   };
 
   onReasonsForActionChange = event => {
-    const newReasonForAction = event.target.value;
-    this.setState({ reasonForAction: newReasonForAction });
-    this.props.onChange({ ...this.state, reasonForAction: newReasonForAction });
+    const newreasonsForAction = event.target.value;
+    this.setState({ reasonsForAction: newreasonsForAction });
+    this.props.onChange({ ...this.state, reasonsForAction: newreasonsForAction });
   };
 
   render() {
-    const { emailType, emailTo, emailCc, emailBody, reasonForAction } = this.state;
+    const { emailType, emailTo, emailCc, emailBody, reasonsForAction } = this.state;
 
     return (
       <div style={styles.container}>
@@ -236,8 +236,8 @@ class EditEmail extends Component {
               <textarea
                 id="reasons-for-action-text-area"
                 maxLength="100"
-                style={styles.reasonForAction.textArea}
-                value={reasonForAction}
+                style={styles.reasonsForAction.textArea}
+                value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
               />
             </div>
