@@ -104,7 +104,7 @@ class ActionViewEmail extends Component {
             <p className="font-weight-bold">
               {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
             </p>
-            <p>{action.reasonForAction}</p>
+            <p>{action.reasonsForAction}</p>
           </div>
         </div>
         <hr style={styles.hr} />

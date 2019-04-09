@@ -43,7 +43,7 @@ class ActionViewTask extends Component {
           <p className="font-weight-bold">
             {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
           </p>
-          <p>{action.reasonForAction}</p>
+          <p>{action.reasonsForAction}</p>
         </div>
         <hr style={styles.hr} />
         <div aria-label={LOCALIZE.ariaLabel.taskOptions}>
