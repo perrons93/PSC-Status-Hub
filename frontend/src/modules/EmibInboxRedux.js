@@ -23,7 +23,8 @@ const initializeEmailActions = length => {
 const READ_EMAIL = "emibInbox/READ_EMAIL";
 const ADD_EMAIL = "emibInbox/ADD_EMAIL";
 const ADD_TASK = "emibInbox/ADD_TASK";
-//TODO jcherry add UPDATE_EMAIL and UPDATE_TASK
+const UPDATE_EMAIL = "emibInbox/UPDATE_EMAIL";
+const UPDATE_TASK = "emibInbox/UPDATE_TASK";
 
 // Action Creators
 const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
