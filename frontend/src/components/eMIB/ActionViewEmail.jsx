@@ -29,6 +29,7 @@ const styles = {
 class ActionViewEmail extends Component {
   static propTypes = {
     action: actionShape,
+    actionId: PropTypes.number.isRequired,
     emailId: PropTypes.number.isRequired
   };
 
@@ -139,6 +140,7 @@ class ActionViewEmail extends Component {
           actionType={ACTION_TYPE.email}
           editMode={EDIT_MODE.update}
           action={action}
+          actionId={this.props.actionId}
         />
       </div>
     );

@@ -140,7 +140,9 @@ class Email extends Component {
                 iconType={ICON_TYPE.email}
                 // TODO: we need to put a dynamic title generator here instead of hard coding this title
                 title={"Email response"}
-                body={<ActionViewEmail action={action} emailId={this.props.email.id} />}
+                body={
+                  <ActionViewEmail action={action} actionId={id} emailId={this.props.email.id} />
+                }
               />
             );
           })}
