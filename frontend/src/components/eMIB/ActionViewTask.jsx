@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
+import { actionShape } from "./constants";
 
 const styles = {
   responseTypeIcon: {
@@ -26,12 +27,11 @@ const styles = {
 
 class ActionViewTask extends Component {
   static propTypes = {
-    taskContent: PropTypes.string.isRequired,
-    reasonsForAction: PropTypes.string
+    action: actionShape
   };
 
   render() {
-    const { taskContent, reasonsForAction } = this.props;
+    const { action } = this.props;
     return (
       <div>
         <div
@@ -41,7 +41,7 @@ class ActionViewTask extends Component {
         >
           <div id="task-content" role="dialog">
             <p className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.taskContent.task}</p>
-            <p>{taskContent}</p>
+            <p>{action.task}</p>
           </div>
         </div>
         <hr style={styles.hr} />
@@ -54,7 +54,7 @@ class ActionViewTask extends Component {
             <p className="font-weight-bold">
               {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
             </p>
-            <p>{reasonsForAction}</p>
+            <p>{action.reasonForAction}</p>
           </div>
         </div>
         <hr style={styles.hr} />
