@@ -67,13 +67,23 @@ function testCore(actionType, editMode) {
   }
 }
 
-describe("check status of inputs in dialog", () => {
+describe("check status of inputs in email dialog", () => {
   it("renders Add Email dialog without filled inputs", () => {
     testMode(ACTION_TYPE.email, EDIT_MODE.create);
   });
 
   it("renders Modify Email dialog with filled inputs", () => {
     testMode(ACTION_TYPE.email, EDIT_MODE.update);
+  });
+});
+
+describe("check status of inputs in task dialog", () => {
+  it("renders Add Task dialog without filled inputs", () => {
+    testMode(ACTION_TYPE.task, EDIT_MODE.create);
+  });
+
+  it("renders Modify Task dialog with filled inputs", () => {
+    testMode(ACTION_TYPE.task, EDIT_MODE.update);
   });
 });
 
