@@ -27,7 +27,8 @@ const styles = {
     fontSize: 16,
     fontWeight: 600,
     borderRadius: "10px 10px 0px 0px",
-    padding: 0
+    paddingTop: 0,
+    paddingBottom: 0
   },
   closeButton: {
     backgroundColor: "transparent",
