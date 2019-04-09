@@ -78,7 +78,7 @@ class EditActionDialog extends Component {
     const { showDialog, handleClose, actionType, editMode } = this.props;
     const closeButton = (
       <button onClick={handleClose} style={styles.closeButton}>
-        X
+        <i class="fas fa-times" />
       </button>
     );
     return (
