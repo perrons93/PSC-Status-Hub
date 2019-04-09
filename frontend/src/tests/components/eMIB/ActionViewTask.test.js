@@ -7,7 +7,7 @@ import { ACTION_TYPE } from "../../../components/eMIB/constants";
 const actionStub = {
   actionType: ACTION_TYPE.task,
   task: "Liste of my tasks here...",
-  reasonForAction: "Reasons for action here..."
+  reasonsForAction: "Reasons for action here..."
 };
 
 describe("renders component's content", () => {

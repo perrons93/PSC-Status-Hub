@@ -41,7 +41,7 @@ export const emailShape = PropTypes.shape({
 // Actions a candidate can take in response to an email.
 export const actionShape = PropTypes.shape({
   actionType: PropTypes.oneOf(Object.keys(ACTION_TYPE)).isRequired,
-  reasonForAction: PropTypes.string,
+  reasonsForAction: PropTypes.string,
   task: PropTypes.string,
   emailType: PropTypes.oneOf(Object.keys(EMAIL_TYPE)),
   emailTo: PropTypes.string,
