@@ -26,7 +26,12 @@ const styles = {
     color: "white",
     fontSize: 16,
     fontWeight: 600,
-    borderRadius: "10px 10px 0px 0px"
+    borderRadius: "10px 10px 0px 0px",
+    padding: 0
+  },
+  closeButton: {
+    backgroundColor: "transparent",
+    float: "right"
   }
 };
 
@@ -64,6 +69,11 @@ class EditActionDialog extends Component {
 
   render() {
     const { showDialog, handleClose, actionType, editMode } = this.props;
+    const closeButton = (
+      <button onClick={handleClose} style={styles.closeButton}>
+        X
+      </button>
+    );
     return (
       <div>
         <Modal show={showDialog} onHide={handleClose}>
@@ -80,6 +90,7 @@ class EditActionDialog extends Component {
                         {editMode === EDIT_MODE.update &&
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
                       </h3>
+                      {closeButton}
                     </div>
                   )}
                   {actionType === ACTION_TYPE.task && (
@@ -91,6 +102,7 @@ class EditActionDialog extends Component {
                         {editMode === EDIT_MODE.update &&
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
                       </h3>
+                      {closeButton}
                     </div>
                   )}
                 </div>
