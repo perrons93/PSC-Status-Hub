@@ -35,77 +35,59 @@ class ActionViewEmail extends Component {
   render() {
     const action = this.props.action;
     return (
-      <div>
-        <div
-          aria-label={LOCALIZE.ariaLabel.emailHeader}
-          tabIndex="0"
-          aria-describedby="email-header-desc"
-        >
-          <div id="email-header-desc" role="dialog">
-            <p className="font-weight-bold">
-              {LOCALIZE.emibTest.inboxPage.emailResponse.description}
-              {action.emailType === EMAIL_TYPE.reply && (
-                <>
-                  <i className="fas fa-reply" style={styles.responseTypeIcon} />
-                  <span style={styles.responseType}>
-                    {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
-                  </span>
-                </>
-              )}
-              {action.emailType === EMAIL_TYPE.replyAll && (
-                <>
-                  <i className="fas fa-reply-all" style={styles.responseTypeIcon} />
-                  <span style={styles.responseType}>
-                    {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
-                  </span>
-                </>
-              )}
-              {action.emailType === EMAIL_TYPE.forward && (
-                <>
-                  <i className="fas fa-share-square" style={styles.responseTypeIcon} />
-                  <span style={styles.responseType}>
-                    {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
-                  </span>
-                </>
-              )}
-            </p>
-            <p>
-              <span className="font-weight-bold">
-                {LOCALIZE.emibTest.inboxPage.emailCommons.to}&nbsp;
-              </span>
-              <span>{action.emailTo}</span>
-            </p>
-            <p>
-              <span className="font-weight-bold">
-                {LOCALIZE.emibTest.inboxPage.emailCommons.cc}&nbsp;
-              </span>
-              <span>{action.emailCc}</span>
-            </p>
-          </div>
+      <div aria-label={LOCALIZE.ariaLabel.responseDetails}>
+        <div tabIndex="0">
+          <p className="font-weight-bold">
+            {LOCALIZE.emibTest.inboxPage.emailResponse.description}
+            {action.emailType === EMAIL_TYPE.reply && (
+              <>
+                <i className="fas fa-reply" style={styles.responseTypeIcon} />
+                <span style={styles.responseType}>
+                  {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
+                </span>
+              </>
+            )}
+            {action.emailType === EMAIL_TYPE.replyAll && (
+              <>
+                <i className="fas fa-reply-all" style={styles.responseTypeIcon} />
+                <span style={styles.responseType}>
+                  {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
+                </span>
+              </>
+            )}
+            {action.emailType === EMAIL_TYPE.forward && (
+              <>
+                <i className="fas fa-share-square" style={styles.responseTypeIcon} />
+                <span style={styles.responseType}>
+                  {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
+                </span>
+              </>
+            )}
+          </p>
+          <p>
+            <span className="font-weight-bold">
+              {LOCALIZE.emibTest.inboxPage.emailCommons.to}&nbsp;
+            </span>
+            <span>{action.emailTo}</span>
+          </p>
+          <p>
+            <span className="font-weight-bold">
+              {LOCALIZE.emibTest.inboxPage.emailCommons.cc}&nbsp;
+            </span>
+            <span>{action.emailCc}</span>
+          </p>
         </div>
         <hr style={styles.hr} />
-        <div
-          aria-label={LOCALIZE.ariaLabel.responseDetails}
-          tabIndex="0"
-          aria-describedby="email-response"
-        >
-          <div id="email-response" role="dialog">
-            <p className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.emailResponse.response}</p>
-            <p>{action.emailBody}</p>
-          </div>
+        <div tabIndex="0">
+          <p className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.emailResponse.response}</p>
+          <p>{action.emailBody}</p>
         </div>
         <hr style={styles.hr} />
-        <div
-          aria-label={LOCALIZE.ariaLabel.reasonsForActionDetails}
-          tabIndex="0"
-          aria-describedby="email-reasons-for-action"
-        >
-          <div id="email-reasons-for-action" role="dialog">
-            <p className="font-weight-bold">
-              {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
-            </p>
-            <p>{action.reasonForAction}</p>
-          </div>
+        <div tabIndex="0">
+          <p className="font-weight-bold">
+            {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
+          </p>
+          <p>{action.reasonForAction}</p>
         </div>
         <hr style={styles.hr} />
         <div aria-label={LOCALIZE.ariaLabel.emailOptions}>
