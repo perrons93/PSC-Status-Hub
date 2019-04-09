@@ -385,9 +385,9 @@ let LOCALIZE = new LocalizedStrings({
         submitTestPopupBox: {
           title: "Confirm test submission?",
           warning: {
-            title: "Warning! All draft items will not be saved.",
+            title: "Warning! The notepad will not be saved.",
             message:
-              "All draft emails and any notes in the notepad will not be submitted with the test for scoring. Review draft emails and the notepad before submitting the test."
+              "Anything written in the notepad will not be submitted with the test for scoring. Ensure that you have reviewed all of your responses before submitting the test as you will not be able to go back to make changes."
           },
           description:
             "If you are ready to send your test in for scoring, click the “Submit test” button. You will be exited out of this test session and provided further instructions."
@@ -851,9 +851,9 @@ let LOCALIZE = new LocalizedStrings({
         submitTestPopupBox: {
           title: "Confirmer l’envoi du test?",
           warning: {
-            title: "Avertissement : aucun brouillon ne sera sauvegardé.",
+            title: "Avertissement : your notebook will not be saved.",
             message:
-              "Les ébauches de courriels et le contenu du bloc-notes ne seront pas envoyés avec le test pour la notation. Passez en revue les ébauches de courriels et le bloc-notes avant d’envoyer le test."
+              "FR Anything written in the notepad will not be submitted with the test for scoring. Ensure that you have reviewed all of your responses before submitting the test as you will not be able to go back to make changes."
           },
           description:
             "Si vous êtes prêt(e) à envoyer votre test pour la notation, cliquez sur le bouton « Envoyer le test ». La séance de test sera fermée et vous recevrez d’autres instructions."
