@@ -106,5 +106,4 @@ const selectEmailActions = (actionState, emailId) => {
 };
 
 export default emibInbox;
-export { initialState, readEmail, addEmail, addTask, selectEmailActions };
-//TODO jcherry export calls to UPDATE_EMAIL and UPDATE_TASK
+export { initialState, readEmail, addEmail, addTask, updateEmail, updateTask, selectEmailActions };
