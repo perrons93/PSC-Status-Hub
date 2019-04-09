@@ -78,9 +78,7 @@ describe("email action type", () => {
 });
 
 function testMode(actionType, editMode) {
-  //Simulation of the save function
-  const addEmail = jest.fn();
-  const addTask = jest.fn();
+  // constants used to create the actionStub and to check that the values are present
   const reasonForAction = "reasons";
   const emailTo = "to";
   const emailCc = "cc";
@@ -105,8 +103,8 @@ function testMode(actionType, editMode) {
       emailSubject={"hello team"}
       showDialog={true}
       handleClose={() => {}}
-      addEmail={addEmail}
-      addTask={addTask}
+      addEmail={() => {}}
+      addTask={() => {}}
       actionType={actionType}
       editMode={editMode}
       action={actionStub}
@@ -120,11 +118,23 @@ function testMode(actionType, editMode) {
     const inputEmailBody = wrapper.find("#your-response-text-area");
     const inputReasonForAction = wrapper.find("#reasons-for-action-text-area");
 
+    //set default values; when in "create" mode
+    let valEmailTo = "";
+    let valEmailCc = "";
+    let valEmailBody = "";
+    let valReasonForAction = "";
+    if (editMode == EDIT_MODE.update) {
+      valEmailTo = emailTo;
+      valEmailCc = emailCc;
+      valEmailBody = emailBody;
+      valReasonForAction = reasonForAction;
+    }
+
     //expect(inputEmailType.value).toEqual(emailType);
-    expect(inputEmailTo.props().value).toEqual(emailTo);
-    expect(inputEmailCc.props().value).toEqual(emailCc);
-    expect(inputEmailBody.props().value).toEqual(emailBody);
-    expect(inputReasonForAction.props().value).toEqual(reasonForAction);
+    expect(inputEmailTo.props().value).toEqual(valEmailTo);
+    expect(inputEmailCc.props().value).toEqual(valEmailCc);
+    expect(inputEmailBody.props().value).toEqual(valEmailBody);
+    expect(inputReasonForAction.props().value).toEqual(valReasonForAction);
     //TODO jcherry: this should fail if the trype is not update
   } else if (actionType === ACTION_TYPE.task) {
     //TODO jcherry populate this when task editing has been added
