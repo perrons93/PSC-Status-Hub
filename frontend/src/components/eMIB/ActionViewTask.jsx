@@ -4,18 +4,6 @@ import LOCALIZE from "../../text_resources";
 import { actionShape } from "./constants";
 
 const styles = {
-  responseTypeIcon: {
-    color: "white",
-    margin: "0 8px",
-    padding: 3,
-    backgroundColor: "#00565E",
-    border: "3px solid #009FAE",
-    borderRadius: 4
-  },
-  responseType: {
-    color: "#00565E",
-    textDecoration: "underline"
-  },
   hr: {
     margin: "16px 0 16px 0"
   },
