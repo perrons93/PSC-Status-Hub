@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import { UnconnectedEmail as Email } from "../../../components/eMIB/Email";
 import CollapsingItemContainer from "../../../components/eMIB/CollapsingItemContainer";
-import { EMAIL_TYPE } from "../../../components/eMIB/constants";
+import { EMAIL_TYPE, ACTION_TYPE } from "../../../components/eMIB/constants";
 
 const emailStub = {
   id: 1,
@@ -49,7 +49,14 @@ describe("shows as many 'CollapsingItemContainer' as there are actions", () => {
         email={emailStub}
         emailCount={0}
         taskCount={2}
-        emailActions={[{ emailType: EMAIL_TYPE.reply, emailTo: "you", emailBody: "hi" }]}
+        emailActions={[
+          {
+            emailType: EMAIL_TYPE.reply,
+            emailTo: "you",
+            emailBody: "hi",
+            actionType: ACTION_TYPE.email
+          }
+        ]}
       />
     );
     expect(wrapper.find(CollapsingItemContainer).length).toEqual(1);
@@ -61,9 +68,24 @@ describe("shows as many 'CollapsingItemContainer' as there are actions", () => {
         emailCount={2}
         taskCount={2}
         emailActions={[
-          { emailType: EMAIL_TYPE.reply, emailTo: "you1", emailBody: "hi1" },
-          { emailType: EMAIL_TYPE.replyAll, emailTo: "you2", emailBody: "hi2" },
-          { emailType: EMAIL_TYPE.forward, emailTo: "you3", emailBody: "hi3" }
+          {
+            emailType: EMAIL_TYPE.reply,
+            emailTo: "you1",
+            emailBody: "hi1",
+            actionType: ACTION_TYPE.email
+          },
+          {
+            emailType: EMAIL_TYPE.replyAll,
+            emailTo: "you2",
+            emailBody: "hi2",
+            actionType: ACTION_TYPE.email
+          },
+          {
+            emailType: EMAIL_TYPE.forward,
+            emailTo: "you3",
+            emailBody: "hi3",
+            actionType: ACTION_TYPE.email
+          }
         ]}
       />
     );
