@@ -14,7 +14,7 @@ const styles = {
   title: {
     fontSize: 18
   },
-  envelopeIcon: {
+  emailAndTaskIcon: {
     marginRight: 8,
     fontSize: 18
   },
@@ -69,7 +69,7 @@ class CollapsingItemContainer extends Component {
     return (
       <div className={`${containerClass} collapsing-item-container`} style={styles.container}>
         <button className={buttonClass} style={styles.button} onClick={this.expandItem}>
-          <i className={iconType} style={styles.envelopeIcon} />
+          <i className={iconType} style={styles.emailAndTaskIcon} />
           <span style={styles.title}>{title}</span>
         </button>
         <i id="white-expand-icon-on-hover" className={iconClass} style={styles.expandIcon} />
