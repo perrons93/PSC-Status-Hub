@@ -14,22 +14,12 @@ describe("renders component's content", () => {
   const wrapper = shallow(<ActionViewTask action={actionStub} />);
 
   it("task content", () => {
-    const taskContent = (
-      <div>
-        <p>{LOCALIZE.emibTest.inboxPage.taskContent.task}</p>
-        <p>{"Liste of my tasks here..."}</p>
-      </div>
-    );
+    const taskContent = <p>{"Liste of my tasks here..."}</p>;
     expect(wrapper.containsMatchingElement(taskContent)).toEqual(true);
   });
 
   it("reasons for action content", () => {
-    const reasonsForActionContent = (
-      <div>
-        <p>{LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}</p>
-        <p>{"Reasons for action here..."}</p>
-      </div>
-    );
+    const reasonsForActionContent = <p>{"Reasons for action here..."}</p>;
     expect(wrapper.containsMatchingElement(reasonsForActionContent)).toEqual(true);
   });
 });
