@@ -52,7 +52,7 @@ describe("Email header", () => {
 function genWrapper(responseType, cc) {
   const actionStub = {
     actionType: ACTION_TYPE.email,
-    reasonForAction: "reasons",
+    reasonsForAction: "reasons",
     emailType: responseType,
     emailTo: "to",
     emailCc: cc,
