@@ -34,7 +34,8 @@ const styles = {
     backgroundColor: "transparent",
     float: "right",
     color: "white",
-    border: 0
+    border: 0,
+    marginTop: 11
   },
   modalBody: {
     paddingTop: 0,
