@@ -4,6 +4,9 @@ import LOCALIZE from "../../text_resources";
 import { actionShape } from "./constants";
 
 const styles = {
+  taskStyle: {
+    marginTop: 18
+  },
   hr: {
     margin: "16px 0 16px 0"
   },
@@ -22,14 +25,12 @@ class ActionViewTask extends Component {
     return (
       <div aria-label={LOCALIZE.ariaLabel.taskDetails}>
         <div tabIndex="0">
-          <p className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.taskContent.task}</p>
+          <h6 style={styles.taskStyle}>{LOCALIZE.emibTest.inboxPage.taskContent.task}</h6>
           <p>{action.task}</p>
         </div>
         <hr style={styles.hr} />
         <div tabIndex="0">
-          <p className="font-weight-bold">
-            {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
-          </p>
+          <h6>{LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}</h6>
           <p>{action.reasonForAction}</p>
         </div>
         <hr style={styles.hr} />
