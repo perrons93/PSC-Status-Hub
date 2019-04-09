@@ -39,6 +39,9 @@ const styles = {
   modalBody: {
     paddingTop: 0,
     paddingBottom: 0
+  },
+  fullWidth: {
+    width: "100%"
   }
 };
 
@@ -87,9 +90,9 @@ class EditActionDialog extends Component {
           <div>
             <Modal.Header style={styles.modalHeader}>
               {
-                <div style={styles.title}>
+                <div style={styles.fullWidth}>
                   {actionType === ACTION_TYPE.email && (
-                    <div>
+                    <div style={styles.fullWidth}>
                       <i style={styles.icon} className="fas fa-envelope" />
                       <h3 style={styles.dialogHeaderText}>
                         {editMode === EDIT_MODE.create &&
@@ -101,7 +104,7 @@ class EditActionDialog extends Component {
                     </div>
                   )}
                   {actionType === ACTION_TYPE.task && (
-                    <div>
+                    <div style={styles.fullWidth}>
                       <i style={styles.icon} className="fas fa-tasks" />
                       <h3 style={styles.dialogHeaderText}>
                         {editMode === EDIT_MODE.create &&
