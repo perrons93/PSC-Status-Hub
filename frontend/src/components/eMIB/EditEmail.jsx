@@ -82,11 +82,11 @@ class EditEmail extends Component {
   };
 
   state = {
-    emailType: this.props.action == null ? EMAIL_TYPE.reply : this.props.action.emailType,
-    emailTo: this.props.action == null ? "" : this.props.action.emailTo,
-    emailCc: this.props.action == null ? "" : this.props.action.emailCc,
-    emailBody: this.props.action == null ? "" : this.props.action.emailBody,
-    reasonsForAction: this.props.action == null ? "" : this.props.action.reasonsForAction
+    emailType: !this.props.action ? EMAIL_TYPE.reply : this.props.action.emailType,
+    emailTo: !this.props.action ? "" : this.props.action.emailTo,
+    emailCc: !this.props.action ? "" : this.props.action.emailCc,
+    emailBody: !this.props.action ? "" : this.props.action.emailBody,
+    reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction
   };
 
   onEmailTypeChange = event => {
