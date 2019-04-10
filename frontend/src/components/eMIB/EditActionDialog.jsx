@@ -97,7 +97,7 @@ class EditActionDialog extends Component {
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
                       </h3>
                       <button onClick={handleClose} style={styles.closeButton}>
-                        <i class="fas fa-times" />
+                        <i className="fas fa-times" />
                       </button>
                     </div>
                   )}
@@ -111,7 +111,7 @@ class EditActionDialog extends Component {
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
                       </h3>
                       <button onClick={handleClose} style={styles.closeButton}>
-                        <i class="fas fa-times" />
+                        <i className="fas fa-times" />
                       </button>
                     </div>
                   )}
