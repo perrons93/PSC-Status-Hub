@@ -78,7 +78,6 @@ class Email extends Component {
   render() {
     const { email, emailCount, taskCount, emailActions } = this.props;
     const hasTakenAction = emailCount + taskCount > 0;
-    // console.log(emailActions);
     return (
       <div style={styles.email}>
         <div style={styles.header}>
