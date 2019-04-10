@@ -121,7 +121,11 @@ class EditActionDialog extends Component {
             <Modal.Body style={styles.modalBody}>
               {actionType === ACTION_TYPE.email && <EditEmail onChange={this.editAction} />}
               {actionType === ACTION_TYPE.task && (
-                <EditTask emailId={this.props.emailId + 1} emailSubject={this.props.emailSubject} />
+                <EditTask
+                  emailId={this.props.emailId + 1}
+                  emailSubject={this.props.emailSubject}
+                  onChange={this.editAction}
+                />
               )}
             </Modal.Body>
             <Modal.Footer>
