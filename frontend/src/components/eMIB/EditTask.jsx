@@ -64,28 +64,31 @@ const styles = {
 
 class EditTask extends Component {
   state = {
-    taskContent: "",
-    reasonForAction: ""
+    task: "",
+    reasonsForAction: ""
   };
 
   static propTypes = {
     emailId: PropTypes.number.isRequired,
-    emailSubject: PropTypes.string.isRequired
+    emailSubject: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
   };
 
   onTaskContentChange = event => {
     const newTaskContent = event.target.value;
-    this.setState({ taskContent: newTaskContent });
+    this.setState({ task: newTaskContent });
+    this.props.onChange({ ...this.state, task: newTaskContent });
   };
 
   onReasonsForActionChange = event => {
     const newReasonForAction = event.target.value;
-    this.setState({ reasonForAction: newReasonForAction });
+    this.setState({ reasonsForAction: newReasonForAction });
+    this.props.onChange({ ...this.state, reasonsForAction: newReasonForAction });
   };
 
   render() {
     const { emailId, emailSubject } = this.props;
-    const { taskContent, reasonForAction } = this.state;
+    const { task, reasonsForAction } = this.state;
 
     return (
       <div style={styles.container}>
@@ -110,7 +113,7 @@ class EditTask extends Component {
                 id="your-tasks-text-area"
                 maxLength="100"
                 style={styles.tasks.textArea}
-                value={taskContent}
+                value={task}
                 onChange={this.onTaskContentChange}
               />
             </div>
@@ -125,7 +128,7 @@ class EditTask extends Component {
                 id="reasons-for-action-text-area"
                 maxLength="100"
                 style={styles.reasonsForAction.textArea}
-                value={reasonForAction}
+                value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
               />
             </div>
