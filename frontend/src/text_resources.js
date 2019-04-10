@@ -346,7 +346,9 @@ let LOCALIZE = new LocalizedStrings({
           cc: "Cc:",
           reply: "reply",
           replyAll: "reply all",
-          forward: "forward"
+          forward: "forward",
+          editButton: "Edit response",
+          deleteButton: "Delete response"
         },
         addEmailResponse: {
           selectResponseType: "Please select how you would like to respond to the original email:",
@@ -357,14 +359,16 @@ let LOCALIZE = new LocalizedStrings({
         emailResponse: {
           description: "For this response, you've chosen to:",
           response: "Your response:",
-          reasonsForAction: "Your reasons for action:",
-          editButton: "Edit response",
-          deleteButton: "Delete response"
+          reasonsForAction: "Your reasons for action:"
         },
         addEmailTask: {
           header: "Email ID #{0}: {1}",
           task: "Your task(s):",
           reasonsForAction: "Add reasons for actions here (optional)"
+        },
+        taskContent: {
+          task: "Your task(s):",
+          reasonsForAction: "Your reasons for action:"
         }
       },
 
@@ -385,9 +389,9 @@ let LOCALIZE = new LocalizedStrings({
         submitTestPopupBox: {
           title: "Confirm test submission?",
           warning: {
-            title: "Warning! All draft items will not be saved.",
+            title: "Warning! The notepad will not be saved.",
             message:
-              "All draft emails and any notes in the notepad will not be submitted with the test for scoring. Review draft emails and the notepad before submitting the test."
+              "Anything written in the notepad will not be submitted with the test for scoring. Ensure that you have reviewed all of your responses before submitting the test as you will not be able to go back to make changes."
           },
           description:
             "If you are ready to send your test in for scoring, click the “Submit test” button. You will be exited out of this test session and provided further instructions."
@@ -423,7 +427,9 @@ let LOCALIZE = new LocalizedStrings({
       emailHeader: "email header",
       responseDetails: "response details",
       reasonsForActionDetails: "reasons for action details",
-      emailOptions: "email options"
+      taskDetails: "task details",
+      emailOptions: "email options",
+      taskOptions: "task options"
     },
 
     //Commons
@@ -811,7 +817,9 @@ let LOCALIZE = new LocalizedStrings({
           cc: "Cc :",
           reply: "répondre",
           replyAll: "répondre à tous",
-          forward: "transmettre"
+          forward: "transmettre",
+          editButton: "Modifier réponse",
+          deleteButton: "Supprimer résponse"
         },
         addEmailResponse: {
           selectResponseType:
@@ -823,14 +831,16 @@ let LOCALIZE = new LocalizedStrings({
         emailResponse: {
           description: "FR For this response, you've chosen to:",
           response: "FR Your response:",
-          reasonsForAction: "FR Your reasons for action:",
-          editButton: "Modifier réponse",
-          deleteButton: "Supprimer résponse"
+          reasonsForAction: "FR Your reasons for action:"
         },
         addEmailTask: {
           header: "FR Email ID #{0}: {1}",
           task: "FR Your task(s):",
           reasonsForAction: "FR Add reasons for actions here (optional)"
+        },
+        taskContent: {
+          task: "FR Your task(s):",
+          reasonsForAction: "FR Your reasons for action:"
         }
       },
 
@@ -851,9 +861,9 @@ let LOCALIZE = new LocalizedStrings({
         submitTestPopupBox: {
           title: "Confirmer l’envoi du test?",
           warning: {
-            title: "Avertissement : aucun brouillon ne sera sauvegardé.",
+            title: "Avertissement : your notebook will not be saved.",
             message:
-              "Les ébauches de courriels et le contenu du bloc-notes ne seront pas envoyés avec le test pour la notation. Passez en revue les ébauches de courriels et le bloc-notes avant d’envoyer le test."
+              "FR Anything written in the notepad will not be submitted with the test for scoring. Ensure that you have reviewed all of your responses before submitting the test as you will not be able to go back to make changes."
           },
           description:
             "Si vous êtes prêt(e) à envoyer votre test pour la notation, cliquez sur le bouton « Envoyer le test ». La séance de test sera fermée et vous recevrez d’autres instructions."
@@ -890,7 +900,9 @@ let LOCALIZE = new LocalizedStrings({
       emailHeader: "en-tête du courriel",
       responseDetails: "détails de la réponse",
       reasonsForActionDetails: "motifs de l'action",
-      emailOptions: "options de messagerie"
+      taskDetails: "détails sur la ou les tâches",
+      emailOptions: "options de messagerie",
+      taskOptions: "options de tâche"
     },
 
     //Commons

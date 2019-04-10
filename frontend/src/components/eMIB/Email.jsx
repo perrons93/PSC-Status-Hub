@@ -137,7 +137,7 @@ class Email extends Component {
             return (
               <CollapsingItemContainer
                 key={id}
-                icon={ICON_TYPE.email}
+                iconType={ICON_TYPE.email}
                 // TODO: we need to put a dynamic title generator here instead of hard coding this title
                 title={"Email response"}
                 body={<ActionViewEmail action={action} emailId={this.props.email.id} />}

@@ -30,7 +30,8 @@ const styles = {
       marginBottom: 16
     },
     radioText: {
-      textDecoration: "underline"
+      textDecoration: "underline",
+      cursor: "pointer"
     },
     textFieldBoxPadding: {
       padding: "0 6px"
@@ -85,7 +86,7 @@ class EditEmail extends Component {
     emailTo: "",
     emailCc: "",
     emailBody: "",
-    reasonForAction: ""
+    reasonsForAction: ""
   };
 
   onEmailTypeChange = event => {
@@ -113,9 +114,9 @@ class EditEmail extends Component {
   };
 
   onReasonsForActionChange = event => {
-    const newReasonForAction = event.target.value;
-    this.setState({ reasonForAction: newReasonForAction });
-    this.props.onChange({ ...this.state, reasonForAction: newReasonForAction });
+    const newreasonsForAction = event.target.value;
+    this.setState({ reasonsForAction: newreasonsForAction });
+    this.props.onChange({ ...this.state, reasonsForAction: newreasonsForAction });
   };
 
   render() {
