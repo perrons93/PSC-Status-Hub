@@ -80,11 +80,6 @@ class EditActionDialog extends Component {
 
   render() {
     const { showDialog, handleClose, actionType, editMode } = this.props;
-    const closeButton = (
-      <button onClick={handleClose} style={styles.closeButton}>
-        <i class="fas fa-times" />
-      </button>
-    );
     return (
       <div>
         <Modal show={showDialog} onHide={handleClose}>
@@ -101,7 +96,9 @@ class EditActionDialog extends Component {
                         {editMode === EDIT_MODE.update &&
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
                       </h3>
-                      {closeButton}
+                      <button onClick={handleClose} style={styles.closeButton}>
+                        <i class="fas fa-times" />
+                      </button>
                     </div>
                   )}
                   {actionType === ACTION_TYPE.task && (
@@ -113,7 +110,9 @@ class EditActionDialog extends Component {
                         {editMode === EDIT_MODE.update &&
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
                       </h3>
-                      {closeButton}
+                      <button onClick={handleClose} style={styles.closeButton}>
+                        <i class="fas fa-times" />
+                      </button>
                     </div>
                   )}
                 </div>
