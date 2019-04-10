@@ -74,9 +74,16 @@ const emibInbox = (state = initialState, action) => {
     case ADD_TASK:
       let duplicatedEmailSummaries = Array.from(state.emailSummaries);
       duplicatedEmailSummaries[action.emailIndex].taskCount++;
+
+      let duplicatedEmailActions = Array.from(state.emailActions);
+      duplicatedEmailActions[action.emailIndex].push({
+        ...action.taskAction,
+        actionType: ACTION_TYPE.task
+      });
       return {
         ...state,
-        emailSummaries: duplicatedEmailSummaries
+        emailSummaries: duplicatedEmailSummaries,
+        emailActions: duplicatedEmailActions
       };
     default:
       return state;
