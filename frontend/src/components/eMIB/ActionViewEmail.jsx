@@ -24,14 +24,22 @@ const styles = {
       textDecoration: "underline"
     }
   },
-  toAndCcStyle: {
-    float: "left",
-    width: 32,
-    height: 32,
-    margin: "2px 0 0 0"
-  },
-  headerMargin: {
-    margin: "9px 0 12px 0"
+  header: {
+    zone: {
+      minHeight: 95
+    },
+    elementHeight: {
+      minHeight: 24
+    },
+    toAndCcTitle: {
+      float: "left",
+      width: 32,
+      height: 32,
+      margin: "2px 0 0 0"
+    },
+    toFieldMargin: {
+      margin: "9px 0 12px 0"
+    }
   },
   hr: {
     margin: "16px 0 16px 0"
@@ -47,13 +55,12 @@ class ActionViewEmail extends Component {
     emailId: PropTypes.number.isRequired
   };
 
-  // TODO: Fix display bug when CC field is empty
   render() {
     const action = this.props.action;
     return (
       <div aria-label={LOCALIZE.ariaLabel.responseDetails}>
-        <div tabIndex="0">
-          <div>
+        <div style={styles.header.zone} tabIndex="0">
+          <div style={styles.header.elementHeight}>
             <h6 style={styles.responseType.description}>
               {LOCALIZE.emibTest.inboxPage.emailResponse.description}
             </h6>
@@ -82,12 +89,16 @@ class ActionViewEmail extends Component {
               </>
             )}
           </div>
-          <div style={styles.headerMargin}>
-            <h6 style={styles.toAndCcStyle}>{LOCALIZE.emibTest.inboxPage.emailCommons.to}</h6>
+          <div style={{ ...styles.header.toFieldMargin, ...styles.header.elementHeight }}>
+            <h6 style={styles.header.toAndCcTitle}>
+              {LOCALIZE.emibTest.inboxPage.emailCommons.to}
+            </h6>
             <span>{action.emailTo}</span>
           </div>
-          <div>
-            <h6 style={styles.toAndCcStyle}>{LOCALIZE.emibTest.inboxPage.emailCommons.cc}</h6>
+          <div style={styles.header.elementHeight}>
+            <h6 style={styles.header.toAndCcTitle}>
+              {LOCALIZE.emibTest.inboxPage.emailCommons.cc}
+            </h6>
             <span>{action.emailCc}</span>
           </div>
         </div>
