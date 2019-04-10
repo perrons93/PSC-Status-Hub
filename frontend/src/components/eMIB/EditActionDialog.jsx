@@ -26,7 +26,23 @@ const styles = {
     color: "white",
     fontSize: 16,
     fontWeight: 600,
-    borderRadius: "10px 10px 0px 0px"
+    borderRadius: "10px 10px 0px 0px",
+    paddingTop: 0,
+    paddingBottom: 0
+  },
+  closeButton: {
+    backgroundColor: "transparent",
+    float: "right",
+    color: "white",
+    border: 0,
+    marginTop: 11
+  },
+  modalBody: {
+    paddingTop: 0,
+    paddingBottom: 0
+  },
+  fullWidth: {
+    width: "100%"
   }
 };
 
@@ -88,9 +104,9 @@ class EditActionDialog extends Component {
           <div>
             <Modal.Header style={styles.modalHeader}>
               {
-                <div style={styles.title}>
+                <div style={styles.fullWidth}>
                   {actionType === ACTION_TYPE.email && (
-                    <div>
+                    <div style={styles.fullWidth}>
                       <i style={styles.icon} className="fas fa-envelope" />
                       <h3 style={styles.dialogHeaderText}>
                         {editMode === EDIT_MODE.create &&
@@ -98,10 +114,13 @@ class EditActionDialog extends Component {
                         {editMode === EDIT_MODE.update &&
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
                       </h3>
+                      <button onClick={handleClose} style={styles.closeButton}>
+                        <i className="fas fa-times" />
+                      </button>
                     </div>
                   )}
                   {actionType === ACTION_TYPE.task && (
-                    <div>
+                    <div style={styles.fullWidth}>
                       <i style={styles.icon} className="fas fa-tasks" />
                       <h3 style={styles.dialogHeaderText}>
                         {editMode === EDIT_MODE.create &&
@@ -109,12 +128,15 @@ class EditActionDialog extends Component {
                         {editMode === EDIT_MODE.update &&
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
                       </h3>
+                      <button onClick={handleClose} style={styles.closeButton}>
+                        <i className="fas fa-times" />
+                      </button>
                     </div>
                   )}
                 </div>
               }
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body style={styles.modalBody}>
               {actionType === ACTION_TYPE.email && (
                 <EditEmail
                   onChange={this.editAction}
@@ -122,7 +144,11 @@ class EditActionDialog extends Component {
                 />
               )}
               {actionType === ACTION_TYPE.task && (
-                <EditTask emailId={this.props.emailId + 1} emailSubject={this.props.emailSubject} />
+                <EditTask
+                  emailNumber={this.props.emailId}
+                  emailSubject={this.props.emailSubject}
+                  onChange={this.editAction}
+                />
               )}
             </Modal.Body>
             <Modal.Footer>

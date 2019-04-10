@@ -6,6 +6,7 @@ import "../../css/inbox.css";
 import EditActionDialog from "./EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, emailShape } from "./constants";
 import ActionViewEmail from "./ActionViewEmail";
+import ActionViewTask from "./ActionViewTask";
 import CollapsingItemContainer, { ICON_TYPE } from "./CollapsingItemContainer";
 
 const styles = {
@@ -134,17 +135,30 @@ class Email extends Component {
         <div>{email.body}</div>
         <div>
           {emailActions.map((action, id) => {
-            return (
-              <CollapsingItemContainer
-                key={id}
-                iconType={ICON_TYPE.email}
-                // TODO: we need to put a dynamic title generator here instead of hard coding this title
-                title={"Email response"}
-                body={
-                  <ActionViewEmail action={action} actionId={id} emailId={this.props.email.id} />
-                }
-              />
-            );
+            if (emailActions[id].actionType === ACTION_TYPE.email) {
+              return (
+                <CollapsingItemContainer
+                  key={id}
+                  iconType={ICON_TYPE.email}
+                  // TODO: we need to put a dynamic title generator here instead of hard coding this title
+                  title={"Email Response #XX"}
+                  body={
+                    <ActionViewEmail action={action} actionId={id} emailId={this.props.email.id} />
+                  }
+                />
+              );
+            } else if (emailActions[id].actionType === ACTION_TYPE.task) {
+              return (
+                <CollapsingItemContainer
+                  key={id}
+                  iconType={ICON_TYPE.task}
+                  // TODO: we need to put a dynamic title generator here instead of hard coding this title
+                  title={"Task #XX"}
+                  body={<ActionViewTask action={action} emailId={this.props.email.id} />}
+                />
+              );
+            }
+            return null;
           })}
         </div>
         <EditActionDialog

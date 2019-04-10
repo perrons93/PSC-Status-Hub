@@ -50,13 +50,33 @@ function testCore(actionType, editMode) {
   const taskIcon = "fas fa-tasks";
 
   // Check if it is an email or a task
-  if (actionType === ACTION_TYPE.email && editMode) {
-    expect(wrapper.find("i").hasClass(emailIcon)).toEqual(true);
-    expect(wrapper.find("i").hasClass(taskIcon)).toEqual(false);
+  if (actionType === ACTION_TYPE.email) {
+    expect(
+      wrapper
+        .find("i")
+        .first()
+        .hasClass(emailIcon)
+    ).toEqual(true);
+    expect(
+      wrapper
+        .find("i")
+        .first()
+        .hasClass(taskIcon)
+    ).toEqual(false);
   }
   if (actionType === ACTION_TYPE.task) {
-    expect(wrapper.find("i").hasClass(emailIcon)).toEqual(false);
-    expect(wrapper.find("i").hasClass(taskIcon)).toEqual(true);
+    expect(
+      wrapper
+        .find("i")
+        .first()
+        .hasClass(emailIcon)
+    ).toEqual(false);
+    expect(
+      wrapper
+        .find("i")
+        .first()
+        .hasClass(taskIcon)
+    ).toEqual(true);
   }
 
   //Check that the button click triggers the function
