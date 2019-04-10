@@ -1,21 +1,11 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import { actionShape } from "./constants";
 
 const styles = {
-  responseTypeIcon: {
-    color: "white",
-    margin: "0 8px",
-    padding: 3,
-    backgroundColor: "#00565E",
-    border: "3px solid #009FAE",
-    borderRadius: 4
-  },
-  responseType: {
-    color: "#00565E",
-    textDecoration: "underline"
+  taskStyle: {
+    marginTop: 18
   },
   hr: {
     margin: "16px 0 16px 0"
@@ -31,18 +21,16 @@ class ActionViewTask extends Component {
   };
 
   render() {
-    const { action } = this.props;
+    const action = this.props.action;
     return (
       <div aria-label={LOCALIZE.ariaLabel.taskDetails}>
         <div tabIndex="0">
-          <p className="font-weight-bold">{LOCALIZE.emibTest.inboxPage.taskContent.task}</p>
+          <h6 style={styles.taskStyle}>{LOCALIZE.emibTest.inboxPage.taskContent.task}</h6>
           <p>{action.task}</p>
         </div>
         <hr style={styles.hr} />
         <div tabIndex="0">
-          <p className="font-weight-bold">
-            {LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}
-          </p>
+          <h6>{LOCALIZE.emibTest.inboxPage.emailResponse.reasonsForAction}</h6>
           <p>{action.reasonsForAction}</p>
         </div>
         <hr style={styles.hr} />

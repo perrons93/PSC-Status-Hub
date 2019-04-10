@@ -30,7 +30,8 @@ const styles = {
       marginBottom: 16
     },
     radioText: {
-      textDecoration: "underline"
+      textDecoration: "underline",
+      cursor: "pointer"
     },
     textFieldBoxPadding: {
       padding: "0 6px"
