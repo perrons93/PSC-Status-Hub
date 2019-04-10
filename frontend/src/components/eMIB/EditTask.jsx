@@ -69,7 +69,7 @@ class EditTask extends Component {
   };
 
   static propTypes = {
-    emailId: PropTypes.number.isRequired,
+    emailNumber: PropTypes.number.isRequired,
     emailSubject: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired
   };
@@ -87,7 +87,7 @@ class EditTask extends Component {
   };
 
   render() {
-    const { emailId, emailSubject } = this.props;
+    const { emailNumber, emailSubject } = this.props;
     const { task, reasonsForAction } = this.state;
 
     return (
@@ -97,7 +97,7 @@ class EditTask extends Component {
             <label style={styles.header}>
               {LOCALIZE.formatString(
                 LOCALIZE.emibTest.inboxPage.addEmailTask.header,
-                emailId,
+                emailNumber + 1,
                 emailSubject
               )}
             </label>
