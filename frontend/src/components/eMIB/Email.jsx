@@ -50,7 +50,7 @@ class Email extends Component {
     emailCount: PropTypes.number,
     taskCount: PropTypes.number,
     // Provided by Redux
-    emailActions: PropTypes.array
+    emailActionsArray: PropTypes.array
   };
 
   state = {
@@ -75,8 +75,9 @@ class Email extends Component {
   };
 
   render() {
-    const { email, emailCount, taskCount, emailActions } = this.props;
+    const { email, emailCount, taskCount, emailActionsArray } = this.props;
     const hasTakenAction = emailCount + taskCount > 0;
+    const emailActions = emailActionsArray[email.id];
 
     return (
       <div style={styles.email}>
@@ -171,7 +172,7 @@ export { Email as UnconnectedEmail };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    emailActions: selectEmailActions(state.emibInbox.emailActions, ownProps.email.id)
+    emailActionsArray: state.emibInbox.emailActions
   };
 };
 
