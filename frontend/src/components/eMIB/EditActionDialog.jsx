@@ -70,9 +70,8 @@ class EditActionDialog extends Component {
       this.props.actionType === ACTION_TYPE.task &&
       this.props.editMode === EDIT_MODE.update
     ) {
-      //this.props.addTask(this.props.emailId, this.state.action);
+      //this.props.updateTask(this.props.emailId, this.state.action);
     }
-    //TODO jcherry add calls to UPDATE_EMAIL and UPDATE_TASK
     this.setState({ action: {} });
     this.props.handleClose();
   };
