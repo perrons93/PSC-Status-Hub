@@ -81,7 +81,7 @@ describe("EmibInboxRedux", () => {
       expect(newState.emailSummaries[1].taskCount).toEqual(0);
     });
   });
-  //TODO jcherry add tests for UPDATE_TASK
+  //TODO jcherry add tests for UPDATE_TASK when implemented
 
   describe("update email action works as expected", () => {
     it("should update an email action in the action list", () => {
@@ -199,8 +199,6 @@ describe("EmibInboxRedux", () => {
       ]);
     });
   });
-
-  //TODO jcherry add tests for multiple add and a single update to ensure that only one is changed
 
   describe("add task action", () => {
     it("should update email 0 count state", () => {

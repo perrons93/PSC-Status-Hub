@@ -104,7 +104,7 @@ const emibInbox = (state = initialState, action) => {
         ...state,
         emailActions: updatedEmailActions
       };
-    //TODO jcherry handle calls to UPDATE_EMAIL and UPDATE_TASK
+    //TODO jcherry handle calls UPDATE_TASK when this is added
     default:
       return state;
   }
