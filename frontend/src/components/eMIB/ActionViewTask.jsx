@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import { actionShape } from "./constants";
@@ -17,11 +18,12 @@ const styles = {
 
 class ActionViewTask extends Component {
   static propTypes = {
-    action: actionShape
+    action: actionShape,
+    emailId: PropTypes.number.isRequired
   };
 
   render() {
-    const { action } = this.props;
+    const action = this.props.action;
     return (
       <div aria-label={LOCALIZE.ariaLabel.taskDetails}>
         <div tabIndex="0">
