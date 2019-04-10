@@ -47,6 +47,7 @@ class ActionViewEmail extends Component {
     emailId: PropTypes.number.isRequired
   };
 
+  // TODO: Fix display bug when CC field is empty
   render() {
     const action = this.props.action;
     return (
