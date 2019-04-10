@@ -21,7 +21,7 @@ class ActionViewTask extends Component {
   };
 
   render() {
-    const { action } = this.props;
+    const action = this.props.action;
     return (
       <div aria-label={LOCALIZE.ariaLabel.taskDetails}>
         <div tabIndex="0">

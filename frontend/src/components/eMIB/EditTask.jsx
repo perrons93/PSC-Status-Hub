@@ -63,13 +63,32 @@ const styles = {
 //TODO: Add tooltip functionality for both task and reasons for action icons
 
 class EditTask extends Component {
+  state = {
+    task: "",
+    reasonsForAction: ""
+  };
+
   static propTypes = {
-    emailId: PropTypes.number.isRequired,
-    emailSubject: PropTypes.string.isRequired
+    emailNumber: PropTypes.number.isRequired,
+    emailSubject: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
+  };
+
+  onTaskContentChange = event => {
+    const newTaskContent = event.target.value;
+    this.setState({ task: newTaskContent });
+    this.props.onChange({ ...this.state, task: newTaskContent });
+  };
+
+  onReasonsForActionChange = event => {
+    const newReasonForAction = event.target.value;
+    this.setState({ reasonsForAction: newReasonForAction });
+    this.props.onChange({ ...this.state, reasonsForAction: newReasonForAction });
   };
 
   render() {
-    const { emailId, emailSubject } = this.props;
+    const { emailNumber, emailSubject } = this.props;
+    const { task, reasonsForAction } = this.state;
 
     return (
       <div style={styles.container}>
@@ -78,7 +97,7 @@ class EditTask extends Component {
             <label style={styles.header}>
               {LOCALIZE.formatString(
                 LOCALIZE.emibTest.inboxPage.addEmailTask.header,
-                emailId,
+                emailNumber + 1,
                 emailSubject
               )}
             </label>
@@ -90,7 +109,13 @@ class EditTask extends Component {
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.task}
               </label>
               <i className="fas fa-question-circle" style={styles.tasks.icon} />
-              <textarea id="your-tasks-text-area" maxLength="100" style={styles.tasks.textArea} />
+              <textarea
+                id="your-tasks-text-area"
+                maxLength="100"
+                style={styles.tasks.textArea}
+                value={task}
+                onChange={this.onTaskContentChange}
+              />
             </div>
           </div>
           <div>
@@ -103,6 +128,8 @@ class EditTask extends Component {
                 id="reasons-for-action-text-area"
                 maxLength="100"
                 style={styles.reasonsForAction.textArea}
+                value={reasonsForAction}
+                onChange={this.onReasonsForActionChange}
               />
             </div>
           </div>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import { EMAIL_TYPE } from "./constants";
@@ -43,8 +42,7 @@ const styles = {
 
 class ActionViewEmail extends Component {
   static propTypes = {
-    action: actionShape,
-    emailId: PropTypes.number.isRequired
+    action: actionShape
   };
 
   render() {
