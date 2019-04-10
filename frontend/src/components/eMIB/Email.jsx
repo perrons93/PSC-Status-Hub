@@ -5,7 +5,6 @@ import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
 import EditActionDialog from "./EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, emailShape } from "./constants";
-import { selectEmailActions } from "../../modules/EmibInboxRedux";
 import ActionViewEmail from "./ActionViewEmail";
 import CollapsingItemContainer, { ICON_TYPE } from "./CollapsingItemContainer";
 
