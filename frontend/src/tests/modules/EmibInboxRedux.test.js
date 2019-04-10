@@ -72,15 +72,6 @@ describe("EmibInboxRedux", () => {
     });
   });
 
-  describe("add task action", () => {
-    it("should update email 0 count state", () => {
-      const addAction = addTask(0);
-      const newState = emibInbox(stubbedInitialState, addAction);
-      expect(newState.emailSummaries[0].taskCount).toEqual(1);
-      expect(newState.emailSummaries[0].emailCount).toEqual(0);
-      expect(newState.emailSummaries[1].taskCount).toEqual(0);
-    });
-  });
   //TODO jcherry add tests for UPDATE_TASK when implemented
 
   describe("update email action works as expected", () => {
