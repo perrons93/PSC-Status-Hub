@@ -5,6 +5,7 @@ import emibInbox, {
   addTask,
   updateEmail,
   deleteEmail,
+  deleteTask,
   updateTask
 } from "../../modules/EmibInboxRedux";
 import { EMAIL_TYPE, ACTION_TYPE } from "../../components/eMIB/constants";
@@ -227,7 +228,7 @@ describe("EmibInboxRedux", () => {
       ]);
     });
 
-    it("should update 3 task actions one by one", () => {
+    it("should update 3 task actions one by one then delete them all one by one", () => {
       const task1 = {
         task: "Task 1",
         reasonsForAction: "Reason 1"
@@ -295,6 +296,23 @@ describe("EmibInboxRedux", () => {
         { ...task2Update, actionType: ACTION_TYPE.email },
         { ...task3Update, actionType: ACTION_TYPE.email }
       ]);
+      //delete second task
+      const deleteAction1 = deleteTask(0, 1);
+      const newState7 = emibInbox(newState6, deleteAction1);
+      expect(newState7.emailActions[0]).toEqual([
+        { ...task1Update, actionType: ACTION_TYPE.email },
+        { ...task3Update, actionType: ACTION_TYPE.email }
+      ]);
+      //delete first task
+      const deleteAction2 = deleteTask(0, 0);
+      const newState8 = emibInbox(newState7, deleteAction2);
+      expect(newState8.emailActions[0]).toEqual([
+        { ...task3Update, actionType: ACTION_TYPE.email }
+      ]);
+      //delete first task again (originally the third)
+      const deleteAction3 = deleteTask(0, 0);
+      const newState9 = emibInbox(newState8, deleteAction3);
+      expect(newState9.emailActions[0]).toEqual([]);
     });
   });
 
