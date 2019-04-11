@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ActionViewEmail from "../../../components/eMIB/ActionViewEmail";
+import { UnconnectedActionViewEmail } from "../../../components/eMIB/ActionViewEmail";
 import { EMAIL_TYPE, ACTION_TYPE } from "../../../components/eMIB/constants";
 
 describe("Response types", () => {
@@ -49,7 +49,18 @@ describe("Email header", () => {
   });
 });
 
+it("check that delete button calls deleteEmail prop", () => {
+  const deleteMock = jest.fn();
+  const wrapper = genWrapper(EMAIL_TYPE.reply, null, deleteMock);
+  wrapper.find("#unit-test-view-email-delete-button").simulate("click");
+  expect(deleteMock).toHaveBeenCalledTimes(1);
+});
+
 function genWrapper(responseType, cc) {
+  genWrapper(responseType, cc, () => {});
+}
+
+function genWrapper(responseType, cc, deleteEmail) {
   const actionStub = {
     actionType: ACTION_TYPE.email,
     reasonsForAction: "reasons",
@@ -59,5 +70,12 @@ function genWrapper(responseType, cc) {
     emailBody: "reasons"
   };
 
-  return shallow(<ActionViewEmail actionId={0} action={actionStub} emailId={1} />);
+  return shallow(
+    <UnconnectedActionViewEmail
+      actionId={0}
+      action={actionStub}
+      emailId={1}
+      deleteEmail={deleteEmail}
+    />
+  );
 }
