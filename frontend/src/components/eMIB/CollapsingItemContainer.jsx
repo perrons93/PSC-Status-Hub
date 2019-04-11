@@ -22,9 +22,9 @@ const styles = {
     position: "absolute",
     top: 0,
     right: 0,
-    margin: "11px 24px 0 0",
+    margin: "8px 24px 0 0",
     pointerEvents: "none",
-    fontSize: 18
+    fontSize: 24
   },
   contentContainer: {
     margin: 12

@@ -145,13 +145,7 @@ class Email extends Component {
                     key={id}
                     iconType={ICON_TYPE.email}
                     title={`Email Response #${emailNumber}`}
-                    body={
-                      <ActionViewEmail
-                        action={action}
-                        actionId={id}
-                        emailId={this.props.email.id}
-                      />
-                    }
+                    body={<ActionViewEmail action={action} actionId={id} emailId={email.id} />}
                   />
                 );
               }
@@ -165,7 +159,14 @@ class Email extends Component {
                     key={id}
                     iconType={ICON_TYPE.task}
                     title={`Task #${taskNumber}`}
-                    body={<ActionViewTask action={action} emailId={this.props.email.id} />}
+                    body={
+                      <ActionViewTask
+                        action={action}
+                        actionId={id}
+                        emailId={email.id}
+                        emailSubject={email.subject}
+                      />
+                    }
                   />
                 );
               }
