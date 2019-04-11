@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
-import { EMAIL_TYPE } from "./constants";
+import { EMAIL_TYPE, actionShape } from "./constants";
 
 const styles = {
   container: {
@@ -78,15 +78,16 @@ const styles = {
 
 class EditEmail extends Component {
   static propTypes = {
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    action: actionShape
   };
 
   state = {
-    emailType: EMAIL_TYPE.reply,
-    emailTo: "",
-    emailCc: "",
-    emailBody: "",
-    reasonsForAction: ""
+    emailType: !this.props.action ? EMAIL_TYPE.reply : this.props.action.emailType,
+    emailTo: !this.props.action ? "" : this.props.action.emailTo,
+    emailCc: !this.props.action ? "" : this.props.action.emailCc,
+    emailBody: !this.props.action ? "" : this.props.action.emailBody,
+    reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction
   };
 
   onEmailTypeChange = event => {

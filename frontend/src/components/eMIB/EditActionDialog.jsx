@@ -6,8 +6,8 @@ import LOCALIZE from "../../text_resources";
 import EditEmail from "./EditEmail";
 import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
-import { ACTION_TYPE, EDIT_MODE } from "./constants";
-import { addEmail, addTask } from "../../modules/EmibInboxRedux";
+import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
+import { addEmail, addTask, updateEmail } from "../../modules/EmibInboxRedux";
 
 const styles = {
   icon: {
@@ -56,7 +56,11 @@ class EditActionDialog extends Component {
     editMode: PropTypes.oneOf(Object.keys(EDIT_MODE)).isRequired,
     // Provided from Redux.
     addEmail: PropTypes.func.isRequired,
-    addTask: PropTypes.func.isRequired
+    addTask: PropTypes.func.isRequired,
+    updateEmail: PropTypes.func.isRequired,
+    // Only needed when updating an existing one
+    action: actionShape,
+    actionId: PropTypes.number
   };
 
   state = {
@@ -64,10 +68,24 @@ class EditActionDialog extends Component {
   };
 
   handleSave = () => {
-    if (this.props.actionType === ACTION_TYPE.email) {
+    if (this.props.actionType === ACTION_TYPE.email && this.props.editMode === EDIT_MODE.create) {
       this.props.addEmail(this.props.emailId, this.state.action);
-    } else if (this.props.actionType === ACTION_TYPE.task) {
+    } else if (
+      this.props.actionType === ACTION_TYPE.task &&
+      this.props.editMode === EDIT_MODE.create
+    ) {
       this.props.addTask(this.props.emailId, this.state.action);
+    } else if (
+      this.props.actionType === ACTION_TYPE.email &&
+      this.props.editMode === EDIT_MODE.update
+    ) {
+      this.props.updateEmail(this.props.emailId, this.props.actionId, this.state.action);
+    } else if (
+      this.props.actionType === ACTION_TYPE.task &&
+      this.props.editMode === EDIT_MODE.update
+    ) {
+      //TODO jcherry add this one it is defined
+      //this.props.updateTask(this.props.emailId, this.state.action);
     }
     this.setState({ action: {} });
     this.props.handleClose();
@@ -119,7 +137,12 @@ class EditActionDialog extends Component {
               }
             </Modal.Header>
             <Modal.Body style={styles.modalBody}>
-              {actionType === ACTION_TYPE.email && <EditEmail onChange={this.editAction} />}
+              {actionType === ACTION_TYPE.email && (
+                <EditEmail
+                  onChange={this.editAction}
+                  action={editMode === EDIT_MODE.update ? this.props.action : null}
+                />
+              )}
               {actionType === ACTION_TYPE.task && (
                 <EditTask
                   emailNumber={this.props.emailId}
@@ -155,7 +178,8 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       addEmail,
-      addTask
+      addTask,
+      updateEmail
     },
     dispatch
   );

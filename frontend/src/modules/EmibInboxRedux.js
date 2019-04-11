@@ -23,6 +23,8 @@ const initializeEmailActions = length => {
 const READ_EMAIL = "emibInbox/READ_EMAIL";
 const ADD_EMAIL = "emibInbox/ADD_EMAIL";
 const ADD_TASK = "emibInbox/ADD_TASK";
+const UPDATE_EMAIL = "emibInbox/UPDATE_EMAIL";
+const UPDATE_TASK = "emibInbox/UPDATE_TASK";
 
 // Action Creators
 const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
@@ -30,6 +32,20 @@ const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
 const addEmail = (emailIndex, emailAction) => ({ type: ADD_EMAIL, emailIndex, emailAction });
 // emailIndex refers to the index of the original parent email and taskAction is an actionShape
 const addTask = (emailIndex, taskAction) => ({ type: ADD_TASK, emailIndex, taskAction });
+// emailIndex refers to the index of the original parent email, responseId is the id of the response that is being edited and emailAction is an actionShape
+const updateEmail = (emailIndex, responseId, emailAction) => ({
+  type: UPDATE_EMAIL,
+  emailIndex,
+  responseId,
+  emailAction
+});
+// emailIndex refers to the index of the original parent email, responseId is the id of the response that is being edited, and taskAction is an actionShape
+const updateTask = (emailIndex, responseId, taskAction) => ({
+  type: UPDATE_TASK,
+  emailIndex,
+  responseId,
+  taskAction
+});
 
 // Initial State
 // emails - represents an array of emailShape objects in the currently selected language.
@@ -85,6 +101,17 @@ const emibInbox = (state = initialState, action) => {
         emailSummaries: duplicatedEmailSummaries,
         emailActions: duplicatedEmailActions
       };
+    case UPDATE_EMAIL:
+      let updatedEmailActions = Array.from(state.emailActions);
+      updatedEmailActions[action.emailIndex][action.responseId] = {
+        ...action.emailAction,
+        actionType: ACTION_TYPE.email
+      };
+      return {
+        ...state,
+        emailActions: updatedEmailActions
+      };
+    //TODO jcherry handle calls UPDATE_TASK when this is added
     default:
       return state;
   }
@@ -96,4 +123,4 @@ const selectEmailActions = (actionState, emailId) => {
 };
 
 export default emibInbox;
-export { initialState, readEmail, addEmail, addTask, selectEmailActions };
+export { initialState, readEmail, addEmail, addTask, updateEmail, updateTask, selectEmailActions };

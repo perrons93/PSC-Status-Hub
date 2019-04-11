@@ -5,7 +5,6 @@ import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
 import EditActionDialog from "./EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, emailShape } from "./constants";
-import { selectEmailActions } from "../../modules/EmibInboxRedux";
 import ActionViewEmail from "./ActionViewEmail";
 import ActionViewTask from "./ActionViewTask";
 import CollapsingItemContainer, { ICON_TYPE } from "./CollapsingItemContainer";
@@ -51,7 +50,7 @@ class Email extends Component {
     emailCount: PropTypes.number,
     taskCount: PropTypes.number,
     // Provided by Redux
-    emailActions: PropTypes.array
+    emailActionsArray: PropTypes.array
   };
 
   state = {
@@ -76,8 +75,9 @@ class Email extends Component {
   };
 
   render() {
-    const { email, emailCount, taskCount, emailActions } = this.props;
+    const { email, emailCount, taskCount, emailActionsArray } = this.props;
     const hasTakenAction = emailCount + taskCount > 0;
+    const emailActions = emailActionsArray[email.id];
     let emailNumber = 0;
     let taskNumber = 0;
     return (
@@ -145,7 +145,13 @@ class Email extends Component {
                     key={id}
                     iconType={ICON_TYPE.email}
                     title={`Email Response #${emailNumber}`}
-                    body={<ActionViewEmail action={action} emailId={this.props.email.id} />}
+                    body={
+                      <ActionViewEmail
+                        action={action}
+                        actionId={id}
+                        emailId={this.props.email.id}
+                      />
+                    }
                   />
                 );
               }
@@ -191,7 +197,7 @@ export { Email as UnconnectedEmail };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    emailActions: selectEmailActions(state.emibInbox.emailActions, ownProps.email.id)
+    emailActionsArray: state.emibInbox.emailActions
   };
 };
 
