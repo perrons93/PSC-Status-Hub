@@ -111,7 +111,16 @@ const emibInbox = (state = initialState, action) => {
         ...state,
         emailActions: updatedEmailActions
       };
-    //TODO jcherry handle calls UPDATE_TASK when this is added
+    case UPDATE_TASK:
+      let emailActionsUpdated = Array.from(state.emailActions);
+      emailActionsUpdated[action.emailIndex][action.responseId] = {
+        ...action.taskAction,
+        actionType: ACTION_TYPE.task
+      };
+      return {
+        ...state,
+        emailActions: emailActionsUpdated
+      };
     default:
       return state;
   }
