@@ -140,6 +140,7 @@ class ActionViewEmail extends Component {
             {LOCALIZE.emibTest.inboxPage.emailCommons.editButton}
           </button>
           <button
+            id="unit-test-view-email-delete-button"
             className="btn btn-danger"
             onClick={() => this.props.deleteEmail(this.props.emailId, this.props.actionId)}
           >
