@@ -28,7 +28,7 @@ function testCore(actionType, editMode) {
   const addEmail = jest.fn();
   const addTask = jest.fn();
   const updateEmail = jest.fn();
-  //TODO jcherry add jest fn and checks for updateTask when it is implemented
+  const updateTask = jest.fn();
 
   //shallow wrapper of the dialog
   const wrapper = shallow(
@@ -40,6 +40,7 @@ function testCore(actionType, editMode) {
       addEmail={addEmail}
       addTask={addTask}
       updateEmail={updateEmail}
+      updateTask={updateTask}
       actionType={actionType}
       editMode={editMode}
     />
@@ -85,10 +86,12 @@ function testCore(actionType, editMode) {
     expect(addTask).toHaveBeenCalledTimes(0);
     expect(addEmail).toHaveBeenCalledTimes(1);
     expect(updateEmail).toHaveBeenCalledTimes(0);
+    expect(updateTask).toHaveBeenCalledTimes(0);
   } else if (actionType === ACTION_TYPE.email && editMode === EDIT_MODE.update) {
     expect(addTask).toHaveBeenCalledTimes(0);
     expect(addEmail).toHaveBeenCalledTimes(0);
     expect(updateEmail).toHaveBeenCalledTimes(1);
+    expect(updateTask).toHaveBeenCalledTimes(0);
   } else if (actionType === ACTION_TYPE.task && editMode === EDIT_MODE.create) {
     expect(addTask).toHaveBeenCalledTimes(1);
     expect(addEmail).toHaveBeenCalledTimes(0);
@@ -97,6 +100,7 @@ function testCore(actionType, editMode) {
     expect(addTask).toHaveBeenCalledTimes(0);
     expect(addEmail).toHaveBeenCalledTimes(0);
     expect(updateEmail).toHaveBeenCalledTimes(0);
+    expect(updateTask).toHaveBeenCalledTimes(1);
   }
 }
 
@@ -139,6 +143,7 @@ function testMode(actionType, editMode) {
       addEmail={() => {}}
       addTask={() => {}}
       updateEmail={() => {}}
+      updateTask={() => {}}
       actionType={actionType}
       editMode={editMode}
       action={{
