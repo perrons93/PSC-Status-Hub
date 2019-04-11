@@ -4,6 +4,9 @@ import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import EditActionDialog from "./EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE, actionShape } from "./constants";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { deleteEmail } from "../../modules/EmibInboxRedux";
 
 const styles = {
   responseType: {
@@ -53,7 +56,9 @@ class ActionViewEmail extends Component {
   static propTypes = {
     action: actionShape,
     actionId: PropTypes.number.isRequired,
-    emailId: PropTypes.number.isRequired
+    emailId: PropTypes.number.isRequired,
+    // Props from Redux
+    deleteEmail: PropTypes.func
   };
 
   state = {
@@ -134,7 +139,10 @@ class ActionViewEmail extends Component {
           >
             {LOCALIZE.emibTest.inboxPage.emailCommons.editButton}
           </button>
-          <button className="btn btn-danger">
+          <button
+            className="btn btn-danger"
+            onClick={() => this.props.deleteEmail(this.props.emailId, this.props.actionId)}
+          >
             {LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
           </button>
         </div>
@@ -151,4 +159,18 @@ class ActionViewEmail extends Component {
     );
   }
 }
-export default ActionViewEmail;
+
+export { ActionViewEmail as UnconnectedActionViewEmail };
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      deleteEmail
+    },
+    dispatch
+  );
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(ActionViewEmail);
