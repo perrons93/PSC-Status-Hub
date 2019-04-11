@@ -188,6 +188,17 @@ function testMode(actionType, editMode) {
     expect(wrapper.find("#reply-all-radio").props().checked).toEqual(isReplyAllChecked);
     expect(wrapper.find("#forward-radio").props().checked).toEqual(isForwardChecked);
   } else if (actionType === ACTION_TYPE.task) {
-    //TODO jcherry populate this when task editing has been added
+    //set default values when in "create" mode
+    let valTask = "";
+    let valReasonsForAction = "";
+    if (editMode == EDIT_MODE.update) {
+      // change defaults when in 'update' mode
+      valTask = task;
+      valReasonsForAction = reasonsForAction;
+    }
+    expect(wrapper.find("#your-tasks-text-area").props().value).toEqual(valTask);
+    expect(wrapper.find("#reasons-for-action-text-area").props().value).toEqual(
+      valReasonsForAction
+    );
   }
 }
