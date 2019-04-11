@@ -96,6 +96,7 @@ function testCore(actionType, editMode) {
     expect(addTask).toHaveBeenCalledTimes(1);
     expect(addEmail).toHaveBeenCalledTimes(0);
     expect(updateEmail).toHaveBeenCalledTimes(0);
+    expect(updateTask).toHaveBeenCalledTimes(0);
   } else if (actionType === ACTION_TYPE.task && editMode === EDIT_MODE.update) {
     expect(addTask).toHaveBeenCalledTimes(0);
     expect(addEmail).toHaveBeenCalledTimes(0);
