@@ -9,7 +9,8 @@ const styles = {
     width: 500
   },
   header: {
-    color: "#00565E"
+    color: "#00565E",
+    paddingTop: 12
   },
   hr: {
     margin: "6px 0",
