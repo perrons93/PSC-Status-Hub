@@ -47,8 +47,8 @@ describe("shows as many 'CollapsingItemContainer' as there are actions", () => {
     const wrapper = shallow(
       <Email
         email={emailStub}
-        emailCount={0}
-        taskCount={2}
+        emailCount={1}
+        taskCount={0}
         emailActionsArray={[
           [
             {
@@ -67,8 +67,8 @@ describe("shows as many 'CollapsingItemContainer' as there are actions", () => {
     const wrapper = shallow(
       <Email
         email={emailStub}
-        emailCount={2}
-        taskCount={2}
+        emailCount={3}
+        taskCount={0}
         emailActionsArray={[
           [
             {
