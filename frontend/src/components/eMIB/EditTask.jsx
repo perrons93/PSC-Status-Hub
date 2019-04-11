@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
+import { actionShape } from "./constants";
 
 const styles = {
   container: {
@@ -64,14 +65,15 @@ const styles = {
 
 class EditTask extends Component {
   state = {
-    task: "",
-    reasonsForAction: ""
+    task: !this.props.action ? "" : this.props.action.task,
+    reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction
   };
 
   static propTypes = {
     emailNumber: PropTypes.number.isRequired,
     emailSubject: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    action: actionShape
   };
 
   onTaskContentChange = event => {
