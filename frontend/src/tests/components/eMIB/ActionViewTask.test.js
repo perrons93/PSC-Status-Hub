@@ -11,7 +11,7 @@ const actionStub = {
 };
 
 describe("renders component's content", () => {
-  const wrapper = shallow(<ActionViewTask action={actionStub} />);
+  const wrapper = shallow(<ActionViewTask action={actionStub} actionId={0} emailId={1} />);
 
   it("task content", () => {
     const taskContent = <p>{"Liste of my tasks here..."}</p>;

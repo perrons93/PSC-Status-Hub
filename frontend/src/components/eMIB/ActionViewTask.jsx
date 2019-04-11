@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
-import { actionShape } from "./constants";
+import EditActionDialog from "./EditActionDialog";
+import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
 
 const styles = {
   taskStyle: {
@@ -17,7 +19,22 @@ const styles = {
 
 class ActionViewTask extends Component {
   static propTypes = {
-    action: actionShape
+    action: actionShape,
+    emailSubject: PropTypes.string,
+    actionId: PropTypes.number.isRequired,
+    emailId: PropTypes.number.isRequired
+  };
+
+  state = {
+    showTaskDialog: false
+  };
+
+  showTaskDialog = () => {
+    this.setState({ showTaskDialog: true });
+  };
+
+  closeTaskDialog = () => {
+    this.setState({ showTaskDialog: false });
   };
 
   render() {
@@ -35,12 +52,28 @@ class ActionViewTask extends Component {
         </div>
         <hr style={styles.hr} />
         <div aria-label={LOCALIZE.ariaLabel.taskOptions}>
-          <button className="btn btn-primary" style={styles.editButton}>
+          <button
+            className="btn btn-primary"
+            style={styles.editButton}
+            onClick={this.showTaskDialog}
+          >
             {LOCALIZE.emibTest.inboxPage.emailCommons.editButton}
           </button>
           <button className="btn btn-danger">
             {LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
           </button>
+        </div>
+        <div>
+          <EditActionDialog
+            emailId={this.props.emailId}
+            emailSubject={this.props.emailSubject}
+            showDialog={this.state.showTaskDialog}
+            handleClose={this.closeTaskDialog}
+            actionType={ACTION_TYPE.task}
+            editMode={EDIT_MODE.update}
+            action={action}
+            actionId={this.props.actionId}
+          />
         </div>
       </div>
     );
