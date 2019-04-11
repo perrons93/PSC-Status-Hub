@@ -118,6 +118,16 @@ const emibInbox = (state = initialState, action) => {
         ...state,
         emailActions: updatedEmailActions
       };
+    case UPDATE_TASK:
+      let emailActionsUpdated = Array.from(state.emailActions);
+      emailActionsUpdated[action.emailIndex][action.responseId] = {
+        ...action.taskAction,
+        actionType: ACTION_TYPE.task
+      };
+      return {
+        ...state,
+        emailActions: emailActionsUpdated
+      };
     case DELETE_EMAIL:
       let purgedEmailSummaries = Array.from(state.emailSummaries);
       purgedEmailSummaries[action.emailIndex].emailCount--;
@@ -128,16 +138,6 @@ const emibInbox = (state = initialState, action) => {
         ...state,
         emailSummaries: purgedEmailSummaries,
         emailActions: purgedEmailActions
-      };
-    case UPDATE_TASK:
-      let emailActionsUpdated = Array.from(state.emailActions);
-      emailActionsUpdated[action.emailIndex][action.responseId] = {
-        ...action.taskAction,
-        actionType: ACTION_TYPE.task
-      };
-      return {
-        ...state,
-        emailActions: emailActionsUpdated
       };
     default:
       return state;
