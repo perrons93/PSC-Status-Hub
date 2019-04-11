@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { emailShape } from "./constants";
+import "../../css/inbox.css";
 
 const styles = {
   //buttons
@@ -9,8 +10,9 @@ const styles = {
     width: 202,
     textAlign: "left",
     padding: 8,
-    borderRight: "1px solid #00565E",
-    borderBottom: "1px solid #00565E",
+    borderWidth: "0 1px 1px 0",
+    borderStyle: "solid",
+    borderColor: "#00565E",
     cursor: "pointer",
     fontSize: 14
   },
@@ -111,7 +113,11 @@ class EmailPreview extends Component {
         aria-current={this.props.isSelected ? "page" : ""}
         role="menuitem"
       >
-        <div style={buttonStyle} onClick={() => this.props.selectEmail(email.id)}>
+        <button
+          className="email-preview-button"
+          style={buttonStyle}
+          onClick={() => this.props.selectEmail(email.id)}
+        >
           <div id={this.props.isRead ? "read-email-preview" : "unread-email-preview"}>
             {this.props.isRead ? (
               <i className="far fa-envelope-open" style={imageStyle} />
@@ -127,7 +133,7 @@ class EmailPreview extends Component {
           </div>
           <div style={subject}>{email.subject}</div>
           <div style={styles.truncated}>{email.from}</div>
-        </div>
+        </button>
       </li>
     );
   }
