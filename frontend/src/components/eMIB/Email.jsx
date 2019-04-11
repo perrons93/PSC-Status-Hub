@@ -5,7 +5,6 @@ import LOCALIZE from "../../text_resources";
 import "../../css/inbox.css";
 import EditActionDialog from "./EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, emailShape } from "./constants";
-import { selectEmailActions } from "../../modules/EmibInboxRedux";
 import ActionViewEmail from "./ActionViewEmail";
 import ActionViewTask from "./ActionViewTask";
 import CollapsingItemContainer, { ICON_TYPE } from "./CollapsingItemContainer";
@@ -51,7 +50,7 @@ class Email extends Component {
     emailCount: PropTypes.number,
     taskCount: PropTypes.number,
     // Provided by Redux
-    emailActions: PropTypes.array
+    emailActionsArray: PropTypes.array
   };
 
   state = {
@@ -76,8 +75,10 @@ class Email extends Component {
   };
 
   render() {
-    const { email, emailCount, taskCount, emailActions } = this.props;
+    const { email, emailCount, taskCount, emailActionsArray } = this.props;
     const hasTakenAction = emailCount + taskCount > 0;
+    const emailActions = emailActionsArray[email.id];
+
     return (
       <div style={styles.email}>
         <div style={styles.header}>
@@ -141,7 +142,9 @@ class Email extends Component {
                   iconType={ICON_TYPE.email}
                   // TODO: we need to put a dynamic title generator here instead of hard coding this title
                   title={"Email Response #XX"}
-                  body={<ActionViewEmail action={action} emailId={this.props.email.id} />}
+                  body={
+                    <ActionViewEmail action={action} actionId={id} emailId={this.props.email.id} />
+                  }
                 />
               );
             } else if (emailActions[id].actionType === ACTION_TYPE.task) {
@@ -182,7 +185,7 @@ export { Email as UnconnectedEmail };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    emailActions: selectEmailActions(state.emibInbox.emailActions, ownProps.email.id)
+    emailActionsArray: state.emibInbox.emailActions
   };
 };
 

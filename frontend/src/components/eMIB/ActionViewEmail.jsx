@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import EditActionDialog from "./EditActionDialog";
@@ -50,7 +51,9 @@ const styles = {
 
 class ActionViewEmail extends Component {
   static propTypes = {
-    action: actionShape
+    action: actionShape,
+    actionId: PropTypes.number.isRequired,
+    emailId: PropTypes.number.isRequired
   };
 
   state = {
@@ -142,6 +145,7 @@ class ActionViewEmail extends Component {
           actionType={ACTION_TYPE.email}
           editMode={EDIT_MODE.update}
           action={action}
+          actionId={this.props.actionId}
         />
       </div>
     );
