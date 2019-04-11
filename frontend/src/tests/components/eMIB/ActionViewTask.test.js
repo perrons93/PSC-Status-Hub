@@ -1,7 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import LOCALIZE from "../../../text_resources";
-import ActionViewTask from "../../../components/eMIB/ActionViewTask";
+import { UnconnectedActionViewTask } from "../../../components/eMIB/ActionViewTask";
 import { ACTION_TYPE } from "../../../components/eMIB/constants";
 
 const actionStub = {
@@ -11,7 +10,15 @@ const actionStub = {
 };
 
 describe("renders component's content", () => {
-  const wrapper = shallow(<ActionViewTask action={actionStub} actionId={0} emailId={1} />);
+  const deleteMock = jest.fn();
+  const wrapper = shallow(
+    <UnconnectedActionViewTask
+      action={actionStub}
+      actionId={0}
+      emailId={1}
+      deleteTask={deleteMock}
+    />
+  );
 
   it("task content", () => {
     const taskContent = <p>{"Liste of my tasks here..."}</p>;
@@ -21,5 +28,10 @@ describe("renders component's content", () => {
   it("reasons for action content", () => {
     const reasonsForActionContent = <p>{"Reasons for action here..."}</p>;
     expect(wrapper.containsMatchingElement(reasonsForActionContent)).toEqual(true);
+  });
+
+  it("delete button is triggered properly", () => {
+    wrapper.find("#unit-test-view-task-delete-button").simulate("click");
+    expect(deleteMock).toHaveBeenCalledTimes(1);
   });
 });

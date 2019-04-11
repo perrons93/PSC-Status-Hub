@@ -26,6 +26,7 @@ const ADD_TASK = "emibInbox/ADD_TASK";
 const UPDATE_EMAIL = "emibInbox/UPDATE_EMAIL";
 const UPDATE_TASK = "emibInbox/UPDATE_TASK";
 const DELETE_EMAIL = "emibInbox/DELETE_EMAIL";
+const DELETE_TASK = "emibInbox/DELETE_TASK";
 
 // Action Creators
 const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
@@ -50,6 +51,12 @@ const updateTask = (emailIndex, responseId, taskAction) => ({
 // emailIndex refers to the index of the original parent email and responseId is the id of the response that is being deleted
 const deleteEmail = (emailIndex, responseId) => ({
   type: DELETE_EMAIL,
+  emailIndex,
+  responseId
+});
+// emailIndex refers to the index of the original parent email and responseId is the id of the response that is being deleted
+const deleteTask = (emailIndex, responseId) => ({
+  type: DELETE_TASK,
   emailIndex,
   responseId
 });
@@ -139,6 +146,17 @@ const emibInbox = (state = initialState, action) => {
         emailSummaries: purgedEmailSummaries,
         emailActions: purgedEmailActions
       };
+    case DELETE_TASK:
+      let purifiedEmailSummaries = Array.from(state.emailSummaries);
+      purifiedEmailSummaries[action.emailIndex].taskCount--;
+
+      let purifiedEmailActions = Array.from(state.emailActions);
+      purifiedEmailActions[action.emailIndex].splice(action.responseId, 1);
+      return {
+        ...state,
+        emailSummaries: purifiedEmailSummaries,
+        emailActions: purifiedEmailActions
+      };
     default:
       return state;
   }
@@ -158,5 +176,6 @@ export {
   updateEmail,
   updateTask,
   deleteEmail,
+  deleteTask,
   selectEmailActions
 };
