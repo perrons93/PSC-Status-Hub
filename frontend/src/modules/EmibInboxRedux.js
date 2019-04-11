@@ -120,10 +120,14 @@ const emibInbox = (state = initialState, action) => {
       };
     //TODO jcherry handle calls UPDATE_TASK when this is added
     case DELETE_EMAIL:
+      let purgedEmailSummaries = Array.from(state.emailSummaries);
+      purgedEmailSummaries[action.emailIndex].emailCount--;
+
       let purgedEmailActions = Array.from(state.emailActions);
       purgedEmailActions[action.emailIndex].splice(action.responseId, 1);
       return {
         ...state,
+        emailSummaries: purgedEmailSummaries,
         emailActions: purgedEmailActions
       };
 
