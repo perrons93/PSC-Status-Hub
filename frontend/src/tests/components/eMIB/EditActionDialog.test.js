@@ -1,7 +1,7 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { UnconnectedEditActionDialog as EditActionDialog } from "../../../components/eMIB/EditActionDialog";
-import { ACTION_TYPE, EDIT_MODE } from "../../../components/eMIB/constants";
+import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE } from "../../../components/eMIB/constants";
 
 describe("email action type", () => {
   it("renders Add Email dialog", () => {
@@ -27,6 +27,8 @@ function testCore(actionType, editMode) {
   //Simulation of the save function
   const addEmail = jest.fn();
   const addTask = jest.fn();
+  const updateEmail = jest.fn();
+  //TODO jcherry add jest fn and checks for updateTask when it is implemented
 
   //shallow wrapper of the dialog
   const wrapper = shallow(
@@ -37,6 +39,7 @@ function testCore(actionType, editMode) {
       handleClose={() => {}}
       addEmail={addEmail}
       addTask={addTask}
+      updateEmail={updateEmail}
       actionType={actionType}
       editMode={editMode}
     />
@@ -78,11 +81,108 @@ function testCore(actionType, editMode) {
 
   //Check that the button click triggers the function
   wrapper.find("#unit-test-email-response-button").simulate("click");
-  if (actionType === ACTION_TYPE.email) {
+  if (actionType === ACTION_TYPE.email && editMode === EDIT_MODE.create) {
     expect(addTask).toHaveBeenCalledTimes(0);
     expect(addEmail).toHaveBeenCalledTimes(1);
-  } else if (actionType === ACTION_TYPE.task) {
+    expect(updateEmail).toHaveBeenCalledTimes(0);
+  } else if (actionType === ACTION_TYPE.email && editMode === EDIT_MODE.update) {
+    expect(addTask).toHaveBeenCalledTimes(0);
+    expect(addEmail).toHaveBeenCalledTimes(0);
+    expect(updateEmail).toHaveBeenCalledTimes(1);
+  } else if (actionType === ACTION_TYPE.task && editMode === EDIT_MODE.create) {
     expect(addTask).toHaveBeenCalledTimes(1);
     expect(addEmail).toHaveBeenCalledTimes(0);
+    expect(updateEmail).toHaveBeenCalledTimes(0);
+  } else if (actionType === ACTION_TYPE.task && editMode === EDIT_MODE.update) {
+    expect(addTask).toHaveBeenCalledTimes(0);
+    expect(addEmail).toHaveBeenCalledTimes(0);
+    expect(updateEmail).toHaveBeenCalledTimes(0);
+  }
+}
+
+describe("check status of inputs in email dialog", () => {
+  it("renders Add Email dialog without filled inputs", () => {
+    testMode(ACTION_TYPE.email, EDIT_MODE.create);
+  });
+
+  it("renders Modify Email dialog with filled inputs", () => {
+    testMode(ACTION_TYPE.email, EDIT_MODE.update);
+  });
+});
+
+describe("check status of inputs in task dialog", () => {
+  it("renders Add Task dialog without filled inputs", () => {
+    testMode(ACTION_TYPE.task, EDIT_MODE.create);
+  });
+
+  it("renders Modify Task dialog with filled inputs", () => {
+    testMode(ACTION_TYPE.task, EDIT_MODE.update);
+  });
+});
+
+function testMode(actionType, editMode) {
+  // constants used to create the Dialog and to check that the values are present in the inputs later
+  const reasonsForAction = "reasons";
+  const emailTo = "to";
+  const emailCc = "cc";
+  const emailBody = "body of email";
+  const task = "task";
+  const emailType = EMAIL_TYPE.forward;
+
+  //mount wrapper of the dialog
+  const wrapper = mount(
+    <EditActionDialog
+      emailId={1}
+      emailSubject={"hello team"}
+      showDialog={true}
+      handleClose={() => {}}
+      addEmail={() => {}}
+      addTask={() => {}}
+      updateEmail={() => {}}
+      actionType={actionType}
+      editMode={editMode}
+      action={{
+        actionType: actionType,
+        reasonsForAction: reasonsForAction,
+        emailTo: emailTo,
+        emailCc: emailCc,
+        emailBody: emailBody,
+        task: task,
+        emailType: emailType
+      }}
+    />
+  );
+
+  if (actionType === ACTION_TYPE.email) {
+    //set default values when in "create" mode
+    let valEmailTo = "";
+    let valEmailCc = "";
+    let valEmailBody = "";
+    let valReasonsForAction = "";
+    let isReplyChecked = true;
+    let isReplyAllChecked = false;
+    let isForwardChecked = false;
+    if (editMode == EDIT_MODE.update) {
+      // change defaults when in 'update' mode
+      valEmailTo = emailTo;
+      valEmailCc = emailCc;
+      valEmailBody = emailBody;
+      valReasonsForAction = reasonsForAction;
+      isReplyChecked = false;
+      isReplyAllChecked = false;
+      isForwardChecked = true;
+    }
+
+    expect(wrapper.find("#to-field").props().value).toEqual(valEmailTo);
+    expect(wrapper.find("#cc-field").props().value).toEqual(valEmailCc);
+    expect(wrapper.find("#your-response-text-area").props().value).toEqual(valEmailBody);
+    expect(wrapper.find("#reasons-for-action-text-area").props().value).toEqual(
+      valReasonsForAction
+    );
+    expect(wrapper.find("#reply-radio").props().checked).toEqual(isReplyChecked);
+    expect(wrapper.find("#reply-all-radio").props().checked).toEqual(isReplyAllChecked);
+    expect(wrapper.find("#forward-radio").props().checked).toEqual(isForwardChecked);
+  } else if (actionType === ACTION_TYPE.task) {
+    //TODO jcherry populate this when task editing has been added
   }
 }
