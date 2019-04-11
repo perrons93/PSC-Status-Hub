@@ -25,6 +25,7 @@ const ADD_EMAIL = "emibInbox/ADD_EMAIL";
 const ADD_TASK = "emibInbox/ADD_TASK";
 const UPDATE_EMAIL = "emibInbox/UPDATE_EMAIL";
 const UPDATE_TASK = "emibInbox/UPDATE_TASK";
+const DELETE_EMAIL = "emibInbox/DELETE_EMAIL";
 
 // Action Creators
 const readEmail = emailIndex => ({ type: READ_EMAIL, emailIndex });
@@ -45,6 +46,12 @@ const updateTask = (emailIndex, responseId, taskAction) => ({
   emailIndex,
   responseId,
   taskAction
+});
+// emailIndex refers to the index of the original parent email and responseId is the id of the response that is being deleted
+const deleteEmail = (emailIndex, responseId, emailAction) => ({
+  type: DELETE_EMAIL,
+  emailIndex,
+  responseId
 });
 
 // Initial State
@@ -112,6 +119,14 @@ const emibInbox = (state = initialState, action) => {
         emailActions: updatedEmailActions
       };
     //TODO jcherry handle calls UPDATE_TASK when this is added
+    case DELETE_EMAIL:
+      let purgedEmailActions = Array.from(state.emailActions);
+      purgedEmailActions[action.emailIndex].splice(action.responseId, 1);
+      return {
+        ...state,
+        emailActions: purgedEmailActions
+      };
+
     default:
       return state;
   }
@@ -123,4 +138,13 @@ const selectEmailActions = (actionState, emailId) => {
 };
 
 export default emibInbox;
-export { initialState, readEmail, addEmail, addTask, updateEmail, updateTask, selectEmailActions };
+export {
+  initialState,
+  readEmail,
+  addEmail,
+  addTask,
+  updateEmail,
+  updateTask,
+  deleteEmail,
+  selectEmailActions
+};
