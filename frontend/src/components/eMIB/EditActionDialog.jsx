@@ -7,7 +7,7 @@ import EditEmail from "./EditEmail";
 import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
 import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
-import { addEmail, addTask, updateEmail } from "../../modules/EmibInboxRedux";
+import { addEmail, addTask, updateEmail, updateTask } from "../../modules/EmibInboxRedux";
 
 const styles = {
   icon: {
@@ -58,6 +58,7 @@ class EditActionDialog extends Component {
     addEmail: PropTypes.func.isRequired,
     addTask: PropTypes.func.isRequired,
     updateEmail: PropTypes.func.isRequired,
+    updateTask: PropTypes.func.isRequired,
     // Only needed when updating an existing one
     action: actionShape,
     actionId: PropTypes.number
@@ -84,8 +85,7 @@ class EditActionDialog extends Component {
       this.props.actionType === ACTION_TYPE.task &&
       this.props.editMode === EDIT_MODE.update
     ) {
-      //TODO jcherry add this one it is defined
-      //this.props.updateTask(this.props.emailId, this.state.action);
+      this.props.updateTask(this.props.emailId, this.props.actionId, this.state.action);
     }
     this.setState({ action: {} });
     this.props.handleClose();
@@ -148,6 +148,7 @@ class EditActionDialog extends Component {
                   emailNumber={this.props.emailId}
                   emailSubject={this.props.emailSubject}
                   onChange={this.editAction}
+                  action={editMode === EDIT_MODE.update ? this.props.action : null}
                 />
               )}
             </Modal.Body>
@@ -179,7 +180,8 @@ const mapDispatchToProps = dispatch =>
     {
       addEmail,
       addTask,
-      updateEmail
+      updateEmail,
+      updateTask
     },
     dispatch
   );
