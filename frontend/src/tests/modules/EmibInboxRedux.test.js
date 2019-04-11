@@ -73,8 +73,6 @@ describe("EmibInboxRedux", () => {
     });
   });
 
-  //TODO jcherry add tests for UPDATE_TASK when implemented
-
   describe("update email action works as expected", () => {
     it("should update an email action in the action list", () => {
       const emailAction = {
@@ -209,13 +207,114 @@ describe("EmibInboxRedux", () => {
     });
   });
 
+  describe("update task action works as expected", () => {
+    it("should update a task action in the action list", () => {
+      const taskAction = {
+        task: "Here are my tasks.",
+        reasonsForAction: "I wanted to say hi."
+      };
+      const taskActionUpdate = {
+        task: "Here are my tasks. 2",
+        reasonsForAction: "I wanted to say hi. 2"
+      };
+      const addAction = addTask(0, taskAction);
+      const newState1 = emibInbox(stubbedInitialState, addAction);
+      expect(newState1.emailActions[0]).toEqual([{ ...taskAction, actionType: ACTION_TYPE.task }]);
+      const updateAction = updateTask(0, 0, taskActionUpdate);
+      const newState2 = emibInbox(newState1, updateAction);
+      expect(newState2.emailActions[0]).toEqual([
+        { ...taskActionUpdate, actionType: ACTION_TYPE.task }
+      ]);
+    });
+
+    it("should update 3 task actions one by one", () => {
+      const task1 = {
+        task: "Task 1",
+        reasonsForAction: "Reason 1"
+      };
+      const task2 = {
+        task: "Task 2",
+        reasonsForAction: "Reason 2"
+      };
+      const task3 = {
+        task: "Task 3",
+        reasonsForAction: "Reason 3"
+      };
+      const task1Update = {
+        task: "Task 1 Update",
+        reasonsForAction: "Reason 1 Update"
+      };
+      const task2Update = {
+        task: "Task 2 Update",
+        reasonsForAction: "Reason 2 Update"
+      };
+      const task3Update = {
+        task: "Task 3 Update",
+        reasonsForAction: "Reason 3 Update"
+      };
+      // Add first task
+      const addAction1 = addEmail(0, task1);
+      const newState1 = emibInbox(stubbedInitialState, addAction1);
+      expect(newState1.emailActions[0]).toEqual([{ ...task1, actionType: ACTION_TYPE.email }]);
+      // Add second task
+      const addAction2 = addEmail(0, task2);
+      const newState2 = emibInbox(newState1, addAction2);
+      expect(newState2.emailActions[0]).toEqual([
+        { ...task1, actionType: ACTION_TYPE.email },
+        { ...task2, actionType: ACTION_TYPE.email }
+      ]);
+      // Add third task
+      const addAction3 = addEmail(0, task3);
+      const newState3 = emibInbox(newState2, addAction3);
+      expect(newState3.emailActions[0]).toEqual([
+        { ...task1, actionType: ACTION_TYPE.email },
+        { ...task2, actionType: ACTION_TYPE.email },
+        { ...task3, actionType: ACTION_TYPE.email }
+      ]);
+      //Update first task
+      const updateAction1 = updateEmail(0, 0, task1Update);
+      const newState4 = emibInbox(newState3, updateAction1);
+      expect(newState4.emailActions[0]).toEqual([
+        { ...task1Update, actionType: ACTION_TYPE.email },
+        { ...task2, actionType: ACTION_TYPE.email },
+        { ...task3, actionType: ACTION_TYPE.email }
+      ]);
+      //Update second task
+      const updateAction2 = updateEmail(0, 1, task2Update);
+      const newState5 = emibInbox(newState4, updateAction2);
+      expect(newState5.emailActions[0]).toEqual([
+        { ...task1Update, actionType: ACTION_TYPE.email },
+        { ...task2Update, actionType: ACTION_TYPE.email },
+        { ...task3, actionType: ACTION_TYPE.email }
+      ]);
+      //update third task
+      const updateAction3 = updateEmail(0, 2, task3Update);
+      const newState6 = emibInbox(newState5, updateAction3);
+      expect(newState6.emailActions[0]).toEqual([
+        { ...task1Update, actionType: ACTION_TYPE.email },
+        { ...task2Update, actionType: ACTION_TYPE.email },
+        { ...task3Update, actionType: ACTION_TYPE.email }
+      ]);
+    });
+  });
+
   describe("add task action", () => {
-    it("should update email 0 count state", () => {
+    it("should update task 0 count state", () => {
       const addAction = addTask(0);
       const newState = emibInbox(stubbedInitialState, addAction);
       expect(newState.emailSummaries[0].taskCount).toEqual(1);
       expect(newState.emailSummaries[0].emailCount).toEqual(0);
       expect(newState.emailSummaries[1].taskCount).toEqual(0);
+    });
+
+    it("should add a task action to the action list", () => {
+      const taskAction = {
+        task: "Here are my tasks.",
+        reasonsForAction: "I wanted to say hi."
+      };
+      const addAction = addTask(0, taskAction);
+      const newState = emibInbox(stubbedInitialState, addAction);
+      expect(newState.emailActions[0]).toEqual([{ ...taskAction, actionType: ACTION_TYPE.task }]);
     });
   });
 });
