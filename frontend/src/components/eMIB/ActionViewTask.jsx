@@ -4,6 +4,9 @@ import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import EditActionDialog from "./EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { deleteTask } from "../../modules/EmibInboxRedux";
 
 const styles = {
   taskStyle: {
@@ -22,7 +25,9 @@ class ActionViewTask extends Component {
     action: actionShape,
     emailSubject: PropTypes.string,
     actionId: PropTypes.number.isRequired,
-    emailId: PropTypes.number.isRequired
+    emailId: PropTypes.number.isRequired,
+    // Props from Redux
+    deleteTask: PropTypes.func
   };
 
   state = {
@@ -59,7 +64,11 @@ class ActionViewTask extends Component {
           >
             {LOCALIZE.emibTest.inboxPage.emailCommons.editButton}
           </button>
-          <button className="btn btn-danger">
+          <button
+            id="unit-test-view-task-delete-button"
+            className="btn btn-danger"
+            onClick={() => this.props.deleteTask(this.props.emailId, this.props.actionId)}
+          >
             {LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
           </button>
         </div>
@@ -79,4 +88,16 @@ class ActionViewTask extends Component {
     );
   }
 }
-export default ActionViewTask;
+
+export { ActionViewTask as UnconnectedActionViewTask };
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      deleteTask
+    },
+    dispatch
+  );
+export default connect(
+  null,
+  mapDispatchToProps
+)(ActionViewTask);
