@@ -78,6 +78,8 @@ class Email extends Component {
   render() {
     const { email, emailCount, taskCount, emailActions } = this.props;
     const hasTakenAction = emailCount + taskCount > 0;
+    let emailNumber = 0;
+    let taskNumber = 0;
     return (
       <div style={styles.email}>
         <div style={styles.header}>
@@ -134,26 +136,33 @@ class Email extends Component {
         <div>{email.body}</div>
         <div>
           {emailActions.map((action, id) => {
-            if (emailActions[id].actionType === ACTION_TYPE.email) {
-              return (
-                <CollapsingItemContainer
-                  key={id}
-                  iconType={ICON_TYPE.email}
-                  // TODO: we need to put a dynamic title generator here instead of hard coding this title
-                  title={"Email Response #XX"}
-                  body={<ActionViewEmail action={action} emailId={this.props.email.id} />}
-                />
-              );
-            } else if (emailActions[id].actionType === ACTION_TYPE.task) {
-              return (
-                <CollapsingItemContainer
-                  key={id}
-                  iconType={ICON_TYPE.task}
-                  // TODO: we need to put a dynamic title generator here instead of hard coding this title
-                  title={"Task #XX"}
-                  body={<ActionViewTask action={action} emailId={this.props.email.id} />}
-                />
-              );
+            // populate email responses
+            for (let i = 0; i < emailCount; i++) {
+              if (emailActions[id].actionType === ACTION_TYPE.email) {
+                emailNumber++;
+                return (
+                  <CollapsingItemContainer
+                    key={id}
+                    iconType={ICON_TYPE.email}
+                    title={`Email Response #${emailNumber}`}
+                    body={<ActionViewEmail action={action} emailId={this.props.email.id} />}
+                  />
+                );
+              }
+            }
+            // populate tasks
+            for (let i = 0; i < taskCount; i++) {
+              if (emailActions[id].actionType === ACTION_TYPE.task) {
+                taskNumber++;
+                return (
+                  <CollapsingItemContainer
+                    key={id}
+                    iconType={ICON_TYPE.task}
+                    title={`Task #${taskNumber}`}
+                    body={<ActionViewTask action={action} emailId={this.props.email.id} />}
+                  />
+                );
+              }
             }
             return null;
           })}
