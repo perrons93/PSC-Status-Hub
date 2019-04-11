@@ -142,9 +142,7 @@ class Email extends Component {
                   iconType={ICON_TYPE.email}
                   // TODO: we need to put a dynamic title generator here instead of hard coding this title
                   title={"Email Response #XX"}
-                  body={
-                    <ActionViewEmail action={action} actionId={id} emailId={this.props.email.id} />
-                  }
+                  body={<ActionViewEmail action={action} actionId={id} emailId={email.id} />}
                 />
               );
             } else if (emailActions[id].actionType === ACTION_TYPE.task) {
@@ -154,7 +152,14 @@ class Email extends Component {
                   iconType={ICON_TYPE.task}
                   // TODO: we need to put a dynamic title generator here instead of hard coding this title
                   title={"Task #XX"}
-                  body={<ActionViewTask action={action} emailId={this.props.email.id} />}
+                  body={
+                    <ActionViewTask
+                      action={action}
+                      actionId={id}
+                      emailId={email.id}
+                      emailSubject={email.subject}
+                    />
+                  }
                 />
               );
             }
