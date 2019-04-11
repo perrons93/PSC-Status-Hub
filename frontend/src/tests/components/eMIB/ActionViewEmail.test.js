@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ActionViewEmail from "../../../components/eMIB/ActionViewEmail";
+import { UnconnectedActionViewEmail } from "../../../components/eMIB/ActionViewEmail";
 import { EMAIL_TYPE, ACTION_TYPE } from "../../../components/eMIB/constants";
 
 describe("Response types", () => {
@@ -59,5 +59,12 @@ function genWrapper(responseType, cc) {
     emailBody: "reasons"
   };
 
-  return shallow(<ActionViewEmail actionId={0} action={actionStub} emailId={1} />);
+  return shallow(
+    <UnconnectedActionViewEmail
+      actionId={0}
+      action={actionStub}
+      emailId={1}
+      deleteEmail={() => {}}
+    />
+  );
 }
