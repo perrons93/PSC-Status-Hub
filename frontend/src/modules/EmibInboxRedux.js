@@ -48,7 +48,7 @@ const updateTask = (emailIndex, responseId, taskAction) => ({
   taskAction
 });
 // emailIndex refers to the index of the original parent email and responseId is the id of the response that is being deleted
-const deleteEmail = (emailIndex, responseId, emailAction) => ({
+const deleteEmail = (emailIndex, responseId) => ({
   type: DELETE_EMAIL,
   emailIndex,
   responseId
