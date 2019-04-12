@@ -144,7 +144,7 @@ function testMode(actionType, editMode) {
       addEmail={() => {}}
       addTask={() => {}}
       updateEmail={() => {}}
-      updateTask={() => {}}
+      // updateTask={() => {}}
       actionType={actionType}
       editMode={editMode}
       action={{
