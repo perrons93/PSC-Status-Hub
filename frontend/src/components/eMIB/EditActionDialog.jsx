@@ -72,12 +72,11 @@ class EditActionDialog extends Component {
   };
 
   state = {
-    action: {},
-    isSaving: false
+    action: {}
   };
 
   handleSave = () => {
-    this.setState({ isSaving: true });
+    this.props.handleClose();
     if (this.props.actionType === ACTION_TYPE.email && this.props.editMode === EDIT_MODE.create) {
       this.props.addEmail(this.props.emailId, this.state.action);
       this.props.readEmail(this.props.emailId);
@@ -99,7 +98,6 @@ class EditActionDialog extends Component {
       this.props.updateTask(this.props.emailId, this.props.actionId, this.state.action);
     }
     this.setState({ action: {} });
-    this.props.handleClose();
   };
 
   // updatedAction is the PropType shape actionShape and represents a single action a candidate takes on an email
@@ -171,7 +169,7 @@ class EditActionDialog extends Component {
                     type="button"
                     className="btn btn-primary"
                     onClick={this.handleSave}
-                    disabled={this.state.isSaving}
+                    disabled={!this.props.showDialog}
                   >
                     {LOCALIZE.emibTest.inboxPage.editActionDialog.save}
                   </button>
