@@ -80,7 +80,10 @@ class Email extends Component {
     const emailActions = emailActionsArray[email.id];
     let emailNumber = 0;
     let taskNumber = 0;
-    const bodyArray = email.body.split("\n");
+    //Split the body on new line characters
+    //This will allow them to be wrapped in <p></p> tags
+    // .filter(Boolean) drops empty elements
+    const bodyArray = email.body.split("\n").filter(Boolean);
     return (
       <div style={styles.email}>
         <div style={styles.header}>
@@ -136,7 +139,7 @@ class Email extends Component {
         <hr style={styles.dataBodyDivider} />
         <div>
           {bodyArray.map((paragraph, key) => (
-            <p id={key}>{paragraph}</p>
+            <p key={key}>{paragraph}</p>
           ))}
         </div>
         <div>
