@@ -5,6 +5,8 @@ services:
 
 language: node_js
 
+warnings_are_errors: true
+
 matrix:
   include:
     #Backend Tests
