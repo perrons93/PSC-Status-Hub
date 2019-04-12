@@ -211,7 +211,7 @@ function testMode(actionType, editMode) {
   }
 }
 
-it("check that email duplication bug is no longer an issue", () => {
+it("clicking on the button only adds the email once", () => {
   const addEmail = jest.fn();
   const handleClose = jest.fn();
   const wrapper = mount(
