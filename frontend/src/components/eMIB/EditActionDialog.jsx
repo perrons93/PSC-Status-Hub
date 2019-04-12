@@ -73,11 +73,11 @@ class EditActionDialog extends Component {
 
   state = {
     action: {},
-    saveDisabled: false
+    isSaving: false
   };
 
   handleSave = () => {
-    this.setState({ saveDisabled: true });
+    this.setState({ isSaving: true });
     if (this.props.actionType === ACTION_TYPE.email && this.props.editMode === EDIT_MODE.create) {
       this.props.addEmail(this.props.emailId, this.state.action);
       this.props.readEmail(this.props.emailId);
@@ -171,7 +171,7 @@ class EditActionDialog extends Component {
                     type="button"
                     className="btn btn-primary"
                     onClick={this.handleSave}
-                    disabled={this.state.saveDisabled}
+                    disabled={this.state.isSaving}
                   >
                     {LOCALIZE.emibTest.inboxPage.editActionDialog.save}
                   </button>
