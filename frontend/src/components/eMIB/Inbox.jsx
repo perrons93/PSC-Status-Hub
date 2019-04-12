@@ -41,7 +41,6 @@ class Inbox extends Component {
   changeEmail = index => {
     this.props.readEmail(this.state.currentEmail);
     this.setState({ currentEmail: index });
-    this.props.readEmail(index);
   };
 
   render() {
