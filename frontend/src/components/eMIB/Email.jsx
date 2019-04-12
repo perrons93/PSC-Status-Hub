@@ -80,6 +80,7 @@ class Email extends Component {
     const emailActions = emailActionsArray[email.id];
     let emailNumber = 0;
     let taskNumber = 0;
+    const bodyArray = email.body.split("\n");
     return (
       <div style={styles.email}>
         <div style={styles.header}>
@@ -133,7 +134,11 @@ class Email extends Component {
           {LOCALIZE.emibTest.inboxPage.date}: {email.date}
         </div>
         <hr style={styles.dataBodyDivider} />
-        <div>{email.body}</div>
+        <div>
+          {bodyArray.map((paragraph, key) => (
+            <p id={key}>{paragraph}</p>
+          ))}
+        </div>
         <div>
           {emailActions.map((action, id) => {
             // populate email responses
