@@ -29,6 +29,7 @@ function testCore(actionType, editMode) {
   const addTask = jest.fn();
   const updateEmail = jest.fn();
   const updateTask = jest.fn();
+  const readEmail = jest.fn();
 
   //shallow wrapper of the dialog
   const wrapper = shallow(
@@ -41,6 +42,7 @@ function testCore(actionType, editMode) {
       addTask={addTask}
       updateEmail={updateEmail}
       updateTask={updateTask}
+      readEmail={readEmail}
       actionType={actionType}
       editMode={editMode}
     />
@@ -87,21 +89,25 @@ function testCore(actionType, editMode) {
     expect(addEmail).toHaveBeenCalledTimes(1);
     expect(updateEmail).toHaveBeenCalledTimes(0);
     expect(updateTask).toHaveBeenCalledTimes(0);
+    expect(readEmail).toHaveBeenCalledTimes(1);
   } else if (actionType === ACTION_TYPE.email && editMode === EDIT_MODE.update) {
     expect(addTask).toHaveBeenCalledTimes(0);
     expect(addEmail).toHaveBeenCalledTimes(0);
     expect(updateEmail).toHaveBeenCalledTimes(1);
     expect(updateTask).toHaveBeenCalledTimes(0);
+    expect(readEmail).toHaveBeenCalledTimes(0);
   } else if (actionType === ACTION_TYPE.task && editMode === EDIT_MODE.create) {
     expect(addTask).toHaveBeenCalledTimes(1);
     expect(addEmail).toHaveBeenCalledTimes(0);
     expect(updateEmail).toHaveBeenCalledTimes(0);
     expect(updateTask).toHaveBeenCalledTimes(0);
+    expect(readEmail).toHaveBeenCalledTimes(1);
   } else if (actionType === ACTION_TYPE.task && editMode === EDIT_MODE.update) {
     expect(addTask).toHaveBeenCalledTimes(0);
     expect(addEmail).toHaveBeenCalledTimes(0);
     expect(updateEmail).toHaveBeenCalledTimes(0);
     expect(updateTask).toHaveBeenCalledTimes(1);
+    expect(readEmail).toHaveBeenCalledTimes(0);
   }
 }
 
@@ -145,6 +151,7 @@ function testMode(actionType, editMode) {
       addTask={() => {}}
       updateEmail={() => {}}
       updateTask={() => {}}
+      readEmail={() => {}}
       actionType={actionType}
       editMode={editMode}
       action={{
