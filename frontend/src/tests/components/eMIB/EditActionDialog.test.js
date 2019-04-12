@@ -41,6 +41,7 @@ function testCore(actionType, editMode) {
       addTask={addTask}
       updateEmail={updateEmail}
       updateTask={updateTask}
+      readEmail={() => {}}
       actionType={actionType}
       editMode={editMode}
     />
@@ -145,6 +146,7 @@ function testMode(actionType, editMode) {
       addTask={() => {}}
       updateEmail={() => {}}
       updateTask={() => {}}
+      readEmail={() => {}}
       actionType={actionType}
       editMode={editMode}
       action={{
