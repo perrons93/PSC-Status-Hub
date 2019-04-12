@@ -210,3 +210,29 @@ function testMode(actionType, editMode) {
     );
   }
 }
+
+it("check that email duplication bug is no longer an issue", () => {
+  const addEmail = jest.fn();
+  const handleClose = jest.fn();
+  const wrapper = mount(
+    <EditActionDialog
+      emailId={1}
+      emailSubject={"hello team"}
+      showDialog={true}
+      handleClose={handleClose}
+      addEmail={addEmail}
+      addTask={() => {}}
+      updateEmail={() => {}}
+      updateTask={() => {}}
+      readEmail={() => {}}
+      actionType={ACTION_TYPE.email}
+      editMode={EDIT_MODE.create}
+    />
+  );
+  expect(wrapper.find("#unit-test-email-response-button").prop("disabled")).toEqual(false);
+  wrapper.find("#unit-test-email-response-button").simulate("click");
+  expect(wrapper.find("#unit-test-email-response-button").prop("disabled")).toEqual(true);
+  wrapper.find("#unit-test-email-response-button").simulate("click");
+  wrapper.find("#unit-test-email-response-button").simulate("click");
+  expect(addEmail).toHaveBeenCalledTimes(1);
+});
