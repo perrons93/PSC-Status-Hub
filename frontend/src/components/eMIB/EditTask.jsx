@@ -122,15 +122,11 @@ class EditTask extends Component {
                 tabIndex="0"
                 data-tip
                 data-for="task-tooltip"
-                data-event="click"
+                data-event="focus"
+                data-event-off="blur"
                 data-place="right"
               />
-              <ReactTooltip
-                id="task-tooltip"
-                type="none"
-                aria-haspopup="true"
-                globalEventOff="keypress"
-              >
+              <ReactTooltip id="task-tooltip" type="none" aria-haspopup="true">
                 <div style={styles.tasks.tooltipContainer}>
                   <p style={styles.tasks.tooltip}>
                     {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
@@ -160,15 +156,11 @@ class EditTask extends Component {
                 tabIndex="0"
                 data-tip
                 data-for="reasons-for-action-tooltip"
-                data-event="click"
+                data-event="focus"
+                data-event-off="blur"
                 data-place="right"
               />
-              <ReactTooltip
-                id="reasons-for-action-tooltip"
-                type="none"
-                aria-haspopup="true"
-                globalEventOff="keypress"
-              >
+              <ReactTooltip id="reasons-for-action-tooltip" type="none" aria-haspopup="true">
                 <div style={styles.reasonsForAction.tooltipContainer}>
                   <p style={styles.reasonsForAction.tooltip}>
                     {LOCALIZE.emibTest.inboxPage.taskContent.reasonsForActionTooltip}
