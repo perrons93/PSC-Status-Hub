@@ -21,10 +21,6 @@ const styles = {
       backgroundColor: "#00565E",
       color: "white"
     },
-    responseTypeIconsUnelected: {
-      backgroundColor: "white",
-      color: "00565E"
-    },
     radioButtonZone: {
       marginBottom: 12
     },
@@ -169,9 +165,7 @@ class EditEmail extends Component {
                     className="fas fa-reply"
                     style={{
                       ...styles.header.responseTypeIcons,
-                      ...(replyChecked
-                        ? styles.header.responseTypeIconsSelected
-                        : styles.header.responseTypeIconsUnselected)
+                      ...(replyChecked ? styles.header.responseTypeIconsSelected : {})
                     }}
                   />
                   {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
@@ -200,9 +194,7 @@ class EditEmail extends Component {
                     className="fas fa-reply-all"
                     style={{
                       ...styles.header.responseTypeIcons,
-                      ...(replyAllChecked
-                        ? styles.header.responseTypeIconsSelected
-                        : styles.header.responseTypeIconsUnselected)
+                      ...(replyAllChecked ? styles.header.responseTypeIconsSelected : {})
                     }}
                   />
                   {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
@@ -231,9 +223,7 @@ class EditEmail extends Component {
                     className="fas fa-share-square"
                     style={{
                       ...styles.header.responseTypeIcons,
-                      ...(forwardChecked
-                        ? styles.header.responseTypeIconsSelected
-                        : styles.header.responseTypeIconsUnselected)
+                      ...(forwardChecked ? styles.header.responseTypeIconsSelected : {})
                     }}
                   />
                   {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
