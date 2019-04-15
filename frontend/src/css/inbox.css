@@ -23,10 +23,32 @@ styles that cannot be added inside a const
 /*
 Overriding react component tooltip styles (react-tooltip package)
 */
+
+/* Fixes IE incompatibilities */
+.task-tooltip-container-for-ie {
+  position: absolute;
+  top: 38px !important;
+}
+
+/* Fixes IE incompatibilities */
+.task-tooltip-content-for-ie {
+  width: 410px !important;
+}
+
+/* Fixes IE incompatibilities */
+.reasons-for-action-tooltip-container-for-ie {
+  position: absolute;
+  top: 195px !important;
+}
+
+/* Fixes IE incompatibilities */
+.reasons-for-action-tooltip-content-for-ie {
+  width: 325px !important;
+}
+
 .__react_component_tooltip {
   padding: 8px 8px;
   border-color: #00565e;
-  margin-left: 24px !important;
 }
 
 .__react_component_tooltip {

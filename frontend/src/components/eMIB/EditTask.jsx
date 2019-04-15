@@ -4,6 +4,8 @@ import LOCALIZE from "../../text_resources";
 import { actionShape } from "./constants";
 import ReactTooltip from "react-tooltip";
 import "../../css/inbox.css";
+import detectBrowser from "../../helpers/detectBrowser";
+import { IE_STRING } from "../../Status";
 
 const styles = {
   container: {
@@ -97,6 +99,19 @@ class EditTask extends Component {
   render() {
     const { emailNumber, emailSubject } = this.props;
     const { task, reasonsForAction } = this.state;
+    let {
+      taskTooltipContainerClass,
+      taskTooltipContentClass,
+      reasonsForActionTooltipContainerClass,
+      reasonsForActionTooltipContentClass
+    } = "";
+
+    if (detectBrowser() === IE_STRING) {
+      taskTooltipContainerClass = "task-tooltip-container-for-ie";
+      taskTooltipContentClass = "task-tooltip-content-for-ie";
+      reasonsForActionTooltipContainerClass = "reasons-for-action-tooltip-container-for-ie";
+      reasonsForActionTooltipContentClass = "reasons-for-action-tooltip-content-for-ie";
+    }
 
     return (
       <div style={styles.container}>
@@ -126,8 +141,13 @@ class EditTask extends Component {
                 data-event-off="blur"
                 data-place="right"
               />
-              <ReactTooltip id="task-tooltip" type="none" aria-haspopup="true">
-                <div style={styles.tasks.tooltipContainer}>
+              <ReactTooltip
+                className={taskTooltipContainerClass}
+                id="task-tooltip"
+                type="none"
+                aria-haspopup="true"
+              >
+                <div className={taskTooltipContentClass} style={styles.tasks.tooltipContainer}>
                   <p style={styles.tasks.tooltip}>
                     {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
                   </p>
@@ -160,8 +180,16 @@ class EditTask extends Component {
                 data-event-off="blur"
                 data-place="right"
               />
-              <ReactTooltip id="reasons-for-action-tooltip" type="none" aria-haspopup="true">
-                <div style={styles.reasonsForAction.tooltipContainer}>
+              <ReactTooltip
+                id="reasons-for-action-tooltip"
+                className={reasonsForActionTooltipContainerClass}
+                type="none"
+                aria-haspopup="true"
+              >
+                <div
+                  className={reasonsForActionTooltipContentClass}
+                  style={styles.reasonsForAction.tooltipContainer}
+                >
                   <p style={styles.reasonsForAction.tooltip}>
                     {LOCALIZE.emibTest.inboxPage.taskContent.reasonsForActionTooltip}
                   </p>
