@@ -129,10 +129,10 @@ class EditEmail extends Component {
   };
 
   render() {
-    const { emailType, emailTo, emailCc, emailBody, reasonsForAction } = this.state;
-    const replyChecked = emailType === EMAIL_TYPE.reply;
-    const replyAllChecked = emailType === EMAIL_TYPE.replyAll;
-    const forwardChecked = emailType === EMAIL_TYPE.forward;
+    const { emailTo, emailCc, emailBody, reasonsForAction } = this.state;
+    const replyChecked = this.state.emailType === EMAIL_TYPE.reply;
+    const replyAllChecked = this.state.emailType === EMAIL_TYPE.replyAll;
+    const forwardChecked = this.state.emailType === EMAIL_TYPE.forward;
 
     return (
       <div style={styles.container}>
