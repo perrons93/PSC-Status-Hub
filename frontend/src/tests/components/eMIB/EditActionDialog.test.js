@@ -210,3 +210,29 @@ function testMode(actionType, editMode) {
     );
   }
 }
+
+it("clicking on the button only adds the email once", () => {
+  const addEmail = jest.fn();
+  const handleClose = jest.fn();
+  const wrapper = mount(
+    <EditActionDialog
+      emailId={1}
+      emailSubject={"hello team"}
+      showDialog={true}
+      handleClose={handleClose}
+      addEmail={addEmail}
+      addTask={() => {}}
+      updateEmail={() => {}}
+      updateTask={() => {}}
+      readEmail={() => {}}
+      actionType={ACTION_TYPE.email}
+      editMode={EDIT_MODE.create}
+    />
+  );
+  wrapper.find("#unit-test-email-response-button").simulate("click");
+  // In the test, calling handleClose does not change the showDialog value
+  // However, in the actual UI, it does; so if this has been called,
+  // The the button is disabled in the UI
+  expect(handleClose).toHaveBeenCalledTimes(1);
+  expect(addEmail).toHaveBeenCalledTimes(1);
+});
