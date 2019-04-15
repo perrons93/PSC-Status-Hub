@@ -36,7 +36,12 @@ const styles = {
     radioPadding: {
       marginBottom: 16
     },
-    radioText: {
+    radioTextUnselected: {
+      fontWeight: "normal",
+      cursor: "pointer"
+    },
+    radioTextSelected: {
+      fontWeight: "bold",
       textDecoration: "underline",
       cursor: "pointer"
     },
@@ -151,7 +156,14 @@ class EditEmail extends Component {
                   value={EMAIL_TYPE.reply}
                   checked={replyChecked}
                 />
-                <label htmlFor="reply-radio" style={styles.header.radioText}>
+                <label
+                  htmlFor="reply-radio"
+                  style={
+                    replyChecked
+                      ? styles.header.radioTextSelected
+                      : styles.header.radioTextUnselected
+                  }
+                >
                   <i
                     className="fas fa-reply"
                     style={{
@@ -175,7 +187,14 @@ class EditEmail extends Component {
                   value={EMAIL_TYPE.replyAll}
                   checked={replyAllChecked}
                 />
-                <label htmlFor="reply-all-radio" style={styles.header.radioText}>
+                <label
+                  htmlFor="reply-all-radio"
+                  style={
+                    replyAllChecked
+                      ? styles.header.radioTextSelected
+                      : styles.header.radioTextUnselected
+                  }
+                >
                   <i
                     className="fas fa-reply-all"
                     style={{
@@ -199,7 +218,14 @@ class EditEmail extends Component {
                   value={EMAIL_TYPE.forward}
                   checked={forwardChecked}
                 />
-                <label htmlFor="forward-radio" style={styles.header.radioText}>
+                <label
+                  htmlFor="forward-radio"
+                  style={
+                    forwardChecked
+                      ? styles.header.radioTextSelected
+                      : styles.header.radioTextUnselected
+                  }
+                >
                   <i
                     className="fas fa-share-square"
                     style={{
