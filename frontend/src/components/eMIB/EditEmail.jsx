@@ -34,8 +34,7 @@ const styles = {
       cursor: "pointer"
     },
     radioPadding: {
-      marginBottom: 16,
-      visibility: "hidden"
+      marginBottom: 16
     },
     radioTextUnselected: {
       fontWeight: "normal",
@@ -146,7 +145,7 @@ class EditEmail extends Component {
             <p className="font-weight-bold" style={styles.header.title}>
               {LOCALIZE.emibTest.inboxPage.addEmailResponse.selectResponseType}
             </p>
-            <div style={styles.header.radioButtonZone}>
+            <div style={styles.header.radioButtonZone} className="radio-button-hover">
               <span style={styles.header.responseTypeRadio}>
                 <input
                   id="reply-radio"
@@ -156,6 +155,7 @@ class EditEmail extends Component {
                   onChange={this.onEmailTypeChange}
                   value={EMAIL_TYPE.reply}
                   checked={replyChecked}
+                  className="visually-hidden"
                 />
                 <label
                   htmlFor="reply-radio"
@@ -186,6 +186,7 @@ class EditEmail extends Component {
                   onChange={this.onEmailTypeChange}
                   value={EMAIL_TYPE.replyAll}
                   checked={replyAllChecked}
+                  className="visually-hidden"
                 />
                 <label
                   htmlFor="reply-all-radio"
@@ -216,6 +217,7 @@ class EditEmail extends Component {
                   onChange={this.onEmailTypeChange}
                   value={EMAIL_TYPE.forward}
                   checked={forwardChecked}
+                  className="visually-hidden"
                 />
                 <label
                   htmlFor="forward-radio"
