@@ -202,7 +202,7 @@ Progess Steps
 /* visually hidden, but stil accessible */
 .visually-hidden {
   /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
-  position: absolute !important;
+  position: absolute;
   height: 1px;
   width: 1px;
   overflow: hidden;
