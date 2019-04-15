@@ -209,3 +209,11 @@ Progess Steps
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 }
+
+.radio-button-hover {
+  border: 1px solid transparent;
+}
+
+.radio-button-hover:focus-within {
+  border: 1px solid #00565e;
+}
