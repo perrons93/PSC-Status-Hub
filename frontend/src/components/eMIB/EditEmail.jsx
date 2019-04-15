@@ -34,7 +34,9 @@ const styles = {
       cursor: "pointer"
     },
     radioPadding: {
-      marginBottom: 16
+      marginBottom: 16,
+      visibility: "hidden",
+      marginLeft: -20
     },
     radioTextUnselected: {
       fontWeight: "normal",
