@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { actionShape } from "./constants";
+import ReactTooltip from "react-tooltip";
+import "../../css/inbox.css";
 
 const styles = {
   container: {
@@ -27,11 +29,8 @@ const styles = {
       marginTop: "4px"
     },
     tooltip: {
-      float: "right",
-      border: "1px solid #00565E",
-      color: "#00565E",
-      width: "75%",
-      margin: "6px 6px 12px 0"
+      margin: 0,
+      padding: 0
     },
     textArea: {
       padding: "6px 12px",
@@ -61,8 +60,6 @@ const styles = {
     }
   }
 };
-
-//TODO: Add tooltip functionality for both task and reasons for action icons
 
 class EditTask extends Component {
   state = {
@@ -111,7 +108,25 @@ class EditTask extends Component {
               <label htmlFor="your-tasks-text-area" style={styles.tasks.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.task}
               </label>
-              <i className="fas fa-question-circle" style={styles.tasks.icon} />
+              <i
+                className="fas fa-question-circle"
+                style={styles.tasks.icon}
+                tabIndex="0"
+                data-tip
+                data-for="task-tooltip"
+                data-event="click"
+                data-place="right"
+              />
+              <ReactTooltip id="task-tooltip" aria-haspopup="true" globalEventOff="keypress">
+                <div>
+                  <p style={styles.tasks.tooltip}>
+                    {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
+                  </p>
+                  <p style={styles.tasks.tooltip}>
+                    {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart2}
+                  </p>
+                </div>
+              </ReactTooltip>
               <textarea
                 id="your-tasks-text-area"
                 maxLength="100"
