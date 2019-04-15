@@ -147,7 +147,7 @@ class EditEmail extends Component {
               {LOCALIZE.emibTest.inboxPage.addEmailResponse.selectResponseType}
             </p>
             <div style={styles.header.radioButtonZone}>
-              <div style={styles.header.responseTypeRadio}>
+              <span style={styles.header.responseTypeRadio}>
                 <input
                   id="reply-radio"
                   type="radio"
@@ -176,8 +176,8 @@ class EditEmail extends Component {
                   />
                   {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
                 </label>
-              </div>
-              <div style={styles.header.responseTypeRadio}>
+              </span>
+              <span style={styles.header.responseTypeRadio}>
                 <input
                   id="reply-all-radio"
                   type="radio"
@@ -206,8 +206,8 @@ class EditEmail extends Component {
                   />
                   {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
                 </label>
-              </div>
-              <div style={styles.header.responseTypeRadio}>
+              </span>
+              <span style={styles.header.responseTypeRadio}>
                 <input
                   id="forward-radio"
                   type="radio"
@@ -236,7 +236,7 @@ class EditEmail extends Component {
                   />
                   {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
                 </label>
-              </div>
+              </span>
             </div>
           </div>
           <div>
