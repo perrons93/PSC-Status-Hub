@@ -26,18 +26,11 @@ Overriding react component tooltip styles (react-tooltip package)
 .__react_component_tooltip {
   padding: 8px 8px;
   border-color: #00565e;
+  margin-left: 24px !important;
 }
 
-.__react_component_tooltip.type-dark {
+.__react_component_tooltip {
   background-color: white;
   color: #00565e;
   border: 0.1em solid #00565e;
-}
-
-.__react_component_tooltip.place-right {
-  /* margin-left: 18px; */
-}
-
-.__react_component_tooltip.type-dark.place-right:after {
-  border: none;
 }

@@ -29,8 +29,10 @@ const styles = {
       marginTop: "4px"
     },
     tooltip: {
-      margin: 0,
-      padding: 0
+      margin: 0
+    },
+    tooltipContainer: {
+      width: 395
     },
     textArea: {
       padding: "6px 12px",
@@ -49,6 +51,12 @@ const styles = {
     icon: {
       color: "#00565E",
       marginTop: "4px"
+    },
+    tooltip: {
+      margin: 0
+    },
+    tooltipContainer: {
+      width: 325
     },
     textArea: {
       padding: "6px 12px",
@@ -117,8 +125,13 @@ class EditTask extends Component {
                 data-event="click"
                 data-place="right"
               />
-              <ReactTooltip id="task-tooltip" aria-haspopup="true" globalEventOff="keypress">
-                <div>
+              <ReactTooltip
+                id="task-tooltip"
+                type="none"
+                aria-haspopup="true"
+                globalEventOff="keypress"
+              >
+                <div style={styles.tasks.tooltipContainer}>
                   <p style={styles.tasks.tooltip}>
                     {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
                   </p>
@@ -141,7 +154,27 @@ class EditTask extends Component {
               <label htmlFor="reasons-for-action-text-area" style={styles.reasonsForAction.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.reasonsForAction}
               </label>
-              <i className="fas fa-question-circle" style={styles.reasonsForAction.icon} />
+              <i
+                className="fas fa-question-circle"
+                style={styles.reasonsForAction.icon}
+                tabIndex="0"
+                data-tip
+                data-for="reasons-for-action-tooltip"
+                data-event="click"
+                data-place="right"
+              />
+              <ReactTooltip
+                id="reasons-for-action-tooltip"
+                type="none"
+                aria-haspopup="true"
+                globalEventOff="keypress"
+              >
+                <div style={styles.reasonsForAction.tooltipContainer}>
+                  <p style={styles.reasonsForAction.tooltip}>
+                    {LOCALIZE.emibTest.inboxPage.taskContent.reasonsForActionTooltip}
+                  </p>
+                </div>
+              </ReactTooltip>
               <textarea
                 id="reasons-for-action-text-area"
                 maxLength="100"
