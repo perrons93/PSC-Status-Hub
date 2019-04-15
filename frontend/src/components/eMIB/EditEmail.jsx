@@ -11,12 +11,19 @@ const styles = {
   },
   header: {
     responseTypeIcons: {
-      color: "#00565E",
       margin: "0 8px",
       padding: 3,
       border: "1px solid #00565E",
       borderRadius: 4,
       cursor: "pointer"
+    },
+    responseTypeIconsSelected: {
+      backgroundColor: "#00565E",
+      color: "white"
+    },
+    responseTypeIconsUnelected: {
+      backgroundColor: "white",
+      color: "00565E"
     },
     radioButtonZone: {
       marginBottom: 12
@@ -145,7 +152,15 @@ class EditEmail extends Component {
                   checked={replyChecked}
                 />
                 <label htmlFor="reply-radio" style={styles.header.radioText}>
-                  <i className="fas fa-reply" style={styles.header.responseTypeIcons} />
+                  <i
+                    className="fas fa-reply"
+                    style={{
+                      ...styles.header.responseTypeIcons,
+                      ...(replyChecked
+                        ? styles.header.responseTypeIconsSelected
+                        : styles.header.responseTypeIconsUnselected)
+                    }}
+                  />
                   {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
                 </label>
               </div>
@@ -161,7 +176,15 @@ class EditEmail extends Component {
                   checked={replyAllChecked}
                 />
                 <label htmlFor="reply-all-radio" style={styles.header.radioText}>
-                  <i className="fas fa-reply-all" style={styles.header.responseTypeIcons} />
+                  <i
+                    className="fas fa-reply-all"
+                    style={{
+                      ...styles.header.responseTypeIcons,
+                      ...(replyAllChecked
+                        ? styles.header.responseTypeIconsSelected
+                        : styles.header.responseTypeIconsUnselected)
+                    }}
+                  />
                   {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
                 </label>
               </div>
@@ -177,7 +200,15 @@ class EditEmail extends Component {
                   checked={forwardChecked}
                 />
                 <label htmlFor="forward-radio" style={styles.header.radioText}>
-                  <i className="fas fa-share-square" style={styles.header.responseTypeIcons} />
+                  <i
+                    className="fas fa-share-square"
+                    style={{
+                      ...styles.header.responseTypeIcons,
+                      ...(forwardChecked
+                        ? styles.header.responseTypeIconsSelected
+                        : styles.header.responseTypeIconsUnselected)
+                    }}
+                  />
                   {LOCALIZE.emibTest.inboxPage.emailCommons.forward}
                 </label>
               </div>
