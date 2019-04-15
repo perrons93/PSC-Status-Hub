@@ -368,7 +368,11 @@ let LOCALIZE = new LocalizedStrings({
         },
         taskContent: {
           task: "Your task(s):",
-          reasonsForAction: "Your reasons for action:"
+          taskTooltipPart1: "An action you intend to take to address a situation in the emails.",
+          taskTooltipPart2: "Example: Planning a meeting, asking a colleague for information.",
+          reasonsForAction: "Your reasons for action:",
+          reasonsForActionTooltip:
+            "Here, you can explain why you took a specific action in response to a situation if you feel you need to provide additional information"
         }
       },
 
@@ -840,7 +844,11 @@ let LOCALIZE = new LocalizedStrings({
         },
         taskContent: {
           task: "FR Your task(s):",
-          reasonsForAction: "FR Your reasons for action:"
+          taskTooltipPart1: "FR An action you intend to take to address a situation in the emails.",
+          taskTooltipPart2: "FR Example: Planning a meeting, asking a colleague for information.",
+          reasonsForAction: "FR Your reasons for action:",
+          reasonsForActionTooltip:
+            "FR Here, you can explain why you took a specific action in response to a situation if you feel you need to provide additional information"
         }
       },
 
