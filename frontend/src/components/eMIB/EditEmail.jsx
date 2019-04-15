@@ -35,8 +35,7 @@ const styles = {
     },
     radioPadding: {
       marginBottom: 16,
-      visibility: "hidden",
-      marginLeft: -20
+      visibility: "hidden"
     },
     radioTextUnselected: {
       fontWeight: "normal",
@@ -178,7 +177,6 @@ class EditEmail extends Component {
                   {LOCALIZE.emibTest.inboxPage.emailCommons.reply}
                 </label>
               </div>
-              <br />
               <div style={styles.header.responseTypeRadio}>
                 <input
                   id="reply-all-radio"
@@ -209,7 +207,6 @@ class EditEmail extends Component {
                   {LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
                 </label>
               </div>
-              <br />
               <div style={styles.header.responseTypeRadio}>
                 <input
                   id="forward-radio"
