@@ -230,7 +230,7 @@ it("clicking on the button only adds the email once", () => {
     />
   );
   wrapper.find("#unit-test-email-response-button").simulate("click");
-  // In the test, calling handleClose does not change the showDialog vale
+  // In the test, calling handleClose does not change the showDialog value
   // However, in the actual UI, it does; so if this has been called,
   // The the button is disabled in the UI
   expect(handleClose).toHaveBeenCalledTimes(1);
