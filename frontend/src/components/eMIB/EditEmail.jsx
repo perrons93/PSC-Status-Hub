@@ -122,6 +122,9 @@ class EditEmail extends Component {
 
   render() {
     const { emailType, emailTo, emailCc, emailBody, reasonsForAction } = this.state;
+    const replyChecked = emailType === EMAIL_TYPE.reply;
+    const replyAllChecked = emailType === EMAIL_TYPE.replyAll;
+    const forwardChecked = emailType === EMAIL_TYPE.forward;
 
     return (
       <div style={styles.container}>
@@ -139,7 +142,7 @@ class EditEmail extends Component {
                   style={styles.header.radioPadding}
                   onChange={this.onEmailTypeChange}
                   value={EMAIL_TYPE.reply}
-                  checked={emailType === EMAIL_TYPE.reply}
+                  checked={replyChecked}
                 />
                 <label htmlFor="reply-radio" style={styles.header.radioText}>
                   <i className="fas fa-reply" style={styles.header.responseTypeIcons} />
@@ -155,7 +158,7 @@ class EditEmail extends Component {
                   style={styles.header.radioPadding}
                   onChange={this.onEmailTypeChange}
                   value={EMAIL_TYPE.replyAll}
-                  checked={emailType === EMAIL_TYPE.replyAll}
+                  checked={replyAllChecked}
                 />
                 <label htmlFor="reply-all-radio" style={styles.header.radioText}>
                   <i className="fas fa-reply-all" style={styles.header.responseTypeIcons} />
@@ -171,7 +174,7 @@ class EditEmail extends Component {
                   style={styles.header.radioPadding}
                   onChange={this.onEmailTypeChange}
                   value={EMAIL_TYPE.forward}
-                  checked={emailType === EMAIL_TYPE.forward}
+                  checked={forwardChecked}
                 />
                 <label htmlFor="forward-radio" style={styles.header.radioText}>
                   <i className="fas fa-share-square" style={styles.header.responseTypeIcons} />
