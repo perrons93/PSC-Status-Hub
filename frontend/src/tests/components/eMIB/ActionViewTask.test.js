@@ -29,9 +29,4 @@ describe("renders component's content", () => {
     const reasonsForActionContent = <p>{"Reasons for action here..."}</p>;
     expect(wrapper.containsMatchingElement(reasonsForActionContent)).toEqual(true);
   });
-
-  it("delete button is triggered properly", () => {
-    wrapper.find("#unit-test-view-task-delete-button").simulate("click");
-    expect(deleteMock).toHaveBeenCalledTimes(1);
-  });
 });
