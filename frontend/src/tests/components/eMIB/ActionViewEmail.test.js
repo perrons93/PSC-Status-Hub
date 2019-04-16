@@ -50,10 +50,10 @@ describe("Email header", () => {
 });
 
 function genWrapper(responseType, cc) {
-  genWrapper(responseType, cc, () => {});
+  return createWrapper(responseType, cc, () => {});
 }
 
-function genWrapper(responseType, cc, deleteEmail) {
+function createWrapper(responseType, cc, deleteEmail) {
   const actionStub = {
     actionType: ACTION_TYPE.email,
     reasonsForAction: "reasons",

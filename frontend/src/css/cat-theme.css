@@ -198,3 +198,22 @@ Progess Steps
   min-width: 500px !important;
   max-width: 750px !important;
 }
+
+/* visually hidden, but stil accessible */
+.visually-hidden {
+  /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.radio-button-hover {
+  border: 1px solid transparent;
+}
+
+.radio-button-hover:focus-within {
+  border: 1px solid #00565e;
+}
