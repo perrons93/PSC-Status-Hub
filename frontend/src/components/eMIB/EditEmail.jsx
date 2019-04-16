@@ -70,7 +70,8 @@ const styles = {
       float: "left",
       width: 28,
       height: 32,
-      lineHeight: "2.1em"
+      lineHeight: "2.1em",
+      paddingRight: 4
     }
   },
   response: {
