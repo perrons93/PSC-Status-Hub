@@ -76,6 +76,10 @@ const styles = {
       resize: "none"
     }
   },
+  textCounter: {
+    width: "100%",
+    textAlign: "right"
+  },
   hr: {
     margin: "12px 0 6px 0"
   },
@@ -287,9 +291,9 @@ class EditEmail extends Component {
                 value={emailBody}
                 onChange={this.onEmailBodyChange}
               />
-            </div>
-            <div>
-              {this.state.emailBody.length}/{MAX_RESPONSE}
+              <div style={styles.textCounter}>
+                {this.state.emailBody.length}/{MAX_RESPONSE}
+              </div>
             </div>
           </div>
           <hr style={styles.hr} />
@@ -305,9 +309,9 @@ class EditEmail extends Component {
                 value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
               />
-            </div>
-            <div>
-              {this.state.reasonsForAction.length}/{MAX_REASON}
+              <div style={styles.textCounter}>
+                {this.state.reasonsForAction.length}/{MAX_REASON}
+              </div>
             </div>
           </div>
         </form>

@@ -16,6 +16,10 @@ const styles = {
     color: "#00565E",
     paddingTop: 12
   },
+  textCounter: {
+    width: "100%",
+    textAlign: "right"
+  },
   hr: {
     margin: "6px 0",
     borderColor: "#00565E"
@@ -122,9 +126,9 @@ class EditTask extends Component {
                 value={task}
                 onChange={this.onTaskContentChange}
               />
-            </div>
-            <div>
-              {this.state.task.length}/{MAX_TASK}
+              <div style={styles.textCounter}>
+                {this.state.task.length}/{MAX_TASK}
+              </div>
             </div>
           </div>
           <div>
@@ -140,9 +144,9 @@ class EditTask extends Component {
                 value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
               />
-            </div>
-            <div>
-              {this.state.reasonsForAction.length}/{MAX_REASON}
+              <div style={styles.textCounter}>
+                {this.state.reasonsForAction.length}/{MAX_REASON}
+              </div>
             </div>
           </div>
         </form>
