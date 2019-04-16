@@ -21,9 +21,9 @@ styles that cannot be added inside a const
 }
 
 .email-preview-button:focus {
-  border: 2px solid #009fae !important;
+  background-color: #c6ecef !important;
 }
 
 .email-preview-button:hover {
-  border: 2px solid #009fae !important;
+  background-color: #c6ecef !important;
 }

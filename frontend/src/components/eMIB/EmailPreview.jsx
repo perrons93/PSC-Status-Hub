@@ -114,7 +114,7 @@ class EmailPreview extends Component {
         role="menuitem"
       >
         <button
-          className="email-preview-button"
+          className={this.props.isSelected ? "" : "email-preview-button"}
           style={buttonStyle}
           onClick={() => this.props.selectEmail(email.id)}
         >
