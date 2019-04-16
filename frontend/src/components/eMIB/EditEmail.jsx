@@ -158,7 +158,6 @@ class EditEmail extends Component {
                     value={EMAIL_TYPE.reply}
                     checked={replyChecked}
                     className="visually-hidden"
-                    aria-label={LOCALIZE.emibTest.inboxPage.emailCommons.reply}
                   />
                   <label
                     htmlFor="reply-radio"
@@ -188,7 +187,6 @@ class EditEmail extends Component {
                     value={EMAIL_TYPE.replyAll}
                     checked={replyAllChecked}
                     className="visually-hidden"
-                    aria-label={LOCALIZE.emibTest.inboxPage.emailCommons.replyAll}
                   />
                   <label
                     htmlFor="reply-all-radio"
@@ -218,7 +216,6 @@ class EditEmail extends Component {
                     value={EMAIL_TYPE.forward}
                     checked={forwardChecked}
                     className="visually-hidden"
-                    aria-label={LOCALIZE.emibTest.inboxPage.emailCommons.forward}
                   />
                   <label
                     htmlFor="forward-radio"
