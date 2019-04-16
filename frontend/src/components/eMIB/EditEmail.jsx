@@ -60,10 +60,11 @@ const styles = {
       borderRadius: 4,
       width: "calc(100% - 40px)"
     },
-    title: {
+    fieldsetLegend: {
       fontSize: 16,
       marginBottom: 12,
-      marginTop: 12
+      marginTop: 12,
+      paddingTop: 12
     },
     titleStyle: {
       float: "left",
@@ -158,7 +159,7 @@ class EditEmail extends Component {
         <form>
           <div>
             <fieldset>
-              <legend className="font-weight-bold" style={styles.header.title}>
+              <legend className="font-weight-bold" style={styles.header.fieldsetLegend}>
                 {LOCALIZE.emibTest.inboxPage.addEmailResponse.selectResponseType}
               </legend>
               <div style={styles.header.radioButtonZone} className="radio-button-hover">
