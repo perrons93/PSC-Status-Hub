@@ -56,9 +56,10 @@ const styles = {
     },
     textField: {
       padding: "4px 12px",
+      marginRight: 6,
       border: "1px solid #00565E",
       borderRadius: 4,
-      width: "calc(100% - 40px)"
+      width: "calc(100% - 46px)"
     },
     fieldsetLegend: {
       fontSize: 16,
@@ -77,7 +78,7 @@ const styles = {
   response: {
     textArea: {
       padding: "6px 12px",
-      margin: "0 6px",
+      marginRight: 6,
       border: "1px solid #00565E",
       borderRadius: 4,
       width: "calc(100% - 12px)",
@@ -95,7 +96,7 @@ const styles = {
   reasonsForAction: {
     textArea: {
       padding: "6px 12px",
-      margin: "0 6px",
+      marginRight: 6,
       border: "1px solid #00565E",
       borderRadius: 4,
       width: "calc(100% - 12px)",
