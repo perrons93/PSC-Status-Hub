@@ -160,24 +160,32 @@ class ActionViewEmail extends Component {
           <PopupBox
             show={this.state.showDeleteConfirmationDialog}
             handleClose={this.closeDeleteConfirmationDialog}
-            title={"Title Here"}
+            title={LOCALIZE.emibTest.inboxPage.emailResponse.deleteConfirmation.title}
             description={
               <div>
                 <div>
                   <SystemMessage
                     messageType={MESSAGE_TYPE.error}
-                    title={"Warning"}
-                    message={"Message Here..."}
+                    title={
+                      LOCALIZE.emibTest.inboxPage.emailResponse.deleteConfirmation
+                        .systemMessageTitle
+                    }
+                    message={
+                      LOCALIZE.emibTest.inboxPage.emailResponse.deleteConfirmation
+                        .systemMessageDescription
+                    }
                   />
                 </div>
-                <div>{"Description here..."}</div>
+                <div>
+                  {LOCALIZE.emibTest.inboxPage.emailResponse.deleteConfirmation.description}
+                </div>
               </div>
             }
             leftButtonType={BUTTON_TYPE.danger}
-            leftButtonTitle={"Delete Response"}
+            leftButtonTitle={LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
             leftButtonAction={() => this.props.deleteEmail(this.props.emailId, this.props.actionId)}
-            rightButtonType={BUTTON_TYPE.secondary}
-            rightButtonTitle={"Return to Test"}
+            rightButtonType={BUTTON_TYPE.primary}
+            rightButtonTitle={LOCALIZE.commons.returnToTest}
           />
         </div>
         <EditActionDialog
