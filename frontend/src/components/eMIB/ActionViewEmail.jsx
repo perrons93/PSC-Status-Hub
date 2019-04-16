@@ -7,6 +7,8 @@ import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE, actionShape } from "./constants";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { deleteEmail } from "../../modules/EmibInboxRedux";
+import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
+import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 
 const styles = {
   responseType: {
@@ -62,7 +64,8 @@ class ActionViewEmail extends Component {
   };
 
   state = {
-    showEmailDialog: false
+    showEmailDialog: false,
+    showDeleteConfirmationDialog: false
   };
 
   showEmailDialog = () => {
@@ -71,6 +74,14 @@ class ActionViewEmail extends Component {
 
   closeEmailDialog = () => {
     this.setState({ showEmailDialog: false });
+  };
+
+  showDeleteConfirmationDialog = () => {
+    this.setState({ showDeleteConfirmationDialog: true });
+  };
+
+  closeDeleteConfirmationDialog = () => {
+    this.setState({ showDeleteConfirmationDialog: false });
   };
 
   render() {
@@ -142,10 +153,37 @@ class ActionViewEmail extends Component {
           <button
             id="unit-test-view-email-delete-button"
             className="btn btn-danger"
-            onClick={() => this.props.deleteEmail(this.props.emailId, this.props.actionId)}
+            onClick={this.showDeleteConfirmationDialog}
           >
             {LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
           </button>
+          <PopupBox
+            show={this.state.showDeleteConfirmationDialog}
+            handleClose={this.closeDeleteConfirmationDialog}
+            title={LOCALIZE.emibTest.inboxPage.deleteResponseConfirmation.title}
+            description={
+              <div>
+                <div>
+                  <SystemMessage
+                    messageType={MESSAGE_TYPE.error}
+                    title={
+                      LOCALIZE.emibTest.inboxPage.deleteResponseConfirmation.systemMessageTitle
+                    }
+                    message={
+                      LOCALIZE.emibTest.inboxPage.deleteResponseConfirmation
+                        .systemMessageDescription
+                    }
+                  />
+                </div>
+                <div>{LOCALIZE.emibTest.inboxPage.deleteResponseConfirmation.description}</div>
+              </div>
+            }
+            leftButtonType={BUTTON_TYPE.danger}
+            leftButtonTitle={LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
+            leftButtonAction={() => this.props.deleteEmail(this.props.emailId, this.props.actionId)}
+            rightButtonType={BUTTON_TYPE.primary}
+            rightButtonTitle={LOCALIZE.commons.returnToTest}
+          />
         </div>
         <EditActionDialog
           emailId={this.props.emailId}
