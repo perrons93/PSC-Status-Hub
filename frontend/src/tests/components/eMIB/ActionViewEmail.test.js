@@ -51,16 +51,16 @@ describe("Email header", () => {
 
 it("check that delete button calls deleteEmail prop", () => {
   const deleteMock = jest.fn();
-  const wrapper = genWrapper(EMAIL_TYPE.reply, null, deleteMock);
+  const wrapper = createWrapper(EMAIL_TYPE.reply, null, deleteMock);
   wrapper.find("#unit-test-view-email-delete-button").simulate("click");
   expect(deleteMock).toHaveBeenCalledTimes(1);
 });
 
 function genWrapper(responseType, cc) {
-  genWrapper(responseType, cc, () => {});
+  return createWrapper(responseType, cc, () => {});
 }
 
-function genWrapper(responseType, cc, deleteEmail) {
+function createWrapper(responseType, cc, deleteEmail) {
   const actionStub = {
     actionType: ACTION_TYPE.email,
     reasonsForAction: "reasons",
