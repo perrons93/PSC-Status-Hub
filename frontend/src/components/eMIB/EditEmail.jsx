@@ -88,7 +88,8 @@ const styles = {
   },
   textCounter: {
     width: "100%",
-    textAlign: "right"
+    textAlign: "right",
+    paddingRight: 14
   },
   hr: {
     margin: "12px 0"
