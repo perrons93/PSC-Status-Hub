@@ -23,7 +23,7 @@ const styles = {
       border: "1px solid #00565E",
       borderRadius: 4,
       cursor: "pointer",
-      width: 26
+      padding: 6
     },
     responseTypeIconsSelected: {
       backgroundColor: "#00565E",
@@ -42,12 +42,14 @@ const styles = {
     },
     radioTextUnselected: {
       fontWeight: "normal",
-      cursor: "pointer"
+      cursor: "pointer",
+      paddingRight: 12
     },
     radioTextSelected: {
       fontWeight: "bold",
       textDecoration: "underline",
-      cursor: "pointer"
+      cursor: "pointer",
+      paddingRight: 12
     },
     textFieldBoxPadding: {
       padding: "0 6px"
