@@ -18,7 +18,7 @@ const styles = {
   },
   header: {
     responseTypeIcons: {
-      margin: "0 8px",
+      marginRight: 10,
       padding: 3,
       border: "1px solid #00565E",
       borderRadius: 4,
@@ -43,13 +43,13 @@ const styles = {
     radioTextUnselected: {
       fontWeight: "normal",
       cursor: "pointer",
-      paddingRight: 12
+      paddingRight: 20
     },
     radioTextSelected: {
       fontWeight: "bold",
       textDecoration: "underline",
       cursor: "pointer",
-      paddingRight: 12
+      paddingRight: 20
     },
     textFieldBoxPadding: {
       padding: "0 6px"
