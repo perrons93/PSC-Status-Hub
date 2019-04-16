@@ -20,6 +20,10 @@ styles that cannot be added inside a const
   grid-column: 2;
 }
 
+/* 
+Need to use !important here to override the background color that is defined inside 'emailPreview.jsx' component. 
+Cannot define this style in the component itself because of the use of 'focus' and 'hover'.
+*/
 .email-preview-button:focus {
   background-color: #c6ecef !important;
 }
