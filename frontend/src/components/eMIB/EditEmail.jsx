@@ -91,7 +91,7 @@ const styles = {
     textAlign: "right"
   },
   hr: {
-    margin: "12px 0 6px 0"
+    margin: "12px 0"
   },
   reasonsForAction: {
     textArea: {
