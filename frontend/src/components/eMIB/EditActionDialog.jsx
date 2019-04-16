@@ -7,7 +7,13 @@ import EditEmail from "./EditEmail";
 import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
 import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
-import { addEmail, addTask, updateEmail, updateTask } from "../../modules/EmibInboxRedux";
+import {
+  addEmail,
+  addTask,
+  updateEmail,
+  updateTask,
+  readEmail
+} from "../../modules/EmibInboxRedux";
 
 const styles = {
   icon: {
@@ -59,6 +65,7 @@ class EditActionDialog extends Component {
     addTask: PropTypes.func.isRequired,
     updateEmail: PropTypes.func.isRequired,
     updateTask: PropTypes.func.isRequired,
+    readEmail: PropTypes.func.isRequired,
     // Only needed when updating an existing one
     action: actionShape,
     actionId: PropTypes.number
@@ -69,13 +76,16 @@ class EditActionDialog extends Component {
   };
 
   handleSave = () => {
+    this.props.handleClose();
     if (this.props.actionType === ACTION_TYPE.email && this.props.editMode === EDIT_MODE.create) {
       this.props.addEmail(this.props.emailId, this.state.action);
+      this.props.readEmail(this.props.emailId);
     } else if (
       this.props.actionType === ACTION_TYPE.task &&
       this.props.editMode === EDIT_MODE.create
     ) {
       this.props.addTask(this.props.emailId, this.state.action);
+      this.props.readEmail(this.props.emailId);
     } else if (
       this.props.actionType === ACTION_TYPE.email &&
       this.props.editMode === EDIT_MODE.update
@@ -88,7 +98,6 @@ class EditActionDialog extends Component {
       this.props.updateTask(this.props.emailId, this.props.actionId, this.state.action);
     }
     this.setState({ action: {} });
-    this.props.handleClose();
   };
 
   // updatedAction is the PropType shape actionShape and represents a single action a candidate takes on an email
@@ -160,6 +169,7 @@ class EditActionDialog extends Component {
                     type="button"
                     className="btn btn-primary"
                     onClick={this.handleSave}
+                    disabled={!this.props.showDialog}
                   >
                     {LOCALIZE.emibTest.inboxPage.editActionDialog.save}
                   </button>
@@ -181,7 +191,8 @@ const mapDispatchToProps = dispatch =>
       addEmail,
       addTask,
       updateEmail,
-      updateTask
+      updateTask,
+      readEmail
     },
     dispatch
   );
