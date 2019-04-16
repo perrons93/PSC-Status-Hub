@@ -19,11 +19,10 @@ const styles = {
   header: {
     responseTypeIcons: {
       marginRight: 10,
-      padding: 3,
+      padding: 6,
       border: "1px solid #00565E",
       borderRadius: 4,
-      cursor: "pointer",
-      padding: 6
+      cursor: "pointer"
     },
     responseTypeIconsSelected: {
       backgroundColor: "#00565E",
