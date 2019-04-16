@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { actionShape } from "./constants";
 
+const MAX_TASK = "100";
+const MAX_REASON = "100";
+
 const styles = {
   container: {
     maxHeight: "calc(100vh - 300px)",
@@ -114,11 +117,14 @@ class EditTask extends Component {
               <i className="fas fa-question-circle" style={styles.tasks.icon} />
               <textarea
                 id="your-tasks-text-area"
-                maxLength="100"
+                maxLength={MAX_TASK}
                 style={styles.tasks.textArea}
                 value={task}
                 onChange={this.onTaskContentChange}
               />
+            </div>
+            <div>
+              {this.state.task.length}/{MAX_TASK}
             </div>
           </div>
           <div>
@@ -129,11 +135,14 @@ class EditTask extends Component {
               <i className="fas fa-question-circle" style={styles.reasonsForAction.icon} />
               <textarea
                 id="reasons-for-action-text-area"
-                maxLength="100"
+                maxLength={MAX_REASON}
                 style={styles.reasonsForAction.textArea}
                 value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
               />
+            </div>
+            <div>
+              {this.state.reasonsForAction.length}/{MAX_REASON}
             </div>
           </div>
         </form>
