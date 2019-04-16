@@ -3,6 +3,13 @@ import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { EMAIL_TYPE, actionShape } from "./constants";
 
+// These two consts limit the number of characters
+// that can be entered into two text areas
+// and are used to display <x>/<MAX>
+// under the text areas
+const MAX_RESPONSE = "500";
+const MAX_REASON = "100";
+
 const styles = {
   container: {
     maxHeight: "calc(100vh - 300px)",
@@ -72,6 +79,10 @@ const styles = {
       height: 225,
       resize: "none"
     }
+  },
+  textCounter: {
+    width: "100%",
+    textAlign: "right"
   },
   hr: {
     margin: "12px 0 6px 0"
@@ -279,11 +290,14 @@ class EditEmail extends Component {
               </label>
               <textarea
                 id="your-response-text-area"
-                maxLength="500"
+                maxLength={MAX_RESPONSE}
                 style={styles.response.textArea}
                 value={emailBody}
                 onChange={this.onEmailBodyChange}
               />
+              <div style={styles.textCounter}>
+                {this.state.emailBody.length}/{MAX_RESPONSE}
+              </div>
             </div>
           </div>
           <hr style={styles.hr} />
@@ -294,11 +308,14 @@ class EditEmail extends Component {
               </label>
               <textarea
                 id="reasons-for-action-text-area"
-                maxLength="100"
+                maxLength={MAX_REASON}
                 style={styles.reasonsForAction.textArea}
                 value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
               />
+              <div style={styles.textCounter}>
+                {this.state.reasonsForAction.length}/{MAX_REASON}
+              </div>
             </div>
           </div>
         </form>

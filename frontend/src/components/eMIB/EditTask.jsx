@@ -3,6 +3,13 @@ import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { actionShape } from "./constants";
 
+// These two consts limit the number of characters
+// that can be entered into two text areas
+// and are used to display <x>/<MAX>
+// under the text areas
+const MAX_TASK = "100";
+const MAX_REASON = "100";
+
 const styles = {
   container: {
     maxHeight: "calc(100vh - 300px)",
@@ -12,6 +19,10 @@ const styles = {
   header: {
     color: "#00565E",
     paddingTop: 12
+  },
+  textCounter: {
+    width: "100%",
+    textAlign: "right"
   },
   hr: {
     margin: "6px 0",
@@ -114,11 +125,14 @@ class EditTask extends Component {
               <i className="fas fa-question-circle" style={styles.tasks.icon} />
               <textarea
                 id="your-tasks-text-area"
-                maxLength="100"
+                maxLength={MAX_TASK}
                 style={styles.tasks.textArea}
                 value={task}
                 onChange={this.onTaskContentChange}
               />
+              <div style={styles.textCounter}>
+                {this.state.task.length}/{MAX_TASK}
+              </div>
             </div>
           </div>
           <div>
@@ -129,11 +143,14 @@ class EditTask extends Component {
               <i className="fas fa-question-circle" style={styles.reasonsForAction.icon} />
               <textarea
                 id="reasons-for-action-text-area"
-                maxLength="100"
+                maxLength={MAX_REASON}
                 style={styles.reasonsForAction.textArea}
                 value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
               />
+              <div style={styles.textCounter}>
+                {this.state.reasonsForAction.length}/{MAX_REASON}
+              </div>
             </div>
           </div>
         </form>
