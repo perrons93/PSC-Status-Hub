@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { EMAIL_TYPE, actionShape } from "./constants";
 
+// These two consts limit the number of characters
+// that can be entered into two text areas
+// and are used to display <x>/<MAX>
+// under the text areas
 const MAX_RESPONSE = "500";
 const MAX_REASON = "100";
 
