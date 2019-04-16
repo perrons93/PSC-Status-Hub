@@ -7,7 +7,7 @@ import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE, actionShape } from "./constants";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { deleteEmail } from "../../modules/EmibInboxRedux";
-import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
+import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 
 const styles = {
@@ -160,25 +160,22 @@ class ActionViewEmail extends Component {
           <PopupBox
             show={this.state.showDeleteConfirmationDialog}
             handleClose={this.closeDeleteConfirmationDialog}
-            title={LOCALIZE.emibTest.inboxPage.emailResponse.deleteConfirmation.title}
+            title={LOCALIZE.emibTest.inboxPage.deleteResponseConfirmation.title}
             description={
               <div>
                 <div>
                   <SystemMessage
                     messageType={MESSAGE_TYPE.error}
                     title={
-                      LOCALIZE.emibTest.inboxPage.emailResponse.deleteConfirmation
-                        .systemMessageTitle
+                      LOCALIZE.emibTest.inboxPage.deleteResponseConfirmation.systemMessageTitle
                     }
                     message={
-                      LOCALIZE.emibTest.inboxPage.emailResponse.deleteConfirmation
+                      LOCALIZE.emibTest.inboxPage.deleteResponseConfirmation
                         .systemMessageDescription
                     }
                   />
                 </div>
-                <div>
-                  {LOCALIZE.emibTest.inboxPage.emailResponse.deleteConfirmation.description}
-                </div>
+                <div>{LOCALIZE.emibTest.inboxPage.deleteResponseConfirmation.description}</div>
               </div>
             }
             leftButtonType={BUTTON_TYPE.danger}

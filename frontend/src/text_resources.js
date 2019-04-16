@@ -359,15 +359,7 @@ let LOCALIZE = new LocalizedStrings({
         emailResponse: {
           description: "For this response, you've chosen to:",
           response: "Your response:",
-          reasonsForAction: "Your reasons for action:",
-          deleteConfirmation: {
-            title: "Are you sure you want to delete this response?",
-            systemMessageTitle: "Warning!",
-            systemMessageDescription:
-              "This reply will be removed from your test responses. You will not be able to recover your response or reasons for action.",
-            description:
-              'If you are certain that you want to delete your response, click the "Delete response" button.'
-          }
+          reasonsForAction: "Your reasons for action:"
         },
         addEmailTask: {
           header: "Email ID #{0}: {1}",
@@ -377,6 +369,14 @@ let LOCALIZE = new LocalizedStrings({
         taskContent: {
           task: "Your task(s):",
           reasonsForAction: "Your reasons for action:"
+        },
+        deleteResponseConfirmation: {
+          title: "Are you sure you want to delete this response?",
+          systemMessageTitle: "Warning!",
+          systemMessageDescription:
+            "This reply will be removed from your test responses. You will not be able to recover your response or reasons for action.",
+          description:
+            'If you are certain that you want to delete your response, click the "Delete response" button.'
         }
       },
 
@@ -839,15 +839,7 @@ let LOCALIZE = new LocalizedStrings({
         emailResponse: {
           description: "FR For this response, you've chosen to:",
           response: "FR Your response:",
-          reasonsForAction: "FR Your reasons for action:",
-          deleteConfirmation: {
-            title: "FR Are you sure you want to delete this response?",
-            systemMessageTitle: "Avertissement!",
-            systemMessageDescription:
-              "FR This reply will be removed from your test responses. You will not be able to recover your response or reasons for action.",
-            description:
-              'FR If you are certain that you want to delete your response, click the "Delete response" button.'
-          }
+          reasonsForAction: "FR Your reasons for action:"
         },
         addEmailTask: {
           header: "FR Email ID #{0}: {1}",
@@ -857,6 +849,14 @@ let LOCALIZE = new LocalizedStrings({
         taskContent: {
           task: "FR Your task(s):",
           reasonsForAction: "FR Your reasons for action:"
+        },
+        deleteResponseConfirmation: {
+          title: "FR Are you sure you want to delete this response?",
+          systemMessageTitle: "Avertissement!",
+          systemMessageDescription:
+            "FR This reply will be removed from your test responses. You will not be able to recover your response or reasons for action.",
+          description:
+            'FR If you are certain that you want to delete your response, click the "Delete response" button.'
         }
       },
 
