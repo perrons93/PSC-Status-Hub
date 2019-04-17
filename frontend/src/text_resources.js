@@ -441,7 +441,9 @@ let LOCALIZE = new LocalizedStrings({
       reasonsForActionDetails: "reasons for action details",
       taskDetails: "task details",
       emailOptions: "email options",
-      taskOptions: "task options"
+      taskOptions: "task options",
+      taskTooltip: "task tooltip",
+      reasonsForActionTooltip: "reasons for action tooltip"
     },
 
     //Commons
@@ -926,7 +928,9 @@ let LOCALIZE = new LocalizedStrings({
       reasonsForActionDetails: "motifs de l'action",
       taskDetails: "détails sur la ou les tâches",
       emailOptions: "options de messagerie",
-      taskOptions: "options de tâche"
+      taskOptions: "options de tâche",
+      taskTooltip: "infobulle de tâche",
+      reasonsForActionTooltip: "infobulle des motifs de l'action"
     },
 
     //Commons
