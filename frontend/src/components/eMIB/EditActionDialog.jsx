@@ -108,8 +108,26 @@ class EditActionDialog extends Component {
     this.setState({ action: updatedAction });
   };
 
-  showCancelConfirmationDialog = () => {
-    this.setState({ showCancelConfirmationDialog: true });
+  handleCancelConfirmationDisplay = initialTaskContent => {
+    const taskContent = this.state.action.task;
+    const reasonsForActionContent = this.state.action.reasonsForAction;
+
+    console.log(initialTaskContent);
+
+    // verify if some content has been added in at least one of the text areas in this form
+    if (typeof taskContent !== "undefined" || typeof reasonsForActionContent !== "undefined") {
+      // verify if the content of at least one of the text areas is greater than 0
+      if (taskContent.length > 0 || reasonsForActionContent.length > 0) {
+        // if these two conditions are true, that means the candidate added content in this form, so display the cancel confirmation message
+        this.setState({ showCancelConfirmationDialog: true });
+      } else {
+        // if the second condition is false, close the form without any warning message
+        this.props.handleClose();
+      }
+    } else {
+      // if the first condition is false, close the form without any warning message
+      this.props.handleClose();
+    }
   };
 
   closeCancelConfirmationDialog = () => {
@@ -120,7 +138,7 @@ class EditActionDialog extends Component {
     const { showDialog, handleClose, actionType, editMode } = this.props;
     return (
       <div>
-        <Modal show={showDialog} onHide={this.showCancelConfirmationDialog}>
+        <Modal show={showDialog} onHide={this.handleCancelConfirmationDisplay}>
           <div>
             <Modal.Header style={styles.modalHeader}>
               {
@@ -135,7 +153,7 @@ class EditActionDialog extends Component {
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
                       </h3>
                       <button
-                        onClick={this.showCancelConfirmationDialog}
+                        onClick={this.handleCancelConfirmationDisplay}
                         style={styles.closeButton}
                       >
                         <i className="fas fa-times" />
@@ -152,7 +170,7 @@ class EditActionDialog extends Component {
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
                       </h3>
                       <button
-                        onClick={this.showCancelConfirmationDialog}
+                        onClick={this.handleCancelConfirmationDisplay}
                         style={styles.closeButton}
                       >
                         <i className="fas fa-times" />
