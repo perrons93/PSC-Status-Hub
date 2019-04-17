@@ -119,7 +119,7 @@ class EditEmail extends Component {
   state = {
     emailType: !this.props.action ? EMAIL_TYPE.reply : this.props.action.emailType,
     emailTo: !this.props.action ? [] : this.props.action.emailTo,
-    emailCc: !this.props.action ? "" : this.props.action.emailCc,
+    emailCc: !this.props.action ? [] : this.props.action.emailCc,
     emailBody: !this.props.action ? "" : this.props.action.emailBody,
     reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction
   };
@@ -137,7 +137,7 @@ class EditEmail extends Component {
   };
 
   onEmailCcChange = event => {
-    const newEmailCc = event.target.value;
+    const newEmailCc = event.value;
     this.setState({ emailCc: newEmailCc });
     this.props.onChange({ ...this.state, emailCc: newEmailCc });
   };
@@ -261,21 +261,6 @@ class EditEmail extends Component {
           </div>
           <div>
             <div className="font-weight-bold form-group">
-              <label htmlFor="to-field-old" style={styles.header.titleStyle}>
-                {LOCALIZE.emibTest.inboxPage.emailCommons.to}
-              </label>
-              <span style={styles.header.textFieldBoxPadding}>
-                <input
-                  id="to-field-old"
-                  type="text"
-                  placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
-                  style={styles.header.textField}
-                />
-              </span>
-            </div>
-          </div>
-          <div>
-            <div className="font-weight-bold form-group">
               <label htmlFor="to-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.to}
               </label>
@@ -286,6 +271,7 @@ class EditEmail extends Component {
                   mode="Default"
                   fields={fields}
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
+                  style={styles.header.textField}
                   value={emailTo}
                   change={this.onEmailToChange}
                 />
@@ -298,13 +284,15 @@ class EditEmail extends Component {
                 {LOCALIZE.emibTest.inboxPage.emailCommons.cc}
               </label>
               <span style={styles.header.textFieldBoxPadding}>
-                <input
+                <MultiSelectComponent
                   id="cc-field"
-                  type="text"
+                  dataSource={LOCALIZE.emibTest.emailList}
+                  mode="Default"
+                  fields={fields}
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
                   value={emailCc}
-                  onChange={this.onEmailCcChange}
+                  change={this.onEmailCcChange}
                 />
               </span>
             </div>
