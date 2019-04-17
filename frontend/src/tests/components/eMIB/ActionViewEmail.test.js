@@ -3,6 +3,15 @@ import { shallow } from "enzyme";
 import { UnconnectedActionViewEmail } from "../../../components/eMIB/ActionViewEmail";
 import { EMAIL_TYPE, ACTION_TYPE } from "../../../components/eMIB/constants";
 
+// This constant and the Object.defineProperty are need by syncfusion;
+// see https://stackoverflow.com/questions/54143837/syncfusion-typeerror-cannot-read-property-getrandomvalues-of-undefined-for-un
+const crypto = require("crypto");
+Object.defineProperty(global.self, "crypto", {
+  value: {
+    getRandomValues: arr => crypto.randomBytes(arr.length)
+  }
+});
+
 describe("Response types", () => {
   const reply = <i className="fas fa-reply" />;
   const replyAll = <i className="fas fa-reply-all" />;
@@ -58,8 +67,8 @@ function createWrapper(responseType, cc, deleteEmail) {
     actionType: ACTION_TYPE.email,
     reasonsForAction: "reasons",
     emailType: responseType,
-    emailTo: "to",
-    emailCc: cc,
+    emailTo: ["to"],
+    emailCc: [cc],
     emailBody: "reasons"
   };
 

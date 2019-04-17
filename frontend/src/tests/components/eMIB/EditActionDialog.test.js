@@ -3,6 +3,15 @@ import { shallow, mount } from "enzyme";
 import { UnconnectedEditActionDialog as EditActionDialog } from "../../../components/eMIB/EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE } from "../../../components/eMIB/constants";
 
+// This constant and the Object.defineProperty are need by syncfusion;
+// see https://stackoverflow.com/questions/54143837/syncfusion-typeerror-cannot-read-property-getrandomvalues-of-undefined-for-un
+const crypto = require("crypto");
+Object.defineProperty(global.self, "crypto", {
+  value: {
+    getRandomValues: arr => crypto.randomBytes(arr.length)
+  }
+});
+
 describe("email action type", () => {
   it("renders Add Email dialog", () => {
     testCore(ACTION_TYPE.email, EDIT_MODE.create);
@@ -134,8 +143,8 @@ describe("check status of inputs in task dialog", () => {
 function testMode(actionType, editMode) {
   // constants used to create the Dialog and to check that the values are present in the inputs later
   const reasonsForAction = "reasons";
-  const emailTo = "to";
-  const emailCc = "cc";
+  const emailTo = ["to"];
+  const emailCc = ["cc"];
   const emailBody = "body of email";
   const task = "task";
   const emailType = EMAIL_TYPE.forward;
@@ -168,8 +177,8 @@ function testMode(actionType, editMode) {
 
   if (actionType === ACTION_TYPE.email) {
     //set default values when in "create" mode
-    let valEmailTo = "";
-    let valEmailCc = "";
+    let valEmailTo = [];
+    let valEmailCc = [];
     let valEmailBody = "";
     let valReasonsForAction = "";
     let isReplyChecked = true;
@@ -186,8 +195,18 @@ function testMode(actionType, editMode) {
       isForwardChecked = true;
     }
 
-    expect(wrapper.find("#to-field").props().value).toEqual(valEmailTo);
-    expect(wrapper.find("#cc-field").props().value).toEqual(valEmailCc);
+    expect(
+      wrapper
+        .find("#to-field")
+        .first()
+        .props().value
+    ).toEqual(valEmailTo);
+    expect(
+      wrapper
+        .find("#cc-field")
+        .first()
+        .props().value
+    ).toEqual(valEmailCc);
     expect(wrapper.find("#your-response-text-area").props().value).toEqual(valEmailBody);
     expect(wrapper.find("#reasons-for-action-text-area").props().value).toEqual(
       valReasonsForAction
