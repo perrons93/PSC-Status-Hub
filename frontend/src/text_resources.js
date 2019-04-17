@@ -377,6 +377,14 @@ let LOCALIZE = new LocalizedStrings({
             "This reply will be removed from your test responses. You will not be able to recover your response or reasons for action.",
           description:
             'If you are certain that you want to delete your response, click the "Delete response" button.'
+        },
+        cancelResponseConfirmation: {
+          title: "Are you sure you want to cancel this response?",
+          systemMessageTitle: "Warning!",
+          systemMessageDescription:
+            "Your response will not be saved if you proceed. If you wish to save your answer, you may return to the response. All of your responses can be edited or deleted before submission.",
+          description:
+            'If you do not wish to save the response, click the "Cancel response" button.'
         }
       },
 
@@ -457,6 +465,7 @@ let LOCALIZE = new LocalizedStrings({
       submitTestButton: "Submit test",
       quitTest: "Quit Test",
       returnToTest: "Return to Test",
+      returnToResponse: "Return to response",
       passStatus: "Pass",
       failStatus: "Fail",
       enabled: "Enabled",
@@ -469,6 +478,7 @@ let LOCALIZE = new LocalizedStrings({
         openButton: "open notes"
       },
       cancel: "Cancel",
+      cancelResponse: "Cancel response",
       close: "Close"
     }
   },
@@ -857,6 +867,14 @@ let LOCALIZE = new LocalizedStrings({
             "FR This reply will be removed from your test responses. You will not be able to recover your response or reasons for action.",
           description:
             'FR If you are certain that you want to delete your response, click the "Delete response" button.'
+        },
+        cancelResponseConfirmation: {
+          title: "FR Are you sure you want to cancel this response?",
+          systemMessageTitle: "Avertissement!",
+          systemMessageDescription:
+            "FR Your response will not be saved if you proceed. If you wish to save your answer, you may return to the response. All of your responses can be edited or deleted before submission.",
+          description:
+            'FR If you do not wish to save the response, click the "Cancel response" button.'
         }
       },
 
@@ -938,6 +956,7 @@ let LOCALIZE = new LocalizedStrings({
       submitTestButton: "Envoyer le test",
       quitTest: "Quitter la séance de test",
       returnToTest: "Retourner à la séance",
+      returnToResponse: "Retourner à la réponse",
       passStatus: "Réussi",
       failStatus: "Échoue",
       enabled: "Activé",
@@ -950,6 +969,7 @@ let LOCALIZE = new LocalizedStrings({
         openButton: "ouvrir notes"
       },
       cancel: "Annuler",
+      cancelResponse: "Annuler la réponse",
       close: "Fermer"
     }
   }
