@@ -32,7 +32,7 @@ const styles = {
     tooltipContainer: {
       marginLeft: 6,
       padding: 6,
-      maxWidth: 500,
+      maxWidth: 550,
       borderColor: "#00565E"
     },
     tooltipContent: {
@@ -56,6 +56,16 @@ const styles = {
     icon: {
       color: "#00565E",
       marginTop: "4px"
+    },
+    tooltipContainer: {
+      marginLeft: 6,
+      padding: 6,
+      maxWidth: 360,
+      borderColor: "#00565E"
+    },
+    tooltipContent: {
+      color: "#00565E",
+      margin: 0
     },
     textArea: {
       padding: "6px 12px",
@@ -125,7 +135,7 @@ class EditTask extends Component {
                         {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
                       </p>
                       <p style={styles.tasks.tooltipContent}>
-                        {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
+                        {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart2}
                       </p>
                     </div>
                   </Popover>
@@ -152,7 +162,29 @@ class EditTask extends Component {
               <label htmlFor="reasons-for-action-text-area" style={styles.reasonsForAction.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.reasonsForAction}
               </label>
-              <i className="fas fa-question-circle" style={styles.reasonsForAction.icon} />
+              <OverlayTrigger
+                trigger="focus"
+                placement="right"
+                overlay={
+                  <Popover
+                    id="reasons-for-action-tooltip"
+                    style={styles.reasonsForAction.tooltipContainer}
+                  >
+                    <div>
+                      <p style={styles.reasonsForAction.tooltipContent}>
+                        {LOCALIZE.emibTest.inboxPage.taskContent.reasonsForActionTooltip}
+                      </p>
+                    </div>
+                  </Popover>
+                }
+              >
+                <i
+                  id="reasons-for-action-tooltip"
+                  tabIndex="0"
+                  className="fas fa-question-circle"
+                  style={styles.reasonsForAction.icon}
+                />
+              </OverlayTrigger>
               <textarea
                 id="reasons-for-action-text-area"
                 maxLength="100"
