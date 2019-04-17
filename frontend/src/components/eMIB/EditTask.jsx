@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { OverlayTrigger, Popover } from "react-bootstrap";
 import LOCALIZE from "../../text_resources";
 import { actionShape } from "./constants";
+import "../../css/inbox.css";
 
 const styles = {
   container: {
@@ -24,14 +26,18 @@ const styles = {
     },
     icon: {
       color: "#00565E",
-      marginTop: "4px"
+      marginTop: "4px",
+      width: 15
     },
-    tooltip: {
-      float: "right",
-      border: "1px solid #00565E",
+    tooltipContainer: {
+      marginLeft: 6,
+      padding: 6,
+      maxWidth: 500,
+      borderColor: "#00565E"
+    },
+    tooltipContent: {
       color: "#00565E",
-      width: "75%",
-      margin: "6px 6px 12px 0"
+      margin: 0
     },
     textArea: {
       padding: "6px 12px",
@@ -61,8 +67,6 @@ const styles = {
     }
   }
 };
-
-//TODO: Add tooltip functionality for both task and reasons for action icons
 
 class EditTask extends Component {
   state = {
@@ -111,7 +115,29 @@ class EditTask extends Component {
               <label htmlFor="your-tasks-text-area" style={styles.tasks.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.task}
               </label>
-              <i className="fas fa-question-circle" style={styles.tasks.icon} />
+              <OverlayTrigger
+                trigger="focus"
+                placement="right"
+                overlay={
+                  <Popover id="task-tooltip" style={styles.tasks.tooltipContainer}>
+                    <div>
+                      <p style={styles.tasks.tooltipContent}>
+                        {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
+                      </p>
+                      <p style={styles.tasks.tooltipContent}>
+                        {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
+                      </p>
+                    </div>
+                  </Popover>
+                }
+              >
+                <i
+                  id="task-tooltip"
+                  tabIndex="0"
+                  className="fas fa-question-circle"
+                  style={styles.tasks.icon}
+                />
+              </OverlayTrigger>
               <textarea
                 id="your-tasks-text-area"
                 maxLength="100"
