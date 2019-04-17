@@ -108,22 +108,39 @@ class EditActionDialog extends Component {
     this.setState({ action: updatedAction });
   };
 
-  handleCancelConfirmationDisplay = initialTaskContent => {
+  handleCancelConfirmationDisplay = () => {
     const taskContent = this.state.action.task;
     const reasonsForActionContent = this.state.action.reasonsForAction;
 
-    // verify if some content has been added in at least one of the text areas in this form
+    // First Condition: verify if some content has been added in at least one of the text areas in this form
     if (typeof taskContent !== "undefined" || typeof reasonsForActionContent !== "undefined") {
-      // verify if the content of at least one of the text areas is greater than 0
-      if (taskContent.length > 0 || reasonsForActionContent.length > 0) {
-        // if these two conditions are true, that means the candidate added content in this form, so display the cancel confirmation message
-        this.setState({ showCancelConfirmationDialog: true });
+      // initial action values are not undefined
+      if (typeof this.props.action !== "undefined") {
+        const initialTaskContent = this.props.action.task;
+        const initialReasonsForActionContent = this.props.action.reasonsForAction;
+
+        // if the task content is undefined = same content
+        if (typeof taskContent === "undefined") {
+          this.props.handleClose();
+          // if the task content is not undefined and the same value of the initial task content = same content
+        } else if (typeof taskContent !== "undefined" && initialTaskContent === taskContent) {
+          this.props.handleClose();
+          // if the task content is not the same as the initial task content = content has been updated ==> display cancel confirmation message
+        } else if (initialTaskContent !== taskContent) {
+          this.setState({ showCancelConfirmationDialog: true });
+        }
       } else {
-        // if the second condition is false, close the form without any warning message
-        this.props.handleClose();
+        // verify if the content of at least one of the text areas is greater than 0
+        if (taskContent.length > 0 || reasonsForActionContent.length > 0) {
+          // if these two conditions are true, that means the candidate added content in this form, so display the cancel confirmation message
+          this.setState({ showCancelConfirmationDialog: true });
+        } else {
+          // if the second condition is false, close the form without any warning message
+          this.props.handleClose();
+        }
       }
     } else {
-      // if the first condition is false, close the form without any warning message
+      // if the 'First Condition' is false, close the form without any warning message
       this.props.handleClose();
     }
   };
