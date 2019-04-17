@@ -112,8 +112,6 @@ class EditActionDialog extends Component {
     const taskContent = this.state.action.task;
     const reasonsForActionContent = this.state.action.reasonsForAction;
 
-    console.log(initialTaskContent);
-
     // verify if some content has been added in at least one of the text areas in this form
     if (typeof taskContent !== "undefined" || typeof reasonsForActionContent !== "undefined") {
       // verify if the content of at least one of the text areas is greater than 0
