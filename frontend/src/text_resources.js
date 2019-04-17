@@ -368,7 +368,11 @@ let LOCALIZE = new LocalizedStrings({
         },
         taskContent: {
           task: "Your task(s):",
-          reasonsForAction: "Your reasons for action:"
+          taskTooltipPart1: "An action you intend to take to address a situation in the emails.",
+          taskTooltipPart2: "Example: Planning a meeting, asking a colleague for information.",
+          reasonsForAction: "Your reasons for action:",
+          reasonsForActionTooltip:
+            "Here, you can explain why you took a specific action in response to a situation if you feel you need to provide additional information"
         },
         deleteResponseConfirmation: {
           title: "Are you sure you want to delete this response?",
@@ -445,7 +449,9 @@ let LOCALIZE = new LocalizedStrings({
       reasonsForActionDetails: "reasons for action details",
       taskDetails: "task details",
       emailOptions: "email options",
-      taskOptions: "task options"
+      taskOptions: "task options",
+      taskTooltip: "task tooltip",
+      reasonsForActionTooltip: "reasons for action tooltip"
     },
 
     //Commons
@@ -858,7 +864,11 @@ let LOCALIZE = new LocalizedStrings({
         },
         taskContent: {
           task: "FR Your task(s):",
-          reasonsForAction: "FR Your reasons for action:"
+          taskTooltipPart1: "FR An action you intend to take to address a situation in the emails.",
+          taskTooltipPart2: "FR Example: Planning a meeting, asking a colleague for information.",
+          reasonsForAction: "FR Your reasons for action:",
+          reasonsForActionTooltip:
+            "FR Here, you can explain why you took a specific action in response to a situation if you feel you need to provide additional information"
         },
         deleteResponseConfirmation: {
           title: "FR Are you sure you want to delete this response?",
@@ -936,7 +946,9 @@ let LOCALIZE = new LocalizedStrings({
       reasonsForActionDetails: "motifs de l'action",
       taskDetails: "détails sur la ou les tâches",
       emailOptions: "options de messagerie",
-      taskOptions: "options de tâche"
+      taskOptions: "options de tâche",
+      taskTooltip: "infobulle de tâche",
+      reasonsForActionTooltip: "infobulle des motifs de l'action"
     },
 
     //Commons
