@@ -9,8 +9,8 @@ import "../../css/inbox.css";
 // that can be entered into two text areas
 // and are used to display <x>/<MAX>
 // under the text areas
-const MAX_TASK = "500";
-const MAX_REASON = "500";
+const MAX_TASK = "650";
+const MAX_REASON = "650";
 
 const styles = {
   container: {
