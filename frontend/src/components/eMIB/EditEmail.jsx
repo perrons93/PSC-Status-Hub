@@ -7,8 +7,8 @@ import { EMAIL_TYPE, actionShape } from "./constants";
 // that can be entered into two text areas
 // and are used to display <x>/<MAX>
 // under the text areas
-const MAX_RESPONSE = "500";
-const MAX_REASON = "100";
+const MAX_RESPONSE = "2500";
+const MAX_REASON = "500";
 
 const styles = {
   container: {
