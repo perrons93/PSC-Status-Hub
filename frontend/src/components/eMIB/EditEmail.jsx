@@ -18,8 +18,8 @@ const styles = {
   },
   header: {
     responseTypeIcons: {
-      margin: "0 8px",
-      padding: 3,
+      marginRight: 10,
+      padding: 6,
       border: "1px solid #00565E",
       borderRadius: 4,
       cursor: "pointer"
@@ -41,38 +41,43 @@ const styles = {
     },
     radioTextUnselected: {
       fontWeight: "normal",
-      cursor: "pointer"
+      cursor: "pointer",
+      paddingRight: 20
     },
     radioTextSelected: {
       fontWeight: "bold",
       textDecoration: "underline",
-      cursor: "pointer"
+      cursor: "pointer",
+      paddingRight: 20
     },
     textFieldBoxPadding: {
       padding: "0 6px"
     },
     textField: {
       padding: "4px 12px",
+      marginRight: 6,
       border: "1px solid #00565E",
       borderRadius: 4,
-      width: "calc(100% - 40px)"
+      width: "calc(100% - 46px)"
     },
-    title: {
+    fieldsetLegend: {
       fontSize: 16,
       marginBottom: 12,
-      marginTop: 12
+      marginTop: 12,
+      paddingTop: 12
     },
     titleStyle: {
       float: "left",
       width: 28,
       height: 32,
-      lineHeight: "2.1em"
+      lineHeight: "2.1em",
+      paddingRight: 4
     }
   },
   response: {
     textArea: {
       padding: "6px 12px",
-      margin: "0 6px",
+      marginRight: 6,
       border: "1px solid #00565E",
       borderRadius: 4,
       width: "calc(100% - 12px)",
@@ -82,15 +87,16 @@ const styles = {
   },
   textCounter: {
     width: "100%",
-    textAlign: "right"
+    textAlign: "right",
+    paddingRight: 14
   },
   hr: {
-    margin: "12px 0 6px 0"
+    margin: "12px 0"
   },
   reasonsForAction: {
     textArea: {
       padding: "6px 12px",
-      margin: "0 6px",
+      marginRight: 6,
       border: "1px solid #00565E",
       borderRadius: 4,
       width: "calc(100% - 12px)",
@@ -155,7 +161,7 @@ class EditEmail extends Component {
         <form>
           <div>
             <fieldset>
-              <legend className="font-weight-bold" style={styles.header.title}>
+              <legend className="font-weight-bold" style={styles.header.fieldsetLegend}>
                 {LOCALIZE.emibTest.inboxPage.addEmailResponse.selectResponseType}
               </legend>
               <div style={styles.header.radioButtonZone} className="radio-button-hover">
