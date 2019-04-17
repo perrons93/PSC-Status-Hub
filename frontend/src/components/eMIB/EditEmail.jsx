@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { EMAIL_TYPE, actionShape } from "./constants";
+import { MultiSelectComponent } from "@syncfusion/ej2-react-dropdowns";
 
 // These two consts limit the number of characters
 // that can be entered into two text areas
@@ -9,6 +10,20 @@ import { EMAIL_TYPE, actionShape } from "./constants";
 // under the text areas
 const MAX_RESPONSE = "500";
 const MAX_REASON = "100";
+
+const fields = { text: "Game", value: "Id" };
+const sportsData = [
+  { Id: "Game1", Game: "American Football" },
+  { Id: "Game2", Game: "Badminton" },
+  { Id: "Game3", Game: "Basketball" },
+  { Id: "Game4", Game: "Cricket" },
+  { Id: "Game5", Game: "Football" },
+  { Id: "Game6", Game: "Golf" },
+  { Id: "Game7", Game: "Hockey" },
+  { Id: "Game8", Game: "Rugby" },
+  { Id: "Game9", Game: "Snooker" },
+  { Id: "Game10", Game: "Tennis" }
+];
 
 const styles = {
   container: {
@@ -266,6 +281,24 @@ class EditEmail extends Component {
                   type="text"
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
+                  value={emailTo}
+                  onChange={this.onEmailToChange}
+                />
+              </span>
+            </div>
+          </div>
+          <div>
+            <div className="font-weight-bold form-group">
+              <label htmlFor="to-field" style={styles.header.titleStyle}>
+                {LOCALIZE.emibTest.inboxPage.emailCommons.to}
+              </label>
+              <span style={styles.header.textFieldBoxPadding}>
+                <MultiSelectComponent
+                  id="to-field"
+                  dataSource={sportsData}
+                  mode="Delimiter"
+                  fields={fields}
+                  placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   value={emailTo}
                   onChange={this.onEmailToChange}
                 />

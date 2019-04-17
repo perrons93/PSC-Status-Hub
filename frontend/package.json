@@ -21,7 +21,8 @@
     "redux-thunk": "^2.3.0",
     "react-medium-image-zoom": "^3.0.15",
     "prop-types": "^15.5.8",
-    "react-textarea-autosize": "^7.1.0"
+    "react-textarea-autosize": "^7.1.0",
+    "@syncfusion/ej2-react-dropdowns": "17.1.41"
   },
   "resolutions": {
     "mem": ">=4.3.0",
