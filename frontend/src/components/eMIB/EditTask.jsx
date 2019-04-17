@@ -12,7 +12,7 @@ const MAX_REASON = "100";
 
 const styles = {
   container: {
-    maxHeight: "calc(100vh - 300px)",
+    maxHeight: "calc(100vh - 297px)",
     overflow: "auto",
     width: 500
   },
