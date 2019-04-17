@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { EMAIL_TYPE, actionShape } from "./constants";
 import { MultiSelectComponent } from "@syncfusion/ej2-react-dropdowns";
+import "../../css/ej2-react-dropdowns.css";
 
 // These two consts limit the number of characters
 // that can be entered into two text areas
