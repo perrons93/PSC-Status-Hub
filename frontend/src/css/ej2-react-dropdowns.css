@@ -1,3 +1,4 @@
+/* copied from "../node_modules/@syncfusion/ej2-react-dropdowns/styles/material.css"*/
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
 .e-dropdownbase .e-list-item .e-list-icon {
   padding: 0 16px 0 0;
@@ -72,7 +73,8 @@
 .e-popup.e-ddl .e-dropdownbase.e-nodata {
   color: #000;
   cursor: default;
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system",
+    "BlinkMacSystemFont";
   font-size: 14px;
   padding: 14px 16px;
   text-align: center;
@@ -96,7 +98,8 @@
   border-bottom: 0;
   border-color: #fff;
   color: rgba(0, 0, 0, 0.87);
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system",
+    "BlinkMacSystemFont";
   font-size: 13px;
   line-height: 36px;
   min-height: 36px;
@@ -109,7 +112,8 @@
   background-color: #fff;
   border-color: #fff;
   color: rgba(0, 0, 0, 0.54);
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system",
+    "BlinkMacSystemFont";
   font-size: 13px;
   font-weight: 600;
   line-height: 36px;
@@ -170,7 +174,8 @@
   border-style: solid;
   border-width: 0 0 1px 0;
   color: rgba(0, 0, 0, 0.54);
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system",
+    "BlinkMacSystemFont";
   font-size: 13px;
   font-weight: 600;
   text-indent: 10px;
@@ -234,7 +239,9 @@
   margin-top: 2px;
 }
 
-.e-bigger .e-popup.e-ddl-device-filter .e-input-group.e-input-focus:not(.e-success):not(.e-warning):not(.e-error) {
+.e-bigger
+  .e-popup.e-ddl-device-filter
+  .e-input-group.e-input-focus:not(.e-success):not(.e-warning):not(.e-error) {
   border-color: #e0e0e0;
 }
 
@@ -278,23 +285,25 @@
   background: transparent;
 }
 
-.e-ddl.e-ddl-device.e-ddl-device-filter .e-input-group:hover:not(.e-disabled):not(.e-float-icon-left),
-.e-ddl.e-ddl-device.e-ddl-device-filter .e-input-group.e-control-wrapper:hover:not(.e-disabled):not(.e-float-icon-left) {
+.e-ddl.e-ddl-device.e-ddl-device-filter
+  .e-input-group:hover:not(.e-disabled):not(.e-float-icon-left),
+.e-ddl.e-ddl-device.e-ddl-device-filter
+  .e-input-group.e-control-wrapper:hover:not(.e-disabled):not(.e-float-icon-left) {
   border-bottom-width: 0;
 }
 
 .e-ddl .e-search-icon::before {
-  content: '\e993';
+  content: "\e993";
 }
 
 .e-ddl .e-back-icon::before {
-  content: '\e977';
+  content: "\e977";
   font-size: 20px;
 }
 
 .e-ddl.e-input-group.e-control-wrapper .e-ddl-icon::before {
-  content: '\e969';
-  font-family: 'e-icons';
+  content: "\e969";
+  font-family: "e-icons";
 }
 
 .e-bigger .e-input-group.e-ddl .e-input-filter,
@@ -326,7 +335,7 @@
 }
 
 .e-ddl.e-control-wrapper .e-ddl-disable-icon::before {
-  content: '';
+  content: "";
 }
 
 .e-bigger .e-ddl-device .e-input-group {
@@ -374,7 +383,7 @@
 
 .e-ddl.e-popup .e-search-icon {
   margin: 0;
-  opacity: .57;
+  opacity: 0.57;
   padding: 12px 8px 8px;
 }
 
@@ -429,7 +438,8 @@
 
 .e-ddl.e-input-group .e-input-value,
 .e-ddl.e-input-group .e-input-value:focus {
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system",
+    "BlinkMacSystemFont";
   font-size: 14px;
   height: auto;
   margin: 0;
@@ -459,12 +469,12 @@ ejs-dropdownlist {
 }
 
 .e-multiselect.e-input-group .e-ddl-icon::before {
-  content: '\e969';
-  font-family: 'e-icons';
+  content: "\e969";
+  font-family: "e-icons";
 }
 
 .e-multi-select-wrapper .e-chips .e-chips-close::before {
-  content: '\e7e9';
+  content: "\e7e9";
   cursor: pointer;
   left: 0;
   position: relative;
@@ -472,7 +482,7 @@ ejs-dropdownlist {
 }
 
 .e-multi-select-wrapper .e-close-hooker::before {
-  content: '\e7a7';
+  content: "\e7a7";
   cursor: pointer;
   left: 6px;
   position: relative;
@@ -480,7 +490,7 @@ ejs-dropdownlist {
 }
 
 .e-multiselect.e-input-group .e-ddl-disable-icon::before {
-  content: '';
+  content: "";
 }
 
 .e-multi-select-wrapper {
@@ -491,9 +501,9 @@ ejs-dropdownlist {
   padding: 0 32px 0 0;
   position: relative;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   width: 100%;
 }
 
@@ -511,7 +521,8 @@ ejs-dropdownlist {
   white-space: nowrap;
 }
 
-.e-multi-select-wrapper .e-delim-view.e-delim-values.e-delim-overflow, .e-multi-select-wrapper .e-delim-view.e-delim-values.e-delim-total {
+.e-multi-select-wrapper .e-delim-view.e-delim-values.e-delim-overflow,
+.e-multi-select-wrapper .e-delim-view.e-delim-values.e-delim-total {
   box-sizing: border-box;
   display: inline-block;
   overflow: hidden;
@@ -535,7 +546,7 @@ ejs-dropdownlist {
   width: 0;
 }
 
-.e-multi-select-wrapper .e-searcher.e-zero-size:not(.e-multiselect-box) input[type='text'] {
+.e-multi-select-wrapper .e-searcher.e-zero-size:not(.e-multiselect-box) input[type="text"] {
   height: 1px;
   min-height: 1px;
 }
@@ -567,7 +578,7 @@ ejs-dropdownlist {
 
 .e-multi-select-wrapper .e-chips {
   -ms-flex-align: center;
-      align-items: center;
+  align-items: center;
   display: -ms-inline-flexbox;
   display: inline-flex;
   float: left;
@@ -609,11 +620,11 @@ ejs-dropdownlist {
 
 .e-multi-select-wrapper .e-chips-close {
   -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
   display: -ms-flexbox;
   display: flex;
   float: right;
-  font-family: 'e-icons';
+  font-family: "e-icons";
   height: 16px;
   margin: 0 0 0;
   width: 16px;
@@ -642,10 +653,11 @@ ejs-dropdownlist {
   margin-top: -3em;
 }
 
-.e-multi-select-wrapper input[type='text'] {
+.e-multi-select-wrapper input[type="text"] {
   background: none;
   border: 0;
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system",
+    "BlinkMacSystemFont";
   font-size: 13px;
   font-weight: 400;
   height: 28px;
@@ -655,18 +667,18 @@ ejs-dropdownlist {
   text-indent: 0;
 }
 
-.e-bigger .e-multi-select-wrapper input[type='text'],
-.e-multi-select-wrapper.e-mob-wrapper input[type='text'] {
+.e-bigger .e-multi-select-wrapper input[type="text"],
+.e-multi-select-wrapper.e-mob-wrapper input[type="text"] {
   height: 28px;
   min-height: 28px;
 }
 
-.e-bigger .e-multi-select-wrapper input[type='text'] {
+.e-bigger .e-multi-select-wrapper input[type="text"] {
   height: 34px;
   min-height: 34px;
 }
 
-.e-multi-select-wrapper input[type='text']::-ms-clear {
+.e-multi-select-wrapper input[type="text"]::-ms-clear {
   display: none;
 }
 
@@ -677,7 +689,8 @@ ejs-dropdownlist {
 }
 
 .e-multi-select-wrapper .e-delim-values {
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system",
+    "BlinkMacSystemFont";
   font-size: 14px;
   line-height: 28px;
   max-width: 100%;
@@ -719,7 +732,7 @@ ejs-dropdownlist {
 
 .e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected {
   -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
   box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.21);
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -728,7 +741,7 @@ ejs-dropdownlist {
 }
 
 .e-multi-select-wrapper .e-ddl-disable-icon::before {
-  content: '';
+  content: "";
 }
 
 .e-multiselect.e-rtl .e-multi-select-wrapper.e-delimiter .e-searcher {
@@ -743,7 +756,10 @@ ejs-dropdownlist {
   padding: 0 2px 0 32px;
 }
 
-.e-multiselect.e-rtl .e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected .e-chips-close::before {
+.e-multiselect.e-rtl
+  .e-multi-select-wrapper
+  .e-chips.e-mob-chip.e-chip-selected
+  .e-chips-close::before {
   left: -12px;
 }
 
@@ -850,7 +866,8 @@ ejs-dropdownlist {
 
 .e-multi-select-list-wrapper .e-selectall-parent .e-all-text {
   color: rgba(0, 0, 0, 0.87);
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system",
+    "BlinkMacSystemFont";
   font-size: 14px;
 }
 
@@ -903,7 +920,10 @@ ejs-dropdownlist {
 }
 
 .e-ddl.e-popup.e-multi-select-list-wrapper .e-filter-parent .e-input-filter,
-.e-ddl.e-popup.e-multi-select-list-wrapper .e-filter-parent .e-input-group.e-input-focus .e-input-filter {
+.e-ddl.e-popup.e-multi-select-list-wrapper
+  .e-filter-parent
+  .e-input-group.e-input-focus
+  .e-input-filter {
   padding: 8px;
 }
 
@@ -933,14 +953,14 @@ ejs-dropdownlist {
 }
 
 .e-popup.e-multi-select-list-wrapper .e-list-item.e-disable .e-checkbox-wrapper .e-frame {
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .e-popup.e-multi-select-list-wrapper .e-list-item.e-disable {
-  opacity: .7;
+  opacity: 0.7;
 }
 
-.e-multi-select-wrapper input[readonly='true'] {
+.e-multi-select-wrapper input[readonly="true"] {
   pointer-events: none;
 }
 
@@ -970,7 +990,8 @@ ejs-multiselect {
 
 .e-multi-select-wrapper .e-chips > .e-chipcontent {
   color: rgba(0, 0, 0, 0.87);
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system",
+    "BlinkMacSystemFont";
   font-size: 13px;
 }
 
@@ -1102,27 +1123,27 @@ ejs-multiselect {
 }
 
 .e-listbox-tool .e-moveup::before {
-  content: '\e651';
+  content: "\e651";
 }
 
 .e-listbox-tool .e-movedown::before {
-  content: '\e652';
+  content: "\e652";
 }
 
 .e-listbox-tool .e-moveto::before {
-  content: '\e653';
+  content: "\e653";
 }
 
 .e-listbox-tool .e-movefrom::before {
-  content: '\e654';
+  content: "\e654";
 }
 
 .e-listbox-tool .e-moveallto::before {
-  content: '\e655';
+  content: "\e655";
 }
 
 .e-listbox-tool .e-moveallfrom::before {
-  content: '\e656';
+  content: "\e656";
 }
 
 .e-listbox-wrapper {
@@ -1133,9 +1154,9 @@ ejs-multiselect {
   overflow: auto;
   position: relative;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   width: 100%;
 }
 
@@ -1192,7 +1213,7 @@ ejs-multiselect {
 
 .e-listbox-wrapper .e-list-header {
   -ms-flex-align: center;
-      align-items: center;
+  align-items: center;
   border-bottom: 1px solid;
   display: -ms-flexbox;
   display: flex;
@@ -1256,7 +1277,11 @@ ejs-multiselect {
   width: calc(100% - 80px);
 }
 
-.e-listbox-wrapper .e-list-item.e-checklist.e-has-child .e-text-content.e-checkbox.e-checkbox-right .e-list-icon + .e-list-text {
+.e-listbox-wrapper
+  .e-list-item.e-checklist.e-has-child
+  .e-text-content.e-checkbox.e-checkbox-right
+  .e-list-icon
+  + .e-list-text {
   width: calc(100% - 92px);
 }
 
@@ -1353,7 +1378,7 @@ ejs-multiselect {
 
 .e-listbox-wrapper .e-list-item .e-list-badge {
   -ms-flex-align: center;
-      align-items: center;
+  align-items: center;
   background-color: #e3165b;
   border: 1px solid #fff;
   border-radius: 50%;
@@ -1363,7 +1388,7 @@ ejs-multiselect {
   font-size: 12px;
   height: 22px;
   -ms-flex-pack: center;
-      justify-content: center;
+  justify-content: center;
   position: absolute;
   right: -10px;
   top: -10px;
@@ -1418,7 +1443,7 @@ ejs-listbox {
 
 .e-listboxtool-wrapper .e-listbox-wrapper {
   -ms-flex: 1;
-      flex: 1;
+  flex: 1;
 }
 
 .e-listboxtool-wrapper.e-right .e-listbox-tool {
@@ -1480,7 +1505,7 @@ ejs-listbox {
 .e-bigger .e-listbox-wrapper .e-list-header,
 .e-listbox-wrapper.e-bigger .e-list-header {
   -ms-flex-align: center;
-      align-items: center;
+  align-items: center;
   display: -ms-flexbox;
   display: flex;
   font-weight: bold;
@@ -1504,7 +1529,8 @@ ejs-listbox {
 
 .e-listbox-wrapper {
   border: 1px solid #e0e0e0;
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system",
+    "BlinkMacSystemFont";
   font-size: 15px;
 }
 
@@ -1609,7 +1635,9 @@ ejs-listbox {
   word-wrap: break-word;
 }
 
-.e-listbox-wrapper.e-list-template .e-list-wrapper.e-list-multi-line .e-list-content:not(.e-text-overflow) {
+.e-listbox-wrapper.e-list-template
+  .e-list-wrapper.e-list-multi-line
+  .e-list-content:not(.e-text-overflow) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1633,7 +1661,9 @@ ejs-listbox {
   padding-right: 4.8em;
 }
 
-.e-listbox-wrapper.e-list-template .e-list-wrapper.e-list-avatar-right:not(.e-list-badge) .e-avatar {
+.e-listbox-wrapper.e-list-template
+  .e-list-wrapper.e-list-avatar-right:not(.e-list-badge)
+  .e-avatar {
   height: 2.6667em;
   position: absolute;
   right: 1.0667em;
@@ -1645,7 +1675,9 @@ ejs-listbox {
   top: 1.0666em;
 }
 
-.e-listbox-wrapper.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar-right:not(.e-list-badge) .e-avatar {
+.e-listbox-wrapper.e-list-template
+  .e-list-wrapper.e-list-multi-line.e-list-avatar-right:not(.e-list-badge)
+  .e-avatar {
   top: 1.0666em;
 }
 
@@ -1711,7 +1743,9 @@ ejs-listbox {
   padding-right: 1.0666em;
 }
 
-.e-listbox-wrapper.e-rtl.e-list-template .e-list-wrapper.e-list-avatar-right:not(.e-list-badge) .e-avatar {
+.e-listbox-wrapper.e-rtl.e-list-template
+  .e-list-wrapper.e-list-avatar-right:not(.e-list-badge)
+  .e-avatar {
   left: 1.0667em;
   right: inherit;
 }
