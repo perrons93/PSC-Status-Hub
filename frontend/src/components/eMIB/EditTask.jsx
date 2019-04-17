@@ -27,7 +27,8 @@ const styles = {
     icon: {
       color: "#00565E",
       marginTop: "4px",
-      width: 15
+      width: 15,
+      cursor: "pointer"
     },
     tooltipContainer: {
       marginLeft: 6,
@@ -55,7 +56,8 @@ const styles = {
     },
     icon: {
       color: "#00565E",
-      marginTop: "4px"
+      marginTop: "4px",
+      cursor: "pointer"
     },
     tooltipContainer: {
       marginLeft: 6,
