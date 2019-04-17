@@ -130,7 +130,7 @@ class EditEmail extends Component {
 
   state = {
     emailType: !this.props.action ? EMAIL_TYPE.reply : this.props.action.emailType,
-    emailTo: !this.props.action ? "" : this.props.action.emailTo,
+    emailTo: !this.props.action ? [] : this.props.action.emailTo,
     emailCc: !this.props.action ? "" : this.props.action.emailCc,
     emailBody: !this.props.action ? "" : this.props.action.emailBody,
     reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction
@@ -143,7 +143,7 @@ class EditEmail extends Component {
   };
 
   onEmailToChange = event => {
-    const newEmailTo = event.target.value;
+    const newEmailTo = event.value;
     this.setState({ emailTo: newEmailTo });
     this.props.onChange({ ...this.state, emailTo: newEmailTo });
   };
@@ -273,17 +273,15 @@ class EditEmail extends Component {
           </div>
           <div>
             <div className="font-weight-bold form-group">
-              <label htmlFor="to-field" style={styles.header.titleStyle}>
+              <label htmlFor="to-field-old" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.to}
               </label>
               <span style={styles.header.textFieldBoxPadding}>
                 <input
-                  id="to-field"
+                  id="to-field-old"
                   type="text"
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   style={styles.header.textField}
-                  value={emailTo}
-                  onChange={this.onEmailToChange}
                 />
               </span>
             </div>
@@ -297,11 +295,11 @@ class EditEmail extends Component {
                 <MultiSelectComponent
                   id="to-field"
                   dataSource={sportsData}
-                  mode="Delimiter"
+                  mode="Default"
                   fields={fields}
                   placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
                   value={emailTo}
-                  onChange={this.onEmailToChange}
+                  change={this.onEmailToChange}
                 />
               </span>
             </div>
