@@ -6,6 +6,8 @@ import LOCALIZE from "../../text_resources";
 import EditEmail from "./EditEmail";
 import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
+import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
+import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
 import {
   addEmail,
@@ -72,7 +74,8 @@ class EditActionDialog extends Component {
   };
 
   state = {
-    action: {}
+    action: {},
+    showCancelConfirmationDialog: false
   };
 
   handleSave = () => {
@@ -105,11 +108,19 @@ class EditActionDialog extends Component {
     this.setState({ action: updatedAction });
   };
 
+  showCancelConfirmationDialog = () => {
+    this.setState({ showCancelConfirmationDialog: true });
+  };
+
+  closeCancelConfirmationDialog = () => {
+    this.setState({ showCancelConfirmationDialog: false });
+  };
+
   render() {
     const { showDialog, handleClose, actionType, editMode } = this.props;
     return (
       <div>
-        <Modal show={showDialog} onHide={handleClose}>
+        <Modal show={showDialog} onHide={this.showCancelConfirmationDialog}>
           <div>
             <Modal.Header style={styles.modalHeader}>
               {
@@ -123,7 +134,10 @@ class EditActionDialog extends Component {
                         {editMode === EDIT_MODE.update &&
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
                       </h3>
-                      <button onClick={handleClose} style={styles.closeButton}>
+                      <button
+                        onClick={this.showCancelConfirmationDialog}
+                        style={styles.closeButton}
+                      >
                         <i className="fas fa-times" />
                       </button>
                     </div>
@@ -137,7 +151,10 @@ class EditActionDialog extends Component {
                         {editMode === EDIT_MODE.update &&
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
                       </h3>
-                      <button onClick={handleClose} style={styles.closeButton}>
+                      <button
+                        onClick={this.showCancelConfirmationDialog}
+                        style={styles.closeButton}
+                      >
                         <i className="fas fa-times" />
                       </button>
                     </div>
@@ -178,6 +195,35 @@ class EditActionDialog extends Component {
             </Modal.Footer>
           </div>
         </Modal>
+        {this.state.showCancelConfirmationDialog && (
+          <PopupBox
+            show={this.state.showCancelConfirmationDialog}
+            handleClose={this.closeCancelConfirmationDialog}
+            title={LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation.title}
+            description={
+              <div>
+                <div>
+                  <SystemMessage
+                    messageType={MESSAGE_TYPE.error}
+                    title={
+                      LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation.systemMessageTitle
+                    }
+                    message={
+                      LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation
+                        .systemMessageDescription
+                    }
+                  />
+                </div>
+                <div>{LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation.description}</div>
+              </div>
+            }
+            leftButtonType={BUTTON_TYPE.danger}
+            leftButtonTitle={LOCALIZE.commons.cancelResponse}
+            leftButtonAction={handleClose}
+            rightButtonType={BUTTON_TYPE.primary}
+            rightButtonTitle={LOCALIZE.commons.returnToResponse}
+          />
+        )}
       </div>
     );
   }
