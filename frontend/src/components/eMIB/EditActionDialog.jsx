@@ -108,10 +108,6 @@ class EditActionDialog extends Component {
     this.setState({ action: updatedAction });
   };
 
-  handleClose = () => {
-    this.setState({ showCancelConfirmationDialog: true });
-  };
-
   showCancelConfirmationDialog = () => {
     this.setState({ showCancelConfirmationDialog: true });
   };
@@ -124,98 +120,108 @@ class EditActionDialog extends Component {
     const { showDialog, handleClose, actionType, editMode } = this.props;
     return (
       <div>
-        {!this.state.showCancelConfirmationDialog && (
-          <Modal show={showDialog} onHide={this.handleClose}>
-            <div>
-              <Modal.Header style={styles.modalHeader}>
-                {
-                  <div style={styles.fullWidth}>
-                    {actionType === ACTION_TYPE.email && (
-                      <div style={styles.fullWidth}>
-                        <i style={styles.icon} className="fas fa-envelope" />
-                        <h3 style={styles.dialogHeaderText}>
-                          {editMode === EDIT_MODE.create &&
-                            LOCALIZE.emibTest.inboxPage.editActionDialog.addEmail}
-                          {editMode === EDIT_MODE.update &&
-                            LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
-                        </h3>
-                        <button onClick={handleClose} style={styles.closeButton}>
-                          <i className="fas fa-times" />
-                        </button>
-                      </div>
-                    )}
-                    {actionType === ACTION_TYPE.task && (
-                      <div style={styles.fullWidth}>
-                        <i style={styles.icon} className="fas fa-tasks" />
-                        <h3 style={styles.dialogHeaderText}>
-                          {editMode === EDIT_MODE.create &&
-                            LOCALIZE.emibTest.inboxPage.editActionDialog.addTask}
-                          {editMode === EDIT_MODE.update &&
-                            LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
-                        </h3>
-                        <button onClick={handleClose} style={styles.closeButton}>
-                          <i className="fas fa-times" />
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                }
-              </Modal.Header>
-              <Modal.Body style={styles.modalBody}>
-                {actionType === ACTION_TYPE.email && (
-                  <EditEmail
-                    onChange={this.editAction}
-                    action={editMode === EDIT_MODE.update ? this.props.action : null}
-                  />
-                )}
-                {actionType === ACTION_TYPE.task && (
-                  <EditTask
-                    emailNumber={this.props.emailId}
-                    emailSubject={this.props.emailSubject}
-                    onChange={this.editAction}
-                    action={editMode === EDIT_MODE.update ? this.props.action : null}
-                  />
-                )}
-              </Modal.Body>
-              <Modal.Footer>
-                <div>
-                  <div>
-                    <button
-                      id="unit-test-email-response-button"
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={this.handleSave}
-                      disabled={!this.props.showDialog}
-                    >
-                      {LOCALIZE.emibTest.inboxPage.editActionDialog.save}
-                    </button>
-                  </div>
+        <Modal show={showDialog} onHide={this.showCancelConfirmationDialog}>
+          <div>
+            <Modal.Header style={styles.modalHeader}>
+              {
+                <div style={styles.fullWidth}>
+                  {actionType === ACTION_TYPE.email && (
+                    <div style={styles.fullWidth}>
+                      <i style={styles.icon} className="fas fa-envelope" />
+                      <h3 style={styles.dialogHeaderText}>
+                        {editMode === EDIT_MODE.create &&
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.addEmail}
+                        {editMode === EDIT_MODE.update &&
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
+                      </h3>
+                      <button
+                        onClick={this.showCancelConfirmationDialog}
+                        style={styles.closeButton}
+                      >
+                        <i className="fas fa-times" />
+                      </button>
+                    </div>
+                  )}
+                  {actionType === ACTION_TYPE.task && (
+                    <div style={styles.fullWidth}>
+                      <i style={styles.icon} className="fas fa-tasks" />
+                      <h3 style={styles.dialogHeaderText}>
+                        {editMode === EDIT_MODE.create &&
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.addTask}
+                        {editMode === EDIT_MODE.update &&
+                          LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
+                      </h3>
+                      <button
+                        onClick={this.showCancelConfirmationDialog}
+                        style={styles.closeButton}
+                      >
+                        <i className="fas fa-times" />
+                      </button>
+                    </div>
+                  )}
                 </div>
-              </Modal.Footer>
-            </div>
-          </Modal>
-        )}
+              }
+            </Modal.Header>
+            <Modal.Body style={styles.modalBody}>
+              {actionType === ACTION_TYPE.email && (
+                <EditEmail
+                  onChange={this.editAction}
+                  action={editMode === EDIT_MODE.update ? this.props.action : null}
+                />
+              )}
+              {actionType === ACTION_TYPE.task && (
+                <EditTask
+                  emailNumber={this.props.emailId}
+                  emailSubject={this.props.emailSubject}
+                  onChange={this.editAction}
+                  action={editMode === EDIT_MODE.update ? this.props.action : null}
+                />
+              )}
+            </Modal.Body>
+            <Modal.Footer>
+              <div>
+                <div>
+                  <button
+                    id="unit-test-email-response-button"
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={this.handleSave}
+                    disabled={!this.props.showDialog}
+                  >
+                    {LOCALIZE.emibTest.inboxPage.editActionDialog.save}
+                  </button>
+                </div>
+              </div>
+            </Modal.Footer>
+          </div>
+        </Modal>
         {this.state.showCancelConfirmationDialog && (
           <PopupBox
             show={this.state.showCancelConfirmationDialog}
             handleClose={this.closeCancelConfirmationDialog}
-            title={"TITLE"}
+            title={LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation.title}
             description={
               <div>
                 <div>
                   <SystemMessage
                     messageType={MESSAGE_TYPE.error}
-                    title={"TITLE"}
-                    message={"Message here..."}
+                    title={
+                      LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation.systemMessageTitle
+                    }
+                    message={
+                      LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation
+                        .systemMessageDescription
+                    }
                   />
                 </div>
+                <div>{LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation.description}</div>
               </div>
             }
             leftButtonType={BUTTON_TYPE.danger}
-            leftButtonTitle={"Cancel response"}
+            leftButtonTitle={LOCALIZE.commons.cancelResponse}
             leftButtonAction={handleClose}
             rightButtonType={BUTTON_TYPE.primary}
-            rightButtonTitle={"Return to response"}
+            rightButtonTitle={LOCALIZE.commons.returnToResponse}
           />
         )}
       </div>
