@@ -267,39 +267,7 @@ class EditEmail extends Component {
                   id="to-field"
                   multiselect
                   name="Toooo"
-                  options={[
-                    {
-                      text: "Danny McBride",
-                      value: "dannyMcbride",
-                      markup: <span>Danny McBride</span>
-                    },
-                    {
-                      text: "Serge Duplessis",
-                      value: "sergeDuplessis",
-                      markup: <span>Serge Duplessis</span>
-                    },
-                    {
-                      text: "Marina Richter",
-                      value: "marinaRichter",
-                      markup: <span>Marina Richter</span>
-                    },
-                    {
-                      text: "Mary Woodside",
-                      value: "maryWoodside",
-                      markup: <span>Mary Woodside</span>
-                    },
-                    {
-                      text: "Charlie Wang",
-                      value: "charlieWang",
-                      markup: <span>Charlie Wang</span>
-                    },
-                    {
-                      text: "Jack Laurier",
-                      value: "jackLaurier",
-                      markup: <span>Jack Laurier</span>
-                    },
-                    { text: "Nancy Ward", value: "nancyWard", markup: <span>Nancy Ward</span> }
-                  ]}
+                  options={LOCALIZE.emibTest.emailList}
                   selectedValues={emailTo}
                   //onChange={this.onEmailToChange}
                   //onSubmit={this.onEmailToChange}
@@ -318,41 +286,8 @@ class EditEmail extends Component {
                   id="cc-field"
                   multiselect
                   name="CCcccccccc"
-                  options={[
-                    {
-                      text: "Danny McBride",
-                      value: "dannyMcbride",
-                      markup: <span>Danny McBride</span>
-                    },
-                    {
-                      text: "Serge Duplessis",
-                      value: "sergeDuplessis",
-                      markup: <span>Serge Duplessis</span>
-                    },
-                    {
-                      text: "Marina Richter",
-                      value: "marinaRichter",
-                      markup: <span>Marina Richter</span>
-                    },
-                    {
-                      text: "Mary Woodside",
-                      value: "maryWoodside",
-                      markup: <span>Mary Woodside</span>
-                    },
-                    {
-                      text: "Charlie Wang",
-                      value: "charlieWang",
-                      markup: <span>Charlie Wang</span>
-                    },
-                    {
-                      text: "Jack Laurier",
-                      value: "jackLaurier",
-                      markup: <span>Jack Laurier</span>
-                    },
-                    { text: "Nancy Ward", value: "nancyWard", markup: <span>Nancy Ward</span> }
-                  ]}
+                  options={LOCALIZE.emibTest.emailList}
                   selectedValues={emailCc}
-                  //{LOCALIZE.emibTest.emailList}
                   //onChange={this.onEmailCcChange}
                   //onSubmit={this.onEmailCcChange}
                   //caretIcon={<CaretIcon />}

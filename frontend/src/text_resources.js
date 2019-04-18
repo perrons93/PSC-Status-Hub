@@ -423,13 +423,32 @@ let LOCALIZE = new LocalizedStrings({
         }
       },
       emailList: [
-        { value: "Danny McBride" },
-        { value: "Serge Duplessis" },
-        { value: "Marina Richter" },
-        { value: "Mary Woodside" },
-        { value: "Charlie Wang" },
-        { value: "Jack Laurier" },
-        { value: "Nancy Ward" }
+        { text: "None", value: "null" },
+        {
+          text: "Danny McBride",
+          value: "dannyMcbride"
+        },
+        {
+          text: "Serge Duplessis",
+          value: "sergeDuplessis"
+        },
+        {
+          text: "Marina Richter",
+          value: "marinaRichter"
+        },
+        {
+          text: "Mary Woodside",
+          value: "maryWoodside"
+        },
+        {
+          text: "Charlie Wang",
+          value: "charlieWang"
+        },
+        {
+          text: "Jack Laurier",
+          value: "jackLaurier"
+        },
+        { text: "Nancy Ward", value: "nancyWard" }
       ]
     },
 
@@ -913,13 +932,32 @@ let LOCALIZE = new LocalizedStrings({
         }
       },
       emailList: [
-        { value: "Danny McBride" },
-        { value: "Serge Duplessis" },
-        { value: "Marina Richter" },
-        { value: "Mary Woodside" },
-        { value: "Charlie Wang" },
-        { value: "Jack Laurier" },
-        { value: "Nancy Ward" }
+        { text: "None", value: "null" },
+        {
+          text: "Danny McBride",
+          value: "dannyMcbride"
+        },
+        {
+          text: "Serge Duplessis",
+          value: "sergeDuplessis"
+        },
+        {
+          text: "Marina Richter",
+          value: "marinaRichter"
+        },
+        {
+          text: "Mary Woodside",
+          value: "maryWoodside"
+        },
+        {
+          text: "Charlie Wang",
+          value: "charlieWang"
+        },
+        {
+          text: "Jack Laurier",
+          value: "jackLaurier"
+        },
+        { text: "Nancy Ward", value: "nancyWard" }
       ]
     },
 
