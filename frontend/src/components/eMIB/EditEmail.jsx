@@ -131,11 +131,7 @@ class EditEmail extends Component {
   // Extract just the value
   // This is all that is needed for saving and loading
   getOptionValues(options) {
-    let retArr = [];
-    for (let opt of options) {
-      retArr.push(opt.value);
-    }
-    return retArr;
+    return Array.from(options, opt => opt.value);
   }
 
   onEmailToChange = event => {
