@@ -130,8 +130,7 @@ class EditEmail extends Component {
 
   getOptionValues(options) {
     let retArr = [];
-    for (let idx in options) {
-      let opt = options[idx];
+    for (let opt of options) {
       retArr.push(opt.value);
     }
     return retArr;
