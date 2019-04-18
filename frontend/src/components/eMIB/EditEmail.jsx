@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { EMAIL_TYPE, actionShape } from "./constants";
 import ReactResponsiveSelect from "react-responsive-select";
-import "../../css/react-responsive-select.css";
 
 // These two consts limit the number of characters
 // that can be entered into two text areas
