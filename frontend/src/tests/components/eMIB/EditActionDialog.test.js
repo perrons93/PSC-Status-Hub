@@ -185,19 +185,8 @@ function testMode(actionType, editMode) {
       isReplyAllChecked = false;
       isForwardChecked = true;
     }
-
-    expect(
-      wrapper
-        .find("#to-field")
-        .first()
-        .props().value
-    ).toEqual(valEmailTo);
-    expect(
-      wrapper
-        .find("#cc-field")
-        .first()
-        .props().value
-    ).toEqual(valEmailCc);
+    expect(wrapper.find("#to-field").props().selectedValues).toEqual(valEmailTo);
+    expect(wrapper.find("#cc-field").props().selectedValues).toEqual(valEmailCc);
     expect(wrapper.find("#your-response-text-area").props().value).toEqual(valEmailBody);
     expect(wrapper.find("#reasons-for-action-text-area").props().value).toEqual(
       valReasonsForAction
