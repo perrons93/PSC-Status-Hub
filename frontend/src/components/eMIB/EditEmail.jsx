@@ -128,14 +128,33 @@ class EditEmail extends Component {
     this.props.onChange({ ...this.state, emailType: newEmailType });
   };
 
+  getOptionValues(options) {
+    let retArr = [];
+    for (let idx in options) {
+      let opt = options[idx];
+      retArr.push(opt.value);
+    }
+    return retArr;
+  }
+
   onEmailToChange = event => {
-    const newEmailTo = event.value;
+    // If the value has not changed, return
+    // can prevent infinite render loop
+    if (!event.altered) {
+      return;
+    }
+    const newEmailTo = this.getOptionValues(event.options);
     this.setState({ emailTo: newEmailTo });
     this.props.onChange({ ...this.state, emailTo: newEmailTo });
   };
 
   onEmailCcChange = event => {
-    const newEmailCc = event.value;
+    // If the value has not changed, return
+    // can prevent infinite render loop
+    if (!event.altered) {
+      return;
+    }
+    const newEmailCc = this.getOptionValues(event.options);
     this.setState({ emailCc: newEmailCc });
     this.props.onChange({ ...this.state, emailCc: newEmailCc });
   };
@@ -266,10 +285,10 @@ class EditEmail extends Component {
                 <ReactResponsiveSelect
                   id="to-field"
                   multiselect
-                  name="Toooo"
+                  name="to"
                   options={LOCALIZE.emibTest.emailList}
                   selectedValues={emailTo}
-                  //onChange={this.onEmailToChange}
+                  onChange={this.onEmailToChange}
                   //onSubmit={this.onEmailToChange}
                   //caretIcon={<CaretIcon />}
                 />
@@ -285,10 +304,10 @@ class EditEmail extends Component {
                 <ReactResponsiveSelect
                   id="cc-field"
                   multiselect
-                  name="CCcccccccc"
+                  name="cc"
                   options={LOCALIZE.emibTest.emailList}
                   selectedValues={emailCc}
-                  //onChange={this.onEmailCcChange}
+                  onChange={this.onEmailCcChange}
                   //onSubmit={this.onEmailCcChange}
                   //caretIcon={<CaretIcon />}
                 />
