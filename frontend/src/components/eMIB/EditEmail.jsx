@@ -128,6 +128,8 @@ class EditEmail extends Component {
     this.props.onChange({ ...this.state, emailType: newEmailType });
   };
 
+  // Extract just the value
+  // This is all that is needed for saving and loading
   getOptionValues(options) {
     let retArr = [];
     for (let opt of options) {
