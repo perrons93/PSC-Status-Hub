@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
 import { EMAIL_TYPE, actionShape } from "./constants";
-import { MultiSelectComponent } from "@syncfusion/ej2-react-dropdowns";
-import "../../css/ej2-react-dropdowns.css";
+import ReactResponsiveSelect from "react-responsive-select";
+import "../../css/react-responsive-select.css";
 
 // These two consts limit the number of characters
 // that can be entered into two text areas
@@ -11,8 +11,6 @@ import "../../css/ej2-react-dropdowns.css";
 // under the text areas
 const MAX_RESPONSE = "500";
 const MAX_REASON = "100";
-
-const fields = { text: "value", value: "value" };
 
 const styles = {
   container: {
@@ -265,15 +263,47 @@ class EditEmail extends Component {
                 {LOCALIZE.emibTest.inboxPage.emailCommons.to}
               </label>
               <span style={styles.header.textFieldBoxPadding}>
-                <MultiSelectComponent
+                <ReactResponsiveSelect
                   id="to-field"
-                  dataSource={LOCALIZE.emibTest.emailList}
-                  mode="Default"
-                  fields={fields}
-                  placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
-                  style={styles.header.textField}
-                  value={emailTo}
-                  change={this.onEmailToChange}
+                  multiselect
+                  name="Toooo"
+                  options={[
+                    {
+                      text: "Danny McBride",
+                      value: "dannyMcbride",
+                      markup: <span>Danny McBride</span>
+                    },
+                    {
+                      text: "Serge Duplessis",
+                      value: "sergeDuplessis",
+                      markup: <span>Serge Duplessis</span>
+                    },
+                    {
+                      text: "Marina Richter",
+                      value: "marinaRichter",
+                      markup: <span>Marina Richter</span>
+                    },
+                    {
+                      text: "Mary Woodside",
+                      value: "maryWoodside",
+                      markup: <span>Mary Woodside</span>
+                    },
+                    {
+                      text: "Charlie Wang",
+                      value: "charlieWang",
+                      markup: <span>Charlie Wang</span>
+                    },
+                    {
+                      text: "Jack Laurier",
+                      value: "jackLaurier",
+                      markup: <span>Jack Laurier</span>
+                    },
+                    { text: "Nancy Ward", value: "nancyWard", markup: <span>Nancy Ward</span> }
+                  ]}
+                  selectedValues={emailTo}
+                  //onChange={this.onEmailToChange}
+                  //onSubmit={this.onEmailToChange}
+                  //caretIcon={<CaretIcon />}
                 />
               </span>
             </div>
@@ -284,15 +314,48 @@ class EditEmail extends Component {
                 {LOCALIZE.emibTest.inboxPage.emailCommons.cc}
               </label>
               <span style={styles.header.textFieldBoxPadding}>
-                <MultiSelectComponent
+                <ReactResponsiveSelect
                   id="cc-field"
-                  dataSource={LOCALIZE.emibTest.emailList}
-                  mode="Default"
-                  fields={fields}
-                  placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
-                  style={styles.header.textField}
-                  value={emailCc}
-                  change={this.onEmailCcChange}
+                  multiselect
+                  name="CCcccccccc"
+                  options={[
+                    {
+                      text: "Danny McBride",
+                      value: "dannyMcbride",
+                      markup: <span>Danny McBride</span>
+                    },
+                    {
+                      text: "Serge Duplessis",
+                      value: "sergeDuplessis",
+                      markup: <span>Serge Duplessis</span>
+                    },
+                    {
+                      text: "Marina Richter",
+                      value: "marinaRichter",
+                      markup: <span>Marina Richter</span>
+                    },
+                    {
+                      text: "Mary Woodside",
+                      value: "maryWoodside",
+                      markup: <span>Mary Woodside</span>
+                    },
+                    {
+                      text: "Charlie Wang",
+                      value: "charlieWang",
+                      markup: <span>Charlie Wang</span>
+                    },
+                    {
+                      text: "Jack Laurier",
+                      value: "jackLaurier",
+                      markup: <span>Jack Laurier</span>
+                    },
+                    { text: "Nancy Ward", value: "nancyWard", markup: <span>Nancy Ward</span> }
+                  ]}
+                  selectedValues={emailCc}
+                  //{LOCALIZE.emibTest.emailList}
+                  //onChange={this.onEmailCcChange}
+                  //onSubmit={this.onEmailCcChange}
+                  //caretIcon={<CaretIcon />}
                 />
               </span>
             </div>
