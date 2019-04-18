@@ -286,7 +286,6 @@ class EditEmail extends Component {
                   options={LOCALIZE.emibTest.emailList}
                   selectedValues={emailTo}
                   onChange={this.onEmailToChange}
-                  //onSubmit={this.onEmailToChange}
                   //caretIcon={<CaretIcon />}
                 />
               </span>
@@ -305,7 +304,6 @@ class EditEmail extends Component {
                   options={LOCALIZE.emibTest.emailList}
                   selectedValues={emailCc}
                   onChange={this.onEmailCcChange}
-                  //onSubmit={this.onEmailCcChange}
                   //caretIcon={<CaretIcon />}
                 />
               </span>
