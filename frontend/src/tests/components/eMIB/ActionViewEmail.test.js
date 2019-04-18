@@ -2,6 +2,12 @@ import React from "react";
 import { shallow } from "enzyme";
 import { UnconnectedActionViewEmail } from "../../../components/eMIB/ActionViewEmail";
 import { EMAIL_TYPE, ACTION_TYPE } from "../../../components/eMIB/constants";
+import LOCALIZE from "../../../text_resources";
+
+// Creating constants from the email list
+// test the cc's using these values
+const ccValue = LOCALIZE.emibTest.emailList[0].value;
+const ccText = LOCALIZE.emibTest.emailList[0].text;
 
 describe("Response types", () => {
   const reply = <i className="fas fa-reply" />;
@@ -9,7 +15,7 @@ describe("Response types", () => {
   const forward = <i className="fas fa-share-square" />;
 
   it("renders reply response", () => {
-    const wrapper = genWrapper(EMAIL_TYPE.reply, "cc");
+    const wrapper = genWrapper(EMAIL_TYPE.reply, ccValue);
 
     expect(wrapper.containsMatchingElement(reply)).toEqual(true);
     expect(wrapper.containsMatchingElement(replyAll)).toEqual(false);
@@ -17,7 +23,7 @@ describe("Response types", () => {
   });
 
   it("renders reply all response", () => {
-    const wrapper = genWrapper(EMAIL_TYPE.replyAll, "cc");
+    const wrapper = genWrapper(EMAIL_TYPE.replyAll, ccValue);
 
     expect(wrapper.containsMatchingElement(reply)).toEqual(false);
     expect(wrapper.containsMatchingElement(replyAll)).toEqual(true);
@@ -25,7 +31,7 @@ describe("Response types", () => {
   });
 
   it("renders forward response", () => {
-    const wrapper = genWrapper(EMAIL_TYPE.forward, "cc");
+    const wrapper = genWrapper(EMAIL_TYPE.forward, ccValue);
 
     expect(wrapper.containsMatchingElement(reply)).toEqual(false);
     expect(wrapper.containsMatchingElement(replyAll)).toEqual(false);
@@ -34,10 +40,10 @@ describe("Response types", () => {
 });
 
 describe("Email header", () => {
-  const headerWithCc = <span>cc</span>;
+  const headerWithCc = <span>{ccText}</span>;
 
   it("renders email's header with cc)", () => {
-    const wrapper = genWrapper(EMAIL_TYPE.reply, "cc");
+    const wrapper = genWrapper(EMAIL_TYPE.reply, ccValue);
 
     expect(wrapper.containsMatchingElement(headerWithCc)).toEqual(true);
   });

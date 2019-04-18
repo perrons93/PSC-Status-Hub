@@ -185,6 +185,7 @@ function testMode(actionType, editMode) {
       isReplyAllChecked = false;
       isForwardChecked = true;
     }
+
     expect(wrapper.find("#to-field").props().selectedValues).toEqual(valEmailTo);
     expect(wrapper.find("#cc-field").props().selectedValues).toEqual(valEmailCc);
     expect(wrapper.find("#your-response-text-area").props().value).toEqual(valEmailBody);
