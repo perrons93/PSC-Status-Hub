@@ -87,7 +87,8 @@ class ActionViewEmail extends Component {
   generateEmailNameList(vals) {
     let retArray = [];
     for (let recipient of LOCALIZE.emibTest.emailList) {
-      if (vals.includes(recipient.value)) {
+      //using idex of, rather than .includes because IE does not support includes
+      if (vals.indexOf(recipient.value) !== -1) {
         retArray.push(recipient.text);
       }
     }
