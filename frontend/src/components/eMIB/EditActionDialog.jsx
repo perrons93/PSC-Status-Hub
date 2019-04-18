@@ -108,27 +108,47 @@ class EditActionDialog extends Component {
     this.setState({ action: updatedAction });
   };
 
-  getInitialTaskContent = () => {
-    let initialTaskContent = null;
+  getInitialValue = contentType => {
+    let initialValue = null;
 
     if (typeof this.props.action !== "undefined") {
-      initialTaskContent = this.props.action.task;
+      switch (contentType) {
+        case "to":
+          initialValue = this.props.action.emailTo;
+          break;
+        case "cc":
+          initialValue = this.props.action.emailCc;
+          break;
+        case "response":
+          initialValue = this.props.action.emailBody;
+          break;
+        case "reasonsForAction":
+          initialValue = this.props.action.reasonsForAction;
+          break;
+        case "task":
+          initialValue = this.props.action.task;
+          break;
+        default:
+          break;
+      }
     }
 
-    return initialTaskContent;
-  };
-
-  getInitialReasonsForActionContent = () => {
-    let initialReasonsForActionContent = null;
-
-    if (typeof this.props.action !== "undefined") {
-      initialReasonsForActionContent = this.props.action.reasonsForAction;
-    }
-
-    return initialReasonsForActionContent;
+    return initialValue;
   };
 
   handleCancelConfirmationDisplay = () => {
+    // email type variable
+    const emailType =
+      typeof this.state.action.emailType === "undefined" ? null : this.state.action.emailType;
+    // email to variable
+    const emailTo =
+      typeof this.state.action.emailTo === "undefined" ? null : this.state.action.emailTo;
+    // email cc variable
+    const emailCc =
+      typeof this.state.action.emailCc === "undefined" ? null : this.state.action.emailCc;
+    // response content variable
+    const emailResponse =
+      typeof this.state.action.emailBody === "undefined" ? null : this.state.action.emailBody;
     // task content variable
     const taskContent =
       typeof this.state.action.task === "undefined" ? null : this.state.action.task;
@@ -138,31 +158,55 @@ class EditActionDialog extends Component {
         ? null
         : this.state.action.reasonsForAction;
 
-    // no content has been added in both of the text areas while creating a new task
+    // no content has been added in the concerned form (Email Response Form or Task Form)
     if (
       (taskContent === null && reasonsForActionContent === null) ||
-      (taskContent === "" && reasonsForActionContent === "")
+      (taskContent === "" && reasonsForActionContent === "") ||
+      (emailTo === null &&
+        emailCc === null &&
+        emailResponse === null &&
+        reasonsForActionContent === null) ||
+      (emailTo === "" && emailCc === "" && emailResponse === "" && reasonsForActionContent === "")
     ) {
       // close the dialog without any confirmation message
       this.props.handleClose();
 
       // content may have changed
     } else {
-      const initialTaskContent = this.getInitialTaskContent();
-      const initialReasonsForAction = this.getInitialReasonsForActionContent();
+      const initialEmailTo = this.getInitialValue("to");
+      const initialEmailCc = this.getInitialValue("cc");
+      const initialEmailResponse = this.getInitialValue("response");
+      const initialTaskContent = this.getInitialValue("task");
+      const initialReasonsForAction = this.getInitialValue("reasonsForAction");
 
-      // content is not the same as the initial content
-      if (
-        initialTaskContent !== taskContent ||
-        initialReasonsForAction !== reasonsForActionContent
-      ) {
-        // display the cancel confirmation message
-        this.setState({ showCancelConfirmationDialog: true });
-
-        // content is the same as the initial content
-      } else {
-        // close the dialog without any confirmation message
-        this.props.handleClose();
+      // email content is not the same as the initial content
+      if (this.props.actionType === ACTION_TYPE.email) {
+        // there are changes in at least one of the fields
+        if (
+          initialEmailTo !== emailTo ||
+          initialEmailCc !== emailCc ||
+          initialEmailResponse !== emailResponse ||
+          initialReasonsForAction !== reasonsForActionContent
+        ) {
+          // display the cancel confirmation message
+          this.setState({ showCancelConfirmationDialog: true });
+        } else {
+          // close the dialog without any confirmation message
+          this.props.handleClose();
+        }
+        // reasons for action content is not the same as the initial content
+      } else if (this.props.actionType === ACTION_TYPE.task) {
+        // there are changes in at least one of the fields
+        if (
+          initialTaskContent !== taskContent ||
+          initialReasonsForAction !== reasonsForActionContent
+        ) {
+          // display the cancel confirmation message
+          this.setState({ showCancelConfirmationDialog: true });
+        } else {
+          // close the dialog without any confirmation message
+          this.props.handleClose();
+        }
       }
     }
   };
