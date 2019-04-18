@@ -91,7 +91,6 @@ class ActionViewEmail extends Component {
         retArray.push(recipient.text);
       }
     }
-    console.log(retArray);
     return retArray.join(", ");
   }
 
