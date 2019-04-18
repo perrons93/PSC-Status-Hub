@@ -84,8 +84,21 @@ class ActionViewEmail extends Component {
     this.setState({ showDeleteConfirmationDialog: false });
   };
 
+  generateEmailNameList(vals) {
+    let retArray = [];
+    for (let recipient of LOCALIZE.emibTest.emailList) {
+      if (vals.includes(recipient.value)) {
+        retArray.push(recipient.text);
+      }
+    }
+    console.log(retArray);
+    return retArray.join(", ");
+  }
+
   render() {
     const action = this.props.action;
+    const visibleToNames = this.generateEmailNameList(action.emailTo);
+    const visibleCcNames = this.generateEmailNameList(action.emailCc);
     return (
       <div aria-label={LOCALIZE.ariaLabel.responseDetails}>
         <div style={styles.header.zone} tabIndex="0">
@@ -122,13 +135,13 @@ class ActionViewEmail extends Component {
             <h6 style={styles.header.toAndCcTitle}>
               {LOCALIZE.emibTest.inboxPage.emailCommons.to}
             </h6>
-            <span>{action.emailTo}</span>
+            <span>{visibleToNames}</span>
           </div>
           <div style={styles.header.elementHeight}>
             <h6 style={styles.header.toAndCcTitle}>
               {LOCALIZE.emibTest.inboxPage.emailCommons.cc}
             </h6>
-            <span>{action.emailCc}</span>
+            <span>{visibleCcNames}</span>
           </div>
         </div>
         <hr style={styles.hr} />
