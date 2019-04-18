@@ -26,9 +26,12 @@ const styles = {
     width: "100%",
     textAlign: "right"
   },
-  hr: {
-    margin: "6px 0",
+  hrOne: {
+    margin: "12px 0",
     borderColor: "#00565E"
+  },
+  hrTwo: {
+    margin: "12px 0"
   },
   tasks: {
     title: {
@@ -72,7 +75,7 @@ const styles = {
     },
     tooltipContainer: {
       marginLeft: 6,
-      padding: 6,
+      padding: 8,
       maxWidth: 360,
       borderColor: "#00565E"
     },
@@ -132,7 +135,7 @@ class EditTask extends Component {
               )}
             </label>
           </div>
-          <hr style={styles.hr} />
+          <hr style={styles.hrOne} />
           <div>
             <div className="font-weight-bold form-group">
               <label htmlFor="your-tasks-text-area" style={styles.tasks.title}>
@@ -158,7 +161,7 @@ class EditTask extends Component {
                   id="task-tooltip"
                   aria-label={LOCALIZE.ariaLabel.taskTooltip}
                   tabIndex="0"
-                  className="fas fa-question-circle"
+                  className="far fa-question-circle"
                   style={styles.tasks.icon}
                 />
               </OverlayTrigger>
@@ -174,6 +177,7 @@ class EditTask extends Component {
               </div>
             </div>
           </div>
+          <hr style={styles.hrTwo} />
           <div>
             <div className="font-weight-bold form-group">
               <label htmlFor="reasons-for-action-text-area" style={styles.reasonsForAction.title}>
@@ -199,7 +203,7 @@ class EditTask extends Component {
                   id="reasons-for-action-tooltip"
                   aria-label={LOCALIZE.ariaLabel.reasonsForActionTooltip}
                   tabIndex="0"
-                  className="fas fa-question-circle"
+                  className="far fa-question-circle"
                   style={styles.reasonsForAction.icon}
                 />
               </OverlayTrigger>

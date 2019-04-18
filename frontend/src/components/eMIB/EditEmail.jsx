@@ -14,7 +14,8 @@ const styles = {
   container: {
     maxHeight: "calc(100vh - 300px)",
     overflow: "auto",
-    width: 700
+    width: 700,
+    paddingBottom: 12
   },
   header: {
     responseTypeIcons: {
@@ -52,6 +53,9 @@ const styles = {
     },
     textFieldBoxPadding: {
       padding: "0 6px"
+    },
+    toAndCcFieldPadding: {
+      marginBottom: "1rem"
     },
     textField: {
       padding: "4px 12px",
@@ -256,7 +260,7 @@ class EditEmail extends Component {
             </fieldset>
           </div>
           <div>
-            <div className="font-weight-bold form-group">
+            <div className="font-weight-bold form-group" style={styles.header.toAndCcFieldPadding}>
               <label htmlFor="to-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.to}
               </label>
@@ -273,7 +277,7 @@ class EditEmail extends Component {
             </div>
           </div>
           <div>
-            <div className="font-weight-bold form-group">
+            <div className="font-weight-bold form-group" style={styles.header.toAndCcFieldPadding}>
               <label htmlFor="cc-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.cc}
               </label>
