@@ -2,18 +2,23 @@ import React, { Component } from "react";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
+import { instructionStyles } from "./constants.js";
 
 class OrganizationalInformation extends Component {
   render() {
     return (
       <div>
         <div>
-          <h2>{LOCALIZE.emibTest.background.organizationalInformation.title}</h2>
+          <h2 style={instructionStyles.h2}>
+            {LOCALIZE.emibTest.background.organizationalInformation.title}
+          </h2>
           <div>
-            <p>{LOCALIZE.emibTest.background.organizationalInformation.description}</p>
+            <p style={instructionStyles.p}>
+              {LOCALIZE.emibTest.background.organizationalInformation.description}
+            </p>
           </div>
           <div>
-            <h3>
+            <h3 style={instructionStyles.h3}>
               {LOCALIZE.emibTest.background.organizationalInformation.prioritiesSection.title}
             </h3>
             <ul>
@@ -32,7 +37,9 @@ class OrganizationalInformation extends Component {
             </ul>
           </div>
           <div>
-            <h3>{LOCALIZE.emibTest.background.organizationalInformation.risksSection.title}</h3>
+            <h3 style={instructionStyles.h3}>
+              {LOCALIZE.emibTest.background.organizationalInformation.risksSection.title}
+            </h3>
             <ul>
               <li>{LOCALIZE.emibTest.background.organizationalInformation.risksSection.bullet1}</li>
             </ul>

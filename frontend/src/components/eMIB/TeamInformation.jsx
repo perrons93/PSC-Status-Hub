@@ -12,6 +12,7 @@ import emib_sample_test_example_team_chart_fr from "../../images/emib_sample_tes
 import emib_sample_test_example_team_chart_fr_zoomed from "../../images/emib_sample_test_example_team_chart_fr.png";
 import ImageZoom from "react-medium-image-zoom";
 import "../../css/react-medium-image-zoom.css";
+import { instructionStyles } from "./constants.js";
 
 const styles = {
   testImage: {
@@ -54,20 +55,34 @@ class TeamInformation extends Component {
           rightButtonTitle={LOCALIZE.commons.close}
         />
         <div>
-          <h2>{LOCALIZE.emibTest.background.teamInformation.title}</h2>
+          <h2 style={instructionStyles.h2}>{LOCALIZE.emibTest.background.teamInformation.title}</h2>
           <div>
-            <h3>{LOCALIZE.emibTest.background.teamInformation.teamMembersSection.title}</h3>
+            <h3 style={instructionStyles.h3}>
+              {LOCALIZE.emibTest.background.teamInformation.teamMembersSection.title}
+            </h3>
             <div>
-              <h4>{LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para1Title}</h4>
-              <p>{LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para1}</p>
-              <h4>{LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para2Title}</h4>
-              <p>{LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para2}</p>
-              <h4>{LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para3Title}</h4>
-              <p>{LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para3}</p>
+              <h4 style={instructionStyles.h4}>
+                {LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para1Title}
+              </h4>
+              <p style={instructionStyles.p}>
+                {LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para1}
+              </p>
+              <h4 style={instructionStyles.h4}>
+                {LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para2Title}
+              </h4>
+              <p style={instructionStyles.p}>
+                {LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para2}
+              </p>
+              <h4 style={instructionStyles.h4}>
+                {LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para3Title}
+              </h4>
+              <p style={instructionStyles.p}>
+                {LOCALIZE.emibTest.background.teamInformation.teamMembersSection.para3}
+              </p>
             </div>
           </div>
           <div>
-            <p>
+            <p style={instructionStyles.p}>
               {currentLanguage === LANGUAGES.english && (
                 <ImageZoom
                   longdesc="#team-image-description"
@@ -111,10 +126,12 @@ class TeamInformation extends Component {
             </button>
           </div>
           <div>
-            <h3>{LOCALIZE.emibTest.background.teamInformation.responsibilitiesSection.title}</h3>
+            <h3 style={instructionStyles.h3}>
+              {LOCALIZE.emibTest.background.teamInformation.responsibilitiesSection.title}
+            </h3>
             <div>
               <div>
-                <p>
+                <p style={instructionStyles.p}>
                   {
                     LOCALIZE.emibTest.background.teamInformation.responsibilitiesSection
                       .listDescription
@@ -149,10 +166,12 @@ class TeamInformation extends Component {
                     {LOCALIZE.emibTest.background.teamInformation.responsibilitiesSection.item3}
                   </li>
                 </ol>
-                <h4>
+                <h4 style={instructionStyles.h4}>
                   {LOCALIZE.emibTest.background.teamInformation.responsibilitiesSection.para1Title}
                 </h4>
-                <p>{LOCALIZE.emibTest.background.teamInformation.responsibilitiesSection.para1}</p>
+                <p style={instructionStyles.p}>
+                  {LOCALIZE.emibTest.background.teamInformation.responsibilitiesSection.para1}
+                </p>
               </div>
             </div>
           </div>
