@@ -48,3 +48,10 @@ export const actionShape = PropTypes.shape({
   emailCc: PropTypes.array,
   emailBody: PropTypes.string
 });
+
+// The stucture of a contact in the addressbook
+export const contactShape = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired
+});
