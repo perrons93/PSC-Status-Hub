@@ -64,59 +64,69 @@ export const emailsJson = {
 
 export const addressBookJson = {
   addressBookEN: [
-    { text: "None", value: "null" },
     {
-      text: "Danny McBride",
-      value: "dannyMcbride"
+      id: 1,
+      name: "Danny McBride",
+      role: "Quality Assurance Analyst"
     },
     {
+      id: 2,
       text: "Serge Duplessis",
-      value: "sergeDuplessis"
+      role: "Quality Assurance Analyst"
     },
     {
+      id: 3,
       text: "Marina Richter",
-      value: "marinaRichter"
+      role: "Quality Assurance Analyst"
     },
     {
+      id: 4,
       text: "Mary Woodside",
-      value: "maryWoodside"
+      role: "Quality Assurance Analyst"
     },
     {
+      id: 5,
       text: "Charlie Wang",
-      value: "charlieWang"
+      role: "Quality Assurance Analyst"
     },
     {
+      id: 6,
       text: "Jack Laurier",
-      value: "jackLaurier"
+      role: "Quality Assurance Analyst"
     },
-    { text: "Nancy Ward", value: "nancyWard" }
+    { id: 7, text: "Nancy Ward", role: "Services and Communications Director" }
   ],
   addressBookFR: [
-    { text: "None", value: "null" },
     {
-      text: "Danny McBride",
-      value: "dannyMcbride"
+      id: 1,
+      name: "Danny McBride",
+      role: "FR Quality Assurance Analyst"
     },
     {
+      id: 2,
       text: "Serge Duplessis",
-      value: "sergeDuplessis"
+      role: "FR Quality Assurance Analyst"
     },
     {
+      id: 3,
       text: "Marina Richter",
-      value: "marinaRichter"
+      role: "FR Quality Assurance Analyst"
     },
     {
+      id: 4,
       text: "Mary Woodside",
-      value: "maryWoodside"
+      role: "FR Quality Assurance Analyst"
     },
     {
+      id: 5,
       text: "Charlie Wang",
-      value: "charlieWang"
+      role: "FR Quality Assurance Analyst"
     },
     {
+      id: 6,
       text: "Jack Laurier",
-      value: "jackLaurier"
+      role: "FR Quality Assurance Analyst"
     },
-    { text: "Nancy Ward", value: "nancyWard" }
+    { id: 7, text: "Nancy Ward", role: "FR Services and Communications Director" }
   ]
 };
