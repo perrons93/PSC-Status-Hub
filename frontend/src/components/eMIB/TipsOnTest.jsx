@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
-import { instructionStyles } from "./constants.js";
+import { styleConstants } from "./styleConstants.js";
 
 class TipsOnTest extends Component {
   render() {
@@ -10,7 +10,9 @@ class TipsOnTest extends Component {
       <div>
         <div>
           <h2>{LOCALIZE.emibTest.howToPage.tipsOnTest.title}</h2>
-          <p style={instructionStyles.p}>{LOCALIZE.emibTest.howToPage.tipsOnTest.description}</p>
+          <p style={styleConstants.instuctions.p}>
+            {LOCALIZE.emibTest.howToPage.tipsOnTest.description}
+          </p>
           <ul>
             <li>{LOCALIZE.emibTest.howToPage.tipsOnTest.bullet1}</li>
             <li>{LOCALIZE.emibTest.howToPage.tipsOnTest.bullet2}</li>
