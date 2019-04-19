@@ -144,6 +144,12 @@ Progess Steps
   background-color: #009fae;
 }
 
+.step-indicator .steps li.complete:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 900;
+}
+
 /* Nav */
 
 .nav-tabs .nav-link:hover,
