@@ -9,7 +9,7 @@ class Evaluation extends Component {
     return (
       <div>
         <div>
-          <h2 style={instructionStyles.h2}>{LOCALIZE.emibTest.howToPage.evaluation.title}</h2>
+          <h2>{LOCALIZE.emibTest.howToPage.evaluation.title}</h2>
           <div>
             <ul>
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet1}</li>

@@ -9,7 +9,7 @@ class TipsOnTest extends Component {
     return (
       <div>
         <div>
-          <h2 style={instructionStyles.h2}>{LOCALIZE.emibTest.howToPage.tipsOnTest.title}</h2>
+          <h2>{LOCALIZE.emibTest.howToPage.tipsOnTest.title}</h2>
           <p style={instructionStyles.p}>{LOCALIZE.emibTest.howToPage.tipsOnTest.description}</p>
           <ul>
             <li>{LOCALIZE.emibTest.howToPage.tipsOnTest.bullet1}</li>

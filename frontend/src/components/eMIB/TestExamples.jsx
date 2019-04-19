@@ -30,7 +30,7 @@ class TestExamples extends Component {
     return (
       <div>
         <div>
-          <h2 style={instructionStyles.h2}>{LOCALIZE.emibTest.howToPage.testExamples.title}</h2>
+          <h2>{LOCALIZE.emibTest.howToPage.testExamples.title}</h2>
           <div>
             <p style={instructionStyles.p}>{LOCALIZE.emibTest.howToPage.testExamples.para1}</p>
             <h4 style={instructionStyles.h4}>
