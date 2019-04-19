@@ -2,15 +2,19 @@ import React, { Component } from "react";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
-import { instructionStyles } from "./constants.js";
+import { styleConstants } from "./styleConstants.js";
 
 class TipsOnTest extends Component {
   render() {
     return (
       <div>
         <div>
-          <h2 style={instructionStyles.h2}>{LOCALIZE.emibTest.howToPage.tipsOnTest.title}</h2>
-          <p style={instructionStyles.p}>{LOCALIZE.emibTest.howToPage.tipsOnTest.description}</p>
+          <h2 style={styleConstants.instuctions.h2}>
+            {LOCALIZE.emibTest.howToPage.tipsOnTest.title}
+          </h2>
+          <p style={styleConstants.instuctions.p}>
+            {LOCALIZE.emibTest.howToPage.tipsOnTest.description}
+          </p>
           <ul>
             <li>{LOCALIZE.emibTest.howToPage.tipsOnTest.bullet1}</li>
             <li>{LOCALIZE.emibTest.howToPage.tipsOnTest.bullet2}</li>

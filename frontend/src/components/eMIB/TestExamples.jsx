@@ -11,7 +11,7 @@ import option_1_emib_sample_test_example_en from "../../images/option_1_emib_sam
 import option_1_emib_sample_test_example_fr from "../../images/option_1_emib_sample_test_example_fr.png";
 import option_2_emib_sample_test_example_en from "../../images/option_2_emib_sample_test_example_en.png";
 import option_2_emib_sample_test_example_fr from "../../images/option_2_emib_sample_test_example_fr.png";
-import { instructionStyles } from "./constants.js";
+import { styleConstants } from "./styleConstants.js";
 
 const styles = {
   testImage: {
@@ -30,13 +30,17 @@ class TestExamples extends Component {
     return (
       <div>
         <div>
-          <h2 style={instructionStyles.h2}>{LOCALIZE.emibTest.howToPage.testExamples.title}</h2>
+          <h2 style={styleConstants.instuctions.h2}>
+            {LOCALIZE.emibTest.howToPage.testExamples.title}
+          </h2>
           <div>
-            <p style={instructionStyles.p}>{LOCALIZE.emibTest.howToPage.testExamples.para1}</p>
-            <h4 style={instructionStyles.h4}>
+            <p style={styleConstants.instuctions.p}>
+              {LOCALIZE.emibTest.howToPage.testExamples.para1}
+            </p>
+            <h4 style={styleConstants.instuctions.h4}>
               {LOCALIZE.emibTest.howToPage.testExamples.part1Title}
             </h4>
-            <p style={instructionStyles.p}>
+            <p style={styleConstants.instuctions.p}>
               {currentLanguage === LANGUAGES.english && (
                 <img
                   src={original_email_emib_sample_test_example_en}
@@ -52,13 +56,13 @@ class TestExamples extends Component {
                 />
               )}
             </p>
-            <p style={instructionStyles.p}>
+            <p style={styleConstants.instuctions.p}>
               {LOCALIZE.emibTest.howToPage.testExamples.part1Description}
             </p>
-            <h4 style={instructionStyles.h4}>
+            <h4 style={styleConstants.instuctions.h4}>
               {LOCALIZE.emibTest.howToPage.testExamples.part2Title}
             </h4>
-            <p style={instructionStyles.p}>
+            <p style={styleConstants.instuctions.p}>
               {currentLanguage === LANGUAGES.english && (
                 <img
                   src={option_1_emib_sample_test_example_en}
@@ -74,10 +78,10 @@ class TestExamples extends Component {
                 />
               )}
             </p>
-            <h4 style={instructionStyles.h4}>
+            <h4 style={styleConstants.instuctions.h4}>
               {LOCALIZE.emibTest.howToPage.testExamples.part3Title}
             </h4>
-            <p style={instructionStyles.p}>
+            <p style={styleConstants.instuctions.p}>
               {currentLanguage === LANGUAGES.english && (
                 <img
                   src={option_2_emib_sample_test_example_en}
