@@ -2,6 +2,23 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import { UnconnectedEditActionDialog as EditActionDialog } from "../../../components/eMIB/EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE } from "../../../components/eMIB/constants";
+import configureStore from "redux-mock-store";
+import { Provider } from "react-redux";
+
+const initialState = {
+  emibInbox: {
+    addressBook: [
+      { id: 0, name: "Joe", role: "Developer" },
+      { id: 1, name: "Bob", role: "Developer" },
+      { id: 2, name: "Smithers", role: "Butler" },
+      { id: 3, name: "Arthur", role: "King of Britain" },
+      { id: 4, name: "Richard", role: "Lionheart" },
+      { id: 5, name: "Robert", role: "The Bruce" }
+    ]
+  }
+};
+
+const mockStore = configureStore();
 
 describe("email action type", () => {
   it("renders Add Email dialog", () => {
@@ -142,28 +159,30 @@ function testMode(actionType, editMode) {
 
   //mount wrapper of the dialog
   const wrapper = mount(
-    <EditActionDialog
-      emailId={1}
-      emailSubject={"hello team"}
-      showDialog={true}
-      handleClose={() => {}}
-      addEmail={() => {}}
-      addTask={() => {}}
-      updateEmail={() => {}}
-      updateTask={() => {}}
-      readEmail={() => {}}
-      actionType={actionType}
-      editMode={editMode}
-      action={{
-        actionType: actionType,
-        reasonsForAction: reasonsForAction,
-        emailTo: emailTo,
-        emailCc: emailCc,
-        emailBody: emailBody,
-        task: task,
-        emailType: emailType
-      }}
-    />
+    <Provider store={mockStore(initialState)}>
+      <EditActionDialog
+        emailId={1}
+        emailSubject={"hello team"}
+        showDialog={true}
+        handleClose={() => {}}
+        addEmail={() => {}}
+        addTask={() => {}}
+        updateEmail={() => {}}
+        updateTask={() => {}}
+        readEmail={() => {}}
+        actionType={actionType}
+        editMode={editMode}
+        action={{
+          actionType: actionType,
+          reasonsForAction: reasonsForAction,
+          emailTo: emailTo,
+          emailCc: emailCc,
+          emailBody: emailBody,
+          task: task,
+          emailType: emailType
+        }}
+      />
+    </Provider>
   );
 
   if (actionType === ACTION_TYPE.email) {
@@ -215,19 +234,21 @@ it("clicking on the button only adds the email once", () => {
   const addEmail = jest.fn();
   const handleClose = jest.fn();
   const wrapper = mount(
-    <EditActionDialog
-      emailId={1}
-      emailSubject={"hello team"}
-      showDialog={true}
-      handleClose={handleClose}
-      addEmail={addEmail}
-      addTask={() => {}}
-      updateEmail={() => {}}
-      updateTask={() => {}}
-      readEmail={() => {}}
-      actionType={ACTION_TYPE.email}
-      editMode={EDIT_MODE.create}
-    />
+    <Provider store={mockStore(initialState)}>
+      <EditActionDialog
+        emailId={1}
+        emailSubject={"hello team"}
+        showDialog={true}
+        handleClose={handleClose}
+        addEmail={addEmail}
+        addTask={() => {}}
+        updateEmail={() => {}}
+        updateTask={() => {}}
+        readEmail={() => {}}
+        actionType={ACTION_TYPE.email}
+        editMode={EDIT_MODE.create}
+      />
+    </Provider>
   );
   wrapper.find("#unit-test-email-response-button").simulate("click");
   // In the test, calling handleClose does not change the showDialog value
