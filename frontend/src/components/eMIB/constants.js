@@ -48,18 +48,3 @@ export const actionShape = PropTypes.shape({
   emailCc: PropTypes.string,
   emailBody: PropTypes.string
 });
-
-/* Override margins for the Instuctions and Background pages and nothing else */
-export const instructionStyles = {
-  h3: {
-    marginTop: 32,
-    marginBottom: 0
-  },
-  h4: {
-    marginTop: 24,
-    marginBottom: 0
-  },
-  p: {
-    margin: 0
-  }
-};

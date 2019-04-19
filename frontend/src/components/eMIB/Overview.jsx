@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
-import { instructionStyles } from "./constants.js";
+import { styleConstants } from "./styleConstants.js";
 
 class Overview extends Component {
   render() {
@@ -11,10 +11,12 @@ class Overview extends Component {
         <div>
           <h2>{LOCALIZE.emibTest.howToPage.overview.title}</h2>
           <div>
-            <p style={instructionStyles.p}>{LOCALIZE.emibTest.howToPage.overview.description}</p>
+            <p style={styleConstants.instuctions.p}>
+              {LOCALIZE.emibTest.howToPage.overview.description}
+            </p>
           </div>
           <div>
-            <p style={instructionStyles.p}>
+            <p style={styleConstants.instuctions.p}>
               {LOCALIZE.emibTest.howToPage.overview.noteSection.para1}
             </p>
             <ul>
@@ -24,10 +26,10 @@ class Overview extends Component {
             </ul>
           </div>
           <div>
-            <h3 style={instructionStyles.h3}>
+            <h3 style={styleConstants.instuctions.h3}>
               {LOCALIZE.emibTest.howToPage.overview.aboutSection.title}
             </h3>
-            <p style={instructionStyles.p}>
+            <p style={styleConstants.instuctions.p}>
               {LOCALIZE.emibTest.howToPage.overview.aboutSection.para1}
             </p>
             <ul>
@@ -35,7 +37,7 @@ class Overview extends Component {
               <li>{LOCALIZE.emibTest.howToPage.overview.aboutSection.bullet2}</li>
               <li>{LOCALIZE.emibTest.howToPage.overview.aboutSection.bullet3}</li>
             </ul>
-            <p style={instructionStyles.p}>
+            <p style={styleConstants.instuctions.p}>
               {LOCALIZE.emibTest.howToPage.overview.aboutSection.para2}
             </p>
           </div>
