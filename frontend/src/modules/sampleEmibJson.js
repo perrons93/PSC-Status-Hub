@@ -71,30 +71,30 @@ export const addressBookJson = {
     },
     {
       id: 2,
-      text: "Serge Duplessis",
+      name: "Serge Duplessis",
       role: "Quality Assurance Analyst"
     },
     {
       id: 3,
-      text: "Marina Richter",
+      name: "Marina Richter",
       role: "Quality Assurance Analyst"
     },
     {
       id: 4,
-      text: "Mary Woodside",
+      name: "Mary Woodside",
       role: "Quality Assurance Analyst"
     },
     {
       id: 5,
-      text: "Charlie Wang",
+      name: "Charlie Wang",
       role: "Quality Assurance Analyst"
     },
     {
       id: 6,
-      text: "Jack Laurier",
+      name: "Jack Laurier",
       role: "Quality Assurance Analyst"
     },
-    { id: 7, text: "Nancy Ward", role: "Services and Communications Director" }
+    { id: 7, name: "Nancy Ward", role: "Services and Communications Director" }
   ],
   addressBookFR: [
     {
@@ -104,29 +104,29 @@ export const addressBookJson = {
     },
     {
       id: 2,
-      text: "Serge Duplessis",
+      name: "Serge Duplessis",
       role: "FR Quality Assurance Analyst"
     },
     {
       id: 3,
-      text: "Marina Richter",
+      name: "Marina Richter",
       role: "FR Quality Assurance Analyst"
     },
     {
       id: 4,
-      text: "Mary Woodside",
+      name: "Mary Woodside",
       role: "FR Quality Assurance Analyst"
     },
     {
       id: 5,
-      text: "Charlie Wang",
+      name: "Charlie Wang",
       role: "FR Quality Assurance Analyst"
     },
     {
       id: 6,
-      text: "Jack Laurier",
+      name: "Jack Laurier",
       role: "FR Quality Assurance Analyst"
     },
-    { id: 7, text: "Nancy Ward", role: "FR Services and Communications Director" }
+    { id: 7, name: "Nancy Ward", role: "FR Services and Communications Director" }
   ]
 };

@@ -9,6 +9,8 @@ import { bindActionCreators } from "redux";
 import { deleteEmail } from "../../modules/EmibInboxRedux";
 import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
+import { contactShape } from "./constants";
+import { contactNameFromId } from "./transformations";
 
 const styles = {
   responseType: {
@@ -60,6 +62,7 @@ class ActionViewEmail extends Component {
     actionId: PropTypes.number.isRequired,
     emailId: PropTypes.number.isRequired,
     // Props from Redux
+    addressBook: PropTypes.arrayOf(contactShape),
     deleteEmail: PropTypes.func
   };
 
@@ -86,11 +89,8 @@ class ActionViewEmail extends Component {
 
   generateEmailNameList(vals) {
     let retArray = [];
-    for (let recipient of LOCALIZE.emibTest.emailList) {
-      //using idex of, rather than .includes because IE does not support includes
-      if (vals.indexOf(recipient.value) !== -1) {
-        retArray.push(recipient.text);
-      }
+    for (let id of vals) {
+      retArray.push(contactNameFromId(this.props.addressBook, id));
     }
     return retArray.join(", ");
   }
@@ -214,6 +214,12 @@ class ActionViewEmail extends Component {
 
 export { ActionViewEmail as UnconnectedActionViewEmail };
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    addressBook: state.emibInbox.addressBook
+  };
+};
+
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
@@ -223,6 +229,6 @@ const mapDispatchToProps = dispatch =>
   );
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ActionViewEmail);

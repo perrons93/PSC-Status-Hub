@@ -1,5 +1,19 @@
 import React from "react";
-import { transformAddressBook, transformContact } from "../../../components/eMIB/transformations";
+import {
+  transformAddressBook,
+  transformContact,
+  transformContactName,
+  contactNameFromId
+} from "../../../components/eMIB/transformations";
+
+const addressBook = [
+  { id: 0, name: "Joe", role: "Developer" },
+  { id: 1, name: "Bob", role: "Developer" },
+  { id: 2, name: "Smithers", role: "Butler" },
+  { id: 3, name: "Arthur", role: "King of Britain" },
+  { id: 4, name: "Richard", role: "Lionheart" },
+  { id: 5, name: "Robert", role: "The Bruce" }
+];
 
 it("Check transformContact", () => {
   const contact = { id: 100, name: "Bob WhatHisName", role: "He Works Here" };
@@ -7,15 +21,11 @@ it("Check transformContact", () => {
   expect(transformContact(contact)).toEqual(option);
 });
 
-it("Check transformContact", () => {
-  const addressBook = [
-    { id: 0, name: "Joe", role: "Developer" },
-    { id: 1, name: "Bob", role: "Developer" },
-    { id: 2, name: "Smithers", role: "Butler" },
-    { id: 3, name: "Arthur", role: "King of Britain" },
-    { id: 4, name: "Richard", role: "Lionheart" },
-    { id: 5, name: "Robert", role: "The Bruce" }
-  ];
+it("Check transformContactName", () => {
+  expect(transformContactName(addressBook[0])).toEqual("Joe (Developer)");
+});
+
+it("Check transformAddressBook", () => {
   const options = [
     { text: "None", value: null },
     { text: "Joe (Developer)", value: 0 },
@@ -26,4 +36,14 @@ it("Check transformContact", () => {
     { text: "Robert (The Bruce)", value: 5 }
   ];
   expect(transformAddressBook(addressBook)).toEqual(options);
+});
+
+describe("Check contactNameFromId", () => {
+  it("returns the name when id is in the address book", () => {
+    expect(contactNameFromId(addressBook, 3)).toEqual("Arthur (King of Britain)");
+  });
+
+  it("returns an empty string when the id is not in the address book", () => {
+    expect(contactNameFromId(addressBook, 6)).toEqual("");
+  });
 });
