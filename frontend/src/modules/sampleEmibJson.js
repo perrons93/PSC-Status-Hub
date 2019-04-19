@@ -61,3 +61,62 @@ export const emailsJson = {
     }
   ]
 };
+
+export const addressBookJson = {
+  addressBookEN: [
+    { text: "None", value: "null" },
+    {
+      text: "Danny McBride",
+      value: "dannyMcbride"
+    },
+    {
+      text: "Serge Duplessis",
+      value: "sergeDuplessis"
+    },
+    {
+      text: "Marina Richter",
+      value: "marinaRichter"
+    },
+    {
+      text: "Mary Woodside",
+      value: "maryWoodside"
+    },
+    {
+      text: "Charlie Wang",
+      value: "charlieWang"
+    },
+    {
+      text: "Jack Laurier",
+      value: "jackLaurier"
+    },
+    { text: "Nancy Ward", value: "nancyWard" }
+  ],
+  addressBookFR: [
+    { text: "None", value: "null" },
+    {
+      text: "Danny McBride",
+      value: "dannyMcbride"
+    },
+    {
+      text: "Serge Duplessis",
+      value: "sergeDuplessis"
+    },
+    {
+      text: "Marina Richter",
+      value: "marinaRichter"
+    },
+    {
+      text: "Mary Woodside",
+      value: "maryWoodside"
+    },
+    {
+      text: "Charlie Wang",
+      value: "charlieWang"
+    },
+    {
+      text: "Jack Laurier",
+      value: "jackLaurier"
+    },
+    { text: "Nancy Ward", value: "nancyWard" }
+  ]
+};

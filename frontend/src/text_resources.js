@@ -421,35 +421,7 @@ let LOCALIZE = new LocalizedStrings({
             "If you are certain that you want to quit this session, click the “Quit test” button. You will be exited out of this test session and provided instructions to complete your withdrawal.",
           descriptionPart3: "Are you sure you want to quit this test?"
         }
-      },
-      emailList: [
-        { text: "None", value: "null" },
-        {
-          text: "Danny McBride",
-          value: "dannyMcbride"
-        },
-        {
-          text: "Serge Duplessis",
-          value: "sergeDuplessis"
-        },
-        {
-          text: "Marina Richter",
-          value: "marinaRichter"
-        },
-        {
-          text: "Mary Woodside",
-          value: "maryWoodside"
-        },
-        {
-          text: "Charlie Wang",
-          value: "charlieWang"
-        },
-        {
-          text: "Jack Laurier",
-          value: "jackLaurier"
-        },
-        { text: "Nancy Ward", value: "nancyWard" }
-      ]
+      }
     },
 
     //Screen Reader
@@ -930,35 +902,7 @@ let LOCALIZE = new LocalizedStrings({
             "Si vous êtes certain(e) de vouloir mettre fin à cette séance, cliquez sur le bouton « Quitter la séance test ». La séance de test sera fermée et vous recevrez des instructions sur la façon de vous retirer.",
           descriptionPart3: "Souhaitez-vous mettre fin à cette séance de test?"
         }
-      },
-      emailList: [
-        { text: "None", value: "null" },
-        {
-          text: "Danny McBride",
-          value: "dannyMcbride"
-        },
-        {
-          text: "Serge Duplessis",
-          value: "sergeDuplessis"
-        },
-        {
-          text: "Marina Richter",
-          value: "marinaRichter"
-        },
-        {
-          text: "Mary Woodside",
-          value: "maryWoodside"
-        },
-        {
-          text: "Charlie Wang",
-          value: "charlieWang"
-        },
-        {
-          text: "Jack Laurier",
-          value: "jackLaurier"
-        },
-        { text: "Nancy Ward", value: "nancyWard" }
-      ]
+      }
     },
 
     //Screen Reader
