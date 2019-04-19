@@ -21,7 +21,7 @@ export function transformContactName(contact) {
 export function contactNameFromId(addressBook, id) {
   for (let contact of addressBook) {
     if (contact.id === id) {
-      return transformContactName(contact.name);
+      return transformContactName(contact);
     }
   }
   return "";
