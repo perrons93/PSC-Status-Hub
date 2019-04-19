@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
+import { connect } from "react-redux";
 import { EMAIL_TYPE, actionShape } from "./constants";
 import ReactResponsiveSelect from "react-responsive-select";
+import { transformAddressBook } from "./transformations";
+import { contactShape } from "./constants";
 
 // These two consts limit the number of characters
 // that can be entered into two text areas
@@ -118,7 +121,9 @@ class EditEmail extends Component {
     emailTo: !this.props.action ? [] : this.props.action.emailTo,
     emailCc: !this.props.action ? [] : this.props.action.emailCc,
     emailBody: !this.props.action ? "" : this.props.action.emailBody,
-    reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction
+    reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction,
+    // Provided by redux
+    addressBook: PropTypes.arrayOf(contactShape)
   };
 
   onEmailTypeChange = event => {
@@ -172,6 +177,7 @@ class EditEmail extends Component {
     const replyChecked = this.state.emailType === EMAIL_TYPE.reply;
     const replyAllChecked = this.state.emailType === EMAIL_TYPE.replyAll;
     const forwardChecked = this.state.emailType === EMAIL_TYPE.forward;
+    const options = transformAddressBook(this.props.addressBook);
 
     return (
       <div style={styles.container}>
@@ -282,7 +288,7 @@ class EditEmail extends Component {
                   id="to-field"
                   multiselect
                   name="to"
-                  options={LOCALIZE.emibTest.emailList}
+                  options={options}
                   selectedValues={emailTo}
                   onChange={this.onEmailToChange}
                   //caretIcon={<CaretIcon />}
@@ -300,7 +306,7 @@ class EditEmail extends Component {
                   id="cc-field"
                   multiselect
                   name="cc"
-                  options={LOCALIZE.emibTest.emailList}
+                  options={options}
                   selectedValues={emailCc}
                   onChange={this.onEmailCcChange}
                   //caretIcon={<CaretIcon />}
@@ -348,4 +354,16 @@ class EditEmail extends Component {
     );
   }
 }
-export default EditEmail;
+
+export { EditEmail as UnconnectedEditEmail };
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    addressBook: state.emibInbox.addressBook
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(EditEmail);
