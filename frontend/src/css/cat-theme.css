@@ -217,3 +217,11 @@ Progess Steps
 .radio-button-hover:focus-within {
   border: 1px solid #00565e;
 }
+
+/* formatting for sizing of drop down menus */
+.rrs {
+  padding: 4px 12px;
+  margin-right: 6;
+  width: calc(100% - 46px);
+  float: right;
+}

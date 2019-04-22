@@ -21,6 +21,9 @@ const styles = {
     width: 700
   },
   header: {
+    formGroup: {
+      marginBottom: 42
+    },
     responseTypeIcons: {
       marginRight: 10,
       padding: 6,
@@ -56,13 +59,6 @@ const styles = {
     },
     textFieldBoxPadding: {
       padding: "0 6px"
-    },
-    textField: {
-      padding: "4px 12px",
-      marginRight: 6,
-      border: "1px solid #00565E",
-      borderRadius: 4,
-      width: "calc(100% - 46px)"
     },
     fieldsetLegend: {
       fontSize: 16,
@@ -279,7 +275,7 @@ class EditEmail extends Component {
             </fieldset>
           </div>
           <div>
-            <div className="font-weight-bold form-group">
+            <div className="font-weight-bold form-group" style={styles.header.formGroup}>
               <label htmlFor="to-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.to}
               </label>
@@ -297,7 +293,7 @@ class EditEmail extends Component {
             </div>
           </div>
           <div>
-            <div className="font-weight-bold form-group">
+            <div className="font-weight-bold form-group" style={styles.header.formGroup}>
               <label htmlFor="cc-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.cc}
               </label>
