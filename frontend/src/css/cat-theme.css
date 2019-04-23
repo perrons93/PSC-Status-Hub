@@ -233,9 +233,9 @@ Progess Steps
 
 .rrs__button {
   border: 1px solid #00565e;
-  border-radius: 4;
-  height: 150;
+  border-radius: 4px;
   resize: none;
+  box-shadow: none;
 }
 
 /* overriding some of the modal styles */
