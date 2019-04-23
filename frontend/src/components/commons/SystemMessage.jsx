@@ -28,7 +28,8 @@ export const styles = {
   },
   h5: {
     fontWeight: "bold",
-    paddingTop: 12
+    paddingTop: 12,
+    paddingBottom: 4
   }
 };
 

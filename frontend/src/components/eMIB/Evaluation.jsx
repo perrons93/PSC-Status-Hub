@@ -15,10 +15,7 @@ class Evaluation extends Component {
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet1}</li>
               <li>
                 {LOCALIZE.emibTest.howToPage.evaluation.bullet2}
-                <a href="#keyLeadershipCompetencies">
-                  {LOCALIZE.emibTest.howToPage.evaluation.bullet2Link}
-                </a>
-                .
+                {LOCALIZE.emibTest.howToPage.evaluation.bullet2Link}.
               </li>
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet3}</li>
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet4}</li>
