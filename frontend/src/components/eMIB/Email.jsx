@@ -130,14 +130,7 @@ class Email extends Component {
                     key={id}
                     iconType={ICON_TYPE.email}
                     title={`Email Response #${emailNumber}`}
-                    body={
-                      <ActionViewEmail
-                        action={action}
-                        actionId={id}
-                        email={email}
-                        emailId={email.id}
-                      />
-                    }
+                    body={<ActionViewEmail action={action} actionId={id} email={email} />}
                   />
                 );
               }
@@ -156,7 +149,6 @@ class Email extends Component {
                         action={action}
                         actionId={id}
                         email={email}
-                        emailId={email.id}
                         emailSubject={email.subject}
                       />
                     }
@@ -168,7 +160,6 @@ class Email extends Component {
           })}
         </div>
         <EditActionDialog
-          emailId={email.id}
           email={email}
           showDialog={this.state.showAddEmailDialog}
           handleClose={this.closeEmailDialog}
@@ -176,9 +167,7 @@ class Email extends Component {
           editMode={EDIT_MODE.create}
         />
         <EditActionDialog
-          emailId={email.id}
           email={email}
-          emailSubject={email.subject}
           showDialog={this.state.showAddTaskDialog}
           handleClose={this.closeTaskDialog}
           actionType={ACTION_TYPE.task}

@@ -68,9 +68,7 @@ const styles = {
 
 class EditActionDialog extends Component {
   static propTypes = {
-    emailId: PropTypes.number.isRequired,
     email: emailShape,
-    emailSubject: PropTypes.string,
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
     actionType: PropTypes.oneOf(Object.keys(ACTION_TYPE)).isRequired,
@@ -94,24 +92,24 @@ class EditActionDialog extends Component {
   handleSave = () => {
     this.props.handleClose();
     if (this.props.actionType === ACTION_TYPE.email && this.props.editMode === EDIT_MODE.create) {
-      this.props.addEmail(this.props.emailId, this.state.action);
-      this.props.readEmail(this.props.emailId);
+      this.props.addEmail(this.props.email.id, this.state.action);
+      this.props.readEmail(this.props.email.id);
     } else if (
       this.props.actionType === ACTION_TYPE.task &&
       this.props.editMode === EDIT_MODE.create
     ) {
-      this.props.addTask(this.props.emailId, this.state.action);
-      this.props.readEmail(this.props.emailId);
+      this.props.addTask(this.props.email.id, this.state.action);
+      this.props.readEmail(this.props.email.id);
     } else if (
       this.props.actionType === ACTION_TYPE.email &&
       this.props.editMode === EDIT_MODE.update
     ) {
-      this.props.updateEmail(this.props.emailId, this.props.actionId, this.state.action);
+      this.props.updateEmail(this.props.email.id, this.props.actionId, this.state.action);
     } else if (
       this.props.actionType === ACTION_TYPE.task &&
       this.props.editMode === EDIT_MODE.update
     ) {
-      this.props.updateTask(this.props.emailId, this.props.actionId, this.state.action);
+      this.props.updateTask(this.props.email.id, this.props.actionId, this.state.action);
     }
     this.setState({ action: {} });
   };
@@ -186,8 +184,8 @@ class EditActionDialog extends Component {
                 )}
                 {actionType === ACTION_TYPE.task && (
                   <EditTask
-                    emailNumber={this.props.emailId}
-                    emailSubject={this.props.emailSubject}
+                    emailNumber={this.props.email.id}
+                    emailSubject={this.props.email.subject}
                     onChange={this.editAction}
                     action={editMode === EDIT_MODE.update ? this.props.action : null}
                   />

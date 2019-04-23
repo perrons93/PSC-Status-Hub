@@ -96,8 +96,6 @@ class EditTask extends Component {
   };
 
   static propTypes = {
-    emailNumber: PropTypes.number.isRequired,
-    emailSubject: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     action: actionShape
   };
@@ -115,7 +113,6 @@ class EditTask extends Component {
   };
 
   render() {
-    const { emailNumber, emailSubject } = this.props;
     const { task, reasonsForAction } = this.state;
 
     return (

@@ -58,7 +58,6 @@ class ActionViewEmail extends Component {
   static propTypes = {
     action: actionShape,
     actionId: PropTypes.number.isRequired,
-    emailId: PropTypes.number.isRequired,
     email: emailShape,
     // Props from Redux
     deleteEmail: PropTypes.func
@@ -181,13 +180,14 @@ class ActionViewEmail extends Component {
             }
             leftButtonType={BUTTON_TYPE.danger}
             leftButtonTitle={LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
-            leftButtonAction={() => this.props.deleteEmail(this.props.emailId, this.props.actionId)}
+            leftButtonAction={() =>
+              this.props.deleteEmail(this.props.email.id, this.props.actionId)
+            }
             rightButtonType={BUTTON_TYPE.primary}
             rightButtonTitle={LOCALIZE.commons.returnToTest}
           />
         </div>
         <EditActionDialog
-          emailId={this.props.emailId}
           email={this.props.email}
           showDialog={this.state.showEmailDialog}
           handleClose={this.closeEmailDialog}
