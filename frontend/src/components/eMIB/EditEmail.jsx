@@ -49,12 +49,6 @@ const styles = {
       cursor: "pointer",
       paddingRight: 20
     },
-    textFieldBoxPadding: {
-      padding: "0 6px"
-    },
-    toAndCcFieldPadding: {
-      marginBottom: 42
-    },
     fieldsetLegend: {
       fontSize: 16,
       marginBottom: 12,
@@ -66,7 +60,9 @@ const styles = {
       width: 28,
       height: 32,
       lineHeight: "2.1em",
-      paddingRight: 4
+      paddingRight: 4,
+      marginTop: 5,
+      marginBottom: 18
     }
   },
   response: {
@@ -274,7 +270,7 @@ class EditEmail extends Component {
               <label htmlFor="to-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.to}
               </label>
-              <span style={styles.header.textFieldBoxPadding}>
+              <span>
                 <ReactResponsiveSelect
                   id="to-field"
                   multiselect
@@ -291,7 +287,7 @@ class EditEmail extends Component {
               <label htmlFor="cc-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.cc}
               </label>
-              <span style={styles.header.textFieldBoxPadding}>
+              <span>
                 <ReactResponsiveSelect
                   id="cc-field"
                   multiselect
