@@ -32,8 +32,7 @@ h1 {
 
 h2 {
   color: #00565e;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin: 0px;
 }
 
 h3 {
@@ -144,6 +143,12 @@ Progess Steps
   background-color: #009fae;
 }
 
+.step-indicator .steps li.complete:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 900;
+}
+
 /* Nav */
 
 .nav-tabs .nav-link:hover,
@@ -224,4 +229,21 @@ Progess Steps
   margin-right: 6;
   width: calc(100% - 46px);
   float: right;
+}
+
+/* overriding some of the modal styles */
+.modal-header .close {
+  padding: 0px;
+  margin: 4px 4px;
+  font-size: 30px;
+}
+
+.modal-body {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+/* overriding form group bottom margin */
+.form-group {
+  margin-bottom: 0;
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
+import { styleConstants } from "./styleConstants.js";
 
 class Evaluation extends Component {
   render() {
@@ -14,10 +15,7 @@ class Evaluation extends Component {
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet1}</li>
               <li>
                 {LOCALIZE.emibTest.howToPage.evaluation.bullet2}
-                <a href="#keyLeadershipCompetencies">
-                  {LOCALIZE.emibTest.howToPage.evaluation.bullet2Link}
-                </a>
-                .
+                {LOCALIZE.emibTest.howToPage.evaluation.bullet2Link}.
               </li>
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet3}</li>
               <li>{LOCALIZE.emibTest.howToPage.evaluation.bullet4}</li>
@@ -25,9 +23,11 @@ class Evaluation extends Component {
             </ul>
           </div>
           <div id="keyLeadershipCompetencies">
-            <h3>{LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection.title}</h3>
+            <h3 style={styleConstants.instuctions.h3}>
+              {LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection.title}
+            </h3>
             <div>
-              <p>
+              <p style={styleConstants.instuctions.p}>
                 <span className="font-weight-bold">
                   {
                     LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection
@@ -36,7 +36,7 @@ class Evaluation extends Component {
                 </span>
                 {LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection.para1}
               </p>
-              <p>
+              <p style={styleConstants.instuctions.p}>
                 <span className="font-weight-bold">
                   {
                     LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection
@@ -45,7 +45,7 @@ class Evaluation extends Component {
                 </span>
                 {LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection.para2}
               </p>
-              <p>
+              <p style={styleConstants.instuctions.p}>
                 <span className="font-weight-bold">
                   {
                     LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection
@@ -54,7 +54,7 @@ class Evaluation extends Component {
                 </span>
                 {LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection.para3}
               </p>
-              <p>
+              <p style={styleConstants.instuctions.p}>
                 <span className="font-weight-bold">
                   {
                     LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection
@@ -63,7 +63,7 @@ class Evaluation extends Component {
                 </span>
                 {LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection.para4}
               </p>
-              <p>
+              <p style={styleConstants.instuctions.p}>
                 <span className="font-weight-bold">
                   {
                     LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection
@@ -72,7 +72,7 @@ class Evaluation extends Component {
                 </span>
                 {LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection.para5}
               </p>
-              <p>
+              <p style={styleConstants.instuctions.p}>
                 <span className="font-weight-bold">
                   {
                     LOCALIZE.emibTest.howToPage.evaluation.keyLeadershipCompetenciesSection

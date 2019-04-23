@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { OverlayTrigger, Popover } from "react-bootstrap";
 import LOCALIZE from "../../text_resources";
 import { actionShape } from "./constants";
+import "../../css/inbox.css";
 
 // These two consts limit the number of characters
 // that can be entered into two text areas
 // and are used to display <x>/<MAX>
 // under the text areas
-const MAX_TASK = "100";
-const MAX_REASON = "100";
+const MAX_TASK = "650";
+const MAX_REASON = "650";
 
 const styles = {
-  container: {
-    maxHeight: "calc(100vh - 300px)",
-    overflow: "auto",
-    width: 500
-  },
   header: {
     color: "#00565E",
     paddingTop: 12
@@ -24,9 +21,12 @@ const styles = {
     width: "100%",
     textAlign: "right"
   },
-  hr: {
-    margin: "6px 0",
+  hrOne: {
+    margin: "12px 0",
     borderColor: "#00565E"
+  },
+  hrTwo: {
+    margin: "12px 0"
   },
   tasks: {
     title: {
@@ -35,14 +35,19 @@ const styles = {
     },
     icon: {
       color: "#00565E",
-      marginTop: "4px"
+      marginTop: "4px",
+      width: 15,
+      cursor: "pointer"
     },
-    tooltip: {
-      float: "right",
-      border: "1px solid #00565E",
+    tooltipContainer: {
+      marginLeft: 6,
+      padding: 6,
+      maxWidth: 550,
+      borderColor: "#00565E"
+    },
+    tooltipContent: {
       color: "#00565E",
-      width: "75%",
-      margin: "6px 6px 12px 0"
+      margin: 0
     },
     textArea: {
       padding: "6px 12px",
@@ -60,7 +65,18 @@ const styles = {
     },
     icon: {
       color: "#00565E",
-      marginTop: "4px"
+      marginTop: "4px",
+      cursor: "pointer"
+    },
+    tooltipContainer: {
+      marginLeft: 6,
+      padding: 8,
+      maxWidth: 360,
+      borderColor: "#00565E"
+    },
+    tooltipContent: {
+      color: "#00565E",
+      margin: 0
     },
     textArea: {
       padding: "6px 12px",
@@ -73,8 +89,6 @@ const styles = {
   }
 };
 
-//TODO: Add tooltip functionality for both task and reasons for action icons
-
 class EditTask extends Component {
   state = {
     task: !this.props.action ? "" : this.props.action.task,
@@ -82,8 +96,6 @@ class EditTask extends Component {
   };
 
   static propTypes = {
-    emailNumber: PropTypes.number.isRequired,
-    emailSubject: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     action: actionShape
   };
@@ -101,28 +113,41 @@ class EditTask extends Component {
   };
 
   render() {
-    const { emailNumber, emailSubject } = this.props;
     const { task, reasonsForAction } = this.state;
 
     return (
       <div style={styles.container}>
         <form>
-          <div>
-            <label style={styles.header}>
-              {LOCALIZE.formatString(
-                LOCALIZE.emibTest.inboxPage.addEmailTask.header,
-                emailNumber + 1,
-                emailSubject
-              )}
-            </label>
-          </div>
-          <hr style={styles.hr} />
+          <hr style={styles.hrOne} />
           <div>
             <div className="font-weight-bold form-group">
               <label htmlFor="your-tasks-text-area" style={styles.tasks.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.task}
               </label>
-              <i className="fas fa-question-circle" style={styles.tasks.icon} />
+              <OverlayTrigger
+                trigger="focus"
+                placement="right"
+                overlay={
+                  <Popover id="task-tooltip" style={styles.tasks.tooltipContainer}>
+                    <div>
+                      <p style={styles.tasks.tooltipContent}>
+                        {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
+                      </p>
+                      <p style={styles.tasks.tooltipContent}>
+                        {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart2}
+                      </p>
+                    </div>
+                  </Popover>
+                }
+              >
+                <i
+                  id="task-tooltip"
+                  aria-label={LOCALIZE.ariaLabel.taskTooltip}
+                  tabIndex="0"
+                  className="far fa-question-circle"
+                  style={styles.tasks.icon}
+                />
+              </OverlayTrigger>
               <textarea
                 id="your-tasks-text-area"
                 maxLength={MAX_TASK}
@@ -135,12 +160,36 @@ class EditTask extends Component {
               </div>
             </div>
           </div>
+          <hr style={styles.hrTwo} />
           <div>
             <div className="font-weight-bold form-group">
               <label htmlFor="reasons-for-action-text-area" style={styles.reasonsForAction.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.reasonsForAction}
               </label>
-              <i className="fas fa-question-circle" style={styles.reasonsForAction.icon} />
+              <OverlayTrigger
+                trigger="focus"
+                placement="right"
+                overlay={
+                  <Popover
+                    id="reasons-for-action-tooltip"
+                    style={styles.reasonsForAction.tooltipContainer}
+                  >
+                    <div>
+                      <p style={styles.reasonsForAction.tooltipContent}>
+                        {LOCALIZE.emibTest.inboxPage.taskContent.reasonsForActionTooltip}
+                      </p>
+                    </div>
+                  </Popover>
+                }
+              >
+                <i
+                  id="reasons-for-action-tooltip"
+                  aria-label={LOCALIZE.ariaLabel.reasonsForActionTooltip}
+                  tabIndex="0"
+                  className="far fa-question-circle"
+                  style={styles.reasonsForAction.icon}
+                />
+              </OverlayTrigger>
               <textarea
                 id="reasons-for-action-text-area"
                 maxLength={MAX_REASON}

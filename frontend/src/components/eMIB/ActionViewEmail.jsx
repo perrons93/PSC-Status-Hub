@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import EditActionDialog from "./EditActionDialog";
-import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE, actionShape } from "./constants";
+import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE, actionShape, emailShape } from "./constants";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { deleteEmail } from "../../modules/EmibInboxRedux";
@@ -60,7 +60,7 @@ class ActionViewEmail extends Component {
   static propTypes = {
     action: actionShape,
     actionId: PropTypes.number.isRequired,
-    emailId: PropTypes.number.isRequired,
+    email: emailShape,
     // Props from Redux
     addressBook: PropTypes.arrayOf(contactShape),
     deleteEmail: PropTypes.func
@@ -87,12 +87,18 @@ class ActionViewEmail extends Component {
     this.setState({ showDeleteConfirmationDialog: false });
   };
 
-  generateEmailNameList(vals) {
-    let retArray = [];
-    for (let id of vals) {
-      retArray.push(contactNameFromId(this.props.addressBook, id));
+  // generate a string of contacts and their roles for display purposes
+  // (namely in the To/CC fields)
+  // contactIdList is a list of ids that need to be looked up in the address book
+  // and transformed into a string that will be displayed to the candidate
+  // the return is a string in the following format:
+  //  "<name 1> (<role 1>), <name 2> (<role 2>), ...""
+  generateEmailNameList(contactIdList) {
+    let visibleContactNames = [];
+    for (let id of contactIdList) {
+      visibleContactNames.push(contactNameFromId(this.props.addressBook, id));
     }
-    return retArray.join(", ");
+    return visibleContactNames.join(", ");
   }
 
   render() {
@@ -193,13 +199,15 @@ class ActionViewEmail extends Component {
             }
             leftButtonType={BUTTON_TYPE.danger}
             leftButtonTitle={LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
-            leftButtonAction={() => this.props.deleteEmail(this.props.emailId, this.props.actionId)}
+            leftButtonAction={() =>
+              this.props.deleteEmail(this.props.email.id, this.props.actionId)
+            }
             rightButtonType={BUTTON_TYPE.primary}
             rightButtonTitle={LOCALIZE.commons.returnToTest}
           />
         </div>
         <EditActionDialog
-          emailId={this.props.emailId}
+          email={this.props.email}
           showDialog={this.state.showEmailDialog}
           handleClose={this.closeEmailDialog}
           actionType={ACTION_TYPE.email}
