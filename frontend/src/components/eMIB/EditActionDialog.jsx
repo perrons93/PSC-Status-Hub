@@ -6,7 +6,10 @@ import LOCALIZE from "../../text_resources";
 import EditEmail from "./EditEmail";
 import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
-import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
+import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
+import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
+import { ACTION_TYPE, EDIT_MODE, actionShape, emailShape } from "./constants";
+import EmailContent from "./EmailContent";
 import {
   addEmail,
   addTask,
@@ -16,6 +19,17 @@ import {
 } from "../../modules/EmibInboxRedux";
 
 const styles = {
+  container: {
+    maxHeight: "calc(100vh - 300px)",
+    overflow: "auto",
+    width: 700,
+    paddingBottom: 12
+  },
+  originalEmail: {
+    padding: 12,
+    border: "1px #00565E solid",
+    borderRadius: 4
+  },
   icon: {
     float: "left",
     marginTop: 14,
@@ -54,8 +68,7 @@ const styles = {
 
 class EditActionDialog extends Component {
   static propTypes = {
-    emailId: PropTypes.number.isRequired,
-    emailSubject: PropTypes.string,
+    email: emailShape,
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
     actionType: PropTypes.oneOf(Object.keys(ACTION_TYPE)).isRequired,
@@ -72,30 +85,31 @@ class EditActionDialog extends Component {
   };
 
   state = {
-    action: {}
+    action: {},
+    showCancelConfirmationDialog: false
   };
 
   handleSave = () => {
     this.props.handleClose();
     if (this.props.actionType === ACTION_TYPE.email && this.props.editMode === EDIT_MODE.create) {
-      this.props.addEmail(this.props.emailId, this.state.action);
-      this.props.readEmail(this.props.emailId);
+      this.props.addEmail(this.props.email.id, this.state.action);
+      this.props.readEmail(this.props.email.id);
     } else if (
       this.props.actionType === ACTION_TYPE.task &&
       this.props.editMode === EDIT_MODE.create
     ) {
-      this.props.addTask(this.props.emailId, this.state.action);
-      this.props.readEmail(this.props.emailId);
+      this.props.addTask(this.props.email.id, this.state.action);
+      this.props.readEmail(this.props.email.id);
     } else if (
       this.props.actionType === ACTION_TYPE.email &&
       this.props.editMode === EDIT_MODE.update
     ) {
-      this.props.updateEmail(this.props.emailId, this.props.actionId, this.state.action);
+      this.props.updateEmail(this.props.email.id, this.props.actionId, this.state.action);
     } else if (
       this.props.actionType === ACTION_TYPE.task &&
       this.props.editMode === EDIT_MODE.update
     ) {
-      this.props.updateTask(this.props.emailId, this.props.actionId, this.state.action);
+      this.props.updateTask(this.props.email.id, this.props.actionId, this.state.action);
     }
     this.setState({ action: {} });
   };
@@ -105,11 +119,19 @@ class EditActionDialog extends Component {
     this.setState({ action: updatedAction });
   };
 
+  showCancelConfirmationDialog = () => {
+    this.setState({ showCancelConfirmationDialog: true });
+  };
+
+  closeCancelConfirmationDialog = () => {
+    this.setState({ showCancelConfirmationDialog: false });
+  };
+
   render() {
     const { showDialog, handleClose, actionType, editMode } = this.props;
     return (
       <div>
-        <Modal show={showDialog} onHide={handleClose}>
+        <Modal show={showDialog} onHide={this.showCancelConfirmationDialog}>
           <div>
             <Modal.Header style={styles.modalHeader}>
               {
@@ -123,7 +145,10 @@ class EditActionDialog extends Component {
                         {editMode === EDIT_MODE.update &&
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editEmail}
                       </h3>
-                      <button onClick={handleClose} style={styles.closeButton}>
+                      <button
+                        onClick={this.showCancelConfirmationDialog}
+                        style={styles.closeButton}
+                      >
                         <i className="fas fa-times" />
                       </button>
                     </div>
@@ -137,7 +162,10 @@ class EditActionDialog extends Component {
                         {editMode === EDIT_MODE.update &&
                           LOCALIZE.emibTest.inboxPage.editActionDialog.editTask}
                       </h3>
-                      <button onClick={handleClose} style={styles.closeButton}>
+                      <button
+                        onClick={this.showCancelConfirmationDialog}
+                        style={styles.closeButton}
+                      >
                         <i className="fas fa-times" />
                       </button>
                     </div>
@@ -146,20 +174,27 @@ class EditActionDialog extends Component {
               }
             </Modal.Header>
             <Modal.Body style={styles.modalBody}>
-              {actionType === ACTION_TYPE.email && (
-                <EditEmail
-                  onChange={this.editAction}
-                  action={editMode === EDIT_MODE.update ? this.props.action : null}
-                />
-              )}
-              {actionType === ACTION_TYPE.task && (
-                <EditTask
-                  emailNumber={this.props.emailId}
-                  emailSubject={this.props.emailSubject}
-                  onChange={this.editAction}
-                  action={editMode === EDIT_MODE.update ? this.props.action : null}
-                />
-              )}
+              <div style={styles.container}>
+                <h4>{LOCALIZE.emibTest.inboxPage.emailCommons.yourResponse}</h4>
+                {actionType === ACTION_TYPE.email && (
+                  <EditEmail
+                    onChange={this.editAction}
+                    action={editMode === EDIT_MODE.update ? this.props.action : null}
+                  />
+                )}
+                {actionType === ACTION_TYPE.task && (
+                  <EditTask
+                    emailNumber={this.props.email.id}
+                    emailSubject={this.props.email.subject}
+                    onChange={this.editAction}
+                    action={editMode === EDIT_MODE.update ? this.props.action : null}
+                  />
+                )}
+                <h4>{LOCALIZE.emibTest.inboxPage.emailCommons.originalEmail}</h4>
+                <div style={styles.originalEmail}>
+                  <EmailContent email={this.props.email} />
+                </div>
+              </div>
             </Modal.Body>
             <Modal.Footer>
               <div>
@@ -178,6 +213,35 @@ class EditActionDialog extends Component {
             </Modal.Footer>
           </div>
         </Modal>
+        {this.state.showCancelConfirmationDialog && (
+          <PopupBox
+            show={this.state.showCancelConfirmationDialog}
+            handleClose={this.closeCancelConfirmationDialog}
+            title={LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation.title}
+            description={
+              <div>
+                <div>
+                  <SystemMessage
+                    messageType={MESSAGE_TYPE.error}
+                    title={
+                      LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation.systemMessageTitle
+                    }
+                    message={
+                      LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation
+                        .systemMessageDescription
+                    }
+                  />
+                </div>
+                <div>{LOCALIZE.emibTest.inboxPage.cancelResponseConfirmation.description}</div>
+              </div>
+            }
+            leftButtonType={BUTTON_TYPE.danger}
+            leftButtonTitle={LOCALIZE.commons.cancelResponse}
+            leftButtonAction={handleClose}
+            rightButtonType={BUTTON_TYPE.primary}
+            rightButtonTitle={LOCALIZE.commons.returnToResponse}
+          />
+        )}
       </div>
     );
   }

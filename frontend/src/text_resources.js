@@ -348,7 +348,9 @@ let LOCALIZE = new LocalizedStrings({
           replyAll: "reply all",
           forward: "forward",
           editButton: "Edit response",
-          deleteButton: "Delete response"
+          deleteButton: "Delete response",
+          originalEmail: "Original email",
+          yourResponse: "Your response"
         },
         addEmailResponse: {
           selectResponseType: "Please select how you would like to respond to the original email:",
@@ -368,7 +370,11 @@ let LOCALIZE = new LocalizedStrings({
         },
         taskContent: {
           task: "Your task(s):",
-          reasonsForAction: "Your reasons for action:"
+          taskTooltipPart1: "An action you intend to take to address a situation in the emails.",
+          taskTooltipPart2: "Example: Planning a meeting, asking a colleague for information.",
+          reasonsForAction: "Your reasons for action:",
+          reasonsForActionTooltip:
+            "Here, you can explain why you took a specific action in response to a situation if you feel you need to provide additional information"
         },
         deleteResponseConfirmation: {
           title: "Are you sure you want to delete this response?",
@@ -377,6 +383,14 @@ let LOCALIZE = new LocalizedStrings({
             "This reply will be removed from your test responses. You will not be able to recover your response or reasons for action.",
           description:
             'If you are certain that you want to delete your response, click the "Delete response" button.'
+        },
+        cancelResponseConfirmation: {
+          title: "Are you sure you want to cancel this response?",
+          systemMessageTitle: "Warning!",
+          systemMessageDescription:
+            "Your response will not be saved if you proceed. If you wish to save your answer, you may return to the response. All of your responses can be edited or deleted before submission.",
+          description:
+            'If you do not wish to save the response, click the "Cancel response" button.'
         }
       },
 
@@ -437,7 +451,9 @@ let LOCALIZE = new LocalizedStrings({
       reasonsForActionDetails: "reasons for action details",
       taskDetails: "task details",
       emailOptions: "email options",
-      taskOptions: "task options"
+      taskOptions: "task options",
+      taskTooltip: "task tooltip",
+      reasonsForActionTooltip: "reasons for action tooltip"
     },
 
     //Commons
@@ -457,6 +473,7 @@ let LOCALIZE = new LocalizedStrings({
       submitTestButton: "Submit test",
       quitTest: "Quit Test",
       returnToTest: "Return to Test",
+      returnToResponse: "Return to response",
       passStatus: "Pass",
       failStatus: "Fail",
       enabled: "Enabled",
@@ -469,6 +486,7 @@ let LOCALIZE = new LocalizedStrings({
         openButton: "open notes"
       },
       cancel: "Cancel",
+      cancelResponse: "Cancel response",
       close: "Close"
     }
   },
@@ -827,7 +845,9 @@ let LOCALIZE = new LocalizedStrings({
           replyAll: "répondre à tous",
           forward: "transmettre",
           editButton: "Modifier réponse",
-          deleteButton: "Supprimer résponse"
+          deleteButton: "Supprimer résponse",
+          originalEmail: "FR Original email",
+          yourResponse: "FR Your response"
         },
         addEmailResponse: {
           selectResponseType:
@@ -848,7 +868,11 @@ let LOCALIZE = new LocalizedStrings({
         },
         taskContent: {
           task: "FR Your task(s):",
-          reasonsForAction: "FR Your reasons for action:"
+          taskTooltipPart1: "FR An action you intend to take to address a situation in the emails.",
+          taskTooltipPart2: "FR Example: Planning a meeting, asking a colleague for information.",
+          reasonsForAction: "FR Your reasons for action:",
+          reasonsForActionTooltip:
+            "FR Here, you can explain why you took a specific action in response to a situation if you feel you need to provide additional information"
         },
         deleteResponseConfirmation: {
           title: "FR Are you sure you want to delete this response?",
@@ -857,6 +881,14 @@ let LOCALIZE = new LocalizedStrings({
             "FR This reply will be removed from your test responses. You will not be able to recover your response or reasons for action.",
           description:
             'FR If you are certain that you want to delete your response, click the "Delete response" button.'
+        },
+        cancelResponseConfirmation: {
+          title: "FR Are you sure you want to cancel this response?",
+          systemMessageTitle: "Avertissement!",
+          systemMessageDescription:
+            "FR Your response will not be saved if you proceed. If you wish to save your answer, you may return to the response. All of your responses can be edited or deleted before submission.",
+          description:
+            'FR If you do not wish to save the response, click the "Cancel response" button.'
         }
       },
 
@@ -918,7 +950,9 @@ let LOCALIZE = new LocalizedStrings({
       reasonsForActionDetails: "motifs de l'action",
       taskDetails: "détails sur la ou les tâches",
       emailOptions: "options de messagerie",
-      taskOptions: "options de tâche"
+      taskOptions: "options de tâche",
+      taskTooltip: "infobulle de tâche",
+      reasonsForActionTooltip: "infobulle des motifs de l'action"
     },
 
     //Commons
@@ -938,6 +972,7 @@ let LOCALIZE = new LocalizedStrings({
       submitTestButton: "Envoyer le test",
       quitTest: "Quitter la séance de test",
       returnToTest: "Retourner à la séance",
+      returnToResponse: "Retourner à la réponse",
       passStatus: "Réussi",
       failStatus: "Échoue",
       enabled: "Activé",
@@ -950,6 +985,7 @@ let LOCALIZE = new LocalizedStrings({
         openButton: "ouvrir notes"
       },
       cancel: "Annuler",
+      cancelResponse: "Annuler la réponse",
       close: "Fermer"
     }
   }

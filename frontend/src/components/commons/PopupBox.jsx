@@ -21,8 +21,7 @@ const styles = {
     borderRadius: "5px 5px 5px 5px"
   },
   boxContent: {
-    paddingLeft: 20,
-    paddingRight: 20
+    padding: 12
   },
   modalHeader: {
     display: "table",
@@ -30,11 +29,10 @@ const styles = {
   },
   modelTitle: {
     fontSize: "28px",
-    margin: "12px 0 0 0"
+    margin: 0
   },
   buttonsZone: {
-    width: "100%",
-    paddingBottom: 15
+    width: "100%"
   },
   leftBtnLocation: {
     float: "left"

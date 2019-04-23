@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
+import { styleConstants } from "./styleConstants.js";
 
 class OrganizationalInformation extends Component {
   render() {
@@ -10,10 +11,12 @@ class OrganizationalInformation extends Component {
         <div>
           <h2>{LOCALIZE.emibTest.background.organizationalInformation.title}</h2>
           <div>
-            <p>{LOCALIZE.emibTest.background.organizationalInformation.description}</p>
+            <p style={styleConstants.instuctions.p}>
+              {LOCALIZE.emibTest.background.organizationalInformation.description}
+            </p>
           </div>
           <div>
-            <h3>
+            <h3 style={styleConstants.instuctions.h3}>
               {LOCALIZE.emibTest.background.organizationalInformation.prioritiesSection.title}
             </h3>
             <ul>
@@ -32,7 +35,9 @@ class OrganizationalInformation extends Component {
             </ul>
           </div>
           <div>
-            <h3>{LOCALIZE.emibTest.background.organizationalInformation.risksSection.title}</h3>
+            <h3 style={styleConstants.instuctions.h3}>
+              {LOCALIZE.emibTest.background.organizationalInformation.risksSection.title}
+            </h3>
             <ul>
               <li>{LOCALIZE.emibTest.background.organizationalInformation.risksSection.bullet1}</li>
             </ul>

@@ -20,6 +20,15 @@ const initialState = {
 
 const mockStore = configureStore();
 
+const emailStub = {
+  id: 0,
+  to: "To 1",
+  from: "From 1",
+  subject: "hello team",
+  date: "Date 1",
+  body: "body"
+};
+
 describe("email action type", () => {
   it("renders Add Email dialog", () => {
     testCore(ACTION_TYPE.email, EDIT_MODE.create);
@@ -51,8 +60,7 @@ function testCore(actionType, editMode) {
   //shallow wrapper of the dialog
   const wrapper = shallow(
     <EditActionDialog
-      emailId={1}
-      emailSubject={"hello team"}
+      email={emailStub}
       showDialog={true}
       handleClose={() => {}}
       addEmail={addEmail}
@@ -161,8 +169,7 @@ function testMode(actionType, editMode) {
   const wrapper = mount(
     <Provider store={mockStore(initialState)}>
       <EditActionDialog
-        emailId={1}
-        emailSubject={"hello team"}
+        email={emailStub}
         showDialog={true}
         handleClose={() => {}}
         addEmail={() => {}}
@@ -236,8 +243,7 @@ it("clicking on the button only adds the email once", () => {
   const wrapper = mount(
     <Provider store={mockStore(initialState)}>
       <EditActionDialog
-        emailId={1}
-        emailSubject={"hello team"}
+        email={emailStub}
         showDialog={true}
         handleClose={handleClose}
         addEmail={addEmail}

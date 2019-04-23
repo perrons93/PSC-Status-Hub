@@ -11,15 +11,10 @@ import { contactShape } from "./constants";
 // that can be entered into two text areas
 // and are used to display <x>/<MAX>
 // under the text areas
-const MAX_RESPONSE = "500";
-const MAX_REASON = "100";
+const MAX_RESPONSE = "3000";
+const MAX_REASON = "650";
 
 const styles = {
-  container: {
-    maxHeight: "calc(100vh - 300px)",
-    overflow: "auto",
-    width: 700
-  },
   header: {
     responseTypeIcons: {
       marginRight: 10,
@@ -56,6 +51,9 @@ const styles = {
     },
     textFieldBoxPadding: {
       padding: "0 6px"
+    },
+    toAndCcFieldPadding: {
+      marginBottom: "1rem"
     },
     textField: {
       padding: "4px 12px",
@@ -279,7 +277,7 @@ class EditEmail extends Component {
             </fieldset>
           </div>
           <div>
-            <div className="font-weight-bold form-group">
+            <div className="font-weight-bold form-group" style={styles.header.toAndCcFieldPadding}>
               <label htmlFor="to-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.to}
               </label>
@@ -296,7 +294,7 @@ class EditEmail extends Component {
             </div>
           </div>
           <div>
-            <div className="font-weight-bold form-group">
+            <div className="font-weight-bold form-group" style={styles.header.toAndCcFieldPadding}>
               <label htmlFor="cc-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.cc}
               </label>
