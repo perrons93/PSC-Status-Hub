@@ -8,6 +8,7 @@ import { ACTION_TYPE, EDIT_MODE, emailShape } from "./constants";
 import ActionViewEmail from "./ActionViewEmail";
 import ActionViewTask from "./ActionViewTask";
 import CollapsingItemContainer, { ICON_TYPE } from "./CollapsingItemContainer";
+import EmailContent from "./EmailContent";
 
 const styles = {
   header: {
@@ -36,11 +37,6 @@ const styles = {
     width: "100%",
     borderTop: "1px solid #00565E",
     margin: "16px 0 12px 0"
-  },
-  dataBodyDivider: {
-    width: "100%",
-    borderTop: "1px solid #96a8b2",
-    margin: "12px 0 12px 0"
   }
 };
 
@@ -126,22 +122,7 @@ class Email extends Component {
           </button>
         </div>
         <hr style={styles.titleEmailDivider} />
-        <h3>{email.subject}</h3>
-        <div>
-          {LOCALIZE.emibTest.inboxPage.from}: <span style={styles.replyAndUser}>{email.from}</span>
-        </div>
-        <div>
-          {LOCALIZE.emibTest.inboxPage.to}: <span style={styles.replyAndUser}>{email.to}</span>
-        </div>
-        <div>
-          {LOCALIZE.emibTest.inboxPage.date}: {email.date}
-        </div>
-        <hr style={styles.dataBodyDivider} />
-        <div>
-          {bodyArray.map((paragraph, key) => (
-            <p key={key}>{paragraph}</p>
-          ))}
-        </div>
+        <EmailContent email={email} />
         <div>
           {emailActions.map((action, id) => {
             // populate email responses
