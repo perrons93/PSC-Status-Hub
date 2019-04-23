@@ -177,10 +177,6 @@ class EditActionDialog extends Component {
             </Modal.Header>
             <Modal.Body style={styles.modalBody}>
               <div style={styles.container}>
-                <h4>Original Email</h4>
-                <div style={styles.originalEmail}>
-                  <EmailContent email={this.props.email} />
-                </div>
                 <h4>Your Response</h4>
                 {actionType === ACTION_TYPE.email && (
                   <EditEmail
@@ -196,6 +192,10 @@ class EditActionDialog extends Component {
                     action={editMode === EDIT_MODE.update ? this.props.action : null}
                   />
                 )}
+                <h4>Original Email</h4>
+                <div style={styles.originalEmail}>
+                  <EmailContent email={this.props.email} />
+                </div>
               </div>
             </Modal.Body>
             <Modal.Footer>
