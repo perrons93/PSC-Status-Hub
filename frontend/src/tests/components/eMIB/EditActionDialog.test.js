@@ -3,6 +3,15 @@ import { shallow, mount } from "enzyme";
 import { UnconnectedEditActionDialog as EditActionDialog } from "../../../components/eMIB/EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE } from "../../../components/eMIB/constants";
 
+const emailStub = {
+  id: 0,
+  to: "To 1",
+  from: "From 1",
+  subject: "hello team",
+  date: "Date 1",
+  body: "body"
+};
+
 describe("email action type", () => {
   it("renders Add Email dialog", () => {
     testCore(ACTION_TYPE.email, EDIT_MODE.create);
@@ -34,8 +43,7 @@ function testCore(actionType, editMode) {
   //shallow wrapper of the dialog
   const wrapper = shallow(
     <EditActionDialog
-      emailId={1}
-      emailSubject={"hello team"}
+      email={emailStub}
       showDialog={true}
       handleClose={() => {}}
       addEmail={addEmail}
@@ -143,8 +151,7 @@ function testMode(actionType, editMode) {
   //mount wrapper of the dialog
   const wrapper = mount(
     <EditActionDialog
-      emailId={1}
-      emailSubject={"hello team"}
+      email={emailStub}
       showDialog={true}
       handleClose={() => {}}
       addEmail={() => {}}
@@ -216,8 +223,7 @@ it("clicking on the button only adds the email once", () => {
   const handleClose = jest.fn();
   const wrapper = mount(
     <EditActionDialog
-      emailId={1}
-      emailSubject={"hello team"}
+      email={emailStub}
       showDialog={true}
       handleClose={handleClose}
       addEmail={addEmail}
