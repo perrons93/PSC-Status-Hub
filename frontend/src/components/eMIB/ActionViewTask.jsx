@@ -25,9 +25,8 @@ const styles = {
 class ActionViewTask extends Component {
   static propTypes = {
     action: actionShape,
-    emailSubject: PropTypes.string,
     actionId: PropTypes.number.isRequired,
-    email: emailShape,
+    email: emailShape.isRequired,
     // Props from Redux
     deleteTask: PropTypes.func
   };
