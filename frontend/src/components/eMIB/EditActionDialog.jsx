@@ -8,7 +8,7 @@ import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
 import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
-import { ACTION_TYPE, EDIT_MODE, actionShape, EMAIL_TYPE } from "./constants";
+import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
 import {
   addEmail,
   addTask,
@@ -16,7 +16,11 @@ import {
   updateTask,
   readEmail
 } from "../../modules/EmibInboxRedux";
-import isTaskFormEdited, { isEmailFormEdited } from "../../helpers/isTaskFormEdited";
+import isEmailFormEmpty, {
+  isTaskFormEmpty,
+  isTaskFormEdited,
+  isEmailFormEdited
+} from "../../helpers/editActionDialogHelper";
 
 const styles = {
   icon: {
@@ -126,17 +130,23 @@ class EditActionDialog extends Component {
       typeof this.props.action === "undefined" ? "" : this.props.action.reasonsForAction;
 
     // get current email form variables
+    const emailTypeType = typeof this.state.action.emailType;
     const emailType =
       typeof this.state.action.emailType === "undefined" ? "" : this.state.action.emailType;
+    const emailToType = typeof this.state.action.emailTo;
     const emailTo =
       typeof this.state.action.emailTo === "undefined" ? "" : this.state.action.emailTo;
+    const emailCcType = typeof this.state.action.emailCc;
     const emailCc =
       typeof this.state.action.emailCc === "undefined" ? "" : this.state.action.emailCc;
+    const emailResponseType = typeof this.state.action.emailBody;
     const emailResponse =
       typeof this.state.action.emailBody === "undefined" ? "" : this.state.action.emailBody;
 
     // get current task form variables
+    const taskContentType = typeof this.state.action.task;
     const taskContent = typeof this.state.action.task === "undefined" ? "" : this.state.action.task;
+    const reasonsForActionContentType = typeof this.state.action.reasonsForAction;
     const reasonsForActionContent =
       typeof this.state.action.reasonsForAction === "undefined"
         ? ""
@@ -146,14 +156,11 @@ class EditActionDialog extends Component {
     // no content has been added in the concerned form (Email Response Form or Task Form)
     if (
       (this.props.actionType === ACTION_TYPE.task &&
-        taskContent === "" &&
-        reasonsForActionContent === "") ||
+        this.props.editMode === EDIT_MODE.create &&
+        isTaskFormEmpty(taskContent, reasonsForActionContent)) ||
       (this.props.actionType === ACTION_TYPE.email &&
-        emailType === "" &&
-        emailTo === "" &&
-        emailCc === "" &&
-        emailResponse === "" &&
-        reasonsForActionContent === "")
+        this.props.editMode === EDIT_MODE.create &&
+        isEmailFormEmpty(emailType, emailTo, emailCc, emailResponse, reasonsForActionContent))
     ) {
       // close the dialog without any confirmation message
       this.props.handleClose();
@@ -163,14 +170,19 @@ class EditActionDialog extends Component {
       // email content is not the same as the initial content
       if (this.props.actionType === ACTION_TYPE.email) {
         const emailEdited = isEmailFormEdited(
+          emailTypeType,
           initialEmailType,
           emailType,
+          emailToType,
           initialEmailTo,
           emailTo,
+          emailCcType,
           initialEmailCc,
           emailCc,
+          emailResponseType,
           initialEmailResponse,
           emailResponse,
+          reasonsForActionContentType,
           initialReasonsForActionContent,
           reasonsForActionContent
         );
@@ -186,8 +198,10 @@ class EditActionDialog extends Component {
         // reasons for action content is not the same as the initial content
       } else if (this.props.actionType === ACTION_TYPE.task) {
         const taskEdited = isTaskFormEdited(
+          taskContentType,
           initialTaskContent,
           taskContent,
+          reasonsForActionContentType,
           initialReasonsForActionContent,
           reasonsForActionContent
         );
