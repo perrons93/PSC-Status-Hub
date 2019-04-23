@@ -27,19 +27,16 @@ function isTaskFormEmpty(taskContent, reasonsForActionContent) {
 }
 
 function isTaskFormEdited(
-  taskContentType,
   initialTaskContent,
   taskContent,
-  reasonsForActionContentType,
   initialReasonsForActionContent,
   reasonsForActionContent
 ) {
   let isEdited = false;
 
   if (
-    (initialTaskContent !== taskContent ||
-      initialReasonsForActionContent !== reasonsForActionContent) &&
-    (taskContentType !== "undefined" && reasonsForActionContentType !== "undefined")
+    initialTaskContent !== taskContent ||
+    initialReasonsForActionContent !== reasonsForActionContent
   ) {
     isEdited = true;
   } else {
@@ -49,35 +46,25 @@ function isTaskFormEdited(
 }
 
 function isEmailFormEdited(
-  emailTypeType,
   initialEmailType,
   emailType,
-  emailToType,
   initialEmailTo,
   emailTo,
-  emailCcType,
   initialEmailCc,
   emailCc,
-  emailResponseType,
   initialEmailResponse,
   emailResponse,
-  reasonsForActionContentType,
   initialReasonsForActionContent,
   reasonsForActionContent
 ) {
   let isEdited = false;
 
   if (
-    (initialEmailType !== emailType ||
-      initialEmailTo !== emailTo ||
-      initialEmailCc !== emailCc ||
-      initialEmailResponse !== emailResponse ||
-      initialReasonsForActionContent !== reasonsForActionContent) &&
-    (emailTypeType !== "undefined" &&
-      emailToType !== "undefined" &&
-      emailCcType !== "undefined" &&
-      emailResponseType !== "undefined" &&
-      reasonsForActionContentType !== "undefined")
+    initialEmailType !== emailType ||
+    initialEmailTo !== emailTo ||
+    initialEmailCc !== emailCc ||
+    initialEmailResponse !== emailResponse ||
+    initialReasonsForActionContent !== reasonsForActionContent
   ) {
     isEdited = true;
   } else {

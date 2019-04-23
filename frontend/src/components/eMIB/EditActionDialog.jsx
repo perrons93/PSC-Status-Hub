@@ -78,13 +78,6 @@ class EditActionDialog extends Component {
     actionId: PropTypes.number
   };
 
-  getDefaultProps() {
-    return {
-      theme: "secondary",
-      label: "Button Text"
-    };
-  }
-
   state = {
     action: { ...this.props.action },
     showCancelConfirmationDialog: false
@@ -121,32 +114,27 @@ class EditActionDialog extends Component {
   };
 
   handleCancelConfirmationDisplay = () => {
-    // if editmode is create and there is no content, close
-
     // ======================================== VARIABLES ========================================
 
+    // setting initial email and task forms variables to empty strings
+    let {
+      initialEmailType,
+      initialEmailTo,
+      initialEmailCc,
+      initialEmailResponse,
+      initialTaskContent,
+      initialReasonsForActionContent
+    } = "";
+
     // get current email form variables
-    const emailTypeType = typeof this.state.action.emailType;
-    const emailType =
-      typeof this.state.action.emailType === "undefined" ? "" : this.state.action.emailType;
-    const emailToType = typeof this.state.action.emailTo;
-    const emailTo =
-      typeof this.state.action.emailTo === "undefined" ? "" : this.state.action.emailTo;
-    const emailCcType = typeof this.state.action.emailCc;
-    const emailCc =
-      typeof this.state.action.emailCc === "undefined" ? "" : this.state.action.emailCc;
-    const emailResponseType = typeof this.state.action.emailBody;
-    const emailResponse =
-      typeof this.state.action.emailBody === "undefined" ? "" : this.state.action.emailBody;
+    const emailType = this.state.action.emailType;
+    const emailTo = this.state.action.emailTo;
+    const emailCc = this.state.action.emailCc;
+    const emailResponse = this.state.action.emailBody;
 
     // get current task form variables
-    const taskContentType = typeof this.state.action.task;
-    const taskContent = typeof this.state.action.task === "undefined" ? "" : this.state.action.task;
-    const reasonsForActionContentType = typeof this.state.action.reasonsForAction;
-    const reasonsForActionContent =
-      typeof this.state.action.reasonsForAction === "undefined"
-        ? ""
-        : this.state.action.reasonsForAction;
+    const taskContent = this.state.action.task;
+    const reasonsForActionContent = this.state.action.reasonsForAction;
     // =============================================================================================
 
     // no content has been added in the concerned form (Email Response Form or Task Form)
@@ -164,29 +152,25 @@ class EditActionDialog extends Component {
       // content may have changed
     } else {
       // get initial variables
-      const initialEmailType = this.props.action.emailType;
-      const initialEmailTo = this.props.action.emailTo;
-      const initialEmailCc = this.props.action.emailCc;
-      const initialEmailResponse = this.props.action.emailBody;
-      const initialTaskContent = this.props.action.task;
-      const initialReasonsForActionContent = this.props.action.reasonsForAction;
-
+      if (this.props.editMode === EDIT_MODE.update) {
+        initialEmailType = this.props.action.emailType;
+        initialEmailTo = this.props.action.emailTo;
+        initialEmailCc = this.props.action.emailCc;
+        initialEmailResponse = this.props.action.emailBody;
+        initialReasonsForActionContent = this.props.action.reasonsForAction;
+        initialTaskContent = this.props.action.task;
+      }
       // email content is not the same as the initial content
       if (this.props.actionType === ACTION_TYPE.email) {
         const emailEdited = isEmailFormEdited(
-          emailTypeType,
           initialEmailType,
           emailType,
-          emailToType,
           initialEmailTo,
           emailTo,
-          emailCcType,
           initialEmailCc,
           emailCc,
-          emailResponseType,
           initialEmailResponse,
           emailResponse,
-          reasonsForActionContentType,
           initialReasonsForActionContent,
           reasonsForActionContent
         );
@@ -202,10 +186,8 @@ class EditActionDialog extends Component {
         // reasons for action content is not the same as the initial content
       } else if (this.props.actionType === ACTION_TYPE.task) {
         const taskEdited = isTaskFormEdited(
-          taskContentType,
           initialTaskContent,
           taskContent,
-          reasonsForActionContentType,
           initialReasonsForActionContent,
           reasonsForActionContent
         );
