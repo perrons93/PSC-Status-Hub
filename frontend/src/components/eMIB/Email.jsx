@@ -165,6 +165,7 @@ class Email extends Component {
         </div>
         <EditActionDialog
           emailId={email.id}
+          email={email}
           showDialog={this.state.showAddEmailDialog}
           handleClose={this.closeEmailDialog}
           actionType={ACTION_TYPE.email}
@@ -172,6 +173,7 @@ class Email extends Component {
         />
         <EditActionDialog
           emailId={email.id}
+          email={email}
           emailSubject={email.subject}
           showDialog={this.state.showAddTaskDialog}
           handleClose={this.closeTaskDialog}

@@ -8,7 +8,8 @@ import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
 import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
-import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
+import { ACTION_TYPE, EDIT_MODE, actionShape, emailShape } from "./constants";
+import EmailContent from "./EmailContent";
 import {
   addEmail,
   addTask,
@@ -18,6 +19,12 @@ import {
 } from "../../modules/EmibInboxRedux";
 
 const styles = {
+  container: {
+    maxHeight: "calc(100vh - 300px)",
+    overflow: "auto",
+    width: 700,
+    paddingBottom: 12
+  },
   icon: {
     float: "left",
     marginTop: 14,
@@ -57,6 +64,7 @@ const styles = {
 class EditActionDialog extends Component {
   static propTypes = {
     emailId: PropTypes.number.isRequired,
+    email: emailShape,
     emailSubject: PropTypes.string,
     showDialog: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
@@ -163,20 +171,23 @@ class EditActionDialog extends Component {
               }
             </Modal.Header>
             <Modal.Body style={styles.modalBody}>
-              {actionType === ACTION_TYPE.email && (
-                <EditEmail
-                  onChange={this.editAction}
-                  action={editMode === EDIT_MODE.update ? this.props.action : null}
-                />
-              )}
-              {actionType === ACTION_TYPE.task && (
-                <EditTask
-                  emailNumber={this.props.emailId}
-                  emailSubject={this.props.emailSubject}
-                  onChange={this.editAction}
-                  action={editMode === EDIT_MODE.update ? this.props.action : null}
-                />
-              )}
+              <div style={styles.container}>
+                <EmailContent email={this.props.email} />
+                {actionType === ACTION_TYPE.email && (
+                  <EditEmail
+                    onChange={this.editAction}
+                    action={editMode === EDIT_MODE.update ? this.props.action : null}
+                  />
+                )}
+                {actionType === ACTION_TYPE.task && (
+                  <EditTask
+                    emailNumber={this.props.emailId}
+                    emailSubject={this.props.emailSubject}
+                    onChange={this.editAction}
+                    action={editMode === EDIT_MODE.update ? this.props.action : null}
+                  />
+                )}
+              </div>
             </Modal.Body>
             <Modal.Footer>
               <div>
