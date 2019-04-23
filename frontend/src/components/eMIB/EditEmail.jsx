@@ -11,12 +11,6 @@ const MAX_RESPONSE = "3000";
 const MAX_REASON = "650";
 
 const styles = {
-  container: {
-    maxHeight: "calc(100vh - 300px)",
-    overflow: "auto",
-    width: 700,
-    paddingBottom: 12
-  },
   header: {
     responseTypeIcons: {
       marginRight: 10,

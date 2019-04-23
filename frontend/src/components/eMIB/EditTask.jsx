@@ -13,11 +13,6 @@ const MAX_TASK = "650";
 const MAX_REASON = "650";
 
 const styles = {
-  container: {
-    maxHeight: "calc(100vh - 297px)",
-    overflow: "auto",
-    width: 500
-  },
   header: {
     color: "#00565E",
     paddingTop: 12
@@ -101,8 +96,6 @@ class EditTask extends Component {
   };
 
   static propTypes = {
-    emailNumber: PropTypes.number.isRequired,
-    emailSubject: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     action: actionShape
   };
@@ -120,21 +113,11 @@ class EditTask extends Component {
   };
 
   render() {
-    const { emailNumber, emailSubject } = this.props;
     const { task, reasonsForAction } = this.state;
 
     return (
       <div style={styles.container}>
         <form>
-          <div>
-            <label style={styles.header}>
-              {LOCALIZE.formatString(
-                LOCALIZE.emibTest.inboxPage.addEmailTask.header,
-                emailNumber + 1,
-                emailSubject
-              )}
-            </label>
-          </div>
           <hr style={styles.hrOne} />
           <div>
             <div className="font-weight-bold form-group">

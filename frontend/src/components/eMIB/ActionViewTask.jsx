@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import EditActionDialog from "./EditActionDialog";
-import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
+import { ACTION_TYPE, EDIT_MODE, actionShape, emailShape } from "./constants";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { deleteTask } from "../../modules/EmibInboxRedux";
@@ -25,9 +25,8 @@ const styles = {
 class ActionViewTask extends Component {
   static propTypes = {
     action: actionShape,
-    emailSubject: PropTypes.string,
     actionId: PropTypes.number.isRequired,
-    emailId: PropTypes.number.isRequired,
+    email: emailShape.isRequired,
     // Props from Redux
     deleteTask: PropTypes.func
   };
@@ -105,15 +104,14 @@ class ActionViewTask extends Component {
             }
             leftButtonType={BUTTON_TYPE.danger}
             leftButtonTitle={LOCALIZE.emibTest.inboxPage.emailCommons.deleteButton}
-            leftButtonAction={() => this.props.deleteTask(this.props.emailId, this.props.actionId)}
+            leftButtonAction={() => this.props.deleteTask(this.props.email.id, this.props.actionId)}
             rightButtonType={BUTTON_TYPE.primary}
             rightButtonTitle={LOCALIZE.commons.returnToTest}
           />
         </div>
         <div>
           <EditActionDialog
-            emailId={this.props.emailId}
-            emailSubject={this.props.emailSubject}
+            email={this.props.email}
             showDialog={this.state.showTaskDialog}
             handleClose={this.closeTaskDialog}
             actionType={ACTION_TYPE.task}

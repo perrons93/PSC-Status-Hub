@@ -19,8 +19,6 @@ it("default email renders with subject as an h3", () => {
   const wrapper = shallow(
     <Email email={emailStub} emailCount={0} taskCount={0} emailActionsArray={[[]]} />
   );
-  const subject = <h3>Subject 1</h3>;
-  expect(wrapper.contains(subject)).toEqual(true);
   expect(wrapper.contains(hasAction)).toEqual(false);
 });
 
@@ -28,8 +26,6 @@ it("shows action when email count is non zero", () => {
   const wrapper = shallow(
     <Email email={emailStub} emailCount={1} taskCount={0} emailActionsArray={[[]]} />
   );
-  const subject = <h3>Subject 1</h3>;
-  expect(wrapper.contains(subject)).toEqual(true);
   expect(wrapper.contains(hasAction)).toEqual(true);
 });
 
@@ -37,8 +33,6 @@ it("shows action when task count is non zero", () => {
   const wrapper = shallow(
     <Email email={emailStub} emailCount={0} taskCount={2} emailActionsArray={[[]]} />
   );
-  const subject = <h3>Subject 1</h3>;
-  expect(wrapper.contains(subject)).toEqual(true);
   expect(wrapper.contains(hasAction)).toEqual(true);
 });
 
@@ -95,37 +89,4 @@ describe("shows as many 'CollapsingItemContainer' as there are actions", () => {
     );
     expect(wrapper.find(CollapsingItemContainer).length).toEqual(3);
   });
-});
-
-describe("email body renders the proper number of <p> tags in the body", () => {
-  it("renders only 1 <p> with a short body", () => {
-    testParagraphTags("I am a one line email", 1);
-  });
-
-  it("renders only 2 <p>'s with a single \n body", () => {
-    testParagraphTags("I am a one line\nI am the next", 2);
-  });
-
-  it("renders only 2 <p>'s with a body split by \n\n", () => {
-    testParagraphTags("I am a one line\n\nI am the next", 2);
-  });
-
-  it("renders only 4 <p>'s despite varying  \n's", () => {
-    testParagraphTags("Dear Joe\nHow are you?\n\n\n\n\n\n\nSincerely,\n\nBob", 4);
-  });
-
-  function testParagraphTags(body, expectedCount) {
-    const emailStub = {
-      id: 0,
-      to: "To 1",
-      from: "From 1",
-      subject: "Subject 1",
-      date: "Date 1",
-      body: body
-    };
-    const wrapper = shallow(
-      <Email email={emailStub} emailCount={0} taskCount={2} emailActionsArray={[[]]} />
-    );
-    expect(wrapper.find("p").length).toEqual(expectedCount);
-  }
 });

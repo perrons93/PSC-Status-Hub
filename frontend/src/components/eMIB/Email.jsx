@@ -8,6 +8,7 @@ import { ACTION_TYPE, EDIT_MODE, emailShape } from "./constants";
 import ActionViewEmail from "./ActionViewEmail";
 import ActionViewTask from "./ActionViewTask";
 import CollapsingItemContainer, { ICON_TYPE } from "./CollapsingItemContainer";
+import EmailContent from "./EmailContent";
 
 const styles = {
   header: {
@@ -29,18 +30,13 @@ const styles = {
     textAlign: "left",
     padding: 16
   },
-  replyAndUser: {
+  replyIcon: {
     color: "#00565E"
   },
   titleEmailDivider: {
     width: "100%",
     borderTop: "1px solid #00565E",
     margin: "16px 0 12px 0"
-  },
-  dataBodyDivider: {
-    width: "100%",
-    borderTop: "1px solid #96a8b2",
-    margin: "12px 0 12px 0"
   }
 };
 
@@ -80,10 +76,6 @@ class Email extends Component {
     const emailActions = emailActionsArray[email.id];
     let emailNumber = 0;
     let taskNumber = 0;
-    //Split the body on new line characters
-    //This will allow them to be wrapped in <p></p> tags
-    // .filter(Boolean) drops empty elements
-    const bodyArray = email.body.split("\n").filter(Boolean);
     return (
       <div style={styles.email}>
         <div style={styles.header}>
@@ -93,7 +85,7 @@ class Email extends Component {
           </h2>
           {hasTakenAction && (
             <div className="font-weight-bold" style={styles.replyStatus}>
-              <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
+              <i className="fas fa-sign-out-alt" style={styles.replyIcon} />
               {LOCALIZE.formatString(
                 LOCALIZE.emibTest.inboxPage.yourActions,
                 emailCount,
@@ -126,22 +118,7 @@ class Email extends Component {
           </button>
         </div>
         <hr style={styles.titleEmailDivider} />
-        <h3>{email.subject}</h3>
-        <div>
-          {LOCALIZE.emibTest.inboxPage.from}: <span style={styles.replyAndUser}>{email.from}</span>
-        </div>
-        <div>
-          {LOCALIZE.emibTest.inboxPage.to}: <span style={styles.replyAndUser}>{email.to}</span>
-        </div>
-        <div>
-          {LOCALIZE.emibTest.inboxPage.date}: {email.date}
-        </div>
-        <hr style={styles.dataBodyDivider} />
-        <div>
-          {bodyArray.map((paragraph, key) => (
-            <p key={key}>{paragraph}</p>
-          ))}
-        </div>
+        <EmailContent email={email} />
         <div>
           {emailActions.map((action, id) => {
             // populate email responses
@@ -153,7 +130,7 @@ class Email extends Component {
                     key={id}
                     iconType={ICON_TYPE.email}
                     title={`Email Response #${emailNumber}`}
-                    body={<ActionViewEmail action={action} actionId={id} emailId={email.id} />}
+                    body={<ActionViewEmail action={action} actionId={id} email={email} />}
                   />
                 );
               }
@@ -171,7 +148,7 @@ class Email extends Component {
                       <ActionViewTask
                         action={action}
                         actionId={id}
-                        emailId={email.id}
+                        email={email}
                         emailSubject={email.subject}
                       />
                     }
@@ -183,15 +160,14 @@ class Email extends Component {
           })}
         </div>
         <EditActionDialog
-          emailId={email.id}
+          email={email}
           showDialog={this.state.showAddEmailDialog}
           handleClose={this.closeEmailDialog}
           actionType={ACTION_TYPE.email}
           editMode={EDIT_MODE.create}
         />
         <EditActionDialog
-          emailId={email.id}
-          emailSubject={email.subject}
+          email={email}
           showDialog={this.state.showAddTaskDialog}
           handleClose={this.closeTaskDialog}
           actionType={ACTION_TYPE.task}
