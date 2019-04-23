@@ -231,6 +231,13 @@ Progess Steps
   float: right;
 }
 
+.rrs__button {
+  border: 1px solid #00565e;
+  border-radius: 4;
+  height: 150;
+  resize: none;
+}
+
 /* overriding some of the modal styles */
 .modal-header .close {
   padding: 0px;
