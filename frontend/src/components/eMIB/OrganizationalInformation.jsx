@@ -9,9 +9,7 @@ class OrganizationalInformation extends Component {
     return (
       <div>
         <div>
-          <h2 style={styleConstants.instuctions.h2}>
-            {LOCALIZE.emibTest.background.organizationalInformation.title}
-          </h2>
+          <h2>{LOCALIZE.emibTest.background.organizationalInformation.title}</h2>
           <div>
             <p style={styleConstants.instuctions.p}>
               {LOCALIZE.emibTest.background.organizationalInformation.description}

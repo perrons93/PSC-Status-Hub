@@ -57,9 +57,7 @@ class OrganizationalStructure extends Component {
           rightButtonTitle={LOCALIZE.commons.close}
         />
         <div>
-          <h2 style={styleConstants.instuctions.h2}>
-            {LOCALIZE.emibTest.background.organizationalStructure.title}
-          </h2>
+          <h2>{LOCALIZE.emibTest.background.organizationalStructure.title}</h2>
           <div>
             <p style={styleConstants.instuctions.p}>
               {LOCALIZE.emibTest.background.organizationalStructure.description}
