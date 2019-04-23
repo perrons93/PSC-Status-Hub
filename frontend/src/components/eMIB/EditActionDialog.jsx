@@ -25,6 +25,11 @@ const styles = {
     width: 700,
     paddingBottom: 12
   },
+  originalEmail: {
+    padding: 12,
+    border: "1px #00565E solid",
+    borderRadius: 4
+  },
   icon: {
     float: "left",
     marginTop: 14,
@@ -172,7 +177,11 @@ class EditActionDialog extends Component {
             </Modal.Header>
             <Modal.Body style={styles.modalBody}>
               <div style={styles.container}>
-                <EmailContent email={this.props.email} />
+                <h4>Original Email</h4>
+                <div style={styles.originalEmail}>
+                  <EmailContent email={this.props.email} />
+                </div>
+                <h4>Your Response</h4>
                 {actionType === ACTION_TYPE.email && (
                   <EditEmail
                     onChange={this.editAction}
