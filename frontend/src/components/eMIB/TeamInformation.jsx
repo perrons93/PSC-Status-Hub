@@ -55,9 +55,7 @@ class TeamInformation extends Component {
           rightButtonTitle={LOCALIZE.commons.close}
         />
         <div>
-          <h2 style={styleConstants.instuctions.h2}>
-            {LOCALIZE.emibTest.background.teamInformation.title}
-          </h2>
+          <h2>{LOCALIZE.emibTest.background.teamInformation.title}</h2>
           <div>
             <h3 style={styleConstants.instuctions.h3}>
               {LOCALIZE.emibTest.background.teamInformation.teamMembersSection.title}

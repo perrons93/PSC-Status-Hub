@@ -1,8 +1,5 @@
 export const styleConstants = {
   instuctions: {
-    h2: {
-      margin: 0
-    },
     h3: {
       marginTop: 32,
       marginBottom: 0
