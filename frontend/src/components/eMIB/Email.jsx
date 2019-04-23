@@ -30,7 +30,7 @@ const styles = {
     textAlign: "left",
     padding: 16
   },
-  replyAndUser: {
+  replyIcon: {
     color: "#00565E"
   },
   titleEmailDivider: {
@@ -89,7 +89,7 @@ class Email extends Component {
           </h2>
           {hasTakenAction && (
             <div className="font-weight-bold" style={styles.replyStatus}>
-              <i className="fas fa-sign-out-alt" style={styles.replyAndUser} />
+              <i className="fas fa-sign-out-alt" style={styles.replyIcon} />
               {LOCALIZE.formatString(
                 LOCALIZE.emibTest.inboxPage.yourActions,
                 emailCount,
