@@ -87,12 +87,18 @@ class ActionViewEmail extends Component {
     this.setState({ showDeleteConfirmationDialog: false });
   };
 
-  generateEmailNameList(vals) {
-    let retArray = [];
-    for (let id of vals) {
-      retArray.push(contactNameFromId(this.props.addressBook, id));
+  // generate a string of contacts and their roles for display purposes
+  // (namely in the To/CC fields)
+  // contactIdList is a list of ids that need to be looked up in the address book
+  // and transformed into a string that will be displayed to the candidate
+  // the return is a string in the following format:
+  //  "<name 1> (<role 1>), <name 2> (<role 2>), ...""
+  generateEmailNameList(contactIdList) {
+    let visibleContactNames = [];
+    for (let id of contactIdList) {
+      visibleContactNames.push(contactNameFromId(this.props.addressBook, id));
     }
-    return retArray.join(", ");
+    return visibleContactNames.join(", ");
   }
 
   render() {
