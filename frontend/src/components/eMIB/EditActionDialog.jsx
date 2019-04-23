@@ -208,8 +208,15 @@ class EditActionDialog extends Component {
     this.setState({ showCancelConfirmationDialog: false });
   };
 
+  handleClose = () => {
+    // reseting all current form variables
+    this.setState({ action: {} });
+    // closing response modal
+    this.props.handleClose();
+  };
+
   render() {
-    const { showDialog, handleClose, actionType, editMode } = this.props;
+    const { showDialog, actionType, editMode } = this.props;
     return (
       <div>
         <Modal show={showDialog} onHide={this.handleCancelConfirmationDisplay}>
@@ -311,7 +318,7 @@ class EditActionDialog extends Component {
             }
             leftButtonType={BUTTON_TYPE.danger}
             leftButtonTitle={LOCALIZE.commons.cancelResponse}
-            leftButtonAction={handleClose}
+            leftButtonAction={this.handleClose}
             rightButtonType={BUTTON_TYPE.primary}
             rightButtonTitle={LOCALIZE.commons.returnToResponse}
           />
