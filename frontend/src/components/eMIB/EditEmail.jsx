@@ -16,9 +16,6 @@ const MAX_REASON = "650";
 
 const styles = {
   header: {
-    formGroup: {
-      marginBottom: 42
-    },
     responseTypeIcons: {
       marginRight: 10,
       padding: 6,
@@ -56,7 +53,7 @@ const styles = {
       padding: "0 6px"
     },
     toAndCcFieldPadding: {
-      marginBottom: "1rem"
+      marginBottom: 42
     },
     fieldsetLegend: {
       fontSize: 16,
