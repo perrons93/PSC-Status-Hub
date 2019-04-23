@@ -130,7 +130,14 @@ class Email extends Component {
                     key={id}
                     iconType={ICON_TYPE.email}
                     title={`Email Response #${emailNumber}`}
-                    body={<ActionViewEmail action={action} actionId={id} emailId={email.id} />}
+                    body={
+                      <ActionViewEmail
+                        action={action}
+                        actionId={id}
+                        email={email}
+                        emailId={email.id}
+                      />
+                    }
                   />
                 );
               }
@@ -148,6 +155,7 @@ class Email extends Component {
                       <ActionViewTask
                         action={action}
                         actionId={id}
+                        email={email}
                         emailId={email.id}
                         emailSubject={email.subject}
                       />

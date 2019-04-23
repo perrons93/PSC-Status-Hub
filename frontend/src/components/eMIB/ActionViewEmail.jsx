@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "../../css/collapsing-item.css";
 import LOCALIZE from "../../text_resources";
 import EditActionDialog from "./EditActionDialog";
-import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE, actionShape } from "./constants";
+import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE, actionShape, emailShape } from "./constants";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { deleteEmail } from "../../modules/EmibInboxRedux";
@@ -59,6 +59,7 @@ class ActionViewEmail extends Component {
     action: actionShape,
     actionId: PropTypes.number.isRequired,
     emailId: PropTypes.number.isRequired,
+    email: emailShape,
     // Props from Redux
     deleteEmail: PropTypes.func
   };
@@ -187,6 +188,7 @@ class ActionViewEmail extends Component {
         </div>
         <EditActionDialog
           emailId={this.props.emailId}
+          email={this.props.email}
           showDialog={this.state.showEmailDialog}
           handleClose={this.closeEmailDialog}
           actionType={ACTION_TYPE.email}
