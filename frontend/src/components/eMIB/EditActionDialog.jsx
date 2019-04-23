@@ -177,7 +177,7 @@ class EditActionDialog extends Component {
             </Modal.Header>
             <Modal.Body style={styles.modalBody}>
               <div style={styles.container}>
-                <h4>Your Response</h4>
+                <h4>{LOCALIZE.emibTest.inboxPage.emailCommons.yourResponse}</h4>
                 {actionType === ACTION_TYPE.email && (
                   <EditEmail
                     onChange={this.editAction}
@@ -192,7 +192,7 @@ class EditActionDialog extends Component {
                     action={editMode === EDIT_MODE.update ? this.props.action : null}
                   />
                 )}
-                <h4>Original Email</h4>
+                <h4>{LOCALIZE.emibTest.inboxPage.emailCommons.originalEmail}</h4>
                 <div style={styles.originalEmail}>
                   <EmailContent email={this.props.email} />
                 </div>
