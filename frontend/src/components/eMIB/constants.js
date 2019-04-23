@@ -44,8 +44,8 @@ export const actionShape = PropTypes.shape({
   reasonsForAction: PropTypes.string,
   task: PropTypes.string,
   emailType: PropTypes.oneOf(Object.keys(EMAIL_TYPE)),
-  emailTo: PropTypes.array,
-  emailCc: PropTypes.array,
+  emailTo: PropTypes.arrayOf(PropTypes.number),
+  emailCc: PropTypes.arrayOf(PropTypes.number),
   emailBody: PropTypes.string
 });
 
