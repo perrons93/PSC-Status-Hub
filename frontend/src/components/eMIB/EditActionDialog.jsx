@@ -8,7 +8,7 @@ import EditTask from "./EditTask";
 import { Modal } from "react-bootstrap";
 import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
-import { ACTION_TYPE, EDIT_MODE, actionShape } from "./constants";
+import { ACTION_TYPE, EDIT_MODE, actionShape, EMAIL_TYPE } from "./constants";
 import {
   addEmail,
   addTask,
@@ -16,6 +16,7 @@ import {
   updateTask,
   readEmail
 } from "../../modules/EmibInboxRedux";
+import isTaskFormEdited, { isEmailFormEdited } from "../../helpers/isTaskFormEdited";
 
 const styles = {
   icon: {
@@ -108,86 +109,74 @@ class EditActionDialog extends Component {
     this.setState({ action: updatedAction });
   };
 
-  getInitialValue = contentType => {
-    let initialValue = null;
-
-    if (typeof this.props.action !== "undefined") {
-      switch (contentType) {
-        case "to":
-          initialValue = this.props.action.emailTo;
-          break;
-        case "cc":
-          initialValue = this.props.action.emailCc;
-          break;
-        case "response":
-          initialValue = this.props.action.emailBody;
-          break;
-        case "reasonsForAction":
-          initialValue = this.props.action.reasonsForAction;
-          break;
-        case "task":
-          initialValue = this.props.action.task;
-          break;
-        default:
-          break;
-      }
-    }
-
-    return initialValue;
-  };
-
   handleCancelConfirmationDisplay = () => {
-    // email type variable
+    // ======================================== VARIABLES ========================================
+    // get initial variables
+    const initialEmailType =
+      typeof this.props.action === "undefined" ? "" : this.props.action.emailType;
+    const initialEmailTo =
+      typeof this.props.action === "undefined" ? "" : this.props.action.emailTo;
+    const initialEmailCc =
+      typeof this.props.action === "undefined" ? "" : this.props.action.emailCc;
+    const initialEmailResponse =
+      typeof this.props.action === "undefined" ? "" : this.props.action.emailBody;
+    const initialTaskContent =
+      typeof this.props.action === "undefined" ? "" : this.props.action.task;
+    const initialReasonsForActionContent =
+      typeof this.props.action === "undefined" ? "" : this.props.action.reasonsForAction;
+
+    // get current email form variables
     const emailType =
-      typeof this.state.action.emailType === "undefined" ? null : this.state.action.emailType;
-    // email to variable
+      typeof this.state.action.emailType === "undefined" ? "" : this.state.action.emailType;
     const emailTo =
-      typeof this.state.action.emailTo === "undefined" ? null : this.state.action.emailTo;
-    // email cc variable
+      typeof this.state.action.emailTo === "undefined" ? "" : this.state.action.emailTo;
     const emailCc =
-      typeof this.state.action.emailCc === "undefined" ? null : this.state.action.emailCc;
-    // response content variable
+      typeof this.state.action.emailCc === "undefined" ? "" : this.state.action.emailCc;
     const emailResponse =
-      typeof this.state.action.emailBody === "undefined" ? null : this.state.action.emailBody;
-    // task content variable
-    const taskContent =
-      typeof this.state.action.task === "undefined" ? null : this.state.action.task;
-    // reasons for action content variable
+      typeof this.state.action.emailBody === "undefined" ? "" : this.state.action.emailBody;
+
+    // get current task form variables
+    const taskContent = typeof this.state.action.task === "undefined" ? "" : this.state.action.task;
     const reasonsForActionContent =
       typeof this.state.action.reasonsForAction === "undefined"
-        ? null
+        ? ""
         : this.state.action.reasonsForAction;
+    // =============================================================================================
 
     // no content has been added in the concerned form (Email Response Form or Task Form)
     if (
-      (taskContent === null && reasonsForActionContent === null) ||
-      (taskContent === "" && reasonsForActionContent === "") ||
-      (emailTo === null &&
-        emailCc === null &&
-        emailResponse === null &&
-        reasonsForActionContent === null) ||
-      (emailTo === "" && emailCc === "" && emailResponse === "" && reasonsForActionContent === "")
+      (this.props.actionType === ACTION_TYPE.task &&
+        taskContent === "" &&
+        reasonsForActionContent === "") ||
+      (this.props.actionType === ACTION_TYPE.email &&
+        emailType === "" &&
+        emailTo === "" &&
+        emailCc === "" &&
+        emailResponse === "" &&
+        reasonsForActionContent === "")
     ) {
       // close the dialog without any confirmation message
       this.props.handleClose();
 
       // content may have changed
     } else {
-      const initialEmailTo = this.getInitialValue("to");
-      const initialEmailCc = this.getInitialValue("cc");
-      const initialEmailResponse = this.getInitialValue("response");
-      const initialTaskContent = this.getInitialValue("task");
-      const initialReasonsForAction = this.getInitialValue("reasonsForAction");
-
       // email content is not the same as the initial content
       if (this.props.actionType === ACTION_TYPE.email) {
+        const emailEdited = isEmailFormEdited(
+          initialEmailType,
+          emailType,
+          initialEmailTo,
+          emailTo,
+          initialEmailCc,
+          emailCc,
+          initialEmailResponse,
+          emailResponse,
+          initialReasonsForActionContent,
+          reasonsForActionContent
+        );
+
         // there are changes in at least one of the fields
-        if (
-          initialEmailTo !== emailTo ||
-          initialEmailCc !== emailCc ||
-          initialEmailResponse !== emailResponse ||
-          initialReasonsForAction !== reasonsForActionContent
-        ) {
+        if (emailEdited) {
           // display the cancel confirmation message
           this.setState({ showCancelConfirmationDialog: true });
         } else {
@@ -196,11 +185,15 @@ class EditActionDialog extends Component {
         }
         // reasons for action content is not the same as the initial content
       } else if (this.props.actionType === ACTION_TYPE.task) {
+        const taskEdited = isTaskFormEdited(
+          initialTaskContent,
+          taskContent,
+          initialReasonsForActionContent,
+          reasonsForActionContent
+        );
+
         // there are changes in at least one of the fields
-        if (
-          initialTaskContent !== taskContent ||
-          initialReasonsForAction !== reasonsForActionContent
-        ) {
+        if (taskEdited) {
           // display the cancel confirmation message
           this.setState({ showCancelConfirmationDialog: true });
         } else {
