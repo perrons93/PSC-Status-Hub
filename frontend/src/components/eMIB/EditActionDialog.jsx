@@ -78,8 +78,15 @@ class EditActionDialog extends Component {
     actionId: PropTypes.number
   };
 
+  getDefaultProps() {
+    return {
+      theme: "secondary",
+      label: "Button Text"
+    };
+  }
+
   state = {
-    action: {},
+    action: { ...this.props.action },
     showCancelConfirmationDialog: false
   };
 
@@ -114,20 +121,9 @@ class EditActionDialog extends Component {
   };
 
   handleCancelConfirmationDisplay = () => {
+    // if editmode is create and there is no content, close
+
     // ======================================== VARIABLES ========================================
-    // get initial variables
-    const initialEmailType =
-      typeof this.props.action === "undefined" ? "" : this.props.action.emailType;
-    const initialEmailTo =
-      typeof this.props.action === "undefined" ? "" : this.props.action.emailTo;
-    const initialEmailCc =
-      typeof this.props.action === "undefined" ? "" : this.props.action.emailCc;
-    const initialEmailResponse =
-      typeof this.props.action === "undefined" ? "" : this.props.action.emailBody;
-    const initialTaskContent =
-      typeof this.props.action === "undefined" ? "" : this.props.action.task;
-    const initialReasonsForActionContent =
-      typeof this.props.action === "undefined" ? "" : this.props.action.reasonsForAction;
 
     // get current email form variables
     const emailTypeType = typeof this.state.action.emailType;
@@ -167,6 +163,14 @@ class EditActionDialog extends Component {
 
       // content may have changed
     } else {
+      // get initial variables
+      const initialEmailType = this.props.action.emailType;
+      const initialEmailTo = this.props.action.emailTo;
+      const initialEmailCc = this.props.action.emailCc;
+      const initialEmailResponse = this.props.action.emailBody;
+      const initialTaskContent = this.props.action.task;
+      const initialReasonsForActionContent = this.props.action.reasonsForAction;
+
       // email content is not the same as the initial content
       if (this.props.actionType === ACTION_TYPE.email) {
         const emailEdited = isEmailFormEdited(
