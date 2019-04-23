@@ -65,3 +65,39 @@ git checkout frontend/yarn.lock
 ```
 
 to checkout the old version and then it should work again.
+
+## Debugging nginx error (TODO add actual error message)
+
+On Windows 10, if nginx has issues starting after a
+
+```shell
+docker-compose up
+```
+
+do the following:
+
+Ensure the application is not running
+
+```shell
+docker-compose down
+```
+
+Run PowerShell as admin.
+
+Run
+
+```shell
+Set-NetConnectionProfile -interfacealias "vEthernet (DockerNAT)" -NetworkCategory Private
+```
+
+Close powershell
+
+Restart docker (right-click on the docker icon -> restart)
+
+After the restart, run
+
+```shell
+docker-compose up
+```
+
+And everything should be working again
