@@ -76,10 +76,6 @@ class Email extends Component {
     const emailActions = emailActionsArray[email.id];
     let emailNumber = 0;
     let taskNumber = 0;
-    //Split the body on new line characters
-    //This will allow them to be wrapped in <p></p> tags
-    // .filter(Boolean) drops empty elements
-    const bodyArray = email.body.split("\n").filter(Boolean);
     return (
       <div style={styles.email}>
         <div style={styles.header}>

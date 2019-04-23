@@ -21,6 +21,9 @@ class EmailContent extends Component {
 
   render() {
     const { email } = this.props;
+    //Split the body on new line characters
+    //This will allow them to be wrapped in <p></p> tags
+    // .filter(Boolean) drops empty elements
     const bodyArray = email.body.split("\n").filter(Boolean);
     return (
       <div>
