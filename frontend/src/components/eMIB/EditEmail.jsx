@@ -291,7 +291,6 @@ class EditEmail extends Component {
                   options={options}
                   selectedValues={emailTo}
                   onChange={this.onEmailToChange}
-                  //caretIcon={<CaretIcon />}
                 />
               </span>
             </div>
@@ -309,7 +308,6 @@ class EditEmail extends Component {
                   options={options}
                   selectedValues={emailCc}
                   onChange={this.onEmailCcChange}
-                  //caretIcon={<CaretIcon />}
                 />
               </span>
             </div>
