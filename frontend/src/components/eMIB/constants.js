@@ -55,12 +55,3 @@ export const contactShape = PropTypes.shape({
   name: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired
 });
-
-// The stucture of a option, including
-// a visible display name (text) is created in transformations.js from contactShape's name and role
-// the value is the same as the transformed contactShape's id
-// this is used for a drop-down menu
-export const optionShape = PropTypes.shape({
-  text: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired
-});
