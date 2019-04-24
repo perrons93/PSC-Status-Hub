@@ -96,8 +96,8 @@ describe("check that the disabled prop works as expected", () => {
     const wrapper = shallow(
       <Email email={emailStub} emailCount={0} taskCount={0} emailActionsArray={[[]]} />
     );
-    expect(wrapper.find("#unit-test-email-reply-button").prop("disabled")).toEqual(false);
-    expect(wrapper.find("#unit-test-email-task-button").prop("disabled")).toEqual(false);
+    expect(wrapper.find("#unit-test-email-reply-button").prop("disabled")).toEqual(undefined);
+    expect(wrapper.find("#unit-test-email-task-button").prop("disabled")).toEqual(undefined);
   });
 
   it("buttons are not disabled if flag is set to false", () => {

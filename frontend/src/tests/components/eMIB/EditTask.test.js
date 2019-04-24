@@ -5,8 +5,8 @@ import EditTask from "../../../components/eMIB/EditTask";
 describe("check that the disabled prop works as expected", () => {
   it("inputs are not disabled/removed if flag is not present", () => {
     const wrapper = shallow(<EditTask onChange={() => {}} />);
-    expect(wrapper.find("#your-tasks-text-area").prop("disabled")).toEqual(false);
-    expect(wrapper.find("#reasons-for-action-text-area").prop("disabled")).toEqual(false);
+    expect(wrapper.find("#your-tasks-text-area").prop("disabled")).toEqual(undefined);
+    expect(wrapper.find("#reasons-for-action-text-area").prop("disabled")).toEqual(undefined);
     expect(wrapper.find("#task-tooltip").exists()).toEqual(true);
     expect(wrapper.find("#reasons-for-action-tooltip").exists()).toEqual(true);
   });

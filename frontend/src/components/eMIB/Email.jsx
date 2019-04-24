@@ -78,7 +78,6 @@ class Email extends Component {
     const emailActions = emailActionsArray[email.id];
     let emailNumber = 0;
     let taskNumber = 0;
-    const isDisabled = this.props.disabled === true;
 
     return (
       <div style={styles.email}>
@@ -104,7 +103,7 @@ class Email extends Component {
             type="button"
             className="btn btn-primary"
             onClick={this.showAddEmailDialog}
-            disabled={isDisabled}
+            disabled={this.props.disabled}
           >
             <i className="fas fa-envelope" />
             &emsp;
@@ -116,7 +115,7 @@ class Email extends Component {
             type="button"
             className="btn btn-primary"
             onClick={this.showAddTaskDialog}
-            disabled={isDisabled}
+            disabled={this.props.disabled}
           >
             <i className="fas fa-tasks" />
             &emsp;

@@ -167,7 +167,6 @@ class EditEmail extends Component {
     const replyAllChecked = this.state.emailType === EMAIL_TYPE.replyAll;
     const forwardChecked = this.state.emailType === EMAIL_TYPE.forward;
     const options = transformAddressBook(this.props.addressBook);
-    const isDisabled = this.props.disabled === true;
 
     return (
       <div style={styles.container}>
@@ -188,7 +187,7 @@ class EditEmail extends Component {
                     value={EMAIL_TYPE.reply}
                     checked={replyChecked}
                     className="visually-hidden"
-                    disabled={isDisabled}
+                    disabled={this.props.disabled}
                   />
                   <label
                     htmlFor="reply-radio"
@@ -218,7 +217,7 @@ class EditEmail extends Component {
                     value={EMAIL_TYPE.replyAll}
                     checked={replyAllChecked}
                     className="visually-hidden"
-                    disabled={isDisabled}
+                    disabled={this.props.disabled}
                   />
                   <label
                     htmlFor="reply-all-radio"
@@ -248,7 +247,7 @@ class EditEmail extends Component {
                     value={EMAIL_TYPE.forward}
                     checked={forwardChecked}
                     className="visually-hidden"
-                    disabled={isDisabled}
+                    disabled={this.props.disabled}
                   />
                   <label
                     htmlFor="forward-radio"
@@ -284,7 +283,7 @@ class EditEmail extends Component {
                   options={options}
                   selectedValues={emailTo}
                   onChange={this.onEmailToChange}
-                  disabled={isDisabled}
+                  disabled={this.props.disabled}
                 />
               </span>
             </div>
@@ -302,7 +301,7 @@ class EditEmail extends Component {
                   options={options}
                   selectedValues={emailCc}
                   onChange={this.onEmailCcChange}
-                  disabled={isDisabled}
+                  disabled={this.props.disabled}
                 />
               </span>
             </div>
@@ -318,7 +317,7 @@ class EditEmail extends Component {
                 style={styles.response.textArea}
                 value={emailBody}
                 onChange={this.onEmailBodyChange}
-                disabled={isDisabled}
+                disabled={this.props.disabled}
               />
               <div style={styles.textCounter}>
                 {this.state.emailBody.length}/{MAX_RESPONSE}
@@ -337,7 +336,7 @@ class EditEmail extends Component {
                 style={styles.reasonsForAction.textArea}
                 value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
-                disabled={isDisabled}
+                disabled={this.props.disabled}
               />
               <div style={styles.textCounter}>
                 {this.state.reasonsForAction.length}/{MAX_REASON}

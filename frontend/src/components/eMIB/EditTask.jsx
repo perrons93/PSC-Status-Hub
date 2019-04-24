@@ -116,7 +116,6 @@ class EditTask extends Component {
 
   render() {
     const { task, reasonsForAction } = this.state;
-    const isDisabled = this.props.disabled === true;
 
     return (
       <div style={styles.container}>
@@ -127,7 +126,7 @@ class EditTask extends Component {
               <label htmlFor="your-tasks-text-area" style={styles.tasks.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.task}
               </label>
-              {!isDisabled && (
+              {!this.props.disabled && (
                 <OverlayTrigger
                   trigger="focus"
                   placement="right"
@@ -159,7 +158,7 @@ class EditTask extends Component {
                 style={styles.tasks.textArea}
                 value={task}
                 onChange={this.onTaskContentChange}
-                disabled={isDisabled}
+                disabled={this.props.disabled}
               />
               <div style={styles.textCounter}>
                 {this.state.task.length}/{MAX_TASK}
@@ -172,7 +171,7 @@ class EditTask extends Component {
               <label htmlFor="reasons-for-action-text-area" style={styles.reasonsForAction.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.reasonsForAction}
               </label>
-              {!isDisabled && (
+              {!this.props.disabled && (
                 <OverlayTrigger
                   trigger="focus"
                   placement="right"
@@ -204,7 +203,7 @@ class EditTask extends Component {
                 style={styles.reasonsForAction.textArea}
                 value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
-                disabled={isDisabled}
+                disabled={this.props.disabled}
               />
               <div style={styles.textCounter}>
                 {this.state.reasonsForAction.length}/{MAX_REASON}
