@@ -4,7 +4,7 @@ import {
   transformContact,
   transformContactName,
   contactNameFromId
-} from "../../../components/eMIB/transformations";
+} from "../../../helpers/transformations";
 
 const addressBook = [
   { id: 0, name: "Joe", role: "Developer" },

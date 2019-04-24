@@ -4,7 +4,7 @@ import LOCALIZE from "../../text_resources";
 import { connect } from "react-redux";
 import { EMAIL_TYPE, actionShape } from "./constants";
 import ReactResponsiveSelect from "react-responsive-select";
-import { transformAddressBook } from "./transformations";
+import { transformAddressBook } from "../../helpers/transformations";
 import { contactShape } from "./constants";
 
 // These two consts limit the number of characters

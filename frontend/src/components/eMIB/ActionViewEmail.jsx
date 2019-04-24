@@ -10,7 +10,7 @@ import { deleteEmail } from "../../modules/EmibInboxRedux";
 import PopupBox, { BUTTON_TYPE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 import { contactShape } from "./constants";
-import { contactNameFromId } from "./transformations";
+import { contactNameFromId } from "../../helpers/transformations";
 
 const styles = {
   responseType: {
