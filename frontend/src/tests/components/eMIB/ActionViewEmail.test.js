@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import { UnconnectedActionViewEmail } from "../../../components/eMIB/ActionViewEmail";
 import { EMAIL_TYPE, ACTION_TYPE } from "../../../components/eMIB/constants";
-import { transformContactName } from "../../../components/eMIB/transformations";
+import { transformContactName } from "../../../helpers/transformations";
 
 const addressBook = [
   { id: 0, name: "Joe", role: "Developer" },
