@@ -5,12 +5,6 @@ import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
 import { LANGUAGES } from "../../components/commons/Translation";
-import original_email_emib_sample_test_example_en from "../../images/original_email_emib_sample_test_example_en.png";
-import original_email_emib_sample_test_example_fr from "../../images/original_email_emib_sample_test_example_fr.png";
-import option_1_emib_sample_test_example_en from "../../images/option_1_emib_sample_test_example_en.png";
-import option_1_emib_sample_test_example_fr from "../../images/option_1_emib_sample_test_example_fr.png";
-import option_2_emib_sample_test_example_en from "../../images/option_2_emib_sample_test_example_en.png";
-import option_2_emib_sample_test_example_fr from "../../images/option_2_emib_sample_test_example_fr.png";
 import { styleConstants } from "./styleConstants.js";
 import Email from "./Email";
 import EditEmail from "./EditEmail";
@@ -73,12 +67,6 @@ const taskResponseFR = {
     "Répondre au courriel de Geneviève :\nproposer de former Mary à la synthèse de l’information provenant de sources multiples afin qu’elle puisse élargir ses compétences ;\ndemander quels sont ses attentes et ses défis du côté de son équipe afin que je puisse tenir compte de tous les facteurs pour déterminer comment son équipe pourrait bénéficier de l’expérience de Mary dans la prestation de formation ;\nl’informer que je travaille à recueillir plus d’information auprès de Mary, et que je lui ferai part de mes suggestions d’ici la fin de la semaine.\nPlanifier une rencontre avec Mary pour discuter de ses objectifs d’affectation et s’assurer qu’elle se sent engagée et qu’elle sait ce qu’on attend d’elle.\nConsulter les ententes de rendement passées et actuelles de Mary pour vérifier que ce que je propose est conforme à son plan d’apprentissage.",
   reasonsForAction:
     "Former Mary à la synthèse de l’information provenant de sources multiples serait bénéfique pour notre équipe, lequel a besoin de consolider l’information recueillie auprès de nombreuses sources. Demander à Geneviève ses propres attentes et défis m’aidera à mieux préparer Mary et à m’assurer que la mission est bénéfique pour nos deux équipes."
-};
-
-const styles = {
-  testImage: {
-    maxWidth: 600
-  }
 };
 
 class TestExamples extends Component {
