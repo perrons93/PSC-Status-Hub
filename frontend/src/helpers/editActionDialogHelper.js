@@ -58,11 +58,15 @@ function isEmailFormEdited(
   reasonsForActionContent
 ) {
   let isEdited = false;
+  const initialEmailToArray = typeof initialEmailTo === "undefined" ? "" : initialEmailTo;
+  const emailToArray = typeof emailTo === "undefined" ? "" : emailTo;
+  const initialEmailCcArray = typeof initialEmailCc === "undefined" ? "" : initialEmailCc;
+  const emailCcArray = typeof emailCc === "undefined" ? "" : emailCc;
 
   if (
     initialEmailType !== emailType ||
-    initialEmailTo !== emailTo ||
-    initialEmailCc !== emailCc ||
+    initialEmailToArray.toString() !== emailToArray.toString() ||
+    initialEmailCcArray.toString() !== emailCcArray.toString() ||
     initialEmailResponse !== emailResponse ||
     initialReasonsForActionContent !== reasonsForActionContent
   ) {
