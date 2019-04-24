@@ -1,4 +1,4 @@
-import { emailsJson } from "./sampleEmibJson";
+import { emailsJson, addressBookJson } from "./sampleEmibJson";
 import { SET_LANGUAGE } from "./LocalizeRedux";
 import { ACTION_TYPE } from "../components/eMIB/constants";
 
@@ -65,11 +65,13 @@ const deleteTask = (emailIndex, responseId) => ({
 // emails - represents an array of emailShape objects in the currently selected language.
 // emailSummaries - represents an array of objects indicating read state of each email.
 // emailActions - represents an array of arrays, each array contains actionShape objects, representing an ACTION_TYPE.
+// addressBook - repesents an array of contactShape objects in the currently selected language
 const initialState = {
   // Loads emails from a static JSON file until an API exists.
   emails: emailsJson.emailsEN,
   emailSummaries: initializeEmailSummaries(emailsJson.emailsEN.length),
-  emailActions: initializeEmailActions(emailsJson.emailsEN.length)
+  emailActions: initializeEmailActions(emailsJson.emailsEN.length),
+  addressBook: addressBookJson.addressBookEN
 };
 
 // Reducer
@@ -78,7 +80,9 @@ const emibInbox = (state = initialState, action) => {
     case SET_LANGUAGE:
       return {
         ...state,
-        emails: action.language === "fr" ? emailsJson.emailsFR : emailsJson.emailsEN
+        emails: action.language === "fr" ? emailsJson.emailsFR : emailsJson.emailsEN,
+        addressBook:
+          action.language === "fr" ? addressBookJson.addressBookFR : addressBookJson.addressBookEN
       };
     case READ_EMAIL:
       let updatedEmailSummaries = Array.from(state.emailSummaries);

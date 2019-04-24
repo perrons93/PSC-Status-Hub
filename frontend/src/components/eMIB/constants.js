@@ -44,7 +44,14 @@ export const actionShape = PropTypes.shape({
   reasonsForAction: PropTypes.string,
   task: PropTypes.string,
   emailType: PropTypes.oneOf(Object.keys(EMAIL_TYPE)),
-  emailTo: PropTypes.string,
-  emailCc: PropTypes.string,
+  emailTo: PropTypes.arrayOf(PropTypes.number),
+  emailCc: PropTypes.arrayOf(PropTypes.number),
   emailBody: PropTypes.string
+});
+
+// The stucture of a contact in the addressbook
+export const contactShape = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired
 });

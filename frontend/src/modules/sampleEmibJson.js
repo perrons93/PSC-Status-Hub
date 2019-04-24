@@ -61,3 +61,72 @@ export const emailsJson = {
     }
   ]
 };
+
+export const addressBookJson = {
+  addressBookEN: [
+    {
+      id: 1,
+      name: "Danny McBride",
+      role: "Quality Assurance Analyst"
+    },
+    {
+      id: 2,
+      name: "Serge Duplessis",
+      role: "Quality Assurance Analyst"
+    },
+    {
+      id: 3,
+      name: "Marina Richter",
+      role: "Quality Assurance Analyst"
+    },
+    {
+      id: 4,
+      name: "Mary Woodside",
+      role: "Quality Assurance Analyst"
+    },
+    {
+      id: 5,
+      name: "Charlie Wang",
+      role: "Quality Assurance Analyst"
+    },
+    {
+      id: 6,
+      name: "Jack Laurier",
+      role: "Quality Assurance Analyst"
+    },
+    { id: 7, name: "Nancy Ward", role: "Services and Communications Director" }
+  ],
+  addressBookFR: [
+    {
+      id: 1,
+      name: "Danny McBride",
+      role: "FR Quality Assurance Analyst"
+    },
+    {
+      id: 2,
+      name: "Serge Duplessis",
+      role: "FR Quality Assurance Analyst"
+    },
+    {
+      id: 3,
+      name: "Marina Richter",
+      role: "FR Quality Assurance Analyst"
+    },
+    {
+      id: 4,
+      name: "Mary Woodside",
+      role: "FR Quality Assurance Analyst"
+    },
+    {
+      id: 5,
+      name: "Charlie Wang",
+      role: "FR Quality Assurance Analyst"
+    },
+    {
+      id: 6,
+      name: "Jack Laurier",
+      role: "FR Quality Assurance Analyst"
+    },
+    { id: 7, name: "Nancy Ward", role: "FR Services and Communications Director" }
+  ]
+};
