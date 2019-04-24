@@ -159,8 +159,8 @@ describe("check status of inputs in task dialog", () => {
 function testMode(actionType, editMode) {
   // constants used to create the Dialog and to check that the values are present in the inputs later
   const reasonsForAction = "reasons";
-  const emailTo = ["to"];
-  const emailCc = ["cc"];
+  const emailTo = [0];
+  const emailCc = [1];
   const emailBody = "body of email";
   const task = "task";
   const emailType = EMAIL_TYPE.forward;

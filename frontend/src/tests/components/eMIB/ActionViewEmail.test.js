@@ -15,6 +15,15 @@ const addressBook = [
 const ccValue = addressBook[3].id;
 const ccText = transformContactName(addressBook[3]);
 
+const emailStub = {
+  id: 0,
+  to: "To 1",
+  from: "From 1",
+  subject: "hello team",
+  date: "Date 1",
+  body: "body"
+};
+
 describe("Response types", () => {
   const reply = <i className="fas fa-reply" />;
   const replyAll = <i className="fas fa-reply-all" />;
@@ -70,7 +79,7 @@ function createWrapper(responseType, cc, deleteEmail) {
     actionType: ACTION_TYPE.email,
     reasonsForAction: "reasons",
     emailType: responseType,
-    emailTo: ["to"],
+    emailTo: [0],
     emailCc: [cc],
     emailBody: "reasons"
   };
@@ -79,7 +88,7 @@ function createWrapper(responseType, cc, deleteEmail) {
     <UnconnectedActionViewEmail
       actionId={0}
       action={actionStub}
-      emailId={1}
+      email={emailStub}
       deleteEmail={deleteEmail}
       addressBook={addressBook}
     />
