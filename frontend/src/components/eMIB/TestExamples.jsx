@@ -14,6 +14,7 @@ import option_2_emib_sample_test_example_fr from "../../images/option_2_emib_sam
 import { styleConstants } from "./styleConstants.js";
 import Email from "./Email";
 import EditEmail from "./EditEmail";
+import EditTask from "./EditTask";
 import { ACTION_TYPE, EMAIL_TYPE } from "./constants";
 
 const emailStubEN = {
@@ -61,7 +62,7 @@ const emailResponseFR = {
 const taskResponseEN = {
   actionType: ACTION_TYPE.task,
   task:
-    "Reply to Geneviève’s email:\n\nSuggest training Mary in synthesizing information from multiple sources so that she can broaden her skill set \n\nAsk what her expectations and challenges are on her team’s side so I can consider all factors in determining how her team could benefit from Mary’s experience in providing training.\n\nInform that I’m gathering more information from Mary and will respond with suggestions by the end of the week\n\nSchedule a meeting with Mary to discuss her assignment objectives and ensure she feels engaged and knows what is expected of her.\n\nRefer to Mary’s past and current performance agreements to ensure that what I propose is in line with her learning plan.",
+    "Reply to Geneviève’s email:\nSuggest training Mary in synthesizing information from multiple sources so that she can broaden her skill set\nAsk what her expectations and challenges are on her team’s side so I can consider all factors in determining how her team could benefit from Mary’s experience in providing training.\nInform that I’m gathering more information from Mary and will respond with suggestions by the end of the week\nSchedule a meeting with Mary to discuss her assignment objectives and ensure she feels engaged and knows what is expected of her.\nRefer to Mary’s past and current performance agreements to ensure that what I propose is in line with her learning plan.",
   reasonsForAction:
     "Training Mary in synthesizing information from multiple sources would be beneficial to our team which needs to consolidate information gathered from many sources. Asking Geneviève for her own expectations and challenges will help me better prepare Mary and ensure that the assignment is beneficial to both our teams."
 };
@@ -69,7 +70,7 @@ const taskResponseEN = {
 const taskResponseFR = {
   actionType: ACTION_TYPE.task,
   task:
-    "Répondre au courriel de Geneviève :\n\nproposer de former Mary à la synthèse de l’information provenant de sources multiples afin qu’elle puisse élargir ses compétences ; \n\ndemander quels sont ses attentes et ses défis du côté de son équipe afin que je puisse tenir compte de tous les facteurs pour déterminer comment son équipe pourrait bénéficier de l’expérience de Mary dans la prestation de formation ;\n\nl’informer que je travaille à recueillir plus d’information auprès de Mary, et que je lui ferai part de mes suggestions d’ici la fin de la semaine.\n\nPlanifier une rencontre avec Mary pour discuter de ses objectifs d’affectation et s’assurer qu’elle se sent engagée et qu’elle sait ce qu’on attend d’elle.\n\nConsulter les ententes de rendement passées et actuelles de Mary pour vérifier que ce que je propose est conforme à son plan d’apprentissage.",
+    "Répondre au courriel de Geneviève :\nproposer de former Mary à la synthèse de l’information provenant de sources multiples afin qu’elle puisse élargir ses compétences ;\ndemander quels sont ses attentes et ses défis du côté de son équipe afin que je puisse tenir compte de tous les facteurs pour déterminer comment son équipe pourrait bénéficier de l’expérience de Mary dans la prestation de formation ;\nl’informer que je travaille à recueillir plus d’information auprès de Mary, et que je lui ferai part de mes suggestions d’ici la fin de la semaine.\nPlanifier une rencontre avec Mary pour discuter de ses objectifs d’affectation et s’assurer qu’elle se sent engagée et qu’elle sait ce qu’on attend d’elle.\nConsulter les ententes de rendement passées et actuelles de Mary pour vérifier que ce que je propose est conforme à son plan d’apprentissage.",
   reasonsForAction:
     "Former Mary à la synthèse de l’information provenant de sources multiples serait bénéfique pour notre équipe, lequel a besoin de consolider l’information recueillie auprès de nombreuses sources. Demander à Geneviève ses propres attentes et défis m’aidera à mieux préparer Mary et à m’assurer que la mission est bénéfique pour nos deux équipes."
 };
@@ -126,18 +127,10 @@ class TestExamples extends Component {
             </h4>
             <p style={styleConstants.instuctions.p}>
               {currentLanguage === LANGUAGES.english && (
-                <img
-                  src={option_2_emib_sample_test_example_en}
-                  alt={LOCALIZE.emibTest.howToPage.testExamples.part3Title}
-                  style={styles.testImage}
-                />
+                <EditTask onChange={() => {}} action={taskResponseEN} disabled={true} />
               )}
               {currentLanguage === LANGUAGES.french && (
-                <img
-                  src={option_2_emib_sample_test_example_fr}
-                  alt={LOCALIZE.emibTest.howToPage.testExamples.part3Title}
-                  style={styles.testImage}
-                />
+                <EditTask onChange={() => {}} action={taskResponseFR} disabled={true} />
               )}
             </p>
           </div>
