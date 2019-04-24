@@ -113,9 +113,15 @@ class EditActionDialog extends Component {
     this.setState({ action: updatedAction });
   };
 
+  /* 
+  this handles the display of the cancel confirmation message: Are you sure you want to cancel this response?
+  when creating a new email/task and trying to exit the form, if it's empty, don't display any warning message
+  when creating a new email/task and trying to exit the form, if there is any change to at lest one of the fields, display the cancel warning message
+  when editing an email/task and trying to exit the form, if there is no changes, don't display any warning messsage
+  when editing an email/task and trying to exit the form, if there is any change to at lest one of the fields, display the cancel warning message
+  */
   handleCancelConfirmationDisplay = () => {
     // ======================================== VARIABLES ========================================
-
     // setting initial email and task forms variables to empty strings
     let {
       initialEmailType,
@@ -126,24 +132,28 @@ class EditActionDialog extends Component {
       initialReasonsForActionContent
     } = "";
 
-    // get current email form variables
+    // current email form variables
     const emailType = this.state.action.emailType;
     const emailTo = this.state.action.emailTo;
     const emailCc = this.state.action.emailCc;
     const emailResponse = this.state.action.emailBody;
 
-    // get current task form variables
+    // current task form variables
     const taskContent = this.state.action.task;
     const reasonsForActionContent = this.state.action.reasonsForAction;
     // =============================================================================================
 
     // no content has been added in the concerned form (Email Response Form or Task Form)
     if (
+      // when creating a new task and the form is empty
       (this.props.actionType === ACTION_TYPE.task &&
         this.props.editMode === EDIT_MODE.create &&
+        // getting a 'true' if the form is empty
         isTaskFormEmpty(taskContent, reasonsForActionContent)) ||
+      // when creating a new email and the form is empty
       (this.props.actionType === ACTION_TYPE.email &&
         this.props.editMode === EDIT_MODE.create &&
+        // getting a 'true' if the form is empty
         isEmailFormEmpty(emailType, emailTo, emailCc, emailResponse, reasonsForActionContent))
     ) {
       // close the dialog without any confirmation message
@@ -151,7 +161,7 @@ class EditActionDialog extends Component {
 
       // content may have changed
     } else {
-      // get initial variables
+      // get initial variables if we are in edit mode
       if (this.props.editMode === EDIT_MODE.update) {
         initialEmailType = this.props.action.emailType;
         initialEmailTo = this.props.action.emailTo;
@@ -160,8 +170,9 @@ class EditActionDialog extends Component {
         initialReasonsForActionContent = this.props.action.reasonsForAction;
         initialTaskContent = this.props.action.task;
       }
-      // email content is not the same as the initial content
+      // verify if the email form has been edited
       if (this.props.actionType === ACTION_TYPE.email) {
+        // returns true if at least one of the fields has been edited
         const emailEdited = isEmailFormEdited(
           initialEmailType,
           emailType,
@@ -175,7 +186,7 @@ class EditActionDialog extends Component {
           reasonsForActionContent
         );
 
-        // there are changes in at least one of the fields
+        // there are changes in at least one of the fields of the email form
         if (emailEdited) {
           // display the cancel confirmation message
           this.setState({ showCancelConfirmationDialog: true });
@@ -183,8 +194,9 @@ class EditActionDialog extends Component {
           // close the dialog without any confirmation message
           this.props.handleClose();
         }
-        // reasons for action content is not the same as the initial content
+        // verify if the task form has been edited
       } else if (this.props.actionType === ACTION_TYPE.task) {
+        // returns true if at least one of the fields has been edited
         const taskEdited = isTaskFormEdited(
           initialTaskContent,
           taskContent,
@@ -192,7 +204,7 @@ class EditActionDialog extends Component {
           reasonsForActionContent
         );
 
-        // there are changes in at least one of the fields
+        // there are changes in at least one of the fields of the task form
         if (taskEdited) {
           // display the cancel confirmation message
           this.setState({ showCancelConfirmationDialog: true });
@@ -208,10 +220,11 @@ class EditActionDialog extends Component {
     this.setState({ showCancelConfirmationDialog: false });
   };
 
+  // this function is called when 'Cancel response' button is selected from the cancel confirmation message dialog
   handleClose = () => {
-    // reseting all current form variables
+    // resetting all current form variables
     this.setState({ action: {} });
-    // closing response modal
+    // closing response action dialog
     this.props.handleClose();
   };
 
