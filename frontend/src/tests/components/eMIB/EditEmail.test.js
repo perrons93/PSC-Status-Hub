@@ -28,13 +28,13 @@ describe("check that the disabled prop works as expected", () => {
         <EditEmail onChange={() => {}} />
       </Provider>
     );
-    expect(wrapper.find("#reply-radio").prop("disabled")).toEqual(false);
-    expect(wrapper.find("#reply-all-radio").prop("disabled")).toEqual(false);
-    expect(wrapper.find("#forward-radio").prop("disabled")).toEqual(false);
-    expect(wrapper.find("#to-field").prop("disabled")).toEqual(false);
-    expect(wrapper.find("#cc-field").prop("disabled")).toEqual(false);
-    expect(wrapper.find("#your-response-text-area").prop("disabled")).toEqual(false);
-    expect(wrapper.find("#reasons-for-action-text-area").prop("disabled")).toEqual(false);
+    expect(wrapper.find("#reply-radio").prop("disabled")).toEqual(undefined);
+    expect(wrapper.find("#reply-all-radio").prop("disabled")).toEqual(undefined);
+    expect(wrapper.find("#forward-radio").prop("disabled")).toEqual(undefined);
+    expect(wrapper.find("#to-field").prop("disabled")).toEqual(undefined);
+    expect(wrapper.find("#cc-field").prop("disabled")).toEqual(undefined);
+    expect(wrapper.find("#your-response-text-area").prop("disabled")).toEqual(undefined);
+    expect(wrapper.find("#reasons-for-action-text-area").prop("disabled")).toEqual(undefined);
   });
 
   it("inputs are not disabled if flag is set to false", () => {
