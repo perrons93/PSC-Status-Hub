@@ -288,12 +288,21 @@ describe("edit action dialog helper file", () => {
   const initialTaskContent = "tasks";
 
   // current variables
-  let emailType = EMAIL_TYPE.replyAll;
-  let emailTo = "to";
-  let emailCc = "cc";
-  let emailResponse = "response";
-  let reasonsForActionContent = "reasons for action";
-  let taskContent = "tasks";
+  let stubbedCurrentVariables;
+  beforeEach(() => {
+    stubbedCurrentVariables = {
+      emailType: EMAIL_TYPE.replyAll,
+      emailTo: "to",
+      emailCc: "cc",
+      emailResponse: "response",
+      reasonsForActionContent: "reasons for action",
+      taskContent: "tasks"
+    };
+  });
+
+  afterEach(() => {
+    stubbedCurrentVariables = {};
+  });
   // ==========================================================================
 
   it("isEmailFormEmpty() returns 'true' if all the fields are empty and 'false' if at least one field has been updated", () => {
@@ -307,12 +316,11 @@ describe("edit action dialog helper file", () => {
         emptyReasonsForActionContent
       )
     ).toBe(true);
-
     // at least one of the fields is not empty (in that case, emailTo field is not empty) ==> returns false
     expect(
       isEmailFormEmpty(
         emptyEmailType,
-        emailTo,
+        stubbedCurrentVariables.emailTo,
         emptyEmailCc,
         emptyEmailResponse,
         emptyReasonsForActionContent
@@ -325,7 +333,9 @@ describe("edit action dialog helper file", () => {
     expect(isTaskFormEmpty(emptyTaskContent, emptyReasonsForActionContent)).toBe(true);
 
     // at least one of the fields is not empty (in that case, taskContent field is not empty) ==> returns false
-    expect(isTaskFormEmpty(taskContent, emptyReasonsForActionContent)).toBe(false);
+    expect(isTaskFormEmpty(stubbedCurrentVariables.taskContent, emptyReasonsForActionContent)).toBe(
+      false
+    );
   });
 
   it("isEmailFormEdited() return 'true' if at least one field has been updated and 'false' if all the initial values are the same as the current ones", () => {
@@ -333,34 +343,34 @@ describe("edit action dialog helper file", () => {
     expect(
       isEmailFormEdited(
         initialEmailType,
-        emailType,
+        stubbedCurrentVariables.emailType,
         initialEmailTo,
-        emailTo,
+        stubbedCurrentVariables.emailTo,
         initialEmailCc,
-        emailCc,
+        stubbedCurrentVariables.emailCc,
         initialEmailResponse,
-        emailResponse,
+        stubbedCurrentVariables.emailResponse,
         initialReasonsForActionContent,
-        reasonsForActionContent
+        stubbedCurrentVariables.reasonsForActionContent
       )
     ).toBe(false);
 
     // updating emailResponse field
-    emailResponse = "this is an updated response";
+    stubbedCurrentVariables.emailResponse = "this is an updated response";
 
     // at least one of the fields has been updated (in that case, emailResponse has been updated) ==> return true
     expect(
       isEmailFormEdited(
         initialEmailType,
-        emailType,
+        stubbedCurrentVariables.emailType,
         initialEmailTo,
-        emailTo,
+        stubbedCurrentVariables.emailTo,
         initialEmailCc,
-        emailCc,
+        stubbedCurrentVariables.emailCc,
         initialEmailResponse,
-        emailResponse,
+        stubbedCurrentVariables.emailResponse,
         initialReasonsForActionContent,
-        reasonsForActionContent
+        stubbedCurrentVariables.reasonsForActionContent
       )
     ).toBe(true);
   });
@@ -370,22 +380,22 @@ describe("edit action dialog helper file", () => {
     expect(
       isTaskFormEdited(
         initialTaskContent,
-        taskContent,
+        stubbedCurrentVariables.taskContent,
         initialReasonsForActionContent,
-        reasonsForActionContent
+        stubbedCurrentVariables.reasonsForActionContent
       )
     ).toBe(false);
 
     // updating taskContent field
-    taskContent = "this is an updated task";
+    stubbedCurrentVariables.taskContent = "this is an updated task";
 
     // at least one of the fields has been updated (in that case, taskContent has been updated) ==> return true
     expect(
       isTaskFormEdited(
         initialTaskContent,
-        taskContent,
+        stubbedCurrentVariables.taskContent,
         initialReasonsForActionContent,
-        reasonsForActionContent
+        stubbedCurrentVariables.reasonsForActionContent
       )
     ).toBe(true);
   });
