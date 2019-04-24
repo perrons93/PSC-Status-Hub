@@ -66,15 +66,25 @@ git checkout frontend/yarn.lock
 
 to checkout the old version and then it should work again.
 
-## Debugging nginx error (TODO add actual error message)
+## Debugging nginx error
 
-On Windows 10, if nginx has issues starting after a
+On Windows 10, sometimes docker shows the following error when starting up
 
 ```shell
-docker-compose up
+$ docker-compose up
+Creating network "project-thundercat_default" with the default driver
+Creating project-thundercat_frontend_1 ... done
+Creating project-thundercat_db_1       ... done
+Creating project-thundercat_backend_1  ... done
+Creating project-thundercat_nginx_1    ... error
+
+ERROR: for project-thundercat_nginx_1  Cannot start service nginx: OCI runtime create failed: container_linux.go:344: starting container process caused "process_linux.go:424: container init caused \"rootfs_linux.go:58: mounting \\\"/host_mnt/c/_DEV/git/project-thundercat/nginx/nginx-proxy.conf\\\" to rootfs \\\"/var/lib/docker/overlay2/393d58faaa3c6a244293fcff1a14b5bb93f9d2aec735e29346454824d30556c3/merged\\\" at \\\"/var/lib/docker/overlay2/393d58faaa3c6a244293fcff1a14b5bb93f9d2aec735e29346454824d30556c3/merged/etc/nginx/conf.d/default.conf\\\" caused \\\"not a directory\\\"\"": unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type
+
+ERROR: for nginx  Cannot start service nginx: OCI runtime create failed: container_linux.go:344: starting container process caused "process_linux.go:424: container init caused \"rootfs_linux.go:58: mounting \\\"/host_mnt/c/_DEV/git/project-thundercat/nginx/nginx-proxy.conf\\\" to rootfs \\\"/var/lib/docker/overlay2/393d58faaa3c6a244293fcff1a14b5bb93f9d2aec735e29346454824d30556c3/merged\\\" at \\\"/var/lib/docker/overlay2/393d58faaa3c6a244293fcff1a14b5bb93f9d2aec735e29346454824d30556c3/merged/etc/nginx/conf.d/default.conf\\\" caused \\\"not a directory\\\"\"": unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type
+Encountered errors while bringing up the project.
 ```
 
-do the following:
+To solve this, do the following steps
 
 Ensure the application is not running
 
