@@ -225,10 +225,18 @@ Progess Steps
 
 /* formatting for sizing of drop down menus */
 .rrs {
-  padding: 4px 12px;
-  margin-right: 6;
-  width: calc(100% - 46px);
+  padding: 0px 6px;
+  margin-right: 6px;
+  width: calc(100% - 35px);
   float: right;
+  margin-bottom: 12px;
+}
+
+.rrs__button {
+  border: 1px solid #00565e;
+  border-radius: 4px;
+  resize: none;
+  box-shadow: none;
 }
 
 /* overriding some of the modal styles */
