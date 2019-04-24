@@ -127,30 +127,32 @@ class EditTask extends Component {
               <label htmlFor="your-tasks-text-area" style={styles.tasks.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.task}
               </label>
-              <OverlayTrigger
-                trigger="focus"
-                placement="right"
-                overlay={
-                  <Popover id="task-tooltip" style={styles.tasks.tooltipContainer}>
-                    <div>
-                      <p style={styles.tasks.tooltipContent}>
-                        {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
-                      </p>
-                      <p style={styles.tasks.tooltipContent}>
-                        {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart2}
-                      </p>
-                    </div>
-                  </Popover>
-                }
-              >
-                <i
-                  id="task-tooltip"
-                  aria-label={LOCALIZE.ariaLabel.taskTooltip}
-                  tabIndex="0"
-                  className="far fa-question-circle"
-                  style={styles.tasks.icon}
-                />
-              </OverlayTrigger>
+              {!isDisabled && (
+                <OverlayTrigger
+                  trigger="focus"
+                  placement="right"
+                  overlay={
+                    <Popover id="task-tooltip" style={styles.tasks.tooltipContainer}>
+                      <div>
+                        <p style={styles.tasks.tooltipContent}>
+                          {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart1}
+                        </p>
+                        <p style={styles.tasks.tooltipContent}>
+                          {LOCALIZE.emibTest.inboxPage.taskContent.taskTooltipPart2}
+                        </p>
+                      </div>
+                    </Popover>
+                  }
+                >
+                  <i
+                    id="task-tooltip"
+                    aria-label={LOCALIZE.ariaLabel.taskTooltip}
+                    tabIndex="0"
+                    className="far fa-question-circle"
+                    style={styles.tasks.icon}
+                  />
+                </OverlayTrigger>
+              )}
               <textarea
                 id="your-tasks-text-area"
                 maxLength={MAX_TASK}
@@ -170,30 +172,32 @@ class EditTask extends Component {
               <label htmlFor="reasons-for-action-text-area" style={styles.reasonsForAction.title}>
                 {LOCALIZE.emibTest.inboxPage.addEmailTask.reasonsForAction}
               </label>
-              <OverlayTrigger
-                trigger="focus"
-                placement="right"
-                overlay={
-                  <Popover
+              {!isDisabled && (
+                <OverlayTrigger
+                  trigger="focus"
+                  placement="right"
+                  overlay={
+                    <Popover
+                      id="reasons-for-action-tooltip"
+                      style={styles.reasonsForAction.tooltipContainer}
+                    >
+                      <div>
+                        <p style={styles.reasonsForAction.tooltipContent}>
+                          {LOCALIZE.emibTest.inboxPage.taskContent.reasonsForActionTooltip}
+                        </p>
+                      </div>
+                    </Popover>
+                  }
+                >
+                  <i
                     id="reasons-for-action-tooltip"
-                    style={styles.reasonsForAction.tooltipContainer}
-                  >
-                    <div>
-                      <p style={styles.reasonsForAction.tooltipContent}>
-                        {LOCALIZE.emibTest.inboxPage.taskContent.reasonsForActionTooltip}
-                      </p>
-                    </div>
-                  </Popover>
-                }
-              >
-                <i
-                  id="reasons-for-action-tooltip"
-                  aria-label={LOCALIZE.ariaLabel.reasonsForActionTooltip}
-                  tabIndex="0"
-                  className="far fa-question-circle"
-                  style={styles.reasonsForAction.icon}
-                />
-              </OverlayTrigger>
+                    aria-label={LOCALIZE.ariaLabel.reasonsForActionTooltip}
+                    tabIndex="0"
+                    className="far fa-question-circle"
+                    style={styles.reasonsForAction.icon}
+                  />
+                </OverlayTrigger>
+              )}
               <textarea
                 id="reasons-for-action-text-area"
                 maxLength={MAX_REASON}
