@@ -45,6 +45,8 @@ class Email extends Component {
     email: emailShape,
     emailCount: PropTypes.number,
     taskCount: PropTypes.number,
+    // optional prop to disable the entire component
+    disabled: PropTypes.bool,
     // Provided by Redux
     emailActionsArray: PropTypes.array
   };
@@ -76,6 +78,7 @@ class Email extends Component {
     const emailActions = emailActionsArray[email.id];
     let emailNumber = 0;
     let taskNumber = 0;
+    let isDisabled = this.props.disabled === true;
     return (
       <div style={styles.email}>
         <div style={styles.header}>
@@ -100,6 +103,7 @@ class Email extends Component {
             type="button"
             className="btn btn-primary"
             onClick={this.showAddEmailDialog}
+            disabled={isDisabled}
           >
             <i className="fas fa-envelope" />
             &emsp;
@@ -111,6 +115,7 @@ class Email extends Component {
             type="button"
             className="btn btn-primary"
             onClick={this.showAddTaskDialog}
+            disabled={isDisabled}
           >
             <i className="fas fa-tasks" />
             &emsp;
