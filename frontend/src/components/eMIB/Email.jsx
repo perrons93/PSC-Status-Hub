@@ -78,7 +78,8 @@ class Email extends Component {
     const emailActions = emailActionsArray[email.id];
     let emailNumber = 0;
     let taskNumber = 0;
-    let isDisabled = this.props.disabled === true;
+    const isDisabled = this.props.disabled === true;
+
     return (
       <div style={styles.email}>
         <div style={styles.header}>

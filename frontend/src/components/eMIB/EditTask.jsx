@@ -116,7 +116,7 @@ class EditTask extends Component {
 
   render() {
     const { task, reasonsForAction } = this.state;
-    let isDisabled = this.props.disabled === true;
+    const isDisabled = this.props.disabled === true;
 
     return (
       <div style={styles.container}>

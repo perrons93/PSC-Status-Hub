@@ -167,7 +167,7 @@ class EditEmail extends Component {
     const replyAllChecked = this.state.emailType === EMAIL_TYPE.replyAll;
     const forwardChecked = this.state.emailType === EMAIL_TYPE.forward;
     const options = transformAddressBook(this.props.addressBook);
-    let isDisabled = this.props.disabled === true;
+    const isDisabled = this.props.disabled === true;
 
     return (
       <div style={styles.container}>
