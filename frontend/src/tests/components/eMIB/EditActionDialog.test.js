@@ -2,6 +2,11 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import { UnconnectedEditActionDialog as EditActionDialog } from "../../../components/eMIB/EditActionDialog";
 import { ACTION_TYPE, EDIT_MODE, EMAIL_TYPE } from "../../../components/eMIB/constants";
+import isEmailFormEmpty, {
+  isTaskFormEmpty,
+  isTaskFormEdited,
+  isEmailFormEdited
+} from "../../../helpers/editActionDialogHelper";
 
 describe("email action type", () => {
   it("renders Add Email dialog", () => {
@@ -235,4 +240,126 @@ it("clicking on the button only adds the email once", () => {
   // The the button is disabled in the UI
   expect(handleClose).toHaveBeenCalledTimes(1);
   expect(addEmail).toHaveBeenCalledTimes(1);
+});
+
+describe("edit action dialog helper file", () => {
+  // ============================== VARIABLES ==============================
+  // empty variables
+  const emptyEmailType = "";
+  const emptyEmailTo = "";
+  const emptyEmailCc = "";
+  const emptyEmailResponse = "";
+  const emptyReasonsForActionContent = "";
+  const emptyTaskContent = "";
+
+  // initial variables (for edit only)
+  const initialEmailType = EMAIL_TYPE.replyAll;
+  const initialEmailTo = "to";
+  const initialEmailCc = "cc";
+  const initialEmailResponse = "response";
+  const initialReasonsForActionContent = "reasons for action";
+  const initialTaskContent = "tasks";
+
+  // current variables
+  let emailType = EMAIL_TYPE.replyAll;
+  let emailTo = "to";
+  let emailCc = "cc";
+  let emailResponse = "response";
+  let reasonsForActionContent = "reasons for action";
+  let taskContent = "tasks";
+  // ==========================================================================
+
+  it("isEmailFormEmpty function", () => {
+    // all fields are empty ==> returns true
+    expect(
+      isEmailFormEmpty(
+        emptyEmailType,
+        emptyEmailTo,
+        emptyEmailCc,
+        emptyEmailResponse,
+        emptyReasonsForActionContent
+      )
+    ).toBe(true);
+
+    // at least one of the fields is not empty (in that case, emailTo field is not empty) ==> returns false
+    expect(
+      isEmailFormEmpty(
+        emptyEmailType,
+        emailTo,
+        emptyEmailCc,
+        emptyEmailResponse,
+        emptyReasonsForActionContent
+      )
+    ).toBe(false);
+  });
+
+  it("isTaskFormEmpty function", () => {
+    // all fields are empty ==> returns true
+    expect(isTaskFormEmpty(emptyTaskContent, emptyReasonsForActionContent)).toBe(true);
+
+    // at least one of the fields is not empty (in that case, taskContent field is not empty) ==> returns false
+    expect(isTaskFormEmpty(taskContent, emptyReasonsForActionContent)).toBe(false);
+  });
+
+  it("isEmailFormEdited function", () => {
+    // all fields are the same ==> return false
+    expect(
+      isEmailFormEdited(
+        initialEmailType,
+        emailType,
+        initialEmailTo,
+        emailTo,
+        initialEmailCc,
+        emailCc,
+        initialEmailResponse,
+        emailResponse,
+        initialReasonsForActionContent,
+        reasonsForActionContent
+      )
+    ).toBe(false);
+
+    // updating emailResponse field
+    emailResponse = "this is an updated response";
+
+    // at least one of the fields has been updated (in that case, emailResponse has been updated) ==> return true
+    expect(
+      isEmailFormEdited(
+        initialEmailType,
+        emailType,
+        initialEmailTo,
+        emailTo,
+        initialEmailCc,
+        emailCc,
+        initialEmailResponse,
+        emailResponse,
+        initialReasonsForActionContent,
+        reasonsForActionContent
+      )
+    ).toBe(true);
+  });
+
+  it("isTaskFormEdited function", () => {
+    // all fields are the same ==> return false
+    expect(
+      isTaskFormEdited(
+        initialTaskContent,
+        taskContent,
+        initialReasonsForActionContent,
+        reasonsForActionContent
+      )
+    ).toBe(false);
+
+    // updating taskContent field
+    taskContent = "this is an updated task";
+
+    // at least one of the fields has been updated (in that case, taskContent has been updated) ==> return true
+    expect(
+      isTaskFormEdited(
+        initialTaskContent,
+        taskContent,
+        initialReasonsForActionContent,
+        reasonsForActionContent
+      )
+    ).toBe(true);
+  });
 });
