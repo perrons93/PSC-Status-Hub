@@ -9,13 +9,22 @@ const actionStub = {
   reasonsForAction: "Reasons for action here..."
 };
 
+const emailStub = {
+  id: 0,
+  to: "To 1",
+  from: "From 1",
+  subject: "hello team",
+  date: "Date 1",
+  body: "body"
+};
+
 describe("renders component's content", () => {
   const deleteMock = jest.fn();
   const wrapper = shallow(
     <UnconnectedActionViewTask
       action={actionStub}
       actionId={0}
-      emailId={1}
+      email={emailStub}
       deleteTask={deleteMock}
     />
   );

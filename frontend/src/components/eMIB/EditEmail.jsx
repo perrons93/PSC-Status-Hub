@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LOCALIZE from "../../text_resources";
+import { connect } from "react-redux";
 import { EMAIL_TYPE, actionShape } from "./constants";
+import ReactResponsiveSelect from "react-responsive-select";
+import { transformAddressBook } from "../../helpers/transformations";
+import { contactShape } from "./constants";
 
 // These two consts limit the number of characters
 // that can be entered into two text areas
@@ -11,11 +15,6 @@ const MAX_RESPONSE = "3000";
 const MAX_REASON = "650";
 
 const styles = {
-  container: {
-    maxHeight: "calc(100vh - 300px)",
-    overflow: "auto",
-    width: 700
-  },
   header: {
     responseTypeIcons: {
       marginRight: 10,
@@ -50,16 +49,6 @@ const styles = {
       cursor: "pointer",
       paddingRight: 20
     },
-    textFieldBoxPadding: {
-      padding: "0 6px"
-    },
-    textField: {
-      padding: "4px 12px",
-      marginRight: 6,
-      border: "1px solid #00565E",
-      borderRadius: 4,
-      width: "calc(100% - 46px)"
-    },
     fieldsetLegend: {
       fontSize: 16,
       marginBottom: 12,
@@ -71,7 +60,9 @@ const styles = {
       width: 28,
       height: 32,
       lineHeight: "2.1em",
-      paddingRight: 4
+      paddingRight: 4,
+      marginTop: 5,
+      marginBottom: 18
     }
   },
   response: {
@@ -114,10 +105,12 @@ class EditEmail extends Component {
 
   state = {
     emailType: !this.props.action ? EMAIL_TYPE.reply : this.props.action.emailType,
-    emailTo: !this.props.action ? "" : this.props.action.emailTo,
-    emailCc: !this.props.action ? "" : this.props.action.emailCc,
+    emailTo: !this.props.action ? [] : this.props.action.emailTo,
+    emailCc: !this.props.action ? [] : this.props.action.emailCc,
     emailBody: !this.props.action ? "" : this.props.action.emailBody,
-    reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction
+    reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction,
+    // Provided by redux
+    addressBook: PropTypes.arrayOf(contactShape)
   };
 
   onEmailTypeChange = event => {
@@ -126,14 +119,30 @@ class EditEmail extends Component {
     this.props.onChange({ ...this.state, emailType: newEmailType });
   };
 
+  // Extract just the value
+  // This is all that is needed for saving and loading
+  getOptionValues(options) {
+    return Array.from(options, opt => opt.value);
+  }
+
   onEmailToChange = event => {
-    const newEmailTo = event.target.value;
+    // If the value has not changed, return
+    // can prevent infinite render loop
+    if (!event.altered) {
+      return;
+    }
+    const newEmailTo = this.getOptionValues(event.options);
     this.setState({ emailTo: newEmailTo });
     this.props.onChange({ ...this.state, emailTo: newEmailTo });
   };
 
   onEmailCcChange = event => {
-    const newEmailCc = event.target.value;
+    // If the value has not changed, return
+    // can prevent infinite render loop
+    if (!event.altered) {
+      return;
+    }
+    const newEmailCc = this.getOptionValues(event.options);
     this.setState({ emailCc: newEmailCc });
     this.props.onChange({ ...this.state, emailCc: newEmailCc });
   };
@@ -155,6 +164,7 @@ class EditEmail extends Component {
     const replyChecked = this.state.emailType === EMAIL_TYPE.reply;
     const replyAllChecked = this.state.emailType === EMAIL_TYPE.replyAll;
     const forwardChecked = this.state.emailType === EMAIL_TYPE.forward;
+    const options = transformAddressBook(this.props.addressBook);
 
     return (
       <div style={styles.container}>
@@ -256,34 +266,34 @@ class EditEmail extends Component {
             </fieldset>
           </div>
           <div>
-            <div className="font-weight-bold form-group">
+            <div className="font-weight-bold form-group" style={styles.header.toAndCcFieldPadding}>
               <label htmlFor="to-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.to}
               </label>
-              <span style={styles.header.textFieldBoxPadding}>
-                <input
+              <span>
+                <ReactResponsiveSelect
                   id="to-field"
-                  type="text"
-                  placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
-                  style={styles.header.textField}
-                  value={emailTo}
+                  multiselect
+                  name="to"
+                  options={options}
+                  selectedValues={emailTo}
                   onChange={this.onEmailToChange}
                 />
               </span>
             </div>
           </div>
           <div>
-            <div className="font-weight-bold form-group">
+            <div className="font-weight-bold form-group" style={styles.header.toAndCcFieldPadding}>
               <label htmlFor="cc-field" style={styles.header.titleStyle}>
                 {LOCALIZE.emibTest.inboxPage.emailCommons.cc}
               </label>
-              <span style={styles.header.textFieldBoxPadding}>
-                <input
+              <span>
+                <ReactResponsiveSelect
                   id="cc-field"
-                  type="text"
-                  placeholder={LOCALIZE.emibTest.inboxPage.addEmailResponse.headerFieldPlaceholder}
-                  style={styles.header.textField}
-                  value={emailCc}
+                  multiselect
+                  name="cc"
+                  options={options}
+                  selectedValues={emailCc}
                   onChange={this.onEmailCcChange}
                 />
               </span>
@@ -329,4 +339,16 @@ class EditEmail extends Component {
     );
   }
 }
-export default EditEmail;
+
+export { EditEmail as UnconnectedEditEmail };
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    addressBook: state.emibInbox.addressBook
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(EditEmail);

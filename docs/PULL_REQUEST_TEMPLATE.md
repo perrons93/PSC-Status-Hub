@@ -30,9 +30,8 @@ Manual steps to reproduce this functionality:
 Applicable for all code changes.
 
 - [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new compiler warnings
 - [ ] My changes generate no new accessibility errors and/or warnings
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] I have researched WCAG2.1 accessibility standards and met them in this PR (can be navigated using a keyboard)
-- [ ] My changes look good on IE 10+, Firefox, and Chrome
+- [ ] My changes look good on IE 11+ and Chrome

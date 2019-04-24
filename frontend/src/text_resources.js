@@ -348,7 +348,9 @@ let LOCALIZE = new LocalizedStrings({
           replyAll: "reply all",
           forward: "forward",
           editButton: "Edit response",
-          deleteButton: "Delete response"
+          deleteButton: "Delete response",
+          originalEmail: "Original email",
+          yourResponse: "Your response"
         },
         addEmailResponse: {
           selectResponseType: "Please select how you would like to respond to the original email:",
@@ -843,7 +845,9 @@ let LOCALIZE = new LocalizedStrings({
           replyAll: "répondre à tous",
           forward: "transmettre",
           editButton: "Modifier réponse",
-          deleteButton: "Supprimer résponse"
+          deleteButton: "Supprimer résponse",
+          originalEmail: "FR Original email",
+          yourResponse: "FR Your response"
         },
         addEmailResponse: {
           selectResponseType:

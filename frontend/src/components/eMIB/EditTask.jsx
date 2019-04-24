@@ -13,11 +13,6 @@ const MAX_TASK = "650";
 const MAX_REASON = "650";
 
 const styles = {
-  container: {
-    maxHeight: "calc(100vh - 297px)",
-    overflow: "auto",
-    width: 500
-  },
   header: {
     color: "#00565E",
     paddingTop: 12
@@ -26,9 +21,12 @@ const styles = {
     width: "100%",
     textAlign: "right"
   },
-  hr: {
-    margin: "6px 0",
+  hrOne: {
+    margin: "12px 0",
     borderColor: "#00565E"
+  },
+  hrTwo: {
+    margin: "12px 0"
   },
   tasks: {
     title: {
@@ -72,7 +70,7 @@ const styles = {
     },
     tooltipContainer: {
       marginLeft: 6,
-      padding: 6,
+      padding: 8,
       maxWidth: 360,
       borderColor: "#00565E"
     },
@@ -98,8 +96,6 @@ class EditTask extends Component {
   };
 
   static propTypes = {
-    emailNumber: PropTypes.number.isRequired,
-    emailSubject: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     action: actionShape
   };
@@ -117,22 +113,12 @@ class EditTask extends Component {
   };
 
   render() {
-    const { emailNumber, emailSubject } = this.props;
     const { task, reasonsForAction } = this.state;
 
     return (
       <div style={styles.container}>
         <form>
-          <div>
-            <label style={styles.header}>
-              {LOCALIZE.formatString(
-                LOCALIZE.emibTest.inboxPage.addEmailTask.header,
-                emailNumber + 1,
-                emailSubject
-              )}
-            </label>
-          </div>
-          <hr style={styles.hr} />
+          <hr style={styles.hrOne} />
           <div>
             <div className="font-weight-bold form-group">
               <label htmlFor="your-tasks-text-area" style={styles.tasks.title}>
@@ -158,7 +144,7 @@ class EditTask extends Component {
                   id="task-tooltip"
                   aria-label={LOCALIZE.ariaLabel.taskTooltip}
                   tabIndex="0"
-                  className="fas fa-question-circle"
+                  className="far fa-question-circle"
                   style={styles.tasks.icon}
                 />
               </OverlayTrigger>
@@ -174,6 +160,7 @@ class EditTask extends Component {
               </div>
             </div>
           </div>
+          <hr style={styles.hrTwo} />
           <div>
             <div className="font-weight-bold form-group">
               <label htmlFor="reasons-for-action-text-area" style={styles.reasonsForAction.title}>
@@ -199,7 +186,7 @@ class EditTask extends Component {
                   id="reasons-for-action-tooltip"
                   aria-label={LOCALIZE.ariaLabel.reasonsForActionTooltip}
                   tabIndex="0"
-                  className="fas fa-question-circle"
+                  className="far fa-question-circle"
                   style={styles.reasonsForAction.icon}
                 />
               </OverlayTrigger>
