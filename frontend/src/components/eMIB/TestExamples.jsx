@@ -100,39 +100,39 @@ class TestExamples extends Component {
             <h4 style={styleConstants.instuctions.h4}>
               {LOCALIZE.emibTest.howToPage.testExamples.part1Title}
             </h4>
-            <p style={styleConstants.instuctions.p}>
+            <div style={styleConstants.instuctions.p}>
               {currentLanguage === LANGUAGES.english && (
                 <Email email={emailStubEN} disabled={true} />
               )}
               {currentLanguage === LANGUAGES.french && (
                 <Email email={emailStubFR} disabled={true} />
               )}
-            </p>
+            </div>
             <p style={styleConstants.instuctions.p}>
               {LOCALIZE.emibTest.howToPage.testExamples.part1Description}
             </p>
             <h4 style={styleConstants.instuctions.h4}>
               {LOCALIZE.emibTest.howToPage.testExamples.part2Title}
             </h4>
-            <p style={styleConstants.instuctions.p}>
+            <div style={styleConstants.instuctions.p}>
               {currentLanguage === LANGUAGES.english && (
                 <EditEmail onChange={() => {}} action={emailResponseEN} disabled={true} />
               )}
               {currentLanguage === LANGUAGES.french && (
                 <EditEmail onChange={() => {}} action={emailResponseFR} disabled={true} />
               )}
-            </p>
+            </div>
             <h4 style={styleConstants.instuctions.h4}>
               {LOCALIZE.emibTest.howToPage.testExamples.part3Title}
             </h4>
-            <p style={styleConstants.instuctions.p}>
+            <div style={styleConstants.instuctions.p}>
               {currentLanguage === LANGUAGES.english && (
                 <EditTask onChange={() => {}} action={taskResponseEN} disabled={true} />
               )}
               {currentLanguage === LANGUAGES.french && (
                 <EditTask onChange={() => {}} action={taskResponseFR} disabled={true} />
               )}
-            </p>
+            </div>
           </div>
         </div>
       </div>
