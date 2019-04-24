@@ -117,7 +117,6 @@ class EditTask extends Component {
   render() {
     const { task, reasonsForAction } = this.state;
     let isDisabled = this.props.disabled === true;
-    isDisabled = true;
 
     return (
       <div style={styles.container}>
@@ -131,7 +130,6 @@ class EditTask extends Component {
               <OverlayTrigger
                 trigger="focus"
                 placement="right"
-                visibility={isDisabled ? "hidden" : "visible"}
                 overlay={
                   <Popover id="task-tooltip" style={styles.tasks.tooltipContainer}>
                     <div>
@@ -194,7 +192,6 @@ class EditTask extends Component {
                   tabIndex="0"
                   className="far fa-question-circle"
                   style={styles.reasonsForAction.icon}
-                  visibility={isDisabled ? "hidden" : "visible"}
                 />
               </OverlayTrigger>
               <textarea
