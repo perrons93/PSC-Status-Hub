@@ -281,8 +281,8 @@ describe("edit action dialog helper file", () => {
 
   // initial variables (for edit only)
   const initialEmailType = EMAIL_TYPE.replyAll;
-  const initialEmailTo = "to";
-  const initialEmailCc = "cc";
+  const initialEmailTo = ["to"];
+  const initialEmailCc = ["cc"];
   const initialEmailResponse = "response";
   const initialReasonsForActionContent = "reasons for action";
   const initialTaskContent = "tasks";
@@ -292,8 +292,8 @@ describe("edit action dialog helper file", () => {
   beforeEach(() => {
     stubbedCurrentVariables = {
       emailType: EMAIL_TYPE.replyAll,
-      emailTo: "to",
-      emailCc: "cc",
+      emailTo: ["to"],
+      emailCc: ["cc"],
       emailResponse: "response",
       reasonsForActionContent: "reasons for action",
       taskContent: "tasks"
