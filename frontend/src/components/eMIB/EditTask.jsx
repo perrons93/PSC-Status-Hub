@@ -97,7 +97,9 @@ class EditTask extends Component {
 
   static propTypes = {
     onChange: PropTypes.func.isRequired,
-    action: actionShape
+    action: actionShape,
+    // optional prop to disable the entire component
+    disabled: PropTypes.bool
   };
 
   onTaskContentChange = event => {
@@ -114,6 +116,8 @@ class EditTask extends Component {
 
   render() {
     const { task, reasonsForAction } = this.state;
+    let isDisabled = this.props.disabled === true;
+    isDisabled = true;
 
     return (
       <div style={styles.container}>
@@ -127,6 +131,7 @@ class EditTask extends Component {
               <OverlayTrigger
                 trigger="focus"
                 placement="right"
+                visibility={isDisabled ? "hidden" : "visible"}
                 overlay={
                   <Popover id="task-tooltip" style={styles.tasks.tooltipContainer}>
                     <div>
@@ -154,6 +159,7 @@ class EditTask extends Component {
                 style={styles.tasks.textArea}
                 value={task}
                 onChange={this.onTaskContentChange}
+                disabled={isDisabled}
               />
               <div style={styles.textCounter}>
                 {this.state.task.length}/{MAX_TASK}
@@ -188,6 +194,7 @@ class EditTask extends Component {
                   tabIndex="0"
                   className="far fa-question-circle"
                   style={styles.reasonsForAction.icon}
+                  visibility={isDisabled ? "hidden" : "visible"}
                 />
               </OverlayTrigger>
               <textarea
@@ -196,6 +203,7 @@ class EditTask extends Component {
                 style={styles.reasonsForAction.textArea}
                 value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
+                disabled={isDisabled}
               />
               <div style={styles.textCounter}>
                 {this.state.reasonsForAction.length}/{MAX_REASON}
