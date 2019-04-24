@@ -296,7 +296,7 @@ describe("edit action dialog helper file", () => {
   let taskContent = "tasks";
   // ==========================================================================
 
-  it("isEmailFormEmpty function", () => {
+  it("isEmailFormEmpty() returns 'true' if all the fields are empty and 'false' if at least one field has been updated", () => {
     // all fields are empty ==> returns true
     expect(
       isEmailFormEmpty(
@@ -320,7 +320,7 @@ describe("edit action dialog helper file", () => {
     ).toBe(false);
   });
 
-  it("isTaskFormEmpty function", () => {
+  it("isTaskFormEmpty() returns 'true' if all the fields are empty and 'false' if at least one field has been updated", () => {
     // all fields are empty ==> returns true
     expect(isTaskFormEmpty(emptyTaskContent, emptyReasonsForActionContent)).toBe(true);
 
@@ -328,7 +328,7 @@ describe("edit action dialog helper file", () => {
     expect(isTaskFormEmpty(taskContent, emptyReasonsForActionContent)).toBe(false);
   });
 
-  it("isEmailFormEdited function", () => {
+  it("isEmailFormEdited() return 'true' if at least one field has been updated and 'false' if all the initial values are the same as the current ones", () => {
     // all fields are the same ==> return false
     expect(
       isEmailFormEdited(
@@ -365,7 +365,7 @@ describe("edit action dialog helper file", () => {
     ).toBe(true);
   });
 
-  it("isTaskFormEdited function", () => {
+  it("isTaskFormEdited() return 'true' if at least one field has been updated and 'false' if all the initial values are the same as the current ones", () => {
     // all fields are the same ==> return false
     expect(
       isTaskFormEdited(
