@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
@@ -10,11 +8,6 @@ import ActionViewEmail from "./ActionViewEmail";
 import ActionViewTask from "./ActionViewTask";
 
 class TestExamples extends Component {
-  static propTypes = {
-    // Props from Redux TODO drop this......
-    currentLanguage: PropTypes.string
-  };
-
   render() {
     return (
       <div>
@@ -64,14 +57,4 @@ class TestExamples extends Component {
     );
   }
 }
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    currentLanguage: state.localize.language
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(TestExamples);
+export default TestExamples;
