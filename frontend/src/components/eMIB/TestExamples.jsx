@@ -6,8 +6,8 @@ import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
 import { styleConstants } from "./styleConstants.js";
 import Email from "./Email";
-import EditEmail from "./EditEmail";
-import EditTask from "./EditTask";
+import ActionViewEmail from "./ActionViewEmail";
+import ActionViewTask from "./ActionViewTask";
 
 class TestExamples extends Component {
   static propTypes = {
@@ -40,9 +40,10 @@ class TestExamples extends Component {
               {LOCALIZE.emibTest.howToPage.testExamples.part2Title}
             </h4>
             <div style={styleConstants.instuctions.disabledExampleComponent}>
-              <EditEmail
-                onChange={() => {}}
+              <ActionViewEmail
                 action={LOCALIZE.emibTest.howToPage.testExamples.exampleEmailResponse}
+                actionId={1}
+                email={LOCALIZE.emibTest.howToPage.testExamples.exampleEmail}
                 disabled={true}
               />
             </div>
@@ -50,9 +51,10 @@ class TestExamples extends Component {
               {LOCALIZE.emibTest.howToPage.testExamples.part3Title}
             </h4>
             <div style={styleConstants.instuctions.disabledExampleComponent}>
-              <EditTask
-                onChange={() => {}}
+              <ActionViewTask
                 action={LOCALIZE.emibTest.howToPage.testExamples.exampleTaskResponse}
+                actionId={1}
+                email={LOCALIZE.emibTest.howToPage.testExamples.exampleEmail}
                 disabled={true}
               />
             </div>
