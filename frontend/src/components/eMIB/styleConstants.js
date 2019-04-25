@@ -15,6 +15,10 @@ export const styleConstants = {
       border: "1px solid #00565e",
       margin: 0,
       padding: 16
+    },
+    disabledExampleComponentNoPadding: {
+      border: "1px solid #00565e",
+      margin: 0
     }
   }
 };

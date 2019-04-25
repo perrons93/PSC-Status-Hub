@@ -20,7 +20,7 @@ class TestExamples extends Component {
             <h4 style={styleConstants.instuctions.h4}>
               {LOCALIZE.emibTest.howToPage.testExamples.part1Title}
             </h4>
-            <div style={styleConstants.instuctions.disabledExampleComponent}>
+            <div style={styleConstants.instuctions.disabledExampleComponentNoPadding}>
               <Email
                 email={LOCALIZE.emibTest.howToPage.testExamples.exampleEmail}
                 disabled={true}
