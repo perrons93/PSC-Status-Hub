@@ -68,31 +68,35 @@ const styles = {
   response: {
     textArea: {
       padding: "6px 12px",
-      marginRight: 6,
       border: "1px solid #00565E",
       borderRadius: 4,
-      width: "calc(100% - 12px)",
+      width: "100%",
       height: 225,
       resize: "none"
+    },
+    textAreaMargin: {
+      marginRight: 12
     }
   },
   textCounter: {
     width: "100%",
     textAlign: "right",
-    paddingRight: 14
+    paddingRight: 12
   },
   hr: {
-    margin: "12px 0"
+    margin: "12px 12px 12px 0"
   },
   reasonsForAction: {
     textArea: {
       padding: "6px 12px",
-      marginRight: 6,
       border: "1px solid #00565E",
       borderRadius: 4,
-      width: "calc(100% - 12px)",
+      width: "100%",
       height: 150,
       resize: "none"
+    },
+    textAreaMargin: {
+      marginRight: 12
     }
   }
 };
@@ -304,13 +308,15 @@ class EditEmail extends Component {
               <label htmlFor="your-response-text-area">
                 {LOCALIZE.emibTest.inboxPage.addEmailResponse.response}
               </label>
-              <textarea
-                id="your-response-text-area"
-                maxLength={MAX_RESPONSE}
-                style={styles.response.textArea}
-                value={emailBody}
-                onChange={this.onEmailBodyChange}
-              />
+              <div style={styles.response.textAreaMargin}>
+                <textarea
+                  id="your-response-text-area"
+                  maxLength={MAX_RESPONSE}
+                  style={styles.response.textArea}
+                  value={emailBody}
+                  onChange={this.onEmailBodyChange}
+                />
+              </div>
               <div style={styles.textCounter}>
                 {this.state.emailBody.length}/{MAX_RESPONSE}
               </div>
@@ -322,13 +328,15 @@ class EditEmail extends Component {
               <label htmlFor="reasons-for-action-text-area">
                 {LOCALIZE.emibTest.inboxPage.addEmailResponse.reasonsForAction}
               </label>
-              <textarea
-                id="reasons-for-action-text-area"
-                maxLength={MAX_REASON}
-                style={styles.reasonsForAction.textArea}
-                value={reasonsForAction}
-                onChange={this.onReasonsForActionChange}
-              />
+              <div style={styles.reasonsForAction.textAreaMargin}>
+                <textarea
+                  id="reasons-for-action-text-area"
+                  maxLength={MAX_REASON}
+                  style={styles.reasonsForAction.textArea}
+                  value={reasonsForAction}
+                  onChange={this.onReasonsForActionChange}
+                />
+              </div>
               <div style={styles.textCounter}>
                 {this.state.reasonsForAction.length}/{MAX_REASON}
               </div>
