@@ -92,7 +92,9 @@ const styles = {
 class EditTask extends Component {
   state = {
     task: !this.props.action ? "" : this.props.action.task,
-    reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction
+    taskTooltipIcon: "far fa-question-circle",
+    reasonsForAction: !this.props.action ? "" : this.props.action.reasonsForAction,
+    reasonsForActionTooltipIcon: "far fa-question-circle"
   };
 
   static propTypes = {
@@ -112,8 +114,24 @@ class EditTask extends Component {
     this.props.onChange({ ...this.state, reasonsForAction: newReasonForAction });
   };
 
+  onTaskTooltipFocus = () => {
+    this.setState({ taskTooltipIcon: "fas fa-question-circle" });
+  };
+
+  onTaskTooltipBlur = () => {
+    this.setState({ taskTooltipIcon: "far fa-question-circle" });
+  };
+
+  onReasonsForActionTooltipFocus = () => {
+    this.setState({ reasonsForActionTooltipIcon: "fas fa-question-circle" });
+  };
+
+  onReasonsForActionTooltipBlur = () => {
+    this.setState({ reasonsForActionTooltipIcon: "far fa-question-circle" });
+  };
+
   render() {
-    const { task, reasonsForAction } = this.state;
+    const { task, taskTooltipIcon, reasonsForAction, reasonsForActionTooltipIcon } = this.state;
 
     return (
       <div style={styles.container}>
@@ -144,8 +162,10 @@ class EditTask extends Component {
                   id="task-tooltip"
                   aria-label={LOCALIZE.ariaLabel.taskTooltip}
                   tabIndex="0"
-                  className="far fa-question-circle"
+                  className={taskTooltipIcon}
                   style={styles.tasks.icon}
+                  onFocus={this.onTaskTooltipFocus}
+                  onBlur={this.onTaskTooltipBlur}
                 />
               </OverlayTrigger>
               <textarea
@@ -186,8 +206,10 @@ class EditTask extends Component {
                   id="reasons-for-action-tooltip"
                   aria-label={LOCALIZE.ariaLabel.reasonsForActionTooltip}
                   tabIndex="0"
-                  className="far fa-question-circle"
+                  className={reasonsForActionTooltipIcon}
                   style={styles.reasonsForAction.icon}
+                  onFocus={this.onReasonsForActionTooltipFocus}
+                  onBlur={this.onReasonsForActionTooltipBlur}
                 />
               </OverlayTrigger>
               <textarea
