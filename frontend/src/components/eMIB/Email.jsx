@@ -78,7 +78,6 @@ class Email extends Component {
     const emailActions = emailActionsArray[email.id];
     let emailNumber = 0;
     let taskNumber = 0;
-
     return (
       <div style={styles.email}>
         <div style={styles.header}>
@@ -97,31 +96,31 @@ class Email extends Component {
             </div>
           )}
         </div>
-        <div>
-          <button
-            id="unit-test-email-reply-button"
-            type="button"
-            className="btn btn-primary"
-            onClick={this.showAddEmailDialog}
-            disabled={this.props.disabled}
-          >
-            <i className="fas fa-envelope" />
+        {!this.props.disabled && (
+          <div>
+            <button
+              id="unit-test-email-reply-button"
+              type="button"
+              className="btn btn-primary"
+              onClick={this.showAddEmailDialog}
+            >
+              <i className="fas fa-envelope" />
+              &emsp;
+              {LOCALIZE.emibTest.inboxPage.addReply}
+            </button>
             &emsp;
-            {LOCALIZE.emibTest.inboxPage.addReply}
-          </button>
-          &emsp;
-          <button
-            id="unit-test-email-task-button"
-            type="button"
-            className="btn btn-primary"
-            onClick={this.showAddTaskDialog}
-            disabled={this.props.disabled}
-          >
-            <i className="fas fa-tasks" />
-            &emsp;
-            {LOCALIZE.emibTest.inboxPage.addTask}
-          </button>
-        </div>
+            <button
+              id="unit-test-email-task-button"
+              type="button"
+              className="btn btn-primary"
+              onClick={this.showAddTaskDialog}
+            >
+              <i className="fas fa-tasks" />
+              &emsp;
+              {LOCALIZE.emibTest.inboxPage.addTask}
+            </button>
+          </div>
+        )}
         <hr style={styles.titleEmailDivider} />
         <EmailContent email={email} />
         <div>
