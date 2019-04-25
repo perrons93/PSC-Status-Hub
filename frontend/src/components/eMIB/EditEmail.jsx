@@ -100,9 +100,7 @@ const styles = {
 class EditEmail extends Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
-    action: actionShape,
-    // optional prop to disable the entire component
-    disabled: PropTypes.bool
+    action: actionShape
   };
 
   state = {
@@ -187,7 +185,6 @@ class EditEmail extends Component {
                     value={EMAIL_TYPE.reply}
                     checked={replyChecked}
                     className="visually-hidden"
-                    disabled={this.props.disabled}
                   />
                   <label
                     htmlFor="reply-radio"
@@ -217,7 +214,6 @@ class EditEmail extends Component {
                     value={EMAIL_TYPE.replyAll}
                     checked={replyAllChecked}
                     className="visually-hidden"
-                    disabled={this.props.disabled}
                   />
                   <label
                     htmlFor="reply-all-radio"
@@ -247,7 +243,6 @@ class EditEmail extends Component {
                     value={EMAIL_TYPE.forward}
                     checked={forwardChecked}
                     className="visually-hidden"
-                    disabled={this.props.disabled}
                   />
                   <label
                     htmlFor="forward-radio"
@@ -283,7 +278,6 @@ class EditEmail extends Component {
                   options={options}
                   selectedValues={emailTo}
                   onChange={this.onEmailToChange}
-                  disabled={this.props.disabled}
                 />
               </span>
             </div>
@@ -301,7 +295,6 @@ class EditEmail extends Component {
                   options={options}
                   selectedValues={emailCc}
                   onChange={this.onEmailCcChange}
-                  disabled={this.props.disabled}
                 />
               </span>
             </div>
@@ -317,7 +310,6 @@ class EditEmail extends Component {
                 style={styles.response.textArea}
                 value={emailBody}
                 onChange={this.onEmailBodyChange}
-                disabled={this.props.disabled}
               />
               <div style={styles.textCounter}>
                 {this.state.emailBody.length}/{MAX_RESPONSE}
@@ -336,7 +328,6 @@ class EditEmail extends Component {
                 style={styles.reasonsForAction.textArea}
                 value={reasonsForAction}
                 onChange={this.onReasonsForActionChange}
-                disabled={this.props.disabled}
               />
               <div style={styles.textCounter}>
                 {this.state.reasonsForAction.length}/{MAX_REASON}
