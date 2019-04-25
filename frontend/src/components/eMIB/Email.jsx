@@ -70,6 +70,18 @@ class Email extends Component {
     this.setState({ showAddTaskDialog: false });
   };
 
+  componentWillUpdate = () => {
+    // removes the focus from the action buttons
+    document.getElementById("unit-test-email-reply-button").blur();
+    document.getElementById("unit-test-email-task-button").blur();
+  };
+
+  componentDidUpdate = () => {
+    // scroll to bottom of the page
+    const elmnt = document.getElementById("action-views");
+    elmnt.scrollIntoView();
+  };
+
   render() {
     const { email, emailCount, taskCount, emailActionsArray } = this.props;
     const hasTakenAction = emailCount + taskCount > 0;
@@ -119,7 +131,7 @@ class Email extends Component {
         </div>
         <hr style={styles.titleEmailDivider} />
         <EmailContent email={email} />
-        <div>
+        <div id="action-views">
           {emailActions.map((action, id) => {
             // populate email responses
             for (let i = 0; i < emailCount; i++) {
