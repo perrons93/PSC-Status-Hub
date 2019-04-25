@@ -70,10 +70,17 @@ function isEmailFormEdited(
   reasonsForActionContent
 ) {
   let isEdited = false;
-  const initialEmailToArray = typeof initialEmailTo === "undefined" ? "" : initialEmailTo;
-  const emailToArray = typeof emailTo === "undefined" ? "" : emailTo;
-  const initialEmailCcArray = typeof initialEmailCc === "undefined" ? "" : initialEmailCc;
-  const emailCcArray = typeof emailCc === "undefined" ? "" : emailCc;
+
+  let initialEmailToArray = typeof initialEmailTo === "undefined" ? "" : initialEmailTo;
+  let emailToArray = typeof emailTo === "undefined" ? "" : emailTo;
+  let initialEmailCcArray = typeof initialEmailCc === "undefined" ? "" : initialEmailCc;
+  let emailCcArray = typeof emailCc === "undefined" ? "" : emailCc;
+
+  // sorting the arrays before the comparison below
+  initialEmailToArray.sort();
+  emailToArray.sort();
+  initialEmailCcArray.sort();
+  emailCcArray.sort();
 
   if (
     initialEmailType !== emailType ||
