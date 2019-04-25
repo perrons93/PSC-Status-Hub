@@ -88,7 +88,7 @@ class TestExamples extends Component {
             <h4 style={styleConstants.instuctions.h4}>
               {LOCALIZE.emibTest.howToPage.testExamples.part1Title}
             </h4>
-            <div style={styleConstants.instuctions.p}>
+            <div style={styleConstants.instuctions.disabledExampleComponent}>
               {currentLanguage === LANGUAGES.english && (
                 <Email email={emailStubEN} disabled={true} />
               )}
@@ -102,7 +102,7 @@ class TestExamples extends Component {
             <h4 style={styleConstants.instuctions.h4}>
               {LOCALIZE.emibTest.howToPage.testExamples.part2Title}
             </h4>
-            <div style={styleConstants.instuctions.p}>
+            <div style={styleConstants.instuctions.disabledExampleComponent}>
               {currentLanguage === LANGUAGES.english && (
                 <EditEmail onChange={() => {}} action={emailResponseEN} disabled={true} />
               )}
@@ -113,7 +113,7 @@ class TestExamples extends Component {
             <h4 style={styleConstants.instuctions.h4}>
               {LOCALIZE.emibTest.howToPage.testExamples.part3Title}
             </h4>
-            <div style={styleConstants.instuctions.p}>
+            <div style={styleConstants.instuctions.disabledExampleComponent}>
               {currentLanguage === LANGUAGES.english && (
                 <EditTask onChange={() => {}} action={taskResponseEN} disabled={true} />
               )}
