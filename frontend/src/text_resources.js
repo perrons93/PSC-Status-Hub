@@ -192,7 +192,6 @@ let LOCALIZE = new LocalizedStrings({
           part2Title: "Option 1 – Sending an email with Reasons for Action",
           part3Title: "Option 2 – Adding tasks to task list with Reasons for Action",
           exampleEmail: {
-            id: 0,
             to: "Claude Huard (Manager, Quality Assurance Team)",
             from: "Geneviève Bédard (Director, Research and Innovations Unit)",
             subject: "Preparing Mary for her assignment",
@@ -713,7 +712,6 @@ let LOCALIZE = new LocalizedStrings({
           part3Title:
             "Option 2 – Ajouter des tâches à la liste de tâches et l’accompagner d’une justification des mesures prises",
           exampleEmail: {
-            id: 0,
             to: "Claude Huard (gestionnaire, Équipe de l’assurance de la qualité)",
             from: "Geneviève Bédard (directrice, Unité de recherche et innovations)",
             subject: "Préparation de Mary en vue de son affectation",

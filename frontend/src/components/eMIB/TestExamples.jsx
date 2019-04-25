@@ -9,6 +9,8 @@ import ActionViewTask from "./ActionViewTask";
 
 class TestExamples extends Component {
   render() {
+    //id 0 cannot be in LOCALIZE, so it needs to either be converted or added here
+    const exampleEmail = { ...{ id: 0 }, ...LOCALIZE.emibTest.howToPage.testExamples.exampleEmail };
     return (
       <div>
         <div>
@@ -21,10 +23,7 @@ class TestExamples extends Component {
               {LOCALIZE.emibTest.howToPage.testExamples.part1Title}
             </h4>
             <div style={styleConstants.instuctions.disabledExampleComponentNoPadding}>
-              <Email
-                email={LOCALIZE.emibTest.howToPage.testExamples.exampleEmail}
-                disabled={true}
-              />
+              <Email email={exampleEmail} disabled={true} />
             </div>
             <p style={styleConstants.instuctions.p}>
               {LOCALIZE.emibTest.howToPage.testExamples.part1Description}
@@ -36,7 +35,7 @@ class TestExamples extends Component {
               <ActionViewEmail
                 action={LOCALIZE.emibTest.howToPage.testExamples.exampleEmailResponse}
                 actionId={1}
-                email={LOCALIZE.emibTest.howToPage.testExamples.exampleEmail}
+                email={exampleEmail}
                 disabled={true}
               />
             </div>
@@ -47,7 +46,7 @@ class TestExamples extends Component {
               <ActionViewTask
                 action={LOCALIZE.emibTest.howToPage.testExamples.exampleTaskResponse}
                 actionId={1}
-                email={LOCALIZE.emibTest.howToPage.testExamples.exampleEmail}
+                email={exampleEmail}
                 disabled={true}
               />
             </div>
