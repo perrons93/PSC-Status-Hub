@@ -12,7 +12,6 @@ import TipsOnTest from "./TipsOnTest";
 import TestInstructions from "./TestInstructions";
 import TestExamples from "./TestExamples";
 import Evaluation from "./Evaluation";
-import ProgressPane from "../commons/ProgressPane";
 import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 import { activateTest, deactivateTest } from "../../modules/TestStatusRedux";
@@ -135,7 +134,6 @@ class Emib extends Component {
   render() {
     const { quitConditions } = this.state;
     const allChecked = quitConditions.every(this.isChecked);
-    const INSTRUCTION_SPECS = getInstructionContent();
 
     const submitButtonState = allChecked ? BUTTON_STATE.enabled : BUTTON_STATE.disabled;
     return (
@@ -144,20 +142,13 @@ class Emib extends Component {
         {this.state.curPage !== PAGES.emibTabs && (
           <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
             {this.state.curPage === PAGES.preTest && (
-              <ProgressPane
-                progressSpecs={INSTRUCTION_SPECS}
-                currentNode={0}
-                paneTitle={LOCALIZE.emibTest.homePage.testTitle}
-                exitButton={
-                  <button
-                    type="button"
-                    className="btn btn-primary btn-wide"
-                    onClick={this.showStartTestPopup}
-                  >
-                    {LOCALIZE.commons.startTest}
-                  </button>
-                }
-              />
+              <button
+                type="button"
+                className="btn btn-primary btn-wide"
+                onClick={this.showStartTestPopup}
+              >
+                {LOCALIZE.commons.startTest}
+              </button>
             )}
 
             {this.state.curPage === PAGES.confirm && <Confirmation />}
