@@ -19,14 +19,15 @@ const styles = {
   },
   textCounter: {
     width: "100%",
-    textAlign: "right"
+    textAlign: "right",
+    paddingRight: 12
   },
   hrOne: {
-    margin: "12px 0",
+    margin: "12px 12px 12px 0",
     borderColor: "#00565E"
   },
   hrTwo: {
-    margin: "12px 0"
+    margin: "12px 12px 12px 0"
   },
   tasks: {
     title: {
@@ -56,6 +57,9 @@ const styles = {
       width: "100%",
       height: 125,
       resize: "none"
+    },
+    textAreaMargin: {
+      marginRight: 12
     }
   },
   reasonsForAction: {
@@ -85,6 +89,9 @@ const styles = {
       width: "100%",
       height: 100,
       resize: "none"
+    },
+    textAreaMargin: {
+      marginRight: 12
     }
   }
 };
@@ -168,13 +175,15 @@ class EditTask extends Component {
                   onBlur={this.onTaskTooltipBlur}
                 />
               </OverlayTrigger>
-              <textarea
-                id="your-tasks-text-area"
-                maxLength={MAX_TASK}
-                style={styles.tasks.textArea}
-                value={task}
-                onChange={this.onTaskContentChange}
-              />
+              <div style={styles.tasks.textAreaMargin}>
+                <textarea
+                  id="your-tasks-text-area"
+                  maxLength={MAX_TASK}
+                  style={styles.tasks.textArea}
+                  value={task}
+                  onChange={this.onTaskContentChange}
+                />
+              </div>
               <div style={styles.textCounter}>
                 {this.state.task.length}/{MAX_TASK}
               </div>
@@ -212,13 +221,15 @@ class EditTask extends Component {
                   onBlur={this.onReasonsForActionTooltipBlur}
                 />
               </OverlayTrigger>
-              <textarea
-                id="reasons-for-action-text-area"
-                maxLength={MAX_REASON}
-                style={styles.reasonsForAction.textArea}
-                value={reasonsForAction}
-                onChange={this.onReasonsForActionChange}
-              />
+              <div style={styles.reasonsForAction.textAreaMargin}>
+                <textarea
+                  id="reasons-for-action-text-area"
+                  maxLength={MAX_REASON}
+                  style={styles.reasonsForAction.textArea}
+                  value={reasonsForAction}
+                  onChange={this.onReasonsForActionChange}
+                />
+              </div>
               <div style={styles.textCounter}>
                 {this.state.reasonsForAction.length}/{MAX_REASON}
               </div>
