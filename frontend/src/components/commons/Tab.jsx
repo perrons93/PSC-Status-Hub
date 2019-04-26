@@ -37,6 +37,7 @@ class Tab extends Component {
   static propTypes = {
     tabName: PropTypes.string.isRequired,
     selected: PropTypes.bool.isRequired,
+    // use this prop to disable the tab
     disabled: PropTypes.bool
   };
 
