@@ -164,7 +164,11 @@ class Emib extends Component {
           </ContentContainer>
         )}
         {this.state.curPage === PAGES.emibTabs && (
-          <TestFooter submitTest={this.openSubmitPopup} quitTest={this.openQuitPopup} />
+          <TestFooter
+            submitTest={this.openSubmitPopup}
+            quitTest={this.openQuitPopup}
+            testIsStarted={true}
+          />
         )}
 
         <ConfirmStartTest

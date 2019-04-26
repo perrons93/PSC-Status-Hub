@@ -18,6 +18,10 @@ const styles = {
     borderTop: "2px solid #96a8b2",
     margin: 0
   },
+  startTestBtn: {
+    float: "right",
+    paddingTop: 17
+  },
   submitBtn: {
     float: "right",
     paddingTop: 17
@@ -30,8 +34,10 @@ const styles = {
 
 class TestFooter extends Component {
   static propTypes = {
-    submitTest: PropTypes.func.isRequired,
-    quitTest: PropTypes.func.isRequired
+    startTest: PropTypes.func,
+    submitTest: PropTypes.func,
+    quitTest: PropTypes.func,
+    testIsStarted: PropTypes.bool.isRequired
   };
 
   render() {
@@ -39,26 +45,42 @@ class TestFooter extends Component {
       <div>
         <hr style={styles.hr} />
         <div style={styles.footer}>
-          <div style={styles.submitBtn}>
-            <button
-              id="unit-test-submit-btn"
-              type="button"
-              className="btn btn-primary"
-              onClick={this.props.submitTest}
-            >
-              {LOCALIZE.commons.submitTestButton}
-            </button>
-          </div>
-          <div style={styles.quitTestBtn}>
-            <button
-              id="unit-test-quit-btn"
-              type="button"
-              className="btn btn-danger"
-              onClick={this.props.quitTest}
-            >
-              {LOCALIZE.commons.quitTest}
-            </button>
-          </div>
+          {!this.props.testIsStarted && (
+            <div style={styles.startTestBtn}>
+              <button
+                id="unit-test-start-btn"
+                type="button"
+                className="btn btn-primary"
+                onClick={this.props.startTest}
+              >
+                {LOCALIZE.commons.startTest}
+              </button>
+            </div>
+          )}
+          {this.props.testIsStarted && (
+            <div>
+              <div style={styles.submitBtn}>
+                <button
+                  id="unit-test-submit-btn"
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={this.props.submitTest}
+                >
+                  {LOCALIZE.commons.submitTestButton}
+                </button>
+              </div>
+              <div style={styles.quitTestBtn}>
+                <button
+                  id="unit-test-quit-btn"
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={this.props.quitTest}
+                >
+                  {LOCALIZE.commons.quitTest}
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
