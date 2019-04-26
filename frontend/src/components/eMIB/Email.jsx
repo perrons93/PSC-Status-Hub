@@ -40,6 +40,9 @@ const styles = {
   }
 };
 
+// used to allow or prevent focusing on action-views div (see componentWillUpdate() function)
+let TABINDEX = "-1";
+
 class Email extends Component {
   static propTypes = {
     email: emailShape,
@@ -71,9 +74,21 @@ class Email extends Component {
   };
 
   componentWillUpdate = () => {
-    // removes the focus from the action buttons
-    document.getElementById("unit-test-email-reply-button").blur();
-    document.getElementById("unit-test-email-task-button").blur();
+    // focusing on the action view items depending on the existing state
+    const actionItem = document.getElementById("action-views");
+    // there is no action item created yet
+    if (actionItem === null) {
+      // allowing focus to the action-view div
+      TABINDEX = "0";
+      // focusing on it
+      actionItem.focus();
+      // preventing focus to the action-view div
+      TABINDEX = "-1";
+      // there is at least one action item
+    } else {
+      // simply focus on it
+      actionItem.focus();
+    }
   };
 
   componentDidUpdate = () => {
@@ -131,7 +146,7 @@ class Email extends Component {
         </div>
         <hr style={styles.titleEmailDivider} />
         <EmailContent email={email} />
-        <div id="action-views">
+        <div id="action-views" tabIndex={TABINDEX}>
           {emailActions.map((action, id) => {
             // populate email responses
             for (let i = 0; i < emailCount; i++) {
