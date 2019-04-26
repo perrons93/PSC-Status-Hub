@@ -411,7 +411,6 @@ let LOCALIZE = new LocalizedStrings({
         submitTestPopupBox: {
           title: "Confirm test submission?",
           warning: {
-            title: "Warning! The notepad will not be saved.",
             message:
               "Anything written in the notepad will not be submitted with the test for scoring. Ensure that you have reviewed all of your responses before submitting the test as you will not be able to go back to make changes."
           },
@@ -421,7 +420,6 @@ let LOCALIZE = new LocalizedStrings({
         quitTestPopupBox: {
           title: "Are you sure you want to quit this test?",
           warning: {
-            title: "Warning! Once you exit the test, you will not be able to get back in.",
             message:
               "You will not be able to recover your answers, and will be withdrawn from this test session. You may be retested at a later time."
           },
@@ -464,7 +462,6 @@ let LOCALIZE = new LocalizedStrings({
       startTest: "Start test",
       confirmStartTest: {
         aboutToStart: "You are about to start the test.",
-        timedTest: "This is a timed test.",
         timerWarning:
           "Once you start the timer will begin, and you can only leave the test by submitting or quitting.",
         instructionsAccess:
@@ -963,7 +960,6 @@ let LOCALIZE = new LocalizedStrings({
       startTest: "Commencer le test",
       confirmStartTest: {
         aboutToStart: "FR You are about to start the test.",
-        timedTest: "FR This is a timed test.",
         timerWarning:
           "FR Once you start the timer will begin, and you can only leave the test by submitting or quitting.",
         instructionsAccess:
