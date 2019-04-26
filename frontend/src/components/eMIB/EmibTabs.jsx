@@ -53,7 +53,7 @@ class EmibTabs extends Component {
       <div style={styles.container}>
         <TabNavigation
           tabSpecs={TABS}
-          currentTab={1}
+          currentTab={0}
           menuName={LOCALIZE.ariaLabel.tabMenu}
           style={styles.tabNavigation}
         />
