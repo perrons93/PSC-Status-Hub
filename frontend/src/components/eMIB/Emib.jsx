@@ -16,6 +16,7 @@ import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 import { activateTest, deactivateTest } from "../../modules/TestStatusRedux";
 import ConfirmStartTest from "../commons/ConfirmStartTest";
+import EmibIntroductionPage from "./EmibIntroductionPage";
 
 const PAGES = {
   preTest: "preTest",
@@ -99,11 +100,11 @@ class Emib extends Component {
     }
   };
 
-  showStartTestPopup = () => {
+  showEnterEmibPopup = () => {
     this.setState({ showConfirmStartTestPopup: true });
   };
 
-  closeStartTestPopup = () => {
+  closeEnterEmibPopup = () => {
     this.setState({ showConfirmStartTestPopup: false });
   };
 
@@ -146,21 +147,7 @@ class Emib extends Component {
         {this.state.curPage !== PAGES.emibTabs && (
           <ContentContainer hideBanner={this.state.curPage === PAGES.emibTabs}>
             {this.state.curPage === PAGES.preTest && (
-              <div>
-                <h1 className="green-divider">{LOCALIZE.emibTest.homePage.testTitle}</h1>
-                <h2>{LOCALIZE.emibTest.howToPage.introductionPage.title}</h2>
-                <p>{LOCALIZE.emibTest.howToPage.introductionPage.description1}</p>
-                <p>{LOCALIZE.emibTest.howToPage.introductionPage.description2}</p>
-                <div style={styles.startTestBtn}>
-                  <button
-                    type="button"
-                    className="btn btn-primary btn-wide"
-                    onClick={this.showStartTestPopup}
-                  >
-                    {LOCALIZE.commons.enterEmib}
-                  </button>
-                </div>
-              </div>
+              <EmibIntroductionPage showEnterEmibPopup={this.showEnterEmibPopup} />
             )}
 
             {this.state.curPage === PAGES.confirm && <Confirmation />}
@@ -172,7 +159,7 @@ class Emib extends Component {
 
         <ConfirmStartTest
           showDialog={this.state.showConfirmStartTestPopup}
-          handleClose={this.closeStartTestPopup}
+          handleClose={this.closeEnterEmibPopup}
           startTest={this.changePage}
         />
 
