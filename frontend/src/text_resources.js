@@ -109,7 +109,14 @@ let LOCALIZE = new LocalizedStrings({
           description1:
             "The e-MIB consists of an email inbox in which you will respond to a series of emails depicting situations typically encountered by managers in the federal public service. These situations will provide you with the opportunity to demonstrate the Key Leadership Competencies.",
           description2:
-            "The next page will let you access the test instructions for the e-MIB test. When you are ready, you may enter the e-MIB test environment."
+            "The next page will let you access the test instructions for the e-MIB test. When you are ready, you may enter the e-MIB test environment.",
+          popupBox: {
+            title: "Enter the e-MIB simulation?",
+            description1:
+              "You are about to enter a simulated inbox environment. Please wait for the instructions of your test administrator before proceeding.",
+            description2:
+              'The next page will allow you to read detailed instructions on how to complete the test, and see examples of how you may answer questions within the simulation. This will be your chance to explore the test platform before the timed portion of the test begins. When advised to proceed, you may click the "Enter e-MIB Test" button.'
+          }
         },
         overview: {
           title: "Overview",
@@ -605,7 +612,14 @@ let LOCALIZE = new LocalizedStrings({
           description1:
             "FR The e-MIB consists of an email inbox in which you will respond to a series of emails depicting situations typically encountered by managers in the federal public service. These situations will provide you with the opportunity to demonstrate the Key Leadership Competencies.",
           description2:
-            "FR The next page will let you access the test instructions for the e-MIB test. When you are ready, you may enter the e-MIB test environment."
+            "FR The next page will let you access the test instructions for the e-MIB test. When you are ready, you may enter the e-MIB test environment.",
+          popupBox: {
+            title: "FR Enter the e-MIB simulation?",
+            description1:
+              "FR You are about to enter a simulated inbox environment. Please wait for the instructions of your test administrator before proceeding.",
+            description2:
+              'FR The next page will allow you to read detailed instructions on how to complete the test, and see examples of how you may answer questions within the simulation. This will be your chance to explore the test platform before the timed portion of the test begins. When advised to proceed, you may click the "Enter e-MIB Test" button.'
+          }
         },
         overview: {
           title: "Aperçu général",

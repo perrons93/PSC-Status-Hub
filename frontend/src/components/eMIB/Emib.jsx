@@ -15,7 +15,7 @@ import Evaluation from "./Evaluation";
 import PopupBox, { BUTTON_TYPE, BUTTON_STATE } from "../commons/PopupBox";
 import SystemMessage, { MESSAGE_TYPE } from "../commons/SystemMessage";
 import { activateTest, deactivateTest } from "../../modules/TestStatusRedux";
-import ConfirmStartTest from "../commons/ConfirmStartTest";
+import ConfirmEnterEmib from "./ConfirmEnterEmib";
 import EmibIntroductionPage from "./EmibIntroductionPage";
 
 const PAGES = {
@@ -77,7 +77,7 @@ class Emib extends Component {
     curPage: PAGES.preTest,
     showSubmitPopup: false,
     showQuitPopup: false,
-    showConfirmStartTestPopup: false,
+    showEnterEmibPopup: false,
     quitConditions: quitConditions()
   };
 
@@ -101,11 +101,11 @@ class Emib extends Component {
   };
 
   showEnterEmibPopup = () => {
-    this.setState({ showConfirmStartTestPopup: true });
+    this.setState({ showEnterEmibPopup: true });
   };
 
   closeEnterEmibPopup = () => {
-    this.setState({ showConfirmStartTestPopup: false });
+    this.setState({ showEnterEmibPopup: false });
   };
 
   openSubmitPopup = () => {
@@ -157,8 +157,8 @@ class Emib extends Component {
           <TestFooter submitTest={this.openSubmitPopup} quitTest={this.openQuitPopup} />
         )}
 
-        <ConfirmStartTest
-          showDialog={this.state.showConfirmStartTestPopup}
+        <ConfirmEnterEmib
+          showDialog={this.state.showEnterEmibPopup}
           handleClose={this.closeEnterEmibPopup}
           startTest={this.changePage}
         />
