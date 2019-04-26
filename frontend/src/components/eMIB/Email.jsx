@@ -57,6 +57,11 @@ class Email extends Component {
     showAddTaskDialog: false
   };
 
+  constructor(props) {
+    super(props);
+    this.actionViewsRef = React.createRef();
+  }
+
   showAddEmailDialog = () => {
     this.setState({ showAddEmailDialog: true });
   };
@@ -75,7 +80,7 @@ class Email extends Component {
 
   componentWillUpdate = () => {
     // focusing on the action view items depending on the existing state
-    const actionItem = document.getElementById("action-views");
+    const actionItem = this.actionViewsRef.current;
     // there is no action item created yet
     if (actionItem === null) {
       // allowing focus to the action-view div
@@ -93,7 +98,7 @@ class Email extends Component {
 
   componentDidUpdate = () => {
     // scroll to bottom of the page
-    const elmnt = document.getElementById("action-views");
+    const elmnt = this.actionViewsRef.current;
     elmnt.scrollIntoView();
   };
 
@@ -146,7 +151,7 @@ class Email extends Component {
         </div>
         <hr style={styles.titleEmailDivider} />
         <EmailContent email={email} />
-        <div id="action-views" tabIndex={TABINDEX}>
+        <div ref={this.actionViewsRef} tabIndex={TABINDEX}>
           {emailActions.map((action, id) => {
             // populate email responses
             for (let i = 0; i < emailCount; i++) {
