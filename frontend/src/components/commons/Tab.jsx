@@ -20,7 +20,6 @@ const styles = {
     padding: "10px 15px",
     backgroundColor: "#8A8A8A",
     marginRight: "2px",
-    lineHeight: "1.42857143",
     border: "none",
     borderRadius: "4px 4px 0 0",
     marginBottom: 1
