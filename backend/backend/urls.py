@@ -24,6 +24,7 @@ router.register(r'view_users', user_view.UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'api/', views.index, name='index'),
+    path('api/oauth/', views.oauthStatus),
+    path('api/oltf/', views.oltfStatus),
     path('', include(router.urls)),
 ]

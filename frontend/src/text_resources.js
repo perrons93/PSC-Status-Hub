@@ -10,15 +10,6 @@ let LOCALIZE = new LocalizedStrings({
     },
 
 
-    //Home Page
-    homePage: {
-      title: "The Public Service Commission's Competency Assessment Tool",
-      welcomeMsg: "Welcome to the Compotency Assessment Tool.",
-      description:
-        "Code for Canada and PSC are working on this tool to help assess managerial canadiates for the federal public service. It is in the alpha phase which means it is currently going through product testing and is subject to change."
-    },
-
-
     //Status Page
     statusPage: {
       serviceStatusTable: {
@@ -26,6 +17,7 @@ let LOCALIZE = new LocalizedStrings({
         headerLeft: "Application Name",
         headerRight: "Status", 
         oauthDesc: "Oauth Provider", 
+        oltfDesc: "OLTF", 
       },
     },
 

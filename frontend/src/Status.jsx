@@ -32,13 +32,26 @@ class Status extends Component {
   /* Front end is always running successfully if this page loads so it will always be true */
   state = {
     oAuthStatus: false,
-    frontendStatus: false,
+    oltfStatus: false,
   };
 
   
+  checkOLTF = async () => {
+    const test = await fetch("/api/oltf/", {
+      method: "GET",
+      headers,
+      cache: "default"
+    });
+    const testJson = await test.json();
+    if (testJson && testJson.status == 200) {
+      this.setState({ oltfStatus: true });
+    } else {
+      this.setState({ oltfStatus: false });
+    }
+  };
 
   checkOAuth = async () => {
-    const test = await fetch("/api/", {
+    const test = await fetch("/api/oauth/", {
       method: "GET",
       headers,
       cache: "default"
@@ -52,7 +65,8 @@ class Status extends Component {
   };
 
   checkStatus = async () => {
-    this.checkOAuth()
+    this.checkOAuth();
+    this.checkOLTF();
   };
 
 
@@ -63,7 +77,7 @@ class Status extends Component {
 
   render() {
     const {
-      frontendStatus,
+      oltfStatus,
       oAuthStatus,
     } = this.state;
     return (
@@ -83,6 +97,10 @@ class Status extends Component {
                 <StatusCheck
                   description={LOCALIZE.statusPage.serviceStatusTable.oauthDesc}
                   isPassing={oAuthStatus}
+                />
+                <StatusCheck
+                  description={LOCALIZE.statusPage.serviceStatusTable.oltfDesc}
+                  isPassing={oltfStatus}
                 />
               </tbody>
             </table>
