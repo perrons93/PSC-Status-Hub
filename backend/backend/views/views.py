@@ -1,5 +1,7 @@
 from django.http import JsonResponse
-
+from . import oauthRestTest
 
 def index(request):
-    return JsonResponse({"status": "I'm here"})
+    status = oauthRestTest.OAuthStatus()
+    return JsonResponse({"status": status })
+

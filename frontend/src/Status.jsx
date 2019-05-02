@@ -21,12 +21,6 @@ const headers = new Headers({
   "Content-Type": "application/json"
 });
 
-// Valid browser other than IE
-export const VALID_BROWSERS = ["chrome", "firefox"];
-export const IE_STRING = "IE";
-
-export const BROWSER_STRING = detectBrowser();
-const IE_VERSION = getIeVersion();
 
 const SCREEN_RESOLUTION = getScreenResolution();
 const SCREEN_HEIGHT = SCREEN_RESOLUTION[0];
@@ -37,96 +31,43 @@ const SCREEN_WIDTH = SCREEN_RESOLUTION[1];
 class Status extends Component {
   /* Front end is always running successfully if this page loads so it will always be true */
   state = {
-    backendStatus: false,
-    databaseStatus: false,
-    frontendStatus: true,
-    javascriptStatus: false,
-    browserStatus: false,
-    screenResolutionStatus: false
+    oAuthStatus: false,
+    frontendStatus: false,
   };
 
-  componentWillMount() {
-    this.checkBackend();
-    this.checkDatabase();
-    this.checkJavascriptEnabled();
-    this.validateBrowser();
-    this.checkResolution();
-  }
+  
 
-  checkBackend = async () => {
+  checkOAuth = async () => {
     const test = await fetch("/api/", {
       method: "GET",
       headers,
       cache: "default"
     });
     const testJson = await test.json();
-    if (testJson && testJson.status) {
-      this.setState({ backendStatus: true });
+    if (testJson && testJson.status == 200) {
+      this.setState({ oAuthStatus: true });
+    } else {
+      this.setState({ oAuthStatus: false });
     }
   };
 
-  checkDatabase = async () => {
-    const test = await fetch("/database_check/", {
-      method: "GET",
-      headers,
-      cache: "default"
-    });
-    const testJson = await test.json();
-    if (testJson) {
-      this.setState({ databaseStatus: true });
-    }
+  checkStatus = async () => {
+    this.checkOAuth()
   };
 
-  // You must have JavaScript enabled to be able to run the app at all
-  checkJavascriptEnabled = () => {
-    if (<script type="javascript" />) {
-      this.setState({ javascriptStatus: true });
-    }
-  };
 
-  // Validates that the browser is IE 9+, Chrome or Firefox
-  // TODO(fnormand): test with IE 8 and make sure it fails
-  validateBrowser = () => {
-    if (BROWSER_STRING === IE_STRING) {
-      if (IE_VERSION >= 9) {
-        this.setState({ browserStatus: true });
-      }
-    } else if (VALID_BROWSERS.indexOf(BROWSER_STRING) >= 0) {
-      this.setState({ browserStatus: true });
-    }
-  };
-
-  // Validates that screen resolution is at least 800 x 600
-  checkResolution = () => {
-    if (SCREEN_WIDTH >= 800 && SCREEN_HEIGHT >= 600) {
-      this.setState({ screenResolutionStatus: true });
-    }
-  };
+  componentDidMount() {
+    this.checkStatus();
+    setInterval(this.checkStatus, 30000);
+  }
 
   render() {
     const {
       frontendStatus,
-      backendStatus,
-      databaseStatus,
-      javascriptStatus,
-      browserStatus,
-      screenResolutionStatus
+      oAuthStatus,
     } = this.state;
     return (
       <ContentContainer>
-        <div className={"jumbotron"}>
-          <h1>{LOCALIZE.statusPage.title}</h1>
-          <p>{LOCALIZE.statusPage.welcomeMsg}</p>
-          <hr />
-          <p>
-            <a href="https://github.com/code-for-canada/project-thundercat">
-              <button type="button" className="btn btn-primary">
-                {LOCALIZE.statusPage.gitHubRepoBtn}
-              </button>
-            </a>
-            <img src={logo} style={styles.logo} alt={LOCALIZE.statusPage.logo} />
-          </p>
-        </div>
 
         <div>
           <h3>{LOCALIZE.statusPage.serviceStatusTable.title}</h3>
@@ -134,76 +75,20 @@ class Status extends Component {
             <table className={"table"}>
               <thead>
                 <tr>
-                  <th scope="col">System functionality</th>
-                  <th scope="col">Status</th>
+                  <th scope="col">{LOCALIZE.statusPage.serviceStatusTable.headerLeft}</th>
+                  <th scope="col">{LOCALIZE.statusPage.serviceStatusTable.headerRight}</th>
                 </tr>
               </thead>
               <tbody>
                 <StatusCheck
-                  description={LOCALIZE.statusPage.serviceStatusTable.frontendDesc}
-                  isPassing={frontendStatus}
-                />
-                <StatusCheck
-                  description={LOCALIZE.statusPage.serviceStatusTable.backendDesc}
-                  isPassing={backendStatus}
-                />
-                <StatusCheck
-                  description={LOCALIZE.statusPage.serviceStatusTable.databaseDesc}
-                  isPassing={databaseStatus}
+                  description={LOCALIZE.statusPage.serviceStatusTable.oauthDesc}
+                  isPassing={oAuthStatus}
                 />
               </tbody>
             </table>
           </div>
         </div>
         <hr />
-        <div>
-          <h3>{LOCALIZE.statusPage.systemStatusTable.title}</h3>
-          <div>
-            <table className={"table"}>
-              <thead>
-                <tr>
-                  <th scope="col">Requirement</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {javascriptStatus === true && (
-                  <SystemCheck
-                    description={LOCALIZE.statusPage.systemStatusTable.javaScript}
-                    isPassing={javascriptStatus}
-                    currentSettingsDetails={`(${LOCALIZE.commons.enabled})`}
-                  />
-                )}
-                {javascriptStatus === false && (
-                  <SystemCheck
-                    description={LOCALIZE.statusPage.systemStatusTable.javaScript}
-                    isPassing={javascriptStatus}
-                    currentSettingsDetails={`(${LOCALIZE.commons.disabled})`}
-                  />
-                )}
-                {BROWSER_STRING === IE_STRING && (
-                  <SystemCheck
-                    description={LOCALIZE.statusPage.systemStatusTable.browsers}
-                    isPassing={browserStatus}
-                    currentSettingsDetails={`(${BROWSER_STRING} v${IE_VERSION})`}
-                  />
-                )}
-                {BROWSER_STRING !== IE_STRING && (
-                  <SystemCheck
-                    description={LOCALIZE.statusPage.systemStatusTable.browsers}
-                    isPassing={browserStatus}
-                    currentSettingsDetails={`(${BROWSER_STRING})`}
-                  />
-                )}
-                <SystemCheck
-                  description={LOCALIZE.statusPage.systemStatusTable.screenResolution}
-                  isPassing={screenResolutionStatus}
-                  currentSettingsDetails={`(${SCREEN_WIDTH} X ${SCREEN_HEIGHT})`}
-                />
-              </tbody>
-            </table>
-          </div>
-        </div>
       </ContentContainer>
     );
   }

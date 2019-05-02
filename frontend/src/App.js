@@ -14,9 +14,7 @@ import psc_header from "./images/psc_header.png";
 
 const PATH = {
   home: "/",
-  prototype: "/prototype",
-  status: "/status",
-  emibSampleTest: "/emib-sample"
+  status: "/",
 };
 
 const styles = {
@@ -49,14 +47,6 @@ const isHomeActive = (match, location) => {
   return pathname === PATH.home;
 };
 
-//Check if the Prototype page is selected even when you start the eMIB Sample Test
-const isPrototypeActive = (match, location) => {
-  if (!location) return false;
-  const { pathname } = location;
-  if (pathname === PATH.prototype || pathname === PATH.emibSampleTest) {
-    return pathname === PATH.prototype || pathname === PATH.emibSampleTest;
-  }
-};
 
 //Check if the Status page is selected
 const isStatusActive = (match, location) => {
@@ -97,26 +87,6 @@ class App extends Component {
                     <li className="bg-white" role="menuitem">
                       <NavLink
                         aria-current="page"
-                        isActive={isHomeActive}
-                        className="nav-link"
-                        to={PATH.home}
-                      >
-                        {LOCALIZE.mainTabs.homeTabTitle}
-                      </NavLink>
-                    </li>
-                    <li className="bg-white" role="menuitem">
-                      <NavLink
-                        aria-current="page"
-                        isActive={isPrototypeActive}
-                        className="nav-link"
-                        to={PATH.prototype}
-                      >
-                        {LOCALIZE.mainTabs.prototypeTabTitle}
-                      </NavLink>
-                    </li>
-                    <li className="bg-white" role="menuitem">
-                      <NavLink
-                        aria-current="page"
                         isActive={isStatusActive}
                         className="nav-link"
                         to={PATH.status}
@@ -136,10 +106,7 @@ class App extends Component {
               </div>
             </nav>
           </header>
-          <Route exact path={PATH.home} component={Home} />
-          <Route path={PATH.prototype} component={Prototype} />
           <Route path={PATH.status} component={Status} />
-          <Route path={PATH.emibSampleTest} component={Emib} />
         </div>
       </Router>
     );
